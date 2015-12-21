@@ -1,4 +1,4 @@
-package org.istic.idm.xtext
+package utils
 
 import com.xuggle.xuggler.IContainer
 import java.io.File
@@ -21,10 +21,25 @@ import org.istic.idm.xtext.videoGen.VideoGenFactory
 import org.istic.idm.xtext.videoGen.impl.VideoGenFactoryImpl
 import org.istic.idm.xtext.videoGen.impl.VideoGenImpl
 import org.istic.idm.ecore.PlayList.PlayList
+import java.nio.file.Files
+import java.nio.file.Path
 
 class VideoGenTransform {
   
+  	static Boolean debug = false
+  	static Path tmp = Paths.get(System.getProperty("java.io.tmpdir") + "/VideoGenGenerated");
+  
 	new() { }
+  
+  	def static setDebug(Boolean active) {
+  		debug = active
+  	}
+  	
+  	def private static debug(String message) {
+  		if (debug) {
+  			println(message)
+  		}
+  	}
    
    	def private static transferData(Video p_video, Sequence videoseq) {
 		p_video.duration = videoseq.length
@@ -108,64 +123,29 @@ class VideoGenTransform {
    
     def static createThumbnails(VideoGen videogen){
 
+		val dir = Paths.get(tmp + "/" + "thumbnails/")
+		println("Thumbnails Temporary folder: " + dir)
+		Execute.mkDirs(dir)
         allSequences(videogen).forEach[sequence |
-			
 			val fullPath = Paths.get(sequence.url)
-			val wd = fullPath.parent
 			val extention = getFileExtension(fullPath.fileName.toString)
-			val thumbPathName = fullPath.fileName.toString.replaceAll("." + extention, ".png")
-			val cmd = "avconv -i \"" + fullPath.fileName + "\" -r 1 -t 00:00:01 -ss 00:00:02 -f image2 \"thumbnails/" + thumbPathName + "\""
-			println(cmd)
-			val commandLine = CommandLine.parse(cmd)
-			val mkdir = CommandLine.parse("mkdir thumbnails")
-			try {
-				val executor = new DefaultExecutor()
-				executor.setExitValue(1)
-				executor.workingDirectory = wd.toFile
-				executor.execute(mkdir)
-			} catch (Exception e) {
-				println(e.message)
-			}
-			try {
-				val executor = new DefaultExecutor()
-				executor.setExitValue(1)
-				executor.workingDirectory = wd.toFile
-				executor.execute(commandLine)
-			} catch (Exception e) {
-				println(e.message)
-			}
+			val thumbFileName = Paths.get(dir + "/" + fullPath.fileName.toString.replaceAll("." + extention, ".png"))
+			Execute.createThumbnails(fullPath, thumbFileName)
         ]
     }
     
     def static ConvertTo(VideoCodec type, VideoGen videogen){
 		
+		val dir = Paths.get(tmp + "/" + "converted" + "/" + type.name + "/")
+		println("Convertion Temporary folder: " + dir)
+		Execute.mkDirs(dir)
         allSequences(videogen).forEach[sequence |
 			
 			val fullPath = Paths.get(sequence.url)
-			val wd = fullPath.parent
 			val extention = getFileExtension(fullPath.fileName.toString)
-			val newFullPathName =  "videogen_" + fullPath.fileName.toString.replaceAll("." + extention, "." + type.extention)
-			val cmd = "avconv -i \"" + fullPath.fileName + "\" -strict -2 -f " + type.format + " \"" + type.format + "/" + newFullPathName + "\""
-			println(cmd)
-			try {
-				val mkdir = CommandLine.parse("mkdir " + type.format)
-				val executor = new DefaultExecutor()
-				executor.setExitValue(1)
-				executor.workingDirectory = wd.toFile
-				executor.execute(mkdir)
-			} catch (Exception e) {
-				println(e.message)
-			}
-			try {
-				val commandLine = CommandLine.parse(cmd)
-				val executor = new DefaultExecutor()
-				executor.setExitValue(1)
-				executor.workingDirectory = wd.toFile
-				executor.execute(commandLine)
-			} catch (Exception e) {
-				println(e.message)
-			}
-			sequence.url = wd + "/" + type.format + "/" + newFullPathName
+			val newFullPathName = Paths.get(dir + "/" + fullPath.fileName.toString.replaceAll("." + extention, "." + type.extention))
+			Execute.convert(fullPath, newFullPathName, type.format)
+			sequence.url = newFullPathName.toAbsolutePath.toString
 			sequence.mimetype = Mimetypes_Enum.getByName(type.name)
         ]
     }

@@ -1,0 +1,61 @@
+VideoGen {
+	@Mandatory
+	Sequence MandatorySequence_0 {
+		url="/home/blacknight/tmp/combustion.mp4" 
+		description="Meshuggah Guitar Cover - Combustion"
+		mimetype=MP4
+	length= 170 }
+	@Optional
+	@Probability(25)
+	Sequence OptionalSequence_0 { 
+			url="/home/blacknight/tmp/djragonball.mp4"
+			description="Djragonball original by Sarah"
+			mimetype=MP4
+	length= 174 }
+	Alternatives Alternative_0 {
+		@Probability(25)
+		Sequence Alternative_0_Sequence_0 {
+			url="/home/blacknight/tmp/step_back.flv"
+			description="H-Blockx - Step Back"
+			mimetype=FLV
+		 length= 216 }
+		@Probability(30)
+		Sequence Alternative_0_Sequence_0 {
+			url="/home/blacknight/tmp/fly.flv"
+		 	description="H-Burl=locks - Fly"
+		 length= 218 }
+		@Probability(45)
+		Sequence Alternative_0_Sequence_0 {
+			url="/home/blacknight/tmp/little_girl.flv"
+			description="H-Blocks - Little Girl"
+		length= 271 }
+	}
+	@Optional
+	Sequence OptionalSequence_0 {
+		url="/home/blacknight/tmp/les_claypool.mp4"
+		description="Primus - Live Bass Solo"
+	length= 143 }
+	Alternatives Alternative_0 {
+		@Probability(35)
+		Sequence Alternative_0_Sequence_0 {
+			url="/home/blacknight/tmp/coffee_shop.mp4"
+			description="Red Hot Chili Peppers - Coffee Shop"
+		length= 191 }
+		Sequence Alternative_0_Sequence_0 {
+			url="/home/blacknight/tmp/blind.flv"
+			description="Korn - Blind"
+			mimetype=FLV
+		length= 257 }
+	}
+	@Mandatory
+	Sequence MandatorySequence_0 {
+		url="/home/blacknight/tmp/terror_eyes_the_night.avi"
+		description="Zach Hill & Carson McWhirter - Terror Eyes the Night (studio recording)"
+		mimetype=AVI
+	length= 250 }
+	@Mandatory
+	Sequence MandatorySequence_0 {
+		url="/home/blacknight/tmp/terror_eyes_the_night.avi"
+		description="Zach Hill & Carson McWhirter - Terror Eyes the Night (studio recording)"
+	length= 250 }
+}

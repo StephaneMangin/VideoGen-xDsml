@@ -88,6 +88,25 @@ class VideoGenGenerator implements IGenerator {
 				.filter(typeof(Sequence))
 				.map[url]
 				.join('\n'))
+		// Structure control
+		val content = new StringBuffer
+		resource.allContents
+			.filter(typeof(VideoGen))
+			.forEach[videoGen | 
+				videoGen.statements.forEach[statement | 
+					if (statement instanceof Mandatory) {
+						content.append("Mandatory " + statement.sequence.name + "\n")
+					} else if (statement instanceof  Optional) {
+						content.append("Optional " + statement.sequence.name + "\n")
+					} else if (statement instanceof Alternatives) {
+						content.append("Alternatives " + statement.name + "\n")
+						statement.options.forEach[option |
+							content.append("\t Option " + option.sequence.name + "\n")
+						]	
+					}
+				]
+			]
+		fsa.generateFile('controls/structure.txt', content.toString)
 		//resource.allContents.filter(typeof(VideoGen)).forEach[videoGen | doGenerate(resource.URI)]
     }
 				

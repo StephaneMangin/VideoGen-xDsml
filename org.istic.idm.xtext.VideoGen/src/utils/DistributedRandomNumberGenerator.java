@@ -1,4 +1,4 @@
-package org.istic.idm.xtext;
+package utils;
 
 import java.util.HashMap;
 

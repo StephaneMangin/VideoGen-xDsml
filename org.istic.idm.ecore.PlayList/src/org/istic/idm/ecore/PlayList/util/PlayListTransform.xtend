@@ -61,7 +61,7 @@ class PlayListTransform{
     }
     
     def static toFlowPlayer(PlayList playList) {
-		val indexPath = Paths.get("/home/blacknight/workspace/PlayList/resources/site/index.html").toAbsolutePath
+		val indexPath = Paths.get("/resources/site/index.html").toAbsolutePath
 		val cmd = "firefox " + indexPath;
 		val commandLine = CommandLine.parse(cmd);
 		val executor = new DefaultExecutor();

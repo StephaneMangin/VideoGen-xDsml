@@ -1,37 +1,56 @@
 <?xml version="1.0" encoding="ASCII"?>
 <videoGen:VideoGen xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:videoGen="http://www.istic.org/idm/xtext/VideoGen">
-  <statements xsi:type="videoGen:Mandatory">
-    <sequence name="v1" url="/home/blacknight/tmp/combustion.mp4" description="Meshuggah Guitar Cover - Combustion"/>
-  </statements>
-  <statements xsi:type="videoGen:Optional" probability="25">
-    <sequence name="v2" url="/home/blacknight/tmp/djragonball.mp4" description="Djragonball original by Sarah"/>
-  </statements>
-  <statements xsi:type="videoGen:Alternatives" name="v3">
-    <options probability="25">
-      <sequence name="v31" url="/home/blacknight/tmp/step_back.flv" description="H-Blockx - Step Back" mimetype="FLV"/>
-    </options>
-    <options probability="30">
-      <sequence name="v32" url="/home/blacknight/tmp/fly.flv" description="H-Burl=locks - Fly"/>
-    </options>
-    <options probability="45">
-      <sequence name="v33" url="/home/blacknight/tmp/little_girl.flv" description="H-Blocks - Little Girl"/>
-    </options>
-  </statements>
-  <statements xsi:type="videoGen:Optional">
-    <sequence name="v4" url="/home/blacknight/tmp/les_claypool.mp4" description="Primus - Live Bass Solo"/>
-  </statements>
-  <statements xsi:type="videoGen:Alternatives" name="v5">
-    <options probability="35">
-      <sequence name="v51" url="/home/blacknight/tmp/coffee_shop.mp4" description="Red Hot Chili Peppers - Coffee Shop"/>
+  <statements xsi:type="videoGen:Alternatives" name="intro">
+    <options>
+      <sequence name="intro1" url="/home/blacknight/workspace/org.istic.idm.xtext.example/resources/intro/Mass.mp4"/>
     </options>
     <options>
-      <sequence name="v52" url="/home/blacknight/tmp/blind.flv" description="Korn - Blind" mimetype="FLV"/>
+      <sequence name="intro2" url="/home/blacknight/workspace/org.istic.idm.xtext.example/resources/intro/TimsSuicide.mp4"/>
+    </options>
+  </statements>
+  <statements xsi:type="videoGen:Optional" probability="30">
+    <sequence name="haha1" url="/home/blacknight/workspace/org.istic.idm.xtext.example/resources/haha/Eddy Wally - Wow.mp4"/>
+  </statements>
+  <statements xsi:type="videoGen:Alternatives" name="cats">
+    <options probability="55">
+      <sequence name="cat1" url="/home/blacknight/workspace/org.istic.idm.xtext.example/resources/intro/Acrostatics.mp4"/>
+    </options>
+    <options>
+      <sequence name="cat2" url="/home/blacknight/workspace/org.istic.idm.xtext.example/resources/intro/Cat Jump Fail.mp4"/>
+    </options>
+  </statements>
+  <statements xsi:type="videoGen:Optional" probability="10">
+    <sequence name="haha2" url="/home/blacknight/workspace/org.istic.idm.xtext.example/resources/haha/Eddy Wally - Wow.mp4"/>
+  </statements>
+  <statements xsi:type="videoGen:Mandatory">
+    <sequence name="tv1" url="/home/blacknight/workspace/org.istic.idm.xtext.example/resources/tv/public access TV.mp4"/>
+  </statements>
+  <statements xsi:type="videoGen:Alternatives" name="wtf">
+    <options>
+      <sequence name="wtf1" url="/home/blacknight/workspace/org.istic.idm.xtext.example/resources/wtf/Cereal.mp4"/>
+    </options>
+    <options>
+      <sequence name="wtf2" url="/home/blacknight/workspace/org.istic.idm.xtext.example/resources/wtf/The strongest motherfucker in the world.mp4"/>
+    </options>
+    <options>
+      <sequence name="wtf3" url="/home/blacknight/workspace/org.istic.idm.xtext.example/resources/wtf/Then I don't need a jacket TETRIS VERSION.mp4"/>
+    </options>
+    <options>
+      <sequence name="wtf4" url="/home/blacknight/workspace/org.istic.idm.xtext.example/resources/wtf/warm it up exe That's a 10.mp4"/>
     </options>
   </statements>
   <statements xsi:type="videoGen:Mandatory">
-    <sequence name="v6" url="/home/blacknight/tmp/terror_eyes_the_night.avi" description="Zach Hill &amp; Carson McWhirter - Terror Eyes the Night (studio recording)" mimetype="AVI"/>
+    <sequence name="haha3" url="/home/blacknight/workspace/org.istic.idm.xtext.example/resources/haha/haha.mp4"/>
+  </statements>
+  <statements xsi:type="videoGen:Alternatives" name="outro">
+    <options>
+      <sequence name="outro1" url="/home/blacknight/workspace/org.istic.idm.xtext.example/resources/outro/EVEN NOW...THE EVIL SEED OF WHAT YOU'VE DONE GERMINATES WITH.mp4"/>
+    </options>
+    <options>
+      <sequence name="outro2" url="/home/blacknight/workspace/org.istic.idm.xtext.example/resources/outro/Poltergeist.mp4"/>
+    </options>
   </statements>
   <statements xsi:type="videoGen:Mandatory">
-    <sequence name="v7" url="/home/blacknight/tmp/terror_eyes_the_night.avi" description="Zach Hill &amp; Carson McWhirter - Terror Eyes the Night (studio recording)"/>
+    <sequence name="haha4" url="/home/blacknight/workspace/org.istic.idm.xtext.example/resources/haha/haha.mp4"/>
   </statements>
 </videoGen:VideoGen>

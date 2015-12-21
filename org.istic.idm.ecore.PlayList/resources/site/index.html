@@ -9,25 +9,115 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
    <!-- The "minimalist" skin, "minimalist.css", "functional.css" and "playful.css" are available -->
-   <link rel="stylesheet" href="skin/minimalist.css">
+   <link rel="stylesheet" href="skin/playful.css">
 
    <!-- Minimal styling for this standalone page (can be removed) -->
    <style>
-   body {
-      font-family: "myriad pro", tahoma, verdana, arial, sans-serif;
-      font-size: 14px;
-      margin: 0;
-      padding: 0;
-   }
-   #content {
-      margin: 50px auto;
-      max-width: 982px;
-   }
+	body {
+		font-family: "myriad pro", tahoma, verdana, arial, sans-serif;
+		font-size: 14px;
+		margin: 0;
+		padding: 0;
+	}
+	#content {
+		margin: 50px auto;
+		max-width: 982px;
+	}
+   
+	#basic-playlist {
+		/* player (and playlist) background */
+		background:#333 url("skin/img/railway_station.jpg");
+		-webkit-background-size:cover;
+		-moz-background-size:cover;
+		background-size:cover;
+		margin-bottom:150px;
+	}
+	#basic-playlist.is-splash .fp-prev,#basic-playlist.is-splash .fp-next {
+		display:none
+	}
+	#basic-playlist .fp-playlist {
+		/* the playlist root element */
+		position:absolute;
+		bottom:-135px;
+		left:0;
+		width:100%;
+		text-align:center;
+	}
+	#basic-playlist .fp-playlist a {
+		/* playlist entry */
+		display:inline-block;
+		width:100px;
+		height:100px;
+		margin:0 10px;
+		-webkit-transition:all .3s;
+		-moz-transition:all .3s;
+		transition:all .3s;
+		border:4px solid #fff;
+		background:url("skin/img/thumbs.jpg") -1px -1px no-repeat;
+		-webkit-border-radius:5px;
+		-moz-border-radius:5px;
+		border-radius:5px;
+	}
+	#basic-playlist .fp-playlist a:hover {
+		border-color:#ccc
+	}
+	#basic-playlist .fp-playlist a.is-active {
+		border-color:#52b9e4;
+	}
+	.is-paused#basic-playlist .fp-playlist a.is-active {
+		border-color:#1c87b4
+	}
+	#basic-playlist .fp-playlist .item2 {
+		background-position:-197px -1px
+	}
+	#basic-playlist .fp-playlist .item3 {
+		background-position:-393px -1px
+	}
+	#basic-playlist .fp-playlist .item4 {
+		background-position:-589px -1px
+	}
+	#basic-playlist .fp-prev,#basic-playlist .fp-next {
+		/* next and prev buttons */
+		position:absolute;
+		top:44%;
+		cursor:pointer;
+		-webkit-transition:opacity .5s;
+		-moz-transition:opacity .5s;
+		transition:opacity .5s;
+		background:url("skin/img/buttons.png");
+		opacity:0;
+		filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+		height:20px;
+		width:12px;
+	}
+	.is-mouseover#basic-playlist .fp-prev,.is-mouseover#basic-playlist .fp-next {
+		opacity:1;
+		filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=100)
+	}
+	#basic-playlist .fp-prev {
+		left:-20px;
+		background-position:0 -200px;
+	}
+	#basic-playlist .fp-prev:hover {
+		background-position:0 -300px
+	}
+	#basic-playlist .fp-next {
+		right:-20px;
+		background-position:0 -400px;
+	}
+	#basic-playlist .fp-next:hover {
+		background-position:0 -500px
+	}
+	@media (max-width: 570px) {
+		#basic-playlist .fp-playlist {
+			bottom:-90px;}
+		#basic-playlist .fp-playlist a {
+			width:55px;
+			height:55px
+		}
+	} 
       </style>
 
-   <!-- CSS for this demo -->
-   <link rel="stylesheet" href="http://flowplayer.org/media/css/demos/playlist/basic.css">
-   
    <!-- Flowplayer depends on jquery -->
    <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
 
@@ -49,11 +139,12 @@ function log() {
       .append("<p>" + [].slice.call(arguments).join(", ") + "</p>");
 }
 flowplayer(function(api, root) {
-   api.bind("load", function(e, api, video) {
-      log("clip " + video.index, "is_last: " + video.is_last);
-   }).bind("cuepoint", function(e, api, cuepoint) {
-      log("clip " + api.video.index, "cuepoint " + cuepoint.time);
-   });
+	api.bind("load", function(e, api, video) {
+		$("#vinfo").text(api.engine.engineName + " engine playing " + video.type);
+		log("clip " + video.index, "is_last: " + video.is_last);
+	}).bind("cuepoint", function(e, api, cuepoint) {
+		log("clip " + api.video.index, "cuepoint " + cuepoint.time);
+	});
 });
 </script>
 
@@ -62,9 +153,10 @@ flowplayer(function(api, root) {
 <body>
 <div id="content">
 
-<div id="basic-playlist" class="flowplayer">
+<div id="basic-playlist" class="flowplayer" data-ratio="0.5625">
 	<video autoplay>
-		<source type="application/x-mpegurl" src="/home/blacknight/workspace/org.istic.idm.xtext.example/flowplayer.m3u8">
+		<!--source type="application/x-mpegurl" src="/home/blacknight/workspace/org.istic.idm.xtext.example/flowplayer.m3u8"-->
+		<source type="video/mp4" src="/home/blacknight/workspace/org.istic.idm.xtext.example/resources/playlists/flowplayer.m3u8">
 	</video>
 
 	<a class="fp-prev"></a>
@@ -72,6 +164,7 @@ flowplayer(function(api, root) {
 </div>
 
 <div id="event-info"></div>
+<p id="vinfo" class="info">&nbsp;</p>
 
 
 </div><!--/end content -->

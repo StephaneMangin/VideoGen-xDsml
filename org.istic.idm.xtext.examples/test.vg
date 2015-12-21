@@ -1,61 +1,60 @@
 VideoGen {
-	@Mandatory
-	Sequence v1 {
-		url="/home/blacknight/tmp/combustion.mp4" 
-		description="Meshuggah Guitar Cover - Combustion"
-		mimetype=MP4
-	}
-	@Optional
-	@Probability(25)
-	Sequence v2 { 
-			url="/home/blacknight/tmp/djragonball.mp4"
-			description="Djragonball original by Sarah"
-			mimetype=MP4
-	}
-	Alternatives v3 {
-		@Probability(25)
-		Sequence v31 {
-			url="/home/blacknight/tmp/step_back.flv"
-			description="H-Blockx - Step Back"
-			mimetype=FLV
-		 }
-		@Probability(30)
-		Sequence v32 {
-			url="/home/blacknight/tmp/fly.flv"
-		 	description="H-Burl=locks - Fly"
-		 }
-		@Probability(45)
-		Sequence v33 {
-			url="/home/blacknight/tmp/little_girl.flv"
-			description="H-Blocks - Little Girl"
+	Alternatives intro {
+		Sequence intro1 {
+			url="/tmp/VideoGen/intro/Mass.mp4"
+		}
+		Sequence intro2 {
+			url="/tmp/VideoGen/intro/TimsSuicide.mp4"
 		}
 	}
 	@Optional
-	Sequence v4 {
-		url="/home/blacknight/tmp/les_claypool.mp4"
-		description="Primus - Live Bass Solo"
+	@Probability(30)
+	Sequence haha1 { 
+			url="/tmp/VideoGen/haha/EddyWally-Wow.mp4"
 	}
-	Alternatives v5 {
-		@Probability(35)
-		Sequence v51 {
-			url="/home/blacknight/tmp/coffee_shop.mp4"
-			description="Red Hot Chili Peppers - Coffee Shop"
+	Alternatives cats {
+		@Probability(55)
+		Sequence cat1 {
+			url="/tmp/VideoGen/intro/Acrostatics.mp4"
 		}
-		Sequence v52 {
-			url="/home/blacknight/tmp/blind.flv"
-			description="Korn - Blind"
-			mimetype=FLV
+		Sequence cat2 {
+			url="/tmp/VideoGen/intro/CatJumpFail.mp4"
 		}
 	}
-	@Mandatory
-	Sequence v6 {
-		url="/home/blacknight/tmp/terror_eyes_the_night.avi"
-		description="Zach Hill & Carson McWhirter - Terror Eyes the Night (studio recording)"
-		mimetype=AVI
+	@Optional
+	@Probability(10)
+	Sequence haha2 { 
+			url="/tmp/VideoGen/haha/EddyWally-Wow.mp4"
 	}
-	@Mandatory
-	Sequence v7 {
-		url="/home/blacknight/tmp/terror_eyes_the_night.avi"
-		description="Zach Hill & Carson McWhirter - Terror Eyes the Night (studio recording)"
+	Sequence tv1 {
+		url="/tmp/VideoGen/tv/PublicAccessTV.mp4"
+	}
+	Alternatives wtf {
+		Sequence wtf1 {
+			url="/tmp/VideoGen/wtf/Cereal.mp4"
+		}
+		Sequence wtf2 {
+			url="/tmp/VideoGen/wtf/TheStrongestMotherfuckerInTheWorld.mp4"
+		}
+		Sequence wtf3 {
+			url="/tmp/VideoGen/wtf/ThenIDontNeedAJacket.mp4"
+		}
+		Sequence wtf4 {
+			url="/tmp/VideoGen/wtf/WarmItUp.mp4"
+		}
+	}
+	Sequence haha3 {
+		url="/tmp/VideoGen/haha/haha.mp4"
+	}
+	Alternatives outro {
+		Sequence outro1 {
+			url="/tmp/VideoGen/outro/THEEVILSEEDOFWHATYOUVEDONEGERMINATESWITH.mp4"
+		}
+		Sequence outro2 {
+			url="/tmp/VideoGen/outro/Poltergeist.mp4"
+		}
+	}
+	Sequence haha4 {
+		url="/tmp/VideoGen/haha/haha.mp4"
 	}
 }

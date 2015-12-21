@@ -3,13 +3,17 @@ package org.istic.idm.xtext.examples;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 import org.istic.idm.ecore.PlayList.impl.PlayListImpl;
 import org.istic.idm.ecore.PlayList.util.PlayListTransform;
-import org.istic.idm.xtext.VideoCodec;
 import org.istic.idm.xtext.VideoGenStandaloneSetup;
-import org.istic.idm.xtext.VideoGenTransform;
 import org.istic.idm.xtext.videoGen.VideoGen;
+
+import utils.Execute;
+import utils.VideoCodec;
+import utils.VideoGenTransform;
 
 
 public class VideoGenToPlayList {
@@ -17,11 +21,13 @@ public class VideoGenToPlayList {
 	static VideoGen videoGen;
 	static PlayListImpl playlist;
 	static String filename = "test.vg";
+	static Path path = Paths.get("bin/playlists/").toAbsolutePath();
 	
 	private static void writeToFile(String filename, String content) {
+		Execute.mkDirs(path);
 		FileWriter writer;
 		try {
-			writer = new FileWriter(new File(filename));
+			writer = new FileWriter(new File(path  + "/" + filename));
 			writer.write(content);
 			writer.flush();
 			writer.close();
@@ -73,7 +79,7 @@ public class VideoGenToPlayList {
 		// Only transformation
 		videoGen = VideoGenStandaloneSetup.loadVideoGen(filename);
 		VideoGenTransform.createThumbnails(videoGen);
-		VideoGenTransform.addMetadata(videoGen);
+		//VideoGenTransform.addMetadata(videoGen);
 		playlist = VideoGenTransform.toPlayList(videoGen);
 		saveM3U();
 		saveM3UEXT();
@@ -81,10 +87,10 @@ public class VideoGenToPlayList {
 		savePLS();
 		
 		// Convertion then transformation
-		VideoGenTransform.ConvertTo(VideoCodec.MPEGTS, videoGen);
+		VideoGenTransform.ConvertTo(VideoCodec.AVI, videoGen);
 		playlist = VideoGenTransform.toPlayList(videoGen);
 		launchFlowPlayer();
-		launchConfigurator();
+		//launchConfigurator();
 	}
 
 }

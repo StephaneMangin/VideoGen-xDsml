@@ -1,4 +1,4 @@
-package org.istic.idm.xtext;
+package utils;
 
 public enum VideoCodec {
 	MP4("mp4", "mp4", "video/mp4"),
