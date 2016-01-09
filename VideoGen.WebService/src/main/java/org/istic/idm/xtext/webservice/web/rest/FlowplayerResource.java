@@ -36,6 +36,20 @@ import org.springframework.web.bind.annotation.*;
 public class FlowplayerResource {
 
     @RequestMapping(
+    		value = "/videogen",
+    		method = RequestMethod.GET,
+    		produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    public @ResponseBody ResponseEntity getVideoGen() {
+    	VideoGenStandaloneSetup.doSetup();
+		VideoGen videogen = (VideoGen) new ResourceSetImpl().getResource(
+			URI.createURI(this.getClass().getResource("/test.vg").toString()), true).getContents().get(0);
+		VideoGenTransform.addMetadata(videogen);
+		VideoGenTransform.ConvertTo(Mimetypes_Enum.MPEGTS, videogen);
+		return new ResponseEntity(VideoGenTransform.toJson(videogen), HttpStatus.OK);
+    }
+    
+    @RequestMapping(
     		value = "/custom_playlist.m3u8",
     		method = RequestMethod.POST,
     		produces = MediaType.TEXT_PLAIN_VALUE
