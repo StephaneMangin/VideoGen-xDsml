@@ -7,6 +7,8 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<xtext-version>2.9.0</xtext-version>
+		<tycho-version>0.24.0</tycho-version>
+		<mapasuta-version>1.1</mapasuta-version>
 	</properties>
 
 	<parent>
@@ -45,7 +47,8 @@
 						</execution>
 					</executions>
 					<configuration>
-						<outputDirectory>xtend-gen</outputDirectory>
+						<outputDirectory>src/main/java</outputDirectory>
+						<outputDirectory>src/test/java</outputDirectory>
 					</configuration>
 				</plugin>
 			</plugins>
@@ -95,37 +98,6 @@
 				</executions>
 			</plugin>
 			<plugin>
-				<groupId>org.eclipse.xtext</groupId>
-				<artifactId>xtext-maven-plugin</artifactId>
-				<version>${xtext-version}</version>
-				<executions>
-					<execution>
-						<goals>
-							<goal>generate</goal>
-						</goals>
-					</execution>
-				</executions>
-				<configuration>
-					<languages>
-						<language>
-							<setup>my.mavenized.HeroLanguageStandaloneSetup</setup>
-							<outputConfigurations>
-								<outputConfiguration>
-									<outputDirectory>src/main/java/</outputDirectory>
-								</outputConfiguration>
-							</outputConfigurations>
-						</language>
-					</languages>
-				</configuration>
-				<dependencies>
-					<dependency>
-						<groupId>my.mavenized.herolanguage</groupId>
-						<artifactId>my.mavenized.herolanguage</artifactId>
-						<version>1.0.0-SNAPSHOT</version>
-					</dependency>
-				</dependencies>
-			</plugin>
-			<plugin>
 				<groupId>org.eclipse.xtend</groupId>
 				<artifactId>xtend-maven-plugin</artifactId>
 				<version>${xtext-version}</version>
@@ -146,10 +118,6 @@
 				<configuration>
 					<source>1.8</source>
 					<target>1.8</target>
-					<includes>
-						<include>src/**/*.java</include>
-						<include>xtend-gen/**/*.java</include>
-					</includes>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -181,6 +149,28 @@
 				<artifactId>tycho-maven-plugin</artifactId>
 				<version>${tycho-version}</version>
 				<extensions>true</extensions>
+			</plugin>
+			<plugin>
+				<groupId>net.sf.mapasuta.build.maven.plugins</groupId>
+				<artifactId>maven-emfgen-plugin</artifactId>
+				<configuration>
+					<eclipseDir>${basedir}/src/main/resources/eclipse</eclipseDir>
+        			<baseName>PlayList Maven Plugin</baseName>
+        			<genSrc>src/main/java</genSrc>
+					<genModel>PlayList.genmodel</genModel>
+					<metaModels>
+						<metaModel>${basedir}/model/PlayList.ecore</metaModel>
+					</metaModels>
+					<outputDirectory>${basedir}/target/PlayListmodel</outputDirectory>
+					<workspace>${basedir}/target/workspace</workspace>
+					<packageUris>
+						<packageUri>http://mapasuta.net.sf/ns/test/0.1</packageUri>
+					</packageUris>
+					<modelProject>playlist-model-plugin</modelProject>
+				</configuration>
+				<goals>
+					<goal>generate</goal>
+				</goals>
 			</plugin>
 		</plugins>
 	</build>
