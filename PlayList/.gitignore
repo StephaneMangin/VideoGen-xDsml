@@ -183,6 +183,7 @@ buildNumber.properties
 
 ### Specific project files
 xtend-gen/
+src-gen/
 *.ts
 *.ffmpeg
 *.pls

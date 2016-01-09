@@ -10,6 +10,8 @@ import org.istic.idm.xtext.videoGen.VideoGen
 /**
  * Add missing arguments to a VIdeoGen instance
  * 
+ * TODO: should be renamed ?
+ * 
  */
 class VideoGenChecker {
 		
