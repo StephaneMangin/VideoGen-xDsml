@@ -1,8 +1,8 @@
-package org.istic.idm.ecore.PlayList.util
+package PlayList.util
 
 import java.io.FileWriter
 import java.nio.file.Path
-import org.istic.idm.ecore.PlayList.PlayList
+import PlayList.PlayList
 import java.util.Map
 import java.util.HashMap
 import com.google.common.collect.Lists

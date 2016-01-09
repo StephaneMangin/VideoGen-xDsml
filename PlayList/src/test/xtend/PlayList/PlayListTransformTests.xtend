@@ -1,4 +1,4 @@
-package org.istic.idm.ecore.PlayList.tests.util
+package PlayList
 
 import org.junit.Test
 

@@ -10,7 +10,7 @@
       <!-- @generated PlayList -->
       <package
             uri="http://www.istic.org/idm/ecore/PlayList"
-            class="org.istic.idm.ecore.PlayList.PlayListPackage"
+            class="PlayList.PlayListPackage"
             genModel="model/PlayList.genmodel"/>
    </extension>
 

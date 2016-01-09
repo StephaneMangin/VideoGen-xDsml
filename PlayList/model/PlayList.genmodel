@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
-    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/PlayList/src" modelPluginID="PlayList" modelName="PlayList"
-    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore"
-    complianceLevel="8.0" copyrightFields="false" operationReflection="true" importOrganizing="true">
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/PlayList/src/main/java" modelPluginID="PlayList"
+    modelName="PlayList" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    testsDirectory="/PlayList/src/test/java" testSuiteClass="PlayList.PlayListAllTests"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
   <foreignModel>PlayList.ecore</foreignModel>
   <genPackages prefix="PlayList" disposableProviderFactory="true" ecorePackage="PlayList.ecore#/">
     <genClasses ecoreClass="PlayList.ecore#//PlayList">
