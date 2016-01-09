@@ -16,7 +16,7 @@ import org.eclipse.xtext.xbase.lib.ListExtensions;
  * @author Stéphane Mangin <stephane.mangin@freesbee.fr>
  */
 @SuppressWarnings("all")
-@Generated(value = "org.eclipse.xtend.core.compiler.XtendGenerator", date = "2016-01-07T16:58+0100")
+@Generated(value = "org.eclipse.xtend.core.compiler.XtendGenerator", date = "2016-01-09T14:34+0100")
 public class Videos extends Executor {
   /**
    * Create a thumbnail from the given video to the given path
@@ -77,7 +77,6 @@ public class Videos extends Executor {
         return Boolean.valueOf(it.contains((("\'" + fullPath) + "\'")));
       };
       final Iterable<String> durationPattern = IterableExtensions.<String>filter(_lines, _function);
-      VideoCodec mimeType = VideoCodec.NONE;
       int _size = IterableExtensions.size(durationPattern);
       boolean _greaterThan = (_size > 0);
       if (_greaterThan) {
@@ -88,17 +87,16 @@ public class Videos extends Executor {
         for (final String mt : tmpResult) {
           VideoCodec[] _values = VideoCodec.values();
           final Function1<VideoCodec, String> _function_1 = (VideoCodec mte) -> {
-            return mte.name();
+            return mte.format();
           };
           List<String> _map = ListExtensions.<VideoCodec, String>map(((List<VideoCodec>)Conversions.doWrapArray(_values)), _function_1);
           boolean _contains = _map.contains(mt);
           if (_contains) {
-            VideoCodec _byFormat = VideoCodec.getByFormat(mt);
-            mimeType = _byFormat;
+            return VideoCodec.getByFormat(mt);
           }
         }
       }
-      _xblockexpression = mimeType;
+      _xblockexpression = VideoCodec.NONE;
     }
     return _xblockexpression;
   }
@@ -114,7 +112,7 @@ public class Videos extends Executor {
       StringConcatenation _builder = new StringConcatenation();
       _builder.append("avconv -i \"");
       _builder.append(fullPath, "");
-      _builder.append("\"");
+      _builder.append("\" 2>&1");
       String cmd = _builder.toString();
       Executor.ExecResult result = Executor.execCmd(cmd, 1);
       Executor.processResult(result);
