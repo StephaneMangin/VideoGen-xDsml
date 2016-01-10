@@ -17,7 +17,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 @SuppressWarnings("all")
-@Generated(value = "org.eclipse.xtend.core.compiler.XtendGenerator", date = "2016-01-09T14:34+0100")
+@Generated(value = "org.eclipse.xtend.core.compiler.XtendGenerator", date = "2016-01-10T16:33+0100")
 public class VideosTest {
   private final String root = new Function0<String>() {
     public String apply() {

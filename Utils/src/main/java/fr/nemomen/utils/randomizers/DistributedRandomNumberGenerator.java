@@ -11,7 +11,7 @@ import javax.annotation.Generated;
  * @Author http://stackoverflow.com/users/2128755/trylimits
  */
 @SuppressWarnings("all")
-@Generated(value = "org.eclipse.xtend.core.compiler.XtendGenerator", date = "2016-01-09T14:34+0100")
+@Generated(value = "org.eclipse.xtend.core.compiler.XtendGenerator", date = "2016-01-10T12:02+0100")
 public class DistributedRandomNumberGenerator {
   private HashMap<Integer, Double> distribution;
   

@@ -1,6 +1,7 @@
 //outlet.DEFAULT_OUTPUT.sourceFolder.home/blacknight/workspace/IDM-Project/PlayList.directory=
 //outlet.DEFAULT_OUTPUT.sourceFolder.home/blacknight/workspace/IDM-Project/PlayList.ignore=
-//outlet.DEFAULT_OUTPUT.sourceFolder.src/test/java.directory=src/test/generated-sources/xtend
+//outlet.DEFAULT_OUTPUT.sourceFolder.src/main/java.directory=src/test/java
+//outlet.DEFAULT_OUTPUT.sourceFolder.src/test/java.directory=src/test/java
 BuilderConfiguration.is_project_specific=true
 autobuilding=true
 eclipse.preferences.version=1
@@ -24,6 +25,6 @@ outlet.DEFAULT_OUTPUT.sourceFolder.src.directory=
 outlet.DEFAULT_OUTPUT.sourceFolder.src.ignore=
 outlet.DEFAULT_OUTPUT.sourceFolder.xtend-gen.directory=
 outlet.DEFAULT_OUTPUT.sourceFolder.xtend-gen.ignore=
-outlet.DEFAULT_OUTPUT.userOutputPerSourceFolder=false
+outlet.DEFAULT_OUTPUT.userOutputPerSourceFolder=true
 targetJavaVersion=JAVA5
 useJavaCompilerCompliance=true
