@@ -12,8 +12,8 @@ import javax.imageio.ImageIO;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-import org.istic.idm.ecore.PlayList.PlayList;
-import org.istic.idm.ecore.PlayList.util.PlayListTransform;
+import PlayList.PlayList;
+import PlayList.util.PlayListTransform;
 import org.istic.idm.xtext.VideoGenStandaloneSetup;
 import org.istic.idm.xtext.utils.VideoGenHelper;
 import org.istic.idm.xtext.utils.VideoGenTransform;

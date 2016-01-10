@@ -25,6 +25,6 @@ outlet.DEFAULT_OUTPUT.sourceFolder.src.directory=
 outlet.DEFAULT_OUTPUT.sourceFolder.src.ignore=
 outlet.DEFAULT_OUTPUT.sourceFolder.xtend-gen.directory=
 outlet.DEFAULT_OUTPUT.sourceFolder.xtend-gen.ignore=
-outlet.DEFAULT_OUTPUT.userOutputPerSourceFolder=true
+outlet.DEFAULT_OUTPUT.userOutputPerSourceFolder=false
 targetJavaVersion=JAVA5
 useJavaCompilerCompliance=true

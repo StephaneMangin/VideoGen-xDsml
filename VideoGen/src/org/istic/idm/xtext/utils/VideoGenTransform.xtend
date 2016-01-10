@@ -10,9 +10,9 @@ import java.nio.file.Paths
 import java.util.HashMap
 import java.util.Map
 import java.util.logging.Logger
-import org.istic.idm.ecore.PlayList.PlayList
-import org.istic.idm.ecore.PlayList.Video
-import org.istic.idm.ecore.PlayList.impl.PlayListFactoryImpl
+import PlayList.PlayList
+import PlayList.Video
+import PlayList.impl.PlayListFactoryImpl
 import org.istic.idm.xtext.videoGen.Alternatives
 import org.istic.idm.xtext.videoGen.Mandatory
 import org.istic.idm.xtext.videoGen.Mimetypes_Enum
