@@ -31,5 +31,8 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="src" path="src/main/resources"/>
+	<classpathentry kind="src" path="xtend-gen"/>
+	<classpathentry excluding="main/java/|main/xtend/|test/java/|test/xtend/|test/resources/|main/resources/" kind="src" path="src"/>
+	<classpathentry kind="src" path="src-gen"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
