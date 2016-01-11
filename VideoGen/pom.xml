@@ -1,18 +1,54 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
 	<name>org.istic.idm.xtext.VideoGen</name>
-  <groupId>org.istic.idm.xtext</groupId>
-  <artifactId>VideoGen</artifactId>
-  <parent>
-  	<groupId>IDM-Project</groupId>
-  	<artifactId>IDM-Project</artifactId>
-  	<relativePath>../</relativePath>
-  	<version>0.0.1-SNAPSHOT</version>
-  </parent>
-  <build>
+	<groupId>org.istic.idm.xtext</groupId>
+	<artifactId>VideoGen</artifactId>
+	<parent>
+		<groupId>IDM-Project</groupId>
+		<artifactId>IDM-Project</artifactId>
+		<relativePath>../</relativePath>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<dependencies>
+		<dependency>
+			<groupId>org.istic.idm.ecore</groupId>
+			<artifactId>PlayList</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>fr.nemomen</groupId>
+			<artifactId>Utils</artifactId>
+			<version>0.1</version>
+		</dependency>
+	</dependencies>
+	<build>
 		<finalName>${project.name}</finalName>
 		<sourceDirectory>.</sourceDirectory>
 		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-clean-plugin</artifactId>
+				<version>2.5</version>
+				<executions>
+					<execution>
+						<phase>clean</phase>
+						<goals>
+							<goal>clean</goal>
+						</goals>
+						<configuration>
+							<filesets>
+								<fileset>
+									<directory>src-gen</directory>
+								</fileset>
+								<fileset>
+									<directory>xtend-gen</directory>
+								</fileset>
+							</filesets>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -33,7 +69,8 @@
 				<configuration>
 					<!-- Name of assembled jar with all dependencies -->
 					<finalName>${project.name}-${project.version}</finalName>
-					<!-- Set to false to prevent '-jar-with-dependencies' to be appended to the file name -->
+					<!-- Set to false to prevent '-jar-with-dependencies' to be appended 
+						to the file name -->
 					<appendAssemblyId>false</appendAssemblyId>
 					<descriptorRefs>
 						<descriptorRef>jar-with-dependencies</descriptorRef>
@@ -49,18 +86,36 @@
 					</execution>
 				</executions>
 			</plugin>
+			<!-- From http://mapasuta.sourceforge.net/maven/site/maven-emfgen-plugin -->
+			<plugin>
+				<groupId>net.sf.mapasuta.build.maven.plugins</groupId>
+				<artifactId>maven-emfgen-plugin</artifactId>
+				<configuration>
+					<eclipseDir>${basedir}/../Application/Eclipse</eclipseDir>
+					<baseName>PlayList Maven Plugin</baseName>
+					<genSrc>${basedir}/src/main/java</genSrc>
+					<genModel>VideoGen-auto.genmodel</genModel>
+					<metaModels>
+						<metaModel>${basedir}/model/VideoGen.ecore</metaModel>
+					</metaModels>
+					<outputDirectory>${basedir}/target/genmodel</outputDirectory>
+					<workspace>${basedir}/target/workspace</workspace>
+					<packageUris>
+						<packageUri>org.istic.idm.xtext.VideoGen</packageUri>
+					</packageUris>
+					<modelProject>videogen-model-plugin</modelProject>
+					<prefixName>VideoGen</prefixName>
+					<namespaceUri>org.istic.idm.xtext.VideoGen</namespaceUri>
+				</configuration>
+
+				<executions>
+					<execution>
+						<goals>
+							<goal>genmodel</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
-  </build>
-  <dependencies>
-	<dependency>
-		<groupId>org.istic.idm.ecore</groupId>
-		<artifactId>PlayList</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
-	</dependency>
-	<dependency>
-		<groupId>fr.nemomen</groupId>
-		<artifactId>Utils</artifactId>
-		<version>0.1</version>
-	</dependency>
-  </dependencies>
+	</build>
 </project>
