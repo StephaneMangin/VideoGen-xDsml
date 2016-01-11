@@ -4,13 +4,6 @@
 	<name>org.istic.idm.ecore.PlayList</name>
 	<groupId>org.istic.idm.ecore</groupId>
 	<artifactId>PlayList</artifactId>
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<xtext-version>2.9.1</xtext-version>
-		<tycho-version>0.24.0</tycho-version>
-		<mapasuta-version>1.1</mapasuta-version>
-		<junit-version>4.12</junit-version>
-	</properties>
 
 	<parent>
 		<groupId>IDM-Project</groupId>
@@ -27,25 +20,8 @@
 	</dependencies>
 	<build>
 		<finalName>${project.name}</finalName>
+		<sourceDirectory>.</sourceDirectory>
 		<plugins>
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>build-helper-maven-plugin</artifactId>
-				<version>1.8</version>
-				<executions>
-					<execution>
-						<goals>
-							<goal>add-source</goal>
-						</goals>
-						<configuration>
-							<sources>
-								<source>src/main/java</source>
-								<source>src/test/java/</source>
-							</sources>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-clean-plugin</artifactId>
@@ -59,40 +35,15 @@
 						<configuration>
 							<filesets>
 								<fileset>
-									<directory>src/main/java/</directory>
+									<directory>src-gen</directory>
 								</fileset>
 								<fileset>
-									<directory>src/test/java/</directory>
+									<directory>xtend-gen</directory>
 								</fileset>
 							</filesets>
 						</configuration>
 					</execution>
 				</executions>
-			</plugin>
-			<!-- xtend-maven-plugin is in pluginManagement instead of in plugins so 
-				that it doesn't run before the exec-maven-plugin's *.mwe2 gen; this way we 
-				can list it after. 
-			From https://www.eclipse.org/Xtext/documentation/350_continuous_integration.html
-			-->
-
-			<plugin>
-				<groupId>org.eclipse.xtend</groupId>
-				<artifactId>xtend-maven-plugin</artifactId>
-				<version>${xtext-version}</version>
-				<executions>
-					<execution>
-						<goals>
-							<goal>compile</goal>
-							<goal>xtend-install-debug-info</goal>
-							<goal>testCompile</goal>
-							<goal>xtend-test-install-debug-info</goal>
-						</goals>
-					</execution>
-				</executions>
-				<configuration>
-					<outputDirectory>src/main/java</outputDirectory>
-					<outputDirectory>src/test/java</outputDirectory>
-				</configuration>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -100,6 +51,11 @@
 				<configuration>
 					<source>1.8</source>
 					<target>1.8</target>
+					<includes>
+						<include>src/**/*.java</include>
+						<include>src-gen/**/*.java</include>
+						<include>xtend-gen/**/*.java</include>
+					</includes>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -137,24 +93,59 @@
 				<groupId>net.sf.mapasuta.build.maven.plugins</groupId>
 				<artifactId>maven-emfgen-plugin</artifactId>
 				<configuration>
-					<eclipseDir>${basedir}/Application/Eclipse</eclipseDir>
+					<eclipseDir>${basedir}/../Application/Eclipse</eclipseDir>
 					<baseName>PlayList Maven Plugin</baseName>
-					<genSrc>src/main/java</genSrc>
-					<genModel>PlayList.genmodel</genModel>
+					<genSrc>${basedir}/src-gen</genSrc>
+					<genModel>PlayList-auto.genmodel</genModel>
 					<metaModels>
 						<metaModel>${basedir}/model/PlayList.ecore</metaModel>
 					</metaModels>
-					<outputDirectory>${basedir}/target/PlayListmodel</outputDirectory>
+					<outputDirectory>${basedir}/target/genmodel</outputDirectory>
 					<workspace>${basedir}/target/workspace</workspace>
 					<packageUris>
-						<packageUri>http://mapasuta.net.sf/ns/test/0.1</packageUri>
+						<packageUri>PlayList</packageUri>
 					</packageUris>
 					<modelProject>playlist-model-plugin</modelProject>
+					<prefixName>playlist</prefixName>
+					<namespaceUri>PlayList</namespaceUri>
 				</configuration>
-				<goals>
-					<goal>generate</goal>
-				</goals>
+
+				<executions>
+					<execution>
+						<goals>
+							<goal>genmodel</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
+		<pluginManagement>
+			<plugins>
+				<!-- xtend-maven-plugin is in pluginManagement instead of in plugins 
+					so that it doesn't run before the exec-maven-plugin's *.mwe2 gen; this way 
+					we can list it after. From https://www.eclipse.org/Xtext/documentation/350_continuous_integration.html -->
+
+				<plugin>
+					<groupId>org.eclipse.xtend</groupId>
+					<artifactId>xtend-maven-plugin</artifactId>
+					<version>${xtext-version}</version>
+					<executions>
+						<execution>
+							<goals>
+								<goal>compile</goal>
+								<goal>xtend-install-debug-info</goal>
+								<goal>testCompile</goal>
+								<goal>xtend-test-install-debug-info</goal>
+							</goals>
+						</execution>
+					</executions>
+					<configuration>
+						<outputDirectory>src/main/java</outputDirectory>
+						<outputDirectory>src/test/java</outputDirectory>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
 	</build>
+
 </project>
