@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.eclipse.jet"
+      label="%featureName"
+      version="0.9.2.v200809290937-27I39oB55V5CBO5H37"
+      provider-name="%providerName">
+
+   <description url="http://www.eclipse.org/modeling/m2t">
+      %description
+   </description>
+
+   <copyright url="http://www.eclipse.org/legal/epl-v10.html">
+      %copyright
+   </copyright>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <url>
+      <update label="%updateSiteName" url="http://download.eclipse.org/modeling/m2t/updates/"/>
+   </url>
+
+   <requires>
+      <import plugin="org.eclipse.ant.core" version="3.1.100" match="compatible"/>
+      <import plugin="org.eclipse.core.resources" version="3.2.0" match="compatible"/>
+      <import plugin="org.eclipse.core.runtime" version="3.2.0" match="compatible"/>
+      <import plugin="org.eclipse.debug.core" version="3.2.0" match="compatible"/>
+      <import plugin="org.eclipse.emf.codegen" version="2.2.0" match="compatible"/>
+      <import plugin="org.eclipse.emf.common" version="2.2.0" match="compatible"/>
+      <import plugin="org.eclipse.emf.ecore" version="2.2.0" match="compatible"/>
+      <import plugin="org.eclipse.emf.ecore.xmi" version="2.2.0" match="compatible"/>
+      <import plugin="org.eclipse.text" version="3.2.0" match="compatible"/>
+      <import plugin="org.eclipse.core.expressions" version="3.2.0" match="compatible"/>
+      <import plugin="org.eclipse.core.filebuffers" version="3.2.0" match="compatible"/>
+      <import plugin="org.eclipse.jdt.core" version="3.2.0" match="compatible"/>
+      <import plugin="org.apache.ant" version="1.6.5" match="compatible"/>
+      <import plugin="org.eclipse.debug.ui" version="3.2.0" match="compatible"/>
+      <import plugin="org.eclipse.ui" version="3.2.0" match="compatible"/>
+      <import plugin="org.eclipse.ui.ide" version="3.2.0" match="compatible"/>
+   </requires>
+
+   <plugin
+         id="org.eclipse.jet"
+         download-size="0"
+         install-size="0"
+         version="0.9.3.v200901261702"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.jet.ui"
+         download-size="0"
+         install-size="0"
+         version="0.9.0.v20080527"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.jet.core"
+         download-size="0"
+         install-size="0"
+         version="1.1.1.v200901261702"
+         unpack="false"/>
+
+</feature>

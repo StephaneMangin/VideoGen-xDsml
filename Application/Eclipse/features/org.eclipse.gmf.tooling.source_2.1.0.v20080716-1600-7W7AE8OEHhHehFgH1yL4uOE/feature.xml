@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature id="org.eclipse.gmf.tooling.source" version="2.1.0.v20080716-1600-7W7AE8OEHhHehFgH1yL4uOE" label="%featureName" provider-name="%providerName" image="eclipse_update_120.jpg"    >
+	<description url="http://www.eclipse.org/gmf">
+		%description
+	</description>
+	<copyright url="http://www.eclipse.org/legal/epl-v10.html">
+		Copyright (c) 2008 Borland Software Corporation and others.
+All rights reserved.   This program and the accompanying materials
+are made available under the terms of the Eclipse Public License v1.0
+which accompanies this distribution, and is available at
+http://www.eclipse.org/legal/epl-v10.html
+	</copyright>
+	<license url="%licenseURL">
+		%license
+	</license>
+	<url>
+		<update url="http://download.eclipse.org/modeling/gmf/updates/releases/" label="%updateSiteName"/>
+	</url>
+	<plugin id="org.eclipse.gmf.common.source" version="1.1.1.v20080610-1132"     unpack="false"/>
+	<plugin id="org.eclipse.gmf.codegen.source" version="2.1.1.v20090212-1755"     unpack="false"/>
+	<plugin id="org.eclipse.gmf.codegen.edit.source" version="2.1.0.v20080718-1700"     unpack="false"/>
+	<plugin id="org.eclipse.gmf.codegen.ui.source" version="1.1.0.v20080512-1200"     unpack="false"/>
+	<plugin id="org.eclipse.gmf.graphdef.source" version="2.0.100.v20080528-1052"     unpack="false"/>
+	<plugin id="org.eclipse.gmf.graphdef.edit.source" version="2.0.100.v20080610-1132"     unpack="false"/>
+	<plugin id="org.eclipse.gmf.map.source" version="2.1.0.v20080521"     unpack="false"/>
+	<plugin id="org.eclipse.gmf.map.edit.source" version="2.1.0.v20080716-1600"     unpack="false"/>
+	<plugin id="org.eclipse.gmf.bridge.source" version="1.1.0.v20090212-1755"     unpack="false"/>
+	<plugin id="org.eclipse.gmf.bridge.ui.source" version="1.1.100.v20080417-1610"     unpack="false"/>
+	<plugin id="org.eclipse.gmf.bridge.ui.dashboard.source" version="2.0.0.v20080417-1610"     unpack="false"/>
+	<plugin id="org.eclipse.gmf.tooling.source" version="2.1.0.v20080425-1959"     unpack="false"/>
+	<plugin id="org.eclipse.gmf.graphdef.codegen.source" version="2.0.100.v20080528-1052"     unpack="false"/>
+	<plugin id="org.eclipse.gmf.graphdef.codegen.ui.source" version="1.0.100.v20080425-1959"     unpack="false"/>
+	<plugin id="org.eclipse.gmf.tooldef.source" version="2.0.0.v20080417-1610"     unpack="false"/>
+	<plugin id="org.eclipse.gmf.tooldef.edit.source" version="2.0.0.v20080610-1132"     unpack="false"/>
+	<plugin id="org.eclipse.gmf.validate.source" version="1.1.0.v20080603-1553"     unpack="false"/>
+	<plugin id="org.eclipse.gmf.ecore.editor.source" version="2.0.100.v20080610-1132"     unpack="false"/>
+	<plugin id="org.eclipse.gmf.xpand.source" version="1.1.0.v20080716-1600"     unpack="false"/>
+	<plugin id="org.eclipse.gmf.xpand.editor.source" version="1.0.0.v20080812-2100"     unpack="false"/>
+</feature>

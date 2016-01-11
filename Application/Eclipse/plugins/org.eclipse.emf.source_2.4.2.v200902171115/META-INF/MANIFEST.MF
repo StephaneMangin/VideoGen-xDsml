@@ -1,0 +1,353 @@
+Manifest-Version: 1.0
+Bundle-SymbolicName: org.eclipse.emf.source; singleton=true
+Bundle-Localization: plugin
+Bundle-Name: %pluginName
+Bundle-Version: 2.4.2.v200902171115
+Bundle-Vendor: %providerName
+
+Name: src/org.eclipse.emf.importer.ecore_2.4.0.v200902171115/examples/
+ library/build/codeGen.bat
+SHA1-Digest: scjPy+FVOdVIgq3CSZ1NaI/Eiok=
+
+Name: src/org.eclipse.emf.codegen.ecore_2.4.2.v200902171115/about.html
+SHA1-Digest: nk+t6mvX0TZBjKKhub2T0YT09zk=
+
+Name: src/org.eclipse.emf.common_2.4.0.v200902171115/src.zip
+SHA1-Digest: uOf6MG00tfjt1Lvi+PnZC6ar66g=
+
+Name: src/org.eclipse.emf.ecore_2.4.2.v200902171115/src.zip
+SHA1-Digest: aMq9Z5W9RYr4qvSv9IG/IKmrJUk=
+
+Name: src/org.eclipse.emf.importer.rose_2.4.0.v200902171115/ant_tasks/
+ importer.rose.taskssrc.zip
+SHA1-Digest: j8nC1YCh1pYVF6y+CfnwCaVXHEo=
+
+Name: src/org.eclipse.emf.mapping.ecore2xml_2.4.0.v200902171115/about.
+ html
+SHA1-Digest: nk+t6mvX0TZBjKKhub2T0YT09zk=
+
+Name: META-INF/eclipse.inf
+SHA1-Digest: KyT9FF7C7t86NoBoa2kZT3ZJBfw=
+
+Name: about.mappings
+SHA1-Digest: a72yyhp+t47yswKf10TthnSDpfc=
+
+Name: src/org.eclipse.emf.ecore.xmi_2.4.1.v200902171115/about.html
+SHA1-Digest: nk+t6mvX0TZBjKKhub2T0YT09zk=
+
+Name: src/org.eclipse.emf.exporter_2.4.0.v200902171115/src.zip
+SHA1-Digest: wJDFoEiWQHcKBJ4uhWblvMj9wGM=
+
+Name: src/org.eclipse.emf.importer.rose_2.4.0.v200902171115/about.html
+SHA1-Digest: nk+t6mvX0TZBjKKhub2T0YT09zk=
+
+Name: src/org.eclipse.emf.importer.rose_2.4.0.v200902171115/examples/l
+ ibrary/model/library.mdl
+SHA1-Digest: YtOK/I+ukHYJDyV5IO2HB/sNADs=
+
+Name: src/org.eclipse.emf.ecore.edit_2.4.1.v200902171115/about.html
+SHA1-Digest: nk+t6mvX0TZBjKKhub2T0YT09zk=
+
+Name: src/org.eclipse.emf.mapping_2.4.0.v200902171115/src.zip
+SHA1-Digest: bhJazljJRyZ/rXaJEvK7MSgKuTU=
+
+Name: src/org.eclipse.emf.importer.java_2.4.1.v200902171115/examples/l
+ ibrary/src/org/eclipse/example/library/Book.java
+SHA1-Digest: PyYrx0UImcU3YIJhyZTbKjjycls=
+
+Name: src/org.eclipse.emf.importer.java_2.4.1.v200902171115/examples/l
+ ibrary/.classpath
+SHA1-Digest: 6M1JgTptYuXLmn2LFReVOw7R/yw=
+
+Name: src/org.eclipse.emf.ant_2.4.0.v200902171115/examples/jetemitter/
+ build.xml
+SHA1-Digest: KuVCaEqOo/YM1AVglRZVYYH0nzw=
+
+Name: src/org.eclipse.emf.mapping.ui_2.4.0.v200902171115/about.html
+SHA1-Digest: nk+t6mvX0TZBjKKhub2T0YT09zk=
+
+Name: src/org.eclipse.emf.codegen_2.4.0.v200902171115/about.html
+SHA1-Digest: R2tKyNOnrYwuCUzQeKIS2y8Mrzg=
+
+Name: src/org.eclipse.emf.ecore.change.edit_2.4.0.v200902171115/about.
+ html
+SHA1-Digest: nk+t6mvX0TZBjKKhub2T0YT09zk=
+
+Name: src/org.eclipse.emf.mapping.ecore2ecore_2.4.0.v200902171115/abou
+ t.html
+SHA1-Digest: nk+t6mvX0TZBjKKhub2T0YT09zk=
+
+Name: src/org.eclipse.emf.ecore.edit_2.4.1.v200902171115/src.zip
+SHA1-Digest: qCgJG8nPrU2yvt9ymsC99JKvFXs=
+
+Name: src/org.eclipse.emf.ant_2.4.0.v200902171115/examples/jmerger/Tar
+ get.java
+SHA1-Digest: YavMW9oK5pJ4qhnfuN7PRvizv4o=
+
+Name: src/org.eclipse.emf.ant_2.4.0.v200902171115/src.zip
+SHA1-Digest: R47yB/4w12HQ/rjjgGC8MX6ZM2c=
+
+Name: src/org.eclipse.emf.mapping.ecore2xml_2.4.0.v200902171115/src.zi
+ p
+SHA1-Digest: /SVanuNrDVQ7t1vAzl1Su4vq6sU=
+
+Name: about.ini
+SHA1-Digest: KQMVTFcyVja5dvVmIh2o+qDsslY=
+
+Name: src/org.eclipse.emf.edit.ui_2.4.2.v200902171115/about.html
+SHA1-Digest: nk+t6mvX0TZBjKKhub2T0YT09zk=
+
+Name: src/org.eclipse.emf.ant_2.4.0.v200902171115/examples/jmerger/bui
+ ld.xml
+SHA1-Digest: NZrpwfI+1XJ57Zb4IyQiKa0Rjms=
+
+Name: plugin.properties
+SHA1-Digest: McMuQ+jj7NHhUqqLLPMIKqf4zN8=
+
+Name: src/org.eclipse.emf.codegen.ecore_2.4.2.v200902171115/src.zip
+SHA1-Digest: 4FjzoY6R1RhkWVSwHaoeDq/snW8=
+
+Name: src/org.eclipse.emf.importer.ecore_2.4.0.v200902171115/src.zip
+SHA1-Digest: /aRKT60Ihs3dlr+L3RVfcJgrY20=
+
+Name: src/org.eclipse.emf.importer.java_2.4.1.v200902171115/examples/l
+ ibrary/build/codeGen.bat
+SHA1-Digest: nAlb+aPwZLO3lTOGmy6A0Mv37H0=
+
+Name: src/org.eclipse.emf.ant_2.4.0.v200902171115/readme.html
+SHA1-Digest: RRKMTXvfW4pPNsXYTeV/k5y1rVE=
+
+Name: src/org.eclipse.emf.mapping.ui_2.4.0.v200902171115/src.zip
+SHA1-Digest: LeyIoHrIRYi+XUDVay9H8j2iPjc=
+
+Name: src/org.eclipse.emf.importer.java_2.4.1.v200902171115/src.zip
+SHA1-Digest: owA9NN+DHHJzWmpcz/TnXDv4n6o=
+
+Name: src/org.eclipse.emf.ecore.change_2.4.0.v200902171115/src.zip
+SHA1-Digest: gfi3fWfVLXLjmP+Fobau5EXxQH8=
+
+Name: src/org.eclipse.emf.exporter_2.4.0.v200902171115/about.html
+SHA1-Digest: nk+t6mvX0TZBjKKhub2T0YT09zk=
+
+Name: src/org.eclipse.emf.ecore_2.4.2.v200902171115/about.html
+SHA1-Digest: 0pxhpoXBU+bv+sZ5zfCxROPVpTI=
+
+Name: src/org.eclipse.emf.mapping.ecore2ecore.editor_2.4.0.v2009021711
+ 15/src.zip
+SHA1-Digest: Wg2kKU6HUm6pGJxXsXPNpFB2Y/k=
+
+Name: src/org.eclipse.emf.mapping.ecore2xml.ui_2.4.0.v200902171115/src
+ .zip
+SHA1-Digest: /ZSazPrzlB5T3BxeC6TyQp4IPhU=
+
+Name: src/org.eclipse.emf.ecore.xmi_2.4.1.v200902171115/src.zip
+SHA1-Digest: 4Qs3FwrqsSSWpLm2z4k5dYdAQRY=
+
+Name: src/org.eclipse.emf.databinding.edit_1.0.0.v200902171115/src.zip
+SHA1-Digest: mdcXv3Q9RVaU1/YbfUrJH5CaiVo=
+
+Name: src/org.eclipse.emf.ant_2.4.0.v200902171115/ant_tasks/emf.ant.ta
+ skssrc.zip
+SHA1-Digest: jHo4IZAyWzLg7z2iZlPT+IWCGwM=
+
+Name: src/org.eclipse.emf.converter_2.4.0.v200902171115/src.zip
+SHA1-Digest: A+S7n3Ua39KrvwDCGkrvHIlTAlY=
+
+Name: src/org.eclipse.emf.importer.java_2.4.1.v200902171115/about.html
+SHA1-Digest: nk+t6mvX0TZBjKKhub2T0YT09zk=
+
+Name: plugin.xml
+SHA1-Digest: I0t+o6kXbySrxIY1bLaTaeai3Vc=
+
+Name: about.properties
+SHA1-Digest: ArB0+riV+ogL+EYd2V+H2IvRNPE=
+
+Name: src/org.eclipse.emf.importer.java_2.4.1.v200902171115/examples/l
+ ibrary/src/org/eclipse/example/library/Writer.java5.txt
+SHA1-Digest: x9r2b951KIbLAc+eZOoZFa+u9l4=
+
+Name: src/org.eclipse.emf.importer.rose_2.4.0.v200902171115/examples/l
+ ibrary/build/build.xml
+SHA1-Digest: Bvmkv4MGKdnfTbMLFswN339Pl18=
+
+Name: src/org.eclipse.emf.mapping.ecore2ecore_2.4.0.v200902171115/src.
+ zip
+SHA1-Digest: V2cIyqymcZn0I99dLhclT6+f1bA=
+
+Name: src/org.eclipse.emf.importer.java_2.4.1.v200902171115/examples/l
+ ibrary/build/build.xml
+SHA1-Digest: WCMa8vm9TDfU0bZUn/0arnvyG/o=
+
+Name: src/org.eclipse.emf.ecore.change.edit_2.4.0.v200902171115/src.zi
+ p
+SHA1-Digest: OXLWdfK/Dv+iRnpniCL95oFlrT4=
+
+Name: src/org.eclipse.emf.ant_2.4.0.v200902171115/about.html
+SHA1-Digest: nk+t6mvX0TZBjKKhub2T0YT09zk=
+
+Name: src/org.eclipse.emf.codegen.ecore.ui_2.4.1.v200902171115/about.h
+ tml
+SHA1-Digest: nk+t6mvX0TZBjKKhub2T0YT09zk=
+
+Name: src/org.eclipse.emf.importer.ecore_2.4.0.v200902171115/readme.ht
+ ml
+SHA1-Digest: yBLUvRbZCVNNuxBWXnWUaZ+3ycg=
+
+Name: src/org.eclipse.emf.importer.java_2.4.1.v200902171115/examples/l
+ ibrary/src/org/eclipse/example/library/BookCategory.java
+SHA1-Digest: irf3gK+al6I0AsaWIJ8yBjjxJkY=
+
+Name: src/org.eclipse.emf.importer.ecore_2.4.0.v200902171115/ant_tasks
+ /importer.ecore.taskssrc.zip
+SHA1-Digest: 5LQi0jz1SoeRhc0Su65QXAQfJQU=
+
+Name: about.html
+SHA1-Digest: mLkmRLtG3amkcY0I7KSYZX6qKhs=
+
+Name: src/org.eclipse.emf.importer.ecore_2.4.0.v200902171115/about.htm
+ l
+SHA1-Digest: nk+t6mvX0TZBjKKhub2T0YT09zk=
+
+Name: src/org.eclipse.emf.importer.java_2.4.1.v200902171115/examples/l
+ ibrary/src/org/eclipse/example/library/Writer.java
+SHA1-Digest: KfnUER7KUJTPg6iqhds70gx0qI0=
+
+Name: src/org.eclipse.emf.converter_2.4.0.v200902171115/about.html
+SHA1-Digest: nk+t6mvX0TZBjKKhub2T0YT09zk=
+
+Name: src/org.eclipse.emf.ecore.editor_2.4.0.v200902171115/about.html
+SHA1-Digest: nk+t6mvX0TZBjKKhub2T0YT09zk=
+
+Name: src/org.eclipse.emf.ant_2.4.0.v200902171115/examples/jetcompiler
+ /build.xml
+SHA1-Digest: J9zWqm9vFHg+4LQgczlBpyanEfI=
+
+Name: src/org.eclipse.emf.importer_2.4.1.v200902171115/src.zip
+SHA1-Digest: VDEHJY7wnuVgp1vFXz1d/6s6A5A=
+
+Name: src/org.eclipse.emf.ecore.change_2.4.0.v200902171115/about.html
+SHA1-Digest: nk+t6mvX0TZBjKKhub2T0YT09zk=
+
+Name: src/org.eclipse.emf.codegen_2.4.0.v200902171115/src.zip
+SHA1-Digest: l7Dugw3k6j7s8IdFqJv/oEXBB9I=
+
+Name: src/org.eclipse.emf.importer.ecore_2.4.0.v200902171115/examples/
+ library/build/build.xml
+SHA1-Digest: q+lj8M5AemNBZh53uNJDE1gew6Y=
+
+Name: src/org.eclipse.emf.importer.java_2.4.1.v200902171115/ant_tasks/
+ importer.java.taskssrc.zip
+SHA1-Digest: jeiXXFnNWVDTdJFwmAx84NgprMY=
+
+Name: src/org.eclipse.emf.importer.rose_2.4.0.v200902171115/readme.htm
+ l
+SHA1-Digest: ESsjV/clAisYXAfSok/5rF3WlxU=
+
+Name: src/org.eclipse.emf.codegen.ecore.ui_2.4.1.v200902171115/src.zip
+SHA1-Digest: 7iCqUiReURn3lHmL/tyR/GUF1dU=
+
+Name: src/org.eclipse.emf.importer.java_2.4.1.v200902171115/examples/l
+ ibrary/.project
+SHA1-Digest: wj12gkkWHpumLwwzhJOtQlHaOlo=
+
+Name: src/org.eclipse.emf.ecore.editor_2.4.0.v200902171115/src.zip
+SHA1-Digest: qyTzrG3B2WxCpT08g7vRuVHA2ek=
+
+Name: src/org.eclipse.emf.edit_2.4.2.v200902171115/src.zip
+SHA1-Digest: ZLdbNmtp4WmTPpE3bqWmNQCEUdM=
+
+Name: src/org.eclipse.emf.common.ui_2.4.0.v200902171115/src.zip
+SHA1-Digest: iCG1Yst+QlUnKmBVbpjP75EmqxU=
+
+Name: src/org.eclipse.emf.ant_2.4.0.v200902171115/examples/jetemitter/
+ complex.javajet
+SHA1-Digest: gwbJ/05AP36JN3wcOclB5IFDGy8=
+
+Name: modeling32.png
+SHA1-Digest: ADlLWFV0eQ74YnLvHnPFkYLeLrs=
+
+Name: src/org.eclipse.emf.ant_2.4.0.v200902171115/examples/jmerger/Sou
+ rce.java
+SHA1-Digest: j5UrAkZhT7LnLD5TGm5MQI9/avo=
+
+Name: src/org.eclipse.emf.importer.rose_2.4.0.v200902171115/examples/l
+ ibrary/build/codeGen.bat
+SHA1-Digest: yPuQbf7bnAA8aOsZ/dTIEU82xMo=
+
+Name: src/org.eclipse.emf.mapping.ecore2ecore.editor_2.4.0.v2009021711
+ 15/about.html
+SHA1-Digest: nk+t6mvX0TZBjKKhub2T0YT09zk=
+
+Name: src/org.eclipse.emf.edit.ui_2.4.2.v200902171115/src.zip
+SHA1-Digest: IjuVM/ZMzz6PcGvQB7qNaqFrUHU=
+
+Name: src/org.eclipse.emf.codegen.ui_2.4.0.v200902171115/src.zip
+SHA1-Digest: L/Ns6FAOnaf2COiT123FCefciIU=
+
+Name: src/org.eclipse.emf.importer.java_2.4.1.v200902171115/examples/l
+ ibrary/src/org/eclipse/example/library/Library.java
+SHA1-Digest: WvA/doQoFx96D/AsSDdSO/xG/+E=
+
+Name: src/org.eclipse.emf.importer.java_2.4.1.v200902171115/readme.htm
+ l
+SHA1-Digest: qj2PzLndHEk1TfI241+2wIx/OWE=
+
+Name: src/org.eclipse.emf.common.ui_2.4.0.v200902171115/about.html
+SHA1-Digest: nk+t6mvX0TZBjKKhub2T0YT09zk=
+
+Name: src/org.eclipse.emf.importer.java_2.4.1.v200902171115/examples/l
+ ibrary/src/org/eclipse/example/library/BookCategory.java5.txt
+SHA1-Digest: N0Q7ofcCXcUpJncX6IBfhhtY9vI=
+
+Name: src/org.eclipse.emf.edit_2.4.2.v200902171115/about.html
+SHA1-Digest: nk+t6mvX0TZBjKKhub2T0YT09zk=
+
+Name: src/org.eclipse.emf.mapping_2.4.0.v200902171115/about.html
+SHA1-Digest: nk+t6mvX0TZBjKKhub2T0YT09zk=
+
+Name: src/org.eclipse.emf.importer.ecore_2.4.0.v200902171115/examples/
+ library/model/library.ecore
+SHA1-Digest: 1key0mmhSP4P+I7VxJwvvaSIuGs=
+
+Name: src/org.eclipse.emf.importer.rose_2.4.0.v200902171115/src.zip
+SHA1-Digest: +lq7nUKwJBsW/6Af4QdQVzjhWwg=
+
+Name: src/org.eclipse.emf.importer_2.4.1.v200902171115/about.html
+SHA1-Digest: nk+t6mvX0TZBjKKhub2T0YT09zk=
+
+Name: src/org.eclipse.emf.ant_2.4.0.v200902171115/examples/jetemitter/
+ medium.javajet
+SHA1-Digest: 0Ou7Q6w9XQdfHiFXnOTgUz+9TuE=
+
+Name: src/org.eclipse.emf.ant_2.4.0.v200902171115/examples/jmerger/mer
+ ge.xml
+SHA1-Digest: FrCNZjtP9GFZrMnwdq3NA7eDLQU=
+
+Name: src/org.eclipse.emf.databinding_1.0.0.v200902171115/src.zip
+SHA1-Digest: 5mKYVV9i7x5TZLhEP1dhG6h6pVY=
+
+Name: src/org.eclipse.emf.databinding.edit_1.0.0.v200902171115/about.h
+ tml
+SHA1-Digest: nk+t6mvX0TZBjKKhub2T0YT09zk=
+
+Name: src/org.eclipse.emf.mapping.ecore2xml.ui_2.4.0.v200902171115/abo
+ ut.html
+SHA1-Digest: nk+t6mvX0TZBjKKhub2T0YT09zk=
+
+Name: src/org.eclipse.emf.importer.java_2.4.1.v200902171115/examples/l
+ ibrary/src/org/eclipse/example/library/Library.java5.txt
+SHA1-Digest: efgVkkOeERc/UkNZ7DbDwUv4wTc=
+
+Name: src/org.eclipse.emf.common_2.4.0.v200902171115/about.html
+SHA1-Digest: mLkmRLtG3amkcY0I7KSYZX6qKhs=
+
+Name: src/org.eclipse.emf.ant_2.4.0.v200902171115/examples/jetemitter/
+ simple.javajet
+SHA1-Digest: sLI3G7yMOROrIBRgAyIRpyXuRQw=
+
+Name: src/org.eclipse.emf.codegen.ui_2.4.0.v200902171115/about.html
+SHA1-Digest: nk+t6mvX0TZBjKKhub2T0YT09zk=
+
+Name: src/org.eclipse.emf.databinding_1.0.0.v200902171115/about.html
+SHA1-Digest: nk+t6mvX0TZBjKKhub2T0YT09zk=
+

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.eclipse.m2m.qvt.oml.common"
+      label="%featureName"
+      version="1.0.1.v20080917-1645-4-3_kE77c7gAY3AUMQ"
+      provider-name="%providerName"
+      plugin="org.eclipse.m2m.qvt.oml.common"
+      image="eclipse_update_120.jpg">
+
+   <description url="http://www.eclipse.org/modeling/m2m">
+      %description
+   </description>
+
+   <copyright url="http://www.eclipse.org/legal/epl-v10.html">
+      %copyright
+   </copyright>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <requires>
+      <import plugin="org.eclipse.core.runtime"/>
+      <import plugin="org.eclipse.core.resources"/>
+      <import plugin="org.eclipse.emf.ecore.xmi"/>
+      <import plugin="org.eclipse.emf.codegen.ecore.ui"/>
+      <import plugin="org.eclipse.ui.editors"/>
+      <import plugin="org.eclipse.core.filesystem"/>
+      <import plugin="org.eclipse.debug.core"/>
+      <import plugin="org.eclipse.jdt.core"/>
+      <import plugin="org.eclipse.pde.core"/>
+      <import plugin="org.eclipse.emf.ecore"/>
+      <import plugin="org.eclipse.ui.ide"/>
+      <import plugin="org.eclipse.debug.ui"/>
+      <import plugin="org.eclipse.emf.edit.ui"/>
+      <import plugin="org.eclipse.core.expressions"/>
+      <import plugin="org.eclipse.ocl.ecore" version="1.2.0" match="compatible"/>
+      <import plugin="org.eclipse.ui"/>
+   </requires>
+
+   <plugin
+         id="org.eclipse.m2m.qvt.oml.emf.util"
+         download-size="0"
+         install-size="0"
+         version="1.0.1.v20080917-1645"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.m2m.qvt.oml.emf.util.ui"
+         download-size="0"
+         install-size="0"
+         version="1.0.1.v20080917-1645"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.m2m.qvt.oml.common"
+         download-size="0"
+         install-size="0"
+         version="1.0.1.v20080917-1645"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.m2m.qvt.oml.common.ui"
+         download-size="0"
+         install-size="0"
+         version="1.0.1.v20080917-1645"
+         unpack="false"/>
+
+</feature>

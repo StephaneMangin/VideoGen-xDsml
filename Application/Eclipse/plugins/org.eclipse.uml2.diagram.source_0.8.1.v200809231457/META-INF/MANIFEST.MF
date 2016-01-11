@@ -1,0 +1,117 @@
+Manifest-Version: 1.0
+Bundle-SymbolicName: org.eclipse.uml2.diagram.source; singleton=true
+Bundle-Localization: plugin
+Bundle-Name: %pluginName
+Bundle-Version: 0.8.1.v200809231457
+Bundle-Vendor: %providerName
+
+Name: src/org.eclipse.uml2.diagram.codegen.edit_0.8.0.v200809231457/sr
+ c.zip
+SHA1-Digest: OozmgXhRUPDHA/cXIxcpwtVnN3o=
+
+Name: src/org.eclipse.uml2.diagram_0.8.0.v200809231457/about.html
+SHA1-Digest: m//+sZd+LYcO5OY/bjEiZVm0dk0=
+
+Name: src/org.eclipse.uml2.diagram.profile_0.8.1.v200809231457/src.zip
+SHA1-Digest: q+XkXPtcWRg49mZ1OcIRZ3Bjvtc=
+
+Name: src/org.eclipse.uml2.diagram.def_0.8.1.v200809231457/about.html
+SHA1-Digest: mLkmRLtG3amkcY0I7KSYZX6qKhs=
+
+Name: src/org.eclipse.uml2.diagram.codegen_0.8.0.v200809231457/about.h
+ tml
+SHA1-Digest: mLkmRLtG3amkcY0I7KSYZX6qKhs=
+
+Name: src/org.eclipse.uml2.diagram.csd_0.8.1.v200809231457/about.html
+SHA1-Digest: m//+sZd+LYcO5OY/bjEiZVm0dk0=
+
+Name: plugin.xml
+SHA1-Digest: I0t+o6kXbySrxIY1bLaTaeai3Vc=
+
+Name: src/org.eclipse.uml2.diagram.statemachine_0.8.1.v200809231457/ab
+ out.html
+SHA1-Digest: m//+sZd+LYcO5OY/bjEiZVm0dk0=
+
+Name: about.properties
+SHA1-Digest: wmTjo9nF4q8Ob1iZO03WwRGrCmE=
+
+Name: src/org.eclipse.uml2.diagram.statemachine_0.8.1.v200809231457/sr
+ c.zip
+SHA1-Digest: 8k4PIh5RoPiLuLcIqV89GHaOnwQ=
+
+Name: src/org.eclipse.uml2.diagram.parser_0.8.0.v200809231457/about.ht
+ ml
+SHA1-Digest: m//+sZd+LYcO5OY/bjEiZVm0dk0=
+
+Name: src/org.eclipse.uml2.diagram.clazz_0.8.1.v200809231457/src.zip
+SHA1-Digest: Gj163ObaN72DLsKcg1q4kalS8vA=
+
+Name: about.ini
+SHA1-Digest: KQMVTFcyVja5dvVmIh2o+qDsslY=
+
+Name: src/org.eclipse.uml2.diagram.usecase_0.8.1.v200809231457/about.h
+ tml
+SHA1-Digest: m//+sZd+LYcO5OY/bjEiZVm0dk0=
+
+Name: plugin.properties
+SHA1-Digest: gdnkIwd5OodIIoe0N49QUso+M/4=
+
+Name: src/org.eclipse.uml2.diagram.component_0.8.1.v200809231457/src.z
+ ip
+SHA1-Digest: 5PKRV2UvHDam1ros3td+9z6h09c=
+
+Name: META-INF/eclipse.inf
+SHA1-Digest: KyT9FF7C7t86NoBoa2kZT3ZJBfw=
+
+Name: src/org.eclipse.uml2.diagram.parser_0.8.0.v200809231457/src.zip
+SHA1-Digest: Y6YX3bmx8loewqlHF4Ogx9z3+40=
+
+Name: src/org.eclipse.uml2.diagram.deploy_0.8.1.v200809231457/about.ht
+ ml
+SHA1-Digest: m//+sZd+LYcO5OY/bjEiZVm0dk0=
+
+Name: about.mappings
+SHA1-Digest: 3UAtLiMRP5VAMWvhcwlRNsM9Eu8=
+
+Name: src/org.eclipse.uml2.diagram.component_0.8.1.v200809231457/about
+ .html
+SHA1-Digest: m//+sZd+LYcO5OY/bjEiZVm0dk0=
+
+Name: about.html
+SHA1-Digest: m//+sZd+LYcO5OY/bjEiZVm0dk0=
+
+Name: src/org.eclipse.uml2.diagram.csd_0.8.1.v200809231457/src.zip
+SHA1-Digest: LYlrhCk+5sQH/Dnh9Vzb+ZP57dw=
+
+Name: src/org.eclipse.uml2.diagram.deploy_0.8.1.v200809231457/src.zip
+SHA1-Digest: zCfODNPtINqUwEHGbrUPtmtB4xs=
+
+Name: src/org.eclipse.uml2.diagram.clazz_0.8.1.v200809231457/about.htm
+ l
+SHA1-Digest: m//+sZd+LYcO5OY/bjEiZVm0dk0=
+
+Name: src/org.eclipse.uml2.diagram.usecase_0.8.1.v200809231457/src.zip
+SHA1-Digest: trpov6+n4FCKB9euR8ET6G3zUwE=
+
+Name: src/org.eclipse.uml2.diagram.activity_0.8.1.v200809231457/src.zi
+ p
+SHA1-Digest: 1F45s4DI9Xjz+tABHwIbqv1xFbU=
+
+Name: src/org.eclipse.uml2.diagram.common_0.8.1.v200809231457/about.ht
+ ml
+SHA1-Digest: m//+sZd+LYcO5OY/bjEiZVm0dk0=
+
+Name: src/org.eclipse.uml2.diagram.profile_0.8.1.v200809231457/about.h
+ tml
+SHA1-Digest: m//+sZd+LYcO5OY/bjEiZVm0dk0=
+
+Name: src/org.eclipse.uml2.diagram.codegen_0.8.0.v200809231457/src.zip
+SHA1-Digest: bIHTvhsn6Kw8ZqQWFDb84SP+AVY=
+
+Name: src/org.eclipse.uml2.diagram.common_0.8.1.v200809231457/src.zip
+SHA1-Digest: Xh/ajNwHP0GdRESRCmRKBF4Up/Q=
+
+Name: src/org.eclipse.uml2.diagram.activity_0.8.1.v200809231457/about.
+ html
+SHA1-Digest: m//+sZd+LYcO5OY/bjEiZVm0dk0=
+

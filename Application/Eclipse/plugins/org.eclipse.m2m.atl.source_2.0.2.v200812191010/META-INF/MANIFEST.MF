@@ -1,0 +1,282 @@
+Manifest-Version: 1.0
+Bundle-SymbolicName: org.eclipse.m2m.atl.source; singleton=true
+Bundle-Localization: plugin
+Bundle-Name: %pluginName
+Bundle-Version: 2.0.2.v200812191010
+Bundle-Vendor: %providerName
+
+Name: src/org.eclipse.m2m.atl.adt.editor_2.0.2.v200812191010/plugin.pr
+ operties
+SHA1-Digest: non9ydy47LYROgnd/bwBR8i3pTI=
+
+Name: src/org.eclipse.m2m.atl.adt.perspective_2.0.2.v200812191010/src.
+ zip
+SHA1-Digest: 6FyPxAz7OVseWYE4qR2NIPQl3gM=
+
+Name: src/org.eclipse.m2m.atl.drivers.uml24atl_2.0.2.v200812191010/src
+ .zip
+SHA1-Digest: Pm3eabkfs7QeivWhOYm8LWthMkU=
+
+Name: src/org.eclipse.m2m.atl.adt.perspective_2.0.2.v200812191010/META
+ -INF/MANIFEST.MF
+SHA1-Digest: Mqxv5pmijNFPNsWN8ZmpPBY2ca4=
+
+Name: src/org.eclipse.m2m.atl.adt.debug_2.0.2.v200812191010/about.html
+SHA1-Digest: IA3miI4arXouKubYPcSZY4ZprEs=
+
+Name: plugin.xml
+SHA1-Digest: I0t+o6kXbySrxIY1bLaTaeai3Vc=
+
+Name: about.properties
+SHA1-Digest: D8IL+8Clk64rX+yUUZUxSZJoB8A=
+
+Name: src/org.eclipse.m2m.atl.engine_2.0.2.v200812191010/plugin.xml
+SHA1-Digest: lVX27nq/nhb05YuV/hWQnTyAj0A=
+
+Name: src/org.eclipse.m2m.atl.ocl.core_2.0.2.v200812191010/META-INF/MA
+ NIFEST.MF
+SHA1-Digest: BUyEt/7YAZ/msIAZkl1hVeAmWts=
+
+Name: src/org.eclipse.m2m.atl.ocl.core_2.0.2.v200812191010/plugin.prop
+ erties
+SHA1-Digest: GMUllbk/qN1r2DQJmRxay+QH1BQ=
+
+Name: src/org.eclipse.m2m.atl.engine_2.0.2.v200812191010/META-INF/MANI
+ FEST.MF
+SHA1-Digest: C23XU44B0xlmnZgl85SoJIprG5Y=
+
+Name: src/org.eclipse.m2m.atl.engine.emfvm_2.0.2.v200812191010/plugin.
+ xml
+SHA1-Digest: /i6TAgLK5Q8V2cRDYhaMgnN0KQ4=
+
+Name: src/org.eclipse.m2m.atl.adt.wizard_2.0.2.v200812191010/plugin.pr
+ operties
+SHA1-Digest: GMUllbk/qN1r2DQJmRxay+QH1BQ=
+
+Name: src/org.eclipse.m2m.atl.drivers.emf4atl_2.0.2.v200812191010/src.
+ zip
+SHA1-Digest: t4GaQpUkyDn2ZKwE5NWzJ5wcW3M=
+
+Name: src/org.eclipse.m2m.atl.engine.vm_2.0.2.v200812191010/src.zip
+SHA1-Digest: PVrIDptEzKjc9tXt4xCjsMpWwuk=
+
+Name: src/org.eclipse.m2m.atl.ocl.core_2.0.2.v200812191010/about.html
+SHA1-Digest: 3fReq7pYS8voFECjS4pY0rhUHpc=
+
+Name: src/org.eclipse.m2m.atl.compilers.atl2006_2.0.2.v200812191010/pl
+ ugin.xml
+SHA1-Digest: XEPhoesDdoni9Qs0QW+3mqj2JmE=
+
+Name: META-INF/eclipse.inf
+SHA1-Digest: KyT9FF7C7t86NoBoa2kZT3ZJBfw=
+
+Name: src/org.eclipse.m2m.atl.adt.wizard_2.0.2.v200812191010/src.zip
+SHA1-Digest: R8eJcea8fpVzlInePKWMAZy/jYY=
+
+Name: src/org.eclipse.m2m.atl.drivers.uml24atl_2.0.2.v200812191010/plu
+ gin.properties
+SHA1-Digest: 1wr3W2M1ohwJyGlKaQ9aUJM+7dw=
+
+Name: src/org.eclipse.m2m.atl.service.core_2.0.2.v200812191010/src.zip
+SHA1-Digest: zn78aLLWQ+bdEmEPTFiHUiT9nfg=
+
+Name: about.mappings
+SHA1-Digest: Xp3GrbZ+vxinabubg/fufnq/cGo=
+
+Name: src/org.eclipse.m2m.atl.drivers.emf4atl_2.0.2.v200812191010/abou
+ t.html
+SHA1-Digest: wiOKkoMpwJnh1s72S4AEr4W6iNw=
+
+Name: src/org.eclipse.m2m.atl.adt.builder_2.0.2.v200812191010/plugin.x
+ ml
+SHA1-Digest: UVZgkc7dTnKF+berdHwXjNHQeg0=
+
+Name: src/org.eclipse.m2m.atl.adt.debug_2.0.2.v200812191010/META-INF/M
+ ANIFEST.MF
+SHA1-Digest: ItRIO1ibfkhEirz4px+9x52CCDY=
+
+Name: src/org.eclipse.m2m.atl.service.core_2.0.2.v200812191010/plugin.
+ xml
+SHA1-Digest: LYmiB44aguvCT9m2P/plRD0rz8k=
+
+Name: src/org.eclipse.m2m.atl.adt.builder_2.0.2.v200812191010/src.zip
+SHA1-Digest: iPDLuvkdYbCUTOoCMcNU0n47mEg=
+
+Name: src/org.eclipse.m2m.atl.ocl.core_2.0.2.v200812191010/src.zip
+SHA1-Digest: Syvwj54skPDh3pyY7jZbwrukBLs=
+
+Name: src/org.eclipse.m2m.atl.adt.wizard_2.0.2.v200812191010/META-INF/
+ MANIFEST.MF
+SHA1-Digest: NoM+jyXU9lJP3ZoHhxf/l6fZrUg=
+
+Name: about.html
+SHA1-Digest: 15Q2XVN87wYVTw453EpFyArtPNA=
+
+Name: src/org.eclipse.m2m.atl.adt.debug_2.0.2.v200812191010/plugin.xml
+SHA1-Digest: kZD9+WdJ0/WFaS7AiFMAIxX3alI=
+
+Name: src/org.eclipse.m2m.atl.drivers.uml24atl_2.0.2.v200812191010/MET
+ A-INF/MANIFEST.MF
+SHA1-Digest: hAOdMitfCECs/r/aOcY32OJIZ2c=
+
+Name: src/org.eclipse.m2m.atl.engine.vm_2.0.2.v200812191010/plugin.xml
+SHA1-Digest: IRDdtanb89JpZA5vspI67aJBFfs=
+
+Name: src/org.eclipse.m2m.atl.drivers.emf4atl_2.0.2.v200812191010/plug
+ in.properties
+SHA1-Digest: 10o/DitAeEgN9qfARlbEXg10VKc=
+
+Name: src/org.eclipse.m2m.atl.engine_2.0.2.v200812191010/scripts/build
+ .xml
+SHA1-Digest: 66UzeFs884Mhurb3PTiDecR9IpM=
+
+Name: src/org.eclipse.m2m.atl.adt.perspective_2.0.2.v200812191010/plug
+ in.xml
+SHA1-Digest: TruTFE1IwtXxatUH2ic0ZC/WdFI=
+
+Name: src/org.eclipse.m2m.atl.service.core_2.0.2.v200812191010/META-IN
+ F/MANIFEST.MF
+SHA1-Digest: l+3f1gSa9t/EmdHE+csNpZ6Od70=
+
+Name: src/org.eclipse.m2m.atl.compilers.atl2006_2.0.2.v200812191010/ME
+ TA-INF/MANIFEST.MF
+SHA1-Digest: pqfV0PJ3aHs8phagWNFeUXVOexg=
+
+Name: src/org.eclipse.m2m.atl.service.core_2.0.2.v200812191010/about.h
+ tml
+SHA1-Digest: me/tUUDb2utijZyqWHaXsbaf0Ts=
+
+Name: src/org.eclipse.m2m.atl.ocl.core_2.0.2.v200812191010/plugin.xml
+SHA1-Digest: MoRRm3NmRmV9Aqkow5OMWt7NpwY=
+
+Name: src/org.eclipse.m2m.atl.engine_2.0.2.v200812191010/plugin.proper
+ ties
+SHA1-Digest: jjk3wrOOssL6j0a340f4UtJkAzg=
+
+Name: src/org.eclipse.m2m.atl.compilers.atl2006_2.0.2.v200812191010/ab
+ out.html
+SHA1-Digest: kHQ9Iddz5pZuY4OKvm877POwTKg=
+
+Name: src/org.eclipse.m2m.atl.engine.emfvm_2.0.2.v200812191010/META-IN
+ F/MANIFEST.MF
+SHA1-Digest: w5zu4Q7csJQ1L7Xz+cD8EgWKPNI=
+
+Name: src/org.eclipse.m2m.atl.engine.vm_2.0.2.v200812191010/META-INF/M
+ ANIFEST.MF
+SHA1-Digest: ScZDnyh9AiDSJyl1cxLUWsX3f1A=
+
+Name: src/org.eclipse.m2m.atl.compilers.atl2006_2.0.2.v200812191010/pl
+ ugin.properties
+SHA1-Digest: GMUllbk/qN1r2DQJmRxay+QH1BQ=
+
+Name: src/org.eclipse.m2m.atl.drivers.uml24atl_2.0.2.v200812191010/plu
+ gin.xml
+SHA1-Digest: BlZCpj6VrfE12V9FYERqtc0JXIo=
+
+Name: src/org.eclipse.m2m.atl.adt.editor_2.0.2.v200812191010/META-INF/
+ MANIFEST.MF
+SHA1-Digest: YwrPg0PucAy+O/dL2wsulSvmxtU=
+
+Name: src/org.eclipse.m2m.atl.drivers.uml24atl_2.0.2.v200812191010/abo
+ ut.html
+SHA1-Digest: mFyWwVMf/G/XSNTKpnoBL9nAAn8=
+
+Name: modeling32.png
+SHA1-Digest: ADlLWFV0eQ74YnLvHnPFkYLeLrs=
+
+Name: src/org.eclipse.m2m.atl.adt.builder_2.0.2.v200812191010/about.ht
+ ml
+SHA1-Digest: IA3miI4arXouKubYPcSZY4ZprEs=
+
+Name: src/org.eclipse.m2m.atl.engine_2.0.2.v200812191010/about.html
+SHA1-Digest: IA3miI4arXouKubYPcSZY4ZprEs=
+
+Name: src/org.eclipse.m2m.atl.adt.builder_2.0.2.v200812191010/plugin.p
+ roperties
+SHA1-Digest: GMUllbk/qN1r2DQJmRxay+QH1BQ=
+
+Name: src/org.eclipse.m2m.atl.drivers.emf4atl_2.0.2.v200812191010/META
+ -INF/MANIFEST.MF
+SHA1-Digest: 65YQ84wMBYUvd+lMpYHubhJ9/rg=
+
+Name: about.ini
+SHA1-Digest: KQMVTFcyVja5dvVmIh2o+qDsslY=
+
+Name: src/org.eclipse.m2m.atl.engine.emfvm_2.0.2.v200812191010/src.zip
+SHA1-Digest: dh7eKeL7C2ABn0FiLZcuNIQvt1M=
+
+Name: plugin.properties
+SHA1-Digest: FsqT2+voeUBP8QBhL6OHxw8bHlc=
+
+Name: src/org.eclipse.m2m.atl.adt.editor_2.0.2.v200812191010/about.htm
+ l
+SHA1-Digest: IA3miI4arXouKubYPcSZY4ZprEs=
+
+Name: src/org.eclipse.m2m.atl.compilers.atl2006_2.0.2.v200812191010/sr
+ c.zip
+SHA1-Digest: FnxHo801dX89GYng0A5olyM3e7U=
+
+Name: src/org.eclipse.m2m.atl.adt.perspective_2.0.2.v200812191010/plug
+ in.properties
+SHA1-Digest: GMUllbk/qN1r2DQJmRxay+QH1BQ=
+
+Name: src/org.eclipse.m2m.atl.engine_2.0.2.v200812191010/org.eclipse.m
+ 2m.atl.enginesrc.zip
+SHA1-Digest: YIstKj9liiy3rHUdeaU2gUNmIcg=
+
+Name: src/org.eclipse.m2m.atl.adt.perspective_2.0.2.v200812191010/abou
+ t.html
+SHA1-Digest: IA3miI4arXouKubYPcSZY4ZprEs=
+
+Name: src/org.eclipse.m2m.atl.adt.editor_2.0.2.v200812191010/src.zip
+SHA1-Digest: vtHZ1Ylxf5YMdx+7gJYJGJ2N2v4=
+
+Name: src/org.eclipse.m2m.atl.engine.emfvm_2.0.2.v200812191010/about.h
+ tml
+SHA1-Digest: DOOTprr/vshjgyuDD3B8dw2x8ZE=
+
+Name: src/org.eclipse.m2m.atl.adt.debug_2.0.2.v200812191010/src.zip
+SHA1-Digest: TDY4tJfMD/MrN8dbFK49xKQcxok=
+
+Name: src/org.eclipse.m2m.atl.adt.debug_2.0.2.v200812191010/plugin.pro
+ perties
+SHA1-Digest: GMUllbk/qN1r2DQJmRxay+QH1BQ=
+
+Name: src/org.eclipse.m2m.atl.adt.wizard_2.0.2.v200812191010/about.htm
+ l
+SHA1-Digest: IA3miI4arXouKubYPcSZY4ZprEs=
+
+Name: src/org.eclipse.m2m.atl.adt.editor_2.0.2.v200812191010/plugin.xm
+ l
+SHA1-Digest: oby+MEi7TBmt6TtjHPrzRvhc9lI=
+
+Name: src/org.eclipse.m2m.atl.adt.builder_2.0.2.v200812191010/META-INF
+ /MANIFEST.MF
+SHA1-Digest: Fq6mdFRAEl8pseR5EfuCXNrfd3s=
+
+Name: src/org.eclipse.m2m.atl.engine.emfvm_2.0.2.v200812191010/plugin.
+ properties
+SHA1-Digest: lNlCbSSfvVmjlS+Qo/ZT6+rirU8=
+
+Name: src/org.eclipse.m2m.atl.drivers.emf4atl_2.0.2.v200812191010/plug
+ in.xml
+SHA1-Digest: IRDdtanb89JpZA5vspI67aJBFfs=
+
+Name: src/org.eclipse.m2m.atl.engine.vm_2.0.2.v200812191010/plugin.pro
+ perties
+SHA1-Digest: GMUllbk/qN1r2DQJmRxay+QH1BQ=
+
+Name: src/org.eclipse.m2m.atl.service.core_2.0.2.v200812191010/plugin.
+ properties
+SHA1-Digest: GMUllbk/qN1r2DQJmRxay+QH1BQ=
+
+Name: src/org.eclipse.m2m.atl.adt.wizard_2.0.2.v200812191010/plugin.xm
+ l
+SHA1-Digest: DK/6LyvP4+Ei+CcQZM66eEHVwss=
+
+Name: src/org.eclipse.m2m.atl.engine.vm_2.0.2.v200812191010/about.html
+SHA1-Digest: wiOKkoMpwJnh1s72S4AEr4W6iNw=
+
+Name: src/org.eclipse.m2m.atl.engine_2.0.2.v200812191010/src.zip
+SHA1-Digest: YIstKj9liiy3rHUdeaU2gUNmIcg=
+

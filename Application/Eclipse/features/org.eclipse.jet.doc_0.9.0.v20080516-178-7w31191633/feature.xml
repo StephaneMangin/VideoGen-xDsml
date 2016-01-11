@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.eclipse.jet.doc"
+      label="%featureName"
+      version="0.9.0.v20080516-178-7w31191633"
+      provider-name="%providerName">
+
+   <description>
+      %description
+   </description>
+
+   <copyright>
+      %copyright
+   </copyright>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <url>
+      <update label="%updateSiteName" url="http://download.eclipse.org/modeling/m2t/updates/"/>
+   </url>
+
+   <requires>
+      <import plugin="org.eclipse.help" version="3.2.0" match="compatible"/>
+   </requires>
+
+   <plugin
+         id="org.eclipse.jet.doc"
+         download-size="0"
+         install-size="0"
+         version="0.9.0.v20080522"
+         unpack="false"/>
+
+</feature>

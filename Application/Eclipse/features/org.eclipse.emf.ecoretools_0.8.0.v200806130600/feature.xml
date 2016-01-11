@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Copyright (c) 2007, 2008 Anyware Technologies. All rights reserved. This program
+  and the accompanying materials are made available under the terms of the
+  Eclipse Public License v1.0 which accompanies this distribution, and is
+  available at http://www.eclipse.org/legal/epl-v10.html
+    
+  Contributors: 
+  	   Anyware Technologies - Initial API and implementation
+-->
+<feature
+      id="org.eclipse.emf.ecoretools"
+      label="%featureName"
+      version="0.8.0.v200806130600"
+      provider-name="%providerName"
+      image="modeling32.png">
+
+   <description url="http://www.eclipse.org/modeling/emft/?project=ecoretools">
+      %description
+   </description>
+
+   <copyright url="http://www.eclipse.org/legal/epl-v10.html">
+      Copyright (c) 2007, 2008 Anyware Technologies
+All rights reserved. This program and the accompanying materials
+are made available under the terms of the Eclipse Public License v1.0
+which accompanies this distribution, and is available at
+http://www.eclipse.org/legal/epl-v10.html
+   </copyright>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <url>
+      <update label="%updateSiteName" url="http://www.eclipse.org/modeling/emft/updates/"/>
+      <discovery label="%updateSiteName" url="http://www.eclipse.org/modeling/emft/updates/"/>
+   </url>
+
+   <requires>
+      <import feature="org.eclipse.emf" version="2.4.0"/>
+      <import feature="org.eclipse.emf.ocl" version="1.1.100"/>
+      <import feature="org.eclipse.emf.query" version="1.2.0"/>
+      <import feature="org.eclipse.emf.transaction" version="1.2.0"/>
+      <import feature="org.eclipse.emf.validation" version="1.2.0"/>
+      <import feature="org.eclipse.gef" version="3.4.0"/>
+      <import feature="org.eclipse.gmf" version="1.1.0"/>
+      <import feature="org.eclipse.platform" version="3.4.0"/>
+   </requires>
+
+   <plugin
+         id="org.eclipse.emf.ecoretools"
+         download-size="0"
+         install-size="0"
+         version="0.8.0.v200806130600"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.emf.ecoretools.diagram"
+         download-size="0"
+         install-size="0"
+         version="0.8.0.v200806130600"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.emf.ecoretools.properties"
+         download-size="0"
+         install-size="0"
+         version="0.8.0.v200806130600"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.emf.ecoretools.tabbedproperties"
+         download-size="0"
+         install-size="0"
+         version="0.8.0.v200806130600"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.emf.ecoretools.diagram.ui.outline"
+         download-size="0"
+         install-size="0"
+         version="0.8.0.v200806130600"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.emf.ecoretools.filters"
+         download-size="0"
+         install-size="0"
+         version="0.8.0.v200806130600"
+         unpack="false"/>
+
+</feature>

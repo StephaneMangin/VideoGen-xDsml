@@ -1,0 +1,109 @@
+Signature-Version: 1.0
+SHA1-Digest-Manifest: aU6def84rJb4J9jGGVIAHhdg/1U=
+Created-By: 1.5.0 (IBM Corporation)
+SHA1-Digest-Manifest-Main-Attributes: z9UzUHgKbi1mZcJ+Ur4DeUxRbMA=
+
+Name: src/org.eclipse.xsd.ecore.importer_2.4.0.v200902171115/examples/
+ library/model/libraryPart1.xsd
+SHA1-Digest: swreM4/Ll7Sy+O/Sgua2+tHFgwk=
+
+Name: src/org.eclipse.emf.mapping.xsd2ecore_2.4.0.v200902171115/src.zi
+ p
+SHA1-Digest: zhTtMLrskMXteQw7eUOO1ga7cIg=
+
+Name: src/org.eclipse.emf.mapping.xsd2ecore.editor_2.4.0.v200902171115
+ /about.html
+SHA1-Digest: kIGFRmBNcxD8q0W1OGxBWZCK1z0=
+
+Name: src/org.eclipse.xsd.ecore.importer_2.4.0.v200902171115/readme.ht
+ ml
+SHA1-Digest: 8/6MZOG6tp3v+wjKl9kMbRmDH5Q=
+
+Name: src/org.eclipse.xsd.ecore.importer_2.4.0.v200902171115/examples/
+ library/model/libraryPart2.xsd
+SHA1-Digest: IUq1+8PD6ad2pWu1RO5J+dJU9co=
+
+Name: plugin.xml
+SHA1-Digest: BqMjC6S+iKHiyNJruqmTbMQTOLI=
+
+Name: about.properties
+SHA1-Digest: dMa32cPwUfxtWU1oqLZom7nhqXs=
+
+Name: src/org.eclipse.xsd.ecore.exporter_2.4.0.v200902171115/about.htm
+ l
+SHA1-Digest: 8X/GjRMOJ8j/NRgGvnsNx0ie7Hk=
+
+Name: modeling32.png
+SHA1-Digest: HNz2oYHVqQEUObJQL6sh+Ik2jak=
+
+Name: src/org.eclipse.xsd.ecore.importer_2.4.0.v200902171115/src.zip
+SHA1-Digest: 0FxoskU4ak3awo7BZzRly1niOVo=
+
+Name: about.ini
+SHA1-Digest: mVAmrhORKtx6G9nxKmOS4UDCPJI=
+
+Name: src/org.eclipse.emf.mapping.xsd2ecore_2.4.0.v200902171115/about.
+ html
+SHA1-Digest: 9qokfrT2xNoI2v3Ho+OnhmpU01Q=
+
+Name: src/org.eclipse.xsd.ecore.importer_2.4.0.v200902171115/examples/
+ library/build/codeGenFromMultipleXSD.xml
+SHA1-Digest: 5AgnCFe3KxkqfVhXjfXhSVP3hgc=
+
+Name: plugin.properties
+SHA1-Digest: GdDIETBh5CuJC4EoNuYuJiwcyP0=
+
+Name: META-INF/eclipse.inf
+SHA1-Digest: SAqY+5ITAL0mkdYeijlSRhyIaZk=
+
+Name: src/org.eclipse.xsd.ecore.exporter_2.4.0.v200902171115/src.zip
+SHA1-Digest: L7Ck5WmR49H+6y03/h3EP5vdl24=
+
+Name: src/org.eclipse.xsd.ecore.importer_2.4.0.v200902171115/examples/
+ library/build/codeGenFromXSD.xml
+SHA1-Digest: EBSKNY9djzjKxmRFsGMjPKjxtQc=
+
+Name: src/org.eclipse.xsd_2.4.2.v200902171115/src.zip
+SHA1-Digest: 3oBC0YgItmq56UJUk06umc2Er2Q=
+
+Name: src/org.eclipse.xsd.ecore.importer_2.4.0.v200902171115/examples/
+ library/model/library.xsd
+SHA1-Digest: Qbl8knmGaZzfutBiC0/C6Lw4MXs=
+
+Name: src/org.eclipse.xsd_2.4.2.v200902171115/about.html
+SHA1-Digest: 173X8h8RK94ElGD02g5cVt7DKdE=
+
+Name: src/org.eclipse.xsd.editor_2.4.0.v200902171115/about.html
+SHA1-Digest: g8W3WMe8bDt6GoneccKzPci1uOc=
+
+Name: about.mappings
+SHA1-Digest: CI0BcBaAHSYTmik25SZzJf/aYkQ=
+
+Name: src/org.eclipse.xsd.editor_2.4.0.v200902171115/src.zip
+SHA1-Digest: XY9fbcWKAT5JAggupDdoXQnosIw=
+
+Name: about.html
+SHA1-Digest: ndvVw5+urNOEMhFEsasUKrpQYII=
+
+Name: src/org.eclipse.xsd.edit_2.4.0.v200902171115/src.zip
+SHA1-Digest: nWy1fRSgT9GCSmCqe3g0Oy65JVo=
+
+Name: src/org.eclipse.emf.mapping.xsd2ecore.editor_2.4.0.v200902171115
+ /src.zip
+SHA1-Digest: tETPH690CcUERE1+i3+I/DO0dPg=
+
+Name: src/org.eclipse.xsd.ecore.importer_2.4.0.v200902171115/examples/
+ library/build/codeGenFromXSD.bat
+SHA1-Digest: X4VShFlI6lYRrDAN/1nin+WLf3k=
+
+Name: src/org.eclipse.xsd.edit_2.4.0.v200902171115/about.html
+SHA1-Digest: re2dVEvrSFJXsRAksKkJJFOzIs0=
+
+Name: src/org.eclipse.xsd.ecore.importer_2.4.0.v200902171115/about.htm
+ l
+SHA1-Digest: NeF7sLlJxYmBh5gDzPiNrU5BgnY=
+
+Name: src/org.eclipse.xsd.ecore.importer_2.4.0.v200902171115/ant_tasks
+ /xsd.ecore.importer.taskssrc.zip
+SHA1-Digest: h79g2weeNB5ZruS56OnG50/CewI=
+

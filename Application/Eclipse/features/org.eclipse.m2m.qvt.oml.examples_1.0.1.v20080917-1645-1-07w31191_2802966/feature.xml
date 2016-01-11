@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.eclipse.m2m.qvt.oml.examples"
+      label="%featureName"
+      version="1.0.1.v20080917-1645-1-07w31191_2802966"
+      provider-name="%providerName"
+      plugin="org.eclipse.m2m.qvt.oml.samples"
+      image="eclipse_update_120.jpg">
+
+   <description url="http://www.eclipse.org/modeling/m2m">
+      %description
+   </description>
+
+   <copyright url="http://www.eclipse.org/legal/epl-v10.html">
+      %copyright
+   </copyright>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <requires>
+      <import plugin="org.eclipse.core.runtime"/>
+      <import plugin="org.eclipse.ui.ide"/>
+      <import plugin="org.eclipse.emf.ecore"/>
+      <import plugin="org.eclipse.emf.ecore.xmi"/>
+      <import plugin="org.eclipse.emf.edit.ui"/>
+      <import plugin="org.eclipse.debug.core"/>
+      <import plugin="org.eclipse.m2m.qvt.oml.common"/>
+   </requires>
+
+   <plugin
+         id="org.eclipse.m2m.qvt.oml.samples"
+         download-size="0"
+         install-size="0"
+         version="1.0.1.v20080917-1855"
+         unpack="false"/>
+
+</feature>
