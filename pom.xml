@@ -30,13 +30,13 @@
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.12</version>
+			<version>${junit-version}</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-exec</artifactId>
-            <version>${common-exec-version}</version>
+            		<version>${common-exec-version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.slf4j</groupId>
