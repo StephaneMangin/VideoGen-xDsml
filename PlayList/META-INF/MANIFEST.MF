@@ -9,8 +9,7 @@ Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: PlayList,
  PlayList.util,
- PlayList.impl,
- PlayList.tests
+ PlayList.impl
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  com.google.guava,
