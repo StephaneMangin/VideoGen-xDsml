@@ -1,0 +1,14 @@
+<div ng-app=videogenApp>
+	<div ng-cloak ng-controller="VideoGenController as controller">
+		<div class="row">
+			<div class="col-md-12">
+				<h1>VideoGen</h1>
+				<videogular vg-theme="controller.config.theme">
+					<vg-media
+						vg-src="controller.config.sources">
+					</vg-media>
+				</videogular>
+			</div>
+		</div>
+	</div>
+</div>
