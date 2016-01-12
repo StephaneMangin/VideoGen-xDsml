@@ -10,6 +10,8 @@
 		<tycho-version>0.24.0</tycho-version>
 		<mapasuta-version>1.1</mapasuta-version>
 		<junit-version>4.12</junit-version>
+		<model-target>target/PlayList</model-target>
+		<src-gen-target>src-gen</src-gen-target>
 	</properties>
 
 	<parent>
@@ -27,13 +29,12 @@
 	</dependencies>
 	<build>
 		<finalName>${project.name}</finalName>
+		<sourceDirectory>src</sourceDirectory>
 		<pluginManagement>
 			<plugins>	
 				<!-- xtend-maven-plugin is in pluginManagement instead of in plugins so 
 					that it doesn't run before the exec-maven-plugin's *.mwe2 gen; this way we 
-					can list it after. 
-				From https://www.eclipse.org/Xtext/documentation/350_continuous_integration.html
-				-->
+					can list it after. From https://www.eclipse.org/Xtext/documentation/350_continuous_integration.html -->
 				<plugin>
 					<groupId>org.eclipse.xtend</groupId>
 					<artifactId>xtend-maven-plugin</artifactId>
@@ -44,8 +45,7 @@
 								<goal>compile</goal>
 								<goal>xtend-install-debug-info</goal>
 								<goal>testCompile</goal>
-								<goal>xtend-test-install-debug-info</goal>
-							</goals>
+								<goal>xtend-test-install-debug-info</goal>							</goals>
 						</execution>
 					</executions>
 					<configuration>
@@ -68,10 +68,10 @@
 						<configuration>
 							<filesets>
 								<fileset>
-									<directory>src-gen/</directory>
+									<directory>src-gen</directory>
 								</fileset>
 								<fileset>
-									<directory>xtend-gen/</directory>
+									<directory>xtend-gen</directory>
 								</fileset>
 							</filesets>
 						</configuration>
@@ -88,6 +88,7 @@
 						<include>src/**/*.java</include>
 						<include>src-gen/**/*.java</include>
 						<include>xtend-gen/**/*.java</include>
+						<include>${model-target}/${src-gen-target}/**/*.java</include>
 					</includes>
 				</configuration>
 			</plugin>
@@ -126,23 +127,26 @@
 				<groupId>net.sf.mapasuta.build.maven.plugins</groupId>
 				<artifactId>maven-emfgen-plugin</artifactId>
 				<configuration>
-					<eclipseDir>${basedir}/Application/Eclipse</eclipseDir>
-					<baseName>PlayList Maven Plugin</baseName>
-					<genSrc>src/main/java</genSrc>
-					<genModel>PlayList.genmodel</genModel>
+					<eclipseDir>${basedir}/../Application/Eclipse</eclipseDir>
+					<baseName>PlayList</baseName>
+					<genSrc>${src-gen-target}</genSrc>
+					<genModel>model/PlayList.genmodel</genModel>
 					<metaModels>
-						<metaModel>${basedir}/model/PlayList.ecore</metaModel>
+						<metaModel>model/PlayList.ecore</metaModel>
 					</metaModels>
-					<outputDirectory>${basedir}/target/PlayListmodel</outputDirectory>
-					<workspace>${basedir}/target/workspace</workspace>
+					<outputDirectory>${model-target}</outputDirectory>
+					<workspace>target/workspace</workspace>
 					<packageUris>
-						<packageUri>http://mapasuta.net.sf/ns/test/0.1</packageUri>
+						<packageUri>PlayList</packageUri>
 					</packageUris>
-					<modelProject>playlist-model-plugin</modelProject>
 				</configuration>
-				<goals>
-					<goal>generate</goal>
-				</goals>
+				<executions>
+					<execution>
+						<goals>
+							<goal>genmodel</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>

@@ -10,6 +10,16 @@
 		<relativePath>../</relativePath>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<xtext-version>2.9.1</xtext-version>
+		<tycho-version>0.24.0</tycho-version>
+		<mapasuta-version>1.1</mapasuta-version>
+		<junit-version>4.12</junit-version>
+		<model-target>target/VideoGen</model-target>
+		<src-gen-target>src-gen</src-gen-target>
+	</properties>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.istic.idm.ecore</groupId>
@@ -24,7 +34,31 @@
 	</dependencies>
 	<build>
 		<finalName>${project.name}</finalName>
-		<sourceDirectory>.</sourceDirectory>
+		<sourceDirectory>src</sourceDirectory>
+		<pluginManagement>
+			<plugins>	
+				<!-- xtend-maven-plugin is in pluginManagement instead of in plugins so 
+					that it doesn't run before the exec-maven-plugin's *.mwe2 gen; this way we 
+					can list it after. From https://www.eclipse.org/Xtext/documentation/350_continuous_integration.html -->
+				<plugin>
+					<groupId>org.eclipse.xtend</groupId>
+					<artifactId>xtend-maven-plugin</artifactId>
+					<version>${xtext-version}</version>
+					<executions>
+						<execution>
+							<goals>
+								<goal>compile</goal>
+								<goal>xtend-install-debug-info</goal>
+								<goal>testCompile</goal>
+								<goal>xtend-test-install-debug-info</goal>							</goals>
+						</execution>
+					</executions>
+					<configuration>
+						<outputDirectory>xtend-gen</outputDirectory>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -59,6 +93,7 @@
 						<include>src/**/*.java</include>
 						<include>src-gen/**/*.java</include>
 						<include>xtend-gen/**/*.java</include>
+						<include>${model-target}/${src-gen-target}/**/*.java</include>
 					</includes>
 				</configuration>
 			</plugin>
@@ -88,26 +123,28 @@
 			</plugin>
 			<!-- From http://mapasuta.sourceforge.net/maven/site/maven-emfgen-plugin -->
 			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-maven-plugin</artifactId>
+				<version>${tycho-version}</version>
+				<extensions>true</extensions>
+			</plugin>
+			<plugin>
 				<groupId>net.sf.mapasuta.build.maven.plugins</groupId>
 				<artifactId>maven-emfgen-plugin</artifactId>
 				<configuration>
 					<eclipseDir>${basedir}/../Application/Eclipse</eclipseDir>
-					<baseName>PlayList Maven Plugin</baseName>
-					<genSrc>${basedir}/src/main/java</genSrc>
-					<genModel>VideoGen-auto.genmodel</genModel>
+					<baseName>VideoGen</baseName>
+					<genSrc>${src-gen-target}</genSrc>
+					<genModel>model/generated/VideoGen.genmodel</genModel>
 					<metaModels>
-						<metaModel>${basedir}/model/VideoGen.ecore</metaModel>
+						<metaModel>model/generated/VideoGen.ecore</metaModel>
 					</metaModels>
-					<outputDirectory>${basedir}/target/genmodel</outputDirectory>
-					<workspace>${basedir}/target/workspace</workspace>
+					<outputDirectory>${model-target}</outputDirectory>
+					<workspace>target/workspace</workspace>
 					<packageUris>
 						<packageUri>org.istic.idm.xtext.VideoGen</packageUri>
 					</packageUris>
-					<modelProject>videogen-model-plugin</modelProject>
-					<prefixName>VideoGen</prefixName>
-					<namespaceUri>org.istic.idm.xtext.VideoGen</namespaceUri>
 				</configuration>
-
 				<executions>
 					<execution>
 						<goals>
