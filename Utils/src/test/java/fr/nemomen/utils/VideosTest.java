@@ -1,6 +1,7 @@
 package fr.nemomen.utils;
 
 import com.google.common.collect.Lists;
+import fr.nemomen.utils.SystemHelper;
 import fr.nemomen.utils.VideoCodec;
 import fr.nemomen.utils.Videos;
 import java.io.File;
@@ -17,7 +18,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 @SuppressWarnings("all")
-@Generated(value = "org.eclipse.xtend.core.compiler.XtendGenerator", date = "2016-01-11T23:37+0100")
+@Generated(value = "org.eclipse.xtend.core.compiler.XtendGenerator", date = "2016-01-13T11:45+0100")
 public class VideosTest {
   private final String root = new Function0<String>() {
     public String apply() {
@@ -57,7 +58,7 @@ public class VideosTest {
         String _plus = ((this.root + "thumbnails/") + _replace);
         Path newFile = Paths.get(_plus);
         Path _parent = newFile.getParent();
-        fr.nemomen.utils.System.mkDirs(_parent);
+        SystemHelper.mkDirs(_parent);
         Path _get = Paths.get((this.root + fileName));
         Videos.createThumbnails(_get, newFile);
         File _file = newFile.toFile();
@@ -87,7 +88,7 @@ public class VideosTest {
         String _plus_1 = ((this.root + "converted/") + _replace);
         Path newFile = Paths.get(_plus_1);
         Path _parent = newFile.getParent();
-        fr.nemomen.utils.System.mkDirs(_parent);
+        SystemHelper.mkDirs(_parent);
         Path _get = Paths.get((this.root + fileName));
         Videos.convert(_get, newFile, codec);
         File _file = newFile.toFile();

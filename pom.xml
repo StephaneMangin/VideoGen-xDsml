@@ -10,11 +10,10 @@
 	<modules>
 		<module>Utils</module>
 		<module>PlayList</module>
-		<module>VideoGen</module>
-		<!--module>VideoGen.tests</module -->
-		<module>VideoGen.service</module>
-    </modules>
-
+		<module>org.istic.idm.xtext.videogen</module>
+		<!--module>org.istic.idm.xtext.videogen.tests</module-->
+		<module>WebService</module>
+    	</modules>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<xtext-version>2.9.1</xtext-version>

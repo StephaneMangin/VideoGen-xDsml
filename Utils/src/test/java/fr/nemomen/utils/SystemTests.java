@@ -1,5 +1,6 @@
 package fr.nemomen.utils;
 
+import fr.nemomen.utils.SystemHelper;
 import java.io.File;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -8,12 +9,12 @@ import org.junit.Assert;
 import org.junit.Test;
 
 @SuppressWarnings("all")
-@Generated(value = "org.eclipse.xtend.core.compiler.XtendGenerator", date = "2016-01-11T23:37+0100")
+@Generated(value = "org.eclipse.xtend.core.compiler.XtendGenerator", date = "2016-01-13T11:45+0100")
 public class SystemTests {
   @Test
   public void mkDirsTest() {
     final Path path = Paths.get("resources/oracleDir/oracleDir");
-    fr.nemomen.utils.System.mkDirs(path);
+    SystemHelper.mkDirs(path);
     Path _absolutePath = path.toAbsolutePath();
     String _string = _absolutePath.toString();
     File _file = new File(_string);

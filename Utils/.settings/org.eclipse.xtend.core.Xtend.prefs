@@ -1,11 +1,9 @@
-//outlet.DEFAULT_OUTPUT.sourceFolder.src/main/java.directory=
-//outlet.DEFAULT_OUTPUT.sourceFolder.src/main/java.ignore=
 //outlet.DEFAULT_OUTPUT.sourceFolder.src/main/xtend-gen.directory=
 //outlet.DEFAULT_OUTPUT.sourceFolder.src/main/xtend-gen.ignore=
 //outlet.DEFAULT_OUTPUT.sourceFolder.src/main/xtend.directory=
 //outlet.DEFAULT_OUTPUT.sourceFolder.src/main/xtend.ignore=
-//outlet.DEFAULT_OUTPUT.sourceFolder.src/test/java.directory=
-//outlet.DEFAULT_OUTPUT.sourceFolder.src/test/java.ignore=
+//outlet.DEFAULT_OUTPUT.sourceFolder.src/test/xtend-gen.directory=
+//outlet.DEFAULT_OUTPUT.sourceFolder.src/test/xtend-gen.ignore=
 //outlet.DEFAULT_OUTPUT.sourceFolder.src/test/xtend.directory=
 //outlet.DEFAULT_OUTPUT.sourceFolder.src/test/xtend.ignore=
 BuilderConfiguration.is_project_specific=true

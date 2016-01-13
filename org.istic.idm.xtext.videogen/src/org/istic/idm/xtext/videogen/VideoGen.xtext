@@ -1,0 +1,50 @@
+grammar org.istic.idm.xtext.videogen.VideoGen with org.eclipse.xtext.common.Terminals
+
+generate videoGen "http://www.istic.org/idm/xtext/videogen/VideoGen"
+
+VideoGen:
+	"VideoGen" LEFT_BRACKET
+		statements+=Statement+
+	RIGHT_BRACKET;
+
+Statement:
+	"@Optional" Optional | "@Mandatory"? Mandatory | Alternatives
+	;
+
+Alternatives:
+	"Alternatives" name=ID LEFT_BRACKET
+		options+=Optional+
+	RIGHT_BRACKET;
+
+Mandatory:
+	sequence=Sequence
+;
+
+Optional:
+	("@Probability(" probability=INT ")")?
+	sequence=Sequence
+;
+
+Sequence:
+	"Sequence" name=ID 
+	LEFT_BRACKET (
+		("url="? url=STRING)
+		("description=" description=STRING)? &
+		("length=" length=INT)? &
+		("mimetype=" mimetype=Mimetypes_Enum)?
+	)
+	RIGHT_BRACKET
+;
+
+enum Mimetypes_Enum:
+	none='NONE' |
+	mp4='MP4' |
+	flv='FLV' |
+	mpegts='MPEGTS' |
+	mpeg='MPEG' |
+	webm='WEBM' |
+	wmv='WMV' |
+	avi='AVI';
+	
+terminal LEFT_BRACKET: '{' ; 
+terminal RIGHT_BRACKET: '}';

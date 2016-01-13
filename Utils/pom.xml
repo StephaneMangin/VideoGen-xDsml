@@ -13,7 +13,7 @@
 		<relativePath>../</relativePath>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-		<dependencies>
+	<dependencies>
 		<dependency>
 			<groupId>io.humble</groupId>
 			<artifactId>humble-video-all</artifactId>
@@ -23,7 +23,55 @@
 
 	<build>
 		<finalName>${project.name}</finalName>
+		<pluginManagement>
+			<plugins>
+				<!-- xtend-maven-plugin is in pluginManagement instead of in plugins 
+					so that it doesn't run before the exec-maven-plugin's *.mwe2 gen; this way 
+					we can list it after. From https://www.eclipse.org/Xtext/documentation/350_continuous_integration.html -->
+				<!-- plugin>
+					<groupId>org.eclipse.xtend</groupId>
+					<artifactId>xtend-maven-plugin</artifactId>
+					<version>2.9.1</version>
+					<executions>
+						<execution>
+							<goals>
+								<goal>compile</goal>
+								<goal>xtend-install-debug-info</goal>
+								<goal>testCompile</goal>
+								<goal>xtend-test-install-debug-info</goal>
+							</goals>
+						</execution>
+					</executions>
+					<configuration>
+						<outputDirectory>src/main/java</outputDirectory>
+					</configuration>
+				</plugin-->
+			</plugins>
+		</pluginManagement>
 		<plugins>
+			<!-- plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-clean-plugin</artifactId>
+				<version>2.5</version>
+				<executions>
+					<execution>
+						<phase>clean</phase>
+						<goals>
+							<goal>clean</goal>
+						</goals>
+						<configuration>
+							<filesets>
+								<fileset>
+									<directory>src/main/java</directory>
+								</fileset>
+								<fileset>
+									<directory>src/test/java</directory>
+								</fileset>
+							</filesets>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin-->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>

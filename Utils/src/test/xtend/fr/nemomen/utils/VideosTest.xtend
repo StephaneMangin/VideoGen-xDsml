@@ -29,7 +29,7 @@ class VideosTest {
 	def void createThumbnailsTest() {
 		for (fileName: oracle_file_list) {
 			var newFile = Paths.get(root + "thumbnails/" + fileName.replace('.mp4', '.png'))
-			System.mkDirs(newFile.parent)
+			SystemHelper.mkDirs(newFile.parent)
 			Videos.createThumbnails(
 				Paths.get(root + fileName),
 				newFile
@@ -45,7 +45,7 @@ class VideosTest {
 		val codec = VideoCodec.FLV
 		for (fileName: oracle_file_list) {
 			var newFile = Paths.get(root + "converted/" + fileName.replace('.mp4', '.' + codec.extention))
-			System.mkDirs(newFile.parent)
+			SystemHelper.mkDirs(newFile.parent)
 			Videos.convert(
 				Paths.get(root + fileName),
 				newFile,

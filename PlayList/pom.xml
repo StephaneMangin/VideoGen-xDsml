@@ -4,36 +4,21 @@
 	<name>org.istic.idm.ecore.PlayList</name>
 	<groupId>org.istic.idm.ecore</groupId>
 	<artifactId>PlayList</artifactId>
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<xtext-version>2.9.1</xtext-version>
-		<tycho-version>0.24.0</tycho-version>
-		<mapasuta-version>1.1</mapasuta-version>
-		<junit-version>4.12</junit-version>
-	</properties>
-
 	<parent>
 		<groupId>IDM-Project</groupId>
 		<artifactId>IDM-Project</artifactId>
 		<relativePath>../</relativePath>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<dependencies>
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>${junit-version}</version>
-		</dependency>
-	</dependencies>
 	<build>
-		<finalName>${project.name}</finalName>
+		<finalName>PlayList</finalName>
 		<sourceDirectory>.</sourceDirectory>
 		<pluginManagement>
 			<plugins>
 				<!-- xtend-maven-plugin is in pluginManagement instead of in plugins 
 					so that it doesn't run before the exec-maven-plugin's *.mwe2 gen; this way 
 					we can list it after. From https://www.eclipse.org/Xtext/documentation/350_continuous_integration.html -->
-				<plugin>
+				<!-- plugin>
 					<groupId>org.eclipse.xtend</groupId>
 					<artifactId>xtend-maven-plugin</artifactId>
 					<version>${xtext-version}</version>
@@ -50,11 +35,11 @@
 					<configuration>
 						<outputDirectory>xtend-gen</outputDirectory>
 					</configuration>
-				</plugin>
+				</plugin-->
 			</plugins>
 		</pluginManagement>
 		<plugins>
-			<plugin>
+			<!-- plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-clean-plugin</artifactId>
 				<version>2.5</version>
@@ -76,7 +61,7 @@
 						</configuration>
 					</execution>
 				</executions>
-			</plugin>
+			</plugin-->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -95,10 +80,7 @@
 				<artifactId>maven-assembly-plugin</artifactId>
 				<version>2.4</version>
 				<configuration>
-					<!-- Name of assembled jar with all dependencies -->
 					<finalName>${project.name}-${project.version}</finalName>
-					<!-- Set to false to prevent '-jar-with-dependencies' to be appended 
-						to the file name -->
 					<appendAssemblyId>false</appendAssemblyId>
 					<descriptorRefs>
 						<descriptorRef>jar-with-dependencies</descriptorRef>

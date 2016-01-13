@@ -10,7 +10,7 @@ class SystemTests {
 	@Test
 	def mkDirsTest() {
 		val path = Paths.get("resources/oracleDir/oracleDir")
-		System.mkDirs(path)
+		SystemHelper.mkDirs(path)
 		// toAbsolutePath is mandatory, not absolute which is insufficient
 		assertTrue(new File(path.toAbsolutePath.toString).exists)
 		assertTrue(new File(path.toAbsolutePath.toString).isDirectory)
