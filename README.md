@@ -63,12 +63,25 @@ Before launching the project "Application.java" you have to run some commands
 Once you have executed them, you should able to run the application by right-clicking on "src/main/java/org/istic/idm/xtext/webservice/application.java" and chose to run it as a "java application" on an Eclipse environment.
 
 ##Sources
+
+### Serve static files on a spring controller
+
+[http://stackoverflow.com/questions/5673260/downloading-a-file-from-spring-controllers](http://stackoverflow.com/questions/5673260/downloading-a-file-from-spring-controllers)
+
+### Flowplayer for video playing in HLS
+
+[http://flash.flowplayer.org/documentation/installation/index.html](http://flash.flowplayer.org/documentation/installation/index.html)
+
+### Avconv for videos manipulations, thumbnailing and conversion
+
+[https://doc.ubuntu-fr.org/avconv](https://doc.ubuntu-fr.org/avconv)
+
+### Jhipster tools
+
 [https://www.npmjs.com/](https://www.npmjs.com/)
 
 [http://bower.io/](http://bower.io/)
 
 [http://gruntjs.com/](http://gruntjs.com/)
-
-[https://doc.ubuntu-fr.org/avconv](https://doc.ubuntu-fr.org/avconv)
 
 [https://jhipster.github.io/](https://jhipster.github.io/)
