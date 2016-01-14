@@ -2,6 +2,8 @@ package org.istic.idm.xtext.webservice.web.rest;
 
 import PlayList.PlayList;
 import PlayList.util.PlayListTransform;
+
+import org.apache.commons.io.IOUtils;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.istic.idm.xtext.videogen.VideoGenStandaloneSetup;
@@ -10,17 +12,22 @@ import org.istic.idm.xtext.videogen.utils.VideoGenTransform;
 import org.istic.idm.xtext.videogen.videoGen.Mimetypes_Enum;
 import org.istic.idm.xtext.videogen.videoGen.Sequence;
 import org.istic.idm.xtext.videogen.videoGen.VideoGen;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.imageio.ImageIO;
+import javax.websocket.server.PathParam;
+
 import java.awt.image.BufferedImage;
+import java.awt.image.Raster;
 import java.io.ByteArrayOutputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.file.Path;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -70,11 +77,11 @@ public class FlowplayerResource {
     		method = RequestMethod.POST,
     		produces = MediaType.TEXT_PLAIN_VALUE
     )
-    public @ResponseBody ResponseEntity<?> getCustomPlayList(@PathVariable String ext, @RequestBody Map<String, Boolean> options) {
+    public ResponseEntity<?> getCustomPlayList(@PathVariable String ext, @RequestBody Map<String, Boolean> options) {
     	VideoGenStandaloneSetup.doSetup();
 		VideoGen videogen = (VideoGen) new ResourceSetImpl().getResource(
 			URI.createURI(this.getClass().getResource("/test.vg").toString()), true).getContents().get(0);
-		VideoGenTransform.addMetadata(videogen);
+		videogen = VideoGenTransform.addMetadata(videogen);
 		VideoGenTransform.ConvertTo(Mimetypes_Enum.MPEGTS, videogen);
 
 		Map<String, String> m3uOptions = new HashMap<String, String>();
@@ -85,6 +92,10 @@ public class FlowplayerResource {
 		PlayList playList = VideoGenTransform.toCustomPlayList(videogen, true, options);
 		String result = switchFormat(ext, playList, m3uOptions);
 		
+		// Replace all paths in the playlist by a server one
+		for (Sequence seq: VideoGenHelper.allSequences(videogen)) {
+			result.replaceAll(seq.getUrl(), "/static/videos/" + seq.getName());
+		}
 		if (result.equals("")) {
 			return new ResponseEntity<>("Error when loading file.", HttpStatus.INTERNAL_SERVER_ERROR);
 		}
@@ -96,11 +107,13 @@ public class FlowplayerResource {
     		method = RequestMethod.GET,
     		produces = MediaType.TEXT_PLAIN_VALUE
     )
-    public @ResponseBody ResponseEntity<?> getPlayList(@PathVariable String ext) {
+    public ResponseEntity<?> getPlayList(@PathVariable String ext) throws Exception {
+    	ResponseEntity<?> response = null;
+
     	VideoGenStandaloneSetup.doSetup();
 		VideoGen videogen = (VideoGen) new ResourceSetImpl().getResource(
 			URI.createURI(this.getClass().getResource("/test.vg").toString()), true).getContents().get(0);
-		VideoGenTransform.addMetadata(videogen);
+		videogen = VideoGenTransform.addMetadata(videogen);
 		VideoGenTransform.ConvertTo(Mimetypes_Enum.MPEGTS, videogen);
 		
 		Map<String, String> m3uOptions = new HashMap<String, String>();
@@ -110,11 +123,17 @@ public class FlowplayerResource {
 		
 		PlayList playList = VideoGenTransform.toPlayList(videogen, true);
 		String result = switchFormat(ext, playList, m3uOptions);
-		
-		if (result.equals("")) {
-			return new ResponseEntity<>("Error when loading file.", HttpStatus.INTERNAL_SERVER_ERROR);
+
+		// Replace all paths in the playlist by a server one
+		for (Sequence seq: VideoGenHelper.allSequences(videogen)) {
+			result = result.replaceAll(seq.getUrl(), "/static/videos/" + seq.getName());
 		}
-		return new ResponseEntity<String>(result, HttpStatus.OK);
+		if (result.equals("")) {
+			response = new ResponseEntity<>("Error when loading file.", HttpStatus.INTERNAL_SERVER_ERROR);
+		} else {
+			response = new ResponseEntity<String>(result, HttpStatus.OK);
+		}
+		return response;
     }
 
     @RequestMapping(
@@ -123,7 +142,9 @@ public class FlowplayerResource {
     		headers = "application/x-mpegts",
     		produces = MediaType.APPLICATION_OCTET_STREAM_VALUE
     )
-    public @ResponseBody ResponseEntity<?> getVideos(@PathVariable String videoName) {
+    public ResponseEntity<?> getVideos(@PathVariable String videoName) {
+    	ResponseEntity<?> response = new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    	
     	VideoGenStandaloneSetup.doSetup();
 		VideoGen videogen = (VideoGen) new ResourceSetImpl().getResource(
 			URI.createURI(this.getClass().getResource("/test.vg").toString()), true).getContents().get(0);
@@ -135,41 +156,41 @@ public class FlowplayerResource {
 				try {
 					inputStream = new FileInputStream(sequence.getUrl());
 					byte[]out=org.apache.commons.io.IOUtils.toByteArray(inputStream);
-					return new ResponseEntity<byte[]>(out, HttpStatus.OK);
+					response = new ResponseEntity<byte[]>(out, HttpStatus.OK);
+					break;
 				} catch (IOException e) {
-					return new ResponseEntity<>("Error when loading file.", HttpStatus.INTERNAL_SERVER_ERROR);
+					response = new ResponseEntity<>("Error when loading file.", HttpStatus.INTERNAL_SERVER_ERROR);
 				}
 			}
 		}
-		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		return response;
     }
 
     @RequestMapping(
-    		value = "/thumbnails/{videoName}",
+    		value = "/thumbnails/{videoName}.png",
     		method = RequestMethod.GET,
     		produces = MediaType.IMAGE_PNG_VALUE
     )
-    public @ResponseBody ResponseEntity<?> getThumbnail(@PathVariable String videoName) {
+    public ResponseEntity<byte[]> getThumbnail(@PathVariable String videoName) throws IOException {
+    	ResponseEntity<byte[]> response = new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    	
     	VideoGenStandaloneSetup.doSetup();
 		VideoGen videogen = (VideoGen) new ResourceSetImpl().getResource(
 			URI.createURI(this.getClass().getResource("/test.vg").toString()), true).getContents().get(0);
 
+		System.out.println("########################" + videoName + "#######################");
 		for (Sequence sequence: VideoGenHelper.allSequences(videogen)) {
-			System.out.println(sequence.getName());
 			if (sequence.getName().equals(videoName)) {
-				System.out.println("OK");
-				java.nio.file.Path image = VideoGenTransform.createThumbnails(sequence);
+				Path image = VideoGenTransform.createThumbnails(sequence);
 				InputStream inputStream = this.getClass().getResourceAsStream(image.toAbsolutePath().toString());
-				try {
-		            BufferedImage bufferedImage = ImageIO.read(inputStream);
-		            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-					ImageIO.write( bufferedImage  , "png", byteArrayOutputStream);
-					return new ResponseEntity<byte[]>(byteArrayOutputStream.toByteArray(), HttpStatus.OK);
-				} catch (IOException e) {
-					return new ResponseEntity<>("Error when loading file.", HttpStatus.INTERNAL_SERVER_ERROR);
-				}
+				byte[] imageBytes = IOUtils.toByteArray(inputStream);
+				
+				HttpHeaders headers = new HttpHeaders();
+				headers.setContentType(MediaType.IMAGE_PNG);
+				headers.setContentLength(imageBytes.length);
+				response = new ResponseEntity<byte[]>(imageBytes, HttpStatus.OK);
 			}
 		}
-		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		return response;
     }
 }

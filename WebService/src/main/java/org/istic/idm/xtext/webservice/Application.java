@@ -1,5 +1,6 @@
 package org.istic.idm.xtext.webservice;
 
+import org.apache.commons.io.FileUtils;
 import org.istic.idm.xtext.webservice.config.Constants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,9 +12,17 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.core.env.Environment;
 import org.springframework.core.env.SimpleCommandLinePropertySource;
 
+import javassist.NotFoundException;
+
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.Arrays;
@@ -58,11 +67,19 @@ public class Application {
             }
         }
     }
-
+    
     /**
      * Main method, used to run the application.
+     * @throws NotFoundException 
      */
-    public static void main(String[] args) throws UnknownHostException {
+    public static void main(String[] args) throws UnknownHostException, NotFoundException {
+    	
+    	// Copy all videos in tmp folder
+    	File destDir = new File("/tmp/VideoGen");
+    	if (!destDir.isDirectory() && !destDir.exists()) {
+    		throw new NotFoundException("Please copy and rename the folder 'videos' inside '/src/main/resources' into '/tmp/VideoGen'.");
+    	}
+    	
         SpringApplication app = new SpringApplication(Application.class);
         app.setShowBanner(false);
         SimpleCommandLinePropertySource source = new SimpleCommandLinePropertySource(args);
