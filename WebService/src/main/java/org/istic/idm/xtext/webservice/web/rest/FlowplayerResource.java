@@ -46,38 +46,75 @@ public class FlowplayerResource {
 //		return new ResponseEntity(VideoGenTransform.toJson(videogen), HttpStatus.OK);
 //    }
 
-    @RequestMapping(
-    		value = "/custom_playlist.m3u8",
+	private String switchFormat(String ext, PlayList playList, Map<String, String> options) {
+		String result = "";
+		switch (ext) {
+			case "text":
+				result = PlayListTransform.toFFMPEG(playList);
+				break;
+			case "m3u":
+				result = PlayListTransform.toM3U(playList);
+				break;
+			case "m3u8":
+				result = PlayListTransform.toM3U(playList, true, true, options);
+				break;
+			case "pls":
+				result = PlayListTransform.toPLS(playList);
+				break;
+		}
+		return result;
+	}
+	
+     @RequestMapping(
+    		value = "/custom.{ext}",
     		method = RequestMethod.POST,
     		produces = MediaType.TEXT_PLAIN_VALUE
     )
-    public @ResponseBody ResponseEntity<?> getCustomPlayList(@RequestBody Map<String, Boolean> options) {
+    public @ResponseBody ResponseEntity<?> getCustomPlayList(@PathVariable String ext, @RequestBody Map<String, Boolean> options) {
     	VideoGenStandaloneSetup.doSetup();
 		VideoGen videogen = (VideoGen) new ResourceSetImpl().getResource(
 			URI.createURI(this.getClass().getResource("/test.vg").toString()), true).getContents().get(0);
 		VideoGenTransform.addMetadata(videogen);
 		VideoGenTransform.ConvertTo(Mimetypes_Enum.MPEGTS, videogen);
+
+		Map<String, String> m3uOptions = new HashMap<String, String>();
+		m3uOptions.put("BANDWITH", "684383");
+		m3uOptions.put("CODECS", "avc1.66.30,mp4a.40.2");
+		m3uOptions.put("RESOLUTION", "640x360");
+		
 		PlayList playList = VideoGenTransform.toCustomPlayList(videogen, true, options);
-		return new ResponseEntity<String>(PlayListTransform.toM3U(playList, true, true), HttpStatus.OK);
+		String result = switchFormat(ext, playList, m3uOptions);
+		
+		if (result.equals("")) {
+			return new ResponseEntity<>("Error when loading file.", HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+		return new ResponseEntity<String>(result, HttpStatus.OK);
     }
 
     @RequestMapping(
-    		value = "/playlist.m3u8",
+    		value = "/playlist.{ext}",
     		method = RequestMethod.GET,
     		produces = MediaType.TEXT_PLAIN_VALUE
     )
-    public @ResponseBody ResponseEntity<?> getPlayList() {
+    public @ResponseBody ResponseEntity<?> getPlayList(@PathVariable String ext) {
     	VideoGenStandaloneSetup.doSetup();
 		VideoGen videogen = (VideoGen) new ResourceSetImpl().getResource(
 			URI.createURI(this.getClass().getResource("/test.vg").toString()), true).getContents().get(0);
 		VideoGenTransform.addMetadata(videogen);
 		VideoGenTransform.ConvertTo(Mimetypes_Enum.MPEGTS, videogen);
+		
+		Map<String, String> m3uOptions = new HashMap<String, String>();
+		m3uOptions.put("BANDWITH", "684383");
+		m3uOptions.put("CODECS", "avc1.66.30,mp4a.40.2");
+		m3uOptions.put("RESOLUTION", "640x360");
+		
 		PlayList playList = VideoGenTransform.toPlayList(videogen, true);
-		Map<String, String> options = new HashMap<String, String>();
-		options.put("BANDWITH", "684383");
-		options.put("CODECS", "avc1.66.30,mp4a.40.2");
-		options.put("RESOLUTION", "640x360");
-		return new ResponseEntity<String>(PlayListTransform.toM3U(playList, true, true, options), HttpStatus.OK);
+		String result = switchFormat(ext, playList, m3uOptions);
+		
+		if (result.equals("")) {
+			return new ResponseEntity<>("Error when loading file.", HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+		return new ResponseEntity<String>(result, HttpStatus.OK);
     }
 
     @RequestMapping(

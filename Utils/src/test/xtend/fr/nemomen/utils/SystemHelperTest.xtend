@@ -5,7 +5,7 @@ import java.nio.file.Paths
 import org.junit.Test
 import static org.junit.Assert.*
 
-class SystemTests {
+class SystemHelperTests {
 
 	@Test
 	def mkDirsTest() {

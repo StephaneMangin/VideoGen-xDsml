@@ -9,8 +9,8 @@ import org.junit.Assert;
 import org.junit.Test;
 
 @SuppressWarnings("all")
-@Generated(value = "org.eclipse.xtend.core.compiler.XtendGenerator", date = "2016-01-13T11:45+0100")
-public class SystemTests {
+@Generated(value = "org.eclipse.xtend.core.compiler.XtendGenerator", date = "2016-01-14T19:24+0100")
+public class SystemHelperTests {
   @Test
   public void mkDirsTest() {
     final Path path = Paths.get("resources/oracleDir/oracleDir");

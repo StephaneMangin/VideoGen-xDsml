@@ -1,86 +1,23 @@
 package fr.nemomen.utils;
 
-import com.google.common.base.Objects;
 import fr.nemomen.utils.Executor;
 import fr.nemomen.utils.VideoCodec;
-import io.humble.video.Decoder;
-import io.humble.video.Demuxer;
-import io.humble.video.DemuxerFormat;
-import io.humble.video.DemuxerStream;
-import io.humble.video.Global;
-import io.humble.video.MediaDescriptor;
 import java.nio.file.Path;
+import java.time.LocalTime;
 import java.util.List;
 import javax.annotation.Generated;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.xbase.lib.Conversions;
-import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.ListExtensions;
 
 /**
  * @author Stéphane Mangin <stephane.mangin@freesbee.fr>
  */
 @SuppressWarnings("all")
-@Generated(value = "org.eclipse.xtend.core.compiler.XtendGenerator", date = "2016-01-13T11:30+0100")
+@Generated(value = "org.eclipse.xtend.core.compiler.XtendGenerator", date = "2016-01-14T19:24+0100")
 public class Videos extends Executor {
-  private static Demuxer getDemuxer(final Path path) {
-    try {
-      Demuxer _xblockexpression = null;
-      {
-        final Demuxer demuxer = Demuxer.make();
-        Path _absolutePath = path.toAbsolutePath();
-        String _string = _absolutePath.toString();
-        demuxer.open(_string, null, false, true, null, null);
-        _xblockexpression = demuxer;
-      }
-      return _xblockexpression;
-    } catch (Throwable _e) {
-      throw Exceptions.sneakyThrow(_e);
-    }
-  }
-  
-  private static Decoder getDecoder(final Path fullPath) {
-    try {
-      Decoder _xblockexpression = null;
-      {
-        final Demuxer demuxer = Videos.getDemuxer(fullPath);
-        final int numStreams = demuxer.getNumStreams();
-        int videoStreamId = (-1);
-        long streamStartTime = Global.NO_PTS;
-        Decoder videoDecoder = null;
-        for (int i = 0; (i < numStreams); i++) {
-          {
-            final DemuxerStream stream = demuxer.getStream(i);
-            long _startTime = stream.getStartTime();
-            streamStartTime = _startTime;
-            Decoder decoder = stream.getDecoder();
-            boolean _and = false;
-            boolean _notEquals = (!Objects.equal(decoder, null));
-            if (!_notEquals) {
-              _and = false;
-            } else {
-              MediaDescriptor.Type _codecType = decoder.getCodecType();
-              boolean _equals = Objects.equal(_codecType, MediaDescriptor.Type.MEDIA_VIDEO);
-              _and = _equals;
-            }
-            if (_and) {
-              videoStreamId = i;
-              videoDecoder = decoder;
-            }
-          }
-        }
-        if ((videoStreamId == (-1))) {
-          throw new RuntimeException(("could not find video stream in container: " + fullPath));
-        }
-        _xblockexpression = videoDecoder;
-      }
-      return _xblockexpression;
-    } catch (Throwable _e) {
-      throw Exceptions.sneakyThrow(_e);
-    }
-  }
-  
   /**
    * Create a thumbnail from the given video to the given path
    * 
@@ -131,19 +68,35 @@ public class Videos extends Executor {
   public static VideoCodec getMimeType(final Path fullPath) {
     VideoCodec _xblockexpression = null;
     {
-      final Demuxer demuxer = Videos.getDemuxer(fullPath);
-      DemuxerFormat _format = demuxer.getFormat();
-      String _string = _format.toString();
-      String[] _split = _string.split(",");
-      for (final String mt : _split) {
-        VideoCodec[] _values = VideoCodec.values();
-        final Function1<VideoCodec, String> _function = (VideoCodec mte) -> {
-          return mte.format();
-        };
-        List<String> _map = ListExtensions.<VideoCodec, String>map(((List<VideoCodec>)Conversions.doWrapArray(_values)), _function);
-        boolean _contains = _map.contains(mt);
-        if (_contains) {
-          return VideoCodec.getByFormat(mt);
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("avconv -i \"");
+      _builder.append(fullPath, "");
+      _builder.append("\"");
+      String cmd = _builder.toString();
+      Executor.ExecResult result = Executor.execCmd(cmd, 0);
+      Executor.processResult(result);
+      List<String> _lines = result.getLines();
+      final Function1<String, Boolean> _function = (String it) -> {
+        return Boolean.valueOf(it.contains((("\'" + fullPath) + "\'")));
+      };
+      final Iterable<String> durationPattern = IterableExtensions.<String>filter(_lines, _function);
+      int _size = IterableExtensions.size(durationPattern);
+      boolean _greaterThan = (_size > 0);
+      if (_greaterThan) {
+        String _get = ((String[])Conversions.unwrapArray(durationPattern, String.class))[0];
+        String[] _split = _get.split(" ");
+        String _get_1 = _split[2];
+        String[] tmpResult = _get_1.split(",");
+        for (final String mt : tmpResult) {
+          VideoCodec[] _values = VideoCodec.values();
+          final Function1<VideoCodec, String> _function_1 = (VideoCodec mte) -> {
+            return mte.format();
+          };
+          List<String> _map = ListExtensions.<VideoCodec, String>map(((List<VideoCodec>)Conversions.doWrapArray(_values)), _function_1);
+          boolean _contains = _map.contains(mt);
+          if (_contains) {
+            return VideoCodec.getByFormat(mt);
+          }
         }
       }
       _xblockexpression = VideoCodec.NONE;
@@ -159,9 +112,34 @@ public class Videos extends Executor {
   public static int getDuration(final Path fullPath) {
     int _xblockexpression = (int) 0;
     {
-      final Demuxer demuxer = Videos.getDemuxer(fullPath);
-      long _duration = demuxer.getDuration();
-      _xblockexpression = (((int) _duration) / 1000000);
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("avconv -i \"");
+      _builder.append(fullPath, "");
+      _builder.append("\" 2>&1");
+      String cmd = _builder.toString();
+      Executor.ExecResult result = Executor.execCmd(cmd, 1);
+      Executor.processResult(result);
+      List<String> _lines = result.getLines();
+      final Function1<String, Boolean> _function = (String it) -> {
+        return Boolean.valueOf(it.contains("Duration"));
+      };
+      final Iterable<String> durationPattern = IterableExtensions.<String>filter(_lines, _function);
+      int duration = 0;
+      int _size = IterableExtensions.size(durationPattern);
+      boolean _greaterThan = (_size > 0);
+      if (_greaterThan) {
+        String _get = ((String[])Conversions.unwrapArray(durationPattern, String.class))[0];
+        String[] _split = _get.split(" ");
+        String _get_1 = _split[3];
+        String tmpResult = _get_1.replace(",", "");
+        final LocalTime repr = LocalTime.parse(tmpResult);
+        int _minute = repr.getMinute();
+        int _multiply = (_minute * 60);
+        int _second = repr.getSecond();
+        int _plus = (_multiply + _second);
+        duration = _plus;
+      }
+      _xblockexpression = duration;
     }
     return _xblockexpression;
   }

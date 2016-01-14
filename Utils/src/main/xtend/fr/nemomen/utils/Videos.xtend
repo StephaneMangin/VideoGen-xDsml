@@ -1,55 +1,14 @@
 package fr.nemomen.utils
 
-import io.humble.video.Decoder
-import io.humble.video.Demuxer
-import io.humble.video.Global
-import io.humble.video.MediaDescriptor
 import java.nio.file.Path
+import java.time.LocalTime
 
 /** 
  * @author Stéphane Mangin <stephane.mangin@freesbee.fr>
  * 
  */
 public class Videos extends Executor {
-  	
-  	def private static Demuxer getDemuxer(Path path) {
-  		// A Demuxer opens up media containers, parses  and de-multiplexes the streams
-    	// of media data without those containers.
-    	val demuxer = Demuxer.make
-    	// We open the demuxer by pointing it at a URL.
-    	demuxer.open(path.toAbsolutePath.toString, null, false, true, null, null)
-    	demuxer
-  	}
-  	
-  	def static private Decoder getDecoder(Path fullPath) {
-  		val demuxer = getDemuxer(fullPath)
-	
-	    /*
-	     * Query how many streams the call to open found
-	     */
-	    val numStreams = demuxer.getNumStreams();
-	
-	    /*
-	     * Iterate through the streams to find the first video stream
-	     */
-	    var videoStreamId = -1
-	    var streamStartTime = Global.NO_PTS
-	    var Decoder videoDecoder = null
-	    for(var i = 0; i < numStreams; i++)
-	    {
-	      val stream = demuxer.getStream(i)
-	      streamStartTime = stream.startTime
-	      var decoder = stream.decoder
-	      if (decoder != null && decoder.getCodecType() == MediaDescriptor.Type.MEDIA_VIDEO) {
-	        videoStreamId = i
-	        videoDecoder = decoder
-	      }
-	    }
-	    if (videoStreamId == -1)
-	    	throw new RuntimeException("could not find video stream in container: " + fullPath);
-	    videoDecoder
-  	}
-  
+  	 
 	/**
 	 * Create a thumbnail from the given video to the given path
 	 * 
@@ -82,10 +41,17 @@ public class Videos extends Executor {
 	 * @author Stéphane Mangin <stephane.mangin@freesbee.fr>
 	 */
 	def static VideoCodec getMimeType(Path fullPath) {
-		val demuxer = getDemuxer(fullPath)
-    	for (mt: demuxer.format.toString.split(",")) {
-			if (VideoCodec.values.map[mte | mte.format].contains(mt)) {
-				return VideoCodec.getByFormat(mt)
+ 		//var cmd = '''avconv -i "«fullPath»" 2>&1 | grep "«fullPath»"| cut -d ' ' -f 3'''
+		var cmd = '''avconv -i "«fullPath»"'''
+		var ExecResult result = execCmd(cmd, 0)
+		processResult(result)
+		val durationPattern = result.lines.filter[contains("'" + fullPath + "'")]
+		if (durationPattern.size > 0) {
+			var tmpResult = durationPattern.get(0).split(" ").get(2).split(",")
+			for (mt: tmpResult) {
+				if (VideoCodec.values.map[mte | mte.format].contains(mt)) {
+					return VideoCodec.getByFormat(mt)
+				}
 			}
 		}
 		VideoCodec.NONE
@@ -97,8 +63,18 @@ public class Videos extends Executor {
 	 * @author Stéphane Mangin <stephane.mangin@freesbee.fr>
 	 */
 	def static int getDuration(Path fullPath) {
-		val demuxer = getDemuxer(fullPath)
-		(demuxer.duration as int) / 1000000
+		//var cmd = '''avconv -i "«fullPath»" 2>&1 | grep "Duration"| cut -d ' ' -f 4 | sed s/,// | sed 's@\..*@@g' | awk '{ split($1, A, ":"); split(A[3], B, "."); print 3600*A[1] + 60*A[2] + B[1] }' '''
+		var cmd = '''avconv -i "«fullPath»" 2>&1'''
+		var result = execCmd(cmd, 1)
+		processResult(result)
+		val durationPattern = result.lines.filter[contains("Duration")]
+		var duration = 0
+		if (durationPattern.size > 0) {
+			var tmpResult = durationPattern.get(0).split(" ").get(3).replace(',', '')
+			val repr = LocalTime.parse(tmpResult)
+			duration = repr.minute * 60 + repr.second
+		}
+		duration
 	}
 	
 }
