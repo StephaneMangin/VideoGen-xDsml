@@ -56,7 +56,7 @@ public class FlowplayerResource {
 //		return new ResponseEntity(VideoGenTransform.toJson(videogen), HttpStatus.OK);
 //    }
 
-	private String switchFormat(String ext, PlayList playList, Map<String, String> options) {
+	private String generateFormat(String ext, PlayList playList) {
 		String result = "";
 		switch (ext) {
 			case "text":
@@ -66,7 +66,11 @@ public class FlowplayerResource {
 				result = PlayListTransform.toM3U(playList);
 				break;
 			case "m3u8":
-				result = PlayListTransform.toM3U(playList, true, true, options);
+				Map<String, String> m3uOptions = new HashMap<String, String>();
+				m3uOptions.put("BANDWITH", "684383");
+				m3uOptions.put("CODECS", "avc1.66.30,mp4a.40.2");
+				m3uOptions.put("RESOLUTION", "640x360");
+				result = PlayListTransform.toM3U(playList, true, true, m3uOptions);
 				break;
 			case "pls":
 				result = PlayListTransform.toPLS(playList);
@@ -87,13 +91,9 @@ public class FlowplayerResource {
 		videogen = VideoGenTransform.addMetadata(videogen);
 		VideoGenTransform.ConvertTo(Mimetypes_Enum.MPEGTS, videogen);
 
-		Map<String, String> m3uOptions = new HashMap<String, String>();
-		m3uOptions.put("BANDWITH", "684383");
-		m3uOptions.put("CODECS", "avc1.66.30,mp4a.40.2");
-		m3uOptions.put("RESOLUTION", "640x360");
 		
 		PlayList playList = VideoGenTransform.toCustomPlayList(videogen, true, options);
-		String result = switchFormat(ext, playList, m3uOptions);
+		String result = generateFormat(ext, playList);
 
 		// Replace all paths in the playlist by a server one
 		for (Sequence seq: VideoGenHelper.allSequences(videogen)) {
@@ -118,14 +118,9 @@ public class FlowplayerResource {
 			URI.createURI(this.getClass().getResource("/test.vg").toString()), true).getContents().get(0);
 		videogen = VideoGenTransform.addMetadata(videogen);
 		VideoGenTransform.ConvertTo(Mimetypes_Enum.MPEGTS, videogen);
-		
-		Map<String, String> m3uOptions = new HashMap<String, String>();
-		m3uOptions.put("BANDWITH", "684383");
-		m3uOptions.put("CODECS", "avc1.66.30,mp4a.40.2");
-		m3uOptions.put("RESOLUTION", "640x360");
-		
+				
 		PlayList playList = VideoGenTransform.toPlayList(videogen, true);
-		String result = switchFormat(ext, playList, m3uOptions);
+		String result = generateFormat(ext, playList);
 
 		// Replace all paths in the playlist by a server one
 		for (Sequence seq: VideoGenHelper.allSequences(videogen)) {
