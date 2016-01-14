@@ -1,7 +1,8 @@
 # IDM-Project [![Build Status](https://travis-ci.org/StephaneMangin/IDM-Project.svg)](https://travis-ci.org/StephaneMangin/IDM-Project)
 
-Toutes les transformations se trouvent dans les packages ``Utils`` respectifs des différents modèles.
+All the model's tranformations are located inside the ``utils`` package of models project respectively.
 
+For VideoGen transformations, a specific project has been created to abstract the core API from the video technical treatments. We use avcon to perfomrs such manipulations. It as the benefits to 
 Pour les transformations VideoGen, un projet spécifique a été créé pour abstraire la partie métier de la partie technique du traitement vidéo (Utilise avconv et la librairie humble video), ce qui améliore la maintenabilité des différentes préoccupations.
 
 Pour les transformations model to text depuis le modèle PlayList, chaque type de 'fichier' est généré par une méthode  (toPLS, toM3u, ...).
