@@ -1,6 +1,8 @@
 package org.istic.idm.xtext.webservice;
 
 import org.apache.commons.io.FileUtils;
+import org.h2.util.IOUtils;
+import org.hibernate.validator.internal.util.privilegedactions.GetClassLoader;
 import org.istic.idm.xtext.webservice.config.Constants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
