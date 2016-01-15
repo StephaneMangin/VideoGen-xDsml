@@ -30,7 +30,7 @@ Jhipster integration allows a customized REST API to access each entity (see [Fl
       - Explanation on the customization functionality:
          - the __key__ of the GET param is the sequence name
          - __false__ removes an Optional (included by default)
-         - __true__ forces an alternatives' sequence (the first encountered one takes priority)
+         - __true__ forces an alternatives' sequence (the last encountered one takes priority)
 
 ##Project requirement
 *The whole project has been developped with the operating system Ubuntu 14.04*
