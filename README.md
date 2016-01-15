@@ -19,15 +19,13 @@ Jhipster integration allows a REST access to each entity :
  - http://localhost:8080/static
     - ``/thumbnails/{name of the sequence}.png``
     - ``/videos/{name of the sequence}.ts``
-    - ``/playlist.{extention}`` where extention can be *m3u8*, *pls* or *m3u*, it is regenerated on demand.
+    - ``/random.{extention}`` where extention can be *m3u8*, *pls* or *m3u*, it is regenerated on demand.
+    - ``/custom.{extention}?sequence_name1=false$sequence_name2=true`` where extention can be *m3u8*, *pls* or *m3u*, it is regenerated on demand and with GET params to control which sequence has to be choosen.
 
-On demand custom playlist allows to give options to select specific sequences through POST request on ``/custom.{extention}``.
-
-*Example of configuration :*
- ``{
- 	  		"sequence_name1": false, // A Optional to remove (included by default)
- 	  		"sequence_name2": true // A alternatives option to force (the first encountered one takes priority)
- 	 }``
+Explanation on the customization functionality:
+  - the __key__ of the GET param is the sequence name
+  - __false__ removes an Optional (included by default)
+  - __true__ forces an alternatives' sequence (the first encountered one takes priority)
 
 ##Project requirement
 *The whole project has been developped with the operating system Ubuntu 14.04*
