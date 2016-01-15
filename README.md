@@ -109,12 +109,3 @@ No solution were found, flushing .m2 maven repository, reinstalling eclipse and 
 
 [https://doc.ubuntu-fr.org/avconv](https://doc.ubuntu-fr.org/avconv)
 
-### Jhipster tools
-
-[https://www.npmjs.com/](https://www.npmjs.com/)
-
-[http://bower.io/](http://bower.io/)
-
-[http://gruntjs.com/](http://gruntjs.com/)
-
-[https://jhipster.github.io/](https://jhipster.github.io/)
