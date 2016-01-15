@@ -20,7 +20,7 @@ import javax.json.JsonObjectBuilder
  */
 class VideoGenSerializer {
 		
-	private var JsonObjectBuilder object
+	private val JsonObjectBuilder object
 	
 	new () {
 		object = Json.createObjectBuilder()
@@ -33,13 +33,11 @@ class VideoGenSerializer {
 	 * @return StringBuilder
 	 */
 	def compile(VideoGen v) {
-		val tmp = object
-		object = Json.createObjectBuilder()
-		tmp.add("VideoGen", object)
+		val node = Json.createObjectBuilder()
 		for (e : v.statements) {
-			e.compile()
+			e.compile(node)
 		}
-		object = tmp
+		object.add("VideoGen", node)
 		object.build
 	}
 
@@ -49,15 +47,15 @@ class VideoGenSerializer {
 	 * @param v VideoGen
 	 * @return StringBuilder
 	 */
-	private def void compile(Statement s) {
+	private def void compile(Statement s, JsonObjectBuilder node) {
 		if (s instanceof Mandatory) {
-			s.compile()
+			s.compile(node)
 		}
 		else if (s instanceof Optional) {
-			s.compile()
+			s.compile(node)
 		}
 		else if (s instanceof Alternatives) {
-			s.compile()
+			s.compile(node)
 		}
 
 	}
@@ -68,12 +66,10 @@ class VideoGenSerializer {
 	 * @param m Mandatory
 	 * @return StringBuilder
 	 */
-	private def void compile(Mandatory m) {
-		val tmp = object
-		object = Json.createObjectBuilder
-		m.sequence.compile()
-		tmp.add("Mandatory", object.build)
-		object = tmp
+	private def void compile(Mandatory m, JsonObjectBuilder node) {
+		val newnode = Json.createObjectBuilder
+		m.sequence.compile(newnode)
+		node.add("Mandatory", newnode)
 	}
 
 	/**
@@ -82,17 +78,15 @@ class VideoGenSerializer {
 	 * @param o Optional
 	 * @return StringBuilder
 	 */
-	private def void compile(Optional o) {
-		val tmp = object
-		object = Json.createObjectBuilder
+	private def void compile(Optional o, JsonObjectBuilder node) {
+		val newnode = Json.createObjectBuilder
+		o.sequence.compile(newnode)
 		var proba = 50
 		if (o.probability != 0) {
 			proba = o.probability
 		}
-		object.add("probability", proba)
-		o.sequence.compile()
-		tmp.add("Optional", object.build)
-		object = tmp
+		newnode.add("probability", proba)
+		node.add("Optional", newnode)
 	}
 
 	/**
@@ -101,14 +95,12 @@ class VideoGenSerializer {
 	 * @param a Alternatives
 	 * @return StringBuilder
 	 */
-	private def void compile(Alternatives a) {
-		val tmp = object
-		object = Json.createObjectBuilder
+	private def void compile(Alternatives a, JsonObjectBuilder node) {
+		val newnode = Json.createObjectBuilder
 		a.options.forEach [ o |
-			o.sequence.compile()
+			o.sequence.compile(newnode)
 		]
-		tmp.add("Alternatives", object.build)
-		object = tmp
+		node.add("Alternatives", newnode)
 	}
 
 	/**
@@ -117,11 +109,11 @@ class VideoGenSerializer {
 	 * @param s Sequence
 	 * @return StringBuilder
 	 */
-	private def void compile(Sequence s) {
-		object.add("url", s.url)
-		object.add("description", s.description)
-		object.add("length", s.length)
-		object.add("mimetype", s.mimetype.literal)
+	private def void compile(Sequence s, JsonObjectBuilder node) {
+		node.add("url", s.url)
+		node.add("description", s.description)
+		node.add("length", s.length)
+		node.add("mimetype", s.mimetype.literal)
 	}
 			
 }
