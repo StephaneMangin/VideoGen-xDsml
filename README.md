@@ -109,7 +109,7 @@ No solution were found, flushing .m2 maven repository, reinstalling eclipse and 
 
 [https://doc.ubuntu-fr.org/avconv](https://doc.ubuntu-fr.org/avconv)
 
-## Xtext CI
+### Xtext CI
 
 [http://mapasuta.sourceforge.net/maven/site/maven-emfgen-plugin/dependencies.html](http://mapasuta.sourceforge.net/maven/site/maven-emfgen-plugin/dependencies.html)
 
