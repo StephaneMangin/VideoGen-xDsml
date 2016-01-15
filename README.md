@@ -7,9 +7,9 @@ The goal of this project is to deploy a web video generator based on a plain tex
 As part of IDM class, we had to do this project to have a better knowledge of model transformation like model-to-text or model-to-model.
 We started with some transformations then we added the video manager and finaly we created the website with JHipster.
 
-## Transformations and access to resources
+##Model transformations and resources access
 
-All the model's tranformations are located inside the ``utils`` package of each model's project.
+All the model's tranformations are located inside the ``utils`` package of each model's project ('VideoGen' and 'PlayList').
 
 For VideoGen transformations, a specific project has been created to abstract the core API from the video technical treatments. We use avcon to perfomrs such manipulations. It as the benefits to increase project's sustainability and splits concerns.
 
