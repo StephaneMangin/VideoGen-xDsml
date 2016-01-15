@@ -27,11 +27,10 @@ Jhipster integration allows a customized REST API to access each entity (see [Fl
     - ``/custom.{extention}?sequence_name1=false$sequence_name2=true``
       - Where extention can be *m3u8*, *pls* or *m3u*, it is regenerated on demand with GET params to control which sequence has to be choosen.
       - See [VideoGenTransform.toCustomPlayList](org.istic.idm.xtext.videogen/src/org/istic/idm/xtext/videogen/utils/VideoGenTransform.xtend).
-
-Explanation on the customization functionality:
-  - the __key__ of the GET param is the sequence name
-  - __false__ removes an Optional (included by default)
-  - __true__ forces an alternatives' sequence (the first encountered one takes priority)
+      - Explanation on the customization functionality:
+         - the __key__ of the GET param is the sequence name
+         - __false__ removes an Optional (included by default)
+         - __true__ forces an alternatives' sequence (the first encountered one takes priority)
 
 ##Project requirement
 *The whole project has been developped with the operating system Ubuntu 14.04*
