@@ -19,9 +19,9 @@ Jhipster integration allows a REST access to each entity :
  - http://localhost:8080/static
     - ``/thumbnails/{name of the sequence}.png``
     - ``/videos/{name of the sequence}.ts``
-    - ``/videos/playlist.{extention}`` where extention can be *m3u8*, *pls* or *m3u*, it is regenerated on demand.
+    - ``/playlist.{extention}`` where extention can be *m3u8*, *pls* or *m3u*, it is regenerated on demand.
 
-On demand custom playlist allows to give options to select specific sequences through POST request on ``/videos/custom.{extention}``.
+On demand custom playlist allows to give options to select specific sequences through POST request on ``/custom.{extention}``.
 
 *Example of configuration :*
  ``{
