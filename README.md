@@ -17,10 +17,16 @@ For VideoGen transformations, a specific project has been created to abstract th
 
 Jhipster integration allows a customized REST API to access each entity (see [FlowplayerResource](WebService/src/main/java/org/istic/idm/xtext/webservice/web/rest/FlowplayerResource.java)): 
  - http://localhost:8080/static
-    - ``/thumbnails/{name of the sequence}.png`` // See [VideoGenTransform.createThumbnails](org.istic.idm.xtext.videogen/src/org/istic/idm/xtext/videogen/utils/VideoGenTransform.xtend).
-    - ``/videos/{name of the sequence}.ts`` // See [VideoGenTransform.convertTo](org.istic.idm.xtext.videogen/src/org/istic/idm/xtext/videogen/utils/VideoGenTransform.xtend).
-    - ``/random.{extention}`` where extention can be *m3u8*, *pls* or *m3u*, it is regenerated on demand. See [VideoGenTransform.toPlayList](org.istic.idm.xtext.videogen/src/org/istic/idm/xtext/videogen/utils/VideoGenTransform.xtend).
-    - ``/custom.{extention}?sequence_name1=false$sequence_name2=true`` // Where extention can be *m3u8*, *pls* or *m3u*, it is regenerated on demand with GET params to control which sequence has to be choosen. Ssee [VideoGenTransform.toCustomPlayList](org.istic.idm.xtext.videogen/src/org/istic/idm/xtext/videogen/utils/VideoGenTransform.xtend).
+    - ``/thumbnails/{name of the sequence}.png``
+      - See [VideoGenTransform.createThumbnails](org.istic.idm.xtext.videogen/src/org/istic/idm/xtext/videogen/utils/VideoGenTransform.xtend).
+    - ``/videos/{name of the sequence}.ts``
+      - See [VideoGenTransform.convertTo](org.istic.idm.xtext.videogen/src/org/istic/idm/xtext/videogen/utils/VideoGenTransform.xtend).
+    - ``/random.{extention}``
+      - Where extention can be *m3u8*, *pls* or *m3u*, it is regenerated on demand.
+      - See [VideoGenTransform.toPlayList](org.istic.idm.xtext.videogen/src/org/istic/idm/xtext/videogen/utils/VideoGenTransform.xtend).
+    - ``/custom.{extention}?sequence_name1=false$sequence_name2=true``
+      - Where extention can be *m3u8*, *pls* or *m3u*, it is regenerated on demand with GET params to control which sequence has to be choosen.
+      - See [VideoGenTransform.toCustomPlayList](org.istic.idm.xtext.videogen/src/org/istic/idm/xtext/videogen/utils/VideoGenTransform.xtend).
 
 Explanation on the customization functionality:
   - the __key__ of the GET param is the sequence name
