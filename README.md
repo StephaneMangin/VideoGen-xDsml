@@ -39,6 +39,8 @@ To increase my knowledge on the EMF framework, i decided to create a Eclipse plu
 
 Jhipster JSON model does not implement ENUM properties, which was a mess for this plugins project. I started to add this facility to Jhipster javascript feature model generator.
 
+A try has been done on xtext project mavenization, which was a huge work... In fact, xtent generation was not a problem, BUT xtext generation was a real problematic task. I try masaputa plugin to do so, which was an interesting option, not sufficient at all so. Pom.xml files have the configuration commented for information purpose.
+
 ##Project requirement
 *The whole project has been developped with the operating system Ubuntu 14.04*
 
