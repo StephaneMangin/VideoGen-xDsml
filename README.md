@@ -31,6 +31,14 @@ Jhipster integration allows a customized REST API to access each entity (see [Fl
          - the __key__ of the GET param is the sequence name
          - __true__ forces an Optional (removed by default) or an alternatives' sequence (the last encountered one takes priority)
 
+## Parallel works
+
+To increase my knowledge on the EMF framework, i decided to create a Eclipse plugin project to generate jhipster JSON models, which has been done quite easily but not fully finished. The project is [here](https://github.com/StephaneMangin/EMFGeneratorPlugins). The point is that I did not found a solution to perform a new project creation to generate a full jhipster stack (ecore core API is difficult to understand), which would be a great approach to EMF code generation. Maybe later !
+
+### Problems
+
+Jhipster JSON model does not implement ENUM properties, which was a mess for this plugins project. I started to add this facility to Jhipster javascript feature model generator.
+
 ##Project requirement
 *The whole project has been developped with the operating system Ubuntu 14.04*
 
