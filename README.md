@@ -80,7 +80,7 @@ Once you have executed them, you should able to run the application by right-cli
 
 ## Recurrent and blocking error
 
-A recurrent error appears regularly. This error really blocked developement. The stacktrace can be found [here](stracktrace.txt).
+A recurrent error appears regularly. This error really blocked developement. The stacktrace can be found [here](stacktrace.txt).
 
 No solution were found, flushing .m2 maven repository, reinstalling eclipse and xtext... This error appears to be non-deterministic, which is weird towards project's configuration stability any time it appended. Any help would be great to finish this work, especialy towards feature model addition.
 
