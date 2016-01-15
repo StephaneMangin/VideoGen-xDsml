@@ -32,7 +32,8 @@ VideoGen {
 		url="/tmp/VideoGen/haha/EddyWally-Wow.mp4"
 		description="Addy Wally - Wow"
 	}
-	@Mandatory
+	@Optional
+	@Probability(40)
 	Sequence tv1 {
 		url="/tmp/VideoGen/tv/PublicAccessTV.mp4"
 		description="What the F..."

@@ -17,7 +17,7 @@ import org.eclipse.xtext.xbase.lib.ListExtensions;
  * @author Stéphane Mangin <stephane.mangin@freesbee.fr>
  */
 @SuppressWarnings("all")
-@Generated(value = "org.eclipse.xtend.core.compiler.XtendGenerator", date = "2016-01-15T15:24+0100")
+@Generated(value = "org.eclipse.xtend.core.compiler.XtendGenerator", date = "2016-01-15T23:14+0100")
 public class Videos extends Executor {
   /**
    * Create a thumbnail from the given video to the given path

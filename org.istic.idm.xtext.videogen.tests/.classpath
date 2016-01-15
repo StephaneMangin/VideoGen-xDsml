@@ -7,6 +7,11 @@
 	<classpathentry exported="true" kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
 	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/PlayList"/>
 	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/Utils"/>
-	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/org.istic.idm.xtext.videogen"/>
+	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/org.istic.idm.xtext.videogen">
+		<accessrules>
+			<accessrule kind="accessible" pattern="*"/>
+		</accessrules>
+	</classpathentry>
+	<classpathentry kind="lib" path="/org.istic.idm.xtext.videogen/target/org.istic.idm.xtext.VideoGen-0.0.1-SNAPSHOT.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
