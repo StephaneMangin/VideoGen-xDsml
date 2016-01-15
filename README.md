@@ -67,6 +67,7 @@ Once you have executed them, you should able to run the application by right-cli
 
 ### Serve static files on a spring controller
 [http://docs.spring.io/spring/docs/3.1.x/javadoc-api/org/springframework/web/bind/annotation/RequestMapping.html#headers%28%29](http://docs.spring.io/spring/docs/3.1.x/javadoc-api/org/springframework/web/bind/annotation/RequestMapping.html#headers%28%29)
+
 [http://stackoverflow.com/questions/5673260/downloading-a-file-from-spring-controllers](http://stackoverflow.com/questions/5673260/downloading-a-file-from-spring-controllers)
 
 ### Flowplayer for video playing in HLS
