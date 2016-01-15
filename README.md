@@ -9,9 +9,9 @@ We started with some transformations then we added the video manager and finaly 
 
 ##Model transformations and resources access
 
-All the model's tranformations are located inside the ``utils`` package of each model's project ('VideoGen' and 'PlayList').
+All the model's tranformations are located inside the ``utils`` package of each model's project (*VideoGen* and *PlayList*).
 
-For VideoGen transformations, a specific project has been created to abstract the core API from the video technical treatments. We use avcon to perfomrs such manipulations. It as the benefits to increase project's sustainability and splits concerns.
+For VideoGen transformations, a specific project has been created to abstract the core API from the video technical treatments. We use *avconv* to perfomrs such manipulations. It as the benefits to increase project's sustainability and splits concerns.
 
 For Playlist model to text transformations, each transfo. owns a specific method (toPLS, toM3U, ...)
 
@@ -19,9 +19,15 @@ Jhipster integration allows a REST access to each entity :
  - http://localhost:8080/static
     - ``/thumbnails/{name of the sequence}.png``
     - ``/videos/{name of the sequence}.ts``
-    - ``/videos/playlist.{extention}`` where extention can be ``m3u8``, ``pls`` or ``m3u``, it is regenerated on demand.
+    - ``/videos/playlist.{extention}`` where extention can be *m3u8*, *pls* or *m3u*, it is regenerated on demand.
 
-On demand custom playlist allow to give options through POST request in the form ``{'id de video': boolean, ...}`` on ``/videos/custom.{extention}``.
+On demand custom playlist allows to give options to select specific sequences through POST request on ``/videos/custom.{extention}``.
+
+*Example of configuration :*
+ ``{
+ 	  		"sequence_name1": false, // A Optional to remove (included by default)
+ 	  		"sequence_name2": true // A alternatives option to force (the first encountered one takes priority)
+ 	 }``
 
 ##Project requirement
 *The whole project has been developped with the operating system Ubuntu 14.04*
