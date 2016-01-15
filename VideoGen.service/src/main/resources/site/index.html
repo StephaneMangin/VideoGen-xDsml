@@ -1,0 +1,94 @@
+<html>
+
+<head>
+   <meta charset="utf-8">
+
+   <title>VideoGen · Flowplayer</title>
+
+   <!-- optimize mobile versions -->
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <!-- The "minimalist" skin, "minimalist.css", "functional.css" and "playful.css" are available -->
+   <link rel="stylesheet" href="skin/playful.css">
+   <link rel="stylesheet" href="skin/minimal.css">
+   <link rel="stylesheet" href="skin/configurator.css">
+
+   <!-- Flowplayer depends on jquery -->
+   <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+   <script type="text/javascript" src="http://releases.flowplayer.org/js/flowplayer-3.2.13.min.js"></script>
+
+   <!-- Flowplayer-->
+   <script src="flowplayer.js"></script>
+
+   <script>
+    	flowplayer("hlsjs", "flowplayer.swf", {
+    		   wmode: 'direct',
+    		   plugins: {
+    		       httpstreaming: {
+    		           url: 'flashlsFlowPlayer.swf',
+    		           hls_debug : false,
+    		           hls_debug2 : false,
+    		           hls_lowbufferlength : 3,
+    		           hls_minbufferlength : 5,
+    		           hls_maxbufferlength : 0,
+    		           hls_startfromlevel : -1,
+    		           hls_seekfromlevel : -1,
+    		           hls_live_flushurlcache : false,
+    		           hls_seekmode : "ACCURATE",
+    		           hls_fragmentloadmaxretry : -1,
+    		           hls_manifestloadmaxretry : -1,
+    		           hls_capleveltostage : false,
+    		           hls_maxlevelcappingmode : "downscale"
+    		       }
+    		   },
+    		   clip: {
+    		       accelerated: true,
+    		       url: "%playlistSource%",
+    		       urlResolvers: "httpstreaming",
+    		       lang: "fr",
+    		       provider: "httpstreaming",
+    		       autoPlay: false,
+    		       autoBuffering: true
+    		   },
+    		   log: {
+    		       level: 'none',
+    		       filter: 'org.flowplayer.controller.*'
+    		   }
+    		});
+    });
+   
+// listen to playlist events
+function log() {
+   $("#event-info").append("<p>" + [].slice.call(arguments).join(", ") + "</p>");
+}
+flowplayer(function(api, root) {
+	api.bind("load", function(e, api, video) {
+		log(api.engine.engineName + " engine playing " + video.type);
+		log("clip " + video.index, "is_last: " + video.is_last);
+	}).bind("cuepoint", function(e, api, cuepoint) {
+		log("clip " + api.video.index, "cuepoint " + cuepoint.time);
+	});
+});
+</script>
+
+</head>
+
+<body>
+<div id="content">
+   <h1>VideoGen · Flowplayer</h1>
+
+<div id="basic-playlist" class="flowplayer is-splash is-closeable">
+	<a id="hlsjs"></a>
+	
+
+</div>
+
+%configurator%
+
+<div id="event-info"></div>
+
+
+</div><!--/end content -->
+</body>
+
+</html>

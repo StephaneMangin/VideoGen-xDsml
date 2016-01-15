@@ -1,0 +1,151 @@
+#configurator {
+	background-color:rgba(72,72,72,0.4);
+	padding:30px;
+	width: auto;
+	height: auto;
+	min-height: 100%;
+	overflow:auto;
+	position: relative;
+	margin-top:-130px;
+	padding-right:15px;
+	margin-bottom: 150px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	clear: both;
+	z-index: 1;
+  }
+
+#configurator .sequence {
+	font-size: medium;	
+	margin-top: 10px;
+	margin-right: 8px;
+	padding:10px;
+	display: block;
+	width : 110px;
+	height: 120px;
+	float: left;
+	text-align: center;
+	border: 5px solid #000;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	position: relative;
+	z-index: 1;
+}
+
+#configurator .description {
+	font-size: small;
+	font-stretch: condensed;
+	font-variant: small-caps;
+	margin-bottom : 5px;
+	height: 70px;
+	z-index: 2;
+}
+
+#configurator .sequence .alternatives {
+	width: 90px;
+	/*animate collapsing the dropdown from open to closed state (v. fast)*/
+	-moz-transition: height 0.1s; 
+	-webkit-transition: height 0.1s; 
+	-ms-transition: height 0.1s;  
+	-o-transition: height 0.1s;  
+	transition: height 0.1s;
+	-webkit-border-radius: 50px;
+	-moz-border-radius: 50px;
+	border-radius: 50px;
+}
+#configurator .sequence .alternatives:hover {
+	/*when expanded, the dropdown will get native means of scrolling*/
+	height:auto;
+	overflow:auto;
+	min-height: 90px;
+	/*nice and smooth expand - speed this up at your preference or remove animation altogether*/
+	-moz-transition: height 0.5s; 
+	-webkit-transition: height 0.5s; 
+	-ms-transition: height 0.5s;  
+	-o-transition: height 0.5s;  
+	transition: height 0.5s;
+	background-color: #000;
+}
+#configurator .sequence .alternatives input {
+	/*hide the nasty default radio buttons. like, completely!*/
+	position:absolute;top:0;left:0;opacity:0;
+}
+
+
+#configurator .sequence .alternatives label {
+	/*style the labels to look like dropdown options, kinda*/
+	display:none; 
+	opacity:0.2; 
+	width: 80px;
+	height: 80px;
+	margin: 5px;
+	-webkit-border-radius: 50px;
+	-moz-border-radius: 50px;
+	border-radius: 50px;
+}
+#configurator .sequence .alternatives:hover label{
+	/*this is how labels render in the "expanded" state. we want to see only the selected radio button in the collapsed menu, and all of them when expanded*/
+	display:block;
+}
+#configurator .sequence .alternatives label:hover {
+	opacity:0.6;
+}
+#configurator .sequence .alternatives input:checked + label {
+	/*tricky! labels immediately following a checked radio button (with our markup they are semantically related) should be fully opaque regardless of hover, and they should always be visible (i.e. even in the collapsed menu*/
+	opacity:1 !important; display:block;
+}
+
+#configurator img {
+	width: 80px;
+	height: 80px;
+	margin: 5px;
+	max-width: 100%;
+	-webkit-border-radius: 50px;
+	-moz-border-radius: 50px;
+	border-radius: 50px;
+	background: transparent !important;
+}
+
+#button_valid{
+	width: 100%;
+	height: 50px;
+	color: #0493bd;
+	border: #fbfbfb solid 4px;
+	cursor:pointer;
+	background-color: rgba(0,0,0,0);
+	font-size:24px;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
+	font-weight:700;
+	border-radius: 5px;
+}
+
+#button_valid:hover{
+	background-color: #3498db;
+	color:white;
+}
+	
+.submit:hover {
+	color: #3498db;
+}
+	
+.ease {
+	width: 0px;
+	height: 74px;
+	background-color: #fbfbfb;
+	-webkit-transition: .3s ease;
+	-moz-transition: .3s ease;
+	-o-transition: .3s ease;
+	-ms-transition: .3s ease;
+	transition: .3s ease;
+}
+
+.submit:hover .ease{
+  width:100%;
+  background-color:white;
+}
+
+
