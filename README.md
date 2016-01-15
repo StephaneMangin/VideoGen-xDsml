@@ -17,6 +17,9 @@ For VideoGen transformations, a specific project has been created to abstract th
 
 Jhipster integration allows a customized REST API to access each entity (see [FlowplayerResource](WebService/src/main/java/org/istic/idm/xtext/webservice/web/rest/FlowplayerResource.java)): 
  - http://localhost:8080/static
+    - ``/schema``
+      - Json access to the VideoGen instance (Not finished)
+      - See [VideoGenSerializer](org.istic.idm.xtext.videogen/src/org/istic/idm/xtext/videogen/utils/VideoGenSerializer.xtend).
     - ``/thumbnails/{name of the sequence}.png``
       - See [VideoGenTransform.createThumbnails](org.istic.idm.xtext.videogen/src/org/istic/idm/xtext/videogen/utils/VideoGenTransform.xtend).
     - ``/videos/{name of the sequence}.ts``
@@ -39,7 +42,7 @@ To increase my knowledge on the EMF framework, i decided to create a Eclipse plu
 
 Jhipster JSON model does not implement ENUM properties, which was a mess for this plugins project. I started to add this facility to Jhipster javascript feature model generator.
 
-A try has been done on xtext project mavenization, which was a huge work... Especialy for travis integration. In fact, xtent generation was not a problem BUT xtext generation was a real problematic task. I try masaputa plugin to do so, which was an interesting option, not sufficient at all so. Pom.xml files have the configuration commented for information purpose.
+A try has been done on xtext project mavenization, which was a huge work... Especialy for travis integration. In fact, xtent generation was not a problem BUT xtext generation was a real problematic task. I try masaputa plugin to do so (see Source chapter), which was an interesting option, not sufficient at all so. Pom.xml files have the configuration commented for information purpose.
 
 ##Project requirement
 *The whole project has been developped with the operating system Ubuntu 14.04*
