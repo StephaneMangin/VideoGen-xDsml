@@ -7,10 +7,13 @@ jdk:
 branches:
   only:
     - master
-sudo: false
+sudo: required
 before_install:
-  - apt-get -qq update
-  - apt-get install -y libav-tools
+  - pwd
+  - mkdir /tmp/VideoGen
+  - cp -R WebService/src/main/resources/videos/* /tmp/VideoGen
+  - sudo apt-get -qq update
+  - sudo apt-get install -y libav-tools
 install: mvn clean install
 notifications:
   webhooks:
