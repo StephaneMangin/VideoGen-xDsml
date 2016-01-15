@@ -9,6 +9,9 @@ branches:
     - master
 sudo: required
 before_install:
+  - pwd
+  - mkdir /tmp/VideoGen
+  - cp -R WebService/src/main/resources/videos/* /tmp/VideoGen
   - sudo apt-get -qq update
   - sudo apt-get install -y libav-tools
 install: mvn clean install
