@@ -3,16 +3,22 @@
 angular.module('videogenApp')
     .controller('FlowPlayerController', function ($scope) {
     	
-    	  flowplayer("#hlsjs", {
+    	  var flashplayer = flowplayer("#hlsjs", {
+    		  	wmode: 'direct',
     		    splash: true,
     		    embed: false, // setup would need iframe embedding
     		    ratio: 5/12,
-
     		    clip: {
-    		      sources: [
-    		        { type: "application/x-mpegurl",
-    		          src:  "http://localhost:8080/static/playlist.m3u8" }
-    		      ]
+    		    	accelerated: true,
+    		    	sources: [
+    		    	          {
+    		    	        	  type: "application/x-mpegurl",
+    		    	              src:  "http://localhost:8080/static/playlists/random.m3u8"
+    		    	          }
+    		    	],
+	     		    lang: "fr",
+   		       		autoPlay: false,
+   		       		autoBuffering: true
     		    }
 
     		  }).on("ready", function (e, api, video) {

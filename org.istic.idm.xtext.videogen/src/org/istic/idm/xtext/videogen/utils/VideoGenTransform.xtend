@@ -204,7 +204,7 @@ import fr.nemomen.utils.SystemHelper
         val playlist = playlistFactory.createPlayList()
         
         videogen.statements.forEach[statement |
-			var Sequence sequence
+			var Sequence sequence = null
 			
 			if(statement instanceof Mandatory) {
 				sequence = statement.sequence
@@ -246,19 +246,19 @@ import fr.nemomen.utils.SystemHelper
         val playlist = playlistFactory.createPlayList()
         
         videogen.statements.forEach[statement |
-			var Sequence sequence
+			var Sequence sequence = null
 			
 			if(statement instanceof Mandatory) {
 				sequence = statement.sequence
 			} else if(statement instanceof Optional) {
 				val name = statement.sequence.name
-				if(!options.containsKey(name) || !options.get(name) as Boolean){
+				if(options.containsKey(name) && options.get(name)){
 					sequence = statement.sequence
 				}
 			} else if (statement instanceof Alternatives) {
 				for (option: statement.options) {
 					val name = option.sequence.name
-					if(options.containsKey(name) && options.get(name) as Boolean){
+					if(options.containsKey(name) && options.get(name)){
 						sequence = option.sequence
 					}
 				}
@@ -273,6 +273,16 @@ import fr.nemomen.utils.SystemHelper
 			}
         ]
         playlist
+    }
+    
+    /**
+     * Convert a VideoGen into Json model
+     * 
+	 * @author Stéphane Mangin <stephane.mangin@freesbee.fr>
+	 * @Param videogen VideoGen
+     */
+    def static toJson(VideoGen videogen){
+    	new VideoGenSerializer().compile(videogen)
     }
     
  	/**

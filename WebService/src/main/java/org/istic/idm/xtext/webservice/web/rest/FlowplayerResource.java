@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -31,21 +32,21 @@ import java.util.Map;
 @RequestMapping("/static")
 public class FlowplayerResource {
 
-//    @RequestMapping(
-//    		value = "/videogen",
-//    		method = RequestMethod.GET,
-//    		produces = MediaType.APPLICATION_JSON_VALUE
-//    )
-//    public @ResponseBody
-//    ResponseEntity getVideoGen() {
-//    	VideoGenStandaloneSetup.doSetup();
-//		VideoGen videogen = (VideoGen) new ResourceSetImpl().getResource(
-//			URI.createURI(this.getClass().getResource("/test.vg").toString()), true).getContents().get(0);
-//		VideoGenTransform.addMetadata(videogen);
-//		VideoGenTransform.ConvertTo(Mimetypes_Enum.MPEGTS, videogen);
-//		return new ResponseEntity(VideoGenTransform.toJson(videogen), HttpStatus.OK);
-//    }
-
+	
+    @RequestMapping(
+   		value = "/schema",
+   		method = RequestMethod.GET,
+   		produces = MediaType.APPLICATION_JSON_VALUE
+   )
+   public ResponseEntity<String> getSchema() {
+   	VideoGenStandaloneSetup.doSetup();
+		VideoGen videogen = (VideoGen) new ResourceSetImpl().getResource(
+			URI.createURI(this.getClass().getResource("/test.vg").toString()), true).getContents().get(0);
+		videogen = VideoGenTransform.addMetadata(videogen);
+		
+		return new ResponseEntity<String>(VideoGenTransform.toJson(videogen).toString(), HttpStatus.OK);
+   }
+	
 	private String generateFormat(String ext, PlayList playList) {
 		String result = "";
 		switch (ext) {
@@ -70,25 +71,31 @@ public class FlowplayerResource {
 	}
 	
      @RequestMapping(
-    		value = "/custom.{ext}",
-    		method = RequestMethod.POST,
+    		value = "/playlists/custom.{ext}",
+    		method = RequestMethod.GET,
     		produces = MediaType.TEXT_PLAIN_VALUE
     )
-    public ResponseEntity<?> getCustomPlayList(@PathVariable String ext, @RequestBody Map<String, Boolean> options) {
+    public ResponseEntity<?> getCustomPlayList(@PathVariable String ext, @RequestParam Map<String, String> allRequestParams) {
     	VideoGenStandaloneSetup.doSetup();
 		VideoGen videogen = (VideoGen) new ResourceSetImpl().getResource(
 			URI.createURI(this.getClass().getResource("/test.vg").toString()), true).getContents().get(0);
 		videogen = VideoGenTransform.addMetadata(videogen);
 		VideoGenTransform.ConvertTo(Mimetypes_Enum.MPEGTS, videogen);
-
 		
-		PlayList playList = VideoGenTransform.toCustomPlayList(videogen, true, options);
+		// Type conversion because static typing in param definition does not work for Boolean
+		Map<String, Boolean> newOptions = new HashMap<String, Boolean>();
+		for (String key: allRequestParams.keySet()) {
+			newOptions.put(key, allRequestParams.get(key).equals("true"));
+		}
+		
+		PlayList playList = VideoGenTransform.toCustomPlayList(videogen, true, newOptions);
 		String result = generateFormat(ext, playList);
 
 		// Replace all paths in the playlist by a server one
 		for (Sequence seq: VideoGenHelper.allSequences(videogen)) {
-			result = result.replaceAll(seq.getUrl(), "/static/videos/" + seq.getName() + ".ts");
+			result = result.replaceAll(seq.getUrl(), "/static/videos/" + Paths.get(seq.getUrl()).getFileName());
 		}
+			
 		if (result.equals("")) {
 			return new ResponseEntity<>("Error when loading file.", HttpStatus.INTERNAL_SERVER_ERROR);
 		}
@@ -96,7 +103,7 @@ public class FlowplayerResource {
     }
 
     @RequestMapping(
-    		value = "/playlist.{ext}",
+    		value = "/playlists/random.{ext}",
     		method = RequestMethod.GET
     )
     public HttpEntity<String> getPlayList(@PathVariable String ext) throws Exception {
@@ -112,7 +119,7 @@ public class FlowplayerResource {
 
 		// Replace all paths in the playlist by a server one
 		for (Sequence seq: VideoGenHelper.allSequences(videogen)) {
-			result = result.replaceAll(seq.getUrl(), "/static/videos/" + seq.getName() + ".ts");
+			result = result.replaceAll(seq.getUrl(), "/static/videos/" + Paths.get(seq.getUrl()).getFileName());
 		}
 		if (!result.equals("")) {
 			HttpHeaders header = new HttpHeaders();

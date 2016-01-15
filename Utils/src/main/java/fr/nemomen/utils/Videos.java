@@ -2,6 +2,7 @@ package fr.nemomen.utils;
 
 import fr.nemomen.utils.Executor;
 import fr.nemomen.utils.VideoCodec;
+import java.io.File;
 import java.nio.file.Path;
 import java.time.LocalTime;
 import java.util.List;
@@ -16,7 +17,7 @@ import org.eclipse.xtext.xbase.lib.ListExtensions;
  * @author Stéphane Mangin <stephane.mangin@freesbee.fr>
  */
 @SuppressWarnings("all")
-@Generated(value = "org.eclipse.xtend.core.compiler.XtendGenerator", date = "2016-01-14T19:24+0100")
+@Generated(value = "org.eclipse.xtend.core.compiler.XtendGenerator", date = "2016-01-15T15:24+0100")
 public class Videos extends Executor {
   /**
    * Create a thumbnail from the given video to the given path
@@ -25,17 +26,22 @@ public class Videos extends Executor {
    * @author Stéphane Mangin <stephane.mangin@freesbee.fr>
    */
   public static void createThumbnails(final Path fullPath, final Path thumbFileName) {
-    StringConcatenation _builder = new StringConcatenation();
-    _builder.append("avconv -i \"");
-    _builder.append(fullPath, "");
-    _builder.append("\" -r 1 -t 00:00:01 -ss 00:00:02 -f image2 \"");
-    _builder.append(thumbFileName, "");
-    _builder.append("\"");
-    final String cmd = _builder.toString();
-    Executor.ExecResult result = Executor.execCmd(cmd, 1);
-    List<String> _lines = result.getLines();
-    for (final String line : _lines) {
-      Executor.LOGGER.finest(line);
+    File _file = thumbFileName.toFile();
+    boolean _exists = _file.exists();
+    boolean _not = (!_exists);
+    if (_not) {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("avconv -i \"");
+      _builder.append(fullPath, "");
+      _builder.append("\" -r 1 -t 00:00:01 -ss 00:00:02 -f image2 \"");
+      _builder.append(thumbFileName, "");
+      _builder.append("\"");
+      final String cmd = _builder.toString();
+      Executor.ExecResult result = Executor.execCmd(cmd, 1);
+      List<String> _lines = result.getLines();
+      for (final String line : _lines) {
+        Executor.LOGGER.finest(line);
+      }
     }
   }
   
@@ -46,18 +52,23 @@ public class Videos extends Executor {
    * @author Stéphane Mangin <stephane.mangin@freesbee.fr>
    */
   public static void convert(final Path fullPath, final Path newFullPathName, final VideoCodec codec) {
-    StringConcatenation _builder = new StringConcatenation();
-    _builder.append("avconv -i \"");
-    _builder.append(fullPath, "");
-    _builder.append("\" -strict -2 -vcodec h264 -acodec aac -f ");
-    String _format = codec.format();
-    _builder.append(_format, "");
-    _builder.append(" \"");
-    _builder.append(newFullPathName, "");
-    _builder.append("\"");
-    String cmd = _builder.toString();
-    Executor.ExecResult result = Executor.execCmd(cmd, 0);
-    Executor.processResult(result);
+    File _file = newFullPathName.toFile();
+    boolean _exists = _file.exists();
+    boolean _not = (!_exists);
+    if (_not) {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("avconv -i \"");
+      _builder.append(fullPath, "");
+      _builder.append("\" -strict -2 -vcodec h264 -acodec aac -f ");
+      String _format = codec.format();
+      _builder.append(_format, "");
+      _builder.append(" \"");
+      _builder.append(newFullPathName, "");
+      _builder.append("\"");
+      String cmd = _builder.toString();
+      Executor.ExecResult result = Executor.execCmd(cmd, 0);
+      Executor.processResult(result);
+    }
   }
   
   /**

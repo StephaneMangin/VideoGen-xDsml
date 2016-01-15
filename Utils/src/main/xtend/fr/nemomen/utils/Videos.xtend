@@ -16,10 +16,12 @@ public class Videos extends Executor {
 	 * @author Stéphane Mangin <stephane.mangin@freesbee.fr>
 	 */
 	def static void createThumbnails(Path fullPath, Path thumbFileName) {
-		val cmd = '''avconv -i "«fullPath»" -r 1 -t 00:00:01 -ss 00:00:02 -f image2 "«thumbFileName»"'''
-		var ExecResult result = execCmd(cmd, 1)
-		for (String line : result.getLines()) {
-			LOGGER.finest(line)
+		if (!thumbFileName.toFile.exists) {
+			val cmd = '''avconv -i "«fullPath»" -r 1 -t 00:00:01 -ss 00:00:02 -f image2 "«thumbFileName»"'''
+			var ExecResult result = execCmd(cmd, 1)
+			for (String line : result.getLines()) {
+				LOGGER.finest(line)
+			}
 		}
 	}
 
@@ -30,9 +32,11 @@ public class Videos extends Executor {
 	 * @author Stéphane Mangin <stephane.mangin@freesbee.fr>
 	 */
 	def static void convert(Path fullPath, Path newFullPathName, VideoCodec codec) {
-		var cmd = '''avconv -i "«fullPath»" -strict -2 -vcodec h264 -acodec aac -f «codec.format» "«newFullPathName»"'''
-		var ExecResult result = execCmd(cmd, 0)
-		processResult(result)
+		if (!newFullPathName.toFile.exists) {
+			var cmd = '''avconv -i "«fullPath»" -strict -2 -vcodec h264 -acodec aac -f «codec.format» "«newFullPathName»"'''
+			var ExecResult result = execCmd(cmd, 0)
+			processResult(result)
+		}
 	}
 
 	/**
