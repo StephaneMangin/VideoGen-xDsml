@@ -5,7 +5,9 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>VideoGen</title>
         <meta name="description" content="">
-        <meta name="viewport" content="width=device-width">
+        <!-- optimize mobile versions -->
+		<meta content="width=device-width, initial-scale=1.0" name="viewport">
+		
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
         <!-- build:css assets/styles/vendor.css -->
         <!-- bower:css -->
@@ -16,9 +18,26 @@
         <link rel="stylesheet" href="assets/styles/main.css">
         <!-- endbuild -->
 		
-		
+		<style type="text/css">
+			#hlsjs {
+			  background-image: url(//drive.flowplayer.org/202777/84049-snap.jpg);
+			}
+			.hlsjs-supported {
+			  font-weight: bold;
+			}
+		</style>
         <script src="bower_components/jquery/dist/jquery.js"></script>
-        <script type="text/javascript" src="http://releases.flowplayer.org/js/flowplayer-3.2.13.min.js"></script>
+		<!-- The "minimalist" skin - choose from: "functional.css", "minimalist.css", "playful.css" -->
+		<link href="//releases.flowplayer.org/6.0.5/skin/minimalist.css" rel="stylesheet">
+		<!-- Minimal styling for this standalone page, can be removed -->
+		<link href="http://demos.flowplayer.org/media/css/demo.css" rel="stylesheet">
+		<!-- Syntax highlighting of source code, can be removed -->
+		<link href="http://demos.flowplayer.org/media/css/pygments.css" rel="stylesheet">
+
+		<!-- Flowplayer library -->
+		<script src="http://releases.flowplayer.org/6.0.5/flowplayer.min.js"></script>
+		<!-- The hlsjs plugin for playback of HLS without Flash in modern browsers -->
+		<script src="http://releases.flowplayer.org/hlsjs/flowplayer.hlsjs.min.js"></script>
 		
     </head>
     <body ng-app="videogenApp">

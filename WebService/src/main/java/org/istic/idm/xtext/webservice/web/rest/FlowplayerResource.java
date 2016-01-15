@@ -1,10 +1,8 @@
 package org.istic.idm.xtext.webservice.web.rest;
 
 import PlayList.PlayList;
-import PlayList.Video;
 import PlayList.util.PlayListTransform;
 
-import org.apache.commons.io.IOUtils;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.istic.idm.xtext.videogen.VideoGenStandaloneSetup;
@@ -14,23 +12,15 @@ import org.istic.idm.xtext.videogen.videoGen.Mimetypes_Enum;
 import org.istic.idm.xtext.videogen.videoGen.Sequence;
 import org.istic.idm.xtext.videogen.videoGen.VideoGen;
 import org.springframework.core.io.FileSystemResource;
+import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.imageio.ImageIO;
-import javax.websocket.server.PathParam;
-
-import java.awt.image.BufferedImage;
-import java.awt.image.Raster;
-import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.nio.file.Path;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -107,11 +97,9 @@ public class FlowplayerResource {
 
     @RequestMapping(
     		value = "/playlist.{ext}",
-    		method = RequestMethod.GET,
-    		produces = MediaType.TEXT_PLAIN_VALUE
+    		method = RequestMethod.GET
     )
-    public ResponseEntity<?> getPlayList(@PathVariable String ext) throws Exception {
-    	ResponseEntity<?> response = null;
+    public HttpEntity<String> getPlayList(@PathVariable String ext) throws Exception {
 
     	VideoGenStandaloneSetup.doSetup();
 		VideoGen videogen = (VideoGen) new ResourceSetImpl().getResource(
@@ -126,21 +114,20 @@ public class FlowplayerResource {
 		for (Sequence seq: VideoGenHelper.allSequences(videogen)) {
 			result = result.replaceAll(seq.getUrl(), "/static/videos/" + seq.getName() + ".ts");
 		}
-		if (result.equals("")) {
-			response = new ResponseEntity<>("Error when loading file.", HttpStatus.INTERNAL_SERVER_ERROR);
-		} else {
-			response = new ResponseEntity<String>(result, HttpStatus.OK);
+		if (!result.equals("")) {
+			HttpHeaders header = new HttpHeaders();
+		    header.setContentType(new MediaType("application", "x-mpegurl"));
+		    header.setContentLength(result.length());
+			return new HttpEntity<String>(result, header);
 		}
-		return response;
+		return null;
     }
 
     @RequestMapping(
     		value = "/videos/{videoName}.ts",
-    		method = RequestMethod.GET,
-    		headers = "application/x-mpegts",
-    		produces = MediaType.APPLICATION_OCTET_STREAM_VALUE
+    		method = RequestMethod.GET
     )
-    public FileSystemResource getVideos(@PathVariable String videoName) {
+    public HttpEntity<FileSystemResource> getVideos(@PathVariable String videoName) throws IOException {
     	VideoGenStandaloneSetup.doSetup();
 		VideoGen videogen = (VideoGen) new ResourceSetImpl().getResource(
 			URI.createURI(this.getClass().getResource("/test.vg").toString()), true).getContents().get(0);
@@ -148,7 +135,11 @@ public class FlowplayerResource {
 
 		for (Sequence sequence: VideoGenHelper.allSequences(videogen)) {
 			if (sequence.getName().equals(videoName)) {
-				return new FileSystemResource(new File(sequence.getUrl()));
+				FileSystemResource resource = new FileSystemResource(new File(sequence.getUrl()));
+				HttpHeaders header = new HttpHeaders();
+			    header.setContentType(new MediaType("video", "mp2t"));
+			    header.setContentLength(resource.contentLength());
+				return new HttpEntity<FileSystemResource>(resource, header);
 			}
 		}
 		return null;
@@ -156,10 +147,9 @@ public class FlowplayerResource {
 
     @RequestMapping(
     		value = "/thumbnails/{videoName}.png",
-    		method = RequestMethod.GET,
-    		produces = MediaType.IMAGE_PNG_VALUE
+    		method = RequestMethod.GET
     )
-    public FileSystemResource getThumbnail(@PathVariable String videoName) throws IOException {
+    public HttpEntity<FileSystemResource> getThumbnail(@PathVariable String videoName) throws IOException {
     	
     	VideoGenStandaloneSetup.doSetup();
 		VideoGen videogen = (VideoGen) new ResourceSetImpl().getResource(
@@ -167,9 +157,16 @@ public class FlowplayerResource {
 
 		for (Sequence sequence: VideoGenHelper.allSequences(videogen)) {
 			if (sequence.getName().equals(videoName)) {
-				return new FileSystemResource(new File(VideoGenTransform.createThumbnails(sequence).toAbsolutePath().toString()));
+				FileSystemResource resource = new FileSystemResource(new File(
+								VideoGenTransform.createThumbnails(sequence).toAbsolutePath().toString()));
+				HttpHeaders header = new HttpHeaders();
+			    header.setContentType(new MediaType("application", "x-mpegts"));
+			    header.setContentType(MediaType.IMAGE_PNG);
+			    header.setContentLength(resource.contentLength());
+				return new HttpEntity<FileSystemResource>(resource, header);
 			}
 		}
 		return null;
     }
+    
 }
