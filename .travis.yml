@@ -9,8 +9,8 @@ branches:
     - master
 sudo: false
 before_install:
-  - sudo apt-get -qq update
-  - sudo apt-get install -y libav-tools
+  - apt-get -qq update
+  - apt-get install -y libav-tools
 install: mvn clean install
 notifications:
   webhooks:
