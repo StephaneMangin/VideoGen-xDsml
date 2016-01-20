@@ -97,6 +97,8 @@ A recurrent error appears regularly. This error really blocked developement. The
 
 No solution were found, flushing .m2 maven repository, reinstalling eclipse and xtext... This error appears to be non-deterministic, which is weird towards project's configuration stability any time it appended. Any help would be great to finish this work, especialy towards feature model addition.
 
+EDIT 20160120 : it seems that this is the fault of swagger (dependencie version conflict with com.google.guava).
+
 ##Sources
 
 ### Serve static files on a spring controller
