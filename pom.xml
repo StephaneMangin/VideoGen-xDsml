@@ -57,5 +57,11 @@
 			<artifactId>org.eclipse.xtext.common.types</artifactId>
 			<version>${xtext-version}</version>
 		</dependency>
+		<!-- Update due to a bug -->
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>18.0</version>
+		</dependency>
 	</dependencies>
 </project>

@@ -13,13 +13,13 @@ import org.istic.idm.xtext.videogen.videoGen.Optional
 import org.istic.idm.xtext.videogen.videoGen.Sequence
 import org.istic.idm.xtext.videogen.videoGen.VideoGen
 import org.istic.idm.xtext.videogen.videoGen.impl.VideoGenFactoryImpl
-import PlayList.Video
 import fr.nemomen.utils.randomizers.DistributedRandomNumberGenerator
-import PlayList.PlayList
 import fr.nemomen.utils.Videos
 import fr.nemomen.utils.VideoCodec
-import PlayList.impl.PlayListFactoryImpl
 import fr.nemomen.utils.SystemHelper
+import org.istic.idm.ecore.playlist.PlayList.Video
+import org.istic.idm.ecore.playlist.PlayList.PlayList
+import org.istic.idm.ecore.playlist.PlayList.impl.PlayListFactoryImpl
 
 /**
  * Define some VideoGen transformation's specifications

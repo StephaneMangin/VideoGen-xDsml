@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated VideoGen -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="org.istic.idm.xtext.videogen.videoGen.presentation.VideoGenModelWizardID"
+            name="%_UI_VideoGenModelWizard_label"
+            class="org.istic.idm.xtext.videogen.videoGen.presentation.VideoGenModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/VideoGenModelFile.gif">
+         <description>%_UI_VideoGenModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated VideoGen -->
+      <editor
+            id="org.istic.idm.xtext.videogen.videoGen.presentation.VideoGenEditorID"
+            name="%_UI_VideoGenEditor_label"
+            icon="icons/full/obj16/VideoGenModelFile.gif"
+            extensions="vg"
+            class="org.istic.idm.xtext.videogen.videoGen.presentation.VideoGenEditor"
+            contributorClass="org.istic.idm.xtext.videogen.videoGen.presentation.VideoGenActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

@@ -20,10 +20,10 @@ import org.istic.idm.xtext.videogen.videoGen.VideoGenPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link org.istic.idm.xtext.videogen.videoGen.impl.MandatoryImpl#getSequence <em>Sequence</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

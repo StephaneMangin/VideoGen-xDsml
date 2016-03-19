@@ -27,11 +27,11 @@ import org.istic.idm.xtext.videogen.videoGen.VideoGenPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link org.istic.idm.xtext.videogen.videoGen.impl.AlternativesImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.istic.idm.xtext.videogen.videoGen.impl.AlternativesImpl#getOptions <em>Options</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

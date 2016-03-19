@@ -9,7 +9,7 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry exported="true" kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
-	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/PlayList"/>
+	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/org.istic.idm.ecore.playlist"/>
 	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/Utils"/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
 		<attributes>

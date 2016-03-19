@@ -19,7 +19,6 @@ import org.istic.idm.xtext.videogen.videoGen.VideoGenPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link org.istic.idm.xtext.videogen.videoGen.impl.SequenceImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.istic.idm.xtext.videogen.videoGen.impl.SequenceImpl#getUrl <em>Url</em>}</li>
@@ -27,6 +26,7 @@ import org.istic.idm.xtext.videogen.videoGen.VideoGenPackage;
  *   <li>{@link org.istic.idm.xtext.videogen.videoGen.impl.SequenceImpl#getLength <em>Length</em>}</li>
  *   <li>{@link org.istic.idm.xtext.videogen.videoGen.impl.SequenceImpl#getMimetype <em>Mimetype</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

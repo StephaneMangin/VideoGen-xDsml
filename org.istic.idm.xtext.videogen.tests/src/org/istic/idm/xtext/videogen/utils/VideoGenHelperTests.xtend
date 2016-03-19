@@ -1,4 +1,4 @@
-package org.istic.idm.xtext.utils
+package org.istic.idm.xtext.videogen.utils
 
 import com.google.common.collect.Lists
 import java.nio.file.Files
@@ -7,12 +7,12 @@ import java.util.HashMap
 import org.eclipse.emf.common.util.URI
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl
-import org.istic.idm.xtext.VideoGenStandaloneSetup
-import org.istic.idm.xtext.videoGen.VideoGen
 import org.junit.Before
 import org.junit.Test
 
 import static org.junit.Assert.*
+import org.istic.idm.xtext.videogen.videoGen.VideoGen
+import org.istic.idm.xtext.videogen.VideoGenStandaloneSetup
 
 class VideoGenHelperTests {
 

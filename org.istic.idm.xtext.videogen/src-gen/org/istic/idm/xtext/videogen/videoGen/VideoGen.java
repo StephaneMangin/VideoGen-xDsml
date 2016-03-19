@@ -13,10 +13,10 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link org.istic.idm.xtext.videogen.videoGen.VideoGen#getStatements <em>Statements</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.istic.idm.xtext.videogen.videoGen.VideoGenPackage#getVideoGen()
  * @model

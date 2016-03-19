@@ -10,11 +10,11 @@ package org.istic.idm.xtext.videogen.videoGen;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link org.istic.idm.xtext.videogen.videoGen.Optional#getProbability <em>Probability</em>}</li>
  *   <li>{@link org.istic.idm.xtext.videogen.videoGen.Optional#getSequence <em>Sequence</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.istic.idm.xtext.videogen.videoGen.VideoGenPackage#getOptional()
  * @model

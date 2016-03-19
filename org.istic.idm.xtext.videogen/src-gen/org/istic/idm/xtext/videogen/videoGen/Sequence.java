@@ -11,7 +11,6 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link org.istic.idm.xtext.videogen.videoGen.Sequence#getName <em>Name</em>}</li>
  *   <li>{@link org.istic.idm.xtext.videogen.videoGen.Sequence#getUrl <em>Url</em>}</li>
@@ -19,6 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.istic.idm.xtext.videogen.videoGen.Sequence#getLength <em>Length</em>}</li>
  *   <li>{@link org.istic.idm.xtext.videogen.videoGen.Sequence#getMimetype <em>Mimetype</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.istic.idm.xtext.videogen.videoGen.VideoGenPackage#getSequence()
  * @model

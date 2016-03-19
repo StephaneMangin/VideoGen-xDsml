@@ -4,7 +4,6 @@ Bundle-Name: org.istic.idm.xtext.videogen
 Bundle-Vendor: My Company
 Bundle-Version: 1.0.0.qualifier
 Bundle-SymbolicName: org.istic.idm.xtext.videogen; singleton:=true
-Bundle-ActivationPolicy: lazy
 Require-Bundle: org.eclipse.xtext;visibility:=reexport,
  org.eclipse.equinox.common;bundle-version="3.5.0",
  org.eclipse.xtext.util,
@@ -18,6 +17,7 @@ Import-Package: org.apache.log4j
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: org.istic.idm.xtext.videogen,
  org.istic.idm.xtext.videogen.services,
+ org.istic.idm.xtext.videogen.utils,
  org.istic.idm.xtext.videogen.videoGen,
  org.istic.idm.xtext.videogen.videoGen.impl,
  org.istic.idm.xtext.videogen.videoGen.util,

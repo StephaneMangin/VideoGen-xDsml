@@ -11,11 +11,11 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link org.istic.idm.xtext.videogen.videoGen.Alternatives#getName <em>Name</em>}</li>
  *   <li>{@link org.istic.idm.xtext.videogen.videoGen.Alternatives#getOptions <em>Options</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.istic.idm.xtext.videogen.videoGen.VideoGenPackage#getAlternatives()
  * @model
