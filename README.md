@@ -17,6 +17,9 @@ For VideoGen transformations, a specific project has been created to abstract th
 
 Jhipster integration allows a customized REST API to access each entity (see [FlowplayerResource](WebService/src/main/java/org/istic/idm/xtext/webservice/web/rest/FlowplayerResource.java)): 
  - http://localhost:8080/static
+    - ``/schema``
+      - Json access to the VideoGen instance (Not finished)
+      - See [VideoGenSerializer](org.istic.idm.xtext.videogen/src/org/istic/idm/xtext/videogen/utils/VideoGenSerializer.xtend).
     - ``/thumbnails/{name of the sequence}.png``
       - See [VideoGenTransform.createThumbnails](org.istic.idm.xtext.videogen/src/org/istic/idm/xtext/videogen/utils/VideoGenTransform.xtend).
     - ``/videos/{name of the sequence}.ts``
@@ -30,6 +33,16 @@ Jhipster integration allows a customized REST API to access each entity (see [Fl
       - Explanation on the customization functionality:
          - the __key__ of the GET param is the sequence name
          - __true__ forces an Optional (removed by default) or an alternatives' sequence (the last encountered one takes priority)
+
+## Parallel works
+
+To increase my knowledge on the EMF framework, i decided to create a Eclipse plugin project to generate jhipster JSON models, which has been done quite easily but not fully finished. The project is [here](https://github.com/StephaneMangin/EMFGeneratorPlugins). The point is that I did not found a solution to perform a new project creation to generate a full jhipster stack (ecore core API is difficult to understand), which would be a great approach to EMF code generation. Maybe later !
+
+### Problems
+
+Jhipster JSON model does not implement ENUM properties, which was a mess for this plugins project. I started to add this facility to Jhipster javascript feature model generator.
+
+A try has been done on xtext project mavenization, which was a huge work... Especialy for travis integration. In fact, xtent generation was not a problem BUT xtext generation was a real problematic task. I try masaputa plugin to do so (see Source chapter), which was an interesting option, not sufficient at all so. Pom.xml files have the configuration commented for information purpose.
 
 ##Project requirement
 *The whole project has been developped with the operating system Ubuntu 14.04*
@@ -78,6 +91,14 @@ Before launching the project "Application.java" you have to run some commands
 
 Once you have executed them, you should able to run the application by right-clicking on "src/main/java/org/istic/idm/xtext/webservice/application.java" and chose to run it as a "java application" on an Eclipse environment.
 
+## Recurrent and blocking error
+
+A recurrent error appears regularly. This error really blocked developement. The stacktrace can be found [here](stacktrace.txt).
+
+No solution were found, flushing .m2 maven repository, reinstalling eclipse and xtext... This error appears to be non-deterministic, which is weird towards project's configuration stability any time it appended. Any help would be great to finish this work, especialy towards feature model addition.
+
+EDIT 20160120 : it seems that this is the fault of swagger (dependencie version conflict with com.google.guava).
+
 ##Sources
 
 ### Serve static files on a spring controller
@@ -93,12 +114,8 @@ Once you have executed them, you should able to run the application by right-cli
 
 [https://doc.ubuntu-fr.org/avconv](https://doc.ubuntu-fr.org/avconv)
 
-### Jhipster tools
+### Xtext CI
 
-[https://www.npmjs.com/](https://www.npmjs.com/)
+[http://mapasuta.sourceforge.net/maven/site/maven-emfgen-plugin/dependencies.html](http://mapasuta.sourceforge.net/maven/site/maven-emfgen-plugin/dependencies.html)
 
-[http://bower.io/](http://bower.io/)
-
-[http://gruntjs.com/](http://gruntjs.com/)
-
-[https://jhipster.github.io/](https://jhipster.github.io/)
+[https://www.eclipse.org/Xtext/documentation/350_continuous_integration.html](https://www.eclipse.org/Xtext/documentation/350_continuous_integration.html)
