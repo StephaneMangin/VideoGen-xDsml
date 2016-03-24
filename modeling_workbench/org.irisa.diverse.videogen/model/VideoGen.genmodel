@@ -4,7 +4,6 @@
     modelName="VideoGen" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0" copyrightFields="false"
     operationReflection="true" importOrganizing="true">
-  <foreignModel>file:/home/smangin/Workspace/VideoGenNew/VideoGen.ecore</foreignModel>
   <genPackages prefix="VideoGen" disposableProviderFactory="true" ecorePackage="VideoGen.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="VideoGen.ecore#//Mimetypes_Enum">
       <genEnumLiterals ecoreEnumLiteral="VideoGen.ecore#//Mimetypes_Enum/none"/>
