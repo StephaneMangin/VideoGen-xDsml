@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="videoGen" nsURI="http://www.irisa.org/diverse/videogen" nsPrefix="videoGen">
+  <eClassifiers xsi:type="ecore:EClass" name="VideoGen" eSuperTypes="#//NamedElement">
+    <eOperations name="minDuration" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject">
+      <eAnnotations source="aspect"/>
+    </eOperations>
+    <eOperations name="maxDuration" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject">
+      <eAnnotations source="aspect"/>
+    </eOperations>
+    <eOperations name="minSequence" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject">
+      <eAnnotations source="aspect"/>
+    </eOperations>
+    <eOperations name="maxSequence" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject">
+      <eAnnotations source="aspect"/>
+    </eOperations>
+    <eOperations name="initialize" lowerBound="1"/>
+    <eOperations name="compute" lowerBound="1" eType="#//Video"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sequences" upperBound="-1"
+        eType="#//Sequence" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="selectedSequences" lowerBound="1"
+        transient="true">
+      <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EEList">
+        <eTypeArguments/>
+      </eGenericType>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Sequence" abstract="true" interface="true"
+      eSuperTypes="#//NamedElement">
+    <eOperations name="process" lowerBound="1"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="nextSibling" eType="#//Sequence"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Alternatives" eSuperTypes="#//Sequence">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="options" upperBound="-1"
+        eType="#//Optional" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Mandatory" eSuperTypes="#//Sequence">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="video" eType="#//Video"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Optional" eSuperTypes="#//Sequence">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="probability" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"
+        defaultValueLiteral="0"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="video" eType="#//Video"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Video" eSuperTypes="#//NamedElement">
+    <eOperations name="select" lowerBound="1"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="url" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="duration" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"
+        defaultValueLiteral="0"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mimetype" lowerBound="1"
+        eType="#//Mimetypes_Enum"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="selected" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"
+        defaultValueLiteral="false">
+      <eAnnotations source="aspect"/>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Mimetypes_Enum">
+    <eLiterals name="none" literal="NONE"/>
+    <eLiterals name="mp4" value="1" literal="MP4"/>
+    <eLiterals name="flv" value="2" literal="FLV"/>
+    <eLiterals name="mpegts" value="3" literal="MPEGTS"/>
+    <eLiterals name="mpeg" value="4" literal="MPEG"/>
+    <eLiterals name="webm" value="5" literal="WEBM"/>
+    <eLiterals name="wmv" value="6" literal="WMV"/>
+    <eLiterals name="avi" value="7" literal="AVI"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NamedElement" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+</ecore:EPackage>
