@@ -5,14 +5,8 @@
 	<projects>
 	</projects>
 	<buildSpec>
-		<buildCommand>
-			<name>org.gemoc.execution.sequential.javaxdsml.ide.ui.GemocSequentialLanguageBuilder</name>
-			<arguments>
-			</arguments>
-		</buildCommand>
 	</buildSpec>
 	<natures>
 		<nature>org.eclipse.sirius.nature.modelingproject</nature>
-		<nature>org.gemoc.execution.sequential.javaxdsml.ide.ui.GemocSequentialLanguageNature</nature>
 	</natures>
 </projectDescription>

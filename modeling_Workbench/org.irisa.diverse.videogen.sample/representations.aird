@@ -1,2 +1,1038 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<viewpoint:DAnalysis xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xmi:id="_ELt9APKgEeWznboRltsXkQ" version="8.1.1"/>
+<viewpoint:DAnalysis xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:videoGen="http://www.irisa.org/diverse/videogen" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style" xmi:id="_uVJDkPKlEeW5X_bsb2hAMA" selectedViews="_0piZ0PKlEeW5X_bsb2hAMA" version="8.1.1">
+  <models xmi:type="videoGen:VideoGen" href="sample.videogen#/"/>
+  <ownedViews xmi:type="viewpoint:DRepresentationContainer" xmi:id="_0piZ0PKlEeW5X_bsb2hAMA" initialized="true">
+    <ownedRepresentations xmi:type="diagram:DSemanticDiagram" xmi:id="_3RkzEPKlEeW5X_bsb2hAMA" name="VideoGen Diagram">
+      <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_3SBfAPKlEeW5X_bsb2hAMA" source="GMF_DIAGRAMS">
+        <data xmi:type="notation:Diagram" xmi:id="_3SBfAfKlEeW5X_bsb2hAMA" type="Sirius" element="_3RkzEPKlEeW5X_bsb2hAMA" measurementUnit="Pixel">
+          <children xmi:type="notation:Node" xmi:id="_3SPhcPKlEeW5X_bsb2hAMA" type="2002" element="_3RkzEfKlEeW5X_bsb2hAMA">
+            <children xmi:type="notation:Node" xmi:id="_3SjqgPKlEeW5X_bsb2hAMA" type="5006"/>
+            <children xmi:type="notation:Node" xmi:id="_3Sk4oPKlEeW5X_bsb2hAMA" type="7001">
+              <children xmi:type="notation:Node" xmi:id="_3SrmUPKlEeW5X_bsb2hAMA" type="3008" element="_3RkzF_KlEeW5X_bsb2hAMA">
+                <children xmi:type="notation:Node" xmi:id="_3SsNYPKlEeW5X_bsb2hAMA" type="5005"/>
+                <children xmi:type="notation:Node" xmi:id="_3Ss0cPKlEeW5X_bsb2hAMA" type="7002">
+                  <children xmi:type="notation:Node" xmi:id="_3S9TIPKlEeW5X_bsb2hAMA" type="3007" element="_3RkzHfKlEeW5X_bsb2hAMA">
+                    <children xmi:type="notation:Node" xmi:id="_3S9TI_KlEeW5X_bsb2hAMA" type="5003">
+                      <layoutConstraint xmi:type="notation:Location" xmi:id="_3S9TJPKlEeW5X_bsb2hAMA" x="31"/>
+                    </children>
+                    <children xmi:type="notation:Node" xmi:id="_3S_IUPKlEeW5X_bsb2hAMA" type="3001" element="_3RkzHvKlEeW5X_bsb2hAMA">
+                      <children xmi:type="notation:Node" xmi:id="_3S_IU_KlEeW5X_bsb2hAMA" type="5001">
+                        <layoutConstraint xmi:type="notation:Location" xmi:id="_3S_IVPKlEeW5X_bsb2hAMA" y="5"/>
+                      </children>
+                      <children xmi:type="notation:Node" xmi:id="_3TAWcPKlEeW5X_bsb2hAMA" type="3003" element="_3RkzH_KlEeW5X_bsb2hAMA">
+                        <styles xmi:type="notation:ShapeStyle" xmi:id="_3TAWcfKlEeW5X_bsb2hAMA" fontName="Cantarell"/>
+                        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3TAWcvKlEeW5X_bsb2hAMA"/>
+                      </children>
+                      <styles xmi:type="notation:ShapeStyle" xmi:id="_3S_IUfKlEeW5X_bsb2hAMA" fontName="Cantarell" fontHeight="5"/>
+                      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3S_IUvKlEeW5X_bsb2hAMA" x="-22" width="30" height="10"/>
+                    </children>
+                    <children xmi:type="notation:Node" xmi:id="_3S_vYPKlEeW5X_bsb2hAMA" type="3016" element="_3RkzI_KlEeW5X_bsb2hAMA">
+                      <styles xmi:type="notation:ShapeStyle" xmi:id="_3S_vYfKlEeW5X_bsb2hAMA" fontName="Cantarell"/>
+                      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3S_vYvKlEeW5X_bsb2hAMA"/>
+                    </children>
+                    <styles xmi:type="notation:ShapeStyle" xmi:id="_3S9TIfKlEeW5X_bsb2hAMA" fontName="Cantarell" fontHeight="8"/>
+                    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3S9TIvKlEeW5X_bsb2hAMA" x="32" y="30" width="30" height="30"/>
+                  </children>
+                  <children xmi:type="notation:Node" xmi:id="_3S96MPKlEeW5X_bsb2hAMA" type="3007" element="_3RkzJ_KlEeW5X_bsb2hAMA">
+                    <children xmi:type="notation:Node" xmi:id="_3S-hQPKlEeW5X_bsb2hAMA" type="5003">
+                      <layoutConstraint xmi:type="notation:Location" xmi:id="_3S-hQfKlEeW5X_bsb2hAMA" x="31"/>
+                    </children>
+                    <children xmi:type="notation:Node" xmi:id="_3TA9gPKlEeW5X_bsb2hAMA" type="3001" element="_3RkzKPKlEeW5X_bsb2hAMA">
+                      <children xmi:type="notation:Node" xmi:id="_3TBkkPKlEeW5X_bsb2hAMA" type="5001">
+                        <layoutConstraint xmi:type="notation:Location" xmi:id="_3TBkkfKlEeW5X_bsb2hAMA" y="5"/>
+                      </children>
+                      <children xmi:type="notation:Node" xmi:id="_3TCLoPKlEeW5X_bsb2hAMA" type="3003" element="_3RkzKfKlEeW5X_bsb2hAMA">
+                        <styles xmi:type="notation:ShapeStyle" xmi:id="_3TCLofKlEeW5X_bsb2hAMA" fontName="Cantarell"/>
+                        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3TCLovKlEeW5X_bsb2hAMA"/>
+                      </children>
+                      <styles xmi:type="notation:ShapeStyle" xmi:id="_3TA9gfKlEeW5X_bsb2hAMA" fontName="Cantarell" fontHeight="5"/>
+                      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3TA9gvKlEeW5X_bsb2hAMA" x="-22" width="30" height="10"/>
+                    </children>
+                    <children xmi:type="notation:Node" xmi:id="_3TBkkvKlEeW5X_bsb2hAMA" type="3016" element="_3RkzLfKlEeW5X_bsb2hAMA">
+                      <styles xmi:type="notation:ShapeStyle" xmi:id="_3TBkk_KlEeW5X_bsb2hAMA" fontName="Cantarell"/>
+                      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3TBklPKlEeW5X_bsb2hAMA"/>
+                    </children>
+                    <styles xmi:type="notation:ShapeStyle" xmi:id="_3S96MfKlEeW5X_bsb2hAMA" fontName="Cantarell" fontHeight="8"/>
+                    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3S96MvKlEeW5X_bsb2hAMA" x="30" y="68" width="30" height="30"/>
+                  </children>
+                  <styles xmi:type="notation:SortingStyle" xmi:id="_3Ss0cfKlEeW5X_bsb2hAMA"/>
+                  <styles xmi:type="notation:FilteringStyle" xmi:id="_3Ss0cvKlEeW5X_bsb2hAMA"/>
+                </children>
+                <styles xmi:type="notation:ShapeStyle" xmi:id="_3SrmUfKlEeW5X_bsb2hAMA" fontName="Cantarell" fontHeight="8"/>
+                <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3SrmUvKlEeW5X_bsb2hAMA" x="40" y="110"/>
+              </children>
+              <children xmi:type="notation:Node" xmi:id="_3Ss0c_KlEeW5X_bsb2hAMA" type="3008" element="_3RkzMfKlEeW5X_bsb2hAMA">
+                <children xmi:type="notation:Node" xmi:id="_3SuCkPKlEeW5X_bsb2hAMA" type="5005"/>
+                <children xmi:type="notation:Node" xmi:id="_3SuCkfKlEeW5X_bsb2hAMA" type="7002">
+                  <children xmi:type="notation:Node" xmi:id="_3TCysPKlEeW5X_bsb2hAMA" type="3007" element="_3RkzN_KlEeW5X_bsb2hAMA">
+                    <children xmi:type="notation:Node" xmi:id="_3TCys_KlEeW5X_bsb2hAMA" type="5003">
+                      <layoutConstraint xmi:type="notation:Location" xmi:id="_3TCytPKlEeW5X_bsb2hAMA" x="31"/>
+                    </children>
+                    <children xmi:type="notation:Node" xmi:id="_3TEA0PKlEeW5X_bsb2hAMA" type="3001" element="_3RkzOPKlEeW5X_bsb2hAMA">
+                      <children xmi:type="notation:Node" xmi:id="_3TEA0_KlEeW5X_bsb2hAMA" type="5001">
+                        <layoutConstraint xmi:type="notation:Location" xmi:id="_3TEA1PKlEeW5X_bsb2hAMA" y="5"/>
+                      </children>
+                      <children xmi:type="notation:Node" xmi:id="_3TEn4_KlEeW5X_bsb2hAMA" type="3003" element="_3RkzOfKlEeW5X_bsb2hAMA">
+                        <styles xmi:type="notation:ShapeStyle" xmi:id="_3TEn5PKlEeW5X_bsb2hAMA" fontName="Cantarell"/>
+                        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3TEn5fKlEeW5X_bsb2hAMA"/>
+                      </children>
+                      <styles xmi:type="notation:ShapeStyle" xmi:id="_3TEA0fKlEeW5X_bsb2hAMA" fontName="Cantarell" fontHeight="5"/>
+                      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3TEA0vKlEeW5X_bsb2hAMA" x="-22" width="30" height="10"/>
+                    </children>
+                    <children xmi:type="notation:Node" xmi:id="_3TEn4PKlEeW5X_bsb2hAMA" type="3016" element="_3RkzPfKlEeW5X_bsb2hAMA">
+                      <styles xmi:type="notation:ShapeStyle" xmi:id="_3TEn4fKlEeW5X_bsb2hAMA" fontName="Cantarell"/>
+                      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3TEn4vKlEeW5X_bsb2hAMA"/>
+                    </children>
+                    <styles xmi:type="notation:ShapeStyle" xmi:id="_3TCysfKlEeW5X_bsb2hAMA" fontName="Cantarell" fontHeight="8"/>
+                    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3TCysvKlEeW5X_bsb2hAMA" x="31" y="30" width="30" height="30"/>
+                  </children>
+                  <children xmi:type="notation:Node" xmi:id="_3TDZwPKlEeW5X_bsb2hAMA" type="3007" element="_3RlaI_KlEeW5X_bsb2hAMA">
+                    <children xmi:type="notation:Node" xmi:id="_3TDZw_KlEeW5X_bsb2hAMA" type="5003">
+                      <layoutConstraint xmi:type="notation:Location" xmi:id="_3TDZxPKlEeW5X_bsb2hAMA" x="31"/>
+                    </children>
+                    <children xmi:type="notation:Node" xmi:id="_3TFO8PKlEeW5X_bsb2hAMA" type="3001" element="_3RlaJPKlEeW5X_bsb2hAMA">
+                      <children xmi:type="notation:Node" xmi:id="_3TFO8_KlEeW5X_bsb2hAMA" type="5001">
+                        <layoutConstraint xmi:type="notation:Location" xmi:id="_3TFO9PKlEeW5X_bsb2hAMA" y="5"/>
+                      </children>
+                      <children xmi:type="notation:Node" xmi:id="_3TF2A_KlEeW5X_bsb2hAMA" type="3003" element="_3RlaJfKlEeW5X_bsb2hAMA">
+                        <styles xmi:type="notation:ShapeStyle" xmi:id="_3TF2BPKlEeW5X_bsb2hAMA" fontName="Cantarell"/>
+                        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3TF2BfKlEeW5X_bsb2hAMA"/>
+                      </children>
+                      <styles xmi:type="notation:ShapeStyle" xmi:id="_3TFO8fKlEeW5X_bsb2hAMA" fontName="Cantarell" fontHeight="5"/>
+                      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3TFO8vKlEeW5X_bsb2hAMA" x="-22" width="30" height="10"/>
+                    </children>
+                    <children xmi:type="notation:Node" xmi:id="_3TF2APKlEeW5X_bsb2hAMA" type="3016" element="_3RlaKfKlEeW5X_bsb2hAMA">
+                      <styles xmi:type="notation:ShapeStyle" xmi:id="_3TF2AfKlEeW5X_bsb2hAMA" fontName="Cantarell"/>
+                      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3TF2AvKlEeW5X_bsb2hAMA"/>
+                    </children>
+                    <styles xmi:type="notation:ShapeStyle" xmi:id="_3TDZwfKlEeW5X_bsb2hAMA" fontName="Cantarell" fontHeight="8"/>
+                    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3TDZwvKlEeW5X_bsb2hAMA" x="30" y="68" width="30" height="30"/>
+                  </children>
+                  <styles xmi:type="notation:SortingStyle" xmi:id="_3SuCkvKlEeW5X_bsb2hAMA"/>
+                  <styles xmi:type="notation:FilteringStyle" xmi:id="_3SuCk_KlEeW5X_bsb2hAMA"/>
+                </children>
+                <styles xmi:type="notation:ShapeStyle" xmi:id="_3Ss0dPKlEeW5X_bsb2hAMA" fontName="Cantarell" fontHeight="8"/>
+                <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3Ss0dfKlEeW5X_bsb2hAMA" x="390" y="144"/>
+              </children>
+              <children xmi:type="notation:Node" xmi:id="_3SupoPKlEeW5X_bsb2hAMA" type="3008" element="_3RlaLfKlEeW5X_bsb2hAMA">
+                <children xmi:type="notation:Node" xmi:id="_3Supo_KlEeW5X_bsb2hAMA" type="5005"/>
+                <children xmi:type="notation:Node" xmi:id="_3SuppPKlEeW5X_bsb2hAMA" type="7002">
+                  <children xmi:type="notation:Node" xmi:id="_3TGdEPKlEeW5X_bsb2hAMA" type="3007" element="_3RlaM_KlEeW5X_bsb2hAMA">
+                    <children xmi:type="notation:Node" xmi:id="_3TGdE_KlEeW5X_bsb2hAMA" type="5003">
+                      <layoutConstraint xmi:type="notation:Location" xmi:id="_3TGdFPKlEeW5X_bsb2hAMA" x="31"/>
+                    </children>
+                    <children xmi:type="notation:Node" xmi:id="_3TJgYvKlEeW5X_bsb2hAMA" type="3001" element="_3RlaNPKlEeW5X_bsb2hAMA">
+                      <children xmi:type="notation:Node" xmi:id="_3TKHcPKlEeW5X_bsb2hAMA" type="5001">
+                        <layoutConstraint xmi:type="notation:Location" xmi:id="_3TKHcfKlEeW5X_bsb2hAMA" y="5"/>
+                      </children>
+                      <children xmi:type="notation:Node" xmi:id="_3TKugPKlEeW5X_bsb2hAMA" type="3003" element="_3RlaNfKlEeW5X_bsb2hAMA">
+                        <styles xmi:type="notation:ShapeStyle" xmi:id="_3TKugfKlEeW5X_bsb2hAMA" fontName="Cantarell"/>
+                        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3TKugvKlEeW5X_bsb2hAMA"/>
+                      </children>
+                      <styles xmi:type="notation:ShapeStyle" xmi:id="_3TJgY_KlEeW5X_bsb2hAMA" fontName="Cantarell" fontHeight="5"/>
+                      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3TJgZPKlEeW5X_bsb2hAMA" x="-22" width="30" height="10"/>
+                    </children>
+                    <children xmi:type="notation:Node" xmi:id="_3TKHcvKlEeW5X_bsb2hAMA" type="3016" element="_3RlaOfKlEeW5X_bsb2hAMA">
+                      <styles xmi:type="notation:ShapeStyle" xmi:id="_3TKHc_KlEeW5X_bsb2hAMA" fontName="Cantarell"/>
+                      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3TKHdPKlEeW5X_bsb2hAMA"/>
+                    </children>
+                    <styles xmi:type="notation:ShapeStyle" xmi:id="_3TGdEfKlEeW5X_bsb2hAMA" fontName="Cantarell" fontHeight="8"/>
+                    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3TGdEvKlEeW5X_bsb2hAMA" x="30" y="30" width="30" height="30"/>
+                  </children>
+                  <children xmi:type="notation:Node" xmi:id="_3THEIPKlEeW5X_bsb2hAMA" type="3007" element="_3RlaPfKlEeW5X_bsb2hAMA">
+                    <children xmi:type="notation:Node" xmi:id="_3THEI_KlEeW5X_bsb2hAMA" type="5003">
+                      <layoutConstraint xmi:type="notation:Location" xmi:id="_3THEJPKlEeW5X_bsb2hAMA" x="31"/>
+                    </children>
+                    <children xmi:type="notation:Node" xmi:id="_3TKug_KlEeW5X_bsb2hAMA" type="3001" element="_3RlaPvKlEeW5X_bsb2hAMA">
+                      <children xmi:type="notation:Node" xmi:id="_3TLVkPKlEeW5X_bsb2hAMA" type="5001">
+                        <layoutConstraint xmi:type="notation:Location" xmi:id="_3TLVkfKlEeW5X_bsb2hAMA" y="5"/>
+                      </children>
+                      <children xmi:type="notation:Node" xmi:id="_3TL8oPKlEeW5X_bsb2hAMA" type="3003" element="_3RlaP_KlEeW5X_bsb2hAMA">
+                        <styles xmi:type="notation:ShapeStyle" xmi:id="_3TL8ofKlEeW5X_bsb2hAMA" fontName="Cantarell"/>
+                        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3TL8ovKlEeW5X_bsb2hAMA"/>
+                      </children>
+                      <styles xmi:type="notation:ShapeStyle" xmi:id="_3TKuhPKlEeW5X_bsb2hAMA" fontName="Cantarell" fontHeight="5"/>
+                      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3TKuhfKlEeW5X_bsb2hAMA" x="-22" width="30" height="10"/>
+                    </children>
+                    <children xmi:type="notation:Node" xmi:id="_3TLVkvKlEeW5X_bsb2hAMA" type="3016" element="_3RlaQ_KlEeW5X_bsb2hAMA">
+                      <styles xmi:type="notation:ShapeStyle" xmi:id="_3TLVk_KlEeW5X_bsb2hAMA" fontName="Cantarell"/>
+                      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3TLVlPKlEeW5X_bsb2hAMA"/>
+                    </children>
+                    <styles xmi:type="notation:ShapeStyle" xmi:id="_3THEIfKlEeW5X_bsb2hAMA" fontName="Cantarell" fontHeight="8"/>
+                    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3THEIvKlEeW5X_bsb2hAMA" x="30" y="65" width="30" height="30"/>
+                  </children>
+                  <children xmi:type="notation:Node" xmi:id="_3THrMPKlEeW5X_bsb2hAMA" type="3007" element="_3RlaR_KlEeW5X_bsb2hAMA">
+                    <children xmi:type="notation:Node" xmi:id="_3TISQPKlEeW5X_bsb2hAMA" type="5003">
+                      <layoutConstraint xmi:type="notation:Location" xmi:id="_3TISQfKlEeW5X_bsb2hAMA" x="31"/>
+                    </children>
+                    <children xmi:type="notation:Node" xmi:id="_3TMjsPKlEeW5X_bsb2hAMA" type="3001" element="_3RlaSPKlEeW5X_bsb2hAMA">
+                      <children xmi:type="notation:Node" xmi:id="_3TMjs_KlEeW5X_bsb2hAMA" type="5001">
+                        <layoutConstraint xmi:type="notation:Location" xmi:id="_3TMjtPKlEeW5X_bsb2hAMA" y="5"/>
+                      </children>
+                      <children xmi:type="notation:Node" xmi:id="_3TNKwPKlEeW5X_bsb2hAMA" type="3003" element="_3RlaSfKlEeW5X_bsb2hAMA">
+                        <styles xmi:type="notation:ShapeStyle" xmi:id="_3TNKwfKlEeW5X_bsb2hAMA" fontName="Cantarell"/>
+                        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3TNKwvKlEeW5X_bsb2hAMA"/>
+                      </children>
+                      <styles xmi:type="notation:ShapeStyle" xmi:id="_3TMjsfKlEeW5X_bsb2hAMA" fontName="Cantarell" fontHeight="5"/>
+                      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3TMjsvKlEeW5X_bsb2hAMA" x="-22" width="30" height="10"/>
+                    </children>
+                    <children xmi:type="notation:Node" xmi:id="_3TMjtfKlEeW5X_bsb2hAMA" type="3016" element="_3RlaTfKlEeW5X_bsb2hAMA">
+                      <styles xmi:type="notation:ShapeStyle" xmi:id="_3TMjtvKlEeW5X_bsb2hAMA" fontName="Cantarell"/>
+                      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3TMjt_KlEeW5X_bsb2hAMA"/>
+                    </children>
+                    <styles xmi:type="notation:ShapeStyle" xmi:id="_3THrMfKlEeW5X_bsb2hAMA" fontName="Cantarell" fontHeight="8"/>
+                    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3THrMvKlEeW5X_bsb2hAMA" x="30" y="100" width="30" height="30"/>
+                  </children>
+                  <children xmi:type="notation:Node" xmi:id="_3TI5UPKlEeW5X_bsb2hAMA" type="3007" element="_3RlaUfKlEeW5X_bsb2hAMA">
+                    <children xmi:type="notation:Node" xmi:id="_3TJgYPKlEeW5X_bsb2hAMA" type="5003">
+                      <layoutConstraint xmi:type="notation:Location" xmi:id="_3TJgYfKlEeW5X_bsb2hAMA" x="31"/>
+                    </children>
+                    <children xmi:type="notation:Node" xmi:id="_3TNKw_KlEeW5X_bsb2hAMA" type="3001" element="_3RlaUvKlEeW5X_bsb2hAMA">
+                      <children xmi:type="notation:Node" xmi:id="_3TNx0PKlEeW5X_bsb2hAMA" type="5001">
+                        <layoutConstraint xmi:type="notation:Location" xmi:id="_3TNx0fKlEeW5X_bsb2hAMA" y="5"/>
+                      </children>
+                      <children xmi:type="notation:Node" xmi:id="_3TOY4PKlEeW5X_bsb2hAMA" type="3003" element="_3RlaU_KlEeW5X_bsb2hAMA">
+                        <styles xmi:type="notation:ShapeStyle" xmi:id="_3TOY4fKlEeW5X_bsb2hAMA" fontName="Cantarell"/>
+                        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3TOY4vKlEeW5X_bsb2hAMA"/>
+                      </children>
+                      <styles xmi:type="notation:ShapeStyle" xmi:id="_3TNKxPKlEeW5X_bsb2hAMA" fontName="Cantarell" fontHeight="5"/>
+                      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3TNKxfKlEeW5X_bsb2hAMA" x="-22" width="30" height="10"/>
+                    </children>
+                    <children xmi:type="notation:Node" xmi:id="_3TNx0vKlEeW5X_bsb2hAMA" type="3016" element="_3RlaV_KlEeW5X_bsb2hAMA">
+                      <styles xmi:type="notation:ShapeStyle" xmi:id="_3TNx0_KlEeW5X_bsb2hAMA" fontName="Cantarell"/>
+                      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3TNx1PKlEeW5X_bsb2hAMA"/>
+                    </children>
+                    <styles xmi:type="notation:ShapeStyle" xmi:id="_3TI5UfKlEeW5X_bsb2hAMA" fontName="Cantarell" fontHeight="8"/>
+                    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3TI5UvKlEeW5X_bsb2hAMA" x="30" y="135" width="30" height="30"/>
+                  </children>
+                  <styles xmi:type="notation:SortingStyle" xmi:id="_3SuppfKlEeW5X_bsb2hAMA"/>
+                  <styles xmi:type="notation:FilteringStyle" xmi:id="_3SvQsPKlEeW5X_bsb2hAMA"/>
+                </children>
+                <styles xmi:type="notation:ShapeStyle" xmi:id="_3SupofKlEeW5X_bsb2hAMA" fontName="Cantarell" fontHeight="8"/>
+                <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3SupovKlEeW5X_bsb2hAMA" x="780" y="174"/>
+              </children>
+              <children xmi:type="notation:Node" xmi:id="_3SvQsfKlEeW5X_bsb2hAMA" type="3008" element="_3RlaW_KlEeW5X_bsb2hAMA">
+                <children xmi:type="notation:Node" xmi:id="_3SvQtPKlEeW5X_bsb2hAMA" type="5005"/>
+                <children xmi:type="notation:Node" xmi:id="_3Sv3wPKlEeW5X_bsb2hAMA" type="7002">
+                  <children xmi:type="notation:Node" xmi:id="_3TOY4_KlEeW5X_bsb2hAMA" type="3007" element="_3RlaYfKlEeW5X_bsb2hAMA">
+                    <children xmi:type="notation:Node" xmi:id="_3TO_8PKlEeW5X_bsb2hAMA" type="5003">
+                      <layoutConstraint xmi:type="notation:Location" xmi:id="_3TO_8fKlEeW5X_bsb2hAMA" x="31"/>
+                    </children>
+                    <children xmi:type="notation:Node" xmi:id="_3TPnAPKlEeW5X_bsb2hAMA" type="3001" element="_3RlaYvKlEeW5X_bsb2hAMA">
+                      <children xmi:type="notation:Node" xmi:id="_3TPnA_KlEeW5X_bsb2hAMA" type="5001">
+                        <layoutConstraint xmi:type="notation:Location" xmi:id="_3TPnBPKlEeW5X_bsb2hAMA" y="5"/>
+                      </children>
+                      <children xmi:type="notation:Node" xmi:id="_3TQOE_KlEeW5X_bsb2hAMA" type="3003" element="_3RlaY_KlEeW5X_bsb2hAMA">
+                        <styles xmi:type="notation:ShapeStyle" xmi:id="_3TQOFPKlEeW5X_bsb2hAMA" fontName="Cantarell"/>
+                        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3TQOFfKlEeW5X_bsb2hAMA"/>
+                      </children>
+                      <styles xmi:type="notation:ShapeStyle" xmi:id="_3TPnAfKlEeW5X_bsb2hAMA" fontName="Cantarell" fontHeight="5"/>
+                      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3TPnAvKlEeW5X_bsb2hAMA" x="-22" width="30" height="10"/>
+                    </children>
+                    <children xmi:type="notation:Node" xmi:id="_3TQOEPKlEeW5X_bsb2hAMA" type="3016" element="_3RlaZ_KlEeW5X_bsb2hAMA">
+                      <styles xmi:type="notation:ShapeStyle" xmi:id="_3TQOEfKlEeW5X_bsb2hAMA" fontName="Cantarell"/>
+                      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3TQOEvKlEeW5X_bsb2hAMA"/>
+                    </children>
+                    <styles xmi:type="notation:ShapeStyle" xmi:id="_3TOY5PKlEeW5X_bsb2hAMA" fontName="Cantarell" fontHeight="8"/>
+                    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3TOY5fKlEeW5X_bsb2hAMA" x="29" y="30" width="30" height="30"/>
+                  </children>
+                  <children xmi:type="notation:Node" xmi:id="_3TO_8vKlEeW5X_bsb2hAMA" type="3007" element="_3Rlaa_KlEeW5X_bsb2hAMA">
+                    <children xmi:type="notation:Node" xmi:id="_3TO_9fKlEeW5X_bsb2hAMA" type="5003">
+                      <layoutConstraint xmi:type="notation:Location" xmi:id="_3TO_9vKlEeW5X_bsb2hAMA" x="31"/>
+                    </children>
+                    <children xmi:type="notation:Node" xmi:id="_3TQOFvKlEeW5X_bsb2hAMA" type="3001" element="_3RlabPKlEeW5X_bsb2hAMA">
+                      <children xmi:type="notation:Node" xmi:id="_3TQ1IPKlEeW5X_bsb2hAMA" type="5001">
+                        <layoutConstraint xmi:type="notation:Location" xmi:id="_3TQ1IfKlEeW5X_bsb2hAMA" y="5"/>
+                      </children>
+                      <children xmi:type="notation:Node" xmi:id="_3TRcMPKlEeW5X_bsb2hAMA" type="3003" element="_3RlabfKlEeW5X_bsb2hAMA">
+                        <styles xmi:type="notation:ShapeStyle" xmi:id="_3TRcMfKlEeW5X_bsb2hAMA" fontName="Cantarell"/>
+                        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3TRcMvKlEeW5X_bsb2hAMA"/>
+                      </children>
+                      <styles xmi:type="notation:ShapeStyle" xmi:id="_3TQOF_KlEeW5X_bsb2hAMA" fontName="Cantarell" fontHeight="5"/>
+                      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3TQOGPKlEeW5X_bsb2hAMA" x="-22" width="30" height="10"/>
+                    </children>
+                    <children xmi:type="notation:Node" xmi:id="_3TQ1IvKlEeW5X_bsb2hAMA" type="3016" element="_3RlacfKlEeW5X_bsb2hAMA">
+                      <styles xmi:type="notation:ShapeStyle" xmi:id="_3TQ1I_KlEeW5X_bsb2hAMA" fontName="Cantarell"/>
+                      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3TQ1JPKlEeW5X_bsb2hAMA"/>
+                    </children>
+                    <styles xmi:type="notation:ShapeStyle" xmi:id="_3TO_8_KlEeW5X_bsb2hAMA" fontName="Cantarell" fontHeight="8"/>
+                    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3TO_9PKlEeW5X_bsb2hAMA" x="29" y="65" width="30" height="30"/>
+                  </children>
+                  <styles xmi:type="notation:SortingStyle" xmi:id="_3Sv3wfKlEeW5X_bsb2hAMA"/>
+                  <styles xmi:type="notation:FilteringStyle" xmi:id="_3Sv3wvKlEeW5X_bsb2hAMA"/>
+                </children>
+                <styles xmi:type="notation:ShapeStyle" xmi:id="_3SvQsvKlEeW5X_bsb2hAMA" fontName="Cantarell" fontHeight="8"/>
+                <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3SvQs_KlEeW5X_bsb2hAMA" x="1046" y="75"/>
+              </children>
+              <children xmi:type="notation:Node" xmi:id="_3Swe0PKlEeW5X_bsb2hAMA" type="3007" element="_3RladfKlEeW5X_bsb2hAMA">
+                <children xmi:type="notation:Node" xmi:id="_3SxF4PKlEeW5X_bsb2hAMA" type="5003">
+                  <layoutConstraint xmi:type="notation:Location" xmi:id="_3SxF4fKlEeW5X_bsb2hAMA" x="31"/>
+                </children>
+                <children xmi:type="notation:Node" xmi:id="_3TRcM_KlEeW5X_bsb2hAMA" type="3003" element="_3RladvKlEeW5X_bsb2hAMA">
+                  <styles xmi:type="notation:ShapeStyle" xmi:id="_3TRcNPKlEeW5X_bsb2hAMA" fontName="Cantarell"/>
+                  <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3TRcNfKlEeW5X_bsb2hAMA"/>
+                </children>
+                <styles xmi:type="notation:ShapeStyle" xmi:id="_3Swe0fKlEeW5X_bsb2hAMA" fontName="Cantarell" fontHeight="8"/>
+                <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3Swe0vKlEeW5X_bsb2hAMA" x="595" y="194" width="30" height="30"/>
+              </children>
+              <children xmi:type="notation:Node" xmi:id="_3S5owPKlEeW5X_bsb2hAMA" type="3007" element="_3RlaevKlEeW5X_bsb2hAMA">
+                <children xmi:type="notation:Node" xmi:id="_3S6P0PKlEeW5X_bsb2hAMA" type="5003">
+                  <layoutConstraint xmi:type="notation:Location" xmi:id="_3S6P0fKlEeW5X_bsb2hAMA" x="31"/>
+                </children>
+                <children xmi:type="notation:Node" xmi:id="_3TSDQPKlEeW5X_bsb2hAMA" type="3003" element="_3Rlae_KlEeW5X_bsb2hAMA">
+                  <styles xmi:type="notation:ShapeStyle" xmi:id="_3TSDQfKlEeW5X_bsb2hAMA" fontName="Cantarell"/>
+                  <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3TSDQvKlEeW5X_bsb2hAMA"/>
+                </children>
+                <styles xmi:type="notation:ShapeStyle" xmi:id="_3S5owfKlEeW5X_bsb2hAMA" fontName="Cantarell" fontHeight="8"/>
+                <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3S5owvKlEeW5X_bsb2hAMA" x="911" y="91" width="30" height="30"/>
+              </children>
+              <children xmi:type="notation:Node" xmi:id="_3S6P0vKlEeW5X_bsb2hAMA" type="3007" element="_3Rlaf_KlEeW5X_bsb2hAMA">
+                <children xmi:type="notation:Node" xmi:id="_3S624PKlEeW5X_bsb2hAMA" type="5003">
+                  <layoutConstraint xmi:type="notation:Location" xmi:id="_3S624fKlEeW5X_bsb2hAMA" x="31"/>
+                </children>
+                <children xmi:type="notation:Node" xmi:id="_3TSDQ_KlEeW5X_bsb2hAMA" type="3001" element="_3RlagPKlEeW5X_bsb2hAMA">
+                  <children xmi:type="notation:Node" xmi:id="_3TSDRvKlEeW5X_bsb2hAMA" type="5001">
+                    <layoutConstraint xmi:type="notation:Location" xmi:id="_3TSDR_KlEeW5X_bsb2hAMA" y="5"/>
+                  </children>
+                  <children xmi:type="notation:Node" xmi:id="_3TSqU_KlEeW5X_bsb2hAMA" type="3003" element="_3RlagfKlEeW5X_bsb2hAMA">
+                    <styles xmi:type="notation:ShapeStyle" xmi:id="_3TSqVPKlEeW5X_bsb2hAMA" fontName="Cantarell"/>
+                    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3TSqVfKlEeW5X_bsb2hAMA"/>
+                  </children>
+                  <styles xmi:type="notation:ShapeStyle" xmi:id="_3TSDRPKlEeW5X_bsb2hAMA" fontName="Cantarell" fontHeight="5"/>
+                  <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3TSDRfKlEeW5X_bsb2hAMA" x="-22" width="30" height="10"/>
+                </children>
+                <children xmi:type="notation:Node" xmi:id="_3TSqUPKlEeW5X_bsb2hAMA" type="3016" element="_3RlahfKlEeW5X_bsb2hAMA">
+                  <styles xmi:type="notation:ShapeStyle" xmi:id="_3TSqUfKlEeW5X_bsb2hAMA" fontName="Cantarell"/>
+                  <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3TSqUvKlEeW5X_bsb2hAMA"/>
+                </children>
+                <styles xmi:type="notation:ShapeStyle" xmi:id="_3S6P0_KlEeW5X_bsb2hAMA" fontName="Cantarell" fontHeight="8"/>
+                <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3S6P1PKlEeW5X_bsb2hAMA" x="291" y="64" width="30" height="30"/>
+              </children>
+              <children xmi:type="notation:Node" xmi:id="_3S624vKlEeW5X_bsb2hAMA" type="3007" element="_3RlaifKlEeW5X_bsb2hAMA">
+                <children xmi:type="notation:Node" xmi:id="_3S7d8PKlEeW5X_bsb2hAMA" type="5003">
+                  <layoutConstraint xmi:type="notation:Location" xmi:id="_3S7d8fKlEeW5X_bsb2hAMA" x="31"/>
+                </children>
+                <children xmi:type="notation:Node" xmi:id="_3TTRYPKlEeW5X_bsb2hAMA" type="3001" element="_3RlaivKlEeW5X_bsb2hAMA">
+                  <children xmi:type="notation:Node" xmi:id="_3TTRY_KlEeW5X_bsb2hAMA" type="5001">
+                    <layoutConstraint xmi:type="notation:Location" xmi:id="_3TTRZPKlEeW5X_bsb2hAMA" y="5"/>
+                  </children>
+                  <children xmi:type="notation:Node" xmi:id="_3TT4cPKlEeW5X_bsb2hAMA" type="3003" element="_3Rlai_KlEeW5X_bsb2hAMA">
+                    <styles xmi:type="notation:ShapeStyle" xmi:id="_3TT4cfKlEeW5X_bsb2hAMA" fontName="Cantarell"/>
+                    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3TT4cvKlEeW5X_bsb2hAMA"/>
+                  </children>
+                  <styles xmi:type="notation:ShapeStyle" xmi:id="_3TTRYfKlEeW5X_bsb2hAMA" fontName="Cantarell" fontHeight="5"/>
+                  <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3TTRYvKlEeW5X_bsb2hAMA" x="-22" width="30" height="10"/>
+                </children>
+                <children xmi:type="notation:Node" xmi:id="_3TTRZfKlEeW5X_bsb2hAMA" type="3016" element="_3Rlaj_KlEeW5X_bsb2hAMA">
+                  <styles xmi:type="notation:ShapeStyle" xmi:id="_3TTRZvKlEeW5X_bsb2hAMA" fontName="Cantarell"/>
+                  <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3TTRZ_KlEeW5X_bsb2hAMA"/>
+                </children>
+                <styles xmi:type="notation:ShapeStyle" xmi:id="_3S624_KlEeW5X_bsb2hAMA" fontName="Cantarell" fontHeight="8"/>
+                <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3S625PKlEeW5X_bsb2hAMA" x="262" y="219" width="30" height="30"/>
+              </children>
+              <children xmi:type="notation:Node" xmi:id="_3S8FAPKlEeW5X_bsb2hAMA" type="3007" element="_3Rlak_KlEeW5X_bsb2hAMA">
+                <children xmi:type="notation:Node" xmi:id="_3S8FA_KlEeW5X_bsb2hAMA" type="5003">
+                  <layoutConstraint xmi:type="notation:Location" xmi:id="_3S8FBPKlEeW5X_bsb2hAMA" x="31"/>
+                </children>
+                <children xmi:type="notation:Node" xmi:id="_3TT4c_KlEeW5X_bsb2hAMA" type="3001" element="_3RlalPKlEeW5X_bsb2hAMA">
+                  <children xmi:type="notation:Node" xmi:id="_3TUfgPKlEeW5X_bsb2hAMA" type="5001">
+                    <layoutConstraint xmi:type="notation:Location" xmi:id="_3TUfgfKlEeW5X_bsb2hAMA" y="5"/>
+                  </children>
+                  <children xmi:type="notation:Node" xmi:id="_3TUfhfKlEeW5X_bsb2hAMA" type="3003" element="_3RlalfKlEeW5X_bsb2hAMA">
+                    <styles xmi:type="notation:ShapeStyle" xmi:id="_3TUfhvKlEeW5X_bsb2hAMA" fontName="Cantarell"/>
+                    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3TUfh_KlEeW5X_bsb2hAMA"/>
+                  </children>
+                  <styles xmi:type="notation:ShapeStyle" xmi:id="_3TT4dPKlEeW5X_bsb2hAMA" fontName="Cantarell" fontHeight="5"/>
+                  <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3TT4dfKlEeW5X_bsb2hAMA" x="-22" width="30" height="10"/>
+                </children>
+                <children xmi:type="notation:Node" xmi:id="_3TUfgvKlEeW5X_bsb2hAMA" type="3016" element="_3RlamfKlEeW5X_bsb2hAMA">
+                  <styles xmi:type="notation:ShapeStyle" xmi:id="_3TUfg_KlEeW5X_bsb2hAMA" fontName="Cantarell"/>
+                  <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3TUfhPKlEeW5X_bsb2hAMA"/>
+                </children>
+                <styles xmi:type="notation:ShapeStyle" xmi:id="_3S8FAfKlEeW5X_bsb2hAMA" fontName="Cantarell" fontHeight="8"/>
+                <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3S8FAvKlEeW5X_bsb2hAMA" x="681" y="95" width="30" height="30"/>
+              </children>
+              <styles xmi:type="notation:SortingStyle" xmi:id="_3SlfsPKlEeW5X_bsb2hAMA"/>
+              <styles xmi:type="notation:FilteringStyle" xmi:id="_3SlfsfKlEeW5X_bsb2hAMA"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_3SPhcfKlEeW5X_bsb2hAMA" fontName="Cantarell" fontHeight="12" bold="true"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3SPhcvKlEeW5X_bsb2hAMA" width="1253"/>
+          </children>
+          <styles xmi:type="notation:DiagramStyle" xmi:id="_3SBfAvKlEeW5X_bsb2hAMA"/>
+          <edges xmi:type="notation:Edge" xmi:id="_3Tk-MPKlEeW5X_bsb2hAMA" type="4001" element="_3RlanfKlEeW5X_bsb2hAMA" source="_3SrmUPKlEeW5X_bsb2hAMA" target="_3S6P0vKlEeW5X_bsb2hAMA">
+            <children xmi:type="notation:Node" xmi:id="_3TmMUPKlEeW5X_bsb2hAMA" type="6001">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3TmMUfKlEeW5X_bsb2hAMA" y="-10"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_3TmzYPKlEeW5X_bsb2hAMA" type="6002">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3TmzYfKlEeW5X_bsb2hAMA" y="10"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_3TnacPKlEeW5X_bsb2hAMA" type="6003">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3TnacfKlEeW5X_bsb2hAMA" y="10"/>
+            </children>
+            <styles xmi:type="notation:ConnectorStyle" xmi:id="_3Tk-MfKlEeW5X_bsb2hAMA"/>
+            <styles xmi:type="notation:FontStyle" xmi:id="_3TllQPKlEeW5X_bsb2hAMA" fontName="Cantarell" fontHeight="8"/>
+            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_3TllQfKlEeW5X_bsb2hAMA" points="[0, 0, -181, 28]$[178, -28, -3, 0]"/>
+            <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_3TznsPKlEeW5X_bsb2hAMA" id="(0.497005988023952,0.0)"/>
+            <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_3TznsfKlEeW5X_bsb2hAMA" id="(0.1,0.6)"/>
+          </edges>
+          <edges xmi:type="notation:Edge" xmi:id="_3TznsvKlEeW5X_bsb2hAMA" type="4001" element="_3RlaovKlEeW5X_bsb2hAMA" source="_3Ss0c_KlEeW5X_bsb2hAMA" target="_3Swe0PKlEeW5X_bsb2hAMA">
+            <children xmi:type="notation:Node" xmi:id="_3T0OwPKlEeW5X_bsb2hAMA" type="6001">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3T0OwfKlEeW5X_bsb2hAMA" y="-10"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_3T0OwvKlEeW5X_bsb2hAMA" type="6002">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3T0Ow_KlEeW5X_bsb2hAMA" y="10"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_3T0OxPKlEeW5X_bsb2hAMA" type="6003">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3T0OxfKlEeW5X_bsb2hAMA" y="10"/>
+            </children>
+            <styles xmi:type="notation:ConnectorStyle" xmi:id="_3Tzns_KlEeW5X_bsb2hAMA"/>
+            <styles xmi:type="notation:FontStyle" xmi:id="_3TzntPKlEeW5X_bsb2hAMA" fontName="Cantarell" fontHeight="8"/>
+            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_3TzntfKlEeW5X_bsb2hAMA" points="[74, 78, -72, -2]$[131, 79, -15, -1]"/>
+            <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_3T010PKlEeW5X_bsb2hAMA" id="(0.5,0.0)"/>
+            <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_3T010fKlEeW5X_bsb2hAMA" id="(0.5,1.0)"/>
+          </edges>
+          <edges xmi:type="notation:Edge" xmi:id="_3T010vKlEeW5X_bsb2hAMA" type="4001" element="_3Rlap_KlEeW5X_bsb2hAMA" source="_3SupoPKlEeW5X_bsb2hAMA" target="_3S5owPKlEeW5X_bsb2hAMA">
+            <children xmi:type="notation:Node" xmi:id="_3T011vKlEeW5X_bsb2hAMA" type="6001">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3T011_KlEeW5X_bsb2hAMA" y="-10"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_3T1c4PKlEeW5X_bsb2hAMA" type="6002">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3T1c4fKlEeW5X_bsb2hAMA" y="10"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_3T1c4vKlEeW5X_bsb2hAMA" type="6003">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3T1c4_KlEeW5X_bsb2hAMA" y="10"/>
+            </children>
+            <styles xmi:type="notation:ConnectorStyle" xmi:id="_3T010_KlEeW5X_bsb2hAMA"/>
+            <styles xmi:type="notation:FontStyle" xmi:id="_3T011PKlEeW5X_bsb2hAMA" fontName="Cantarell" fontHeight="8"/>
+            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_3T011fKlEeW5X_bsb2hAMA" points="[0, 0, -59, 70]$[57, -69, -2, 1]"/>
+            <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_3T1c5PKlEeW5X_bsb2hAMA" id="(0.5,0.0)"/>
+            <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_3T1c5fKlEeW5X_bsb2hAMA" id="(0.06666666666666667,0.43333333333333335)"/>
+          </edges>
+          <edges xmi:type="notation:Edge" xmi:id="_3T2D8PKlEeW5X_bsb2hAMA" type="4001" element="_3RlarPKlEeW5X_bsb2hAMA" source="_3Swe0PKlEeW5X_bsb2hAMA" target="_3S8FAPKlEeW5X_bsb2hAMA">
+            <children xmi:type="notation:Node" xmi:id="_3T2D9PKlEeW5X_bsb2hAMA" type="6001">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3T2D9fKlEeW5X_bsb2hAMA" y="-10"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_3T2D9vKlEeW5X_bsb2hAMA" type="6002">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3T2D9_KlEeW5X_bsb2hAMA" y="10"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_3T2D-PKlEeW5X_bsb2hAMA" type="6003">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3T2D-fKlEeW5X_bsb2hAMA" y="10"/>
+            </children>
+            <styles xmi:type="notation:ConnectorStyle" xmi:id="_3T2D8fKlEeW5X_bsb2hAMA"/>
+            <styles xmi:type="notation:FontStyle" xmi:id="_3T2D8vKlEeW5X_bsb2hAMA" fontName="Cantarell" fontHeight="8"/>
+            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_3T2D8_KlEeW5X_bsb2hAMA" points="[0, 0, -79, 74]$[74, -69, -5, 5]"/>
+            <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_3T2rAPKlEeW5X_bsb2hAMA" id="(0.5,0.0)"/>
+            <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_3T2rAfKlEeW5X_bsb2hAMA" id="(0.26666666666666666,0.8333333333333334)"/>
+          </edges>
+          <edges xmi:type="notation:Edge" xmi:id="_3T2rAvKlEeW5X_bsb2hAMA" type="4001" element="_3RlasfKlEeW5X_bsb2hAMA" source="_3S5owPKlEeW5X_bsb2hAMA" target="_3SvQsfKlEeW5X_bsb2hAMA">
+            <children xmi:type="notation:Node" xmi:id="_3T2rBvKlEeW5X_bsb2hAMA" type="6001">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3T2rB_KlEeW5X_bsb2hAMA" y="-10"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_3T2rCPKlEeW5X_bsb2hAMA" type="6002">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3T2rCfKlEeW5X_bsb2hAMA" y="10"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_3T2rCvKlEeW5X_bsb2hAMA" type="6003">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3T2rC_KlEeW5X_bsb2hAMA" y="10"/>
+            </children>
+            <styles xmi:type="notation:ConnectorStyle" xmi:id="_3T2rA_KlEeW5X_bsb2hAMA"/>
+            <styles xmi:type="notation:FontStyle" xmi:id="_3T2rBPKlEeW5X_bsb2hAMA" fontName="Cantarell" fontHeight="8"/>
+            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_3T2rBfKlEeW5X_bsb2hAMA" points="[6, 1, -178, -70]$[111, 42, -73, -29]"/>
+            <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_3T3SEPKlEeW5X_bsb2hAMA" id="(0.8,0.6666666666666666)"/>
+            <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_3T3SEfKlEeW5X_bsb2hAMA" id="(0.4970760233918129,1.0)"/>
+          </edges>
+          <edges xmi:type="notation:Edge" xmi:id="_3T3SEvKlEeW5X_bsb2hAMA" type="4001" element="_3RlatvKlEeW5X_bsb2hAMA" source="_3S6P0vKlEeW5X_bsb2hAMA" target="_3S624vKlEeW5X_bsb2hAMA">
+            <children xmi:type="notation:Node" xmi:id="_3T3SFvKlEeW5X_bsb2hAMA" type="6001">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3T3SF_KlEeW5X_bsb2hAMA" y="-10"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_3T35IPKlEeW5X_bsb2hAMA" type="6002">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3T35IfKlEeW5X_bsb2hAMA" y="10"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_3T35IvKlEeW5X_bsb2hAMA" type="6003">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3T35I_KlEeW5X_bsb2hAMA" y="10"/>
+            </children>
+            <styles xmi:type="notation:ConnectorStyle" xmi:id="_3T3SE_KlEeW5X_bsb2hAMA"/>
+            <styles xmi:type="notation:FontStyle" xmi:id="_3T3SFPKlEeW5X_bsb2hAMA" fontName="Cantarell" fontHeight="8"/>
+            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_3T3SFfKlEeW5X_bsb2hAMA" points="[-3, 15, 26, -155]$[-24, 140, 5, -30]"/>
+            <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_3T35JfKlEeW5X_bsb2hAMA" id="(0.5,1.0)"/>
+          </edges>
+          <edges xmi:type="notation:Edge" xmi:id="_3T35JvKlEeW5X_bsb2hAMA" type="4001" element="_3Rlau_KlEeW5X_bsb2hAMA" source="_3S624vKlEeW5X_bsb2hAMA" target="_3Ss0c_KlEeW5X_bsb2hAMA">
+            <children xmi:type="notation:Node" xmi:id="_3T4gMPKlEeW5X_bsb2hAMA" type="6001">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3T4gMfKlEeW5X_bsb2hAMA" y="-10"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_3T4gMvKlEeW5X_bsb2hAMA" type="6002">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3T4gM_KlEeW5X_bsb2hAMA" y="10"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_3T4gNPKlEeW5X_bsb2hAMA" type="6003">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3T4gNfKlEeW5X_bsb2hAMA" y="10"/>
+            </children>
+            <styles xmi:type="notation:ConnectorStyle" xmi:id="_3T35J_KlEeW5X_bsb2hAMA"/>
+            <styles xmi:type="notation:FontStyle" xmi:id="_3T35KPKlEeW5X_bsb2hAMA" fontName="Cantarell" fontHeight="8"/>
+            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_3T35KfKlEeW5X_bsb2hAMA" points="[6, 1, -172, -14]$[104, 9, -74, -6]"/>
+            <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_3T4gNvKlEeW5X_bsb2hAMA" id="(0.8,0.6666666666666666)"/>
+            <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_3T4gN_KlEeW5X_bsb2hAMA" id="(0.5,1.0)"/>
+          </edges>
+          <edges xmi:type="notation:Edge" xmi:id="_3T5HQPKlEeW5X_bsb2hAMA" type="4001" element="_3RlawPKlEeW5X_bsb2hAMA" source="_3S8FAPKlEeW5X_bsb2hAMA" target="_3SupoPKlEeW5X_bsb2hAMA">
+            <children xmi:type="notation:Node" xmi:id="_3T5HRPKlEeW5X_bsb2hAMA" type="6001">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3T5HRfKlEeW5X_bsb2hAMA" y="-10"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_3T5HRvKlEeW5X_bsb2hAMA" type="6002">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3T5HR_KlEeW5X_bsb2hAMA" y="10"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_3T5HSPKlEeW5X_bsb2hAMA" type="6003">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3T5HSfKlEeW5X_bsb2hAMA" y="10"/>
+            </children>
+            <styles xmi:type="notation:ConnectorStyle" xmi:id="_3T5HQfKlEeW5X_bsb2hAMA"/>
+            <styles xmi:type="notation:FontStyle" xmi:id="_3T5HQvKlEeW5X_bsb2hAMA" fontName="Cantarell" fontHeight="8"/>
+            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_3T5HQ_KlEeW5X_bsb2hAMA" points="[13, 30, -145, -226]$[84, 185, -74, -71]"/>
+            <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_3T5uUPKlEeW5X_bsb2hAMA" id="(0.5,0.0)"/>
+            <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_3T5uUfKlEeW5X_bsb2hAMA" id="(0.5,1.0)"/>
+          </edges>
+        </data>
+      </ownedAnnotationEntries>
+      <ownedDiagramElements xmi:type="diagram:DNodeContainer" xmi:id="_3RkzEfKlEeW5X_bsb2hAMA" name="VideoGen1">
+        <target xmi:type="videoGen:VideoGen" href="sample.videogen#/"/>
+        <semanticElements xmi:type="videoGen:VideoGen" href="sample.videogen#/"/>
+        <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_3RkzEvKlEeW5X_bsb2hAMA" labelSize="12" labelFormat="bold" showIcon="false">
+          <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_3RkzE_KlEeW5X_bsb2hAMA"/>
+          <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.irisa.diverse.videogen.design/description/videogen.odesign#//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGenContainer']/@style"/>
+          <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_3RkzFPKlEeW5X_bsb2hAMA"/>
+          <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_3RkzFfKlEeW5X_bsb2hAMA" red="217" green="196" blue="215"/>
+          <foregroundColor xmi:type="viewpoint:RGBValues" xmi:id="_3RkzFvKlEeW5X_bsb2hAMA" red="209" green="209" blue="209"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.irisa.diverse.videogen.design/description/videogen.odesign#//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGenContainer']"/>
+        <ownedDiagramElements xmi:type="diagram:DNodeContainer" xmi:id="_3RkzF_KlEeW5X_bsb2hAMA" name="intro" outgoingEdges="_3RlanfKlEeW5X_bsb2hAMA">
+          <target xmi:type="videoGen:Alternatives" href="sample.videogen#//@sequences.0"/>
+          <semanticElements xmi:type="videoGen:Alternatives" href="sample.videogen#//@sequences.0"/>
+          <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+          <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+          <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+          <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_3RkzGPKlEeW5X_bsb2hAMA" showIcon="false">
+            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_3RkzGfKlEeW5X_bsb2hAMA"/>
+            <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.irisa.diverse.videogen.design/description/videogen.odesign#//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGenContainer']/@subContainerMappings[name='AlternativeContainer']/@style"/>
+            <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_3RkzGvKlEeW5X_bsb2hAMA"/>
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_3RkzG_KlEeW5X_bsb2hAMA" red="255" green="255" blue="255"/>
+            <foregroundColor xmi:type="viewpoint:RGBValues" xmi:id="_3RkzHPKlEeW5X_bsb2hAMA" red="209" green="209" blue="209"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:ContainerMappingImport" href="platform:/plugin/org.irisa.diverse.videogen.design/description/videogen.odesign#//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGenContainer']/@subContainerMappings[name='AlternativeContainer']"/>
+          <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_3RkzHfKlEeW5X_bsb2hAMA" name="intro-1" width="3" height="3" resizeKind="NSEW">
+            <target xmi:type="videoGen:Optional" href="sample.videogen#//@sequences.0/@options.0"/>
+            <semanticElements xmi:type="videoGen:Optional" href="sample.videogen#//@sequences.0/@options.0"/>
+            <ownedBorderedNodes xmi:type="diagram:DNode" xmi:id="_3RkzHvKlEeW5X_bsb2hAMA" name="30 %" width="3" height="1">
+              <target xmi:type="videoGen:Optional" href="sample.videogen#//@sequences.0/@options.0"/>
+              <semanticElements xmi:type="videoGen:Optional" href="sample.videogen#//@sequences.0/@options.0"/>
+              <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+              <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+              <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+              <ownedStyle xmi:type="diagram:Square" xmi:id="_3RkzH_KlEeW5X_bsb2hAMA" labelSize="5" showIcon="false" labelPosition="node" width="3" height="1">
+                <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_3RkzIPKlEeW5X_bsb2hAMA"/>
+                <description xmi:type="style:SquareDescription" href="platform:/plugin/org.irisa.diverse.videogen.design/description/videogen.odesign#//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGenContainer']/@subContainerMappings[name='AlternativeContainer']/@subNodeMappings[name='OptionSubNode']/@borderedNodeMappings[name='PercentageNode']/@style"/>
+                <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_3RkzIfKlEeW5X_bsb2hAMA"/>
+                <color xmi:type="viewpoint:RGBValues" xmi:id="_3RkzIvKlEeW5X_bsb2hAMA" red="255" green="255" blue="255"/>
+              </ownedStyle>
+              <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.irisa.diverse.videogen.design/description/videogen.odesign#//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGenContainer']/@subContainerMappings[name='AlternativeContainer']/@subNodeMappings[name='OptionSubNode']/@borderedNodeMappings[name='PercentageNode']"/>
+            </ownedBorderedNodes>
+            <ownedStyle xmi:type="diagram:Ellipse" xmi:id="_3RkzI_KlEeW5X_bsb2hAMA" showIcon="false">
+              <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_3RkzJPKlEeW5X_bsb2hAMA"/>
+              <description xmi:type="style:EllipseNodeDescription" href="platform:/plugin/org.irisa.diverse.videogen.design/description/videogen.odesign#//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGenContainer']/@subContainerMappings[name='AlternativeContainer']/@subNodeMappings[name='OptionSubNode']/@style"/>
+              <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_3RkzJfKlEeW5X_bsb2hAMA"/>
+              <color xmi:type="viewpoint:RGBValues" xmi:id="_3RkzJvKlEeW5X_bsb2hAMA" red="246" green="139" blue="139"/>
+            </ownedStyle>
+            <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.irisa.diverse.videogen.design/description/videogen.odesign#//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGenContainer']/@subContainerMappings[name='AlternativeContainer']/@subNodeMappings[name='OptionSubNode']"/>
+          </ownedDiagramElements>
+          <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_3RkzJ_KlEeW5X_bsb2hAMA" name="intro-2" width="3" height="3" resizeKind="NSEW">
+            <target xmi:type="videoGen:Optional" href="sample.videogen#//@sequences.0/@options.1"/>
+            <semanticElements xmi:type="videoGen:Optional" href="sample.videogen#//@sequences.0/@options.1"/>
+            <ownedBorderedNodes xmi:type="diagram:DNode" xmi:id="_3RkzKPKlEeW5X_bsb2hAMA" name="70 %" width="3" height="1">
+              <target xmi:type="videoGen:Optional" href="sample.videogen#//@sequences.0/@options.1"/>
+              <semanticElements xmi:type="videoGen:Optional" href="sample.videogen#//@sequences.0/@options.1"/>
+              <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+              <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+              <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+              <ownedStyle xmi:type="diagram:Square" xmi:id="_3RkzKfKlEeW5X_bsb2hAMA" labelSize="5" showIcon="false" labelPosition="node" width="3" height="1">
+                <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_3RkzKvKlEeW5X_bsb2hAMA"/>
+                <description xmi:type="style:SquareDescription" href="platform:/plugin/org.irisa.diverse.videogen.design/description/videogen.odesign#//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGenContainer']/@subContainerMappings[name='AlternativeContainer']/@subNodeMappings[name='OptionSubNode']/@borderedNodeMappings[name='PercentageNode']/@style"/>
+                <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_3RkzK_KlEeW5X_bsb2hAMA"/>
+                <color xmi:type="viewpoint:RGBValues" xmi:id="_3RkzLPKlEeW5X_bsb2hAMA" red="255" green="255" blue="255"/>
+              </ownedStyle>
+              <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.irisa.diverse.videogen.design/description/videogen.odesign#//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGenContainer']/@subContainerMappings[name='AlternativeContainer']/@subNodeMappings[name='OptionSubNode']/@borderedNodeMappings[name='PercentageNode']"/>
+            </ownedBorderedNodes>
+            <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+            <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+            <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+            <ownedStyle xmi:type="diagram:Ellipse" xmi:id="_3RkzLfKlEeW5X_bsb2hAMA" showIcon="false">
+              <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_3RkzLvKlEeW5X_bsb2hAMA"/>
+              <description xmi:type="style:EllipseNodeDescription" href="platform:/plugin/org.irisa.diverse.videogen.design/description/videogen.odesign#//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGenContainer']/@subContainerMappings[name='AlternativeContainer']/@subNodeMappings[name='OptionSubNode']/@style"/>
+              <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_3RkzL_KlEeW5X_bsb2hAMA"/>
+              <color xmi:type="viewpoint:RGBValues" xmi:id="_3RkzMPKlEeW5X_bsb2hAMA" red="246" green="139" blue="139"/>
+            </ownedStyle>
+            <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.irisa.diverse.videogen.design/description/videogen.odesign#//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGenContainer']/@subContainerMappings[name='AlternativeContainer']/@subNodeMappings[name='OptionSubNode']"/>
+          </ownedDiagramElements>
+        </ownedDiagramElements>
+        <ownedDiagramElements xmi:type="diagram:DNodeContainer" xmi:id="_3RkzMfKlEeW5X_bsb2hAMA" name="cats" outgoingEdges="_3RlaovKlEeW5X_bsb2hAMA" incomingEdges="_3Rlau_KlEeW5X_bsb2hAMA">
+          <target xmi:type="videoGen:Alternatives" href="sample.videogen#//@sequences.2"/>
+          <semanticElements xmi:type="videoGen:Alternatives" href="sample.videogen#//@sequences.2"/>
+          <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+          <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+          <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+          <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_3RkzMvKlEeW5X_bsb2hAMA" showIcon="false">
+            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_3RkzM_KlEeW5X_bsb2hAMA"/>
+            <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.irisa.diverse.videogen.design/description/videogen.odesign#//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGenContainer']/@subContainerMappings[name='AlternativeContainer']/@style"/>
+            <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_3RkzNPKlEeW5X_bsb2hAMA"/>
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_3RkzNfKlEeW5X_bsb2hAMA" red="255" green="255" blue="255"/>
+            <foregroundColor xmi:type="viewpoint:RGBValues" xmi:id="_3RkzNvKlEeW5X_bsb2hAMA" red="209" green="209" blue="209"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:ContainerMappingImport" href="platform:/plugin/org.irisa.diverse.videogen.design/description/videogen.odesign#//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGenContainer']/@subContainerMappings[name='AlternativeContainer']"/>
+          <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_3RkzN_KlEeW5X_bsb2hAMA" name="cats-1" width="3" height="3" resizeKind="NSEW">
+            <target xmi:type="videoGen:Optional" href="sample.videogen#//@sequences.2/@options.0"/>
+            <semanticElements xmi:type="videoGen:Optional" href="sample.videogen#//@sequences.2/@options.0"/>
+            <ownedBorderedNodes xmi:type="diagram:DNode" xmi:id="_3RkzOPKlEeW5X_bsb2hAMA" name="65 %" width="3" height="1">
+              <target xmi:type="videoGen:Optional" href="sample.videogen#//@sequences.2/@options.0"/>
+              <semanticElements xmi:type="videoGen:Optional" href="sample.videogen#//@sequences.2/@options.0"/>
+              <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+              <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+              <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+              <ownedStyle xmi:type="diagram:Square" xmi:id="_3RkzOfKlEeW5X_bsb2hAMA" labelSize="5" showIcon="false" labelPosition="node" width="3" height="1">
+                <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_3RkzOvKlEeW5X_bsb2hAMA"/>
+                <description xmi:type="style:SquareDescription" href="platform:/plugin/org.irisa.diverse.videogen.design/description/videogen.odesign#//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGenContainer']/@subContainerMappings[name='AlternativeContainer']/@subNodeMappings[name='OptionSubNode']/@borderedNodeMappings[name='PercentageNode']/@style"/>
+                <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_3RkzO_KlEeW5X_bsb2hAMA"/>
+                <color xmi:type="viewpoint:RGBValues" xmi:id="_3RkzPPKlEeW5X_bsb2hAMA" red="255" green="255" blue="255"/>
+              </ownedStyle>
+              <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.irisa.diverse.videogen.design/description/videogen.odesign#//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGenContainer']/@subContainerMappings[name='AlternativeContainer']/@subNodeMappings[name='OptionSubNode']/@borderedNodeMappings[name='PercentageNode']"/>
+            </ownedBorderedNodes>
+            <ownedStyle xmi:type="diagram:Ellipse" xmi:id="_3RkzPfKlEeW5X_bsb2hAMA" showIcon="false">
+              <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_3RlaIPKlEeW5X_bsb2hAMA"/>
+              <description xmi:type="style:EllipseNodeDescription" href="platform:/plugin/org.irisa.diverse.videogen.design/description/videogen.odesign#//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGenContainer']/@subContainerMappings[name='AlternativeContainer']/@subNodeMappings[name='OptionSubNode']/@style"/>
+              <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_3RlaIfKlEeW5X_bsb2hAMA"/>
+              <color xmi:type="viewpoint:RGBValues" xmi:id="_3RlaIvKlEeW5X_bsb2hAMA" red="246" green="139" blue="139"/>
+            </ownedStyle>
+            <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.irisa.diverse.videogen.design/description/videogen.odesign#//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGenContainer']/@subContainerMappings[name='AlternativeContainer']/@subNodeMappings[name='OptionSubNode']"/>
+          </ownedDiagramElements>
+          <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_3RlaI_KlEeW5X_bsb2hAMA" name="cats-2" width="3" height="3" resizeKind="NSEW">
+            <target xmi:type="videoGen:Optional" href="sample.videogen#//@sequences.2/@options.1"/>
+            <semanticElements xmi:type="videoGen:Optional" href="sample.videogen#//@sequences.2/@options.1"/>
+            <ownedBorderedNodes xmi:type="diagram:DNode" xmi:id="_3RlaJPKlEeW5X_bsb2hAMA" name="25 %" width="3" height="1">
+              <target xmi:type="videoGen:Optional" href="sample.videogen#//@sequences.2/@options.1"/>
+              <semanticElements xmi:type="videoGen:Optional" href="sample.videogen#//@sequences.2/@options.1"/>
+              <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+              <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+              <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+              <ownedStyle xmi:type="diagram:Square" xmi:id="_3RlaJfKlEeW5X_bsb2hAMA" labelSize="5" showIcon="false" labelPosition="node" width="3" height="1">
+                <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_3RlaJvKlEeW5X_bsb2hAMA"/>
+                <description xmi:type="style:SquareDescription" href="platform:/plugin/org.irisa.diverse.videogen.design/description/videogen.odesign#//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGenContainer']/@subContainerMappings[name='AlternativeContainer']/@subNodeMappings[name='OptionSubNode']/@borderedNodeMappings[name='PercentageNode']/@style"/>
+                <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_3RlaJ_KlEeW5X_bsb2hAMA"/>
+                <color xmi:type="viewpoint:RGBValues" xmi:id="_3RlaKPKlEeW5X_bsb2hAMA" red="255" green="255" blue="255"/>
+              </ownedStyle>
+              <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.irisa.diverse.videogen.design/description/videogen.odesign#//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGenContainer']/@subContainerMappings[name='AlternativeContainer']/@subNodeMappings[name='OptionSubNode']/@borderedNodeMappings[name='PercentageNode']"/>
+            </ownedBorderedNodes>
+            <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+            <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+            <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+            <ownedStyle xmi:type="diagram:Ellipse" xmi:id="_3RlaKfKlEeW5X_bsb2hAMA" showIcon="false">
+              <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_3RlaKvKlEeW5X_bsb2hAMA"/>
+              <description xmi:type="style:EllipseNodeDescription" href="platform:/plugin/org.irisa.diverse.videogen.design/description/videogen.odesign#//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGenContainer']/@subContainerMappings[name='AlternativeContainer']/@subNodeMappings[name='OptionSubNode']/@style"/>
+              <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_3RlaK_KlEeW5X_bsb2hAMA"/>
+              <color xmi:type="viewpoint:RGBValues" xmi:id="_3RlaLPKlEeW5X_bsb2hAMA" red="246" green="139" blue="139"/>
+            </ownedStyle>
+            <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.irisa.diverse.videogen.design/description/videogen.odesign#//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGenContainer']/@subContainerMappings[name='AlternativeContainer']/@subNodeMappings[name='OptionSubNode']"/>
+          </ownedDiagramElements>
+        </ownedDiagramElements>
+        <ownedDiagramElements xmi:type="diagram:DNodeContainer" xmi:id="_3RlaLfKlEeW5X_bsb2hAMA" name="wtf" outgoingEdges="_3Rlap_KlEeW5X_bsb2hAMA" incomingEdges="_3RlawPKlEeW5X_bsb2hAMA">
+          <target xmi:type="videoGen:Alternatives" href="sample.videogen#//@sequences.5"/>
+          <semanticElements xmi:type="videoGen:Alternatives" href="sample.videogen#//@sequences.5"/>
+          <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+          <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+          <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+          <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_3RlaLvKlEeW5X_bsb2hAMA" showIcon="false">
+            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_3RlaL_KlEeW5X_bsb2hAMA"/>
+            <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.irisa.diverse.videogen.design/description/videogen.odesign#//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGenContainer']/@subContainerMappings[name='AlternativeContainer']/@style"/>
+            <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_3RlaMPKlEeW5X_bsb2hAMA"/>
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_3RlaMfKlEeW5X_bsb2hAMA" red="255" green="255" blue="255"/>
+            <foregroundColor xmi:type="viewpoint:RGBValues" xmi:id="_3RlaMvKlEeW5X_bsb2hAMA" red="209" green="209" blue="209"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:ContainerMappingImport" href="platform:/plugin/org.irisa.diverse.videogen.design/description/videogen.odesign#//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGenContainer']/@subContainerMappings[name='AlternativeContainer']"/>
+          <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_3RlaM_KlEeW5X_bsb2hAMA" name="wtf-1" width="3" height="3" resizeKind="NSEW">
+            <target xmi:type="videoGen:Optional" href="sample.videogen#//@sequences.5/@options.0"/>
+            <semanticElements xmi:type="videoGen:Optional" href="sample.videogen#//@sequences.5/@options.0"/>
+            <ownedBorderedNodes xmi:type="diagram:DNode" xmi:id="_3RlaNPKlEeW5X_bsb2hAMA" name="30 %" width="3" height="1">
+              <target xmi:type="videoGen:Optional" href="sample.videogen#//@sequences.5/@options.0"/>
+              <semanticElements xmi:type="videoGen:Optional" href="sample.videogen#//@sequences.5/@options.0"/>
+              <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+              <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+              <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+              <ownedStyle xmi:type="diagram:Square" xmi:id="_3RlaNfKlEeW5X_bsb2hAMA" labelSize="5" showIcon="false" labelPosition="node" width="3" height="1">
+                <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_3RlaNvKlEeW5X_bsb2hAMA"/>
+                <description xmi:type="style:SquareDescription" href="platform:/plugin/org.irisa.diverse.videogen.design/description/videogen.odesign#//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGenContainer']/@subContainerMappings[name='AlternativeContainer']/@subNodeMappings[name='OptionSubNode']/@borderedNodeMappings[name='PercentageNode']/@style"/>
+                <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_3RlaN_KlEeW5X_bsb2hAMA"/>
+                <color xmi:type="viewpoint:RGBValues" xmi:id="_3RlaOPKlEeW5X_bsb2hAMA" red="255" green="255" blue="255"/>
+              </ownedStyle>
+              <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.irisa.diverse.videogen.design/description/videogen.odesign#//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGenContainer']/@subContainerMappings[name='AlternativeContainer']/@subNodeMappings[name='OptionSubNode']/@borderedNodeMappings[name='PercentageNode']"/>
+            </ownedBorderedNodes>
+            <ownedStyle xmi:type="diagram:Ellipse" xmi:id="_3RlaOfKlEeW5X_bsb2hAMA" showIcon="false">
+              <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_3RlaOvKlEeW5X_bsb2hAMA"/>
+              <description xmi:type="style:EllipseNodeDescription" href="platform:/plugin/org.irisa.diverse.videogen.design/description/videogen.odesign#//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGenContainer']/@subContainerMappings[name='AlternativeContainer']/@subNodeMappings[name='OptionSubNode']/@style"/>
+              <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_3RlaO_KlEeW5X_bsb2hAMA"/>
+              <color xmi:type="viewpoint:RGBValues" xmi:id="_3RlaPPKlEeW5X_bsb2hAMA" red="246" green="139" blue="139"/>
+            </ownedStyle>
+            <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.irisa.diverse.videogen.design/description/videogen.odesign#//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGenContainer']/@subContainerMappings[name='AlternativeContainer']/@subNodeMappings[name='OptionSubNode']"/>
+          </ownedDiagramElements>
+          <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_3RlaPfKlEeW5X_bsb2hAMA" name="wtf-2" width="3" height="3" resizeKind="NSEW">
+            <target xmi:type="videoGen:Optional" href="sample.videogen#//@sequences.5/@options.1"/>
+            <semanticElements xmi:type="videoGen:Optional" href="sample.videogen#//@sequences.5/@options.1"/>
+            <ownedBorderedNodes xmi:type="diagram:DNode" xmi:id="_3RlaPvKlEeW5X_bsb2hAMA" name="25 %" width="3" height="1">
+              <target xmi:type="videoGen:Optional" href="sample.videogen#//@sequences.5/@options.1"/>
+              <semanticElements xmi:type="videoGen:Optional" href="sample.videogen#//@sequences.5/@options.1"/>
+              <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+              <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+              <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+              <ownedStyle xmi:type="diagram:Square" xmi:id="_3RlaP_KlEeW5X_bsb2hAMA" labelSize="5" showIcon="false" labelPosition="node" width="3" height="1">
+                <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_3RlaQPKlEeW5X_bsb2hAMA"/>
+                <description xmi:type="style:SquareDescription" href="platform:/plugin/org.irisa.diverse.videogen.design/description/videogen.odesign#//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGenContainer']/@subContainerMappings[name='AlternativeContainer']/@subNodeMappings[name='OptionSubNode']/@borderedNodeMappings[name='PercentageNode']/@style"/>
+                <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_3RlaQfKlEeW5X_bsb2hAMA"/>
+                <color xmi:type="viewpoint:RGBValues" xmi:id="_3RlaQvKlEeW5X_bsb2hAMA" red="255" green="255" blue="255"/>
+              </ownedStyle>
+              <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.irisa.diverse.videogen.design/description/videogen.odesign#//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGenContainer']/@subContainerMappings[name='AlternativeContainer']/@subNodeMappings[name='OptionSubNode']/@borderedNodeMappings[name='PercentageNode']"/>
+            </ownedBorderedNodes>
+            <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+            <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+            <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+            <ownedStyle xmi:type="diagram:Ellipse" xmi:id="_3RlaQ_KlEeW5X_bsb2hAMA" showIcon="false">
+              <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_3RlaRPKlEeW5X_bsb2hAMA"/>
+              <description xmi:type="style:EllipseNodeDescription" href="platform:/plugin/org.irisa.diverse.videogen.design/description/videogen.odesign#//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGenContainer']/@subContainerMappings[name='AlternativeContainer']/@subNodeMappings[name='OptionSubNode']/@style"/>
+              <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_3RlaRfKlEeW5X_bsb2hAMA"/>
+              <color xmi:type="viewpoint:RGBValues" xmi:id="_3RlaRvKlEeW5X_bsb2hAMA" red="246" green="139" blue="139"/>
+            </ownedStyle>
+            <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.irisa.diverse.videogen.design/description/videogen.odesign#//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGenContainer']/@subContainerMappings[name='AlternativeContainer']/@subNodeMappings[name='OptionSubNode']"/>
+          </ownedDiagramElements>
+          <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_3RlaR_KlEeW5X_bsb2hAMA" name="wtf-3" width="3" height="3" resizeKind="NSEW">
+            <target xmi:type="videoGen:Optional" href="sample.videogen#//@sequences.5/@options.2"/>
+            <semanticElements xmi:type="videoGen:Optional" href="sample.videogen#//@sequences.5/@options.2"/>
+            <ownedBorderedNodes xmi:type="diagram:DNode" xmi:id="_3RlaSPKlEeW5X_bsb2hAMA" name="30 %" width="3" height="1">
+              <target xmi:type="videoGen:Optional" href="sample.videogen#//@sequences.5/@options.2"/>
+              <semanticElements xmi:type="videoGen:Optional" href="sample.videogen#//@sequences.5/@options.2"/>
+              <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+              <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+              <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+              <ownedStyle xmi:type="diagram:Square" xmi:id="_3RlaSfKlEeW5X_bsb2hAMA" labelSize="5" showIcon="false" labelPosition="node" width="3" height="1">
+                <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_3RlaSvKlEeW5X_bsb2hAMA"/>
+                <description xmi:type="style:SquareDescription" href="platform:/plugin/org.irisa.diverse.videogen.design/description/videogen.odesign#//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGenContainer']/@subContainerMappings[name='AlternativeContainer']/@subNodeMappings[name='OptionSubNode']/@borderedNodeMappings[name='PercentageNode']/@style"/>
+                <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_3RlaS_KlEeW5X_bsb2hAMA"/>
+                <color xmi:type="viewpoint:RGBValues" xmi:id="_3RlaTPKlEeW5X_bsb2hAMA" red="255" green="255" blue="255"/>
+              </ownedStyle>
+              <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.irisa.diverse.videogen.design/description/videogen.odesign#//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGenContainer']/@subContainerMappings[name='AlternativeContainer']/@subNodeMappings[name='OptionSubNode']/@borderedNodeMappings[name='PercentageNode']"/>
+            </ownedBorderedNodes>
+            <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+            <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+            <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+            <ownedStyle xmi:type="diagram:Ellipse" xmi:id="_3RlaTfKlEeW5X_bsb2hAMA" showIcon="false">
+              <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_3RlaTvKlEeW5X_bsb2hAMA"/>
+              <description xmi:type="style:EllipseNodeDescription" href="platform:/plugin/org.irisa.diverse.videogen.design/description/videogen.odesign#//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGenContainer']/@subContainerMappings[name='AlternativeContainer']/@subNodeMappings[name='OptionSubNode']/@style"/>
+              <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_3RlaT_KlEeW5X_bsb2hAMA"/>
+              <color xmi:type="viewpoint:RGBValues" xmi:id="_3RlaUPKlEeW5X_bsb2hAMA" red="246" green="139" blue="139"/>
+            </ownedStyle>
+            <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.irisa.diverse.videogen.design/description/videogen.odesign#//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGenContainer']/@subContainerMappings[name='AlternativeContainer']/@subNodeMappings[name='OptionSubNode']"/>
+          </ownedDiagramElements>
+          <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_3RlaUfKlEeW5X_bsb2hAMA" name="wtf-4" width="3" height="3" resizeKind="NSEW">
+            <target xmi:type="videoGen:Optional" href="sample.videogen#//@sequences.5/@options.3"/>
+            <semanticElements xmi:type="videoGen:Optional" href="sample.videogen#//@sequences.5/@options.3"/>
+            <ownedBorderedNodes xmi:type="diagram:DNode" xmi:id="_3RlaUvKlEeW5X_bsb2hAMA" name="15 %" width="3" height="1">
+              <target xmi:type="videoGen:Optional" href="sample.videogen#//@sequences.5/@options.3"/>
+              <semanticElements xmi:type="videoGen:Optional" href="sample.videogen#//@sequences.5/@options.3"/>
+              <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+              <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+              <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+              <ownedStyle xmi:type="diagram:Square" xmi:id="_3RlaU_KlEeW5X_bsb2hAMA" labelSize="5" showIcon="false" labelPosition="node" width="3" height="1">
+                <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_3RlaVPKlEeW5X_bsb2hAMA"/>
+                <description xmi:type="style:SquareDescription" href="platform:/plugin/org.irisa.diverse.videogen.design/description/videogen.odesign#//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGenContainer']/@subContainerMappings[name='AlternativeContainer']/@subNodeMappings[name='OptionSubNode']/@borderedNodeMappings[name='PercentageNode']/@style"/>
+                <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_3RlaVfKlEeW5X_bsb2hAMA"/>
+                <color xmi:type="viewpoint:RGBValues" xmi:id="_3RlaVvKlEeW5X_bsb2hAMA" red="255" green="255" blue="255"/>
+              </ownedStyle>
+              <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.irisa.diverse.videogen.design/description/videogen.odesign#//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGenContainer']/@subContainerMappings[name='AlternativeContainer']/@subNodeMappings[name='OptionSubNode']/@borderedNodeMappings[name='PercentageNode']"/>
+            </ownedBorderedNodes>
+            <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+            <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+            <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+            <ownedStyle xmi:type="diagram:Ellipse" xmi:id="_3RlaV_KlEeW5X_bsb2hAMA" showIcon="false">
+              <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_3RlaWPKlEeW5X_bsb2hAMA"/>
+              <description xmi:type="style:EllipseNodeDescription" href="platform:/plugin/org.irisa.diverse.videogen.design/description/videogen.odesign#//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGenContainer']/@subContainerMappings[name='AlternativeContainer']/@subNodeMappings[name='OptionSubNode']/@style"/>
+              <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_3RlaWfKlEeW5X_bsb2hAMA"/>
+              <color xmi:type="viewpoint:RGBValues" xmi:id="_3RlaWvKlEeW5X_bsb2hAMA" red="246" green="139" blue="139"/>
+            </ownedStyle>
+            <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.irisa.diverse.videogen.design/description/videogen.odesign#//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGenContainer']/@subContainerMappings[name='AlternativeContainer']/@subNodeMappings[name='OptionSubNode']"/>
+          </ownedDiagramElements>
+        </ownedDiagramElements>
+        <ownedDiagramElements xmi:type="diagram:DNodeContainer" xmi:id="_3RlaW_KlEeW5X_bsb2hAMA" name="outro" incomingEdges="_3RlasfKlEeW5X_bsb2hAMA">
+          <target xmi:type="videoGen:Alternatives" href="sample.videogen#//@sequences.7"/>
+          <semanticElements xmi:type="videoGen:Alternatives" href="sample.videogen#//@sequences.7"/>
+          <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+          <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+          <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+          <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_3RlaXPKlEeW5X_bsb2hAMA" showIcon="false">
+            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_3RlaXfKlEeW5X_bsb2hAMA"/>
+            <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.irisa.diverse.videogen.design/description/videogen.odesign#//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGenContainer']/@subContainerMappings[name='AlternativeContainer']/@style"/>
+            <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_3RlaXvKlEeW5X_bsb2hAMA"/>
+            <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_3RlaX_KlEeW5X_bsb2hAMA" red="255" green="255" blue="255"/>
+            <foregroundColor xmi:type="viewpoint:RGBValues" xmi:id="_3RlaYPKlEeW5X_bsb2hAMA" red="209" green="209" blue="209"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:ContainerMappingImport" href="platform:/plugin/org.irisa.diverse.videogen.design/description/videogen.odesign#//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGenContainer']/@subContainerMappings[name='AlternativeContainer']"/>
+          <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_3RlaYfKlEeW5X_bsb2hAMA" name="outro-1" width="3" height="3" resizeKind="NSEW">
+            <target xmi:type="videoGen:Optional" href="sample.videogen#//@sequences.7/@options.0"/>
+            <semanticElements xmi:type="videoGen:Optional" href="sample.videogen#//@sequences.7/@options.0"/>
+            <ownedBorderedNodes xmi:type="diagram:DNode" xmi:id="_3RlaYvKlEeW5X_bsb2hAMA" name="55 %" width="3" height="1">
+              <target xmi:type="videoGen:Optional" href="sample.videogen#//@sequences.7/@options.0"/>
+              <semanticElements xmi:type="videoGen:Optional" href="sample.videogen#//@sequences.7/@options.0"/>
+              <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+              <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+              <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+              <ownedStyle xmi:type="diagram:Square" xmi:id="_3RlaY_KlEeW5X_bsb2hAMA" labelSize="5" showIcon="false" labelPosition="node" width="3" height="1">
+                <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_3RlaZPKlEeW5X_bsb2hAMA"/>
+                <description xmi:type="style:SquareDescription" href="platform:/plugin/org.irisa.diverse.videogen.design/description/videogen.odesign#//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGenContainer']/@subContainerMappings[name='AlternativeContainer']/@subNodeMappings[name='OptionSubNode']/@borderedNodeMappings[name='PercentageNode']/@style"/>
+                <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_3RlaZfKlEeW5X_bsb2hAMA"/>
+                <color xmi:type="viewpoint:RGBValues" xmi:id="_3RlaZvKlEeW5X_bsb2hAMA" red="255" green="255" blue="255"/>
+              </ownedStyle>
+              <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.irisa.diverse.videogen.design/description/videogen.odesign#//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGenContainer']/@subContainerMappings[name='AlternativeContainer']/@subNodeMappings[name='OptionSubNode']/@borderedNodeMappings[name='PercentageNode']"/>
+            </ownedBorderedNodes>
+            <ownedStyle xmi:type="diagram:Ellipse" xmi:id="_3RlaZ_KlEeW5X_bsb2hAMA" showIcon="false">
+              <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_3RlaaPKlEeW5X_bsb2hAMA"/>
+              <description xmi:type="style:EllipseNodeDescription" href="platform:/plugin/org.irisa.diverse.videogen.design/description/videogen.odesign#//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGenContainer']/@subContainerMappings[name='AlternativeContainer']/@subNodeMappings[name='OptionSubNode']/@style"/>
+              <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_3RlaafKlEeW5X_bsb2hAMA"/>
+              <color xmi:type="viewpoint:RGBValues" xmi:id="_3RlaavKlEeW5X_bsb2hAMA" red="246" green="139" blue="139"/>
+            </ownedStyle>
+            <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.irisa.diverse.videogen.design/description/videogen.odesign#//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGenContainer']/@subContainerMappings[name='AlternativeContainer']/@subNodeMappings[name='OptionSubNode']"/>
+          </ownedDiagramElements>
+          <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_3Rlaa_KlEeW5X_bsb2hAMA" name="outro-2" width="3" height="3" resizeKind="NSEW">
+            <target xmi:type="videoGen:Optional" href="sample.videogen#//@sequences.7/@options.1"/>
+            <semanticElements xmi:type="videoGen:Optional" href="sample.videogen#//@sequences.7/@options.1"/>
+            <ownedBorderedNodes xmi:type="diagram:DNode" xmi:id="_3RlabPKlEeW5X_bsb2hAMA" name="45 %" width="3" height="1">
+              <target xmi:type="videoGen:Optional" href="sample.videogen#//@sequences.7/@options.1"/>
+              <semanticElements xmi:type="videoGen:Optional" href="sample.videogen#//@sequences.7/@options.1"/>
+              <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+              <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+              <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+              <ownedStyle xmi:type="diagram:Square" xmi:id="_3RlabfKlEeW5X_bsb2hAMA" labelSize="5" showIcon="false" labelPosition="node" width="3" height="1">
+                <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_3RlabvKlEeW5X_bsb2hAMA"/>
+                <description xmi:type="style:SquareDescription" href="platform:/plugin/org.irisa.diverse.videogen.design/description/videogen.odesign#//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGenContainer']/@subContainerMappings[name='AlternativeContainer']/@subNodeMappings[name='OptionSubNode']/@borderedNodeMappings[name='PercentageNode']/@style"/>
+                <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_3Rlab_KlEeW5X_bsb2hAMA"/>
+                <color xmi:type="viewpoint:RGBValues" xmi:id="_3RlacPKlEeW5X_bsb2hAMA" red="255" green="255" blue="255"/>
+              </ownedStyle>
+              <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.irisa.diverse.videogen.design/description/videogen.odesign#//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGenContainer']/@subContainerMappings[name='AlternativeContainer']/@subNodeMappings[name='OptionSubNode']/@borderedNodeMappings[name='PercentageNode']"/>
+            </ownedBorderedNodes>
+            <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+            <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+            <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+            <ownedStyle xmi:type="diagram:Ellipse" xmi:id="_3RlacfKlEeW5X_bsb2hAMA" showIcon="false">
+              <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_3RlacvKlEeW5X_bsb2hAMA"/>
+              <description xmi:type="style:EllipseNodeDescription" href="platform:/plugin/org.irisa.diverse.videogen.design/description/videogen.odesign#//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGenContainer']/@subContainerMappings[name='AlternativeContainer']/@subNodeMappings[name='OptionSubNode']/@style"/>
+              <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_3Rlac_KlEeW5X_bsb2hAMA"/>
+              <color xmi:type="viewpoint:RGBValues" xmi:id="_3RladPKlEeW5X_bsb2hAMA" red="246" green="139" blue="139"/>
+            </ownedStyle>
+            <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.irisa.diverse.videogen.design/description/videogen.odesign#//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGenContainer']/@subContainerMappings[name='AlternativeContainer']/@subNodeMappings[name='OptionSubNode']"/>
+          </ownedDiagramElements>
+        </ownedDiagramElements>
+        <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_3RladfKlEeW5X_bsb2hAMA" name="haha3" outgoingEdges="_3RlarPKlEeW5X_bsb2hAMA" incomingEdges="_3RlaovKlEeW5X_bsb2hAMA" width="3" height="3" resizeKind="NSEW">
+          <target xmi:type="videoGen:Mandatory" href="sample.videogen#//@sequences.6"/>
+          <semanticElements xmi:type="videoGen:Mandatory" href="sample.videogen#//@sequences.6"/>
+          <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+          <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+          <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+          <ownedStyle xmi:type="diagram:Square" xmi:id="_3RladvKlEeW5X_bsb2hAMA" showIcon="false">
+            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_3Rlad_KlEeW5X_bsb2hAMA"/>
+            <description xmi:type="style:SquareDescription" href="platform:/plugin/org.irisa.diverse.videogen.design/description/videogen.odesign#//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGenContainer']/@subNodeMappings[name='MandatoryNode']/@style"/>
+            <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_3RlaePKlEeW5X_bsb2hAMA"/>
+            <color xmi:type="viewpoint:RGBValues" xmi:id="_3RlaefKlEeW5X_bsb2hAMA" red="114" green="159" blue="207"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.irisa.diverse.videogen.design/description/videogen.odesign#//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGenContainer']/@subNodeMappings[name='MandatoryNode']"/>
+        </ownedDiagramElements>
+        <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_3RlaevKlEeW5X_bsb2hAMA" name="haha4" outgoingEdges="_3RlasfKlEeW5X_bsb2hAMA" incomingEdges="_3Rlap_KlEeW5X_bsb2hAMA" width="3" height="3" resizeKind="NSEW">
+          <target xmi:type="videoGen:Mandatory" href="sample.videogen#//@sequences.8"/>
+          <semanticElements xmi:type="videoGen:Mandatory" href="sample.videogen#//@sequences.8"/>
+          <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+          <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+          <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+          <ownedStyle xmi:type="diagram:Square" xmi:id="_3Rlae_KlEeW5X_bsb2hAMA" showIcon="false">
+            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_3RlafPKlEeW5X_bsb2hAMA"/>
+            <description xmi:type="style:SquareDescription" href="platform:/plugin/org.irisa.diverse.videogen.design/description/videogen.odesign#//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGenContainer']/@subNodeMappings[name='MandatoryNode']/@style"/>
+            <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_3RlaffKlEeW5X_bsb2hAMA"/>
+            <color xmi:type="viewpoint:RGBValues" xmi:id="_3RlafvKlEeW5X_bsb2hAMA" red="114" green="159" blue="207"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.irisa.diverse.videogen.design/description/videogen.odesign#//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGenContainer']/@subNodeMappings[name='MandatoryNode']"/>
+        </ownedDiagramElements>
+        <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_3Rlaf_KlEeW5X_bsb2hAMA" name="haha1" outgoingEdges="_3RlatvKlEeW5X_bsb2hAMA" incomingEdges="_3RlanfKlEeW5X_bsb2hAMA" width="3" height="3" resizeKind="NSEW">
+          <target xmi:type="videoGen:Optional" href="sample.videogen#//@sequences.1"/>
+          <semanticElements xmi:type="videoGen:Optional" href="sample.videogen#//@sequences.1"/>
+          <ownedBorderedNodes xmi:type="diagram:DNode" xmi:id="_3RlagPKlEeW5X_bsb2hAMA" name="30 %" width="3" height="1">
+            <target xmi:type="videoGen:Optional" href="sample.videogen#//@sequences.1"/>
+            <semanticElements xmi:type="videoGen:Optional" href="sample.videogen#//@sequences.1"/>
+            <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+            <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+            <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+            <ownedStyle xmi:type="diagram:Square" xmi:id="_3RlagfKlEeW5X_bsb2hAMA" labelSize="5" showIcon="false" labelPosition="node" width="3" height="1">
+              <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_3RlagvKlEeW5X_bsb2hAMA"/>
+              <description xmi:type="style:SquareDescription" href="platform:/plugin/org.irisa.diverse.videogen.design/description/videogen.odesign#//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGenContainer']/@subNodeMappings[name='OptionalNode']/@borderedNodeMappings[name='PercentageNode']/@style"/>
+              <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_3Rlag_KlEeW5X_bsb2hAMA"/>
+              <color xmi:type="viewpoint:RGBValues" xmi:id="_3RlahPKlEeW5X_bsb2hAMA" red="255" green="255" blue="255"/>
+            </ownedStyle>
+            <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.irisa.diverse.videogen.design/description/videogen.odesign#//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGenContainer']/@subNodeMappings[name='OptionalNode']/@borderedNodeMappings[name='PercentageNode']"/>
+          </ownedBorderedNodes>
+          <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+          <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+          <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+          <ownedStyle xmi:type="diagram:Ellipse" xmi:id="_3RlahfKlEeW5X_bsb2hAMA" showIcon="false">
+            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_3RlahvKlEeW5X_bsb2hAMA"/>
+            <description xmi:type="style:EllipseNodeDescription" href="platform:/plugin/org.irisa.diverse.videogen.design/description/videogen.odesign#//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGenContainer']/@subNodeMappings[name='OptionalNode']/@style"/>
+            <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_3Rlah_KlEeW5X_bsb2hAMA"/>
+            <color xmi:type="viewpoint:RGBValues" xmi:id="_3RlaiPKlEeW5X_bsb2hAMA" red="246" green="139" blue="139"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.irisa.diverse.videogen.design/description/videogen.odesign#//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGenContainer']/@subNodeMappings[name='OptionalNode']"/>
+        </ownedDiagramElements>
+        <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_3RlaifKlEeW5X_bsb2hAMA" name="haha2" outgoingEdges="_3Rlau_KlEeW5X_bsb2hAMA" incomingEdges="_3RlatvKlEeW5X_bsb2hAMA" width="3" height="3" resizeKind="NSEW">
+          <target xmi:type="videoGen:Optional" href="sample.videogen#//@sequences.3"/>
+          <semanticElements xmi:type="videoGen:Optional" href="sample.videogen#//@sequences.3"/>
+          <ownedBorderedNodes xmi:type="diagram:DNode" xmi:id="_3RlaivKlEeW5X_bsb2hAMA" name="10 %" width="3" height="1">
+            <target xmi:type="videoGen:Optional" href="sample.videogen#//@sequences.3"/>
+            <semanticElements xmi:type="videoGen:Optional" href="sample.videogen#//@sequences.3"/>
+            <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+            <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+            <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+            <ownedStyle xmi:type="diagram:Square" xmi:id="_3Rlai_KlEeW5X_bsb2hAMA" labelSize="5" showIcon="false" labelPosition="node" width="3" height="1">
+              <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_3RlajPKlEeW5X_bsb2hAMA"/>
+              <description xmi:type="style:SquareDescription" href="platform:/plugin/org.irisa.diverse.videogen.design/description/videogen.odesign#//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGenContainer']/@subNodeMappings[name='OptionalNode']/@borderedNodeMappings[name='PercentageNode']/@style"/>
+              <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_3RlajfKlEeW5X_bsb2hAMA"/>
+              <color xmi:type="viewpoint:RGBValues" xmi:id="_3RlajvKlEeW5X_bsb2hAMA" red="255" green="255" blue="255"/>
+            </ownedStyle>
+            <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.irisa.diverse.videogen.design/description/videogen.odesign#//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGenContainer']/@subNodeMappings[name='OptionalNode']/@borderedNodeMappings[name='PercentageNode']"/>
+          </ownedBorderedNodes>
+          <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+          <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+          <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+          <ownedStyle xmi:type="diagram:Ellipse" xmi:id="_3Rlaj_KlEeW5X_bsb2hAMA" showIcon="false">
+            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_3RlakPKlEeW5X_bsb2hAMA"/>
+            <description xmi:type="style:EllipseNodeDescription" href="platform:/plugin/org.irisa.diverse.videogen.design/description/videogen.odesign#//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGenContainer']/@subNodeMappings[name='OptionalNode']/@style"/>
+            <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_3RlakfKlEeW5X_bsb2hAMA"/>
+            <color xmi:type="viewpoint:RGBValues" xmi:id="_3RlakvKlEeW5X_bsb2hAMA" red="246" green="139" blue="139"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.irisa.diverse.videogen.design/description/videogen.odesign#//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGenContainer']/@subNodeMappings[name='OptionalNode']"/>
+        </ownedDiagramElements>
+        <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_3Rlak_KlEeW5X_bsb2hAMA" name="tv1" outgoingEdges="_3RlawPKlEeW5X_bsb2hAMA" incomingEdges="_3RlarPKlEeW5X_bsb2hAMA" width="3" height="3" resizeKind="NSEW">
+          <target xmi:type="videoGen:Optional" href="sample.videogen#//@sequences.4"/>
+          <semanticElements xmi:type="videoGen:Optional" href="sample.videogen#//@sequences.4"/>
+          <ownedBorderedNodes xmi:type="diagram:DNode" xmi:id="_3RlalPKlEeW5X_bsb2hAMA" name="40 %" width="3" height="1">
+            <target xmi:type="videoGen:Optional" href="sample.videogen#//@sequences.4"/>
+            <semanticElements xmi:type="videoGen:Optional" href="sample.videogen#//@sequences.4"/>
+            <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+            <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+            <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+            <ownedStyle xmi:type="diagram:Square" xmi:id="_3RlalfKlEeW5X_bsb2hAMA" labelSize="5" showIcon="false" labelPosition="node" width="3" height="1">
+              <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_3RlalvKlEeW5X_bsb2hAMA"/>
+              <description xmi:type="style:SquareDescription" href="platform:/plugin/org.irisa.diverse.videogen.design/description/videogen.odesign#//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGenContainer']/@subNodeMappings[name='OptionalNode']/@borderedNodeMappings[name='PercentageNode']/@style"/>
+              <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_3Rlal_KlEeW5X_bsb2hAMA"/>
+              <color xmi:type="viewpoint:RGBValues" xmi:id="_3RlamPKlEeW5X_bsb2hAMA" red="255" green="255" blue="255"/>
+            </ownedStyle>
+            <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.irisa.diverse.videogen.design/description/videogen.odesign#//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGenContainer']/@subNodeMappings[name='OptionalNode']/@borderedNodeMappings[name='PercentageNode']"/>
+          </ownedBorderedNodes>
+          <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+          <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+          <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+          <ownedStyle xmi:type="diagram:Ellipse" xmi:id="_3RlamfKlEeW5X_bsb2hAMA" showIcon="false">
+            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_3RlamvKlEeW5X_bsb2hAMA"/>
+            <description xmi:type="style:EllipseNodeDescription" href="platform:/plugin/org.irisa.diverse.videogen.design/description/videogen.odesign#//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGenContainer']/@subNodeMappings[name='OptionalNode']/@style"/>
+            <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_3Rlam_KlEeW5X_bsb2hAMA"/>
+            <color xmi:type="viewpoint:RGBValues" xmi:id="_3RlanPKlEeW5X_bsb2hAMA" red="246" green="139" blue="139"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.irisa.diverse.videogen.design/description/videogen.odesign#//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGenContainer']/@subNodeMappings[name='OptionalNode']"/>
+        </ownedDiagramElements>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_3RlanfKlEeW5X_bsb2hAMA" sourceNode="_3RkzF_KlEeW5X_bsb2hAMA" targetNode="_3Rlaf_KlEeW5X_bsb2hAMA">
+        <target xmi:type="videoGen:Alternatives" href="sample.videogen#//@sequences.0"/>
+        <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_3RlanvKlEeW5X_bsb2hAMA" size="2">
+          <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.irisa.diverse.videogen.design/description/videogen.odesign#//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@edgeMappings[name='RelationEdge']/@style"/>
+          <strokeColor xmi:type="viewpoint:RGBValues" xmi:id="_3Rlan_KlEeW5X_bsb2hAMA" red="114" green="159" blue="207"/>
+          <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_3RlaoPKlEeW5X_bsb2hAMA">
+            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_3RlaofKlEeW5X_bsb2hAMA"/>
+          </centerLabelStyle>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.irisa.diverse.videogen.design/description/videogen.odesign#//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@edgeMappings[name='RelationEdge']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_3RlaovKlEeW5X_bsb2hAMA" sourceNode="_3RkzMfKlEeW5X_bsb2hAMA" targetNode="_3RladfKlEeW5X_bsb2hAMA">
+        <target xmi:type="videoGen:Alternatives" href="sample.videogen#//@sequences.2"/>
+        <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_3Rlao_KlEeW5X_bsb2hAMA" size="2">
+          <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.irisa.diverse.videogen.design/description/videogen.odesign#//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@edgeMappings[name='RelationEdge']/@style"/>
+          <strokeColor xmi:type="viewpoint:RGBValues" xmi:id="_3RlapPKlEeW5X_bsb2hAMA" red="114" green="159" blue="207"/>
+          <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_3RlapfKlEeW5X_bsb2hAMA">
+            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_3RlapvKlEeW5X_bsb2hAMA"/>
+          </centerLabelStyle>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.irisa.diverse.videogen.design/description/videogen.odesign#//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@edgeMappings[name='RelationEdge']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_3Rlap_KlEeW5X_bsb2hAMA" sourceNode="_3RlaLfKlEeW5X_bsb2hAMA" targetNode="_3RlaevKlEeW5X_bsb2hAMA">
+        <target xmi:type="videoGen:Alternatives" href="sample.videogen#//@sequences.5"/>
+        <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_3RlaqPKlEeW5X_bsb2hAMA" size="2">
+          <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.irisa.diverse.videogen.design/description/videogen.odesign#//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@edgeMappings[name='RelationEdge']/@style"/>
+          <strokeColor xmi:type="viewpoint:RGBValues" xmi:id="_3RlaqfKlEeW5X_bsb2hAMA" red="114" green="159" blue="207"/>
+          <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_3RlaqvKlEeW5X_bsb2hAMA">
+            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_3Rlaq_KlEeW5X_bsb2hAMA"/>
+          </centerLabelStyle>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.irisa.diverse.videogen.design/description/videogen.odesign#//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@edgeMappings[name='RelationEdge']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_3RlarPKlEeW5X_bsb2hAMA" sourceNode="_3RladfKlEeW5X_bsb2hAMA" targetNode="_3Rlak_KlEeW5X_bsb2hAMA">
+        <target xmi:type="videoGen:Mandatory" href="sample.videogen#//@sequences.6"/>
+        <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_3RlarfKlEeW5X_bsb2hAMA" size="2">
+          <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.irisa.diverse.videogen.design/description/videogen.odesign#//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@edgeMappings[name='RelationEdge']/@style"/>
+          <strokeColor xmi:type="viewpoint:RGBValues" xmi:id="_3RlarvKlEeW5X_bsb2hAMA" red="114" green="159" blue="207"/>
+          <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_3Rlar_KlEeW5X_bsb2hAMA">
+            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_3RlasPKlEeW5X_bsb2hAMA"/>
+          </centerLabelStyle>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.irisa.diverse.videogen.design/description/videogen.odesign#//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@edgeMappings[name='RelationEdge']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_3RlasfKlEeW5X_bsb2hAMA" sourceNode="_3RlaevKlEeW5X_bsb2hAMA" targetNode="_3RlaW_KlEeW5X_bsb2hAMA">
+        <target xmi:type="videoGen:Mandatory" href="sample.videogen#//@sequences.8"/>
+        <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_3RlasvKlEeW5X_bsb2hAMA" size="2">
+          <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.irisa.diverse.videogen.design/description/videogen.odesign#//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@edgeMappings[name='RelationEdge']/@style"/>
+          <strokeColor xmi:type="viewpoint:RGBValues" xmi:id="_3Rlas_KlEeW5X_bsb2hAMA" red="114" green="159" blue="207"/>
+          <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_3RlatPKlEeW5X_bsb2hAMA">
+            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_3RlatfKlEeW5X_bsb2hAMA"/>
+          </centerLabelStyle>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.irisa.diverse.videogen.design/description/videogen.odesign#//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@edgeMappings[name='RelationEdge']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_3RlatvKlEeW5X_bsb2hAMA" sourceNode="_3Rlaf_KlEeW5X_bsb2hAMA" targetNode="_3RlaifKlEeW5X_bsb2hAMA">
+        <target xmi:type="videoGen:Optional" href="sample.videogen#//@sequences.1"/>
+        <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_3Rlat_KlEeW5X_bsb2hAMA" size="2">
+          <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.irisa.diverse.videogen.design/description/videogen.odesign#//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@edgeMappings[name='RelationEdge']/@style"/>
+          <strokeColor xmi:type="viewpoint:RGBValues" xmi:id="_3RlauPKlEeW5X_bsb2hAMA" red="114" green="159" blue="207"/>
+          <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_3RlaufKlEeW5X_bsb2hAMA">
+            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_3RlauvKlEeW5X_bsb2hAMA"/>
+          </centerLabelStyle>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.irisa.diverse.videogen.design/description/videogen.odesign#//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@edgeMappings[name='RelationEdge']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_3Rlau_KlEeW5X_bsb2hAMA" sourceNode="_3RlaifKlEeW5X_bsb2hAMA" targetNode="_3RkzMfKlEeW5X_bsb2hAMA">
+        <target xmi:type="videoGen:Optional" href="sample.videogen#//@sequences.3"/>
+        <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_3RlavPKlEeW5X_bsb2hAMA" size="2">
+          <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.irisa.diverse.videogen.design/description/videogen.odesign#//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@edgeMappings[name='RelationEdge']/@style"/>
+          <strokeColor xmi:type="viewpoint:RGBValues" xmi:id="_3RlavfKlEeW5X_bsb2hAMA" red="114" green="159" blue="207"/>
+          <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_3RlavvKlEeW5X_bsb2hAMA">
+            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_3Rlav_KlEeW5X_bsb2hAMA"/>
+          </centerLabelStyle>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.irisa.diverse.videogen.design/description/videogen.odesign#//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@edgeMappings[name='RelationEdge']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_3RlawPKlEeW5X_bsb2hAMA" sourceNode="_3Rlak_KlEeW5X_bsb2hAMA" targetNode="_3RlaLfKlEeW5X_bsb2hAMA">
+        <target xmi:type="videoGen:Optional" href="sample.videogen#//@sequences.4"/>
+        <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_3RlawfKlEeW5X_bsb2hAMA" size="2">
+          <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.irisa.diverse.videogen.design/description/videogen.odesign#//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@edgeMappings[name='RelationEdge']/@style"/>
+          <strokeColor xmi:type="viewpoint:RGBValues" xmi:id="_3RlawvKlEeW5X_bsb2hAMA" red="114" green="159" blue="207"/>
+          <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_3Rlaw_KlEeW5X_bsb2hAMA">
+            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_3RlaxPKlEeW5X_bsb2hAMA"/>
+          </centerLabelStyle>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.irisa.diverse.videogen.design/description/videogen.odesign#//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@edgeMappings[name='RelationEdge']"/>
+      </ownedDiagramElements>
+      <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.irisa.diverse.videogen.design/description/videogen.odesign#//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']"/>
+      <filterVariableHistory xmi:type="diagram:FilterVariableHistory" xmi:id="_3RlaxfKlEeW5X_bsb2hAMA"/>
+      <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/org.irisa.diverse.videogen.design/description/videogen.odesign#//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer"/>
+      <target xmi:type="videoGen:VideoGen" href="sample.videogen#/"/>
+    </ownedRepresentations>
+    <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.irisa.diverse.videogen.design/description/videogen.odesign#//@ownedViewpoints[name='VideoGen%20ViewPoint']"/>
+  </ownedViews>
+</viewpoint:DAnalysis>
