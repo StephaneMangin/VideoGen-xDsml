@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="videogen" version="8.1.0">
+  <ownedViewpoints name="VideoGen ViewPoint" modelFileExtension="videogen">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="VideoGen Diagram" domainClass="videoGen.VideoGen">
+      <defaultLayer name="Default">
+        <edgeMappings name="RelationEdge" deletionDescription="//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='EdgeDeletion']" sourceMapping="//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGenContainer']/@subContainerMappings[name='AlternativeContainer'] //@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGenContainer']/@subNodeMappings[name='MandatoryNode'] //@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGenContainer']/@subNodeMappings[name='OptionalNode']" targetMapping="//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGenContainer']/@subContainerMappings[name='AlternativeContainer'] //@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGenContainer']/@subNodeMappings[name='MandatoryNode'] //@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGenContainer']/@subNodeMappings[name='OptionalNode']" targetFinderExpression="feature:nextSibling">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
+            <centerLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <containerMappings name="VideoGenContainer" semanticCandidatesExpression="var:self" domainClass="videoGen.VideoGen">
+          <subNodeMappings name="MandatoryNode" labelDirectEdit="//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='LabelDirectEdition']" semanticCandidatesExpression="feature:sequences" doubleClickDescription="//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='MandatoryDBClick']" synchronizationLock="true" domainClass="videoGen.Mandatory">
+            <style xsi:type="style:SquareDescription" showIcon="false" resizeKind="NSEW">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
+            </style>
+          </subNodeMappings>
+          <subNodeMappings name="OptionalNode" labelDirectEdit="//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='LabelDirectEdition']" semanticCandidatesExpression="feature:sequences" doubleClickDescription="//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='OptionalDBClick']" synchronizationLock="true" domainClass="videoGen.Optional">
+            <borderedNodeMappings name="PercentageNode" semanticCandidatesExpression="var:self" domainClass="videoGen.Optional">
+              <style xsi:type="style:SquareDescription" labelSize="5" showIcon="false" labelExpression="[self.probability + ' %'/]" labelPosition="node" width="3" height="1">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+              </style>
+            </borderedNodeMappings>
+            <style xsi:type="style:EllipseNodeDescription" showIcon="false" resizeKind="NSEW">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_red']"/>
+            </style>
+            <conditionnalStyles predicateExpression="[self.video.selected/]">
+              <style xsi:type="style:EllipseNodeDescription" showIcon="false" resizeKind="NSEW">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
+              </style>
+            </conditionnalStyles>
+          </subNodeMappings>
+          <subContainerMappings xsi:type="description_1:ContainerMappingImport" name="AlternativeContainer" labelDirectEdit="//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='LabelDirectEdition']" semanticCandidatesExpression="feature:sequences" synchronizationLock="true" domainClass="videoGen.Alternatives">
+            <subNodeMappings name="OptionSubNode" labelDirectEdit="//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='LabelDirectEdition']" semanticCandidatesExpression="feature:options" doubleClickDescription="//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='OptionalDBClick']" synchronizationLock="true" domainClass="videoGen.Optional">
+              <borderedNodeMappings name="PercentageNode" semanticCandidatesExpression="var:self" domainClass="videoGen.Optional">
+                <style xsi:type="style:SquareDescription" labelSize="5" showIcon="false" labelExpression="[self.probability + ' %'/]" labelPosition="node" width="3" height="1">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+                </style>
+              </borderedNodeMappings>
+              <style xsi:type="style:EllipseNodeDescription" showIcon="false" resizeKind="NSEW">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_red']"/>
+              </style>
+              <conditionnalStyles predicateExpression="[self.video.selected/]">
+                <style xsi:type="style:EllipseNodeDescription" showIcon="false" resizeKind="NSEW">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
+                </style>
+              </conditionnalStyles>
+            </subNodeMappings>
+            <style xsi:type="style:FlatContainerStyleDescription" arcWidth="2" arcHeight="2" showIcon="false" roundedCorner="true">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+            </style>
+          </subContainerMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="25" arcHeight="25" labelSize="12" labelFormat="bold" showIcon="false" roundedCorner="true">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_purple']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+            <labelBorderStyle href="environment:/viewpoint#//@labelBorderStyles/@labelBorderStyleDescriptions.0"/>
+          </style>
+        </containerMappings>
+        <toolSections name="Elements">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="New edge" edgeMappings="//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@edgeMappings[name='RelationEdge']">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="nextSibling" valueExpression="var:target"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="New optional" nodeMappings="//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGenContainer']/@subNodeMappings[name='OptionalNode']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="videoGen.Optional" referenceName="sequences" variableName="optional">
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:optional">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="New optional"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="New alternative" containerMappings="//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGenContainer']/@subContainerMappings[name='AlternativeContainer']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="videoGen.Alternatives" referenceName="sequences" variableName="alternative">
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:alternative">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="videoGen.Optional" referenceName="options" variableName="option">
+                    <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:option">
+                      <subModelOperations xsi:type="tool_1:CreateInstance" typeName="videoGen.Video" referenceName="video" variableName="video">
+                        <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="new Video"/>
+                      </subModelOperations>
+                    </subModelOperations>
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="new Optional"/>
+                  </subModelOperations>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="new Alternative"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="New mandatory" nodeMappings="//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGenContainer']/@subNodeMappings[name='MandatoryNode']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="videoGen.Mandatory" referenceName="sequences" variableName="mandatory">
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:mandatory">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="New mandatory"/>
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="videoGen.Video" referenceName="video" variableName="video">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="New sequence"/>
+                  </subModelOperations>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="New option" nodeMappings="//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGenContainer']/@subNodeMappings[name='OptionalNode']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="videoGen.Optional" referenceName="options" variableName="optional">
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:optional">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="New optional"/>
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="videoGen.Video" referenceName="video" variableName="video">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="New video"/>
+                  </subModelOperations>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+        <toolSections name="Actions">
+          <ownedTools xsi:type="tool:DirectEditLabel" name="LabelDirectEdition">
+            <mask mask="{0}"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:0"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DeleteElementDescription" name="EdgeDeletion">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <containerView name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool_1:Unset" featureName="nextSibling"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ReconnectEdgeDescription" name="Output Edge">
+            <source name="source"/>
+            <target name="target"/>
+            <sourceView name="sourceView"/>
+            <targetView name="targetView"/>
+            <element name="element"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:target">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="nextSibling" valueExpression="var:source"/>
+              </firstModelOperations>
+            </initialOperation>
+            <edgeView name="edgeView"/>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ReconnectEdgeDescription" name="Input Edge">
+            <source name="source"/>
+            <target name="target"/>
+            <sourceView name="sourceView"/>
+            <targetView name="targetView"/>
+            <element name="element"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="nextSibling" valueExpression="var:target"/>
+              </firstModelOperations>
+            </initialOperation>
+            <edgeView name="edgeView"/>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DoubleClickDescription" name="MandatoryDBClick" mappings="//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGenContainer']/@subNodeMappings[name='MandatoryNode']">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:Navigation" createIfNotExistent="true" diagramDescription="//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='Mandatory%20diagram']"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DoubleClickDescription" name="OptionalDBClick" mappings="//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGenContainer']/@subNodeMappings[name='OptionalNode'] //@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGenContainer']/@subContainerMappings[name='AlternativeContainer']/@subNodeMappings[name='OptionSubNode']">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:Navigation" createIfNotExistent="true" diagramDescription="//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='Optional%20diagram']"/>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+      </defaultLayer>
+    </ownedRepresentations>
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Mandatory diagram" domainClass="videoGen.Mandatory">
+      <defaultLayer name="Default">
+        <containerMappings name="MandatoryContainer" semanticCandidatesExpression="var:self" domainClass="videoGen.Mandatory">
+          <subNodeMappings name="VideoSubNode" semanticCandidatesExpression="feature:video" domainClass="videoGen.Video">
+            <style xsi:type="style:SquareDescription" showIcon="false" labelPosition="node" resizeKind="NSEW">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            </style>
+          </subNodeMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="5" arcHeight="5" roundedCorner="true">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
+          </style>
+        </containerMappings>
+      </defaultLayer>
+    </ownedRepresentations>
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Optional diagram" domainClass="videoGen.Optional">
+      <defaultLayer name="Default">
+        <containerMappings name="OptionalContainer" semanticCandidatesExpression="var:self" domainClass="videoGen.Optional">
+          <subNodeMappings name="VideoSubNode" semanticCandidatesExpression="feature:video" domainClass="videoGen.Video">
+            <style xsi:type="style:SquareDescription" showIcon="false" labelExpression="feature:" labelPosition="node" resizeKind="NSEW">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            </style>
+          </subNodeMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="5" arcHeight="5" roundedCorner="true">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
+          </style>
+        </containerMappings>
+      </defaultLayer>
+    </ownedRepresentations>
+  </ownedViewpoints>
+</description:Group>

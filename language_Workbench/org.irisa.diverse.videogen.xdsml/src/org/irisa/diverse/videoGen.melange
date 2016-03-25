@@ -1,0 +1,20 @@
+package org.irisa.diverse
+
+language VideoGenL {
+	syntax "platform:/resource//org.irisa.diverse.videogen/model/VideoGen.ecore"
+
+	with videoGen.aspects.AlternativesAspect
+	with videoGen.aspects.OptionalAspect
+	with videoGen.aspects.SequenceAspect
+	with videoGen.aspects.VideoAspect
+	with videoGen.aspects.VideoGenAspect
+	with videoGen.aspects.MandatoryAspect
+
+	sirius ""
+	
+/*
+ *	with qualified.class.name
+ */
+
+	exactType VideoGenLMT
+}
