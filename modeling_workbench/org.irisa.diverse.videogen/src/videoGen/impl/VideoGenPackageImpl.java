@@ -6,12 +6,9 @@ import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EGenericType;
-import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-
 import videoGen.Alternatives;
 import videoGen.Mandatory;
 import videoGen.Mimetypes_Enum;
@@ -172,42 +169,6 @@ public class VideoGenPackageImpl extends EPackageImpl implements VideoGenPackage
 	 */
 	public EAttribute getVideoGen_SelectedSequences() {
 		return (EAttribute)videoGenEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getVideoGen__MinDuration() {
-		return videoGenEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getVideoGen__MaxDuration() {
-		return videoGenEClass.getEOperations().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getVideoGen__MinSequence() {
-		return videoGenEClass.getEOperations().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getVideoGen__MaxSequence() {
-		return videoGenEClass.getEOperations().get(3);
 	}
 
 	/**
@@ -403,10 +364,6 @@ public class VideoGenPackageImpl extends EPackageImpl implements VideoGenPackage
 		videoGenEClass = createEClass(VIDEO_GEN);
 		createEReference(videoGenEClass, VIDEO_GEN__SEQUENCES);
 		createEAttribute(videoGenEClass, VIDEO_GEN__SELECTED_SEQUENCES);
-		createEOperation(videoGenEClass, VIDEO_GEN___MIN_DURATION);
-		createEOperation(videoGenEClass, VIDEO_GEN___MAX_DURATION);
-		createEOperation(videoGenEClass, VIDEO_GEN___MIN_SEQUENCE);
-		createEOperation(videoGenEClass, VIDEO_GEN___MAX_SEQUENCE);
 
 		sequenceEClass = createEClass(SEQUENCE);
 		createEReference(sequenceEClass, SEQUENCE__NEXT_SIBLING);
@@ -478,14 +435,6 @@ public class VideoGenPackageImpl extends EPackageImpl implements VideoGenPackage
 		g1.getETypeArguments().add(g2);
 		initEAttribute(getVideoGen_SelectedSequences(), g1, "selectedSequences", null, 1, 1, VideoGen.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEOperation(getVideoGen__MinDuration(), ecorePackage.getEIntegerObject(), "minDuration", 1, 1, IS_UNIQUE, IS_ORDERED);
-
-		initEOperation(getVideoGen__MaxDuration(), ecorePackage.getEIntegerObject(), "maxDuration", 1, 1, IS_UNIQUE, IS_ORDERED);
-
-		initEOperation(getVideoGen__MinSequence(), ecorePackage.getEIntegerObject(), "minSequence", 1, 1, IS_UNIQUE, IS_ORDERED);
-
-		initEOperation(getVideoGen__MaxSequence(), ecorePackage.getEIntegerObject(), "maxSequence", 1, 1, IS_UNIQUE, IS_ORDERED);
-
 		initEClass(sequenceEClass, Sequence.class, "Sequence", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSequence_NextSibling(), this.getSequence(), null, "nextSibling", null, 0, 1, Sequence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -536,26 +485,6 @@ public class VideoGenPackageImpl extends EPackageImpl implements VideoGenPackage
 	 */
 	protected void createAspectAnnotations() {
 		String source = "aspect";	
-		addAnnotation
-		  (getVideoGen__MinDuration(), 
-		   source, 
-		   new String[] {
-		   });	
-		addAnnotation
-		  (getVideoGen__MaxDuration(), 
-		   source, 
-		   new String[] {
-		   });	
-		addAnnotation
-		  (getVideoGen__MinSequence(), 
-		   source, 
-		   new String[] {
-		   });	
-		addAnnotation
-		  (getVideoGen__MaxSequence(), 
-		   source, 
-		   new String[] {
-		   });	
 		addAnnotation
 		  (getVideo_Selected(), 
 		   source, 

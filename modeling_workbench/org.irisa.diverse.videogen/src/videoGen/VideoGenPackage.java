@@ -5,7 +5,6 @@ package videoGen;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
-import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -142,49 +141,13 @@ public interface VideoGenPackage extends EPackage {
 	int VIDEO_GEN_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
-	 * The operation id for the '<em>Min Duration</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VIDEO_GEN___MIN_DURATION = NAMED_ELEMENT_OPERATION_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Max Duration</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VIDEO_GEN___MAX_DURATION = NAMED_ELEMENT_OPERATION_COUNT + 1;
-
-	/**
-	 * The operation id for the '<em>Min Sequence</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VIDEO_GEN___MIN_SEQUENCE = NAMED_ELEMENT_OPERATION_COUNT + 2;
-
-	/**
-	 * The operation id for the '<em>Max Sequence</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VIDEO_GEN___MAX_SEQUENCE = NAMED_ELEMENT_OPERATION_COUNT + 3;
-
-	/**
 	 * The number of operations of the '<em>Video Gen</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VIDEO_GEN_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 4;
+	int VIDEO_GEN_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link videoGen.Sequence <em>Sequence</em>}' class.
@@ -532,46 +495,6 @@ public interface VideoGenPackage extends EPackage {
 	EAttribute getVideoGen_SelectedSequences();
 
 	/**
-	 * Returns the meta object for the '{@link videoGen.VideoGen#minDuration() <em>Min Duration</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Min Duration</em>' operation.
-	 * @see videoGen.VideoGen#minDuration()
-	 * @generated
-	 */
-	EOperation getVideoGen__MinDuration();
-
-	/**
-	 * Returns the meta object for the '{@link videoGen.VideoGen#maxDuration() <em>Max Duration</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Max Duration</em>' operation.
-	 * @see videoGen.VideoGen#maxDuration()
-	 * @generated
-	 */
-	EOperation getVideoGen__MaxDuration();
-
-	/**
-	 * Returns the meta object for the '{@link videoGen.VideoGen#minSequence() <em>Min Sequence</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Min Sequence</em>' operation.
-	 * @see videoGen.VideoGen#minSequence()
-	 * @generated
-	 */
-	EOperation getVideoGen__MinSequence();
-
-	/**
-	 * Returns the meta object for the '{@link videoGen.VideoGen#maxSequence() <em>Max Sequence</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Max Sequence</em>' operation.
-	 * @see videoGen.VideoGen#maxSequence()
-	 * @generated
-	 */
-	EOperation getVideoGen__MaxSequence();
-
-	/**
 	 * Returns the meta object for class '{@link videoGen.Sequence <em>Sequence</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -810,38 +733,6 @@ public interface VideoGenPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute VIDEO_GEN__SELECTED_SEQUENCES = eINSTANCE.getVideoGen_SelectedSequences();
-
-		/**
-		 * The meta object literal for the '<em><b>Min Duration</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation VIDEO_GEN___MIN_DURATION = eINSTANCE.getVideoGen__MinDuration();
-
-		/**
-		 * The meta object literal for the '<em><b>Max Duration</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation VIDEO_GEN___MAX_DURATION = eINSTANCE.getVideoGen__MaxDuration();
-
-		/**
-		 * The meta object literal for the '<em><b>Min Sequence</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation VIDEO_GEN___MIN_SEQUENCE = eINSTANCE.getVideoGen__MinSequence();
-
-		/**
-		 * The meta object literal for the '<em><b>Max Sequence</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation VIDEO_GEN___MAX_SEQUENCE = eINSTANCE.getVideoGen__MaxSequence();
 
 		/**
 		 * The meta object literal for the '{@link videoGen.Sequence <em>Sequence</em>}' class.

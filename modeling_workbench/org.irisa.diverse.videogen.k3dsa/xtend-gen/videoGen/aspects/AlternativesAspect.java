@@ -2,7 +2,6 @@ package videoGen.aspects;
 
 import fr.inria.diverse.k3.al.annotationprocessor.Aspect;
 import fr.inria.diverse.k3.al.annotationprocessor.OverrideAspectMethod;
-import fr.inria.diverse.k3.al.annotationprocessor.Pre;
 import fr.inria.diverse.k3.al.annotationprocessor.Step;
 import java.util.HashMap;
 import java.util.List;
@@ -25,15 +24,8 @@ import videoGen.aspects.VideoAspect;
 @Aspect(className = Alternatives.class)
 @SuppressWarnings("all")
 public class AlternativesAspect extends SequenceAspect {
-  private static Boolean preprivProcess(final Alternatives _self) {
-    videoGen.aspects.AlternativesAspectAlternativesAspectProperties _self_ = videoGen.aspects.AlternativesAspectAlternativesAspectContext.getSelf(_self);
-    Object result = null;
-    result =_privk3_preprivProcess(_self_, _self);
-    return (java.lang.Boolean)result;
-  }
-  
   /**
-   * Return a hashmap with corrected probabilities for an Alternatives instance
+   * Return a hashmap with corrected probabilities for an Alternatives instance.
    * 
    * @author Stéphane Mangin <stephane.mangin@freesbee.fr>
    */
@@ -56,7 +48,6 @@ public class AlternativesAspect extends SequenceAspect {
     return (videoGen.Video)result;
   }
   
-  @Pre
   @Step
   @OverrideAspectMethod
   public static void process(final Alternatives _self) {
@@ -77,19 +68,6 @@ public class AlternativesAspect extends SequenceAspect {
     } else {
     	command.execute();
     }
-  }
-  
-  protected static Boolean _privk3_preprivProcess(final AlternativesAspectAlternativesAspectProperties _self_, final Alternatives _self) {
-    boolean _xblockexpression = false;
-    {
-      String _name = _self.getName();
-      String _plus = ("##### Alternatives \'" + _name);
-      String _plus_1 = (_plus + "\' pre-processing...");
-      InputOutput.<String>println(_plus_1);
-      SequenceAspect.current(_self, Boolean.valueOf(true));
-      _xblockexpression = true;
-    }
-    return Boolean.valueOf(_xblockexpression);
   }
   
   protected static Map<String, Integer> _privk3_checkProbabilities(final AlternativesAspectAlternativesAspectProperties _self_, final Alternatives _self) {

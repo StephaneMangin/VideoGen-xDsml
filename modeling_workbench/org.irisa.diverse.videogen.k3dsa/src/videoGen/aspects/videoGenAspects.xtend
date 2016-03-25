@@ -17,6 +17,8 @@ import static extension videoGen.aspects.SequenceAspect.*
 import static extension videoGen.aspects.VideoAspect.*
 import java.util.ArrayList
 import fr.inria.diverse.k3.al.annotationprocessor.Pre
+import org.irisa.diverse.videogen.transformations.helpers.VideoGenTransform
+import org.irisa.diverse.playlist.util.PlayListTransform
 
 @Aspect(className=VideoGen)
 class VideoGenAspect {
@@ -38,26 +40,26 @@ class VideoGenAspect {
 	 */
 	@Step
 	def public void compute() {
-		val videos = new ArrayList
+		val videos = new HashMap
 		println("##### VideoGen '" + _self.name + "' start computation.")
 		//TODO: re-implement the initial IDM project model transformation. See master branch package 'fr.nemomen.utils'.
 		for (Sequence sequence: _self.sequences) {
 			if (sequence instanceof Mandatory) {
-				videos.add(sequence.video)
+				videos.put(sequence.video.name, sequence.video.selected)
 			} else if (sequence instanceof Optional) {
-				if (sequence.video.selected) {
-					videos.add(sequence.video)	
-				}
+				videos.put(sequence.video.name, sequence.video.selected)
 			} else if (sequence instanceof Alternatives) {
 				for (Optional option: sequence.options) {
-					
 					if (option.video.selected) {
-						videos.add(option.video)
+						videos.put(option.video.name, option.video.selected)
 					}
 				}
 			}
 		}
 		// TODO: Manage model transformation here
+		println("##### Videos computation result in playlist format : ")
+		val playlist = VideoGenTransform.toCustomPlayList(_self, true, videos)
+		println(PlayListTransform.toM3U(playlist, true))
 	}
 }
 
@@ -86,15 +88,9 @@ abstract class SequenceAspect {
 
 @Aspect(className=Alternatives)
 class AlternativesAspect extends SequenceAspect {
-
-	def private Boolean preprivProcess() {
-		println("##### Alternatives '" + _self.name + "' pre-processing...")
-		_self.current = true
-		true
-	}
 	
 	/**
-	 * Return a hashmap with corrected probabilities for an Alternatives instance
+	 * Return a hashmap with corrected probabilities for an Alternatives instance.
 	 * 
 	 * @author Stéphane Mangin <stephane.mangin@freesbee.fr>
 	 */
@@ -132,7 +128,6 @@ class AlternativesAspect extends SequenceAspect {
 		_self.options.get(drng.getDistributedRandomNumber()).video
 	}
 
-	@Pre
 	@Step
 	@OverrideAspectMethod
 	def public void process() {
@@ -145,14 +140,7 @@ class AlternativesAspect extends SequenceAspect {
 
 @Aspect(className=Mandatory)
 class MandatoryAspect extends SequenceAspect {
-
-	def private Boolean preprivProcess() {
-		println("##### Mandatory '" + _self.name + "' pre-processing...")
-		_self.current = true
-		true
-	}
 	
-	@Pre
 	@Step
 	@OverrideAspectMethod
 	def public void process() {
@@ -165,15 +153,10 @@ class MandatoryAspect extends SequenceAspect {
 
 @Aspect(className=Optional)
 class OptionalAspect extends SequenceAspect {
-
-	def private Boolean preprivProcess() {
-		println("##### Optional '" + _self.name + "' pre-processing...")
-		_self.current = true
-		true
-	}
 	
 	/**
 	 * Is this video is selectable or not ?
+	 * applies 50% in case of undefined proba
 	 * 
 	 * @author Stéphane Mangin <stephane.mangin@freesbee.fr>
 	 */
@@ -193,7 +176,6 @@ class OptionalAspect extends SequenceAspect {
 		drng.getDistributedRandomNumber() > 0
 	}
 
-	@Pre
 	@Step
 	@OverrideAspectMethod
 	def public void process() {

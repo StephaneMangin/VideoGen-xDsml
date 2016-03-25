@@ -2,7 +2,6 @@ package videoGen.aspects;
 
 import fr.inria.diverse.k3.al.annotationprocessor.Aspect;
 import fr.inria.diverse.k3.al.annotationprocessor.OverrideAspectMethod;
-import fr.inria.diverse.k3.al.annotationprocessor.Pre;
 import fr.inria.diverse.k3.al.annotationprocessor.Step;
 import org.eclipse.xtext.xbase.lib.InputOutput;
 import videoGen.Optional;
@@ -15,15 +14,9 @@ import videoGen.aspects.VideoAspect;
 @Aspect(className = Optional.class)
 @SuppressWarnings("all")
 public class OptionalAspect extends SequenceAspect {
-  private static Boolean preprivProcess(final Optional _self) {
-    videoGen.aspects.OptionalAspectOptionalAspectProperties _self_ = videoGen.aspects.OptionalAspectOptionalAspectContext.getSelf(_self);
-    Object result = null;
-    result =_privk3_preprivProcess(_self_, _self);
-    return (java.lang.Boolean)result;
-  }
-  
   /**
    * Is this video is selectable or not ?
+   * applies 50% in case of undefined proba
    * 
    * @author Stéphane Mangin <stephane.mangin@freesbee.fr>
    */
@@ -34,7 +27,6 @@ public class OptionalAspect extends SequenceAspect {
     return (java.lang.Boolean)result;
   }
   
-  @Pre
   @Step
   @OverrideAspectMethod
   public static void process(final Optional _self) {
@@ -55,19 +47,6 @@ public class OptionalAspect extends SequenceAspect {
     } else {
     	command.execute();
     }
-  }
-  
-  protected static Boolean _privk3_preprivProcess(final OptionalAspectOptionalAspectProperties _self_, final Optional _self) {
-    boolean _xblockexpression = false;
-    {
-      String _name = _self.getName();
-      String _plus = ("##### Optional \'" + _name);
-      String _plus_1 = (_plus + "\' pre-processing...");
-      InputOutput.<String>println(_plus_1);
-      SequenceAspect.current(_self, Boolean.valueOf(true));
-      _xblockexpression = true;
-    }
-    return Boolean.valueOf(_xblockexpression);
   }
   
   protected static Boolean _privk3_isSelected(final OptionalAspectOptionalAspectProperties _self_, final Optional _self) {

@@ -3,9 +3,12 @@ package videoGen.aspects;
 import fr.inria.diverse.k3.al.annotationprocessor.Aspect;
 import fr.inria.diverse.k3.al.annotationprocessor.Main;
 import fr.inria.diverse.k3.al.annotationprocessor.Step;
-import java.util.ArrayList;
+import java.util.HashMap;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtext.xbase.lib.InputOutput;
+import org.irisa.diverse.playlist.PlayList.PlayList;
+import org.irisa.diverse.playlist.util.PlayListTransform;
+import org.irisa.diverse.videogen.transformations.helpers.VideoGenTransform;
 import videoGen.Alternatives;
 import videoGen.Mandatory;
 import videoGen.Optional;
@@ -58,7 +61,7 @@ public class VideoGenAspect {
   }
   
   protected static void _privk3_compute(final VideoGenAspectVideoGenAspectProperties _self_, final VideoGen _self) {
-    final ArrayList<Video> videos = new ArrayList<Video>();
+    final HashMap<String, Boolean> videos = new HashMap<String, Boolean>();
     String _name = _self.getName();
     String _plus = ("##### VideoGen \'" + _name);
     String _plus_1 = (_plus + "\' start computation.");
@@ -67,29 +70,38 @@ public class VideoGenAspect {
     for (final Sequence sequence : _sequences) {
       if ((sequence instanceof Mandatory)) {
         Video _video = ((Mandatory)sequence).getVideo();
-        videos.add(_video);
+        String _name_1 = _video.getName();
+        Video _video_1 = ((Mandatory)sequence).getVideo();
+        Boolean _selected = _video_1.getSelected();
+        videos.put(_name_1, _selected);
       } else {
         if ((sequence instanceof Optional)) {
-          Video _video_1 = ((Optional)sequence).getVideo();
-          Boolean _selected = _video_1.getSelected();
-          if ((_selected).booleanValue()) {
-            Video _video_2 = ((Optional)sequence).getVideo();
-            videos.add(_video_2);
-          }
+          Video _video_2 = ((Optional)sequence).getVideo();
+          String _name_2 = _video_2.getName();
+          Video _video_3 = ((Optional)sequence).getVideo();
+          Boolean _selected_1 = _video_3.getSelected();
+          videos.put(_name_2, _selected_1);
         } else {
           if ((sequence instanceof Alternatives)) {
             EList<Optional> _options = ((Alternatives)sequence).getOptions();
             for (final Optional option : _options) {
-              Video _video_3 = option.getVideo();
-              Boolean _selected_1 = _video_3.getSelected();
-              if ((_selected_1).booleanValue()) {
-                Video _video_4 = option.getVideo();
-                videos.add(_video_4);
+              Video _video_4 = option.getVideo();
+              Boolean _selected_2 = _video_4.getSelected();
+              if ((_selected_2).booleanValue()) {
+                Video _video_5 = option.getVideo();
+                String _name_3 = _video_5.getName();
+                Video _video_6 = option.getVideo();
+                Boolean _selected_3 = _video_6.getSelected();
+                videos.put(_name_3, _selected_3);
               }
             }
           }
         }
       }
     }
+    InputOutput.<String>println("##### Videos computation result in playlist format : ");
+    final PlayList playlist = VideoGenTransform.toCustomPlayList(_self, Boolean.valueOf(true), videos);
+    String _m3U = PlayListTransform.toM3U(playlist, Boolean.valueOf(true));
+    InputOutput.<String>println(_m3U);
   }
 }

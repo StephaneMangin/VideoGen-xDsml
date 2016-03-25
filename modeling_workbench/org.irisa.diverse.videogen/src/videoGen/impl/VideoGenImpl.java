@@ -2,23 +2,15 @@
  */
 package videoGen.impl;
 
-import java.lang.reflect.InvocationTargetException;
-
 import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-
 import videoGen.Sequence;
 import videoGen.VideoGen;
 import videoGen.VideoGenPackage;
@@ -115,50 +107,6 @@ public class VideoGenImpl extends NamedElementImpl implements VideoGen {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Integer minDuration() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Integer maxDuration() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Integer minSequence() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Integer maxSequence() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -236,26 +184,6 @@ public class VideoGenImpl extends NamedElementImpl implements VideoGen {
 				return selectedSequences != null;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
-		switch (operationID) {
-			case VideoGenPackage.VIDEO_GEN___MIN_DURATION:
-				return minDuration();
-			case VideoGenPackage.VIDEO_GEN___MAX_DURATION:
-				return maxDuration();
-			case VideoGenPackage.VIDEO_GEN___MIN_SEQUENCE:
-				return minSequence();
-			case VideoGenPackage.VIDEO_GEN___MAX_SEQUENCE:
-				return maxSequence();
-		}
-		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

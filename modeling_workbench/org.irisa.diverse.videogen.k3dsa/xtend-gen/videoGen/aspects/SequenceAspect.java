@@ -15,12 +15,12 @@ public abstract class SequenceAspect {
    */
   public static void process(final Sequence _self) {
     videoGen.aspects.SequenceAspectSequenceAspectProperties _self_ = videoGen.aspects.SequenceAspectSequenceAspectContext.getSelf(_self);
-     if (_self instanceof videoGen.Alternatives){
+     if (_self instanceof videoGen.Mandatory){
+     videoGen.aspects.MandatoryAspect.process((videoGen.Mandatory)_self);
+    } else  if (_self instanceof videoGen.Alternatives){
      videoGen.aspects.AlternativesAspect.process((videoGen.Alternatives)_self);
     } else  if (_self instanceof videoGen.Optional){
      videoGen.aspects.OptionalAspect.process((videoGen.Optional)_self);
-    } else  if (_self instanceof videoGen.Mandatory){
-     videoGen.aspects.MandatoryAspect.process((videoGen.Mandatory)_self);
     } else  if (_self instanceof videoGen.Sequence){
      videoGen.aspects.SequenceAspect._privk3_process(_self_, (videoGen.Sequence)_self);
     } else  { throw new IllegalArgumentException("Unhandled parameter types: " + java.util.Arrays.<Object>asList(_self).toString()); };
