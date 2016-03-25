@@ -1,5 +1,5 @@
 Bundle-SymbolicName: org.irisa.diverse.videogen.k3dsa; singleton:=true
-Export-Package: videoGen.aspects
+Export-Package: videoGen.aspects,videoGen.aspects
 Bundle-Name: org.irisa.diverse.videogen.k3dsa
 Bundle-Version: 1.0.0
 Bundle-ClassPath: .

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.irisa.diverse.playlist/src-gen" editDirectory="/org.irisa.diverse.playlist.edit/src" editorDirectory="/org.irisa.diverse.playlist.editor/src" modelPluginID="org.irisa.diverse.playlist" forceOverwrite="true" modelName="PlayList" modelPluginClass="" editPluginClass="org.irisa.diverse.playlist.PlayList.provider.PlayListEditPlugin" editorPluginClass="org.irisa.diverse.playlist.PlayList.presentation.PlayListEditorPlugin" updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" testSuiteClass="org.istic.idm.ecore.playlist.PlayList.tests.PlayListAllTests" importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false" editPluginID="org.irisa.diverse.playlist.edit" editorPluginID="org.irisa.diverse.playlist.editor" interfaceNamePattern="">
+  <foreignModel>PlayList.ecore</foreignModel>
+  <genPackages prefix="PlayList" basePackage="org.irisa.diverse.playlist" disposableProviderFactory="true">
+    <ecorePackage href="PlayList.ecore#/"/>
+    <genClasses>
+      <ecoreClass href="PlayList.ecore#//PlayList"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="PlayList.ecore#//PlayList/video"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="PlayList.ecore#//Video"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="PlayList.ecore#//Video/duration"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="PlayList.ecore#//Video/description"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="PlayList.ecore#//Video/path"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="PlayList.ecore#//Video/mimetype"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="PlayList.ecore#//Video/thumbnail"/>
+      </genFeatures>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

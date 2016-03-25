@@ -2,18 +2,6 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="videoGen" nsURI="http://www.irisa.org/diverse/videogen" nsPrefix="videoGen">
   <eClassifiers xsi:type="ecore:EClass" name="VideoGen" eSuperTypes="#//NamedElement">
-    <eOperations name="minDuration" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject">
-      <eAnnotations source="aspect"/>
-    </eOperations>
-    <eOperations name="maxDuration" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject">
-      <eAnnotations source="aspect"/>
-    </eOperations>
-    <eOperations name="minSequence" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject">
-      <eAnnotations source="aspect"/>
-    </eOperations>
-    <eOperations name="maxSequence" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject">
-      <eAnnotations source="aspect"/>
-    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="sequences" upperBound="-1"
         eType="#//Sequence" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="selectedSequences" lowerBound="1"
