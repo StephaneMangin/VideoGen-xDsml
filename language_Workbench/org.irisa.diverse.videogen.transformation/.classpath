@@ -8,14 +8,12 @@
 	</classpathentry>
 	<classpathentry including="**/*" kind="src" output="target/classes" path="xtend"/>
 	<classpathentry including="**/*" kind="src" output="target/classes" path="xtend-gen"/>
+	<classpathentry exported="true" kind="lib" path="libs/"/>
+	<classpathentry exported="true" kind="lib" path="libs/javax.json-api-1.0.jar"/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
-	<classpathentry exported="true" kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
-		<attributes>
-			<attribute name="maven.pomderived" value="true"/>
-		</attributes>
-	</classpathentry>
 	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/org.irisa.diverse.playlist"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/org.irisa.diverse.videogen"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/org.irisa.diverse.videogen"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry exported="true" kind="lib" path="libs/commons-exec-1.3.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
