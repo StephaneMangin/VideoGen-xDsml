@@ -1,21 +1,19 @@
 package videoGen.aspects
 
-
 import fr.inria.diverse.k3.al.annotationprocessor.Aspect
 import fr.inria.diverse.k3.al.annotationprocessor.Main
+import fr.inria.diverse.k3.al.annotationprocessor.OverrideAspectMethod
 import fr.inria.diverse.k3.al.annotationprocessor.Step
 import java.util.HashMap
 import java.util.Map
+import org.irisa.diverse.videogen.transformations.helpers.PlayListTransform
+import org.irisa.diverse.videogen.transformations.helpers.VideoGenTransform
 import videoGen.Alternatives
 import videoGen.Mandatory
 import videoGen.Optional
 import videoGen.Sequence
 import videoGen.Video
 import videoGen.VideoGen
-import fr.inria.diverse.k3.al.annotationprocessor.OverrideAspectMethod
-
-import static extension videoGen.aspects.SequenceAspect.*
-import static extension videoGen.aspects.VideoAspect.*
 
 @Aspect(className=VideoGen)
 class VideoGenAspect {
@@ -39,24 +37,29 @@ class VideoGenAspect {
 	def public void compute() {
 		val videos = new HashMap
 		println("##### VideoGen '" + _self.name + "' start computation.")
+		println("##### Videos computation result in playlist format : ")
 		//TODO: re-implement the initial IDM project model transformation. See master branch package 'fr.nemomen.utils'.
 		for (Sequence sequence: _self.sequences) {
+			var Video video
 			if (sequence instanceof Mandatory) {
-				videos.put(sequence.video.name, sequence.video.selected)
+				video = sequence.video
 			} else if (sequence instanceof Optional) {
-				videos.put(sequence.video.name, sequence.video.selected)
+				video = sequence.video
 			} else if (sequence instanceof Alternatives) {
 				for (Optional option: sequence.options) {
 					if (option.video.selected) {
-						videos.put(option.video.name, option.video.selected)
+						video = option.video
 					}
 				}
 			}
+			videos.put(video.name, video.selected)
+			if (video.selected) {
+				println("\t" + video.name + ": " + video.url)
+			}
 		}
 		// TODO: Manage model transformation here
-		println("##### Videos computation result in playlist format : ")
-		//val playlist = VideoGenTransform.toCustomPlayList(_self, true, videos)
-		//println(PlayListTransform.toM3U(playlist, true))
+		val playlist = VideoGenTransform.toCustomPlayList(_self, true, videos)
+		println(PlayListTransform.toM3U(playlist, true))
 	}
 }
 

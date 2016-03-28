@@ -5,13 +5,13 @@ Bundle-SymbolicName: org.irisa.diverse.videogen.transformations;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-ClassPath: .
 Bundle-Vendor: %providerName
-Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Export-Package: org.irisa.diverse.videogen.transformations
+Export-Package: org.irisa.diverse.videogen.transformations,
+ org.irisa.diverse.videogen.transformations.helpers,
+ org.irisa.diverse.videogen.transformations.randomizers
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  com.google.guava,
- org.eclipse.xtext.xbase.lib,
  org.eclipse.xtend.lib,
  org.eclipse.xtend.lib.macro
 Bundle-ActivationPolicy: lazy

@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<viewpoint:DAnalysis xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:types="http://www.eclipse.org/xtext/common/JavaVMTypes" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xmlns:xtend="http://www.eclipse.org/xtend" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style" xmi:id="_kx8f8O3MEeWm5rdIAAaFAA" selectedViews="_k1e8IO3MEeWm5rdIAAaFAA _k68D4O3MEeWm5rdIAAaFAA _k7EmwO3MEeWm5rdIAAaFAA _k9Ex4O3MEeWm5rdIAAaFAA" version="8.1.1">
+<viewpoint:DAnalysis xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:types="http://www.eclipse.org/xtext/common/JavaVMTypes" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style" xmi:id="_kx8f8O3MEeWm5rdIAAaFAA" selectedViews="_k1e8IO3MEeWm5rdIAAaFAA _k68D4O3MEeWm5rdIAAaFAA _k7EmwO3MEeWm5rdIAAaFAA _k9Ex4O3MEeWm5rdIAAaFAA" version="8.1.1">
   <models xmi:type="ecore:EPackage" href="PlayList.ecore#/"/>
   <models xmi:type="ecore:EPackage" href="http://www.eclipse.org/emf/2002/Ecore#/"/>
-  <models xmi:type="xtend:XtendFile" href="../src/org/irisa/diverse/playlist/util/PlayListTransform.xtend#/0"/>
   <models xmi:type="types:JvmGenericType" href="java:/Objects/java.io.FileWriter#java.io.FileWriter"/>
   <models xmi:type="types:JvmGenericType" href="java:/Objects/java.nio.file.Path#java.nio.file.Path"/>
   <models xmi:type="types:JvmGenericType" href="java:/Objects/java.util.Map#java.util.Map"/>
@@ -731,6 +730,37 @@
   <models xmi:type="types:JvmGenericType" href="java:/Objects/com.google.common.collect.ImmutableEntry#com.google.common.collect.ImmutableEntry"/>
   <models xmi:type="types:JvmGenericType" href="java:/Objects/com.google.common.collect.AbstractMapEntry#com.google.common.collect.AbstractMapEntry"/>
   <models xmi:type="types:JvmGenericType" href="java:/Objects/com.google.common.collect.ImmutableSortedSetFauxverideShim#com.google.common.collect.ImmutableSortedSetFauxverideShim"/>
+  <models xmi:type="types:JvmGenericType" href="java:/Objects/org.irisa.diverse.playlist.PlayList.PlayList#org.irisa.diverse.playlist.PlayList.PlayList"/>
+  <models xmi:type="types:JvmGenericType" href="java:/Objects/org.irisa.diverse.playlist.PlayList.Video#org.irisa.diverse.playlist.PlayList.Video"/>
+  <models xmi:type="types:JvmGenericType" href="java:/Objects/org.eclipse.xtext.xbase.lib.ArrayLiterals#org.eclipse.xtext.xbase.lib.ArrayLiterals"/>
+  <models xmi:type="types:JvmGenericType" href="java:/Objects/org.eclipse.xtext.xbase.lib.CollectionLiterals#org.eclipse.xtext.xbase.lib.CollectionLiterals"/>
+  <models xmi:type="types:JvmGenericType" href="java:/Objects/org.eclipse.xtext.xbase.lib.InputOutput#org.eclipse.xtext.xbase.lib.InputOutput"/>
+  <models xmi:type="types:JvmGenericType" href="java:/Objects/org.eclipse.xtext.xbase.lib.ArrayExtensions#org.eclipse.xtext.xbase.lib.ArrayExtensions"/>
+  <models xmi:type="types:JvmGenericType" href="java:/Objects/org.eclipse.xtext.xbase.lib.BigDecimalExtensions#org.eclipse.xtext.xbase.lib.BigDecimalExtensions"/>
+  <models xmi:type="types:JvmGenericType" href="java:/Objects/org.eclipse.xtext.xbase.lib.BigIntegerExtensions#org.eclipse.xtext.xbase.lib.BigIntegerExtensions"/>
+  <models xmi:type="types:JvmGenericType" href="java:/Objects/org.eclipse.xtext.xbase.lib.ByteExtensions#org.eclipse.xtext.xbase.lib.ByteExtensions"/>
+  <models xmi:type="types:JvmGenericType" href="java:/Objects/org.eclipse.xtext.xbase.lib.CharacterExtensions#org.eclipse.xtext.xbase.lib.CharacterExtensions"/>
+  <models xmi:type="types:JvmGenericType" href="java:/Objects/org.eclipse.xtext.xbase.lib.CollectionExtensions#org.eclipse.xtext.xbase.lib.CollectionExtensions"/>
+  <models xmi:type="types:JvmGenericType" href="java:/Objects/com.google.common.collect.ImmutableSortedMap#com.google.common.collect.ImmutableSortedMap"/>
+  <models xmi:type="types:JvmGenericType" href="java:/Objects/java.util.Collections#java.util.Collections"/>
+  <models xmi:type="types:JvmGenericType" href="java:/Objects/com.google.common.collect.ImmutableSortedMapFauxverideShim#com.google.common.collect.ImmutableSortedMapFauxverideShim"/>
+  <models xmi:type="types:JvmGenericType" href="java:/Objects/java.util.AbstractQueue#java.util.AbstractQueue"/>
+  <models xmi:type="types:JvmGenericType" href="java:/Objects/org.eclipse.xtext.xbase.lib.ComparableExtensions#org.eclipse.xtext.xbase.lib.ComparableExtensions"/>
+  <models xmi:type="types:JvmGenericType" href="java:/Objects/org.eclipse.xtext.xbase.lib.DoubleExtensions#org.eclipse.xtext.xbase.lib.DoubleExtensions"/>
+  <models xmi:type="types:JvmGenericType" href="java:/Objects/org.eclipse.xtext.xbase.lib.FloatExtensions#org.eclipse.xtext.xbase.lib.FloatExtensions"/>
+  <models xmi:type="types:JvmGenericType" href="java:/Objects/java.lang.Float#java.lang.Float"/>
+  <models xmi:type="types:JvmGenericType" href="java:/Objects/org.eclipse.xtext.xbase.lib.FunctionExtensions#org.eclipse.xtext.xbase.lib.FunctionExtensions"/>
+  <models xmi:type="types:JvmGenericType" href="java:/Objects/org.eclipse.xtext.xbase.lib.IteratorExtensions#org.eclipse.xtext.xbase.lib.IteratorExtensions"/>
+  <models xmi:type="types:JvmGenericType" href="java:/Objects/com.google.common.collect.Iterators#com.google.common.collect.Iterators"/>
+  <models xmi:type="types:JvmGenericType" href="java:/Objects/com.google.common.collect.PeekingIterator#com.google.common.collect.PeekingIterator"/>
+  <models xmi:type="types:JvmGenericType" href="java:/Objects/org.eclipse.xtext.xbase.lib.ListExtensions#org.eclipse.xtext.xbase.lib.ListExtensions"/>
+  <models xmi:type="types:JvmGenericType" href="java:/Objects/org.eclipse.xtext.xbase.lib.LongExtensions#org.eclipse.xtext.xbase.lib.LongExtensions"/>
+  <models xmi:type="types:JvmGenericType" href="java:/Objects/org.eclipse.xtext.xbase.lib.MapExtensions#org.eclipse.xtext.xbase.lib.MapExtensions"/>
+  <models xmi:type="types:JvmGenericType" href="java:/Objects/org.eclipse.xtext.xbase.lib.ObjectExtensions#org.eclipse.xtext.xbase.lib.ObjectExtensions"/>
+  <models xmi:type="types:JvmGenericType" href="java:/Objects/com.google.common.base.Objects#com.google.common.base.Objects"/>
+  <models xmi:type="types:JvmGenericType" href="java:/Objects/org.eclipse.xtext.xbase.lib.ProcedureExtensions#org.eclipse.xtext.xbase.lib.ProcedureExtensions"/>
+  <models xmi:type="types:JvmGenericType" href="java:/Objects/org.eclipse.xtext.xbase.lib.ShortExtensions#org.eclipse.xtext.xbase.lib.ShortExtensions"/>
+  <models xmi:type="types:JvmGenericType" href="java:/Objects/java.lang.Short#java.lang.Short"/>
   <ownedViews xmi:type="viewpoint:DRepresentationContainer" xmi:id="_k1e8IO3MEeWm5rdIAAaFAA" initialized="true">
     <ownedRepresentations xmi:type="diagram:DSemanticDiagram" xmi:id="_k6rlMO3MEeWm5rdIAAaFAA" name="ecore class diagram">
       <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_k6rlNu3MEeWm5rdIAAaFAA" source="GMF_DIAGRAMS">

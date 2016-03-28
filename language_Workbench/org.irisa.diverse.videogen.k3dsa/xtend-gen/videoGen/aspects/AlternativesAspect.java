@@ -10,7 +10,6 @@ import java.util.Set;
 import java.util.function.Consumer;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
-import org.eclipse.xtext.xbase.lib.InputOutput;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.ListExtensions;
 import videoGen.Alternatives;
@@ -19,7 +18,6 @@ import videoGen.Video;
 import videoGen.aspects.AlternativesAspectAlternativesAspectProperties;
 import videoGen.aspects.DistributedRandomNumberGenerator;
 import videoGen.aspects.SequenceAspect;
-import videoGen.aspects.VideoAspect;
 
 @Aspect(className = Alternatives.class)
 @SuppressWarnings("all")
@@ -139,13 +137,7 @@ public class AlternativesAspect extends SequenceAspect {
   }
   
   protected static void _privk3_process(final AlternativesAspectAlternativesAspectProperties _self_, final Alternatives _self) {
-    SequenceAspect.current(_self, Boolean.valueOf(true));
-    String _name = _self.getName();
-    String _plus = ("##### Alternatives \'" + _name);
-    String _plus_1 = (_plus + "\' is been processed.");
-    InputOutput.<String>println(_plus_1);
-    Video _selectVideo = AlternativesAspect.selectVideo(_self);
-    VideoAspect.select(_selectVideo);
-    AlternativesAspect.super_process(_self);
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method select is undefined for the type AlternativesAspect");
   }
 }

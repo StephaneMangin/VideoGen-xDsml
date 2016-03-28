@@ -52,6 +52,7 @@ import org.irisa.diverse.playlist.PlayList.impl.PlayListFactoryImpl
 	 * @author Stéphane Mangin <stephane.mangin@freesbee.fr>
  	 */ 
    	def private static transferData(org.irisa.diverse.playlist.PlayList.Video p_video, Video videoseq) {
+   		LOGGER.info("Data transformation " + videoseq + "=>" + p_video)
 		p_video.duration = videoseq.duration
 		p_video.path = videoseq.url
 		p_video.description = ""
@@ -104,6 +105,7 @@ import org.irisa.diverse.playlist.PlayList.impl.PlayListFactoryImpl
 	 * @author Stéphane Mangin <stephane.mangin@freesbee.fr>
  	 */ 
     def static toVideoGen(PlayList playList){
+   		LOGGER.info("Videogen transformation " + playList)
         var videoGenFactory = VideoGenFactoryImpl.init()
         val videoGen = videoGenFactory.createVideoGen()
         videoGen
@@ -133,7 +135,7 @@ import org.irisa.diverse.playlist.PlayList.impl.PlayListFactoryImpl
  	 * @see VideoGenHelper#createThumbnails(Path, Path)
  	 */ 
     def static createThumbnails(Video video){
-	
+   		LOGGER.info("Thumbnail generation " + video)
 		val dir = Paths.get(tmp + "/" + "thumbnails/")
 		SystemHelper.mkDirs(dir)
 		val fullPath = Paths.get(video.url)
@@ -155,6 +157,7 @@ import org.irisa.diverse.playlist.PlayList.impl.PlayListFactoryImpl
  	 * TODO: somethings should be done better... But what ?
  	 */ 
     def static ConvertTo(Mimetypes_Enum type, VideoGen videogen){
+   		LOGGER.info("Convertion " + videogen + "=>" + type)
     	val codec = VideoCodec.getByFormat(type.getName)
 		val pathes = Lists.newArrayList
 		val dir = Paths.get(tmp + "/" + "converted" + "/" + type.getName + "/")
@@ -199,6 +202,7 @@ import org.irisa.diverse.playlist.PlayList.impl.PlayListFactoryImpl
 	 * @author Stéphane Mangin <stephane.mangin@freesbee.fr>
  	 */ 
     def static toPlayList(VideoGen videogen, Boolean withThumbnail){
+   		LOGGER.info("To playlist " + videogen + "=>" + withThumbnail)
         val playlistFactory = PlayListFactoryImpl.init()
         val playlist = playlistFactory.createPlayList()
         
@@ -241,6 +245,7 @@ import org.irisa.diverse.playlist.PlayList.impl.PlayListFactoryImpl
 	 * @Param options Map<String, Boolean> - A Map of sequences name associated to a boolean
  	 */ 
     def static toCustomPlayList(VideoGen videogen, Boolean withThumbnail, Map<String, Boolean> options){
+   		LOGGER.info("To custom playlist " + videogen + "=>" + withThumbnail + ", options=>" + options)
         val playlistFactory = PlayListFactoryImpl.init()
         val playlist = playlistFactory.createPlayList()
         
@@ -281,6 +286,7 @@ import org.irisa.diverse.playlist.PlayList.impl.PlayListFactoryImpl
 	 * @Param videogen VideoGen
      */
     def static toJson(VideoGen videogen){
+   		LOGGER.info("To Json " + videogen)
     	new VideoGenSerializer().compile(videogen)
     }
     
@@ -292,6 +298,7 @@ import org.irisa.diverse.playlist.PlayList.impl.PlayListFactoryImpl
  	 * FIXME: should find a better way to create this kind of ModelToText transformation. For instance, through multiples methods to get each portions of the resulting document.
  	 */ 
     def static toConfigurator(VideoGen videogen){
+   		LOGGER.info("To configuration " + videogen)
     	val thumbnails = new HashMap
     	for (video: VideoGenHelper.allVideos(videogen)) {
     		thumbnails.put(video.name, createThumbnails(video))

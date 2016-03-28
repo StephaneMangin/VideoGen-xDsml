@@ -1,4 +1,4 @@
-package org.irisa.diverse.playlist.util
+package org.irisa.diverse.videogen.transformations.helpers
 
 import java.io.FileWriter
 import java.nio.file.Path

@@ -1,4 +1,4 @@
-package org.irisa.diverse.playlist.util;
+package org.irisa.diverse.videogen.transformations.helpers;
 
 import com.google.common.collect.Lists;
 import java.io.File;
