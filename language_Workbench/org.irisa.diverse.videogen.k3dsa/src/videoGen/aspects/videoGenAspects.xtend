@@ -6,7 +6,6 @@ import fr.inria.diverse.k3.al.annotationprocessor.OverrideAspectMethod
 import fr.inria.diverse.k3.al.annotationprocessor.Step
 import java.util.HashMap
 import java.util.Map
-import org.irisa.diverse.videogen.transformations.helpers.PlayListTransform
 import org.irisa.diverse.videogen.transformations.helpers.VideoGenTransform
 import videoGen.Alternatives
 import videoGen.Mandatory
@@ -14,6 +13,8 @@ import videoGen.Optional
 import videoGen.Sequence
 import videoGen.Video
 import videoGen.VideoGen
+import static extension videoGen.aspects.VideoAspect.*
+import static extension videoGen.aspects.SequenceAspect.*
 
 @Aspect(className=VideoGen)
 class VideoGenAspect {
@@ -58,8 +59,7 @@ class VideoGenAspect {
 			}
 		}
 		// TODO: Manage model transformation here
-		val playlist = VideoGenTransform.toCustomPlayList(_self, true, videos)
-		println(PlayListTransform.toM3U(playlist, true))
+		println(VideoGenTransform.toM3U(_self, true, videos))
 	}
 }
 

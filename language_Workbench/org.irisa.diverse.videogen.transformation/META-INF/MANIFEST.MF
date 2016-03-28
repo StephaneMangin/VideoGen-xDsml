@@ -13,6 +13,8 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  com.google.guava,
  org.eclipse.xtend.lib,
- org.eclipse.xtend.lib.macro
+ org.eclipse.xtend.lib.macro,
+ org.irisa.diverse.videogen;bundle-version="1.0.0",
+ org.irisa.diverse.playlist;bundle-version="0.1.0"
 Bundle-ActivationPolicy: lazy
 

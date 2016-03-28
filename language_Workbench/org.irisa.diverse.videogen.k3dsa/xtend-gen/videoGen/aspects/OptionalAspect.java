@@ -3,10 +3,13 @@ package videoGen.aspects;
 import fr.inria.diverse.k3.al.annotationprocessor.Aspect;
 import fr.inria.diverse.k3.al.annotationprocessor.OverrideAspectMethod;
 import fr.inria.diverse.k3.al.annotationprocessor.Step;
+import org.eclipse.xtext.xbase.lib.InputOutput;
 import videoGen.Optional;
+import videoGen.Video;
 import videoGen.aspects.DistributedRandomNumberGenerator;
 import videoGen.aspects.OptionalAspectOptionalAspectProperties;
 import videoGen.aspects.SequenceAspect;
+import videoGen.aspects.VideoAspect;
 
 @Aspect(className = Optional.class)
 @SuppressWarnings("all")
@@ -72,7 +75,16 @@ public class OptionalAspect extends SequenceAspect {
   }
   
   protected static void _privk3_process(final OptionalAspectOptionalAspectProperties _self_, final Optional _self) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nThe method select is undefined for the type OptionalAspect");
+    SequenceAspect.current(_self, Boolean.valueOf(true));
+    String _name = _self.getName();
+    String _plus = ("##### Optional \'" + _name);
+    String _plus_1 = (_plus + "\' is been processed.");
+    InputOutput.<String>println(_plus_1);
+    Boolean _isSelected = OptionalAspect.isSelected(_self);
+    if ((_isSelected).booleanValue()) {
+      Video _video = _self.getVideo();
+      VideoAspect.select(_video);
+    }
+    OptionalAspect.super_process(_self);
   }
 }

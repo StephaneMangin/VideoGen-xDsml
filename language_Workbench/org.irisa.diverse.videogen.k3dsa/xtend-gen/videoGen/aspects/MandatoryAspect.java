@@ -3,9 +3,13 @@ package videoGen.aspects;
 import fr.inria.diverse.k3.al.annotationprocessor.Aspect;
 import fr.inria.diverse.k3.al.annotationprocessor.OverrideAspectMethod;
 import fr.inria.diverse.k3.al.annotationprocessor.Step;
+import org.eclipse.xtext.xbase.lib.InputOutput;
 import videoGen.Mandatory;
+import videoGen.Sequence;
+import videoGen.Video;
 import videoGen.aspects.MandatoryAspectMandatoryAspectProperties;
 import videoGen.aspects.SequenceAspect;
+import videoGen.aspects.VideoAspect;
 
 @Aspect(className = Mandatory.class)
 @SuppressWarnings("all")
@@ -38,7 +42,14 @@ public class MandatoryAspect extends SequenceAspect {
   }
   
   protected static void _privk3_process(final MandatoryAspectMandatoryAspectProperties _self_, final Mandatory _self) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nThe method select is undefined for the type MandatoryAspect");
+    SequenceAspect.current(_self, Boolean.valueOf(true));
+    String _name = _self.getName();
+    String _plus = ("##### Mandatory \'" + _name);
+    String _plus_1 = (_plus + "\' is been processed.");
+    InputOutput.<String>println(_plus_1);
+    Video _video = _self.getVideo();
+    VideoAspect.select(_video);
+    Sequence _nextSibling = _self.getNextSibling();
+    SequenceAspect.process(_nextSibling);
   }
 }

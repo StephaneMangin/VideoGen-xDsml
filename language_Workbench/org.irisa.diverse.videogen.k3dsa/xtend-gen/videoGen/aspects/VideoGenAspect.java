@@ -6,8 +6,6 @@ import fr.inria.diverse.k3.al.annotationprocessor.Step;
 import java.util.HashMap;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtext.xbase.lib.InputOutput;
-import org.irisa.diverse.playlist.PlayList.PlayList;
-import org.irisa.diverse.videogen.transformations.helpers.PlayListTransform;
 import org.irisa.diverse.videogen.transformations.helpers.VideoGenTransform;
 import videoGen.Alternatives;
 import videoGen.Mandatory;
@@ -15,6 +13,7 @@ import videoGen.Optional;
 import videoGen.Sequence;
 import videoGen.Video;
 import videoGen.VideoGen;
+import videoGen.aspects.SequenceAspect;
 import videoGen.aspects.VideoGenAspectVideoGenAspectProperties;
 
 @Aspect(className = VideoGen.class)
@@ -49,8 +48,14 @@ public class VideoGenAspect {
   }
   
   protected static void _privk3_initialize(final VideoGenAspectVideoGenAspectProperties _self_, final VideoGen _self) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nThe method process is undefined for the type VideoGenAspect");
+    String _name = _self.getName();
+    String _plus = ("##### VideoGen \'" + _name);
+    String _plus_1 = (_plus + "\' has been initialized.");
+    InputOutput.<String>println(_plus_1);
+    EList<Sequence> _sequences = _self.getSequences();
+    final Sequence sequence = _sequences.get(0);
+    SequenceAspect.process(sequence);
+    VideoGenAspect.compute(_self);
   }
   
   protected static void _privk3_compute(final VideoGenAspectVideoGenAspectProperties _self_, final VideoGen _self) {
@@ -99,8 +104,7 @@ public class VideoGenAspect {
         }
       }
     }
-    final PlayList playlist = VideoGenTransform.toCustomPlayList(_self, Boolean.valueOf(true), videos);
-    String _m3U = PlayListTransform.toM3U(playlist, Boolean.valueOf(true));
+    String _m3U = VideoGenTransform.toM3U(_self, Boolean.valueOf(true), videos);
     InputOutput.<String>println(_m3U);
   }
 }

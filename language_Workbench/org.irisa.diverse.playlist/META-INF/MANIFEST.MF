@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
-Bundle-SymbolicName: org.istic.idm.ecore.playlist;singleton:=true
+Bundle-SymbolicName: org.irisa.diverse.playlist;singleton:=true
 Bundle-Version: 0.1.0.qualifier
 Bundle-ClassPath: .
 Bundle-Vendor: %providerName
@@ -15,6 +15,5 @@ Require-Bundle: org.eclipse.core.runtime,
 Bundle-ActivationPolicy: lazy
 Export-Package: org.irisa.diverse.playlist.PlayList,
  org.irisa.diverse.playlist.PlayList.impl,
- org.irisa.diverse.playlist.PlayList.util,
- org.irisa.diverse.playlist.util
+ org.irisa.diverse.playlist.PlayList.util
 

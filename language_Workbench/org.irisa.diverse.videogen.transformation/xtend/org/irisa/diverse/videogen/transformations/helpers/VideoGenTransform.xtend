@@ -290,6 +290,18 @@ import org.irisa.diverse.playlist.PlayList.impl.PlayListFactoryImpl
     	new VideoGenSerializer().compile(videogen)
     }
     
+    /**
+     * Convert a VideoGen into a ExtM3U model
+     * 
+	 * @author Stéphane Mangin <stephane.mangin@freesbee.fr>
+	 * @Param videogen VideoGen
+     */
+    def static toM3U(VideoGen videogen, Boolean withThumbnails, Map<String, Boolean> videos){
+   		LOGGER.info("To M3U " + videogen)
+   		val playlist = VideoGenTransform.toCustomPlayList(videogen, withThumbnails, videos)
+    	PlayListTransform.toM3U(playlist, true, true)
+    }
+    
  	/**
  	 * Transfert some data from a VideoGen Sequence instance to a PlayList Video instance
  	 * 
