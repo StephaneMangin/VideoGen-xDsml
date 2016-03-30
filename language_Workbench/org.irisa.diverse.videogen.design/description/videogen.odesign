@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="videogen" version="8.1.0">
   <ownedViewpoints name="VideoGen ViewPoint" modelFileExtension="videogen">
-    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="VideoGen Diagram" domainClass="videoGen.VideoGen">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="VideoGen Diagram" titleExpression="[self.name/]" initialisation="true" showOnStartup="true" domainClass="videoGen.VideoGen" enablePopupBars="true">
       <defaultLayer name="Default">
         <edgeMappings name="RelationEdge" deletionDescription="//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='EdgeDeletion']" sourceMapping="//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGenContainer']/@subContainerMappings[name='AlternativeContainer'] //@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGenContainer']/@subNodeMappings[name='MandatoryNode'] //@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGenContainer']/@subNodeMappings[name='OptionalNode']" targetMapping="//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGenContainer']/@subContainerMappings[name='AlternativeContainer'] //@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGenContainer']/@subNodeMappings[name='MandatoryNode'] //@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGenContainer']/@subNodeMappings[name='OptionalNode']" targetFinderExpression="feature:nextSibling">
           <style sizeComputationExpression="2">
@@ -208,17 +208,17 @@
         </toolSections>
       </defaultLayer>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Mandatory diagram" domainClass="videoGen.Mandatory">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Mandatory diagram" titleExpression="[self.name/]" initialisation="true" domainClass="videoGen.Mandatory" enablePopupBars="true">
       <defaultLayer name="Default">
         <containerMappings name="MandatoryContainer" semanticCandidatesExpression="var:self" domainClass="videoGen.Mandatory">
-          <subNodeMappings name="VideoSubNode" semanticCandidatesExpression="feature:video" domainClass="videoGen.Video">
-            <style xsi:type="style:SquareDescription" showIcon="false" labelPosition="node" resizeKind="NSEW">
+          <subNodeMappings name="VideoSubNode" semanticCandidatesExpression="[self.video/]" domainClass="videoGen.Video">
+            <style xsi:type="style:SquareDescription" showIcon="false" tooltipExpression="feature:url" labelPosition="node" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
             </style>
           </subNodeMappings>
-          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="5" arcHeight="5" roundedCorner="true">
+          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="5" arcHeight="5" showIcon="false" roundedCorner="true">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
@@ -227,22 +227,30 @@
         </containerMappings>
       </defaultLayer>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Optional diagram" domainClass="videoGen.Optional">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Optional diagram" titleExpression="[self.name/]" initialisation="true" domainClass="videoGen.Optional" enablePopupBars="true">
       <defaultLayer name="Default">
         <containerMappings name="OptionalContainer" semanticCandidatesExpression="var:self" domainClass="videoGen.Optional">
-          <subNodeMappings name="VideoSubNode" semanticCandidatesExpression="feature:video" domainClass="videoGen.Video">
-            <style xsi:type="style:SquareDescription" showIcon="false" labelExpression="feature:" labelPosition="node" resizeKind="NSEW">
+          <subNodeMappings name="VideoNode" semanticCandidatesExpression="[self.video/]" domainClass="videoGen.Video">
+            <style xsi:type="style:SquareDescription" showIcon="false" tooltipExpression="feature:url" labelPosition="node" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
             </style>
           </subNodeMappings>
-          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="5" arcHeight="5" roundedCorner="true">
+          <style xsi:type="style:FlatContainerStyleDescription">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
-            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_red']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_red']"/>
           </style>
+          <conditionnalStyles predicateExpression="[self.video.selected/]">
+            <style xsi:type="style:FlatContainerStyleDescription" arcWidth="5" arcHeight="5" showIcon="false" roundedCorner="true">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_green']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_green']"/>
+            </style>
+          </conditionnalStyles>
         </containerMappings>
       </defaultLayer>
     </ownedRepresentations>

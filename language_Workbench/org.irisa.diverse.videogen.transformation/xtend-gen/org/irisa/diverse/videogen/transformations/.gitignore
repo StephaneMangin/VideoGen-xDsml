@@ -12,3 +12,7 @@
 /.VideoGenChecker.java._trace
 /.VideoGenSerializer.java._trace
 /.VideoGenTransform.java._trace
+/PlayListTransform.java
+/VideoGenChecker.java
+/VideoGenSerializer.java
+/VideoGenTransform.java
