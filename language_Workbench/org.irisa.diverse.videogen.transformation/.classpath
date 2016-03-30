@@ -8,7 +8,6 @@
 	</classpathentry>
 	<classpathentry including="**/*" kind="src" output="target/classes" path="xtend"/>
 	<classpathentry including="**/*" kind="src" output="target/classes" path="xtend-gen"/>
-	<classpathentry exported="true" kind="lib" path="libs/"/>
 	<classpathentry exported="true" kind="lib" path="libs/javax.json-api-1.0.jar"/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
 	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/org.irisa.diverse.playlist"/>

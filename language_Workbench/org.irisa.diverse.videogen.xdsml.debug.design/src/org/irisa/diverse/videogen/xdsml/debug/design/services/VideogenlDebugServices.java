@@ -5,9 +5,8 @@ import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
 import org.gemoc.executionframework.extensions.sirius.services.AbstractGemocDebuggerServices;
-
-import videoGen.Optional;
-import videoGen.VideoGen;
+import org.irisa.diverse.videogen.videoGen.Optional;
+import org.irisa.diverse.videogen.videoGen.VideoGen;
 
 public class VideogenlDebugServices extends AbstractGemocDebuggerServices {
 

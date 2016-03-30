@@ -4,11 +4,11 @@ Bundle-Name: %pluginName
 Bundle-SymbolicName: org.irisa.diverse.videogen.editor;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-ClassPath: .
-Bundle-Activator: videoGen.presentation.VideoGenEditorPlugin$Implementation
+Bundle-Activator: org.irisa.diverse.videogen.videoGen.presentation.VideoGenEditorPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Export-Package: videoGen.presentation
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Export-Package: org.irisa.diverse.videogen.videoGen.presentation
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.core.resources;visibility:=reexport,
  org.irisa.diverse.videogen.edit;visibility:=reexport,

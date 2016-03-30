@@ -7,9 +7,9 @@ Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Export-Package: videoGen,
- videoGen.impl,
- videoGen.util
+Export-Package: org.irisa.diverse.videogen.videoGen,
+ org.irisa.diverse.videogen.videoGen.impl,
+ org.irisa.diverse.videogen.videoGen.util
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport
 Bundle-ActivationPolicy: lazy

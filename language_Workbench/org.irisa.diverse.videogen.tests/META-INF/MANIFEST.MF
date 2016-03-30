@@ -6,8 +6,8 @@ Bundle-Version: 1.0.0.qualifier
 Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Export-Package: videoGen.tests
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Export-Package: org.irisa.diverse.videogen.videoGen.tests
 Require-Bundle: org.eclipse.core.runtime,
  org.irisa.diverse.videogen;visibility:=reexport,
  org.eclipse.emf.ecore.xmi;visibility:=reexport,

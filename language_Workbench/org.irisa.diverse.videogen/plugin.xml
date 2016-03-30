@@ -10,7 +10,7 @@
       <!-- @generated VideoGen -->
       <package
             uri="http://www.irisa.org/diverse/videogen"
-            class="videoGen.VideoGenPackage"
+            class="org.irisa.diverse.videogen.videoGen.VideoGenPackage"
             genModel="model/VideoGen.genmodel"/>
    </extension>
 

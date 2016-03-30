@@ -4,11 +4,12 @@ Bundle-Name: %pluginName
 Bundle-SymbolicName: org.irisa.diverse.videogen.transformations;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-ClassPath: .,
- libs/
+ libs/commons-exec-1.3.jar,
+ libs/javax.json-api-1.0.jar
 Bundle-Vendor: %providerName
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Export-Package: org.irisa.diverse.videogen.transformations,
- org.irisa.diverse.videogen.transformations.helpers,
+Export-Package: org.irisa.diverse.videogen.transformations;uses:="org.apache.commons.exec",
+ org.irisa.diverse.videogen.transformations.helpers;uses:="org.irisa.diverse.playlist.PlayList,org.irisa.diverse.videogen.videoGen,javax.json",
  org.irisa.diverse.videogen.transformations.randomizers
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,

@@ -4,11 +4,11 @@ import java.util.ArrayList
 import java.util.Collection
 import java.util.HashMap
 import java.util.Map
-import videoGen.Alternatives
-import videoGen.Mandatory
-import videoGen.Optional
-import videoGen.Video
-import videoGen.VideoGen
+import org.irisa.diverse.videogen.videoGen.Alternatives
+import org.irisa.diverse.videogen.videoGen.Mandatory
+import org.irisa.diverse.videogen.videoGen.Optional
+import org.irisa.diverse.videogen.videoGen.Video
+import org.irisa.diverse.videogen.videoGen.VideoGen
 
 /** 
  * @author Stéphane Mangin <stephane.mangin@freesbee.fr>
@@ -24,7 +24,8 @@ public class VideoGenHelper {
     def static Collection<Video> allVideos(VideoGen videoGen) {
 		val Collection<Video> videos = new ArrayList<Video>
 			
-        videoGen.sequences.forEach[sequence |
+        var sequence = videoGen.sequences.get(0)
+        while (sequence !== null) {
 			if (sequence instanceof Alternatives) {
 				sequence.options.forEach[option |
 					videos += option.video
@@ -34,7 +35,8 @@ public class VideoGenHelper {
 			} else if(sequence instanceof Optional) {
 				videos += sequence.video
 			}
-		]
+			sequence = sequence.nextSibling
+        }
 		videos
     }
     

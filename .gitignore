@@ -4,4 +4,8 @@
 .model-gen
 .settings
 .JETEmitters
-gemoc-gen/execution
+./gemoc-gen/execution
+.xtendbin
+.bin
+bin/
+._trace

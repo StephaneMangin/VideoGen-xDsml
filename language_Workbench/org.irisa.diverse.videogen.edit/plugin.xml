@@ -10,7 +10,7 @@
       <!-- @generated VideoGen -->
       <factory
             uri="http://www.irisa.org/diverse/videogen"
-            class="videoGen.provider.VideoGenItemProviderAdapterFactory"
+            class="org.irisa.diverse.videogen.videoGen.provider.VideoGenItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider

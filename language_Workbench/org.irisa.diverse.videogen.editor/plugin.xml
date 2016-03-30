@@ -12,9 +12,9 @@
             id="org.eclipse.emf.ecore.Wizard.category.ID"
             name="%_UI_Wizard_category"/>
       <wizard
-            id="videoGen.presentation.VideoGenModelWizardID"
+            id="org.irisa.diverse.videogen.videoGen.presentation.VideoGenModelWizardID"
             name="%_UI_VideoGenModelWizard_label"
-            class="videoGen.presentation.VideoGenModelWizard"
+            class="org.irisa.diverse.videogen.videoGen.presentation.VideoGenModelWizard"
             category="org.eclipse.emf.ecore.Wizard.category.ID"
             icon="icons/full/obj16/VideoGenModelFile.gif">
          <description>%_UI_VideoGenModelWizard_description</description>
@@ -25,12 +25,12 @@
    <extension point="org.eclipse.ui.editors">
       <!-- @generated VideoGen -->
       <editor
-            id="videoGen.presentation.VideoGenEditorID"
+            id="org.irisa.diverse.videogen.videoGen.presentation.VideoGenEditorID"
             name="%_UI_VideoGenEditor_label"
             icon="icons/full/obj16/VideoGenModelFile.gif"
             extensions="videogen"
-            class="videoGen.presentation.VideoGenEditor"
-            contributorClass="videoGen.presentation.VideoGenActionBarContributor">
+            class="org.irisa.diverse.videogen.videoGen.presentation.VideoGenEditor"
+            contributorClass="org.irisa.diverse.videogen.videoGen.presentation.VideoGenActionBarContributor">
       </editor>
    </extension>
 
