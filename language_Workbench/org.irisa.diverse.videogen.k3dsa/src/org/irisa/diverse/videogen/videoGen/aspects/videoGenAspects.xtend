@@ -28,6 +28,7 @@ import static extension org.irisa.diverse.videogen.videoGen.aspects.VideoGenAspe
 import org.irisa.diverse.videogen.videoGen.aspects.exceptions.ConstraintsType
 import org.irisa.diverse.videogen.videoGen.aspects.exceptions.ConstraintsFailed
 import org.irisa.diverse.videogen.transformations.helpers.VideoGenHelper
+import fr.inria.diverse.k3.al.annotationprocessor.InitializeModel
 
 @Aspect(className=VideoGen)
 class VideoGenAspect {
@@ -35,7 +36,7 @@ class VideoGenAspect {
 	public var Integer minDurationConstraint = 0
 	public var Integer maxDurationConstraint = 0
 
-	@Main
+	@InitializeModel
 	def public void initialize() {
 		println("##### VideoGen '" + _self.name + "' has been initialized.")
 		
@@ -45,6 +46,10 @@ class VideoGenAspect {
 		
 		// Initialize all sequences
 		_self.getEntrySequence().initialize
+	}
+	
+	@Main
+	def public void process() {
 		
 		// Then process each sequences
 		_self.getEntrySequence().process
@@ -148,6 +153,7 @@ abstract class SequenceAspect {
 		}
 	}
 
+	@InitializeModel
 	def public void initialize() {
 		_self.nextSequence.initialize
 	}
@@ -156,13 +162,17 @@ abstract class SequenceAspect {
 @Aspect(className=Alternatives)
 class AlternativesAspect extends SequenceAspect {
 	
+	public Video video;
+	
 	/**
 	 * Populate the video relation with selected optional video
 	 * 
 	 */
 	@OverrideAspectMethod
 	def public void initialize() {
-		_self.video = _self.selectVideo()
+		val video = _self.selectVideo()
+		println("######################" + video)
+		_self.video(video)
 		_self.super_initialize()
 	}
 	
@@ -221,11 +231,17 @@ class AlternativesAspect extends SequenceAspect {
 	 */
 	def public Integer computeMaxDuration() {
 		println("MAX " + _self.name)
-		_self.options.map[video.duration].max(new Comparator<Integer>(){
-			override compare(Integer o1, Integer o2) {
-				o1.compare(o2)
-			}
-		})
+		var Integer max = -1
+		for (Optional option: _self.options) {
+			if (max != -1) {
+				if (max < option.video.duration) {
+					max = option.video.duration
+				}
+			} else {
+				max = option.video.duration	
+			}		
+		}
+		max
 	}
 	
 	/**
@@ -234,11 +250,17 @@ class AlternativesAspect extends SequenceAspect {
 	 */
 	def public Integer computeMinDuration() {
 		println("MIN " + _self.name)
-		_self.options.map[video.duration].min(new Comparator<Integer>(){
-			override compare(Integer o1, Integer o2) {
-				o1.compare(o2)
-			}
-		})
+		var Integer min = -1
+		for (Optional option: _self.options) {
+			if (min != -1) {
+				if (min > option.video.duration) {
+					min = option.video.duration
+				}
+			} else {
+				min = option.video.duration	
+			}		
+		}
+		min
 	}
 }
 
