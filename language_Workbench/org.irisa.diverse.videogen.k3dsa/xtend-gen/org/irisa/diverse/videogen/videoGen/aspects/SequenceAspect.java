@@ -1,6 +1,7 @@
 package org.irisa.diverse.videogen.videoGen.aspects;
 
 import fr.inria.diverse.k3.al.annotationprocessor.Aspect;
+import fr.inria.diverse.k3.al.annotationprocessor.InitializeModel;
 import org.irisa.diverse.videogen.videoGen.Sequence;
 import org.irisa.diverse.videogen.videoGen.aspects.SequenceAspectSequenceAspectProperties;
 
@@ -14,17 +15,18 @@ public abstract class SequenceAspect {
    */
   public static void process(final Sequence _self) {
     org.irisa.diverse.videogen.videoGen.aspects.SequenceAspectSequenceAspectProperties _self_ = org.irisa.diverse.videogen.videoGen.aspects.SequenceAspectSequenceAspectContext.getSelf(_self);
-     if (_self instanceof org.irisa.diverse.videogen.videoGen.Alternatives){
-     org.irisa.diverse.videogen.videoGen.aspects.AlternativesAspect.process((org.irisa.diverse.videogen.videoGen.Alternatives)_self);
-    } else  if (_self instanceof org.irisa.diverse.videogen.videoGen.Mandatory){
+     if (_self instanceof org.irisa.diverse.videogen.videoGen.Mandatory){
      org.irisa.diverse.videogen.videoGen.aspects.MandatoryAspect.process((org.irisa.diverse.videogen.videoGen.Mandatory)_self);
     } else  if (_self instanceof org.irisa.diverse.videogen.videoGen.Optional){
      org.irisa.diverse.videogen.videoGen.aspects.OptionalAspect.process((org.irisa.diverse.videogen.videoGen.Optional)_self);
+    } else  if (_self instanceof org.irisa.diverse.videogen.videoGen.Alternatives){
+     org.irisa.diverse.videogen.videoGen.aspects.AlternativesAspect.process((org.irisa.diverse.videogen.videoGen.Alternatives)_self);
     } else  if (_self instanceof org.irisa.diverse.videogen.videoGen.Sequence){
      org.irisa.diverse.videogen.videoGen.aspects.SequenceAspect._privk3_process(_self_, (org.irisa.diverse.videogen.videoGen.Sequence)_self);
     } else  { throw new IllegalArgumentException("Unhandled parameter types: " + java.util.Arrays.<Object>asList(_self).toString()); };
   }
   
+  @InitializeModel
   public static void initialize(final Sequence _self) {
     org.irisa.diverse.videogen.videoGen.aspects.SequenceAspectSequenceAspectProperties _self_ = org.irisa.diverse.videogen.videoGen.aspects.SequenceAspectSequenceAspectContext.getSelf(_self);
      if (_self instanceof org.irisa.diverse.videogen.videoGen.Alternatives){

@@ -1,41 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="videoGen" nsURI="http://www.irisa.org/diverse/videogen" nsPrefix="videoGen">
-  <eClassifiers xsi:type="ecore:EClass" name="VideoGen" eSuperTypes="//NamedElement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="sequences" upperBound="-1" eType="//Sequence" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="videos" upperBound="-1" eType="//Video" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="introduction" eType="//Introduction" eOpposite="//Introduction/videogen"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="conclusion" eType="//Conclusion" eOpposite="//Conclusion/videogen"/>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="videoGen" nsURI="http://www.irisa.org/diverse/videogen" nsPrefix="videoGen">
+  <eClassifiers xsi:type="ecore:EClass" name="VideoGen" eSuperTypes="#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sequences" upperBound="-1"
+        eType="#//Sequence" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="videos" upperBound="-1"
+        eType="#//Video" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="introduction" eType="#//Introduction"
+        eOpposite="#//Introduction/videogen"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="conclusion" eType="#//Conclusion"
+        eOpposite="#//Conclusion/videogen"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Sequence" abstract="true" interface="true" eSuperTypes="//NamedElement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="nextSequence" eType="//Sequence"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="active" defaultValueLiteral="true">
-      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="video" eType="//Video"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Sequence" abstract="true" interface="true"
+      eSuperTypes="#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="nextSequence" eType="#//Sequence"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="active" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="video" eType="#//Video"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Alternatives" eSuperTypes="//Sequence">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="options" upperBound="-1" eType="//Optional" containment="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Alternatives" eSuperTypes="#//Sequence">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="options" upperBound="-1"
+        eType="#//Optional" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Mandatory" eSuperTypes="//Sequence"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Optional" eSuperTypes="//Sequence">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="probability" lowerBound="1" defaultValueLiteral="0">
-      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
-    </eStructuralFeatures>
+  <eClassifiers xsi:type="ecore:EClass" name="Mandatory" eSuperTypes="#//Sequence"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Optional" eSuperTypes="#//Sequence">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="probability" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"
+        defaultValueLiteral="0"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Video" eSuperTypes="//NamedElement">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="url" lowerBound="1">
-      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" lowerBound="1">
-      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="duration" lowerBound="1" defaultValueLiteral="0">
-      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mimetype" lowerBound="1" eType="//Mimetypes_Enum"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="selected" lowerBound="1" defaultValueLiteral="false">
+  <eClassifiers xsi:type="ecore:EClass" name="Video" eSuperTypes="#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="url" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="duration" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"
+        defaultValueLiteral="0"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mimetype" lowerBound="1"
+        eType="#//Mimetypes_Enum"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="selected" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"
+        defaultValueLiteral="false">
       <eAnnotations source="aspect"/>
-      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
     </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="Mimetypes_Enum">
@@ -49,14 +54,14 @@
     <eLiterals name="avi" value="7" literal="AVI"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="NamedElement" abstract="true">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1">
-      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Introduction" eSuperTypes="//Sequence">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="videogen" eType="//VideoGen" eOpposite="//VideoGen/introduction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Introduction" eSuperTypes="#//Sequence">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="videogen" eType="#//VideoGen"
+        eOpposite="#//VideoGen/introduction"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Conclusion" eSuperTypes="//Sequence">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="videogen" eType="//VideoGen" eOpposite="//VideoGen/conclusion"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Conclusion" eSuperTypes="#//Sequence">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="videogen" eType="#//VideoGen"
+        eOpposite="#//VideoGen/conclusion"/>
   </eClassifiers>
 </ecore:EPackage>

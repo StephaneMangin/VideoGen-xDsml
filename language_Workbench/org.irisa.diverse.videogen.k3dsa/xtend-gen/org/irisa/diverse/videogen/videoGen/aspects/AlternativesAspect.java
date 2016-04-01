@@ -3,7 +3,6 @@ package org.irisa.diverse.videogen.videoGen.aspects;
 import fr.inria.diverse.k3.al.annotationprocessor.Aspect;
 import fr.inria.diverse.k3.al.annotationprocessor.OverrideAspectMethod;
 import fr.inria.diverse.k3.al.annotationprocessor.Step;
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -102,14 +101,27 @@ public class AlternativesAspect extends SequenceAspect {
     return (java.lang.Integer)result;
   }
   
+  public static Video video(final Alternatives _self) {
+    org.irisa.diverse.videogen.videoGen.aspects.AlternativesAspectAlternativesAspectProperties _self_ = org.irisa.diverse.videogen.videoGen.aspects.AlternativesAspectAlternativesAspectContext.getSelf(_self);
+    Object result = null;
+    result =_privk3_video(_self_, _self);
+    return (org.irisa.diverse.videogen.videoGen.Video)result;
+  }
+  
+  public static void video(final Alternatives _self, final Video video) {
+    org.irisa.diverse.videogen.videoGen.aspects.AlternativesAspectAlternativesAspectProperties _self_ = org.irisa.diverse.videogen.videoGen.aspects.AlternativesAspectAlternativesAspectContext.getSelf(_self);
+    _privk3_video(_self_, _self,video);
+  }
+  
   private static void super_initialize(final Alternatives _self) {
     org.irisa.diverse.videogen.videoGen.aspects.SequenceAspectSequenceAspectProperties _self_ = org.irisa.diverse.videogen.videoGen.aspects.SequenceAspectSequenceAspectContext.getSelf(_self);
      org.irisa.diverse.videogen.videoGen.aspects.SequenceAspect._privk3_initialize(_self_, _self);
   }
   
   protected static void _privk3_initialize(final AlternativesAspectAlternativesAspectProperties _self_, final Alternatives _self) {
-    Video _selectVideo = AlternativesAspect.selectVideo(_self);
-    _self.setVideo(_selectVideo);
+    final Video video = AlternativesAspect.selectVideo(_self);
+    InputOutput.<String>println(("######################" + video));
+    AlternativesAspect.video(_self, video);
     AlternativesAspect.super_initialize(_self);
   }
   
@@ -201,18 +213,25 @@ public class AlternativesAspect extends SequenceAspect {
       String _name = _self.getName();
       String _plus = ("MAX " + _name);
       InputOutput.<String>println(_plus);
+      Integer max = Integer.valueOf((-1));
       EList<Optional> _options = _self.getOptions();
-      final Function1<Optional, Integer> _function = (Optional it) -> {
-        Video _video = it.getVideo();
-        return _video.getDuration();
-      };
-      List<Integer> _map = ListExtensions.<Optional, Integer>map(_options, _function);
-      _xblockexpression = IterableExtensions.<Integer>max(_map, new Comparator<Integer>() {
-        @Override
-        public int compare(final Integer o1, final Integer o2) {
-          return this.compare(o1, o2);
+      for (final Optional option : _options) {
+        if (((max).intValue() != (-1))) {
+          Video _video = option.getVideo();
+          Integer _duration = _video.getDuration();
+          boolean _lessThan = (max.compareTo(_duration) < 0);
+          if (_lessThan) {
+            Video _video_1 = option.getVideo();
+            Integer _duration_1 = _video_1.getDuration();
+            max = _duration_1;
+          }
+        } else {
+          Video _video_2 = option.getVideo();
+          Integer _duration_2 = _video_2.getDuration();
+          max = _duration_2;
         }
-      });
+      }
+      _xblockexpression = max;
     }
     return _xblockexpression;
   }
@@ -223,19 +242,56 @@ public class AlternativesAspect extends SequenceAspect {
       String _name = _self.getName();
       String _plus = ("MIN " + _name);
       InputOutput.<String>println(_plus);
+      Integer min = Integer.valueOf((-1));
       EList<Optional> _options = _self.getOptions();
-      final Function1<Optional, Integer> _function = (Optional it) -> {
-        Video _video = it.getVideo();
-        return _video.getDuration();
-      };
-      List<Integer> _map = ListExtensions.<Optional, Integer>map(_options, _function);
-      _xblockexpression = IterableExtensions.<Integer>min(_map, new Comparator<Integer>() {
-        @Override
-        public int compare(final Integer o1, final Integer o2) {
-          return this.compare(o1, o2);
+      for (final Optional option : _options) {
+        if (((min).intValue() != (-1))) {
+          Video _video = option.getVideo();
+          Integer _duration = _video.getDuration();
+          boolean _greaterThan = (min.compareTo(_duration) > 0);
+          if (_greaterThan) {
+            Video _video_1 = option.getVideo();
+            Integer _duration_1 = _video_1.getDuration();
+            min = _duration_1;
+          }
+        } else {
+          Video _video_2 = option.getVideo();
+          Integer _duration_2 = _video_2.getDuration();
+          min = _duration_2;
         }
-      });
+      }
+      _xblockexpression = min;
     }
     return _xblockexpression;
+  }
+  
+  protected static Video _privk3_video(final AlternativesAspectAlternativesAspectProperties _self_, final Alternatives _self) {
+    try {
+    	for (java.lang.reflect.Method m : _self.getClass().getMethods()) {
+    		if (m.getName().equals("getVideo") &&
+    			m.getParameterTypes().length == 0) {
+    				Object ret = m.invoke(_self);
+    				if (ret != null) {
+    					return (org.irisa.diverse.videogen.videoGen.Video) ret;
+    				}
+    		}
+    	}
+    } catch (Exception e) {
+    	// Chut !
+    }
+    return _self_.video;
+  }
+  
+  protected static void _privk3_video(final AlternativesAspectAlternativesAspectProperties _self_, final Alternatives _self, final Video video) {
+    _self_.video = video; try {
+    	for (java.lang.reflect.Method m : _self.getClass().getMethods()) {
+    		if (m.getName().equals("setVideo")
+    				&& m.getParameterTypes().length == 1) {
+    			m.invoke(_self, video);
+    		}
+    	}
+    } catch (Exception e) {
+    	// Chut !
+    }
   }
 }

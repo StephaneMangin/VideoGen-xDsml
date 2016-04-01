@@ -1,6 +1,7 @@
 package org.irisa.diverse.videogen.videoGen.aspects;
 
 import fr.inria.diverse.k3.al.annotationprocessor.Aspect;
+import fr.inria.diverse.k3.al.annotationprocessor.InitializeModel;
 import fr.inria.diverse.k3.al.annotationprocessor.Main;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtext.xbase.lib.Exceptions;
@@ -22,10 +23,16 @@ import org.irisa.diverse.videogen.videoGen.aspects.exceptions.ConstraintsType;
 @Aspect(className = VideoGen.class)
 @SuppressWarnings("all")
 public class VideoGenAspect {
-  @Main
+  @InitializeModel
   public static void initialize(final VideoGen _self) {
     org.irisa.diverse.videogen.videoGen.aspects.VideoGenAspectVideoGenAspectProperties _self_ = org.irisa.diverse.videogen.videoGen.aspects.VideoGenAspectVideoGenAspectContext.getSelf(_self);
     _privk3_initialize(_self_, _self);
+  }
+  
+  @Main
+  public static void process(final VideoGen _self) {
+    org.irisa.diverse.videogen.videoGen.aspects.VideoGenAspectVideoGenAspectProperties _self_ = org.irisa.diverse.videogen.videoGen.aspects.VideoGenAspectVideoGenAspectContext.getSelf(_self);
+    _privk3_process(_self_, _self);
   }
   
   /**
@@ -108,8 +115,11 @@ public class VideoGenAspect {
     VideoGenAspect.maxDurationConstraint(_self, _computeMaxDuration);
     Sequence _entrySequence = VideoGenAspect.getEntrySequence(_self);
     SequenceAspect.initialize(_entrySequence);
-    Sequence _entrySequence_1 = VideoGenAspect.getEntrySequence(_self);
-    SequenceAspect.process(_entrySequence_1);
+  }
+  
+  protected static void _privk3_process(final VideoGenAspectVideoGenAspectProperties _self_, final VideoGen _self) {
+    Sequence _entrySequence = VideoGenAspect.getEntrySequence(_self);
+    SequenceAspect.process(_entrySequence);
     VideoGenAspect.compute(_self);
   }
   

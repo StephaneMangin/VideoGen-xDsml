@@ -253,7 +253,7 @@
           </edges>
           <edges xmi:type="notation:Edge" xmi:id="_S8bCwPc2EeWBtbnzpdUMTg" type="4001" element="_S7wUYPc2EeWBtbnzpdUMTg" source="_kF9bwPckEeWBtbnzpdUMTg" target="_kF7mlPckEeWBtbnzpdUMTg">
             <children xmi:type="notation:Node" xmi:id="_S8bp0Pc2EeWBtbnzpdUMTg" type="6001">
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_S8bp0fc2EeWBtbnzpdUMTg" x="18" y="-197" width="76" height="16"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_S8bp0fc2EeWBtbnzpdUMTg" x="18" y="-188" width="95" height="16"/>
             </children>
             <children xmi:type="notation:Node" xmi:id="_S8bp0vc2EeWBtbnzpdUMTg" type="6002">
               <layoutConstraint xmi:type="notation:Bounds" xmi:id="_S8bp0_c2EeWBtbnzpdUMTg" y="10"/>
@@ -778,7 +778,7 @@
           <foregroundColor xmi:type="viewpoint:RGBValues" xmi:id="_mFIGBPgHEeW0woGzXvxU5w" red="228" green="228" blue="228"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
-        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_kVeGQPgHEeW0woGzXvxU5w" name="active : EBoolean = true" tooltipText="&#xA;ERROR : The required feature 'eAttributeType' of 'org.eclipse.emf.ecore.impl.EAttributeImpl@4d93eb1b{platform:/resource/org.irisa.diverse.videogen/model/VideoGen.ecore#//Sequence/newAttribute}' must be set&#xA;ERROR : The typed element must have a type">
+        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_kVeGQPgHEeW0woGzXvxU5w" name="active : EBoolean = true" tooltipText="">
           <target xmi:type="ecore:EAttribute" href="model/VideoGen.ecore#//Sequence/active"/>
           <semanticElements xmi:type="ecore:EAttribute" href="model/VideoGen.ecore#//Sequence/active"/>
           <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_mFLJUPgHEeW0woGzXvxU5w" labelAlignment="LEFT">
@@ -1121,14 +1121,14 @@
         <target xmi:type="ecore:EReference" href="model/VideoGen.ecore#//VideoGen/conclusion"/>
         <semanticElements xmi:type="ecore:EReference" href="model/VideoGen.ecore#//VideoGen/conclusion"/>
         <semanticElements xmi:type="ecore:EReference" href="model/VideoGen.ecore#//Conclusion/videogen"/>
-        <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_-1gNYPgdEeW0woGzXvxU5w" sourceArrow="InputArrow" routingStyle="manhattan">
+        <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_fY60QPgpEeWva_2ziHTBcA" sourceArrow="InputArrow" routingStyle="manhattan">
           <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='Bi-directional%20EC_EReference%20']/@style"/>
-          <strokeColor xmi:type="viewpoint:RGBValues" xmi:id="_-1gNYfgdEeW0woGzXvxU5w"/>
-          <beginLabelStyle xmi:type="diagram:BeginLabelStyle" xmi:id="_-1gNYvgdEeW0woGzXvxU5w" showIcon="false">
-            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_-1gNY_gdEeW0woGzXvxU5w"/>
+          <strokeColor xmi:type="viewpoint:RGBValues" xmi:id="_fY60QfgpEeWva_2ziHTBcA"/>
+          <beginLabelStyle xmi:type="diagram:BeginLabelStyle" xmi:id="_fY60QvgpEeWva_2ziHTBcA" showIcon="false">
+            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_fY60Q_gpEeWva_2ziHTBcA"/>
           </beginLabelStyle>
-          <endLabelStyle xmi:type="diagram:EndLabelStyle" xmi:id="_-1gNZPgdEeW0woGzXvxU5w" showIcon="false">
-            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_-1gNZfgdEeW0woGzXvxU5w"/>
+          <endLabelStyle xmi:type="diagram:EndLabelStyle" xmi:id="_fY60RPgpEeWva_2ziHTBcA" showIcon="false">
+            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_fY60RfgpEeWva_2ziHTBcA"/>
           </endLabelStyle>
         </ownedStyle>
         <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='Bi-directional%20EC_EReference%20']"/>
