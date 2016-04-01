@@ -26,6 +26,19 @@ import org.irisa.diverse.videogen.videoGen.aspects.VideoAspect;
 @SuppressWarnings("all")
 public class AlternativesAspect extends SequenceAspect {
   /**
+   * Populate the video relation with selected optional video
+   */
+  @OverrideAspectMethod
+  public static void initialize(final Alternatives _self) {
+    org.irisa.diverse.videogen.videoGen.aspects.AlternativesAspectAlternativesAspectProperties _self_ = org.irisa.diverse.videogen.videoGen.aspects.AlternativesAspectAlternativesAspectContext.getSelf(_self);
+     if (_self instanceof org.irisa.diverse.videogen.videoGen.Alternatives){
+     org.irisa.diverse.videogen.videoGen.aspects.AlternativesAspect._privk3_initialize(_self_, (org.irisa.diverse.videogen.videoGen.Alternatives)_self);
+    } else  if (_self instanceof org.irisa.diverse.videogen.videoGen.Sequence){
+     org.irisa.diverse.videogen.videoGen.aspects.SequenceAspect.initialize((org.irisa.diverse.videogen.videoGen.Sequence)_self);
+    } else  { throw new IllegalArgumentException("Unhandled parameter types: " + java.util.Arrays.<Object>asList(_self).toString()); };
+  }
+  
+  /**
    * Return a hashmap with corrected probabilities for an Alternatives instance.
    * 
    * @author Stéphane Mangin <stephane.mangin@freesbee.fr>
@@ -87,6 +100,17 @@ public class AlternativesAspect extends SequenceAspect {
     Object result = null;
     result =_privk3_computeMinDuration(_self_, _self);
     return (java.lang.Integer)result;
+  }
+  
+  private static void super_initialize(final Alternatives _self) {
+    org.irisa.diverse.videogen.videoGen.aspects.SequenceAspectSequenceAspectProperties _self_ = org.irisa.diverse.videogen.videoGen.aspects.SequenceAspectSequenceAspectContext.getSelf(_self);
+     org.irisa.diverse.videogen.videoGen.aspects.SequenceAspect._privk3_initialize(_self_, _self);
+  }
+  
+  protected static void _privk3_initialize(final AlternativesAspectAlternativesAspectProperties _self_, final Alternatives _self) {
+    Video _selectVideo = AlternativesAspect.selectVideo(_self);
+    _self.setVideo(_selectVideo);
+    AlternativesAspect.super_initialize(_self);
   }
   
   protected static Map<String, Integer> _privk3_checkProbabilities(final AlternativesAspectAlternativesAspectProperties _self_, final Alternatives _self) {
@@ -159,14 +183,14 @@ public class AlternativesAspect extends SequenceAspect {
   
   protected static void _privk3_process(final AlternativesAspectAlternativesAspectProperties _self_, final Alternatives _self) {
     SequenceAspect.current(_self, Boolean.valueOf(true));
-    Boolean _active = SequenceAspect.active(_self);
-    if ((_active).booleanValue()) {
+    boolean _isActive = _self.isActive();
+    if (_isActive) {
       String _name = _self.getName();
       String _plus = ("##### Alternatives \'" + _name);
       String _plus_1 = (_plus + "\' is been processed.");
       InputOutput.<String>println(_plus_1);
-      Video _selectVideo = AlternativesAspect.selectVideo(_self);
-      VideoAspect.select(_selectVideo);
+      Video _video = _self.getVideo();
+      VideoAspect.select(_video);
     }
     AlternativesAspect.super_process(_self);
   }

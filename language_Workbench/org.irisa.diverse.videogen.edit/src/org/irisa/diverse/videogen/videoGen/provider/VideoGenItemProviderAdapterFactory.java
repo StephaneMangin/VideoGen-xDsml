@@ -187,6 +187,52 @@ public class VideoGenItemProviderAdapterFactory extends VideoGenAdapterFactory i
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.irisa.diverse.videogen.videoGen.Introduction} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected IntroductionItemProvider introductionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.irisa.diverse.videogen.videoGen.Introduction}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createIntroductionAdapter() {
+		if (introductionItemProvider == null) {
+			introductionItemProvider = new IntroductionItemProvider(this);
+		}
+
+		return introductionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.irisa.diverse.videogen.videoGen.Conclusion} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ConclusionItemProvider conclusionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.irisa.diverse.videogen.videoGen.Conclusion}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createConclusionAdapter() {
+		if (conclusionItemProvider == null) {
+			conclusionItemProvider = new ConclusionItemProvider(this);
+		}
+
+		return conclusionItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -290,6 +336,8 @@ public class VideoGenItemProviderAdapterFactory extends VideoGenAdapterFactory i
 		if (mandatoryItemProvider != null) mandatoryItemProvider.dispose();
 		if (optionalItemProvider != null) optionalItemProvider.dispose();
 		if (videoItemProvider != null) videoItemProvider.dispose();
+		if (introductionItemProvider != null) introductionItemProvider.dispose();
+		if (conclusionItemProvider != null) conclusionItemProvider.dispose();
 	}
 
 }

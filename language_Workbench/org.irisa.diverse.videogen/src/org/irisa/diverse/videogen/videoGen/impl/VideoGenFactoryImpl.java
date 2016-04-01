@@ -6,8 +6,11 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
+
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
+
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+
 import org.irisa.diverse.videogen.videoGen.*;
 
 /**
@@ -59,6 +62,8 @@ public class VideoGenFactoryImpl extends EFactoryImpl implements VideoGenFactory
 			case VideoGenPackage.MANDATORY: return createMandatory();
 			case VideoGenPackage.OPTIONAL: return createOptional();
 			case VideoGenPackage.VIDEO: return createVideo();
+			case VideoGenPackage.INTRODUCTION: return createIntroduction();
+			case VideoGenPackage.CONCLUSION: return createConclusion();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -142,6 +147,26 @@ public class VideoGenFactoryImpl extends EFactoryImpl implements VideoGenFactory
 	public Video createVideo() {
 		VideoImpl video = new VideoImpl();
 		return video;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Introduction createIntroduction() {
+		IntroductionImpl introduction = new IntroductionImpl();
+		return introduction;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Conclusion createConclusion() {
+		ConclusionImpl conclusion = new ConclusionImpl();
+		return conclusion;
 	}
 
 	/**

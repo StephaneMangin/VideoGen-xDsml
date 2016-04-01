@@ -9,6 +9,10 @@ import org.irisa.diverse.videogen.videoGen.Mandatory
 import org.irisa.diverse.videogen.videoGen.Optional
 import org.irisa.diverse.videogen.videoGen.Video
 import org.irisa.diverse.videogen.videoGen.VideoGen
+import org.irisa.diverse.videogen.videoGen.Sequence
+import org.irisa.diverse.videogen.videoGen.Introduction
+import org.irisa.diverse.videogen.videoGen.Conclusion
+import java.util.List
 
 /** 
  * @author Stéphane Mangin <stephane.mangin@freesbee.fr>
@@ -19,13 +23,39 @@ public class VideoGenHelper {
  	/**
  	 * Return all sequences contained in a VideoGen instance
  	 * 
-	 * @author Stéphane Mangin <stephane.mangin@freesbee.fr>
  	 */ 
-    def static Collection<Video> allVideos(VideoGen videoGen) {
-		val Collection<Video> videos = new ArrayList<Video>
+    def static List<Sequence> allSequences(VideoGen videoGen) {
+		val List<Sequence> sequences = new ArrayList<Sequence>
 			
-        var sequence = videoGen.sequences.get(0)
+        var Sequence sequence = videoGen.introduction
         while (sequence !== null) {
+			sequences.add(sequence)
+			sequence = sequence.nextSequence
+        }
+		sequences
+    }
+ 	/**
+ 	 * Return all active sequences contained in a VideoGen instance
+ 	 * 
+ 	 */ 
+    def static List<Sequence> allActiveSequences(VideoGen videoGen) {
+		val List<Sequence> sequences = new ArrayList<Sequence>
+			
+		allSequences(videoGen).forEach[sequence |
+        	if (sequence.active) {
+				sequences.add(sequence)
+        	}
+		]
+		sequences
+    }
+    
+ 	/**
+ 	 * Return all videos from all sequences contained in a VideoGen instance
+ 	 * 
+ 	 */ 
+    def static List<Video> allVideos(VideoGen videoGen) {
+		val List<Video> videos = new ArrayList<Video>
+		allSequences(videoGen).forEach[sequence |
 			if (sequence instanceof Alternatives) {
 				sequence.options.forEach[option |
 					videos += option.video
@@ -34,16 +64,56 @@ public class VideoGenHelper {
 				videos += sequence.video
 			} else if(sequence instanceof Optional) {
 				videos += sequence.video
+			} else if(sequence instanceof Introduction) {
+				videos += sequence.video
+			} else if(sequence instanceof Conclusion) {
+				videos += sequence.video
 			}
-			sequence = sequence.nextSibling
-        }
+		]	
+        videos
+    }
+    
+ 	/**
+ 	 * Return all videos from active sequences contained in a VideoGen instance
+ 	 * 
+ 	 */ 
+    def static List<Video> allActiveVideos(VideoGen videoGen) {
+		val List<Video> videos = new ArrayList<Video>
+		allActiveSequences(videoGen).forEach[sequence |
+			if (sequence instanceof Alternatives) {
+				sequence.options.forEach[option |
+					videos += option.video
+				]
+			} else if(sequence instanceof Mandatory) {
+				videos += sequence.video
+			} else if(sequence instanceof Optional) {
+				videos += sequence.video
+			} else if(sequence instanceof Introduction) {
+				videos += sequence.video
+			} else if(sequence instanceof Conclusion) {
+				videos += sequence.video
+			}
+		]	
+        videos
+    }
+    
+ 	/**
+ 	 * Return selected videos contained in a VideoGen instance
+ 	 * 
+ 	 */ 
+    def static List<Video> allSelectedVideos(VideoGen videoGen) {
+		val List<Video> videos = new ArrayList<Video>	
+        allActiveVideos(videoGen).forEach[video |
+        	if (video.selected) {
+        		videos += video
+        	}
+        ]
 		videos
     }
     
  	/**
  	 * Return a hashmap with corrected probabilities for an Alternatives instance
  	 * 
-	 * @author Stéphane Mangin <stephane.mangin@freesbee.fr>
  	 */ 
     def static Map<String, Integer> checkProbabilities(Alternatives alternatives) {
 		val result = new HashMap<String, Integer>

@@ -4,7 +4,9 @@ package org.irisa.diverse.videogen.videoGen.util;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
+
 import org.eclipse.emf.ecore.util.Switch;
+
 import org.irisa.diverse.videogen.videoGen.*;
 
 /**
@@ -115,6 +117,22 @@ public class VideoGenSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case VideoGenPackage.INTRODUCTION: {
+				Introduction introduction = (Introduction)theEObject;
+				T result = caseIntroduction(introduction);
+				if (result == null) result = caseSequence(introduction);
+				if (result == null) result = caseNamedElement(introduction);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case VideoGenPackage.CONCLUSION: {
+				Conclusion conclusion = (Conclusion)theEObject;
+				T result = caseConclusion(conclusion);
+				if (result == null) result = caseSequence(conclusion);
+				if (result == null) result = caseNamedElement(conclusion);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -221,6 +239,36 @@ public class VideoGenSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseNamedElement(NamedElement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Introduction</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Introduction</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIntroduction(Introduction object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Conclusion</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Conclusion</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseConclusion(Conclusion object) {
 		return null;
 	}
 

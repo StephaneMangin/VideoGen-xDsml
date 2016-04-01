@@ -31,8 +31,10 @@ class VideoGenSerializer {
 	 */
 	def compile(VideoGen v) {
 		val node = Json.createObjectBuilder()
-		for (e : v.sequences) {
-			e.compile(node)
+		var sequence = v.sequences.get(0)
+		while (sequence !== null) {
+			sequence.compile(node)
+			sequence = sequence.nextSequence
 		}
 		object.add("VideoGen", node)
 		object.build

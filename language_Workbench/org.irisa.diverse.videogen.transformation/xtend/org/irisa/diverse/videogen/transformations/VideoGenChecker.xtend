@@ -7,6 +7,8 @@ import org.irisa.diverse.videogen.videoGen.Optional
 import org.irisa.diverse.videogen.videoGen.Alternatives
 import org.irisa.diverse.videogen.videoGen.Video
 import org.irisa.diverse.videogen.transformations.helpers.VideoGenHelper
+import org.irisa.diverse.videogen.videoGen.Introduction
+import org.irisa.diverse.videogen.videoGen.Conclusion
 
 /**
  * Add missing arguments to a VIdeoGen instance
@@ -37,8 +39,10 @@ class VideoGenChecker {
 	 */
 	def compile(VideoGen v) {
 		result.append('''VideoGen {''' + "\n")
-		for (e : v.sequences) {
-			e.compile()
+		var Sequence sequence = v.introduction
+		while (sequence !== null) {
+			sequence.compile()
+			sequence = sequence.nextSequence
 		}
 		result.append('''}''')
 		result
@@ -60,8 +64,42 @@ class VideoGenChecker {
 		else if (s instanceof Alternatives) {
 			s.compile()
 		}
+		else if (s instanceof Introduction) {
+			s.compile()
+		}
+		else if (s instanceof Conclusion) {
+			s.compile()
+		}
 		result
 
+	}
+
+	/**
+	 * Mandatory check and all descendants
+	 * 
+	 * @param m Mandatory
+	 * @return StringBuilder
+	 */
+	def compile(Introduction m) {
+		tabs.append(tabulation)
+		result.append(tabs + '''@Introduction''' + "\n")
+		m.video.compile()
+		tabs.delete(0, 1)
+		result
+	}
+
+	/**
+	 * Mandatory check and all descendants
+	 * 
+	 * @param m Mandatory
+	 * @return StringBuilder
+	 */
+	def compile(Conclusion m) {
+		tabs.append(tabulation)
+		result.append(tabs + '''@Conclusion''' + "\n")
+		m.video.compile()
+		tabs.delete(0, 1)
+		result
 	}
 
 	/**

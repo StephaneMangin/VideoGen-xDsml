@@ -67,6 +67,24 @@ public interface VideoGenFactory extends EFactory {
 	Video createVideo();
 
 	/**
+	 * Returns a new object of class '<em>Introduction</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Introduction</em>'.
+	 * @generated
+	 */
+	Introduction createIntroduction();
+
+	/**
+	 * Returns a new object of class '<em>Conclusion</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Conclusion</em>'.
+	 * @generated
+	 */
+	Conclusion createConclusion();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

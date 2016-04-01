@@ -6,6 +6,8 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.irisa.diverse.videogen.transformations.helpers.VideoGenHelper;
 import org.irisa.diverse.videogen.videoGen.Alternatives;
+import org.irisa.diverse.videogen.videoGen.Conclusion;
+import org.irisa.diverse.videogen.videoGen.Introduction;
 import org.irisa.diverse.videogen.videoGen.Mandatory;
 import org.irisa.diverse.videogen.videoGen.Mimetypes_Enum;
 import org.irisa.diverse.videogen.videoGen.Optional;
@@ -49,9 +51,13 @@ public class VideoGenChecker {
       _builder.append("VideoGen {");
       String _plus = (_builder.toString() + "\n");
       this.result.append(_plus);
-      EList<Sequence> _sequences = v.getSequences();
-      for (final Sequence e : _sequences) {
-        this.compile(e);
+      Sequence sequence = v.getIntroduction();
+      while ((sequence != null)) {
+        {
+          this.compile(sequence);
+          Sequence _nextSequence = sequence.getNextSequence();
+          sequence = _nextSequence;
+        }
       }
       StringConcatenation _builder_1 = new StringConcatenation();
       _builder_1.append("}");
@@ -78,9 +84,63 @@ public class VideoGenChecker {
         } else {
           if ((s instanceof Alternatives)) {
             this.compile(((Alternatives)s));
+          } else {
+            if ((s instanceof Introduction)) {
+              this.compile(((Introduction)s));
+            } else {
+              if ((s instanceof Conclusion)) {
+                this.compile(((Conclusion)s));
+              }
+            }
           }
         }
       }
+      _xblockexpression = this.result;
+    }
+    return _xblockexpression;
+  }
+  
+  /**
+   * Mandatory check and all descendants
+   * 
+   * @param m Mandatory
+   * @return StringBuilder
+   */
+  public StringBuilder compile(final Introduction m) {
+    StringBuilder _xblockexpression = null;
+    {
+      this.tabs.append(this.tabulation);
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("@Introduction");
+      String _plus = (this.tabs + _builder.toString());
+      String _plus_1 = (_plus + "\n");
+      this.result.append(_plus_1);
+      Video _video = m.getVideo();
+      this.compile(_video);
+      this.tabs.delete(0, 1);
+      _xblockexpression = this.result;
+    }
+    return _xblockexpression;
+  }
+  
+  /**
+   * Mandatory check and all descendants
+   * 
+   * @param m Mandatory
+   * @return StringBuilder
+   */
+  public StringBuilder compile(final Conclusion m) {
+    StringBuilder _xblockexpression = null;
+    {
+      this.tabs.append(this.tabulation);
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("@Conclusion");
+      String _plus = (this.tabs + _builder.toString());
+      String _plus_1 = (_plus + "\n");
+      this.result.append(_plus_1);
+      Video _video = m.getVideo();
+      this.compile(_video);
+      this.tabs.delete(0, 1);
       _xblockexpression = this.result;
     }
     return _xblockexpression;

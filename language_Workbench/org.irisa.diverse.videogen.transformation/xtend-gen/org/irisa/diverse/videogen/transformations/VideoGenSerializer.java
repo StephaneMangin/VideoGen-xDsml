@@ -38,8 +38,13 @@ public class VideoGenSerializer {
     {
       final JsonObjectBuilder node = Json.createObjectBuilder();
       EList<Sequence> _sequences = v.getSequences();
-      for (final Sequence e : _sequences) {
-        this.compile(e, node);
+      Sequence sequence = _sequences.get(0);
+      while ((sequence != null)) {
+        {
+          this.compile(sequence, node);
+          Sequence _nextSequence = sequence.getNextSequence();
+          sequence = _nextSequence;
+        }
       }
       this.object.add("VideoGen", node);
       _xblockexpression = this.object.build();

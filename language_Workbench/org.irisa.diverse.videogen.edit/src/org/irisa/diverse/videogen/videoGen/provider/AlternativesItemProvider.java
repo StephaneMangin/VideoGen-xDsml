@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import org.irisa.diverse.videogen.videoGen.Alternatives;
@@ -47,25 +48,71 @@ public class AlternativesItemProvider extends NamedElementItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addNextSiblingPropertyDescriptor(object);
+			addNextSequencePropertyDescriptor(object);
+			addActivePropertyDescriptor(object);
+			addVideoPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Next Sibling feature.
+	 * This adds a property descriptor for the Next Sequence feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addNextSiblingPropertyDescriptor(Object object) {
+	protected void addNextSequencePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Sequence_nextSibling_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Sequence_nextSibling_feature", "_UI_Sequence_type"),
-				 VideoGenPackage.Literals.SEQUENCE__NEXT_SIBLING,
+				 getString("_UI_Sequence_nextSequence_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Sequence_nextSequence_feature", "_UI_Sequence_type"),
+				 VideoGenPackage.Literals.SEQUENCE__NEXT_SEQUENCE,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Active feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addActivePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Sequence_active_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Sequence_active_feature", "_UI_Sequence_type"),
+				 VideoGenPackage.Literals.SEQUENCE__ACTIVE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Video feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addVideoPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Sequence_video_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Sequence_video_feature", "_UI_Sequence_type"),
+				 VideoGenPackage.Literals.SEQUENCE__VIDEO,
 				 true,
 				 false,
 				 true,
@@ -142,6 +189,9 @@ public class AlternativesItemProvider extends NamedElementItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Alternatives.class)) {
+			case VideoGenPackage.ALTERNATIVES__ACTIVE:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 			case VideoGenPackage.ALTERNATIVES__OPTIONS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;

@@ -5,11 +5,16 @@ package org.irisa.diverse.videogen.videoGen.provider;
 
 import java.util.Collection;
 import java.util.List;
+
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.ecore.EStructuralFeature;
+
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+
 import org.irisa.diverse.videogen.videoGen.VideoGen;
 import org.irisa.diverse.videogen.videoGen.VideoGenFactory;
 import org.irisa.diverse.videogen.videoGen.VideoGenPackage;
@@ -42,8 +47,54 @@ public class VideoGenItemProvider extends NamedElementItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addIntroductionPropertyDescriptor(object);
+			addConclusionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Introduction feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addIntroductionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_VideoGen_introduction_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_VideoGen_introduction_feature", "_UI_VideoGen_type"),
+				 VideoGenPackage.Literals.VIDEO_GEN__INTRODUCTION,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Conclusion feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addConclusionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_VideoGen_conclusion_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_VideoGen_conclusion_feature", "_UI_VideoGen_type"),
+				 VideoGenPackage.Literals.VIDEO_GEN__CONCLUSION,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
@@ -59,6 +110,7 @@ public class VideoGenItemProvider extends NamedElementItemProvider {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(VideoGenPackage.Literals.VIDEO_GEN__SEQUENCES);
+			childrenFeatures.add(VideoGenPackage.Literals.VIDEO_GEN__VIDEOS);
 		}
 		return childrenFeatures;
 	}
@@ -115,6 +167,7 @@ public class VideoGenItemProvider extends NamedElementItemProvider {
 
 		switch (notification.getFeatureID(VideoGen.class)) {
 			case VideoGenPackage.VIDEO_GEN__SEQUENCES:
+			case VideoGenPackage.VIDEO_GEN__VIDEOS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -146,6 +199,21 @@ public class VideoGenItemProvider extends NamedElementItemProvider {
 			(createChildParameter
 				(VideoGenPackage.Literals.VIDEO_GEN__SEQUENCES,
 				 VideoGenFactory.eINSTANCE.createOptional()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(VideoGenPackage.Literals.VIDEO_GEN__SEQUENCES,
+				 VideoGenFactory.eINSTANCE.createIntroduction()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(VideoGenPackage.Literals.VIDEO_GEN__SEQUENCES,
+				 VideoGenFactory.eINSTANCE.createConclusion()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(VideoGenPackage.Literals.VIDEO_GEN__VIDEOS,
+				 VideoGenFactory.eINSTANCE.createVideo()));
 	}
 
 }

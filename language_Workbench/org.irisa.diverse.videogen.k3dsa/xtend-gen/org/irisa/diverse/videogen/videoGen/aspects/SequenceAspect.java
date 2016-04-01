@@ -25,6 +25,15 @@ public abstract class SequenceAspect {
     } else  { throw new IllegalArgumentException("Unhandled parameter types: " + java.util.Arrays.<Object>asList(_self).toString()); };
   }
   
+  public static void initialize(final Sequence _self) {
+    org.irisa.diverse.videogen.videoGen.aspects.SequenceAspectSequenceAspectProperties _self_ = org.irisa.diverse.videogen.videoGen.aspects.SequenceAspectSequenceAspectContext.getSelf(_self);
+     if (_self instanceof org.irisa.diverse.videogen.videoGen.Alternatives){
+     org.irisa.diverse.videogen.videoGen.aspects.AlternativesAspect.initialize((org.irisa.diverse.videogen.videoGen.Alternatives)_self);
+    } else  if (_self instanceof org.irisa.diverse.videogen.videoGen.Sequence){
+     org.irisa.diverse.videogen.videoGen.aspects.SequenceAspect._privk3_initialize(_self_, (org.irisa.diverse.videogen.videoGen.Sequence)_self);
+    } else  { throw new IllegalArgumentException("Unhandled parameter types: " + java.util.Arrays.<Object>asList(_self).toString()); };
+  }
+  
   public static Boolean active(final Sequence _self) {
     org.irisa.diverse.videogen.videoGen.aspects.SequenceAspectSequenceAspectProperties _self_ = org.irisa.diverse.videogen.videoGen.aspects.SequenceAspectSequenceAspectContext.getSelf(_self);
     Object result = null;
@@ -50,13 +59,18 @@ public abstract class SequenceAspect {
   }
   
   protected static void _privk3_process(final SequenceAspectSequenceAspectProperties _self_, final Sequence _self) {
-    Sequence _nextSibling = _self.getNextSibling();
-    boolean _tripleNotEquals = (_nextSibling != null);
+    Sequence _nextSequence = _self.getNextSequence();
+    boolean _tripleNotEquals = (_nextSequence != null);
     if (_tripleNotEquals) {
       SequenceAspect.current(_self, Boolean.valueOf(false));
-      Sequence _nextSibling_1 = _self.getNextSibling();
-      SequenceAspect.process(_nextSibling_1);
+      Sequence _nextSequence_1 = _self.getNextSequence();
+      SequenceAspect.process(_nextSequence_1);
     }
+  }
+  
+  protected static void _privk3_initialize(final SequenceAspectSequenceAspectProperties _self_, final Sequence _self) {
+    Sequence _nextSequence = _self.getNextSequence();
+    SequenceAspect.initialize(_nextSequence);
   }
   
   protected static Boolean _privk3_active(final SequenceAspectSequenceAspectProperties _self_, final Sequence _self) {

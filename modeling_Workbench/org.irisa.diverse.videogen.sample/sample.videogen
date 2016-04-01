@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<videoGen:VideoGen name="VideoGen1" xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:videoGen="http://www.irisa.org/diverse/videogen">
-  <sequences xsi:type="videoGen:Alternatives" nextSibling="//@sequences.1" name="intro">
+<videoGen:VideoGen xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:videoGen="http://www.irisa.org/diverse/videogen" name="VideoGen1">
+  <sequences xsi:type="videoGen:Alternatives" name="intro">
     <options name="intro-1" probability="30">
       <video name="intro1" url="/tmp/videos/intro/Mass.mp4" description="The mass is said, Amen !"/>
     </options>
@@ -8,10 +8,10 @@
       <video name="intro2" url="/tmp/videos/intro/TimsSuicide.mp4" description="Oh my god, he tries to kill himself with a balloon"/>
     </options>
   </sequences>
-  <sequences name="haha1" xsi:type="videoGen:Optional" nextSibling="//@sequences.3" probability="30">
+  <sequences xsi:type="videoGen:Optional" name="haha1" probability="30">
     <video name="haha1" url="/tmp/videos/haha/EddyWally-Wow.mp4" description="Addy Wally - Wow"/>
   </sequences>
-  <sequences xsi:type="videoGen:Alternatives" nextSibling="//@sequences.6" name="cats">
+  <sequences xsi:type="videoGen:Alternatives" name="cats">
     <options name="cats-1" probability="65">
       <video name="cat1" url="/tmp/videos/cats/Acroscatics.mp4" description="Well done, but not well shot"/>
     </options>
@@ -19,13 +19,13 @@
       <video name="cat2" url="/tmp/videos/cats/CatJumpFail.mp4" description="Grrrrr, one more time"/>
     </options>
   </sequences>
-  <sequences name="haha2" xsi:type="videoGen:Optional" nextSibling="//@sequences.2" probability="10">
+  <sequences xsi:type="videoGen:Optional" name="haha2" probability="10">
     <video name="haha2" url="/tmp/videos/haha/EddyWally-Wow.mp4" description="Addy Wally - Wow"/>
   </sequences>
-  <sequences name="tv1" xsi:type="videoGen:Optional" nextSibling="//@sequences.5" probability="40">
+  <sequences xsi:type="videoGen:Optional" name="tv1" probability="40">
     <video name="tv1" url="/tmp/videos/tv/PublicAccessTV.mp4" description="What the F..."/>
   </sequences>
-  <sequences xsi:type="videoGen:Alternatives" nextSibling="//@sequences.8" name="wtf">
+  <sequences xsi:type="videoGen:Alternatives" name="wtf">
     <options name="wtf-1" probability="30">
       <video name="wtf1" url="/tmp/videos/wtf/Cereal.mp4" description="Big cereals this morning..."/>
     </options>
@@ -39,7 +39,7 @@
       <video name="wtf4" url="/tmp/videos/wtf/WarmItUp.mp4" description="Oh yeah, you smell that, it smells good !"/>
     </options>
   </sequences>
-  <sequences name="haha3" xsi:type="videoGen:Mandatory" nextSibling="//@sequences.4">
+  <sequences xsi:type="videoGen:Mandatory" name="haha3">
     <video name="haha3" url="/tmp/videos/haha/haha.mp4" description="Ah ah ah"/>
   </sequences>
   <sequences xsi:type="videoGen:Alternatives" name="outro">
@@ -50,7 +50,7 @@
       <video name="outro2" url="/tmp/videos/outro/Poltergeist.mp4" description="Waouw... F... What's happening ?"/>
     </options>
   </sequences>
-  <sequences name="haha4" xsi:type="videoGen:Mandatory" nextSibling="//@sequences.7">
+  <sequences xsi:type="videoGen:Mandatory" name="haha4">
     <video name="haha4" url="/tmp/videos/haha/haha.mp4" description="Ah ah ah"/>
   </sequences>
 </videoGen:VideoGen>

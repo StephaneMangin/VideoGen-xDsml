@@ -5,8 +5,6 @@ import com.google.common.collect.Lists;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -14,7 +12,6 @@ import java.util.function.Consumer;
 import java.util.logging.Logger;
 import javax.json.JsonObject;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.ListExtensions;
@@ -30,6 +27,8 @@ import org.irisa.diverse.videogen.transformations.helpers.VideoGenHelper;
 import org.irisa.diverse.videogen.transformations.helpers.VideosHelper;
 import org.irisa.diverse.videogen.transformations.utils.DistributedRandomNumberGenerator;
 import org.irisa.diverse.videogen.videoGen.Alternatives;
+import org.irisa.diverse.videogen.videoGen.Conclusion;
+import org.irisa.diverse.videogen.videoGen.Introduction;
 import org.irisa.diverse.videogen.videoGen.Mandatory;
 import org.irisa.diverse.videogen.videoGen.Mimetypes_Enum;
 import org.irisa.diverse.videogen.videoGen.Optional;
@@ -249,7 +248,7 @@ public class VideoGenTransform {
       String _plus_4 = (_plus_3 + "/");
       final Path dir = Paths.get(_plus_4);
       SystemHelper.mkDirs(dir);
-      Collection<org.irisa.diverse.videogen.videoGen.Video> _allVideos = VideoGenHelper.allVideos(videogen);
+      List<org.irisa.diverse.videogen.videoGen.Video> _allVideos = VideoGenHelper.allVideos(videogen);
       final Consumer<org.irisa.diverse.videogen.videoGen.Video> _function = (org.irisa.diverse.videogen.videoGen.Video video) -> {
         String _url = video.getUrl();
         final Path fullPath = Paths.get(_url);
@@ -291,7 +290,7 @@ public class VideoGenTransform {
   public static VideoGen addMetadata(final VideoGen videogen) {
     VideoGen _xblockexpression = null;
     {
-      Collection<org.irisa.diverse.videogen.videoGen.Video> _allVideos = VideoGenHelper.allVideos(videogen);
+      List<org.irisa.diverse.videogen.videoGen.Video> _allSelectedVideos = VideoGenHelper.allSelectedVideos(videogen);
       final Consumer<org.irisa.diverse.videogen.videoGen.Video> _function = (org.irisa.diverse.videogen.videoGen.Video video) -> {
         String _url = video.getUrl();
         final Path url = Paths.get(_url);
@@ -302,7 +301,7 @@ public class VideoGenTransform {
         Mimetypes_Enum _byName = Mimetypes_Enum.getByName(_name);
         video.setMimetype(_byName);
       };
-      _allVideos.forEach(_function);
+      _allSelectedVideos.forEach(_function);
       _xblockexpression = videogen;
     }
     return _xblockexpression;
@@ -319,10 +318,10 @@ public class VideoGenTransform {
       VideoGenTransform.LOGGER.info(((("To playlist " + videogen) + "=>") + withThumbnail));
       final PlayListFactory playlistFactory = PlayListFactoryImpl.init();
       final PlayList playlist = playlistFactory.createPlayList();
-      EList<Sequence> _sequences = videogen.getSequences();
-      Sequence sequence = _sequences.get(0);
+      Sequence sequence = videogen.getIntroduction();
       while ((sequence != null)) {
-        {
+        boolean _isActive = sequence.isActive();
+        if (_isActive) {
           org.irisa.diverse.videogen.videoGen.Video video = null;
           if ((sequence instanceof Mandatory)) {
             org.irisa.diverse.videogen.videoGen.Video _video = ((Mandatory)sequence).getVideo();
@@ -338,6 +337,16 @@ public class VideoGenTransform {
               if ((sequence instanceof Alternatives)) {
                 org.irisa.diverse.videogen.videoGen.Video _selectSequence = VideoGenTransform.selectSequence(((Alternatives)sequence));
                 video = _selectSequence;
+              } else {
+                if ((sequence instanceof Introduction)) {
+                  org.irisa.diverse.videogen.videoGen.Video _video_2 = ((Introduction)sequence).getVideo();
+                  video = _video_2;
+                } else {
+                  if ((sequence instanceof Conclusion)) {
+                    org.irisa.diverse.videogen.videoGen.Video _video_3 = ((Conclusion)sequence).getVideo();
+                    video = _video_3;
+                  }
+                }
               }
             }
           }
@@ -351,11 +360,11 @@ public class VideoGenTransform {
               String _string = _absolutePath.toString();
               p_video.setThumbnail(_string);
             }
-            EList<Video> _video_2 = playlist.getVideo();
-            _video_2.add(p_video);
+            EList<Video> _video_4 = playlist.getVideo();
+            _video_4.add(p_video);
           }
-          Sequence _nextSibling = sequence.getNextSibling();
-          sequence = _nextSibling;
+          Sequence _nextSequence = sequence.getNextSequence();
+          sequence = _nextSequence;
         }
       }
       _xblockexpression = playlist;
@@ -444,8 +453,8 @@ public class VideoGenTransform {
             EList<Video> _video_3 = playlist.getVideo();
             _video_3.add(p_video);
           }
-          Sequence _nextSibling = sequence.getNextSibling();
-          sequence = _nextSibling;
+          Sequence _nextSequence = sequence.getNextSequence();
+          sequence = _nextSequence;
         }
       }
       _xblockexpression = playlist;
@@ -481,463 +490,6 @@ public class VideoGenTransform {
       VideoGenTransform.LOGGER.info(("To M3U " + videogen));
       final PlayList playlist = VideoGenTransform.toCustomPlayList(videogen, withThumbnails, videos);
       _xblockexpression = PlayListTransform.toM3U(playlist, Boolean.valueOf(true), Boolean.valueOf(true));
-    }
-    return _xblockexpression;
-  }
-  
-  /**
-   * Transfert some data from a VideoGen Sequence instance to a PlayList Video instance
-   * 
-   * @author Stéphane Mangin <stephane.mangin@freesbee.fr>
-   * 
-   * FIXME: should find a better way to create this kind of ModelToText transformation. For instance, through multiples methods to get each portions of the resulting document.
-   */
-  public static CharSequence toConfigurator(final VideoGen videogen) {
-    CharSequence _xblockexpression = null;
-    {
-      VideoGenTransform.LOGGER.info(("To configuration " + videogen));
-      final HashMap<String, Path> thumbnails = new HashMap<String, Path>();
-      Collection<org.irisa.diverse.videogen.videoGen.Video> _allVideos = VideoGenHelper.allVideos(videogen);
-      for (final org.irisa.diverse.videogen.videoGen.Video video : _allVideos) {
-        String _name = video.getName();
-        Path _createThumbnails = VideoGenTransform.createThumbnails(video);
-        thumbnails.put(_name, _createThumbnails);
-      }
-      StringConcatenation _builder = new StringConcatenation();
-      _builder.append("<!-- Automatically generated by VideoGen -->");
-      _builder.newLine();
-      _builder.append("<!--style type=\"text/css\">");
-      _builder.newLine();
-      _builder.append("\t");
-      _builder.append("#configurator {");
-      _builder.newLine();
-      _builder.append("\t\t");
-      _builder.append("background-color:rgba(72,72,72,0.4);");
-      _builder.newLine();
-      _builder.append("\t\t");
-      _builder.append("padding-left:35px;");
-      _builder.newLine();
-      _builder.append("\t\t");
-      _builder.append("padding-right:35px;");
-      _builder.newLine();
-      _builder.append("\t\t");
-      _builder.append("padding-top:35px;");
-      _builder.newLine();
-      _builder.append("\t\t");
-      _builder.append("padding-bottom:50px;");
-      _builder.newLine();
-      _builder.append("\t\t");
-      _builder.append("width: auto;");
-      _builder.newLine();
-      _builder.append("\t\t");
-      _builder.append("height: auto;");
-      _builder.newLine();
-      _builder.append("\t\t");
-      _builder.append("min-height: 100%;");
-      _builder.newLine();
-      _builder.append("\t\t");
-      _builder.append("overflow:auto;");
-      _builder.newLine();
-      _builder.append("\t\t");
-      _builder.append("position: relative;");
-      _builder.newLine();
-      _builder.append("\t\t");
-      _builder.append("margin-top:-130px;");
-      _builder.newLine();
-      _builder.append("\t\t");
-      _builder.append("-moz-border-radius: 7px;");
-      _builder.newLine();
-      _builder.append("\t\t");
-      _builder.append("-webkit-border-radius: 7px;");
-      _builder.newLine();
-      _builder.append("\t\t");
-      _builder.append("border-radius: 7px;");
-      _builder.newLine();
-      _builder.append("\t\t");
-      _builder.append("clear: both;");
-      _builder.newLine();
-      _builder.append("  \t");
-      _builder.append("}");
-      _builder.newLine();
-      _builder.newLine();
-      _builder.append("\t");
-      _builder.append("#configurator .sequence {");
-      _builder.newLine();
-      _builder.append("\t\t");
-      _builder.append("font-size: medium;\t");
-      _builder.newLine();
-      _builder.append("\t\t");
-      _builder.append("margin-top: 10px;");
-      _builder.newLine();
-      _builder.append("\t\t");
-      _builder.append("margin-right: 10px;");
-      _builder.newLine();
-      _builder.append("\t\t");
-      _builder.append("padding:10px;");
-      _builder.newLine();
-      _builder.append("\t\t");
-      _builder.append("display: block;");
-      _builder.newLine();
-      _builder.append("\t\t");
-      _builder.append("width : 120px;");
-      _builder.newLine();
-      _builder.append("\t\t");
-      _builder.append("height: 120px;");
-      _builder.newLine();
-      _builder.append("\t\t");
-      _builder.append("float: left;");
-      _builder.newLine();
-      _builder.append("\t\t");
-      _builder.append("text-align: center;");
-      _builder.newLine();
-      _builder.append("\t\t");
-      _builder.append("border: 2px solid #000;");
-      _builder.newLine();
-      _builder.append("\t\t");
-      _builder.append("-webkit-border-radius: 5px;");
-      _builder.newLine();
-      _builder.append("\t\t");
-      _builder.append("-moz-border-radius: 5px;");
-      _builder.newLine();
-      _builder.append("\t\t");
-      _builder.append("border-radius: 5px;");
-      _builder.newLine();
-      _builder.append("\t");
-      _builder.append("}");
-      _builder.newLine();
-      _builder.append("\t");
-      _builder.append("#configurator .description {");
-      _builder.newLine();
-      _builder.append("\t\t");
-      _builder.append("font-size: small;");
-      _builder.newLine();
-      _builder.append("\t\t");
-      _builder.append("font-stretch: condensed;");
-      _builder.newLine();
-      _builder.append("\t\t");
-      _builder.append("font-variant: small-caps;");
-      _builder.newLine();
-      _builder.append("\t\t");
-      _builder.append("margin-bottom : 5px;");
-      _builder.newLine();
-      _builder.append("\t\t");
-      _builder.append("height: 70px;");
-      _builder.newLine();
-      _builder.append("\t");
-      _builder.append("}");
-      _builder.newLine();
-      _builder.newLine();
-      _builder.append("\t");
-      _builder.append("#configurator .sequence img, select, option {");
-      _builder.newLine();
-      _builder.append("\t\t");
-      _builder.append("width: 80px;");
-      _builder.newLine();
-      _builder.append("\t\t");
-      _builder.append("height: 80px;");
-      _builder.newLine();
-      _builder.append("\t\t");
-      _builder.append("margin: 5px;");
-      _builder.newLine();
-      _builder.append("\t\t");
-      _builder.append("max-width: 100%;");
-      _builder.newLine();
-      _builder.append("\t\t");
-      _builder.append("-webkit-border-radius: 50px;");
-      _builder.newLine();
-      _builder.append("\t\t");
-      _builder.append("-moz-border-radius: 50px;");
-      _builder.newLine();
-      _builder.append("\t\t");
-      _builder.append("border-radius: 50px;");
-      _builder.newLine();
-      _builder.append("\t\t");
-      _builder.append("background: transparent !important");
-      _builder.newLine();
-      _builder.append("\t");
-      _builder.append("}");
-      _builder.newLine();
-      _builder.append("\t");
-      _builder.newLine();
-      _builder.append("\t");
-      _builder.append("#button_valid{");
-      _builder.newLine();
-      _builder.append("\t\t");
-      _builder.append("float:left;");
-      _builder.newLine();
-      _builder.append("\t\t");
-      _builder.append("width: 100%;");
-      _builder.newLine();
-      _builder.append("\t\t");
-      _builder.append("height: 50px;");
-      _builder.newLine();
-      _builder.append("\t\t");
-      _builder.append("color: #0493bd;");
-      _builder.newLine();
-      _builder.append("\t\t");
-      _builder.append("border: #fbfbfb solid 4px;");
-      _builder.newLine();
-      _builder.append("\t\t");
-      _builder.append("cursor:pointer;");
-      _builder.newLine();
-      _builder.append("\t\t");
-      _builder.append("background-color: rgba(0,0,0,0);");
-      _builder.newLine();
-      _builder.append("\t\t");
-      _builder.append("font-size:24px;");
-      _builder.newLine();
-      _builder.append("\t\t");
-      _builder.append("-webkit-transition: all 0.3s;");
-      _builder.newLine();
-      _builder.append("\t\t");
-      _builder.append("-moz-transition: all 0.3s;");
-      _builder.newLine();
-      _builder.append("\t\t");
-      _builder.append("transition: all 0.3s;");
-      _builder.newLine();
-      _builder.append("\t\t");
-      _builder.append("font-weight:700;");
-      _builder.newLine();
-      _builder.append("\t\t");
-      _builder.append("border-radius: 5px;");
-      _builder.newLine();
-      _builder.append("\t");
-      _builder.append("}");
-      _builder.newLine();
-      _builder.newLine();
-      _builder.append("\t");
-      _builder.append("#button_valid:hover{");
-      _builder.newLine();
-      _builder.append("\t\t");
-      _builder.append("background-color: #3498db;");
-      _builder.newLine();
-      _builder.append("\t\t");
-      _builder.append("color:white;");
-      _builder.newLine();
-      _builder.append("\t");
-      _builder.append("}");
-      _builder.newLine();
-      _builder.append("\t\t");
-      _builder.newLine();
-      _builder.append("\t");
-      _builder.append(".submit:hover {");
-      _builder.newLine();
-      _builder.append("\t\t");
-      _builder.append("color: #3498db;");
-      _builder.newLine();
-      _builder.append("\t");
-      _builder.append("}");
-      _builder.newLine();
-      _builder.append("\t\t");
-      _builder.newLine();
-      _builder.append("\t");
-      _builder.append(".ease {");
-      _builder.newLine();
-      _builder.append("\t\t");
-      _builder.append("width: 0px;");
-      _builder.newLine();
-      _builder.append("\t\t");
-      _builder.append("height: 74px;");
-      _builder.newLine();
-      _builder.append("\t\t");
-      _builder.append("background-color: #fbfbfb;");
-      _builder.newLine();
-      _builder.append("\t\t");
-      _builder.append("-webkit-transition: .3s ease;");
-      _builder.newLine();
-      _builder.append("\t\t");
-      _builder.append("-moz-transition: .3s ease;");
-      _builder.newLine();
-      _builder.append("\t\t");
-      _builder.append("-o-transition: .3s ease;");
-      _builder.newLine();
-      _builder.append("\t\t");
-      _builder.append("-ms-transition: .3s ease;");
-      _builder.newLine();
-      _builder.append("\t\t");
-      _builder.append("transition: .3s ease;");
-      _builder.newLine();
-      _builder.append("\t");
-      _builder.append("}");
-      _builder.newLine();
-      _builder.newLine();
-      _builder.append("\t");
-      _builder.append(".submit:hover .ease{");
-      _builder.newLine();
-      _builder.append("\t  ");
-      _builder.append("width:100%;");
-      _builder.newLine();
-      _builder.append("\t  ");
-      _builder.append("background-color:white;");
-      _builder.newLine();
-      _builder.append("\t");
-      _builder.append("}");
-      _builder.newLine();
-      _builder.newLine();
-      _builder.append("</style-->");
-      _builder.newLine();
-      _builder.append("<script type=\"application/javascript\">");
-      _builder.newLine();
-      _builder.append("function showTitle(name, description) {");
-      _builder.newLine();
-      _builder.append("\t");
-      _builder.append("document.getElementById(name).value = description;");
-      _builder.newLine();
-      _builder.append("}");
-      _builder.newLine();
-      _builder.append("</script>");
-      _builder.newLine();
-      _builder.append("<form name=\"configurator\" id=\"configurator\" action=\"%actionUrl%\">");
-      _builder.newLine();
-      _builder.append("<input class=\"button\" type=\"submit\" value=\"Generate\" id=\"button_valid\"><br />");
-      _builder.newLine();
-      {
-        EList<Sequence> _sequences = videogen.getSequences();
-        for(final Sequence sequence : _sequences) {
-          {
-            if ((sequence instanceof Alternatives)) {
-              _builder.append("<div id=\"");
-              String _name_1 = ((Alternatives)sequence).getName();
-              _builder.append(_name_1, "");
-              _builder.append("\" class=\"sequence\">");
-              _builder.newLineIfNotEmpty();
-              _builder.append("\t");
-              _builder.append("<span id=\"");
-              String _name_2 = ((Alternatives)sequence).getName();
-              _builder.append(_name_2, "\t");
-              _builder.append("_title\" class=\"description\">");
-              EList<Optional> _options = ((Alternatives)sequence).getOptions();
-              Optional _get = _options.get(0);
-              org.irisa.diverse.videogen.videoGen.Video _video = _get.getVideo();
-              String _description = _video.getDescription();
-              _builder.append(_description, "\t");
-              _builder.append("</span><br />");
-              _builder.newLineIfNotEmpty();
-              _builder.append("\t\t");
-              _builder.append("<div class=\"alternatives\">");
-              _builder.newLine();
-              {
-                EList<Optional> _options_1 = ((Alternatives)sequence).getOptions();
-                for(final Optional option : _options_1) {
-                  _builder.append("\t\t");
-                  _builder.append("<input checked id=\"");
-                  org.irisa.diverse.videogen.videoGen.Video _video_1 = option.getVideo();
-                  String _name_3 = _video_1.getName();
-                  _builder.append(_name_3, "\t\t");
-                  _builder.append("\" onchange=\"showTitle(\'");
-                  String _name_4 = ((Alternatives)sequence).getName();
-                  _builder.append(_name_4, "\t\t");
-                  _builder.append("_title\', \'");
-                  org.irisa.diverse.videogen.videoGen.Video _video_2 = option.getVideo();
-                  String _description_1 = _video_2.getDescription();
-                  _builder.append(_description_1, "\t\t");
-                  _builder.append("\')\" type=\"radio\" name=\"");
-                  String _name_5 = ((Alternatives)sequence).getName();
-                  _builder.append(_name_5, "\t\t");
-                  _builder.append("\" value=\"");
-                  org.irisa.diverse.videogen.videoGen.Video _video_3 = option.getVideo();
-                  String _name_6 = _video_3.getName();
-                  _builder.append(_name_6, "\t\t");
-                  _builder.append("\" />");
-                  _builder.newLineIfNotEmpty();
-                  _builder.append("\t\t");
-                  _builder.append("<label for=\"");
-                  org.irisa.diverse.videogen.videoGen.Video _video_4 = option.getVideo();
-                  String _name_7 = _video_4.getName();
-                  _builder.append(_name_7, "\t\t");
-                  _builder.append("\" style=\"background-image:url(\'");
-                  org.irisa.diverse.videogen.videoGen.Video _video_5 = option.getVideo();
-                  String _name_8 = _video_5.getName();
-                  Path _get_1 = thumbnails.get(_name_8);
-                  _builder.append(_get_1, "\t\t");
-                  _builder.append("\');\"></label>");
-                  _builder.newLineIfNotEmpty();
-                }
-              }
-              _builder.append("\t\t");
-              _builder.append("</div>");
-              _builder.newLine();
-              _builder.append("\t");
-              _builder.append("</div>");
-              _builder.newLine();
-            }
-          }
-          {
-            if ((sequence instanceof Mandatory)) {
-              _builder.append("<div id=\"");
-              org.irisa.diverse.videogen.videoGen.Video _video_6 = ((Mandatory)sequence).getVideo();
-              String _name_9 = _video_6.getName();
-              _builder.append(_name_9, "");
-              _builder.append("\" class=\"sequence mandatory\">");
-              _builder.newLineIfNotEmpty();
-              _builder.append("\t");
-              _builder.append("<label class=\"description\">");
-              org.irisa.diverse.videogen.videoGen.Video _video_7 = ((Mandatory)sequence).getVideo();
-              String _description_2 = _video_7.getDescription();
-              _builder.append(_description_2, "\t");
-              _builder.append("</label><br />");
-              _builder.newLineIfNotEmpty();
-              _builder.append("\t");
-              _builder.append("<img src=\"");
-              org.irisa.diverse.videogen.videoGen.Video _video_8 = ((Mandatory)sequence).getVideo();
-              String _name_10 = _video_8.getName();
-              Path _get_2 = thumbnails.get(_name_10);
-              _builder.append(_get_2, "\t");
-              _builder.append("\"/><br />");
-              _builder.newLineIfNotEmpty();
-              _builder.append("\t");
-              _builder.append("<input hidden name=\"");
-              org.irisa.diverse.videogen.videoGen.Video _video_9 = ((Mandatory)sequence).getVideo();
-              String _name_11 = _video_9.getName();
-              _builder.append(_name_11, "\t");
-              _builder.append("\" value=\"");
-              org.irisa.diverse.videogen.videoGen.Video _video_10 = ((Mandatory)sequence).getVideo();
-              String _name_12 = _video_10.getName();
-              _builder.append(_name_12, "\t");
-              _builder.append("\">");
-              _builder.newLineIfNotEmpty();
-              _builder.append("</div>");
-              _builder.newLine();
-            }
-          }
-          {
-            if ((sequence instanceof Optional)) {
-              _builder.append("<div id=\"");
-              org.irisa.diverse.videogen.videoGen.Video _video_11 = ((Optional)sequence).getVideo();
-              String _name_13 = _video_11.getName();
-              _builder.append(_name_13, "");
-              _builder.append("\" class=\"sequence optional\">");
-              _builder.newLineIfNotEmpty();
-              _builder.append("\t");
-              _builder.append("<label class=\"description\">");
-              org.irisa.diverse.videogen.videoGen.Video _video_12 = ((Optional)sequence).getVideo();
-              String _description_3 = _video_12.getDescription();
-              _builder.append(_description_3, "\t");
-              _builder.append("</label><br />");
-              _builder.newLineIfNotEmpty();
-              _builder.append("\t");
-              _builder.append("<input name=\"");
-              org.irisa.diverse.videogen.videoGen.Video _video_13 = ((Optional)sequence).getVideo();
-              String _name_14 = _video_13.getName();
-              _builder.append(_name_14, "\t");
-              _builder.append("\" type=\"checkbox\" value=\"1\" checked/><br />");
-              _builder.newLineIfNotEmpty();
-              _builder.append("\t");
-              _builder.append("<img src=\"");
-              org.irisa.diverse.videogen.videoGen.Video _video_14 = ((Optional)sequence).getVideo();
-              String _name_15 = _video_14.getName();
-              Path _get_3 = thumbnails.get(_name_15);
-              _builder.append(_get_3, "\t");
-              _builder.append("\"/>");
-              _builder.newLineIfNotEmpty();
-              _builder.append("</div>");
-              _builder.newLine();
-            }
-          }
-        }
-      }
-      _builder.append("</form>");
-      _xblockexpression = _builder;
     }
     return _xblockexpression;
   }

@@ -37,5 +37,4 @@ public interface Alternatives extends Sequence {
 	 */
 	EList<Optional> getOptions();
 
-
 } // Alternatives
