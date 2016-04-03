@@ -1,13 +1,15 @@
 package org.irisa.diverse.videogen.videoGen.aspects;
 
 import fr.inria.diverse.k3.al.annotationprocessor.Aspect;
-import fr.inria.diverse.k3.al.annotationprocessor.InitializeModel;
 import fr.inria.diverse.k3.al.annotationprocessor.Main;
-import org.eclipse.emf.common.util.EList;
+import java.util.List;
+import java.util.function.Consumer;
 import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.InputOutput;
+import org.irisa.diverse.videogen.transformations.helpers.VideoGenHelper;
 import org.irisa.diverse.videogen.videoGen.Alternatives;
 import org.irisa.diverse.videogen.videoGen.Conclusion;
+import org.irisa.diverse.videogen.videoGen.Introduction;
 import org.irisa.diverse.videogen.videoGen.Mandatory;
 import org.irisa.diverse.videogen.videoGen.Optional;
 import org.irisa.diverse.videogen.videoGen.Sequence;
@@ -23,7 +25,6 @@ import org.irisa.diverse.videogen.videoGen.aspects.exceptions.ConstraintsType;
 @Aspect(className = VideoGen.class)
 @SuppressWarnings("all")
 public class VideoGenAspect {
-  @InitializeModel
   public static void initialize(final VideoGen _self) {
     org.irisa.diverse.videogen.videoGen.aspects.VideoGenAspectVideoGenAspectProperties _self_ = org.irisa.diverse.videogen.videoGen.aspects.VideoGenAspectVideoGenAspectContext.getSelf(_self);
     _privk3_initialize(_self_, _self);
@@ -33,16 +34,6 @@ public class VideoGenAspect {
   public static void process(final VideoGen _self) {
     org.irisa.diverse.videogen.videoGen.aspects.VideoGenAspectVideoGenAspectProperties _self_ = org.irisa.diverse.videogen.videoGen.aspects.VideoGenAspectVideoGenAspectContext.getSelf(_self);
     _privk3_process(_self_, _self);
-  }
-  
-  /**
-   * Return the first sequence as the main entry point
-   */
-  public static Sequence getEntrySequence(final VideoGen _self) {
-    org.irisa.diverse.videogen.videoGen.aspects.VideoGenAspectVideoGenAspectProperties _self_ = org.irisa.diverse.videogen.videoGen.aspects.VideoGenAspectVideoGenAspectContext.getSelf(_self);
-    Object result = null;
-    result =_privk3_getEntrySequence(_self_, _self);
-    return (org.irisa.diverse.videogen.videoGen.Sequence)result;
   }
   
   /**
@@ -113,19 +104,18 @@ public class VideoGenAspect {
     VideoGenAspect.minDurationConstraint(_self, _computeMinDuration);
     Integer _computeMaxDuration = VideoGenAspect.computeMaxDuration(_self);
     VideoGenAspect.maxDurationConstraint(_self, _computeMaxDuration);
-    Sequence _entrySequence = VideoGenAspect.getEntrySequence(_self);
-    SequenceAspect.initialize(_entrySequence);
+    List<Sequence> _allSequences = VideoGenHelper.allSequences(_self);
+    final Consumer<Sequence> _function = (Sequence sequence) -> {
+      SequenceAspect.initialize(sequence);
+    };
+    _allSequences.forEach(_function);
   }
   
   protected static void _privk3_process(final VideoGenAspectVideoGenAspectProperties _self_, final VideoGen _self) {
-    Sequence _entrySequence = VideoGenAspect.getEntrySequence(_self);
-    SequenceAspect.process(_entrySequence);
+    VideoGenAspect.initialize(_self);
+    Introduction _introduction = VideoGenHelper.getIntroduction(_self);
+    SequenceAspect.process(_introduction);
     VideoGenAspect.compute(_self);
-  }
-  
-  protected static Sequence _privk3_getEntrySequence(final VideoGenAspectVideoGenAspectProperties _self_, final VideoGen _self) {
-    EList<Sequence> _sequences = _self.getSequences();
-    return _sequences.get(0);
   }
   
   protected static void _privk3_compute(final VideoGenAspectVideoGenAspectProperties _self_, final VideoGen _self) {
@@ -142,7 +132,7 @@ public class VideoGenAspect {
       if (_greaterThan) {
         throw new ConstraintsFailed(ConstraintsType.MAX_DURATION, Boolean.valueOf(true));
       }
-      Conclusion _conclusion = _self.getConclusion();
+      Conclusion _conclusion = VideoGenHelper.getConclusion(_self);
       ConclusionAspect.compute(_conclusion);
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
@@ -153,11 +143,11 @@ public class VideoGenAspect {
     int _xblockexpression = (int) 0;
     {
       int duration = 0;
-      Sequence sequence = VideoGenAspect.getEntrySequence(_self);
+      Sequence sequence = VideoGenHelper.getIntroduction(_self);
       while ((sequence != null)) {
         {
-          boolean _isActive = sequence.isActive();
-          if (_isActive) {
+          Boolean _active = sequence.getActive();
+          if ((_active).booleanValue()) {
             if ((sequence instanceof Mandatory)) {
               int _duration = duration;
               Video _video = ((Mandatory)sequence).getVideo();
@@ -191,7 +181,7 @@ public class VideoGenAspect {
     int _xblockexpression = (int) 0;
     {
       int duration = 0;
-      Sequence sequence = VideoGenAspect.getEntrySequence(_self);
+      Sequence sequence = VideoGenHelper.getIntroduction(_self);
       while ((sequence != null)) {
         {
           if ((sequence instanceof Mandatory)) {

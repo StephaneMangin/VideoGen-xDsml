@@ -4,5 +4,7 @@ package org.irisa.diverse.videogen.videoGen.aspects;
 public class SequenceAspectSequenceAspectProperties {
   public Boolean active = Boolean.valueOf(true);
   
-  public Boolean current = Boolean.valueOf(false);
+  public Boolean done = Boolean.valueOf(false);
+  
+  public Boolean callNextSequence = Boolean.valueOf(true);
 }

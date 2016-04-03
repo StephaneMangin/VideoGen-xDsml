@@ -5,7 +5,6 @@ import fr.inria.diverse.k3.al.annotationprocessor.OverrideAspectMethod;
 import fr.inria.diverse.k3.al.annotationprocessor.Step;
 import org.eclipse.xtext.xbase.lib.InputOutput;
 import org.irisa.diverse.videogen.videoGen.Mandatory;
-import org.irisa.diverse.videogen.videoGen.Sequence;
 import org.irisa.diverse.videogen.videoGen.Video;
 import org.irisa.diverse.videogen.videoGen.aspects.MandatoryAspectMandatoryAspectProperties;
 import org.irisa.diverse.videogen.videoGen.aspects.SequenceAspect;
@@ -42,9 +41,16 @@ public class MandatoryAspect extends SequenceAspect {
   }
   
   protected static void _privk3_process(final MandatoryAspectMandatoryAspectProperties _self_, final Mandatory _self) {
-    SequenceAspect.current(_self, Boolean.valueOf(true));
-    boolean _isActive = _self.isActive();
-    if (_isActive) {
+    boolean _and = false;
+    Boolean _active = _self.getActive();
+    if (!(_active).booleanValue()) {
+      _and = false;
+    } else {
+      Boolean _done = SequenceAspect.done(_self);
+      boolean _not = (!(_done).booleanValue());
+      _and = _not;
+    }
+    if (_and) {
       String _name = _self.getName();
       String _plus = ("##### Mandatory \'" + _name);
       String _plus_1 = (_plus + "\' is been processed.");
@@ -52,7 +58,6 @@ public class MandatoryAspect extends SequenceAspect {
       Video _video = _self.getVideo();
       VideoAspect.select(_video);
     }
-    Sequence _nextSequence = _self.getNextSequence();
-    SequenceAspect.process(_nextSequence);
+    MandatoryAspect.super_process(_self);
   }
 }

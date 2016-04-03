@@ -22,8 +22,8 @@ import org.irisa.diverse.videogen.videoGen.VideoGenPackage;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.irisa.diverse.videogen.videoGen.impl.MandatoryImpl#getNextSequence <em>Next Sequence</em>}</li>
- *   <li>{@link org.irisa.diverse.videogen.videoGen.impl.MandatoryImpl#isActive <em>Active</em>}</li>
  *   <li>{@link org.irisa.diverse.videogen.videoGen.impl.MandatoryImpl#getVideo <em>Video</em>}</li>
+ *   <li>{@link org.irisa.diverse.videogen.videoGen.impl.MandatoryImpl#getActive <em>Active</em>}</li>
  * </ul>
  * </p>
  *
@@ -41,26 +41,6 @@ public class MandatoryImpl extends NamedElementImpl implements Mandatory {
 	protected Sequence nextSequence;
 
 	/**
-	 * The default value of the '{@link #isActive() <em>Active</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isActive()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final boolean ACTIVE_EDEFAULT = true;
-
-	/**
-	 * The cached value of the '{@link #isActive() <em>Active</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isActive()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean active = ACTIVE_EDEFAULT;
-
-	/**
 	 * The cached value of the '{@link #getVideo() <em>Video</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -69,6 +49,26 @@ public class MandatoryImpl extends NamedElementImpl implements Mandatory {
 	 * @ordered
 	 */
 	protected Video video;
+
+	/**
+	 * The default value of the '{@link #getActive() <em>Active</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getActive()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Boolean ACTIVE_EDEFAULT = Boolean.TRUE;
+
+	/**
+	 * The cached value of the '{@link #getActive() <em>Active</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getActive()
+	 * @generated
+	 * @ordered
+	 */
+	protected Boolean active = ACTIVE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -132,27 +132,6 @@ public class MandatoryImpl extends NamedElementImpl implements Mandatory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean isActive() {
-		return active;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setActive(boolean newActive) {
-		boolean oldActive = active;
-		active = newActive;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, VideoGenPackage.MANDATORY__ACTIVE, oldActive, active));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Video getVideo() {
 		if (video != null && video.eIsProxy()) {
 			InternalEObject oldVideo = (InternalEObject)video;
@@ -191,17 +170,38 @@ public class MandatoryImpl extends NamedElementImpl implements Mandatory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Boolean getActive() {
+		return active;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setActive(Boolean newActive) {
+		Boolean oldActive = active;
+		active = newActive;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, VideoGenPackage.MANDATORY__ACTIVE, oldActive, active));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case VideoGenPackage.MANDATORY__NEXT_SEQUENCE:
 				if (resolve) return getNextSequence();
 				return basicGetNextSequence();
-			case VideoGenPackage.MANDATORY__ACTIVE:
-				return isActive();
 			case VideoGenPackage.MANDATORY__VIDEO:
 				if (resolve) return getVideo();
 				return basicGetVideo();
+			case VideoGenPackage.MANDATORY__ACTIVE:
+				return getActive();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -217,11 +217,11 @@ public class MandatoryImpl extends NamedElementImpl implements Mandatory {
 			case VideoGenPackage.MANDATORY__NEXT_SEQUENCE:
 				setNextSequence((Sequence)newValue);
 				return;
-			case VideoGenPackage.MANDATORY__ACTIVE:
-				setActive((Boolean)newValue);
-				return;
 			case VideoGenPackage.MANDATORY__VIDEO:
 				setVideo((Video)newValue);
+				return;
+			case VideoGenPackage.MANDATORY__ACTIVE:
+				setActive((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -238,11 +238,11 @@ public class MandatoryImpl extends NamedElementImpl implements Mandatory {
 			case VideoGenPackage.MANDATORY__NEXT_SEQUENCE:
 				setNextSequence((Sequence)null);
 				return;
-			case VideoGenPackage.MANDATORY__ACTIVE:
-				setActive(ACTIVE_EDEFAULT);
-				return;
 			case VideoGenPackage.MANDATORY__VIDEO:
 				setVideo((Video)null);
+				return;
+			case VideoGenPackage.MANDATORY__ACTIVE:
+				setActive(ACTIVE_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -258,10 +258,10 @@ public class MandatoryImpl extends NamedElementImpl implements Mandatory {
 		switch (featureID) {
 			case VideoGenPackage.MANDATORY__NEXT_SEQUENCE:
 				return nextSequence != null;
-			case VideoGenPackage.MANDATORY__ACTIVE:
-				return active != ACTIVE_EDEFAULT;
 			case VideoGenPackage.MANDATORY__VIDEO:
 				return video != null;
+			case VideoGenPackage.MANDATORY__ACTIVE:
+				return ACTIVE_EDEFAULT == null ? active != null : !ACTIVE_EDEFAULT.equals(active);
 		}
 		return super.eIsSet(featureID);
 	}

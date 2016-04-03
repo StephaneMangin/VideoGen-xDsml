@@ -39,7 +39,7 @@ class VideoGenChecker {
 	 */
 	def compile(VideoGen v) {
 		result.append('''VideoGen {''' + "\n")
-		var Sequence sequence = v.introduction
+		var Sequence sequence = VideoGenHelper.getIntroduction(v)
 		while (sequence !== null) {
 			sequence.compile()
 			sequence = sequence.nextSequence

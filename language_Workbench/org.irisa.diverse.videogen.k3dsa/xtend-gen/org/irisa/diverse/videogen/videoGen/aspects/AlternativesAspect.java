@@ -1,5 +1,6 @@
 package org.irisa.diverse.videogen.videoGen.aspects;
 
+import com.google.common.base.Objects;
 import fr.inria.diverse.k3.al.annotationprocessor.Aspect;
 import fr.inria.diverse.k3.al.annotationprocessor.OverrideAspectMethod;
 import fr.inria.diverse.k3.al.annotationprocessor.Step;
@@ -15,6 +16,7 @@ import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.ListExtensions;
 import org.irisa.diverse.videogen.videoGen.Alternatives;
 import org.irisa.diverse.videogen.videoGen.Optional;
+import org.irisa.diverse.videogen.videoGen.Sequence;
 import org.irisa.diverse.videogen.videoGen.Video;
 import org.irisa.diverse.videogen.videoGen.aspects.AlternativesAspectAlternativesAspectProperties;
 import org.irisa.diverse.videogen.videoGen.aspects.DistributedRandomNumberGenerator;
@@ -194,15 +196,44 @@ public class AlternativesAspect extends SequenceAspect {
   }
   
   protected static void _privk3_process(final AlternativesAspectAlternativesAspectProperties _self_, final Alternatives _self) {
-    SequenceAspect.current(_self, Boolean.valueOf(true));
-    boolean _isActive = _self.isActive();
-    if (_isActive) {
+    boolean _and = false;
+    Boolean _active = _self.getActive();
+    if (!(_active).booleanValue()) {
+      _and = false;
+    } else {
+      Boolean _done = SequenceAspect.done(_self);
+      boolean _not = (!(_done).booleanValue());
+      _and = _not;
+    }
+    if (_and) {
       String _name = _self.getName();
       String _plus = ("##### Alternatives \'" + _name);
       String _plus_1 = (_plus + "\' is been processed.");
       InputOutput.<String>println(_plus_1);
+      Video _selectVideo = AlternativesAspect.selectVideo(_self);
+      AlternativesAspect.video(_self, _selectVideo);
       Video _video = _self.getVideo();
       VideoAspect.select(_video);
+      EList<Optional> _options = _self.getOptions();
+      final Consumer<Optional> _function = (Optional option) -> {
+        boolean _and_1 = false;
+        Video _video_1 = option.getVideo();
+        Video _video_2 = _self.getVideo();
+        boolean _equals = Objects.equal(_video_1, _video_2);
+        if (!_equals) {
+          _and_1 = false;
+        } else {
+          Sequence _nextSequence = option.getNextSequence();
+          boolean _notEquals = (!Objects.equal(_nextSequence, null));
+          _and_1 = _notEquals;
+        }
+        if (_and_1) {
+          Sequence _nextSequence_1 = option.getNextSequence();
+          SequenceAspect.process(_nextSequence_1);
+          SequenceAspect.callNextSequence(_self, Boolean.valueOf(false));
+        }
+      };
+      _options.forEach(_function);
     }
     AlternativesAspect.super_process(_self);
   }

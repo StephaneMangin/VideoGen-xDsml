@@ -22,8 +22,8 @@ import org.irisa.diverse.videogen.videoGen.VideoGenPackage;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.irisa.diverse.videogen.videoGen.impl.OptionalImpl#getNextSequence <em>Next Sequence</em>}</li>
- *   <li>{@link org.irisa.diverse.videogen.videoGen.impl.OptionalImpl#isActive <em>Active</em>}</li>
  *   <li>{@link org.irisa.diverse.videogen.videoGen.impl.OptionalImpl#getVideo <em>Video</em>}</li>
+ *   <li>{@link org.irisa.diverse.videogen.videoGen.impl.OptionalImpl#getActive <em>Active</em>}</li>
  *   <li>{@link org.irisa.diverse.videogen.videoGen.impl.OptionalImpl#getProbability <em>Probability</em>}</li>
  * </ul>
  * </p>
@@ -42,26 +42,6 @@ public class OptionalImpl extends NamedElementImpl implements Optional {
 	protected Sequence nextSequence;
 
 	/**
-	 * The default value of the '{@link #isActive() <em>Active</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isActive()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final boolean ACTIVE_EDEFAULT = true;
-
-	/**
-	 * The cached value of the '{@link #isActive() <em>Active</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isActive()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean active = ACTIVE_EDEFAULT;
-
-	/**
 	 * The cached value of the '{@link #getVideo() <em>Video</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -70,6 +50,26 @@ public class OptionalImpl extends NamedElementImpl implements Optional {
 	 * @ordered
 	 */
 	protected Video video;
+
+	/**
+	 * The default value of the '{@link #getActive() <em>Active</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getActive()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Boolean ACTIVE_EDEFAULT = Boolean.TRUE;
+
+	/**
+	 * The cached value of the '{@link #getActive() <em>Active</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getActive()
+	 * @generated
+	 * @ordered
+	 */
+	protected Boolean active = ACTIVE_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getProbability() <em>Probability</em>}' attribute.
@@ -153,27 +153,6 @@ public class OptionalImpl extends NamedElementImpl implements Optional {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean isActive() {
-		return active;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setActive(boolean newActive) {
-		boolean oldActive = active;
-		active = newActive;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, VideoGenPackage.OPTIONAL__ACTIVE, oldActive, active));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Video getVideo() {
 		if (video != null && video.eIsProxy()) {
 			InternalEObject oldVideo = (InternalEObject)video;
@@ -212,6 +191,27 @@ public class OptionalImpl extends NamedElementImpl implements Optional {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Boolean getActive() {
+		return active;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setActive(Boolean newActive) {
+		Boolean oldActive = active;
+		active = newActive;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, VideoGenPackage.OPTIONAL__ACTIVE, oldActive, active));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Integer getProbability() {
 		return probability;
 	}
@@ -239,11 +239,11 @@ public class OptionalImpl extends NamedElementImpl implements Optional {
 			case VideoGenPackage.OPTIONAL__NEXT_SEQUENCE:
 				if (resolve) return getNextSequence();
 				return basicGetNextSequence();
-			case VideoGenPackage.OPTIONAL__ACTIVE:
-				return isActive();
 			case VideoGenPackage.OPTIONAL__VIDEO:
 				if (resolve) return getVideo();
 				return basicGetVideo();
+			case VideoGenPackage.OPTIONAL__ACTIVE:
+				return getActive();
 			case VideoGenPackage.OPTIONAL__PROBABILITY:
 				return getProbability();
 		}
@@ -261,11 +261,11 @@ public class OptionalImpl extends NamedElementImpl implements Optional {
 			case VideoGenPackage.OPTIONAL__NEXT_SEQUENCE:
 				setNextSequence((Sequence)newValue);
 				return;
-			case VideoGenPackage.OPTIONAL__ACTIVE:
-				setActive((Boolean)newValue);
-				return;
 			case VideoGenPackage.OPTIONAL__VIDEO:
 				setVideo((Video)newValue);
+				return;
+			case VideoGenPackage.OPTIONAL__ACTIVE:
+				setActive((Boolean)newValue);
 				return;
 			case VideoGenPackage.OPTIONAL__PROBABILITY:
 				setProbability((Integer)newValue);
@@ -285,11 +285,11 @@ public class OptionalImpl extends NamedElementImpl implements Optional {
 			case VideoGenPackage.OPTIONAL__NEXT_SEQUENCE:
 				setNextSequence((Sequence)null);
 				return;
-			case VideoGenPackage.OPTIONAL__ACTIVE:
-				setActive(ACTIVE_EDEFAULT);
-				return;
 			case VideoGenPackage.OPTIONAL__VIDEO:
 				setVideo((Video)null);
+				return;
+			case VideoGenPackage.OPTIONAL__ACTIVE:
+				setActive(ACTIVE_EDEFAULT);
 				return;
 			case VideoGenPackage.OPTIONAL__PROBABILITY:
 				setProbability(PROBABILITY_EDEFAULT);
@@ -308,10 +308,10 @@ public class OptionalImpl extends NamedElementImpl implements Optional {
 		switch (featureID) {
 			case VideoGenPackage.OPTIONAL__NEXT_SEQUENCE:
 				return nextSequence != null;
-			case VideoGenPackage.OPTIONAL__ACTIVE:
-				return active != ACTIVE_EDEFAULT;
 			case VideoGenPackage.OPTIONAL__VIDEO:
 				return video != null;
+			case VideoGenPackage.OPTIONAL__ACTIVE:
+				return ACTIVE_EDEFAULT == null ? active != null : !ACTIVE_EDEFAULT.equals(active);
 			case VideoGenPackage.OPTIONAL__PROBABILITY:
 				return PROBABILITY_EDEFAULT == null ? probability != null : !PROBABILITY_EDEFAULT.equals(probability);
 		}

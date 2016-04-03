@@ -248,7 +248,7 @@ public class VideoGenTransform {
       String _plus_4 = (_plus_3 + "/");
       final Path dir = Paths.get(_plus_4);
       SystemHelper.mkDirs(dir);
-      List<org.irisa.diverse.videogen.videoGen.Video> _allVideos = VideoGenHelper.allVideos(videogen);
+      List<org.irisa.diverse.videogen.videoGen.Video> _allSelectedVideos = VideoGenHelper.allSelectedVideos(videogen);
       final Consumer<org.irisa.diverse.videogen.videoGen.Video> _function = (org.irisa.diverse.videogen.videoGen.Video video) -> {
         String _url = video.getUrl();
         final Path fullPath = Paths.get(_url);
@@ -270,7 +270,7 @@ public class VideoGenTransform {
         video.setUrl(_string_2);
         video.setMimetype(type);
       };
-      _allVideos.forEach(_function);
+      _allSelectedVideos.forEach(_function);
       _xblockexpression = pathes;
     }
     return _xblockexpression;
@@ -290,7 +290,7 @@ public class VideoGenTransform {
   public static VideoGen addMetadata(final VideoGen videogen) {
     VideoGen _xblockexpression = null;
     {
-      List<org.irisa.diverse.videogen.videoGen.Video> _allSelectedVideos = VideoGenHelper.allSelectedVideos(videogen);
+      List<org.irisa.diverse.videogen.videoGen.Video> _allVideos = VideoGenHelper.allVideos(videogen);
       final Consumer<org.irisa.diverse.videogen.videoGen.Video> _function = (org.irisa.diverse.videogen.videoGen.Video video) -> {
         String _url = video.getUrl();
         final Path url = Paths.get(_url);
@@ -301,7 +301,7 @@ public class VideoGenTransform {
         Mimetypes_Enum _byName = Mimetypes_Enum.getByName(_name);
         video.setMimetype(_byName);
       };
-      _allSelectedVideos.forEach(_function);
+      _allVideos.forEach(_function);
       _xblockexpression = videogen;
     }
     return _xblockexpression;
@@ -318,55 +318,51 @@ public class VideoGenTransform {
       VideoGenTransform.LOGGER.info(((("To playlist " + videogen) + "=>") + withThumbnail));
       final PlayListFactory playlistFactory = PlayListFactoryImpl.init();
       final PlayList playlist = playlistFactory.createPlayList();
-      Sequence sequence = videogen.getIntroduction();
-      while ((sequence != null)) {
-        boolean _isActive = sequence.isActive();
-        if (_isActive) {
-          org.irisa.diverse.videogen.videoGen.Video video = null;
-          if ((sequence instanceof Mandatory)) {
-            org.irisa.diverse.videogen.videoGen.Video _video = ((Mandatory)sequence).getVideo();
-            video = _video;
+      List<Sequence> _allActiveSequences = VideoGenHelper.allActiveSequences(videogen);
+      final Consumer<Sequence> _function = (Sequence sequence) -> {
+        org.irisa.diverse.videogen.videoGen.Video video = null;
+        if ((sequence instanceof Mandatory)) {
+          org.irisa.diverse.videogen.videoGen.Video _video = ((Mandatory)sequence).getVideo();
+          video = _video;
+        } else {
+          if ((sequence instanceof Optional)) {
+            boolean _isSelected = VideoGenTransform.isSelected(((Optional)sequence));
+            if (_isSelected) {
+              org.irisa.diverse.videogen.videoGen.Video _video_1 = ((Optional)sequence).getVideo();
+              video = _video_1;
+            }
           } else {
-            if ((sequence instanceof Optional)) {
-              boolean _isSelected = VideoGenTransform.isSelected(((Optional)sequence));
-              if (_isSelected) {
-                org.irisa.diverse.videogen.videoGen.Video _video_1 = ((Optional)sequence).getVideo();
-                video = _video_1;
-              }
+            if ((sequence instanceof Alternatives)) {
+              org.irisa.diverse.videogen.videoGen.Video _selectSequence = VideoGenTransform.selectSequence(((Alternatives)sequence));
+              video = _selectSequence;
             } else {
-              if ((sequence instanceof Alternatives)) {
-                org.irisa.diverse.videogen.videoGen.Video _selectSequence = VideoGenTransform.selectSequence(((Alternatives)sequence));
-                video = _selectSequence;
+              if ((sequence instanceof Introduction)) {
+                org.irisa.diverse.videogen.videoGen.Video _video_2 = ((Introduction)sequence).getVideo();
+                video = _video_2;
               } else {
-                if ((sequence instanceof Introduction)) {
-                  org.irisa.diverse.videogen.videoGen.Video _video_2 = ((Introduction)sequence).getVideo();
-                  video = _video_2;
-                } else {
-                  if ((sequence instanceof Conclusion)) {
-                    org.irisa.diverse.videogen.videoGen.Video _video_3 = ((Conclusion)sequence).getVideo();
-                    video = _video_3;
-                  }
+                if ((sequence instanceof Conclusion)) {
+                  org.irisa.diverse.videogen.videoGen.Video _video_3 = ((Conclusion)sequence).getVideo();
+                  video = _video_3;
                 }
               }
             }
           }
-          boolean _notEquals = (!Objects.equal(video, null));
-          if (_notEquals) {
-            final Video p_video = playlistFactory.createVideo();
-            VideoGenTransform.transferData(p_video, video);
-            if ((withThumbnail).booleanValue()) {
-              Path _createThumbnails = VideoGenTransform.createThumbnails(video);
-              Path _absolutePath = _createThumbnails.toAbsolutePath();
-              String _string = _absolutePath.toString();
-              p_video.setThumbnail(_string);
-            }
-            EList<Video> _video_4 = playlist.getVideo();
-            _video_4.add(p_video);
-          }
-          Sequence _nextSequence = sequence.getNextSequence();
-          sequence = _nextSequence;
         }
-      }
+        boolean _notEquals = (!Objects.equal(video, null));
+        if (_notEquals) {
+          final Video p_video = playlistFactory.createVideo();
+          VideoGenTransform.transferData(p_video, video);
+          if ((withThumbnail).booleanValue()) {
+            Path _createThumbnails = VideoGenTransform.createThumbnails(video);
+            Path _absolutePath = _createThumbnails.toAbsolutePath();
+            String _string = _absolutePath.toString();
+            p_video.setThumbnail(_string);
+          }
+          EList<Video> _video_4 = playlist.getVideo();
+          _video_4.add(p_video);
+        }
+      };
+      _allActiveSequences.forEach(_function);
       _xblockexpression = playlist;
     }
     return _xblockexpression;
@@ -392,71 +388,67 @@ public class VideoGenTransform {
       VideoGenTransform.LOGGER.info(((((("To custom playlist " + videogen) + "=>") + withThumbnail) + ", options=>") + options));
       final PlayListFactory playlistFactory = PlayListFactoryImpl.init();
       final PlayList playlist = playlistFactory.createPlayList();
-      EList<Sequence> _sequences = videogen.getSequences();
-      Sequence sequence = _sequences.get(0);
-      while ((sequence != null)) {
-        {
-          org.irisa.diverse.videogen.videoGen.Video video = null;
-          if ((sequence instanceof Mandatory)) {
-            org.irisa.diverse.videogen.videoGen.Video _video = ((Mandatory)sequence).getVideo();
-            video = _video;
-          } else {
-            if ((sequence instanceof Optional)) {
-              org.irisa.diverse.videogen.videoGen.Video _video_1 = ((Optional)sequence).getVideo();
-              final String name = _video_1.getName();
-              boolean _and = false;
-              boolean _containsKey = options.containsKey(name);
-              if (!_containsKey) {
-                _and = false;
-              } else {
-                Boolean _get = options.get(name);
-                _and = (_get).booleanValue();
-              }
-              if (_and) {
-                org.irisa.diverse.videogen.videoGen.Video _video_2 = ((Optional)sequence).getVideo();
-                video = _video_2;
-              }
+      List<Sequence> _allActiveSequences = VideoGenHelper.allActiveSequences(videogen);
+      final Consumer<Sequence> _function = (Sequence sequence) -> {
+        org.irisa.diverse.videogen.videoGen.Video video = null;
+        if ((sequence instanceof Mandatory)) {
+          org.irisa.diverse.videogen.videoGen.Video _video = ((Mandatory)sequence).getVideo();
+          video = _video;
+        } else {
+          if ((sequence instanceof Optional)) {
+            org.irisa.diverse.videogen.videoGen.Video _video_1 = ((Optional)sequence).getVideo();
+            final String name = _video_1.getName();
+            boolean _and = false;
+            boolean _containsKey = options.containsKey(name);
+            if (!_containsKey) {
+              _and = false;
             } else {
-              if ((sequence instanceof Alternatives)) {
-                EList<Optional> _options = ((Alternatives)sequence).getOptions();
-                for (final Optional option : _options) {
-                  {
-                    org.irisa.diverse.videogen.videoGen.Video _video_3 = option.getVideo();
-                    final String name_1 = _video_3.getName();
-                    boolean _and_1 = false;
-                    boolean _containsKey_1 = options.containsKey(name_1);
-                    if (!_containsKey_1) {
-                      _and_1 = false;
-                    } else {
-                      Boolean _get_1 = options.get(name_1);
-                      _and_1 = (_get_1).booleanValue();
-                    }
-                    if (_and_1) {
-                      org.irisa.diverse.videogen.videoGen.Video _video_4 = option.getVideo();
-                      video = _video_4;
-                    }
+              Boolean _get = options.get(name);
+              _and = (_get).booleanValue();
+            }
+            if (_and) {
+              org.irisa.diverse.videogen.videoGen.Video _video_2 = ((Optional)sequence).getVideo();
+              video = _video_2;
+            }
+          } else {
+            if ((sequence instanceof Alternatives)) {
+              EList<Optional> _options = ((Alternatives)sequence).getOptions();
+              for (final Optional option : _options) {
+                {
+                  org.irisa.diverse.videogen.videoGen.Video _video_3 = option.getVideo();
+                  final String name_1 = _video_3.getName();
+                  boolean _and_1 = false;
+                  boolean _containsKey_1 = options.containsKey(name_1);
+                  if (!_containsKey_1) {
+                    _and_1 = false;
+                  } else {
+                    Boolean _get_1 = options.get(name_1);
+                    _and_1 = (_get_1).booleanValue();
+                  }
+                  if (_and_1) {
+                    org.irisa.diverse.videogen.videoGen.Video _video_4 = option.getVideo();
+                    video = _video_4;
                   }
                 }
               }
             }
           }
-          boolean _notEquals = (!Objects.equal(video, null));
-          if (_notEquals) {
-            final Video p_video = playlistFactory.createVideo();
-            VideoGenTransform.transferData(p_video, video);
-            if ((withThumbnail).booleanValue()) {
-              Path _createThumbnails = VideoGenTransform.createThumbnails(video);
-              Path _absolutePath = _createThumbnails.toAbsolutePath();
-              String _string = _absolutePath.toString();
-              p_video.setThumbnail(_string);
-            }
-            EList<Video> _video_3 = playlist.getVideo();
-            _video_3.add(p_video);
-          }
-          Sequence _nextSequence = sequence.getNextSequence();
-          sequence = _nextSequence;
         }
-      }
+        boolean _notEquals = (!Objects.equal(video, null));
+        if (_notEquals) {
+          final Video p_video = playlistFactory.createVideo();
+          VideoGenTransform.transferData(p_video, video);
+          if ((withThumbnail).booleanValue()) {
+            Path _createThumbnails = VideoGenTransform.createThumbnails(video);
+            Path _absolutePath = _createThumbnails.toAbsolutePath();
+            String _string = _absolutePath.toString();
+            p_video.setThumbnail(_string);
+          }
+          EList<Video> _video_3 = playlist.getVideo();
+          _video_3.add(p_video);
+        }
+      };
+      _allActiveSequences.forEach(_function);
       _xblockexpression = playlist;
     }
     return _xblockexpression;

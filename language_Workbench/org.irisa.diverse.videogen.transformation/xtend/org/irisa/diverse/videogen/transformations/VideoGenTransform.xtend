@@ -166,7 +166,7 @@ import org.irisa.diverse.videogen.videoGen.Conclusion
 		val pathes = Lists.newArrayList
 		val dir = Paths.get(tmp + "/" + "converted" + "/" + type.getName + "/")
 		SystemHelper.mkDirs(dir)
-        VideoGenHelper.allVideos(videogen).forEach[video |
+        VideoGenHelper.allSelectedVideos(videogen).forEach[video |
 			
 			val fullPath = Paths.get(video.url)
 			val extention = getFileExtension(fullPath.fileName.toString)
@@ -192,7 +192,7 @@ import org.irisa.diverse.videogen.videoGen.Conclusion
  	 */ 
     def static addMetadata(VideoGen videogen){
         
-        VideoGenHelper.allSelectedVideos(videogen).forEach[video |
+        VideoGenHelper.allVideos(videogen).forEach[video |
         	val url = Paths.get(video.url)
 			video.duration = VideosHelper.getDuration(url)
 			video.mimetype = Mimetypes_Enum.getByName(VideosHelper.getMimeType(url).name)
@@ -210,34 +210,30 @@ import org.irisa.diverse.videogen.videoGen.Conclusion
         val playlistFactory = PlayListFactoryImpl.init()
         val playlist = playlistFactory.createPlayList()
         
-        var Sequence sequence = videogen.introduction
-        while (sequence !== null) {
-			if (sequence.active) {
-				var Video video = null
-				if(sequence instanceof Mandatory) {
-					video = sequence.video
-				} else if(sequence instanceof Optional) {
-					if(isSelected(sequence)){
-						video = sequence.video
-					}
-				} else if (sequence instanceof Alternatives) {
-					video = selectSequence(sequence)
-				} else if (sequence instanceof Introduction) {
-					video = sequence.video
-				} else if (sequence instanceof Conclusion) {
+        VideoGenHelper.allActiveSequences(videogen).forEach[sequence |
+			var Video video = null
+			if(sequence instanceof Mandatory) {
+				video = sequence.video
+			} else if(sequence instanceof Optional) {
+				if(isSelected(sequence)){
 					video = sequence.video
 				}
-				if (video != null) {
-					val p_video = playlistFactory.createVideo()
-					transferData(p_video, video)
-					if (withThumbnail) {
-						p_video.thumbnail = createThumbnails(video).toAbsolutePath.toString
-					}
-					playlist.video.add(p_video)
-				}
-				sequence = sequence.nextSequence
+			} else if (sequence instanceof Alternatives) {
+				video = selectSequence(sequence)
+			} else if (sequence instanceof Introduction) {
+				video = sequence.video
+			} else if (sequence instanceof Conclusion) {
+				video = sequence.video
 			}
-        }
+			if (video != null) {
+				val p_video = playlistFactory.createVideo()
+				transferData(p_video, video)
+				if (withThumbnail) {
+					p_video.thumbnail = createThumbnails(video).toAbsolutePath.toString
+				}
+				playlist.video.add(p_video)
+			}
+        ]
         playlist
     }
     
@@ -259,9 +255,8 @@ import org.irisa.diverse.videogen.videoGen.Conclusion
    		LOGGER.info("To custom playlist " + videogen + "=>" + withThumbnail + ", options=>" + options)
         val playlistFactory = PlayListFactoryImpl.init()
         val playlist = playlistFactory.createPlayList()
-        
-        var sequence = videogen.sequences.get(0)
-        while (sequence !== null) {
+
+        VideoGenHelper.allActiveSequences(videogen).forEach[sequence |
 			var Video video = null
 			
 			if(sequence instanceof Mandatory) {
@@ -287,8 +282,7 @@ import org.irisa.diverse.videogen.videoGen.Conclusion
 				}
 				playlist.video.add(p_video)
 			}
-			sequence = sequence.nextSequence
-        }
+        ]
         playlist
     }
     

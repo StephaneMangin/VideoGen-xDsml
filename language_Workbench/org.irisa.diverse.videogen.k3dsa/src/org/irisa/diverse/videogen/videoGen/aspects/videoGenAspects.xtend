@@ -4,7 +4,6 @@ import fr.inria.diverse.k3.al.annotationprocessor.Aspect
 import fr.inria.diverse.k3.al.annotationprocessor.Main
 import fr.inria.diverse.k3.al.annotationprocessor.OverrideAspectMethod
 import fr.inria.diverse.k3.al.annotationprocessor.Step
-import java.util.Comparator
 import java.util.HashMap
 import java.util.Map
 import org.irisa.diverse.videogen.transformations.VideoGenTransform
@@ -36,7 +35,6 @@ class VideoGenAspect {
 	public var Integer minDurationConstraint = 0
 	public var Integer maxDurationConstraint = 0
 
-	@InitializeModel
 	def public void initialize() {
 		println("##### VideoGen '" + _self.name + "' has been initialized.")
 		
@@ -45,26 +43,21 @@ class VideoGenAspect {
 		_self.maxDurationConstraint = _self.computeMaxDuration
 		
 		// Initialize all sequences
-		_self.getEntrySequence().initialize
+		VideoGenHelper.allSequences(_self).forEach[sequence | 
+			sequence.initialize
+		]
 	}
 	
 	@Main
 	def public void process() {
+		_self.initialize
 		
 		// Then process each sequences
-		_self.getEntrySequence().process
+		VideoGenHelper.getIntroduction(_self).process
 		
 		// And at the end (sequential so ok !) call the video generation
 		_self.compute
 	}
-	
-	/**
-	 * Return the first sequence as the main entry point
-	 * 
-	 */
-	def public Sequence getEntrySequence() {
-		_self.sequences.get(0)
-	}	
 	
 	/**
 	 * Start the computation (model transformation) of all selected video to create the final sequence (PlayList format)
@@ -81,7 +74,7 @@ class VideoGenAspect {
 			throw new ConstraintsFailed(ConstraintsType.MAX_DURATION, true)
 		}
 		
-		_self.conclusion.compute
+		VideoGenHelper.getConclusion(_self).compute
 	}
 	
 	/**
@@ -90,7 +83,7 @@ class VideoGenAspect {
 	 */
 	def public Integer computeMaxDuration() {
 		var duration = 0
-		var sequence = _self.getEntrySequence()
+		var Sequence sequence = VideoGenHelper.getIntroduction(_self)
 		while(sequence !== null) { 
 			if (sequence.active) {
 				if (sequence instanceof Mandatory) {
@@ -112,7 +105,7 @@ class VideoGenAspect {
 	 */
 	def public Integer computeMinDuration() {
 		var duration = 0
-		var sequence = _self.getEntrySequence()
+		var Sequence sequence = VideoGenHelper.getIntroduction(_self)
 		while(sequence !== null) { 
 			if (sequence instanceof Mandatory) {
 				duration += sequence.video.duration
@@ -135,7 +128,8 @@ class VideoGenAspect {
 abstract class SequenceAspect {
 
 	public Boolean active = true
-	public Boolean current = false
+	public Boolean done = false
+	public Boolean callNextSequence = true
 	
 	/**
 	 * Call the sequence processor. Need to be overridden by a inherited class
@@ -144,18 +138,22 @@ abstract class SequenceAspect {
 	 * 
 	 */
 	def public void process() {
-		// Call the next sequence in all case
-		if (_self.nextSequence !== null) {
-			//Don't forget to reset current state
-			_self.current = false;
-			// Before calling next sequence
-			_self.nextSequence.process
+		// If this sequence has already been done, do nothing at all
+		if (!_self.done) {
+			// Call the next sequence in all case
+			if (_self.nextSequence !== null) {
+				//Don't forget to reset current state
+				_self.done = true;
+				// Before calling next sequence
+				if (_self.callNextSequence) {
+					_self.nextSequence.process	
+				}
+			}
 		}
 	}
-
-	@InitializeModel
+	
 	def public void initialize() {
-		_self.nextSequence.initialize
+		// Not use right now		
 	}
 }
 
@@ -170,10 +168,10 @@ class AlternativesAspect extends SequenceAspect {
 	 */
 	@OverrideAspectMethod
 	def public void initialize() {
-		val video = _self.selectVideo()
+		val video = _self.selectVideo
 		println("######################" + video)
 		_self.video(video)
-		_self.super_initialize()
+		_self.super_initialize
 	}
 	
 	/**
@@ -217,10 +215,18 @@ class AlternativesAspect extends SequenceAspect {
 	@Step
 	@OverrideAspectMethod
 	def public void process() {
-		_self.current = true
-		if (_self.active) {
+		if (_self.active && !_self.done) {
 			println("##### Alternatives '" + _self.name + "' is been processed.")
+			_self.video(_self.selectVideo)
 			_self.video.select
+			// Manage optional next sequence
+			_self.options.forEach[option | 
+				if (option.video == _self.video && option.nextSequence != null) {
+					option.nextSequence.process
+					// Call of nextSequence.process will not be called in super
+					_self.callNextSequence = false
+				}
+			]
 		}
 		_self.super_process()
 	}
@@ -270,12 +276,11 @@ class MandatoryAspect extends SequenceAspect {
 	@Step
 	@OverrideAspectMethod
 	def public void process() {
-		_self.current = true
-		if (_self.active) {
+		if (_self.active && !_self.done) {
 			println("##### Mandatory '" + _self.name + "' is been processed.")
 			_self.video.select
 		}
-		_self.nextSequence.process
+		_self.super_process
 	}
 }
 
@@ -307,8 +312,7 @@ class OptionalAspect extends SequenceAspect {
 	@Step
 	@OverrideAspectMethod
 	def public void process() {
-		_self.current = true
-		if (_self.active) {
+		if (_self.active && !_self.done) {
 			println("##### Optional '" + _self.name + "' is been processed.")
 			if (_self.isSelected()) {
 				_self.video.select
@@ -333,12 +337,12 @@ class ConclusionAspect extends SequenceAspect {
 		
 		println("##### Videos computation result in playlist format : ")
 		//TODO: re-implement the initial IDM project model transformation. See master branch package 'fr.nemomen.utils'.
-		VideoGenHelper.allSelectedVideos(_self.videogen).forEach[video |
+		VideoGenHelper.allSelectedVideos(_self.videoGen).forEach[video |
 			println("\t" + video.name + ": " + video.url)
 			videos.put(video.name, true)
 		]
 		// TODO: Manage model transformation here
-		println(VideoGenTransform.toM3U(_self.videogen, true, videos))
+		println(VideoGenTransform.toM3U(_self.videoGen, true, videos))
 	}
 	
 }
@@ -346,9 +350,15 @@ class ConclusionAspect extends SequenceAspect {
 @Aspect(className=Video)
 class VideoAspect {
 	
+	public Boolean selected = false
+	
+	/**
+	 * Select this video and apply any of needed operations (conversion or rename for example)
+	 * 
+	 */
 	def public void select() {
+		println("##### Video '" + _self.url + "' has been selected.")
 		_self.selected = true
-		println("##### Video '" + _self.name + "' has been selected.")
 	}
 }
 

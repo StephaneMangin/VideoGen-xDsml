@@ -28,8 +28,8 @@ public class ConclusionAspect extends SequenceAspect {
     String _plus_1 = (_plus + "\' start computation.");
     InputOutput.<String>println(_plus_1);
     InputOutput.<String>println("##### Videos computation result in playlist format : ");
-    VideoGen _videogen = _self.getVideogen();
-    List<Video> _allSelectedVideos = VideoGenHelper.allSelectedVideos(_videogen);
+    VideoGen _videoGen = _self.getVideoGen();
+    List<Video> _allSelectedVideos = VideoGenHelper.allSelectedVideos(_videoGen);
     final Consumer<Video> _function = (Video video) -> {
       String _name_1 = video.getName();
       String _plus_2 = ("\t" + _name_1);
@@ -41,8 +41,8 @@ public class ConclusionAspect extends SequenceAspect {
       videos.put(_name_2, Boolean.valueOf(true));
     };
     _allSelectedVideos.forEach(_function);
-    VideoGen _videogen_1 = _self.getVideogen();
-    String _m3U = VideoGenTransform.toM3U(_videogen_1, Boolean.valueOf(true), videos);
+    VideoGen _videoGen_1 = _self.getVideoGen();
+    String _m3U = VideoGenTransform.toM3U(_videoGen_1, Boolean.valueOf(true), videos);
     InputOutput.<String>println(_m3U);
   }
 }

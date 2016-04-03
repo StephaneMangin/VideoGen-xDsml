@@ -3,13 +3,9 @@
 package org.irisa.diverse.videogen.videoGen.impl;
 
 import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.irisa.diverse.videogen.videoGen.Conclusion;
 import org.irisa.diverse.videogen.videoGen.Sequence;
 import org.irisa.diverse.videogen.videoGen.Video;
@@ -24,9 +20,9 @@ import org.irisa.diverse.videogen.videoGen.VideoGenPackage;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.irisa.diverse.videogen.videoGen.impl.ConclusionImpl#getNextSequence <em>Next Sequence</em>}</li>
- *   <li>{@link org.irisa.diverse.videogen.videoGen.impl.ConclusionImpl#isActive <em>Active</em>}</li>
  *   <li>{@link org.irisa.diverse.videogen.videoGen.impl.ConclusionImpl#getVideo <em>Video</em>}</li>
- *   <li>{@link org.irisa.diverse.videogen.videoGen.impl.ConclusionImpl#getVideogen <em>Videogen</em>}</li>
+ *   <li>{@link org.irisa.diverse.videogen.videoGen.impl.ConclusionImpl#getActive <em>Active</em>}</li>
+ *   <li>{@link org.irisa.diverse.videogen.videoGen.impl.ConclusionImpl#getVideoGen <em>Video Gen</em>}</li>
  * </ul>
  * </p>
  *
@@ -44,26 +40,6 @@ public class ConclusionImpl extends NamedElementImpl implements Conclusion {
 	protected Sequence nextSequence;
 
 	/**
-	 * The default value of the '{@link #isActive() <em>Active</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isActive()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final boolean ACTIVE_EDEFAULT = true;
-
-	/**
-	 * The cached value of the '{@link #isActive() <em>Active</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isActive()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean active = ACTIVE_EDEFAULT;
-
-	/**
 	 * The cached value of the '{@link #getVideo() <em>Video</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -74,14 +50,34 @@ public class ConclusionImpl extends NamedElementImpl implements Conclusion {
 	protected Video video;
 
 	/**
-	 * The cached value of the '{@link #getVideogen() <em>Videogen</em>}' reference.
+	 * The default value of the '{@link #getActive() <em>Active</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getVideogen()
+	 * @see #getActive()
 	 * @generated
 	 * @ordered
 	 */
-	protected VideoGen videogen;
+	protected static final Boolean ACTIVE_EDEFAULT = Boolean.TRUE;
+
+	/**
+	 * The cached value of the '{@link #getActive() <em>Active</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getActive()
+	 * @generated
+	 * @ordered
+	 */
+	protected Boolean active = ACTIVE_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getVideoGen() <em>Video Gen</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getVideoGen()
+	 * @generated
+	 * @ordered
+	 */
+	protected VideoGen videoGen;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -145,27 +141,6 @@ public class ConclusionImpl extends NamedElementImpl implements Conclusion {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean isActive() {
-		return active;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setActive(boolean newActive) {
-		boolean oldActive = active;
-		active = newActive;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, VideoGenPackage.CONCLUSION__ACTIVE, oldActive, active));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Video getVideo() {
 		if (video != null && video.eIsProxy()) {
 			InternalEObject oldVideo = (InternalEObject)video;
@@ -204,16 +179,37 @@ public class ConclusionImpl extends NamedElementImpl implements Conclusion {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public VideoGen getVideogen() {
-		if (videogen != null && videogen.eIsProxy()) {
-			InternalEObject oldVideogen = (InternalEObject)videogen;
-			videogen = (VideoGen)eResolveProxy(oldVideogen);
-			if (videogen != oldVideogen) {
+	public Boolean getActive() {
+		return active;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setActive(Boolean newActive) {
+		Boolean oldActive = active;
+		active = newActive;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, VideoGenPackage.CONCLUSION__ACTIVE, oldActive, active));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public VideoGen getVideoGen() {
+		if (videoGen != null && videoGen.eIsProxy()) {
+			InternalEObject oldVideoGen = (InternalEObject)videoGen;
+			videoGen = (VideoGen)eResolveProxy(oldVideoGen);
+			if (videoGen != oldVideoGen) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, VideoGenPackage.CONCLUSION__VIDEOGEN, oldVideogen, videogen));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, VideoGenPackage.CONCLUSION__VIDEO_GEN, oldVideoGen, videoGen));
 			}
 		}
-		return videogen;
+		return videoGen;
 	}
 
 	/**
@@ -221,8 +217,8 @@ public class ConclusionImpl extends NamedElementImpl implements Conclusion {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public VideoGen basicGetVideogen() {
-		return videogen;
+	public VideoGen basicGetVideoGen() {
+		return videoGen;
 	}
 
 	/**
@@ -230,63 +226,11 @@ public class ConclusionImpl extends NamedElementImpl implements Conclusion {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetVideogen(VideoGen newVideogen, NotificationChain msgs) {
-		VideoGen oldVideogen = videogen;
-		videogen = newVideogen;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, VideoGenPackage.CONCLUSION__VIDEOGEN, oldVideogen, newVideogen);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setVideogen(VideoGen newVideogen) {
-		if (newVideogen != videogen) {
-			NotificationChain msgs = null;
-			if (videogen != null)
-				msgs = ((InternalEObject)videogen).eInverseRemove(this, VideoGenPackage.VIDEO_GEN__CONCLUSION, VideoGen.class, msgs);
-			if (newVideogen != null)
-				msgs = ((InternalEObject)newVideogen).eInverseAdd(this, VideoGenPackage.VIDEO_GEN__CONCLUSION, VideoGen.class, msgs);
-			msgs = basicSetVideogen(newVideogen, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, VideoGenPackage.CONCLUSION__VIDEOGEN, newVideogen, newVideogen));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case VideoGenPackage.CONCLUSION__VIDEOGEN:
-				if (videogen != null)
-					msgs = ((InternalEObject)videogen).eInverseRemove(this, VideoGenPackage.VIDEO_GEN__CONCLUSION, VideoGen.class, msgs);
-				return basicSetVideogen((VideoGen)otherEnd, msgs);
-		}
-		return super.eInverseAdd(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case VideoGenPackage.CONCLUSION__VIDEOGEN:
-				return basicSetVideogen(null, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
+	public void setVideoGen(VideoGen newVideoGen) {
+		VideoGen oldVideoGen = videoGen;
+		videoGen = newVideoGen;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, VideoGenPackage.CONCLUSION__VIDEO_GEN, oldVideoGen, videoGen));
 	}
 
 	/**
@@ -300,14 +244,14 @@ public class ConclusionImpl extends NamedElementImpl implements Conclusion {
 			case VideoGenPackage.CONCLUSION__NEXT_SEQUENCE:
 				if (resolve) return getNextSequence();
 				return basicGetNextSequence();
-			case VideoGenPackage.CONCLUSION__ACTIVE:
-				return isActive();
 			case VideoGenPackage.CONCLUSION__VIDEO:
 				if (resolve) return getVideo();
 				return basicGetVideo();
-			case VideoGenPackage.CONCLUSION__VIDEOGEN:
-				if (resolve) return getVideogen();
-				return basicGetVideogen();
+			case VideoGenPackage.CONCLUSION__ACTIVE:
+				return getActive();
+			case VideoGenPackage.CONCLUSION__VIDEO_GEN:
+				if (resolve) return getVideoGen();
+				return basicGetVideoGen();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -323,14 +267,14 @@ public class ConclusionImpl extends NamedElementImpl implements Conclusion {
 			case VideoGenPackage.CONCLUSION__NEXT_SEQUENCE:
 				setNextSequence((Sequence)newValue);
 				return;
-			case VideoGenPackage.CONCLUSION__ACTIVE:
-				setActive((Boolean)newValue);
-				return;
 			case VideoGenPackage.CONCLUSION__VIDEO:
 				setVideo((Video)newValue);
 				return;
-			case VideoGenPackage.CONCLUSION__VIDEOGEN:
-				setVideogen((VideoGen)newValue);
+			case VideoGenPackage.CONCLUSION__ACTIVE:
+				setActive((Boolean)newValue);
+				return;
+			case VideoGenPackage.CONCLUSION__VIDEO_GEN:
+				setVideoGen((VideoGen)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -347,14 +291,14 @@ public class ConclusionImpl extends NamedElementImpl implements Conclusion {
 			case VideoGenPackage.CONCLUSION__NEXT_SEQUENCE:
 				setNextSequence((Sequence)null);
 				return;
-			case VideoGenPackage.CONCLUSION__ACTIVE:
-				setActive(ACTIVE_EDEFAULT);
-				return;
 			case VideoGenPackage.CONCLUSION__VIDEO:
 				setVideo((Video)null);
 				return;
-			case VideoGenPackage.CONCLUSION__VIDEOGEN:
-				setVideogen((VideoGen)null);
+			case VideoGenPackage.CONCLUSION__ACTIVE:
+				setActive(ACTIVE_EDEFAULT);
+				return;
+			case VideoGenPackage.CONCLUSION__VIDEO_GEN:
+				setVideoGen((VideoGen)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -370,12 +314,12 @@ public class ConclusionImpl extends NamedElementImpl implements Conclusion {
 		switch (featureID) {
 			case VideoGenPackage.CONCLUSION__NEXT_SEQUENCE:
 				return nextSequence != null;
-			case VideoGenPackage.CONCLUSION__ACTIVE:
-				return active != ACTIVE_EDEFAULT;
 			case VideoGenPackage.CONCLUSION__VIDEO:
 				return video != null;
-			case VideoGenPackage.CONCLUSION__VIDEOGEN:
-				return videogen != null;
+			case VideoGenPackage.CONCLUSION__ACTIVE:
+				return ACTIVE_EDEFAULT == null ? active != null : !ACTIVE_EDEFAULT.equals(active);
+			case VideoGenPackage.CONCLUSION__VIDEO_GEN:
+				return videoGen != null;
 		}
 		return super.eIsSet(featureID);
 	}

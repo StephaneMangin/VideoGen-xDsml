@@ -75,9 +75,16 @@ public class OptionalAspect extends SequenceAspect {
   }
   
   protected static void _privk3_process(final OptionalAspectOptionalAspectProperties _self_, final Optional _self) {
-    SequenceAspect.current(_self, Boolean.valueOf(true));
-    boolean _isActive = _self.isActive();
-    if (_isActive) {
+    boolean _and = false;
+    Boolean _active = _self.getActive();
+    if (!(_active).booleanValue()) {
+      _and = false;
+    } else {
+      Boolean _done = SequenceAspect.done(_self);
+      boolean _not = (!(_done).booleanValue());
+      _and = _not;
+    }
+    if (_and) {
       String _name = _self.getName();
       String _plus = ("##### Optional \'" + _name);
       String _plus_1 = (_plus + "\' is been processed.");

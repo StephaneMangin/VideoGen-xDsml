@@ -31,8 +31,8 @@ import org.irisa.diverse.videogen.videoGen.VideoGenPackage;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.irisa.diverse.videogen.videoGen.impl.AlternativesImpl#getNextSequence <em>Next Sequence</em>}</li>
- *   <li>{@link org.irisa.diverse.videogen.videoGen.impl.AlternativesImpl#isActive <em>Active</em>}</li>
  *   <li>{@link org.irisa.diverse.videogen.videoGen.impl.AlternativesImpl#getVideo <em>Video</em>}</li>
+ *   <li>{@link org.irisa.diverse.videogen.videoGen.impl.AlternativesImpl#getActive <em>Active</em>}</li>
  *   <li>{@link org.irisa.diverse.videogen.videoGen.impl.AlternativesImpl#getOptions <em>Options</em>}</li>
  * </ul>
  * </p>
@@ -51,26 +51,6 @@ public class AlternativesImpl extends NamedElementImpl implements Alternatives {
 	protected Sequence nextSequence;
 
 	/**
-	 * The default value of the '{@link #isActive() <em>Active</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isActive()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final boolean ACTIVE_EDEFAULT = true;
-
-	/**
-	 * The cached value of the '{@link #isActive() <em>Active</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isActive()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean active = ACTIVE_EDEFAULT;
-
-	/**
 	 * The cached value of the '{@link #getVideo() <em>Video</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -79,6 +59,26 @@ public class AlternativesImpl extends NamedElementImpl implements Alternatives {
 	 * @ordered
 	 */
 	protected Video video;
+
+	/**
+	 * The default value of the '{@link #getActive() <em>Active</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getActive()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Boolean ACTIVE_EDEFAULT = Boolean.TRUE;
+
+	/**
+	 * The cached value of the '{@link #getActive() <em>Active</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getActive()
+	 * @generated
+	 * @ordered
+	 */
+	protected Boolean active = ACTIVE_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getOptions() <em>Options</em>}' containment reference list.
@@ -152,27 +152,6 @@ public class AlternativesImpl extends NamedElementImpl implements Alternatives {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean isActive() {
-		return active;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setActive(boolean newActive) {
-		boolean oldActive = active;
-		active = newActive;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, VideoGenPackage.ALTERNATIVES__ACTIVE, oldActive, active));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Video getVideo() {
 		if (video != null && video.eIsProxy()) {
 			InternalEObject oldVideo = (InternalEObject)video;
@@ -204,6 +183,27 @@ public class AlternativesImpl extends NamedElementImpl implements Alternatives {
 		video = newVideo;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, VideoGenPackage.ALTERNATIVES__VIDEO, oldVideo, video));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Boolean getActive() {
+		return active;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setActive(Boolean newActive) {
+		Boolean oldActive = active;
+		active = newActive;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, VideoGenPackage.ALTERNATIVES__ACTIVE, oldActive, active));
 	}
 
 	/**
@@ -243,11 +243,11 @@ public class AlternativesImpl extends NamedElementImpl implements Alternatives {
 			case VideoGenPackage.ALTERNATIVES__NEXT_SEQUENCE:
 				if (resolve) return getNextSequence();
 				return basicGetNextSequence();
-			case VideoGenPackage.ALTERNATIVES__ACTIVE:
-				return isActive();
 			case VideoGenPackage.ALTERNATIVES__VIDEO:
 				if (resolve) return getVideo();
 				return basicGetVideo();
+			case VideoGenPackage.ALTERNATIVES__ACTIVE:
+				return getActive();
 			case VideoGenPackage.ALTERNATIVES__OPTIONS:
 				return getOptions();
 		}
@@ -266,11 +266,11 @@ public class AlternativesImpl extends NamedElementImpl implements Alternatives {
 			case VideoGenPackage.ALTERNATIVES__NEXT_SEQUENCE:
 				setNextSequence((Sequence)newValue);
 				return;
-			case VideoGenPackage.ALTERNATIVES__ACTIVE:
-				setActive((Boolean)newValue);
-				return;
 			case VideoGenPackage.ALTERNATIVES__VIDEO:
 				setVideo((Video)newValue);
+				return;
+			case VideoGenPackage.ALTERNATIVES__ACTIVE:
+				setActive((Boolean)newValue);
 				return;
 			case VideoGenPackage.ALTERNATIVES__OPTIONS:
 				getOptions().clear();
@@ -291,11 +291,11 @@ public class AlternativesImpl extends NamedElementImpl implements Alternatives {
 			case VideoGenPackage.ALTERNATIVES__NEXT_SEQUENCE:
 				setNextSequence((Sequence)null);
 				return;
-			case VideoGenPackage.ALTERNATIVES__ACTIVE:
-				setActive(ACTIVE_EDEFAULT);
-				return;
 			case VideoGenPackage.ALTERNATIVES__VIDEO:
 				setVideo((Video)null);
+				return;
+			case VideoGenPackage.ALTERNATIVES__ACTIVE:
+				setActive(ACTIVE_EDEFAULT);
 				return;
 			case VideoGenPackage.ALTERNATIVES__OPTIONS:
 				getOptions().clear();
@@ -314,10 +314,10 @@ public class AlternativesImpl extends NamedElementImpl implements Alternatives {
 		switch (featureID) {
 			case VideoGenPackage.ALTERNATIVES__NEXT_SEQUENCE:
 				return nextSequence != null;
-			case VideoGenPackage.ALTERNATIVES__ACTIVE:
-				return active != ACTIVE_EDEFAULT;
 			case VideoGenPackage.ALTERNATIVES__VIDEO:
 				return video != null;
+			case VideoGenPackage.ALTERNATIVES__ACTIVE:
+				return ACTIVE_EDEFAULT == null ? active != null : !ACTIVE_EDEFAULT.equals(active);
 			case VideoGenPackage.ALTERNATIVES__OPTIONS:
 				return options != null && !options.isEmpty();
 		}

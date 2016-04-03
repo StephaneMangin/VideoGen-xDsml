@@ -51,7 +51,7 @@ public class VideoGenChecker {
       _builder.append("VideoGen {");
       String _plus = (_builder.toString() + "\n");
       this.result.append(_plus);
-      Sequence sequence = v.getIntroduction();
+      Sequence sequence = VideoGenHelper.getIntroduction(v);
       while ((sequence != null)) {
         {
           this.compile(sequence);

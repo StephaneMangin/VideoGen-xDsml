@@ -11,7 +11,7 @@ package org.irisa.diverse.videogen.videoGen;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.irisa.diverse.videogen.videoGen.Conclusion#getVideogen <em>Videogen</em>}</li>
+ *   <li>{@link org.irisa.diverse.videogen.videoGen.Conclusion#getVideoGen <em>Video Gen</em>}</li>
  * </ul>
  * </p>
  *
@@ -22,30 +22,28 @@ package org.irisa.diverse.videogen.videoGen;
 public interface Conclusion extends Sequence {
 
 	/**
-	 * Returns the value of the '<em><b>Videogen</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link org.irisa.diverse.videogen.videoGen.VideoGen#getConclusion <em>Conclusion</em>}'.
+	 * Returns the value of the '<em><b>Video Gen</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Videogen</em>' reference isn't clear,
+	 * If the meaning of the '<em>Video Gen</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Videogen</em>' reference.
-	 * @see #setVideogen(VideoGen)
-	 * @see org.irisa.diverse.videogen.videoGen.VideoGenPackage#getConclusion_Videogen()
-	 * @see org.irisa.diverse.videogen.videoGen.VideoGen#getConclusion
-	 * @model opposite="conclusion"
+	 * @return the value of the '<em>Video Gen</em>' reference.
+	 * @see #setVideoGen(VideoGen)
+	 * @see org.irisa.diverse.videogen.videoGen.VideoGenPackage#getConclusion_VideoGen()
+	 * @model required="true"
 	 * @generated
 	 */
-	VideoGen getVideogen();
+	VideoGen getVideoGen();
 
 	/**
-	 * Sets the value of the '{@link org.irisa.diverse.videogen.videoGen.Conclusion#getVideogen <em>Videogen</em>}' reference.
+	 * Sets the value of the '{@link org.irisa.diverse.videogen.videoGen.Conclusion#getVideoGen <em>Video Gen</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Videogen</em>' reference.
-	 * @see #getVideogen()
+	 * @param value the new value of the '<em>Video Gen</em>' reference.
+	 * @see #getVideoGen()
 	 * @generated
 	 */
-	void setVideogen(VideoGen value);
+	void setVideoGen(VideoGen value);
 } // Conclusion

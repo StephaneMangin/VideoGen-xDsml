@@ -193,24 +193,6 @@ public class VideoGenPackageImpl extends EPackageImpl implements VideoGenPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getVideoGen_Introduction() {
-		return (EReference)videoGenEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getVideoGen_Conclusion() {
-		return (EReference)videoGenEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getSequence() {
 		return sequenceEClass;
 	}
@@ -229,8 +211,8 @@ public class VideoGenPackageImpl extends EPackageImpl implements VideoGenPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSequence_Active() {
-		return (EAttribute)sequenceEClass.getEStructuralFeatures().get(1);
+	public EReference getSequence_Video() {
+		return (EReference)sequenceEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -238,8 +220,8 @@ public class VideoGenPackageImpl extends EPackageImpl implements VideoGenPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSequence_Video() {
-		return (EReference)sequenceEClass.getEStructuralFeatures().get(2);
+	public EAttribute getSequence_Active() {
+		return (EAttribute)sequenceEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -373,7 +355,7 @@ public class VideoGenPackageImpl extends EPackageImpl implements VideoGenPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getIntroduction_Videogen() {
+	public EReference getIntroduction_VideoGen() {
 		return (EReference)introductionEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -391,7 +373,7 @@ public class VideoGenPackageImpl extends EPackageImpl implements VideoGenPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getConclusion_Videogen() {
+	public EReference getConclusion_VideoGen() {
 		return (EReference)conclusionEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -435,13 +417,11 @@ public class VideoGenPackageImpl extends EPackageImpl implements VideoGenPackage
 		videoGenEClass = createEClass(VIDEO_GEN);
 		createEReference(videoGenEClass, VIDEO_GEN__SEQUENCES);
 		createEReference(videoGenEClass, VIDEO_GEN__VIDEOS);
-		createEReference(videoGenEClass, VIDEO_GEN__INTRODUCTION);
-		createEReference(videoGenEClass, VIDEO_GEN__CONCLUSION);
 
 		sequenceEClass = createEClass(SEQUENCE);
 		createEReference(sequenceEClass, SEQUENCE__NEXT_SEQUENCE);
-		createEAttribute(sequenceEClass, SEQUENCE__ACTIVE);
 		createEReference(sequenceEClass, SEQUENCE__VIDEO);
+		createEAttribute(sequenceEClass, SEQUENCE__ACTIVE);
 
 		alternativesEClass = createEClass(ALTERNATIVES);
 		createEReference(alternativesEClass, ALTERNATIVES__OPTIONS);
@@ -462,10 +442,10 @@ public class VideoGenPackageImpl extends EPackageImpl implements VideoGenPackage
 		createEAttribute(namedElementEClass, NAMED_ELEMENT__NAME);
 
 		introductionEClass = createEClass(INTRODUCTION);
-		createEReference(introductionEClass, INTRODUCTION__VIDEOGEN);
+		createEReference(introductionEClass, INTRODUCTION__VIDEO_GEN);
 
 		conclusionEClass = createEClass(CONCLUSION);
-		createEReference(conclusionEClass, CONCLUSION__VIDEOGEN);
+		createEReference(conclusionEClass, CONCLUSION__VIDEO_GEN);
 
 		// Create enums
 		mimetypes_EnumEEnum = createEEnum(MIMETYPES_ENUM);
@@ -512,13 +492,11 @@ public class VideoGenPackageImpl extends EPackageImpl implements VideoGenPackage
 		initEClass(videoGenEClass, VideoGen.class, "VideoGen", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getVideoGen_Sequences(), this.getSequence(), null, "sequences", null, 0, -1, VideoGen.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getVideoGen_Videos(), this.getVideo(), null, "videos", null, 0, -1, VideoGen.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getVideoGen_Introduction(), this.getIntroduction(), this.getIntroduction_Videogen(), "introduction", null, 0, 1, VideoGen.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getVideoGen_Conclusion(), this.getConclusion(), this.getConclusion_Videogen(), "conclusion", null, 0, 1, VideoGen.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(sequenceEClass, Sequence.class, "Sequence", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSequence_NextSequence(), this.getSequence(), null, "nextSequence", null, 0, 1, Sequence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSequence_Active(), ecorePackage.getEBoolean(), "active", "true", 0, 1, Sequence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSequence_Video(), this.getVideo(), null, "video", null, 0, 1, Sequence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSequence_Active(), ecorePackage.getEBooleanObject(), "active", "true", 1, 1, Sequence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(alternativesEClass, Alternatives.class, "Alternatives", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getAlternatives_Options(), this.getOptional(), null, "options", null, 0, -1, Alternatives.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -539,10 +517,10 @@ public class VideoGenPackageImpl extends EPackageImpl implements VideoGenPackage
 		initEAttribute(getNamedElement_Name(), ecorePackage.getEString(), "name", null, 1, 1, NamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(introductionEClass, Introduction.class, "Introduction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getIntroduction_Videogen(), this.getVideoGen(), this.getVideoGen_Introduction(), "videogen", null, 0, 1, Introduction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getIntroduction_VideoGen(), this.getVideoGen(), null, "videoGen", null, 1, 1, Introduction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(conclusionEClass, Conclusion.class, "Conclusion", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getConclusion_Videogen(), this.getVideoGen(), this.getVideoGen_Conclusion(), "videogen", null, 0, 1, Conclusion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getConclusion_VideoGen(), this.getVideoGen(), null, "videoGen", null, 1, 1, Conclusion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(mimetypes_EnumEEnum, Mimetypes_Enum.class, "Mimetypes_Enum");
@@ -557,25 +535,6 @@ public class VideoGenPackageImpl extends EPackageImpl implements VideoGenPackage
 
 		// Create resource
 		createResource(eNS_URI);
-
-		// Create annotations
-		// aspect
-		createAspectAnnotations();
-	}
-
-	/**
-	 * Initializes the annotations for <b>aspect</b>.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void createAspectAnnotations() {
-		String source = "aspect";	
-		addAnnotation
-		  (getVideo_Selected(), 
-		   source, 
-		   new String[] {
-		   });
 	}
 
 } //VideoGenPackageImpl

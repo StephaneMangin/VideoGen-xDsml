@@ -13,12 +13,40 @@ import org.irisa.diverse.videogen.videoGen.Sequence
 import org.irisa.diverse.videogen.videoGen.Introduction
 import org.irisa.diverse.videogen.videoGen.Conclusion
 import java.util.List
+import sun.security.jca.GetInstance.Instance
 
 /** 
  * @author Stéphane Mangin <stephane.mangin@freesbee.fr>
  * 
  */
 public class VideoGenHelper {
+	
+		
+	/**
+	 * Return the introduction as the main entry point
+	 * 
+	 */
+	def static Introduction getIntroduction(VideoGen videoGen) {
+		for (Sequence sequence : videoGen.sequences) { 
+			if (sequence instanceof Introduction) {
+				return sequence
+			}
+		}
+		null
+	}
+	
+	/**
+	 * Return the conclusion as the main end point
+	 * 
+	 */
+	def static Conclusion getConclusion(VideoGen videoGen) {
+		for (Sequence sequence : videoGen.sequences) { 
+			if (sequence instanceof Conclusion) {
+				return sequence
+			}
+		}
+		null
+	}
 	
  	/**
  	 * Return all sequences contained in a VideoGen instance
@@ -27,7 +55,7 @@ public class VideoGenHelper {
     def static List<Sequence> allSequences(VideoGen videoGen) {
 		val List<Sequence> sequences = new ArrayList<Sequence>
 			
-        var Sequence sequence = videoGen.introduction
+        var Sequence sequence = getIntroduction(videoGen)
         while (sequence !== null) {
 			sequences.add(sequence)
 			sequence = sequence.nextSequence
