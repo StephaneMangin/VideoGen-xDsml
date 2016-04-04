@@ -2,13 +2,15 @@ package org.irisa.diverse.videogen.videoGen.aspects;
 
 import fr.inria.diverse.k3.al.annotationprocessor.Aspect;
 import fr.inria.diverse.k3.al.annotationprocessor.Main;
+import fr.inria.diverse.k3.al.annotationprocessor.Step;
+import java.util.HashMap;
 import java.util.List;
 import java.util.function.Consumer;
 import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.InputOutput;
+import org.irisa.diverse.videogen.transformations.VideoGenTransform;
 import org.irisa.diverse.videogen.transformations.helpers.VideoGenHelper;
 import org.irisa.diverse.videogen.videoGen.Alternatives;
-import org.irisa.diverse.videogen.videoGen.Conclusion;
 import org.irisa.diverse.videogen.videoGen.Introduction;
 import org.irisa.diverse.videogen.videoGen.Mandatory;
 import org.irisa.diverse.videogen.videoGen.Optional;
@@ -16,7 +18,6 @@ import org.irisa.diverse.videogen.videoGen.Sequence;
 import org.irisa.diverse.videogen.videoGen.Video;
 import org.irisa.diverse.videogen.videoGen.VideoGen;
 import org.irisa.diverse.videogen.videoGen.aspects.AlternativesAspect;
-import org.irisa.diverse.videogen.videoGen.aspects.ConclusionAspect;
 import org.irisa.diverse.videogen.videoGen.aspects.SequenceAspect;
 import org.irisa.diverse.videogen.videoGen.aspects.VideoGenAspectVideoGenAspectProperties;
 import org.irisa.diverse.videogen.videoGen.aspects.exceptions.ConstraintsFailed;
@@ -66,33 +67,21 @@ public class VideoGenAspect {
     return (java.lang.Integer)result;
   }
   
+  @Step
   public static void setConstraints(final VideoGen _self, final Integer minDuration, final Integer maxDuration) {
-    org.irisa.diverse.videogen.videoGen.aspects.VideoGenAspectVideoGenAspectProperties _self_ = org.irisa.diverse.videogen.videoGen.aspects.VideoGenAspectVideoGenAspectContext.getSelf(_self);
-    _privk3_setConstraints(_self_, _self,minDuration,maxDuration);
-  }
-  
-  public static Integer minDurationConstraint(final VideoGen _self) {
-    org.irisa.diverse.videogen.videoGen.aspects.VideoGenAspectVideoGenAspectProperties _self_ = org.irisa.diverse.videogen.videoGen.aspects.VideoGenAspectVideoGenAspectContext.getSelf(_self);
-    Object result = null;
-    result =_privk3_minDurationConstraint(_self_, _self);
-    return (java.lang.Integer)result;
-  }
-  
-  public static void minDurationConstraint(final VideoGen _self, final Integer minDurationConstraint) {
-    org.irisa.diverse.videogen.videoGen.aspects.VideoGenAspectVideoGenAspectProperties _self_ = org.irisa.diverse.videogen.videoGen.aspects.VideoGenAspectVideoGenAspectContext.getSelf(_self);
-    _privk3_minDurationConstraint(_self_, _self,minDurationConstraint);
-  }
-  
-  public static Integer maxDurationConstraint(final VideoGen _self) {
-    org.irisa.diverse.videogen.videoGen.aspects.VideoGenAspectVideoGenAspectProperties _self_ = org.irisa.diverse.videogen.videoGen.aspects.VideoGenAspectVideoGenAspectContext.getSelf(_self);
-    Object result = null;
-    result =_privk3_maxDurationConstraint(_self_, _self);
-    return (java.lang.Integer)result;
-  }
-  
-  public static void maxDurationConstraint(final VideoGen _self, final Integer maxDurationConstraint) {
-    org.irisa.diverse.videogen.videoGen.aspects.VideoGenAspectVideoGenAspectProperties _self_ = org.irisa.diverse.videogen.videoGen.aspects.VideoGenAspectVideoGenAspectContext.getSelf(_self);
-    _privk3_maxDurationConstraint(_self_, _self,maxDurationConstraint);
+    fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand command = new fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand() {
+    	@Override
+    	public void execute() {
+    		org.irisa.diverse.videogen.videoGen.aspects.VideoGenAspectVideoGenAspectProperties _self_ = org.irisa.diverse.videogen.videoGen.aspects.VideoGenAspectVideoGenAspectContext.getSelf(_self);
+    		_privk3_setConstraints(_self_, _self,minDuration,maxDuration);
+    	}
+    };
+    fr.inria.diverse.k3.al.annotationprocessor.stepmanager.IStepManager manager = fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepManagerRegistry.getInstance().findStepManager(_self);
+    if (manager != null) {
+    	manager.executeStep(_self,command,"VideoGen","setConstraints");
+    } else {
+    	command.execute();
+    }
   }
   
   protected static void _privk3_initialize(final VideoGenAspectVideoGenAspectProperties _self_, final VideoGen _self) {
@@ -101,9 +90,8 @@ public class VideoGenAspect {
     String _plus_1 = (_plus + "\' has been initialized.");
     InputOutput.<String>println(_plus_1);
     Integer _computeMinDuration = VideoGenAspect.computeMinDuration(_self);
-    VideoGenAspect.minDurationConstraint(_self, _computeMinDuration);
     Integer _computeMaxDuration = VideoGenAspect.computeMaxDuration(_self);
-    VideoGenAspect.maxDurationConstraint(_self, _computeMaxDuration);
+    VideoGenAspect.setConstraints(_self, _computeMinDuration, _computeMaxDuration);
     List<Sequence> _allSequences = VideoGenHelper.allSequences(_self);
     final Consumer<Sequence> _function = (Sequence sequence) -> {
       SequenceAspect.initialize(sequence);
@@ -120,20 +108,38 @@ public class VideoGenAspect {
   
   protected static void _privk3_compute(final VideoGenAspectVideoGenAspectProperties _self_, final VideoGen _self) {
     try {
+      final HashMap<String, Boolean> videos = new HashMap<String, Boolean>();
+      String _name = _self.getName();
+      String _plus = ("##### VideoGen \'" + _name);
+      String _plus_1 = (_plus + "\' start computation.");
+      InputOutput.<String>println(_plus_1);
       Integer _computeMinDuration = VideoGenAspect.computeMinDuration(_self);
-      Integer _minDurationConstraint = VideoGenAspect.minDurationConstraint(_self);
+      Integer _minDurationConstraint = _self.getMinDurationConstraint();
       boolean _lessThan = (_computeMinDuration.compareTo(_minDurationConstraint) < 0);
       if (_lessThan) {
         throw new ConstraintsFailed(ConstraintsType.MIN_DURATION, Boolean.valueOf(true));
       }
       Integer _computeMaxDuration = VideoGenAspect.computeMaxDuration(_self);
-      Integer _maxDurationConstraint = VideoGenAspect.maxDurationConstraint(_self);
+      Integer _maxDurationConstraint = _self.getMaxDurationConstraint();
       boolean _greaterThan = (_computeMaxDuration.compareTo(_maxDurationConstraint) > 0);
       if (_greaterThan) {
         throw new ConstraintsFailed(ConstraintsType.MAX_DURATION, Boolean.valueOf(true));
       }
-      Conclusion _conclusion = VideoGenHelper.getConclusion(_self);
-      ConclusionAspect.compute(_conclusion);
+      InputOutput.<String>println("##### Videos computation result in playlist format : ");
+      List<Video> _allSelectedVideos = VideoGenHelper.allSelectedVideos(_self);
+      final Consumer<Video> _function = (Video video) -> {
+        String _name_1 = video.getName();
+        String _plus_2 = ("\t" + _name_1);
+        String _plus_3 = (_plus_2 + ": ");
+        String _url = video.getUrl();
+        String _plus_4 = (_plus_3 + _url);
+        InputOutput.<String>println(_plus_4);
+        String _name_2 = video.getName();
+        videos.put(_name_2, Boolean.valueOf(true));
+      };
+      _allSelectedVideos.forEach(_function);
+      String _m3U = VideoGenTransform.toM3U(_self, Boolean.valueOf(true), videos);
+      InputOutput.<String>println(_m3U);
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
     }
@@ -206,67 +212,7 @@ public class VideoGenAspect {
   }
   
   protected static void _privk3_setConstraints(final VideoGenAspectVideoGenAspectProperties _self_, final VideoGen _self, final Integer minDuration, final Integer maxDuration) {
-    VideoGenAspect.minDurationConstraint(_self, minDuration);
-    VideoGenAspect.maxDurationConstraint(_self, maxDuration);
-  }
-  
-  protected static Integer _privk3_minDurationConstraint(final VideoGenAspectVideoGenAspectProperties _self_, final VideoGen _self) {
-    try {
-    	for (java.lang.reflect.Method m : _self.getClass().getMethods()) {
-    		if (m.getName().equals("getMinDurationConstraint") &&
-    			m.getParameterTypes().length == 0) {
-    				Object ret = m.invoke(_self);
-    				if (ret != null) {
-    					return (java.lang.Integer) ret;
-    				}
-    		}
-    	}
-    } catch (Exception e) {
-    	// Chut !
-    }
-    return _self_.minDurationConstraint;
-  }
-  
-  protected static void _privk3_minDurationConstraint(final VideoGenAspectVideoGenAspectProperties _self_, final VideoGen _self, final Integer minDurationConstraint) {
-    _self_.minDurationConstraint = minDurationConstraint; try {
-    	for (java.lang.reflect.Method m : _self.getClass().getMethods()) {
-    		if (m.getName().equals("setMinDurationConstraint")
-    				&& m.getParameterTypes().length == 1) {
-    			m.invoke(_self, minDurationConstraint);
-    		}
-    	}
-    } catch (Exception e) {
-    	// Chut !
-    }
-  }
-  
-  protected static Integer _privk3_maxDurationConstraint(final VideoGenAspectVideoGenAspectProperties _self_, final VideoGen _self) {
-    try {
-    	for (java.lang.reflect.Method m : _self.getClass().getMethods()) {
-    		if (m.getName().equals("getMaxDurationConstraint") &&
-    			m.getParameterTypes().length == 0) {
-    				Object ret = m.invoke(_self);
-    				if (ret != null) {
-    					return (java.lang.Integer) ret;
-    				}
-    		}
-    	}
-    } catch (Exception e) {
-    	// Chut !
-    }
-    return _self_.maxDurationConstraint;
-  }
-  
-  protected static void _privk3_maxDurationConstraint(final VideoGenAspectVideoGenAspectProperties _self_, final VideoGen _self, final Integer maxDurationConstraint) {
-    _self_.maxDurationConstraint = maxDurationConstraint; try {
-    	for (java.lang.reflect.Method m : _self.getClass().getMethods()) {
-    		if (m.getName().equals("setMaxDurationConstraint")
-    				&& m.getParameterTypes().length == 1) {
-    			m.invoke(_self, maxDurationConstraint);
-    		}
-    	}
-    } catch (Exception e) {
-    	// Chut !
-    }
+    _self.setMinDurationConstraint(minDuration);
+    _self.setMaxDurationConstraint(maxDuration);
   }
 }

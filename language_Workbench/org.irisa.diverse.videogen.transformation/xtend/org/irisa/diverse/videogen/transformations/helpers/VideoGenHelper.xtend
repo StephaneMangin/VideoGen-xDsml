@@ -5,13 +5,15 @@ import java.util.Collection
 import java.util.HashMap
 import java.util.Map
 import org.irisa.diverse.videogen.videoGen.Alternatives
+import org.irisa.diverse.videogen.videoGen.Conclusion
+import org.irisa.diverse.videogen.videoGen.Introduction
 import org.irisa.diverse.videogen.videoGen.Mandatory
 import org.irisa.diverse.videogen.videoGen.Optional
 import org.irisa.diverse.videogen.videoGen.Video
 import org.irisa.diverse.videogen.videoGen.VideoGen
+import org.irisa.diverse.videogen.videoGen.impl.VideoGenFactoryImpl
+import org.irisa.diverse.videogen.videoGen.Mimetypes_Enum
 import org.irisa.diverse.videogen.videoGen.Sequence
-import org.irisa.diverse.videogen.videoGen.Introduction
-import org.irisa.diverse.videogen.videoGen.Conclusion
 import java.util.List
 import sun.security.jca.GetInstance.Instance
 

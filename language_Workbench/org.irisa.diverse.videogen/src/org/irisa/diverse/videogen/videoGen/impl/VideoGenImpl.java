@@ -3,12 +3,19 @@
 package org.irisa.diverse.videogen.videoGen.impl;
 
 import java.util.Collection;
+
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+
 import org.irisa.diverse.videogen.videoGen.Sequence;
 import org.irisa.diverse.videogen.videoGen.Video;
 import org.irisa.diverse.videogen.videoGen.VideoGen;
@@ -23,6 +30,8 @@ import org.irisa.diverse.videogen.videoGen.VideoGenPackage;
  * <ul>
  *   <li>{@link org.irisa.diverse.videogen.videoGen.impl.VideoGenImpl#getSequences <em>Sequences</em>}</li>
  *   <li>{@link org.irisa.diverse.videogen.videoGen.impl.VideoGenImpl#getVideos <em>Videos</em>}</li>
+ *   <li>{@link org.irisa.diverse.videogen.videoGen.impl.VideoGenImpl#getMinDurationConstraint <em>Min Duration Constraint</em>}</li>
+ *   <li>{@link org.irisa.diverse.videogen.videoGen.impl.VideoGenImpl#getMaxDurationConstraint <em>Max Duration Constraint</em>}</li>
  * </ul>
  * </p>
  *
@@ -48,6 +57,46 @@ public class VideoGenImpl extends NamedElementImpl implements VideoGen {
 	 * @ordered
 	 */
 	protected EList<Video> videos;
+
+	/**
+	 * The default value of the '{@link #getMinDurationConstraint() <em>Min Duration Constraint</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMinDurationConstraint()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Integer MIN_DURATION_CONSTRAINT_EDEFAULT = new Integer(0);
+
+	/**
+	 * The cached value of the '{@link #getMinDurationConstraint() <em>Min Duration Constraint</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMinDurationConstraint()
+	 * @generated
+	 * @ordered
+	 */
+	protected Integer minDurationConstraint = MIN_DURATION_CONSTRAINT_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getMaxDurationConstraint() <em>Max Duration Constraint</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMaxDurationConstraint()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Integer MAX_DURATION_CONSTRAINT_EDEFAULT = new Integer(0);
+
+	/**
+	 * The cached value of the '{@link #getMaxDurationConstraint() <em>Max Duration Constraint</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMaxDurationConstraint()
+	 * @generated
+	 * @ordered
+	 */
+	protected Integer maxDurationConstraint = MAX_DURATION_CONSTRAINT_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -97,6 +146,48 @@ public class VideoGenImpl extends NamedElementImpl implements VideoGen {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Integer getMinDurationConstraint() {
+		return minDurationConstraint;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMinDurationConstraint(Integer newMinDurationConstraint) {
+		Integer oldMinDurationConstraint = minDurationConstraint;
+		minDurationConstraint = newMinDurationConstraint;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, VideoGenPackage.VIDEO_GEN__MIN_DURATION_CONSTRAINT, oldMinDurationConstraint, minDurationConstraint));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Integer getMaxDurationConstraint() {
+		return maxDurationConstraint;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMaxDurationConstraint(Integer newMaxDurationConstraint) {
+		Integer oldMaxDurationConstraint = maxDurationConstraint;
+		maxDurationConstraint = newMaxDurationConstraint;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, VideoGenPackage.VIDEO_GEN__MAX_DURATION_CONSTRAINT, oldMaxDurationConstraint, maxDurationConstraint));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -120,6 +211,10 @@ public class VideoGenImpl extends NamedElementImpl implements VideoGen {
 				return getSequences();
 			case VideoGenPackage.VIDEO_GEN__VIDEOS:
 				return getVideos();
+			case VideoGenPackage.VIDEO_GEN__MIN_DURATION_CONSTRAINT:
+				return getMinDurationConstraint();
+			case VideoGenPackage.VIDEO_GEN__MAX_DURATION_CONSTRAINT:
+				return getMaxDurationConstraint();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -141,6 +236,12 @@ public class VideoGenImpl extends NamedElementImpl implements VideoGen {
 				getVideos().clear();
 				getVideos().addAll((Collection<? extends Video>)newValue);
 				return;
+			case VideoGenPackage.VIDEO_GEN__MIN_DURATION_CONSTRAINT:
+				setMinDurationConstraint((Integer)newValue);
+				return;
+			case VideoGenPackage.VIDEO_GEN__MAX_DURATION_CONSTRAINT:
+				setMaxDurationConstraint((Integer)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -159,6 +260,12 @@ public class VideoGenImpl extends NamedElementImpl implements VideoGen {
 			case VideoGenPackage.VIDEO_GEN__VIDEOS:
 				getVideos().clear();
 				return;
+			case VideoGenPackage.VIDEO_GEN__MIN_DURATION_CONSTRAINT:
+				setMinDurationConstraint(MIN_DURATION_CONSTRAINT_EDEFAULT);
+				return;
+			case VideoGenPackage.VIDEO_GEN__MAX_DURATION_CONSTRAINT:
+				setMaxDurationConstraint(MAX_DURATION_CONSTRAINT_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -175,8 +282,30 @@ public class VideoGenImpl extends NamedElementImpl implements VideoGen {
 				return sequences != null && !sequences.isEmpty();
 			case VideoGenPackage.VIDEO_GEN__VIDEOS:
 				return videos != null && !videos.isEmpty();
+			case VideoGenPackage.VIDEO_GEN__MIN_DURATION_CONSTRAINT:
+				return MIN_DURATION_CONSTRAINT_EDEFAULT == null ? minDurationConstraint != null : !MIN_DURATION_CONSTRAINT_EDEFAULT.equals(minDurationConstraint);
+			case VideoGenPackage.VIDEO_GEN__MAX_DURATION_CONSTRAINT:
+				return MAX_DURATION_CONSTRAINT_EDEFAULT == null ? maxDurationConstraint != null : !MAX_DURATION_CONSTRAINT_EDEFAULT.equals(maxDurationConstraint);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (minDurationConstraint: ");
+		result.append(minDurationConstraint);
+		result.append(", maxDurationConstraint: ");
+		result.append(maxDurationConstraint);
+		result.append(')');
+		return result.toString();
 	}
 
 } //VideoGenImpl

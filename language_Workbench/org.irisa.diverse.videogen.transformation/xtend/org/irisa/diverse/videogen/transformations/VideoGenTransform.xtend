@@ -3,26 +3,23 @@ package org.irisa.diverse.videogen.transformations
 import com.google.common.collect.Lists
 import java.nio.file.Path
 import java.nio.file.Paths
-import java.util.HashMap
 import java.util.Map
 import java.util.logging.Logger
-import org.irisa.diverse.videogen.transformations.helpers.SystemHelper
-import org.irisa.diverse.videogen.transformations.VideoCodec
-import org.irisa.diverse.videogen.videoGen.VideoGen
-import org.irisa.diverse.videogen.videoGen.Mandatory
-import org.irisa.diverse.videogen.videoGen.Optional
-import org.irisa.diverse.videogen.videoGen.Alternatives
-import org.irisa.diverse.videogen.videoGen.Video
-import org.irisa.diverse.videogen.transformations.utils.DistributedRandomNumberGenerator
 import org.irisa.diverse.playlist.PlayList.PlayList
 import org.irisa.diverse.playlist.PlayList.impl.PlayListFactoryImpl
-import org.irisa.diverse.videogen.videoGen.impl.VideoGenFactoryImpl
-import org.irisa.diverse.videogen.videoGen.Mimetypes_Enum
+import org.irisa.diverse.videogen.transformations.helpers.SystemHelper
 import org.irisa.diverse.videogen.transformations.helpers.VideoGenHelper
 import org.irisa.diverse.videogen.transformations.helpers.VideosHelper
-import org.irisa.diverse.videogen.videoGen.Sequence
-import org.irisa.diverse.videogen.videoGen.Introduction
+import org.irisa.diverse.videogen.transformations.utils.DistributedRandomNumberGenerator
+import org.irisa.diverse.videogen.videoGen.Alternatives
 import org.irisa.diverse.videogen.videoGen.Conclusion
+import org.irisa.diverse.videogen.videoGen.Introduction
+import org.irisa.diverse.videogen.videoGen.Mandatory
+import org.irisa.diverse.videogen.videoGen.Optional
+import org.irisa.diverse.videogen.videoGen.Video
+import org.irisa.diverse.videogen.videoGen.VideoGen
+import org.irisa.diverse.videogen.videoGen.impl.VideoGenFactoryImpl
+import org.irisa.diverse.videogen.videoGen.Mimetypes_Enum
 
 /**
  * Define some VideoGen transformation's specifications

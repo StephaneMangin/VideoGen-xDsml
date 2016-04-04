@@ -26,7 +26,7 @@ public enum Mimetypes_Enum implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	NONE(0, "none", "NONE"),
+	NONE(0, "none", "none"),
 
 	/**
 	 * The '<em><b>Mp4</b></em>' literal object.
@@ -36,7 +36,7 @@ public enum Mimetypes_Enum implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	MP4(1, "mp4", "MP4"),
+	MP4(1, "mp4", "mp4"),
 
 	/**
 	 * The '<em><b>Flv</b></em>' literal object.
@@ -46,7 +46,7 @@ public enum Mimetypes_Enum implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	FLV(2, "flv", "FLV"),
+	FLV(2, "flv", "flv"),
 
 	/**
 	 * The '<em><b>Mpegts</b></em>' literal object.
@@ -56,7 +56,7 @@ public enum Mimetypes_Enum implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	MPEGTS(3, "mpegts", "MPEGTS"),
+	MPEGTS(3, "mpegts", "mpegts"),
 
 	/**
 	 * The '<em><b>Mpeg</b></em>' literal object.
@@ -66,7 +66,7 @@ public enum Mimetypes_Enum implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	MPEG(4, "mpeg", "MPEG"),
+	MPEG(4, "mpeg", "mpeg"),
 
 	/**
 	 * The '<em><b>Webm</b></em>' literal object.
@@ -76,7 +76,7 @@ public enum Mimetypes_Enum implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	WEBM(5, "webm", "WEBM"),
+	WEBM(5, "webm", "webm"),
 
 	/**
 	 * The '<em><b>Wmv</b></em>' literal object.
@@ -86,7 +86,7 @@ public enum Mimetypes_Enum implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	WMV(6, "wmv", "WMV"),
+	WMV(6, "wmv", "wmv"),
 
 	/**
 	 * The '<em><b>Avi</b></em>' literal object.
@@ -96,7 +96,7 @@ public enum Mimetypes_Enum implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	AVI(7, "avi", "AVI");
+	AVI(7, "avi", "avi");
 
 	/**
 	 * The '<em><b>None</b></em>' literal value.
@@ -107,7 +107,7 @@ public enum Mimetypes_Enum implements Enumerator {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #NONE
-	 * @model name="none" literal="NONE"
+	 * @model name="none"
 	 * @generated
 	 * @ordered
 	 */
@@ -122,7 +122,7 @@ public enum Mimetypes_Enum implements Enumerator {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #MP4
-	 * @model name="mp4" literal="MP4"
+	 * @model name="mp4"
 	 * @generated
 	 * @ordered
 	 */
@@ -137,7 +137,7 @@ public enum Mimetypes_Enum implements Enumerator {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #FLV
-	 * @model name="flv" literal="FLV"
+	 * @model name="flv"
 	 * @generated
 	 * @ordered
 	 */
@@ -152,7 +152,7 @@ public enum Mimetypes_Enum implements Enumerator {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #MPEGTS
-	 * @model name="mpegts" literal="MPEGTS"
+	 * @model name="mpegts"
 	 * @generated
 	 * @ordered
 	 */
@@ -167,7 +167,7 @@ public enum Mimetypes_Enum implements Enumerator {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #MPEG
-	 * @model name="mpeg" literal="MPEG"
+	 * @model name="mpeg"
 	 * @generated
 	 * @ordered
 	 */
@@ -182,7 +182,7 @@ public enum Mimetypes_Enum implements Enumerator {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #WEBM
-	 * @model name="webm" literal="WEBM"
+	 * @model name="webm"
 	 * @generated
 	 * @ordered
 	 */
@@ -197,7 +197,7 @@ public enum Mimetypes_Enum implements Enumerator {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #WMV
-	 * @model name="wmv" literal="WMV"
+	 * @model name="wmv"
 	 * @generated
 	 * @ordered
 	 */
@@ -212,7 +212,7 @@ public enum Mimetypes_Enum implements Enumerator {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #AVI
-	 * @model name="avi" literal="AVI"
+	 * @model name="avi"
 	 * @generated
 	 * @ordered
 	 */

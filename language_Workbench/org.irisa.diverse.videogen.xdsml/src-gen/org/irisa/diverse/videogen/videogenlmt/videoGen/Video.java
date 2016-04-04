@@ -144,7 +144,7 @@ public interface Video extends NamedElement {
 	 * @return the value of the '<em>Selected</em>' attribute.
 	 * @see #setSelected(Boolean)
 	 * @see org.irisa.diverse.videogen.videogenlmt.videoGen.VideoGenPackage#getVideo_Selected()
-	 * @model default="false" required="true"
+	 * @model default="false"
 	 * @generated
 	 */
 	Boolean getSelected();
@@ -158,5 +158,13 @@ public interface Video extends NamedElement {
 	 * @generated
 	 */
 	void setSelected(Boolean value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void select();
 
 } // Video

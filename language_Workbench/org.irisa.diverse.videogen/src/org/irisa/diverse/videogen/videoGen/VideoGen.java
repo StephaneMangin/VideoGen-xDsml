@@ -14,6 +14,8 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link org.irisa.diverse.videogen.videoGen.VideoGen#getSequences <em>Sequences</em>}</li>
  *   <li>{@link org.irisa.diverse.videogen.videoGen.VideoGen#getVideos <em>Videos</em>}</li>
+ *   <li>{@link org.irisa.diverse.videogen.videoGen.VideoGen#getMinDurationConstraint <em>Min Duration Constraint</em>}</li>
+ *   <li>{@link org.irisa.diverse.videogen.videoGen.VideoGen#getMaxDurationConstraint <em>Max Duration Constraint</em>}</li>
  * </ul>
  * </p>
  *
@@ -53,5 +55,59 @@ public interface VideoGen extends NamedElement {
 	 * @generated
 	 */
 	EList<Video> getVideos();
+
+	/**
+	 * Returns the value of the '<em><b>Min Duration Constraint</b></em>' attribute.
+	 * The default value is <code>"0"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Min Duration Constraint</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Min Duration Constraint</em>' attribute.
+	 * @see #setMinDurationConstraint(Integer)
+	 * @see org.irisa.diverse.videogen.videoGen.VideoGenPackage#getVideoGen_MinDurationConstraint()
+	 * @model default="0" required="true"
+	 * @generated
+	 */
+	Integer getMinDurationConstraint();
+
+	/**
+	 * Sets the value of the '{@link org.irisa.diverse.videogen.videoGen.VideoGen#getMinDurationConstraint <em>Min Duration Constraint</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Min Duration Constraint</em>' attribute.
+	 * @see #getMinDurationConstraint()
+	 * @generated
+	 */
+	void setMinDurationConstraint(Integer value);
+
+	/**
+	 * Returns the value of the '<em><b>Max Duration Constraint</b></em>' attribute.
+	 * The default value is <code>"0"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Max Duration Constraint</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Max Duration Constraint</em>' attribute.
+	 * @see #setMaxDurationConstraint(Integer)
+	 * @see org.irisa.diverse.videogen.videoGen.VideoGenPackage#getVideoGen_MaxDurationConstraint()
+	 * @model default="0" required="true"
+	 * @generated
+	 */
+	Integer getMaxDurationConstraint();
+
+	/**
+	 * Sets the value of the '{@link org.irisa.diverse.videogen.videoGen.VideoGen#getMaxDurationConstraint <em>Max Duration Constraint</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Max Duration Constraint</em>' attribute.
+	 * @see #getMaxDurationConstraint()
+	 * @generated
+	 */
+	void setMaxDurationConstraint(Integer value);
 
 } // VideoGen

@@ -14,4 +14,12 @@ package org.irisa.diverse.videogen.videogenlmt.videoGen;
  * @generated
  */
 public interface Mandatory extends Sequence {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void process();
+
 } // Mandatory

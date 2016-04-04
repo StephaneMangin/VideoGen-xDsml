@@ -2,7 +2,6 @@ package org.irisa.diverse.videogen.videoGen.aspects;
 
 import fr.inria.diverse.k3.al.annotationprocessor.Aspect;
 import fr.inria.diverse.k3.al.annotationprocessor.OverrideAspectMethod;
-import fr.inria.diverse.k3.al.annotationprocessor.Step;
 import org.eclipse.xtext.xbase.lib.InputOutput;
 import org.irisa.diverse.videogen.videoGen.Mandatory;
 import org.irisa.diverse.videogen.videoGen.Video;
@@ -13,26 +12,14 @@ import org.irisa.diverse.videogen.videoGen.aspects.VideoAspect;
 @Aspect(className = Mandatory.class)
 @SuppressWarnings("all")
 public class MandatoryAspect extends SequenceAspect {
-  @Step
   @OverrideAspectMethod
   public static void process(final Mandatory _self) {
-    fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand command = new fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand() {
-    	@Override
-    	public void execute() {
-    		org.irisa.diverse.videogen.videoGen.aspects.MandatoryAspectMandatoryAspectProperties _self_ = org.irisa.diverse.videogen.videoGen.aspects.MandatoryAspectMandatoryAspectContext.getSelf(_self);
-    		 if (_self instanceof org.irisa.diverse.videogen.videoGen.Mandatory){
-    		 org.irisa.diverse.videogen.videoGen.aspects.MandatoryAspect._privk3_process(_self_, (org.irisa.diverse.videogen.videoGen.Mandatory)_self);
-    		} else  if (_self instanceof org.irisa.diverse.videogen.videoGen.Sequence){
-    		 org.irisa.diverse.videogen.videoGen.aspects.SequenceAspect.process((org.irisa.diverse.videogen.videoGen.Sequence)_self);
-    		} else  { throw new IllegalArgumentException("Unhandled parameter types: " + java.util.Arrays.<Object>asList(_self).toString()); };
-    	}
-    };
-    fr.inria.diverse.k3.al.annotationprocessor.stepmanager.IStepManager manager = fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepManagerRegistry.getInstance().findStepManager(_self);
-    if (manager != null) {
-    	manager.executeStep(_self,command,"Mandatory","process");
-    } else {
-    	command.execute();
-    }
+    org.irisa.diverse.videogen.videoGen.aspects.MandatoryAspectMandatoryAspectProperties _self_ = org.irisa.diverse.videogen.videoGen.aspects.MandatoryAspectMandatoryAspectContext.getSelf(_self);
+     if (_self instanceof org.irisa.diverse.videogen.videoGen.Mandatory){
+     org.irisa.diverse.videogen.videoGen.aspects.MandatoryAspect._privk3_process(_self_, (org.irisa.diverse.videogen.videoGen.Mandatory)_self);
+    } else  if (_self instanceof org.irisa.diverse.videogen.videoGen.Sequence){
+     org.irisa.diverse.videogen.videoGen.aspects.SequenceAspect.process((org.irisa.diverse.videogen.videoGen.Sequence)_self);
+    } else  { throw new IllegalArgumentException("Unhandled parameter types: " + java.util.Arrays.<Object>asList(_self).toString()); };
   }
   
   private static void super_process(final Mandatory _self) {

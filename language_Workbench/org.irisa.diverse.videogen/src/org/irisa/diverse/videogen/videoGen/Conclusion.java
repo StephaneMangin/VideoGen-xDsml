@@ -20,7 +20,6 @@ package org.irisa.diverse.videogen.videoGen;
  * @generated
  */
 public interface Conclusion extends Sequence {
-
 	/**
 	 * Returns the value of the '<em><b>Video Gen</b></em>' reference.
 	 * <!-- begin-user-doc -->
@@ -46,4 +45,5 @@ public interface Conclusion extends Sequence {
 	 * @generated
 	 */
 	void setVideoGen(VideoGen value);
+
 } // Conclusion

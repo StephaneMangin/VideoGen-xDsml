@@ -16,7 +16,7 @@ Require-Bundle: org.eclipse.core.runtime,
  com.google.guava,
  org.eclipse.xtend.lib,
  org.eclipse.xtend.lib.macro,
- org.irisa.diverse.videogen;bundle-version="1.0.0",
- org.irisa.diverse.playlist;bundle-version="0.1.0"
+ org.irisa.diverse.playlist;bundle-version="0.1.0",
+ org.irisa.diverse.videogen;bundle-version="1.0.0"
 Bundle-ActivationPolicy: lazy
 

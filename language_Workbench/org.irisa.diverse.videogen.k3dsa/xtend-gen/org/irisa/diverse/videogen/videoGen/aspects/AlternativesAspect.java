@@ -29,14 +29,26 @@ public class AlternativesAspect extends SequenceAspect {
   /**
    * Populate the video relation with selected optional video
    */
+  @Step
   @OverrideAspectMethod
   public static void initialize(final Alternatives _self) {
-    org.irisa.diverse.videogen.videoGen.aspects.AlternativesAspectAlternativesAspectProperties _self_ = org.irisa.diverse.videogen.videoGen.aspects.AlternativesAspectAlternativesAspectContext.getSelf(_self);
-     if (_self instanceof org.irisa.diverse.videogen.videoGen.Alternatives){
-     org.irisa.diverse.videogen.videoGen.aspects.AlternativesAspect._privk3_initialize(_self_, (org.irisa.diverse.videogen.videoGen.Alternatives)_self);
-    } else  if (_self instanceof org.irisa.diverse.videogen.videoGen.Sequence){
-     org.irisa.diverse.videogen.videoGen.aspects.SequenceAspect.initialize((org.irisa.diverse.videogen.videoGen.Sequence)_self);
-    } else  { throw new IllegalArgumentException("Unhandled parameter types: " + java.util.Arrays.<Object>asList(_self).toString()); };
+    fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand command = new fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand() {
+    	@Override
+    	public void execute() {
+    		org.irisa.diverse.videogen.videoGen.aspects.AlternativesAspectAlternativesAspectProperties _self_ = org.irisa.diverse.videogen.videoGen.aspects.AlternativesAspectAlternativesAspectContext.getSelf(_self);
+    		 if (_self instanceof org.irisa.diverse.videogen.videoGen.Alternatives){
+    		 org.irisa.diverse.videogen.videoGen.aspects.AlternativesAspect._privk3_initialize(_self_, (org.irisa.diverse.videogen.videoGen.Alternatives)_self);
+    		} else  if (_self instanceof org.irisa.diverse.videogen.videoGen.Sequence){
+    		 org.irisa.diverse.videogen.videoGen.aspects.SequenceAspect.initialize((org.irisa.diverse.videogen.videoGen.Sequence)_self);
+    		} else  { throw new IllegalArgumentException("Unhandled parameter types: " + java.util.Arrays.<Object>asList(_self).toString()); };
+    	}
+    };
+    fr.inria.diverse.k3.al.annotationprocessor.stepmanager.IStepManager manager = fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepManagerRegistry.getInstance().findStepManager(_self);
+    if (manager != null) {
+    	manager.executeStep(_self,command,"Alternatives","initialize");
+    } else {
+    	command.execute();
+    }
   }
   
   /**
@@ -103,18 +115,6 @@ public class AlternativesAspect extends SequenceAspect {
     return (java.lang.Integer)result;
   }
   
-  public static Video video(final Alternatives _self) {
-    org.irisa.diverse.videogen.videoGen.aspects.AlternativesAspectAlternativesAspectProperties _self_ = org.irisa.diverse.videogen.videoGen.aspects.AlternativesAspectAlternativesAspectContext.getSelf(_self);
-    Object result = null;
-    result =_privk3_video(_self_, _self);
-    return (org.irisa.diverse.videogen.videoGen.Video)result;
-  }
-  
-  public static void video(final Alternatives _self, final Video video) {
-    org.irisa.diverse.videogen.videoGen.aspects.AlternativesAspectAlternativesAspectProperties _self_ = org.irisa.diverse.videogen.videoGen.aspects.AlternativesAspectAlternativesAspectContext.getSelf(_self);
-    _privk3_video(_self_, _self,video);
-  }
-  
   private static void super_initialize(final Alternatives _self) {
     org.irisa.diverse.videogen.videoGen.aspects.SequenceAspectSequenceAspectProperties _self_ = org.irisa.diverse.videogen.videoGen.aspects.SequenceAspectSequenceAspectContext.getSelf(_self);
      org.irisa.diverse.videogen.videoGen.aspects.SequenceAspect._privk3_initialize(_self_, _self);
@@ -122,8 +122,13 @@ public class AlternativesAspect extends SequenceAspect {
   
   protected static void _privk3_initialize(final AlternativesAspectAlternativesAspectProperties _self_, final Alternatives _self) {
     final Video video = AlternativesAspect.selectVideo(_self);
-    InputOutput.<String>println(("######################" + video));
-    AlternativesAspect.video(_self, video);
+    String _name = _self.getName();
+    String _plus = ("##### Alternatives " + _name);
+    String _plus_1 = (_plus + " video selected: ");
+    String _name_1 = video.getName();
+    String _plus_2 = (_plus_1 + _name_1);
+    InputOutput.<String>println(_plus_2);
+    _self.setVideo(video);
     AlternativesAspect.super_initialize(_self);
   }
   
@@ -211,7 +216,7 @@ public class AlternativesAspect extends SequenceAspect {
       String _plus_1 = (_plus + "\' is been processed.");
       InputOutput.<String>println(_plus_1);
       Video _selectVideo = AlternativesAspect.selectVideo(_self);
-      AlternativesAspect.video(_self, _selectVideo);
+      _self.setVideo(_selectVideo);
       Video _video = _self.getVideo();
       VideoAspect.select(_video);
       EList<Optional> _options = _self.getOptions();
@@ -294,35 +299,5 @@ public class AlternativesAspect extends SequenceAspect {
       _xblockexpression = min;
     }
     return _xblockexpression;
-  }
-  
-  protected static Video _privk3_video(final AlternativesAspectAlternativesAspectProperties _self_, final Alternatives _self) {
-    try {
-    	for (java.lang.reflect.Method m : _self.getClass().getMethods()) {
-    		if (m.getName().equals("getVideo") &&
-    			m.getParameterTypes().length == 0) {
-    				Object ret = m.invoke(_self);
-    				if (ret != null) {
-    					return (org.irisa.diverse.videogen.videoGen.Video) ret;
-    				}
-    		}
-    	}
-    } catch (Exception e) {
-    	// Chut !
-    }
-    return _self_.video;
-  }
-  
-  protected static void _privk3_video(final AlternativesAspectAlternativesAspectProperties _self_, final Alternatives _self, final Video video) {
-    _self_.video = video; try {
-    	for (java.lang.reflect.Method m : _self.getClass().getMethods()) {
-    		if (m.getName().equals("setVideo")
-    				&& m.getParameterTypes().length == 1) {
-    			m.invoke(_self, video);
-    		}
-    	}
-    } catch (Exception e) {
-    	// Chut !
-    }
   }
 }

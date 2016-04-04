@@ -1,6 +1,7 @@
 package org.irisa.diverse.videogen.videoGen.aspects;
 
 import fr.inria.diverse.k3.al.annotationprocessor.Aspect;
+import fr.inria.diverse.k3.al.annotationprocessor.Step;
 import org.eclipse.xtext.xbase.lib.InputOutput;
 import org.irisa.diverse.videogen.videoGen.Video;
 import org.irisa.diverse.videogen.videoGen.aspects.VideoAspectVideoAspectProperties;
@@ -11,9 +12,21 @@ public class VideoAspect {
   /**
    * Select this video and apply any of needed operations (conversion or rename for example)
    */
+  @Step
   public static void select(final Video _self) {
-    org.irisa.diverse.videogen.videoGen.aspects.VideoAspectVideoAspectProperties _self_ = org.irisa.diverse.videogen.videoGen.aspects.VideoAspectVideoAspectContext.getSelf(_self);
-    _privk3_select(_self_, _self);
+    fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand command = new fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand() {
+    	@Override
+    	public void execute() {
+    		org.irisa.diverse.videogen.videoGen.aspects.VideoAspectVideoAspectProperties _self_ = org.irisa.diverse.videogen.videoGen.aspects.VideoAspectVideoAspectContext.getSelf(_self);
+    		_privk3_select(_self_, _self);
+    	}
+    };
+    fr.inria.diverse.k3.al.annotationprocessor.stepmanager.IStepManager manager = fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepManagerRegistry.getInstance().findStepManager(_self);
+    if (manager != null) {
+    	manager.executeStep(_self,command,"Video","select");
+    } else {
+    	command.execute();
+    }
   }
   
   public static Boolean selected(final Video _self) {

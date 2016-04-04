@@ -47,4 +47,12 @@ public interface Optional extends Sequence {
 	 */
 	void setProbability(Integer value);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void process();
+
 } // Optional

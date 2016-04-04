@@ -7,40 +7,30 @@ import fr.inria.diverse.k3.al.annotationprocessor.Step
 import java.util.HashMap
 import java.util.Map
 import org.irisa.diverse.videogen.transformations.VideoGenTransform
+import org.irisa.diverse.videogen.transformations.helpers.VideoGenHelper
 import org.irisa.diverse.videogen.videoGen.Alternatives
+import org.irisa.diverse.videogen.videoGen.Conclusion
+import org.irisa.diverse.videogen.videoGen.Introduction
 import org.irisa.diverse.videogen.videoGen.Mandatory
 import org.irisa.diverse.videogen.videoGen.Optional
 import org.irisa.diverse.videogen.videoGen.Sequence
 import org.irisa.diverse.videogen.videoGen.Video
 import org.irisa.diverse.videogen.videoGen.VideoGen
-import org.irisa.diverse.videogen.videoGen.Introduction
-import org.irisa.diverse.videogen.videoGen.Conclusion
+import org.irisa.diverse.videogen.videoGen.aspects.exceptions.ConstraintsFailed
+import org.irisa.diverse.videogen.videoGen.aspects.exceptions.ConstraintsType
 
 import static extension org.irisa.diverse.videogen.videoGen.aspects.AlternativesAspect.*
 import static extension org.irisa.diverse.videogen.videoGen.aspects.SequenceAspect.*
 import static extension org.irisa.diverse.videogen.videoGen.aspects.VideoAspect.*
-import static extension org.irisa.diverse.videogen.videoGen.aspects.OptionalAspect.*
-import static extension org.irisa.diverse.videogen.videoGen.aspects.MandatoryAspect.*
-import static extension org.irisa.diverse.videogen.videoGen.aspects.IntroductionAspect.*
-import static extension org.irisa.diverse.videogen.videoGen.aspects.ConclusionAspect.*
-import static extension org.irisa.diverse.videogen.videoGen.aspects.VideoGenAspect.*
-import org.irisa.diverse.videogen.videoGen.aspects.exceptions.ConstraintsType
-import org.irisa.diverse.videogen.videoGen.aspects.exceptions.ConstraintsFailed
-import org.irisa.diverse.videogen.transformations.helpers.VideoGenHelper
-import fr.inria.diverse.k3.al.annotationprocessor.InitializeModel
 
 @Aspect(className=VideoGen)
 class VideoGenAspect {
-
-	public var Integer minDurationConstraint = 0
-	public var Integer maxDurationConstraint = 0
 
 	def public void initialize() {
 		println("##### VideoGen '" + _self.name + "' has been initialized.")
 		
 		// Constraints initialization
-		_self.minDurationConstraint = _self.computeMinDuration
-		_self.maxDurationConstraint = _self.computeMaxDuration
+		_self.setConstraints(_self.computeMinDuration, _self.computeMaxDuration)
 		
 		// Initialize all sequences
 		VideoGenHelper.allSequences(_self).forEach[sequence | 
@@ -65,7 +55,9 @@ class VideoGenAspect {
 	 * @see : ffmpeg
 	 */
 	def public void compute() {
-
+		val videos = new HashMap
+		println("##### VideoGen '" + _self.name + "' start computation.")
+		
 		// Constraints checking
 		if (_self.computeMinDuration < _self.minDurationConstraint) {
 			throw new ConstraintsFailed(ConstraintsType.MIN_DURATION, true)
@@ -74,7 +66,15 @@ class VideoGenAspect {
 			throw new ConstraintsFailed(ConstraintsType.MAX_DURATION, true)
 		}
 		
-		VideoGenHelper.getConclusion(_self).compute
+		println("##### Videos computation result in playlist format : ")
+		//TODO: re-implement the initial IDM project model transformation. See master branch package 'fr.nemomen.utils'.
+		VideoGenHelper.allSelectedVideos(_self).forEach[video |
+			println("\t" + video.name + ": " + video.url)
+			videos.put(video.name, true)
+		]
+		// TODO: Manage model transformation here
+		println(VideoGenTransform.toM3U(_self, true, videos))
+		
 	}
 	
 	/**
@@ -117,6 +117,7 @@ class VideoGenAspect {
 		duration
 	}
 	
+	@Step
 	def public void setConstraints(Integer minDuration, Integer maxDuration) {
 		_self.minDurationConstraint = minDuration
 		_self.maxDurationConstraint = maxDuration
@@ -127,7 +128,6 @@ class VideoGenAspect {
 @Aspect(className=Sequence)
 abstract class SequenceAspect {
 
-	public Boolean active = true
 	public Boolean done = false
 	public Boolean callNextSequence = true
 	
@@ -137,6 +137,7 @@ abstract class SequenceAspect {
 	 * 	cf: _self.super_process() (kermeta style)
 	 * 
 	 */
+	@Step
 	def public void process() {
 		// If this sequence has already been done, do nothing at all
 		if (!_self.done) {
@@ -159,18 +160,17 @@ abstract class SequenceAspect {
 
 @Aspect(className=Alternatives)
 class AlternativesAspect extends SequenceAspect {
-	
-	public Video video;
-	
+		
 	/**
 	 * Populate the video relation with selected optional video
 	 * 
 	 */
+	@Step
 	@OverrideAspectMethod
 	def public void initialize() {
 		val video = _self.selectVideo
-		println("######################" + video)
-		_self.video(video)
+		println("##### Alternatives " + _self.name + " video selected: " + video.name)
+		_self.video = video
 		_self.super_initialize
 	}
 	
@@ -217,7 +217,7 @@ class AlternativesAspect extends SequenceAspect {
 	def public void process() {
 		if (_self.active && !_self.done) {
 			println("##### Alternatives '" + _self.name + "' is been processed.")
-			_self.video(_self.selectVideo)
+			_self.video = _self.selectVideo
 			_self.video.select
 			// Manage optional next sequence
 			_self.options.forEach[option | 
@@ -273,7 +273,6 @@ class AlternativesAspect extends SequenceAspect {
 @Aspect(className=Mandatory)
 class MandatoryAspect extends SequenceAspect {
 	
-	@Step
 	@OverrideAspectMethod
 	def public void process() {
 		if (_self.active && !_self.done) {
@@ -309,7 +308,6 @@ class OptionalAspect extends SequenceAspect {
 		drng.getDistributedRandomNumber() > 0
 	}
 
-	@Step
 	@OverrideAspectMethod
 	def public void process() {
 		if (_self.active && !_self.done) {
@@ -330,20 +328,6 @@ class IntroductionAspect extends SequenceAspect {
 
 @Aspect(className=Conclusion)
 class ConclusionAspect extends SequenceAspect {
-		
-	def void compute() {
-		val videos = new HashMap
-		println("##### VideoGen '" + _self.name + "' start computation.")
-		
-		println("##### Videos computation result in playlist format : ")
-		//TODO: re-implement the initial IDM project model transformation. See master branch package 'fr.nemomen.utils'.
-		VideoGenHelper.allSelectedVideos(_self.videoGen).forEach[video |
-			println("\t" + video.name + ": " + video.url)
-			videos.put(video.name, true)
-		]
-		// TODO: Manage model transformation here
-		println(VideoGenTransform.toM3U(_self.videoGen, true, videos))
-	}
 	
 }
 
@@ -356,6 +340,7 @@ class VideoAspect {
 	 * Select this video and apply any of needed operations (conversion or rename for example)
 	 * 
 	 */
+	@Step
 	def public void select() {
 		println("##### Video '" + _self.url + "' has been selected.")
 		_self.selected = true

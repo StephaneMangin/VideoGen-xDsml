@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.EReference;
  * <!-- end-user-doc -->
  * @see org.irisa.diverse.videogen.videoGen.VideoGenFactory
  * @model kind="package"
+ *        annotation="http://www.eclipse.org/OCL/Import ecore='http://www.eclipse.org/emf/2002/Ecore'"
  * @generated
  */
 public interface VideoGenPackage extends EPackage {
@@ -132,13 +133,31 @@ public interface VideoGenPackage extends EPackage {
 	int VIDEO_GEN__VIDEOS = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Min Duration Constraint</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIDEO_GEN__MIN_DURATION_CONSTRAINT = NAMED_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Max Duration Constraint</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIDEO_GEN__MAX_DURATION_CONSTRAINT = NAMED_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Video Gen</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VIDEO_GEN_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 2;
+	int VIDEO_GEN_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Video Gen</em>' class.
@@ -695,6 +714,28 @@ public interface VideoGenPackage extends EPackage {
 	EReference getVideoGen_Videos();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.irisa.diverse.videogen.videoGen.VideoGen#getMinDurationConstraint <em>Min Duration Constraint</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Min Duration Constraint</em>'.
+	 * @see org.irisa.diverse.videogen.videoGen.VideoGen#getMinDurationConstraint()
+	 * @see #getVideoGen()
+	 * @generated
+	 */
+	EAttribute getVideoGen_MinDurationConstraint();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.irisa.diverse.videogen.videoGen.VideoGen#getMaxDurationConstraint <em>Max Duration Constraint</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Max Duration Constraint</em>'.
+	 * @see org.irisa.diverse.videogen.videoGen.VideoGen#getMaxDurationConstraint()
+	 * @see #getVideoGen()
+	 * @generated
+	 */
+	EAttribute getVideoGen_MaxDurationConstraint();
+
+	/**
 	 * Returns the meta object for class '{@link org.irisa.diverse.videogen.videoGen.Sequence <em>Sequence</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -975,6 +1016,22 @@ public interface VideoGenPackage extends EPackage {
 		 * @generated
 		 */
 		EReference VIDEO_GEN__VIDEOS = eINSTANCE.getVideoGen_Videos();
+
+		/**
+		 * The meta object literal for the '<em><b>Min Duration Constraint</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute VIDEO_GEN__MIN_DURATION_CONSTRAINT = eINSTANCE.getVideoGen_MinDurationConstraint();
+
+		/**
+		 * The meta object literal for the '<em><b>Max Duration Constraint</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute VIDEO_GEN__MAX_DURATION_CONSTRAINT = eINSTANCE.getVideoGen_MaxDurationConstraint();
 
 		/**
 		 * The meta object literal for the '{@link org.irisa.diverse.videogen.videoGen.Sequence <em>Sequence</em>}' class.

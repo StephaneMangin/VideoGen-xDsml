@@ -4,6 +4,12 @@ package org.irisa.diverse.videogen
 language VideoGenL {
 	syntax "platform:/resource//org.irisa.diverse.videogen/model/VideoGen.ecore"
 
-	with org.irisa.diverse.videogen.videoGen.aspects.*
-
+	with org.irisa.diverse.videogen.videoGen.aspects.OptionalAspect
+	with org.irisa.diverse.videogen.videoGen.aspects.VideoAspect
+	with org.irisa.diverse.videogen.videoGen.aspects.VideoGenAspect
+	with org.irisa.diverse.videogen.videoGen.aspects.MandatoryAspect
+	with org.irisa.diverse.videogen.videoGen.aspects.ConclusionAspect
+	with org.irisa.diverse.videogen.videoGen.aspects.IntroductionAspect
+	with org.irisa.diverse.videogen.videoGen.aspects.SequenceAspect
+	with org.irisa.diverse.videogen.videoGen.aspects.AlternativesAspect
 }

@@ -14,8 +14,8 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link org.irisa.diverse.videogen.videogenlmt.videoGen.VideoGen#getSequences <em>Sequences</em>}</li>
  *   <li>{@link org.irisa.diverse.videogen.videogenlmt.videoGen.VideoGen#getVideos <em>Videos</em>}</li>
- *   <li>{@link org.irisa.diverse.videogen.videogenlmt.videoGen.VideoGen#getIntroduction <em>Introduction</em>}</li>
- *   <li>{@link org.irisa.diverse.videogen.videogenlmt.videoGen.VideoGen#getConclusion <em>Conclusion</em>}</li>
+ *   <li>{@link org.irisa.diverse.videogen.videogenlmt.videoGen.VideoGen#getMinDurationConstraint <em>Min Duration Constraint</em>}</li>
+ *   <li>{@link org.irisa.diverse.videogen.videogenlmt.videoGen.VideoGen#getMaxDurationConstraint <em>Max Duration Constraint</em>}</li>
  * </ul>
  * </p>
  *
@@ -57,59 +57,105 @@ public interface VideoGen extends NamedElement {
 	EList<Video> getVideos();
 
 	/**
-	 * Returns the value of the '<em><b>Introduction</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link org.irisa.diverse.videogen.videogenlmt.videoGen.Introduction#getVideogen <em>Videogen</em>}'.
+	 * Returns the value of the '<em><b>Min Duration Constraint</b></em>' attribute.
+	 * The default value is <code>"0"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Introduction</em>' reference isn't clear,
+	 * If the meaning of the '<em>Min Duration Constraint</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Introduction</em>' reference.
-	 * @see #setIntroduction(Introduction)
-	 * @see org.irisa.diverse.videogen.videogenlmt.videoGen.VideoGenPackage#getVideoGen_Introduction()
-	 * @see org.irisa.diverse.videogen.videogenlmt.videoGen.Introduction#getVideogen
-	 * @model opposite="videogen"
+	 * @return the value of the '<em>Min Duration Constraint</em>' attribute.
+	 * @see #setMinDurationConstraint(Integer)
+	 * @see org.irisa.diverse.videogen.videogenlmt.videoGen.VideoGenPackage#getVideoGen_MinDurationConstraint()
+	 * @model default="0"
 	 * @generated
 	 */
-	Introduction getIntroduction();
+	Integer getMinDurationConstraint();
 
 	/**
-	 * Sets the value of the '{@link org.irisa.diverse.videogen.videogenlmt.videoGen.VideoGen#getIntroduction <em>Introduction</em>}' reference.
+	 * Sets the value of the '{@link org.irisa.diverse.videogen.videogenlmt.videoGen.VideoGen#getMinDurationConstraint <em>Min Duration Constraint</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Introduction</em>' reference.
-	 * @see #getIntroduction()
+	 * @param value the new value of the '<em>Min Duration Constraint</em>' attribute.
+	 * @see #getMinDurationConstraint()
 	 * @generated
 	 */
-	void setIntroduction(Introduction value);
+	void setMinDurationConstraint(Integer value);
 
 	/**
-	 * Returns the value of the '<em><b>Conclusion</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link org.irisa.diverse.videogen.videogenlmt.videoGen.Conclusion#getVideogen <em>Videogen</em>}'.
+	 * Returns the value of the '<em><b>Max Duration Constraint</b></em>' attribute.
+	 * The default value is <code>"0"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Conclusion</em>' reference isn't clear,
+	 * If the meaning of the '<em>Max Duration Constraint</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Conclusion</em>' reference.
-	 * @see #setConclusion(Conclusion)
-	 * @see org.irisa.diverse.videogen.videogenlmt.videoGen.VideoGenPackage#getVideoGen_Conclusion()
-	 * @see org.irisa.diverse.videogen.videogenlmt.videoGen.Conclusion#getVideogen
-	 * @model opposite="videogen"
+	 * @return the value of the '<em>Max Duration Constraint</em>' attribute.
+	 * @see #setMaxDurationConstraint(Integer)
+	 * @see org.irisa.diverse.videogen.videogenlmt.videoGen.VideoGenPackage#getVideoGen_MaxDurationConstraint()
+	 * @model default="0"
 	 * @generated
 	 */
-	Conclusion getConclusion();
+	Integer getMaxDurationConstraint();
 
 	/**
-	 * Sets the value of the '{@link org.irisa.diverse.videogen.videogenlmt.videoGen.VideoGen#getConclusion <em>Conclusion</em>}' reference.
+	 * Sets the value of the '{@link org.irisa.diverse.videogen.videogenlmt.videoGen.VideoGen#getMaxDurationConstraint <em>Max Duration Constraint</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Conclusion</em>' reference.
-	 * @see #getConclusion()
+	 * @param value the new value of the '<em>Max Duration Constraint</em>' attribute.
+	 * @see #getMaxDurationConstraint()
 	 * @generated
 	 */
-	void setConclusion(Conclusion value);
+	void setMaxDurationConstraint(Integer value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void initialize();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void process();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void compute();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	Integer computeMaxDuration();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	Integer computeMinDuration();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void setConstraints(Integer minDuration, Integer maxDuration);
 
 } // VideoGen

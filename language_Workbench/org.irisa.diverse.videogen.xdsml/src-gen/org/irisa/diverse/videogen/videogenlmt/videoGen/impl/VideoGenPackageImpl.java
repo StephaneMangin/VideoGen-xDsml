@@ -5,6 +5,7 @@ package org.irisa.diverse.videogen.videogenlmt.videoGen.impl;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EcorePackage;
@@ -197,8 +198,8 @@ public class VideoGenPackageImpl extends EPackageImpl implements VideoGenPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getVideoGen_Introduction() {
-		return (EReference)videoGenEClass.getEStructuralFeatures().get(2);
+	public EAttribute getVideoGen_MinDurationConstraint() {
+		return (EAttribute)videoGenEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -206,8 +207,8 @@ public class VideoGenPackageImpl extends EPackageImpl implements VideoGenPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getVideoGen_Conclusion() {
-		return (EReference)videoGenEClass.getEStructuralFeatures().get(3);
+	public EAttribute getVideoGen_MaxDurationConstraint() {
+		return (EAttribute)videoGenEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -233,8 +234,8 @@ public class VideoGenPackageImpl extends EPackageImpl implements VideoGenPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSequence_Active() {
-		return (EAttribute)sequenceEClass.getEStructuralFeatures().get(1);
+	public EReference getSequence_Video() {
+		return (EReference)sequenceEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -242,8 +243,26 @@ public class VideoGenPackageImpl extends EPackageImpl implements VideoGenPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSequence_Video() {
-		return (EReference)sequenceEClass.getEStructuralFeatures().get(2);
+	public EAttribute getSequence_Active() {
+		return (EAttribute)sequenceEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSequence_Done() {
+		return (EAttribute)sequenceEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSequence_CallNextSequence() {
+		return (EAttribute)sequenceEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -377,7 +396,7 @@ public class VideoGenPackageImpl extends EPackageImpl implements VideoGenPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getIntroduction_Videogen() {
+	public EReference getIntroduction_VideoGen() {
 		return (EReference)introductionEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -395,7 +414,7 @@ public class VideoGenPackageImpl extends EPackageImpl implements VideoGenPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getConclusion_Videogen() {
+	public EReference getConclusion_VideoGen() {
 		return (EReference)conclusionEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -439,13 +458,15 @@ public class VideoGenPackageImpl extends EPackageImpl implements VideoGenPackage
 		videoGenEClass = createEClass(VIDEO_GEN);
 		createEReference(videoGenEClass, VIDEO_GEN__SEQUENCES);
 		createEReference(videoGenEClass, VIDEO_GEN__VIDEOS);
-		createEReference(videoGenEClass, VIDEO_GEN__INTRODUCTION);
-		createEReference(videoGenEClass, VIDEO_GEN__CONCLUSION);
+		createEAttribute(videoGenEClass, VIDEO_GEN__MIN_DURATION_CONSTRAINT);
+		createEAttribute(videoGenEClass, VIDEO_GEN__MAX_DURATION_CONSTRAINT);
 
 		sequenceEClass = createEClass(SEQUENCE);
 		createEReference(sequenceEClass, SEQUENCE__NEXT_SEQUENCE);
-		createEAttribute(sequenceEClass, SEQUENCE__ACTIVE);
 		createEReference(sequenceEClass, SEQUENCE__VIDEO);
+		createEAttribute(sequenceEClass, SEQUENCE__ACTIVE);
+		createEAttribute(sequenceEClass, SEQUENCE__DONE);
+		createEAttribute(sequenceEClass, SEQUENCE__CALL_NEXT_SEQUENCE);
 
 		alternativesEClass = createEClass(ALTERNATIVES);
 		createEReference(alternativesEClass, ALTERNATIVES__OPTIONS);
@@ -466,10 +487,10 @@ public class VideoGenPackageImpl extends EPackageImpl implements VideoGenPackage
 		createEAttribute(namedElementEClass, NAMED_ELEMENT__NAME);
 
 		introductionEClass = createEClass(INTRODUCTION);
-		createEReference(introductionEClass, INTRODUCTION__VIDEOGEN);
+		createEReference(introductionEClass, INTRODUCTION__VIDEO_GEN);
 
 		conclusionEClass = createEClass(CONCLUSION);
-		createEReference(conclusionEClass, CONCLUSION__VIDEOGEN);
+		createEReference(conclusionEClass, CONCLUSION__VIDEO_GEN);
 
 		// Create enums
 		mimetypes_EnumEEnum = createEEnum(MIMETYPES_ENUM);
@@ -516,37 +537,75 @@ public class VideoGenPackageImpl extends EPackageImpl implements VideoGenPackage
 		initEClass(videoGenEClass, VideoGen.class, "VideoGen", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getVideoGen_Sequences(), this.getSequence(), null, "sequences", null, 0, -1, VideoGen.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getVideoGen_Videos(), this.getVideo(), null, "videos", null, 0, -1, VideoGen.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getVideoGen_Introduction(), this.getIntroduction(), this.getIntroduction_Videogen(), "introduction", null, 0, 1, VideoGen.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getVideoGen_Conclusion(), this.getConclusion(), this.getConclusion_Videogen(), "conclusion", null, 0, 1, VideoGen.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getVideoGen_MinDurationConstraint(), ecorePackage.getEIntegerObject(), "minDurationConstraint", "0", 0, 1, VideoGen.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getVideoGen_MaxDurationConstraint(), ecorePackage.getEIntegerObject(), "maxDurationConstraint", "0", 0, 1, VideoGen.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		addEOperation(videoGenEClass, null, "initialize", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		addEOperation(videoGenEClass, null, "process", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		addEOperation(videoGenEClass, null, "compute", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		addEOperation(videoGenEClass, ecorePackage.getEIntegerObject(), "computeMaxDuration", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		addEOperation(videoGenEClass, ecorePackage.getEIntegerObject(), "computeMinDuration", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		EOperation op = addEOperation(videoGenEClass, null, "setConstraints", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEIntegerObject(), "minDuration", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEIntegerObject(), "maxDuration", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(sequenceEClass, Sequence.class, "Sequence", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSequence_NextSequence(), this.getSequence(), null, "nextSequence", null, 0, 1, Sequence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSequence_Active(), ecorePackage.getEBoolean(), "active", "true", 0, 1, Sequence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSequence_Video(), this.getVideo(), null, "video", null, 0, 1, Sequence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSequence_Active(), ecorePackage.getEBooleanObject(), "active", "true", 1, 1, Sequence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSequence_Done(), ecorePackage.getEBooleanObject(), "done", null, 0, 1, Sequence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSequence_CallNextSequence(), ecorePackage.getEBooleanObject(), "callNextSequence", null, 0, 1, Sequence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		addEOperation(sequenceEClass, null, "process", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		addEOperation(sequenceEClass, null, "initialize", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(alternativesEClass, Alternatives.class, "Alternatives", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getAlternatives_Options(), this.getOptional(), null, "options", null, 0, -1, Alternatives.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		addEOperation(alternativesEClass, null, "initialize", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		addEOperation(alternativesEClass, ecorePackage.getEMap(), "checkProbabilities", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		addEOperation(alternativesEClass, null, "process", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		addEOperation(alternativesEClass, ecorePackage.getEIntegerObject(), "computeMaxDuration", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		addEOperation(alternativesEClass, ecorePackage.getEIntegerObject(), "computeMinDuration", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(mandatoryEClass, Mandatory.class, "Mandatory", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		addEOperation(mandatoryEClass, null, "process", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(optionalEClass, Optional.class, "Optional", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getOptional_Probability(), ecorePackage.getEIntegerObject(), "probability", "0", 1, 1, Optional.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		addEOperation(optionalEClass, null, "process", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(videoEClass, Video.class, "Video", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getVideo_Url(), ecorePackage.getEString(), "url", null, 1, 1, Video.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getVideo_Description(), ecorePackage.getEString(), "description", null, 1, 1, Video.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getVideo_Duration(), ecorePackage.getEIntegerObject(), "duration", "0", 1, 1, Video.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getVideo_Mimetype(), this.getMimetypes_Enum(), "mimetype", null, 1, 1, Video.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getVideo_Selected(), ecorePackage.getEBooleanObject(), "selected", "false", 1, 1, Video.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getVideo_Selected(), ecorePackage.getEBooleanObject(), "selected", "false", 0, 1, Video.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		addEOperation(videoEClass, null, "select", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(namedElementEClass, NamedElement.class, "NamedElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getNamedElement_Name(), ecorePackage.getEString(), "name", null, 1, 1, NamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(introductionEClass, Introduction.class, "Introduction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getIntroduction_Videogen(), this.getVideoGen(), this.getVideoGen_Introduction(), "videogen", null, 0, 1, Introduction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getIntroduction_VideoGen(), this.getVideoGen(), null, "videoGen", null, 1, 1, Introduction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(conclusionEClass, Conclusion.class, "Conclusion", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getConclusion_Videogen(), this.getVideoGen(), this.getVideoGen_Conclusion(), "videogen", null, 0, 1, Conclusion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getConclusion_VideoGen(), this.getVideoGen(), null, "videoGen", null, 1, 1, Conclusion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		addEOperation(conclusionEClass, null, "compute", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(mimetypes_EnumEEnum, Mimetypes_Enum.class, "Mimetypes_Enum");
@@ -563,8 +622,26 @@ public class VideoGenPackageImpl extends EPackageImpl implements VideoGenPackage
 		createResource(eNS_URI);
 
 		// Create annotations
+		// http://www.eclipse.org/OCL/Import
+		createImportAnnotations();
 		// aspect
 		createAspectAnnotations();
+	}
+
+	/**
+	 * Initializes the annotations for <b>http://www.eclipse.org/OCL/Import</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createImportAnnotations() {
+		String source = "http://www.eclipse.org/OCL/Import";	
+		addAnnotation
+		  (this, 
+		   source, 
+		   new String[] {
+			 "ecore", "http://www.eclipse.org/emf/2002/Ecore"
+		   });
 	}
 
 	/**
@@ -576,7 +653,97 @@ public class VideoGenPackageImpl extends EPackageImpl implements VideoGenPackage
 	protected void createAspectAnnotations() {
 		String source = "aspect";	
 		addAnnotation
-		  (getVideo_Selected(), 
+		  (videoGenEClass.getEOperations().get(0), 
+		   source, 
+		   new String[] {
+		   });	
+		addAnnotation
+		  (videoGenEClass.getEOperations().get(1), 
+		   source, 
+		   new String[] {
+		   });	
+		addAnnotation
+		  (videoGenEClass.getEOperations().get(2), 
+		   source, 
+		   new String[] {
+		   });	
+		addAnnotation
+		  (videoGenEClass.getEOperations().get(3), 
+		   source, 
+		   new String[] {
+		   });	
+		addAnnotation
+		  (videoGenEClass.getEOperations().get(4), 
+		   source, 
+		   new String[] {
+		   });	
+		addAnnotation
+		  (videoGenEClass.getEOperations().get(5), 
+		   source, 
+		   new String[] {
+		   });	
+		addAnnotation
+		  (sequenceEClass.getEOperations().get(0), 
+		   source, 
+		   new String[] {
+		   });	
+		addAnnotation
+		  (sequenceEClass.getEOperations().get(1), 
+		   source, 
+		   new String[] {
+		   });	
+		addAnnotation
+		  (getSequence_Done(), 
+		   source, 
+		   new String[] {
+		   });	
+		addAnnotation
+		  (getSequence_CallNextSequence(), 
+		   source, 
+		   new String[] {
+		   });	
+		addAnnotation
+		  (alternativesEClass.getEOperations().get(0), 
+		   source, 
+		   new String[] {
+		   });	
+		addAnnotation
+		  (alternativesEClass.getEOperations().get(1), 
+		   source, 
+		   new String[] {
+		   });	
+		addAnnotation
+		  (alternativesEClass.getEOperations().get(2), 
+		   source, 
+		   new String[] {
+		   });	
+		addAnnotation
+		  (alternativesEClass.getEOperations().get(3), 
+		   source, 
+		   new String[] {
+		   });	
+		addAnnotation
+		  (alternativesEClass.getEOperations().get(4), 
+		   source, 
+		   new String[] {
+		   });	
+		addAnnotation
+		  (mandatoryEClass.getEOperations().get(0), 
+		   source, 
+		   new String[] {
+		   });	
+		addAnnotation
+		  (optionalEClass.getEOperations().get(0), 
+		   source, 
+		   new String[] {
+		   });	
+		addAnnotation
+		  (videoEClass.getEOperations().get(0), 
+		   source, 
+		   new String[] {
+		   });	
+		addAnnotation
+		  (conclusionEClass.getEOperations().get(0), 
 		   source, 
 		   new String[] {
 		   });

@@ -1,14 +1,16 @@
 package org.irisa.diverse.videogen.transformations
 
-import org.irisa.diverse.videogen.videoGen.VideoGen
-import org.irisa.diverse.videogen.videoGen.Sequence
+import org.irisa.diverse.videogen.videoGen.Alternatives
+import org.irisa.diverse.videogen.videoGen.Conclusion
+import org.irisa.diverse.videogen.videoGen.Introduction
 import org.irisa.diverse.videogen.videoGen.Mandatory
 import org.irisa.diverse.videogen.videoGen.Optional
-import org.irisa.diverse.videogen.videoGen.Alternatives
 import org.irisa.diverse.videogen.videoGen.Video
+import org.irisa.diverse.videogen.videoGen.VideoGen
+import org.irisa.diverse.videogen.videoGen.impl.VideoGenFactoryImpl
+import org.irisa.diverse.videogen.videoGen.Mimetypes_Enum
+import org.irisa.diverse.videogen.videoGen.Sequence
 import org.irisa.diverse.videogen.transformations.helpers.VideoGenHelper
-import org.irisa.diverse.videogen.videoGen.Introduction
-import org.irisa.diverse.videogen.videoGen.Conclusion
 
 /**
  * Add missing arguments to a VIdeoGen instance

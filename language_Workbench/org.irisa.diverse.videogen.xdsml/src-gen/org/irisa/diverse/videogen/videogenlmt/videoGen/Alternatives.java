@@ -2,6 +2,8 @@
  */
 package org.irisa.diverse.videogen.videogenlmt.videoGen;
 
+import java.util.Map;
+
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -36,5 +38,45 @@ public interface Alternatives extends Sequence {
 	 * @generated
 	 */
 	EList<Optional> getOptions();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void initialize();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	Map checkProbabilities();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void process();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	Integer computeMaxDuration();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	Integer computeMinDuration();
 
 } // Alternatives
