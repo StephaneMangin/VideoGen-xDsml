@@ -10,7 +10,7 @@ Bundle-Vendor: %providerName
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: org.irisa.diverse.videogen.transformations;uses:="org.apache.commons.exec",
  org.irisa.diverse.videogen.transformations.helpers;uses:="org.irisa.diverse.playlist.PlayList,org.irisa.diverse.videogen.videoGen,javax.json",
- org.irisa.diverse.videogen.transformations.randomizers
+ org.irisa.diverse.videogen.transformations.utils
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  com.google.guava,
