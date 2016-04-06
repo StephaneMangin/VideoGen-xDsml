@@ -28,6 +28,8 @@ import org.eclipse.core.resources.ResourcesPlugin
 import java.io.FileWriter
 import java.io.File
 
+
+
 @Aspect(className=VideoGen)
 class VideoGenAspect {
 
@@ -58,9 +60,10 @@ class VideoGenAspect {
 		VideoGenHelper.allSequences(_self).forEach[sequence |
 			sequence.setup
 		]
-		
+		val durationVisitor = new VideoGenDurationVisitor(false)
+		durationVisitor.visit(_self)
 		// Constraints initialization
-		_self.setConstraints(_self.computeMinDuration, _self.computeMaxDuration)
+		_self.setConstraints(durationVisitor.minDuration, durationVisitor.maxDuration)
 		
 	}
 	
@@ -83,10 +86,14 @@ class VideoGenAspect {
 		println("##### VideoGen '" + _self.name + "' start computation.")
 		
 		// Constraints checking
-		if (_self.computeMinDuration < _self.minDurationConstraint) {
+		val durationVisitor = new VideoGenDurationVisitor(true)
+		durationVisitor.visit(_self)
+		println(durationVisitor.maxDuration + "<" + _self.minDurationConstraint)
+		println(durationVisitor.maxDuration + ">" + _self.maxDurationConstraint)
+		if (durationVisitor.maxDuration < _self.minDurationConstraint) {
 			throw new ConstraintsFailed(ConstraintsType.MIN_DURATION, true)
 		}
-		if (_self.computeMaxDuration > _self.maxDurationConstraint) {
+		if (durationVisitor.maxDuration > _self.maxDurationConstraint) {
 			throw new ConstraintsFailed(ConstraintsType.MAX_DURATION, true)
 		}
 		
@@ -112,46 +119,6 @@ class VideoGenAspect {
 			"--no-overlay",
 			playlist.toPath.toString)
 		p.start()
-	}
-	
-	/**
-	 * Return the maximum duration of a generated sequence.
-	 * 
-	 */
-	def public Integer computeMaxDuration() {
-		var duration = 0
-		var Sequence sequence = VideoGenHelper.getIntroduction(_self)
-		while(sequence !== null) { 
-			if (sequence.active) {
-				if (sequence instanceof Mandatory) {
-					duration += sequence.video.duration
-				} else if (sequence instanceof Optional) {
-					duration += sequence.video.duration
-				} else if (sequence instanceof Alternatives) {
-					duration += sequence.computeMaxDuration
-				}
-			}
-			sequence = sequence.nextSequence
-		}
-		duration
-	}
-	
-	/**
-	 * Return the minimum duration of a generated sequence.
-	 * 
-	 */
-	def public Integer computeMinDuration() {
-		var duration = 0
-		var Sequence sequence = VideoGenHelper.getIntroduction(_self)
-		while(sequence !== null) { 
-			if (sequence instanceof Mandatory) {
-				duration += sequence.video.duration
-			} else if (sequence instanceof Alternatives) {
-				duration += sequence.computeMinDuration
-			}
-			sequence = sequence.nextSequence
-		}
-		duration
 	}
 	
 	@Step
@@ -205,7 +172,7 @@ abstract class SequenceAspect {
 
 @Aspect(className=Alternatives)
 class AlternativesAspect extends SequenceAspect {
-		
+	
 	/**
 	 * Populate the video relation with selected optional video
 	 * 
@@ -281,44 +248,7 @@ class AlternativesAspect extends SequenceAspect {
 		}
 		_self.super_execute()
 	}
-	
-	/**
-	 * Return the maximum duration of contained videos
-	 * 
-	 */
-	def public Integer computeMaxDuration() {
-		var Integer max = -1
-		for (Optional option: _self.options) {
-			if (max != -1) {
-				if (max < option.video.duration) {
-					max = option.video.duration
-				}
-			} else {
-				max = option.video.duration	
-			}		
-		}
-		println("MAX " + _self.name + " => " + max)
-		max
-	}
-	
-	/**
-	 * Return the minimum duration of contained videos
-	 * 
-	 */
-	def public Integer computeMinDuration() {
-		var Integer min = -1
-		for (Optional option: _self.options) {
-			if (min != -1) {
-				if (min > option.video.duration) {
-					min = option.video.duration
-				}
-			} else {
-				min = option.video.duration	
-			}		
-		}
-		println("MIN " + _self.name + " => " + min)
-		min
-	}
+
 }
 
 @Aspect(className=Mandatory)
