@@ -22,28 +22,52 @@ import org.irisa.diverse.videogen.videoGen.aspects.exceptions.ConstraintsType
 import static extension org.irisa.diverse.videogen.videoGen.aspects.AlternativesAspect.*
 import static extension org.irisa.diverse.videogen.videoGen.aspects.SequenceAspect.*
 import static extension org.irisa.diverse.videogen.videoGen.aspects.VideoAspect.*
+import fr.inria.diverse.k3.al.annotationprocessor.InitializeModel
+import java.util.List
+import org.eclipse.core.resources.ResourcesPlugin
+import java.io.FileWriter
+import java.io.File
 
 @Aspect(className=VideoGen)
 class VideoGenAspect {
 
-	def public void initialize() {
-		println("##### VideoGen '" + _self.name + "' has been initialized.")
+
+	@Main
+	def void main() {
+		val start = System.nanoTime
+		_self.execute
+		val stop = System.nanoTime
+		println("#### VideoGen, time to execute " + (stop - start))
+	}
+	
+	@InitializeModel
+	def public void initializeModel(List<String> args){
+		_self.setup
+	}
+	
+	/**
+	 * Setup is ONLY call by initializeModel.
+	 * 
+	 * DO NOT add a Step annotation (step manager issue) !
+	 * 
+	 */
+	def void setup() {
+		println("##### VideoGen '" + _self.name + "' setup...")
+
+		// Initialize all sequences
+		VideoGenHelper.allSequences(_self).forEach[sequence |
+			sequence.setup
+		]
 		
 		// Constraints initialization
 		_self.setConstraints(_self.computeMinDuration, _self.computeMaxDuration)
 		
-		// Initialize all sequences
-		VideoGenHelper.allSequences(_self).forEach[sequence | 
-			sequence.initialize
-		]
 	}
 	
-	@Main
-	def public void process() {
-		_self.initialize
+	def public void execute() {
 		
 		// Then process each sequences
-		VideoGenHelper.getIntroduction(_self).process
+		VideoGenHelper.getIntroduction(_self).execute
 		
 		// And at the end (sequential so ok !) call the video generation
 		_self.compute
@@ -73,8 +97,21 @@ class VideoGenAspect {
 			videos.put(video.name, true)
 		]
 		// TODO: Manage model transformation here
-		println(VideoGenTransform.toM3U(_self, true, videos))
+		val content = VideoGenTransform.toM3U(_self, false, videos)
+		println(content)
 		
+		val playlist = File.createTempFile(Long.toString(System.nanoTime()), "-temp.m3u")
+		val writer = new FileWriter(playlist)
+		writer.write(content)
+		writer.flush
+		writer.close
+		val p = new ProcessBuilder(
+			"vlc",
+			"--playlist-autostart",
+			"--playlist-tree",
+			"--no-overlay",
+			playlist.toPath.toString)
+		p.start()
 	}
 	
 	/**
@@ -119,6 +156,11 @@ class VideoGenAspect {
 	
 	@Step
 	def public void setConstraints(Integer minDuration, Integer maxDuration) {
+		_self.setConstraintsP(minDuration, maxDuration)
+	}
+	
+	def private void setConstraintsP(Integer minDuration, Integer maxDuration) {
+		println("##### Constraints changed. New values are : min=" + minDuration + ", max=" + maxDuration)
 		_self.minDurationConstraint = minDuration
 		_self.maxDurationConstraint = maxDuration
 	}
@@ -138,7 +180,7 @@ abstract class SequenceAspect {
 	 * 
 	 */
 	@Step
-	def public void process() {
+	def public void execute() {
 		// If this sequence has already been done, do nothing at all
 		if (!_self.done) {
 			// Call the next sequence in all case
@@ -147,14 +189,17 @@ abstract class SequenceAspect {
 				_self.done = true;
 				// Before calling next sequence
 				if (_self.callNextSequence) {
-					_self.nextSequence.process	
+					_self.nextSequence.execute	
 				}
 			}
 		}
 	}
 	
-	def public void initialize() {
-		// Not use right now		
+	def public void setup() {
+		println("##### Sequence '" + _self.name + "' setup...")
+		if (_self.video != null) {
+			_self.video.setup
+		}
 	}
 }
 
@@ -167,11 +212,17 @@ class AlternativesAspect extends SequenceAspect {
 	 */
 	@Step
 	@OverrideAspectMethod
-	def public void initialize() {
+	def public void setup() {
+		
+		println("##### Alternatives '" + _self.name + "' setup...")
+		// Setup all optionals
+		_self.options.forEach[video.setup]
+		
+		// Then select the video to be processed
 		val video = _self.selectVideo
-		println("##### Alternatives " + _self.name + " video selected: " + video.name)
+		println("=> video selected: " + video.name)
 		_self.video = video
-		_self.super_initialize
+		_self.super_setup
 	}
 	
 	/**
@@ -214,7 +265,7 @@ class AlternativesAspect extends SequenceAspect {
 
 	@Step
 	@OverrideAspectMethod
-	def public void process() {
+	def public void execute() {
 		if (_self.active && !_self.done) {
 			println("##### Alternatives '" + _self.name + "' is been processed.")
 			_self.video = _self.selectVideo
@@ -222,13 +273,13 @@ class AlternativesAspect extends SequenceAspect {
 			// Manage optional next sequence
 			_self.options.forEach[option | 
 				if (option.video == _self.video && option.nextSequence != null) {
-					option.nextSequence.process
+					option.nextSequence.execute
 					// Call of nextSequence.process will not be called in super
 					_self.callNextSequence = false
 				}
 			]
 		}
-		_self.super_process()
+		_self.super_execute()
 	}
 	
 	/**
@@ -236,7 +287,6 @@ class AlternativesAspect extends SequenceAspect {
 	 * 
 	 */
 	def public Integer computeMaxDuration() {
-		println("MAX " + _self.name)
 		var Integer max = -1
 		for (Optional option: _self.options) {
 			if (max != -1) {
@@ -247,6 +297,7 @@ class AlternativesAspect extends SequenceAspect {
 				max = option.video.duration	
 			}		
 		}
+		println("MAX " + _self.name + " => " + max)
 		max
 	}
 	
@@ -255,7 +306,6 @@ class AlternativesAspect extends SequenceAspect {
 	 * 
 	 */
 	def public Integer computeMinDuration() {
-		println("MIN " + _self.name)
 		var Integer min = -1
 		for (Optional option: _self.options) {
 			if (min != -1) {
@@ -266,6 +316,7 @@ class AlternativesAspect extends SequenceAspect {
 				min = option.video.duration	
 			}		
 		}
+		println("MIN " + _self.name + " => " + min)
 		min
 	}
 }
@@ -274,12 +325,12 @@ class AlternativesAspect extends SequenceAspect {
 class MandatoryAspect extends SequenceAspect {
 	
 	@OverrideAspectMethod
-	def public void process() {
+	def public void execute() {
 		if (_self.active && !_self.done) {
 			println("##### Mandatory '" + _self.name + "' is been processed.")
 			_self.video.select
 		}
-		_self.super_process
+		_self.super_execute
 	}
 }
 
@@ -309,14 +360,14 @@ class OptionalAspect extends SequenceAspect {
 	}
 
 	@OverrideAspectMethod
-	def public void process() {
+	def public void execute() {
 		if (_self.active && !_self.done) {
 			println("##### Optional '" + _self.name + "' is been processed.")
 			if (_self.isSelected()) {
 				_self.video.select
 			}
 		}
-		_self.super_process()
+		_self.super_execute()
 	}
 }
 
@@ -337,12 +388,33 @@ class VideoAspect {
 	public Boolean selected = false
 	
 	/**
+	 * Add metadatas.
+	 * 
+	 * If not prefixed with /, considered relative. Workspace root will be added as a prefix.
+	 * If prefixed with a /, considered as absolute. No modification.
+	 * 
+	 */
+	@Step
+	def public void setup() {
+		println("##### Video '" + _self.name + "' setup...")
+		if (!_self.url.startsWith("/")) {
+			val prefix = ResourcesPlugin.workspace.root.projects.get(0).locationURI.toString.replace("file:", "")
+			val newPath = prefix + "/" + _self.url
+			println(_self.url + " => " + newPath)
+			_self.url = newPath
+		}
+		
+		// Add duration and VideoCodec MimeType
+		VideoGenTransform.addMetadata(_self)
+	}
+	
+	/**
 	 * Select this video and apply any of needed operations (conversion or rename for example)
 	 * 
 	 */
 	@Step
 	def public void select() {
-		println("##### Video '" + _self.url + "' has been selected.")
+		println("##### Video '" + _self.name + "' has been selected.")
 		_self.selected = true
 	}
 }

@@ -5,10 +5,20 @@ Bundle-SymbolicName: org.irisa.diverse.videogen.transformations;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-ClassPath: .,
  libs/commons-exec-1.3.jar,
- libs/javax.json-api-1.0.jar
+ libs/javax.json-api-1.0.jar,
+ libs/xuggle-xuggler-5.4.jar,
+ libs/jave-1.0.2.jar
 Bundle-Vendor: %providerName
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Export-Package: org.irisa.diverse.videogen.transformations;uses:="org.apache.commons.exec",
+Export-Package: com.xuggle.ferry,
+ com.xuggle.mediatool,
+ com.xuggle.mediatool.demos,
+ com.xuggle.mediatool.event,
+ com.xuggle.xuggler,
+ com.xuggle.xuggler.demos,
+ com.xuggle.xuggler.io,
+ com.xuggle.xuggler.video,
+ org.irisa.diverse.videogen.transformations;uses:="org.apache.commons.exec",
  org.irisa.diverse.videogen.transformations.helpers;uses:="org.irisa.diverse.playlist.PlayList,org.irisa.diverse.videogen.videoGen,javax.json",
  org.irisa.diverse.videogen.transformations.utils
 Require-Bundle: org.eclipse.core.runtime,
@@ -19,4 +29,5 @@ Require-Bundle: org.eclipse.core.runtime,
  org.irisa.diverse.playlist;bundle-version="0.1.0",
  org.irisa.diverse.videogen;bundle-version="1.0.0"
 Bundle-ActivationPolicy: lazy
+Import-Package: com.xuggle.xuggler.demos
 

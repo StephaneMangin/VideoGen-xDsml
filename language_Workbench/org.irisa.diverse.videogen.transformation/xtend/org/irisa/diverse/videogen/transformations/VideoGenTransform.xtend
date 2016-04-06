@@ -20,6 +20,7 @@ import org.irisa.diverse.videogen.videoGen.Video
 import org.irisa.diverse.videogen.videoGen.VideoGen
 import org.irisa.diverse.videogen.videoGen.impl.VideoGenFactoryImpl
 import org.irisa.diverse.videogen.videoGen.Mimetypes_Enum
+import org.irisa.diverse.videogen.transformations.strategies.JaveStrategyImpl
 
 /**
  * Define some VideoGen transformation's specifications
@@ -29,7 +30,7 @@ import org.irisa.diverse.videogen.videoGen.Mimetypes_Enum
  * FIXME: Is it a good idea to have only one class to manage tranformations ? Should it be better to split inside the xtext/ecore framework ?
  */
  public class VideoGenTransform {
- 
+  
 	/**
 	 * Local logger
 	 * 
@@ -196,6 +197,24 @@ import org.irisa.diverse.videogen.videoGen.Mimetypes_Enum
         ]
         videogen
     }
+    
+ 	/**
+ 	 * Add some probably missing or misformatted metadatas into the video instance
+ 	 * For instance, videos duration and mime types.
+ 	 * Use of VideoGenHelper helper class 
+ 	 * 
+	 * @author Stéphane Mangin <stephane.mangin@freesbee.fr>
+ 	 * @see VideoGenHelper#getDuration(Path)
+ 	 * @see VideoGenHelper#getMimeType(Path)
+	 * 
+ 	 * FIXME: should create a new Video instance to not modify the given one.
+ 	 */ 
+    def static addMetadata(Video video){
+        val url = Paths.get(video.url)
+		video.duration = VideosHelper.getDuration(url)
+		video.mimetype = Mimetypes_Enum.getByName(VideosHelper.getMimeType(url).name)
+        video
+    }
         
  	/**
  	 * Tranformation from VideoGen instance to Playlist instance
@@ -303,7 +322,7 @@ import org.irisa.diverse.videogen.videoGen.Mimetypes_Enum
     def static toM3U(VideoGen videogen, Boolean withThumbnails, Map<String, Boolean> videos){
    		LOGGER.info("To M3U " + videogen)
    		val playlist = VideoGenTransform.toCustomPlayList(videogen, withThumbnails, videos)
-    	PlayListTransform.toM3U(playlist, true, true)
+    	PlayListTransform.toM3U(playlist)
     }
     
  	/**

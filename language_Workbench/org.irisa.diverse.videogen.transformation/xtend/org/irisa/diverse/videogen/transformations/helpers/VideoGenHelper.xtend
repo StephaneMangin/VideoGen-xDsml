@@ -100,7 +100,7 @@ public class VideoGenHelper {
 				videos += sequence.video
 			}
 		]	
-        videos
+        videos.filter[video | video !== null].toList
     }
     
  	/**
@@ -124,7 +124,7 @@ public class VideoGenHelper {
 				videos += sequence.video
 			}
 		]	
-        videos
+        videos.filter[video | video !== null].toList
     }
     
  	/**

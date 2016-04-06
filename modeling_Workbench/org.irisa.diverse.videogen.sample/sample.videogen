@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <videoGen:VideoGen xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:videoGen="http://www.irisa.org/diverse/videogen" name="VideoGen1">
   <sequences xsi:type="videoGen:Alternatives" name="intro" nextSequence="//@sequences.2">
-    <options name="intro-1" video="//@videos.3" probability="30"/>
-    <options name="intro-2" nextSequence="//@sequences.6" video="//@videos.2" probability="70"/>
+    <options name="intro-1" video="//@videos.11" probability="30"/>
+    <options name="intro-2" nextSequence="//@sequences.6" video="//@videos.1" probability="70"/>
   </sequences>
   <sequences xsi:type="videoGen:Optional" name="haha1" nextSequence="//@sequences.7" video="//@videos.12" probability="30"/>
   <sequences xsi:type="videoGen:Alternatives" name="cats" nextSequence="//@sequences.4">
@@ -23,21 +23,21 @@
     <options name="outro-2" video="//@videos.2" probability="45"/>
   </sequences>
   <sequences xsi:type="videoGen:Mandatory" name="haha4" nextSequence="//@sequences.7" video="//@videos.0"/>
-  <sequences xsi:type="videoGen:Introduction" name="Introduction" nextSequence="//@sequences.0" video="//@videos.11"/>
-  <sequences xsi:type="videoGen:Conclusion" name="Conclusion" video="//@videos.2"/>
-  <videos name="haha4" url="/tmp/videos/haha/haha.mp4" description="Ah ah ah"/>
-  <videos name="intro2" url="/tmp/videos/intro/TimsSuicide.mp4" description="Oh my god, he tries to kill himself with a balloon"/>
-  <videos name="outro2" url="/tmp/videos/outro/Poltergeist.mp4" description="Waouw... F... What's happening ?"/>
-  <videos name="outro1" url="/tmp/videos/outro/THEEVILSEEDOFWHATYOUVEDONEGERMINATESWITH.mp4" description="Wait wait, is he alone in his head ?"/>
-  <videos name="wtf4" url="/tmp/videos/wtf/WarmItUp.mp4" description="Oh yeah, you smell that, it smells good !"/>
-  <videos name="wtf3" url="/tmp/videos/wtf/ThenIdontNeedAJacket.mp4" description="... pshitt"/>
-  <videos name="wtf2" url="/tmp/videos/wtf/TheStrongestMotherfuckerInTheWorld.mp4" description="Oh my god"/>
-  <videos name="wtf1" url="/tmp/videos/wtf/Cereal.mp4" description="Big cereals this morning..."/>
-  <videos name="haha2" url="/tmp/videos/haha/EddyWally-Wow.mp4" description="Addy Wally - Wow"/>
-  <videos name="tv1" url="/tmp/videos/tv/PublicAccessTV.mp4" description="What the F..."/>
-  <videos name="haha3" url="/tmp/videos/haha/haha.mp4" description="Ah ah ah"/>
-  <videos name="intro1" url="/tmp/videos/intro/Mass.mp4" description="The mass is said, Amen !"/>
-  <videos name="haha1" url="/tmp/videos/haha/EddyWally-Wow.mp4" description="Addy Wally - Wow"/>
-  <videos name="cat1" url="/tmp/videos/cats/Acroscatics.mp4" description="Well done, but not well shot"/>
-  <videos name="cat2" url="/tmp/videos/cats/CatJumpFail.mp4" description="Grrrrr, one more time"/>
+  <sequences xsi:type="videoGen:Introduction" name="Introduction" nextSequence="//@sequences.0"/>
+  <sequences xsi:type="videoGen:Conclusion" name="Conclusion"/>
+  <videos name="haha4" url="videos/haha/haha.mp4" description="Ah ah ah"/>
+  <videos name="intro2" url="videos/intro/TimsSuicide.mp4" description="Oh my god, he tries to kill himself with a balloon"/>
+  <videos name="outro2" url="videos/outro/Poltergeist.mp4" description="Waouw... F... What's happening ?"/>
+  <videos name="outro1" url="videos/outro/THEEVILSEEDOFWHATYOUVEDONEGERMINATESWITH.mp4" description="Wait wait, is he alone in his head ?"/>
+  <videos name="wtf4" url="videos/wtf/WarmItUp.mp4" description="Oh yeah, you smell that, it smells good !"/>
+  <videos name="wtf3" url="videos/wtf/ThenIdontNeedAJacket.mp4" description="... pshitt"/>
+  <videos name="wtf2" url="videos/wtf/TheStrongestMotherfuckerInTheWorld.mp4" description="Oh my god"/>
+  <videos name="wtf1" url="videos/wtf/Cereal.mp4" description="Big cereals this morning..."/>
+  <videos name="haha2" url="videos/haha/EddyWally-Wow.mp4" description="Addy Wally - Wow"/>
+  <videos name="tv1" url="videos/tv/PublicAccessTV.mp4" description="What the F..."/>
+  <videos name="haha3" url="videos/haha/haha.mp4" description="Ah ah ah"/>
+  <videos name="intro1" url="videos/intro/Mass.mp4" description="The mass is said, Amen !"/>
+  <videos name="haha1" url="videos/haha/EddyWally-Wow.mp4" description="Addy Wally - Wow"/>
+  <videos name="cat1" url="videos/cats/Acroscatics.mp4" description="Well done, but not well shot"/>
+  <videos name="cat2" url="videos/cats/CatJumpFail.mp4" description="Grrrrr, one more time"/>
 </videoGen:VideoGen>

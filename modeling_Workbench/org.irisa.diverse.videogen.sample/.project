@@ -5,8 +5,31 @@
 	<projects>
 	</projects>
 	<buildSpec>
+		<buildCommand>
+			<name>org.eclipse.pde.ManifestBuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+		<buildCommand>
+			<name>org.eclipse.pde.SchemaBuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+		<buildCommand>
+			<name>org.gemoc.execution.sequential.javaxdsml.ide.ui.GemocSequentialLanguageBuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
 	</buildSpec>
 	<natures>
 		<nature>org.eclipse.sirius.nature.modelingproject</nature>
+		<nature>org.eclipse.pde.PluginNature</nature>
+		<nature>org.gemoc.execution.sequential.javaxdsml.ide.ui.GemocSequentialLanguageNature</nature>
 	</natures>
+	<variableList>
+		<variable>
+			<name>VIDEOS</name>
+			<value>file:/home/smangin/Workspace/VideoGen-xDsml/modeling_Workbench/org.irisa.diverse.videogen.sample/videos</value>
+		</variable>
+	</variableList>
 </projectDescription>
