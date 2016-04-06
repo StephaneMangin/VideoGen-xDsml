@@ -39,32 +39,26 @@ class VideoGenAspect {
 		val start = System.nanoTime
 		_self.execute
 		val stop = System.nanoTime
-		println("#### VideoGen, time to execute " + (stop - start))
+		println("#### VideoGen, time to execute " + (stop - start))
 	}
 	
+	@Step
 	@InitializeModel
 	def public void initializeModel(List<String> args){
-		_self.setup
-	}
-	
-	/**
-	 * Setup is ONLY call by initializeModel.
-	 * 
-	 * DO NOT add a Step annotation (step manager issue) !
-	 * 
-	 */
-	def void setup() {
-		println("##### VideoGen '" + _self.name + "' setup...")
-
-		// Initialize all sequences
-		VideoGenHelper.allSequences(_self).forEach[sequence |
-			sequence.setup
-		]
+		val start = System.nanoTime
+		
+		// Setup initialization
+		new VideoGenSetupVisitor().visit(_self)		
+		
+		// Duration initialization
 		val durationVisitor = new VideoGenDurationVisitor(false)
 		durationVisitor.visit(_self)
 		// Constraints initialization
-		_self.setConstraints(durationVisitor.minDuration, durationVisitor.maxDuration)
+		_self.minDurationConstraint = durationVisitor.minDuration
+		_self.maxDurationConstraint = durationVisitor.maxDuration
 		
+		val stop = System.nanoTime
+		println("#### VideoGen, time to setup " + (stop - start))
 	}
 	
 	def public void execute() {
@@ -88,8 +82,6 @@ class VideoGenAspect {
 		// Constraints checking
 		val durationVisitor = new VideoGenDurationVisitor(true)
 		durationVisitor.visit(_self)
-		println(durationVisitor.maxDuration + "<" + _self.minDurationConstraint)
-		println(durationVisitor.maxDuration + ">" + _self.maxDurationConstraint)
 		if (durationVisitor.maxDuration < _self.minDurationConstraint) {
 			throw new ConstraintsFailed(ConstraintsType.MIN_DURATION, true)
 		}
@@ -121,17 +113,6 @@ class VideoGenAspect {
 		p.start()
 	}
 	
-	@Step
-	def public void setConstraints(Integer minDuration, Integer maxDuration) {
-		_self.setConstraintsP(minDuration, maxDuration)
-	}
-	
-	def private void setConstraintsP(Integer minDuration, Integer maxDuration) {
-		println("##### Constraints changed. New values are : min=" + minDuration + ", max=" + maxDuration)
-		_self.minDurationConstraint = minDuration
-		_self.maxDurationConstraint = maxDuration
-	}
-	
 }
 
 @Aspect(className=Sequence)
@@ -161,36 +142,11 @@ abstract class SequenceAspect {
 			}
 		}
 	}
-	
-	def public void setup() {
-		println("##### Sequence '" + _self.name + "' setup...")
-		if (_self.video != null) {
-			_self.video.setup
-		}
-	}
 }
 
 @Aspect(className=Alternatives)
 class AlternativesAspect extends SequenceAspect {
 	
-	/**
-	 * Populate the video relation with selected optional video
-	 * 
-	 */
-	@Step
-	@OverrideAspectMethod
-	def public void setup() {
-		
-		println("##### Alternatives '" + _self.name + "' setup...")
-		// Setup all optionals
-		_self.options.forEach[video.setup]
-		
-		// Then select the video to be processed
-		val video = _self.selectVideo
-		println("=> video selected: " + video.name)
-		_self.video = video
-		_self.super_setup
-	}
 	
 	/**
 	 * Return a hashmap with corrected probabilities for an Alternatives instance.
@@ -316,28 +272,7 @@ class ConclusionAspect extends SequenceAspect {
 class VideoAspect {
 	
 	public Boolean selected = false
-	
-	/**
-	 * Add metadatas.
-	 * 
-	 * If not prefixed with /, considered relative. Workspace root will be added as a prefix.
-	 * If prefixed with a /, considered as absolute. No modification.
-	 * 
-	 */
-	@Step
-	def public void setup() {
-		println("##### Video '" + _self.name + "' setup...")
-		if (!_self.url.startsWith("/")) {
-			val prefix = ResourcesPlugin.workspace.root.projects.get(0).locationURI.toString.replace("file:", "")
-			val newPath = prefix + "/" + _self.url
-			println(_self.url + " => " + newPath)
-			_self.url = newPath
-		}
 		
-		// Add duration and VideoCodec MimeType
-		VideoGenTransform.addMetadata(_self)
-	}
-	
 	/**
 	 * Select this video and apply any of needed operations (conversion or rename for example)
 	 * 
@@ -346,6 +281,11 @@ class VideoAspect {
 	def public void select() {
 		println("##### Video '" + _self.name + "' has been selected.")
 		_self.selected = true
+	}
+	
+	@Step
+	def public void setUrl(String url) {
+		_self.url = url
 	}
 }
 

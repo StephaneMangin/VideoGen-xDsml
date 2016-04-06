@@ -25,7 +25,7 @@ class VideoGenDurationVisitor {
 	
 	def visit(VideoGen vid) {
 		println("VideoGen Duration Visitor started...")
-		visit(VideoGenHelper.getIntroduction(vid) as Sequence)
+		visit(VideoGenHelper.getIntroduction(vid as VideoGen) as Sequence)
 		println(doneSequences)
 	}
 	
