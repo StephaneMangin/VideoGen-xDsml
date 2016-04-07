@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<videoGen:VideoGen xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:videoGen="http://www.irisa.org/diverse/videogen" name="VideoGen1" minDurationConstraint="42299" maxDurationConstraint="97998">
+<videoGen:VideoGen xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:videoGen="http://www.irisa.org/diverse/videogen" name="VideoGen1" minDurationConstraint="42299" maxDurationConstraint="97998" variantes="256">
   <sequences xsi:type="videoGen:Alternatives" name="intro" nextSequence="//@sequences.6">
     <options name="intro-1" video="//@videos.11" probability="30"/>
     <options name="intro-2" video="//@videos.1" probability="70"/>
@@ -23,8 +23,8 @@
     <options name="outro-2" video="//@videos.2" probability="45"/>
   </sequences>
   <sequences xsi:type="videoGen:Mandatory" name="haha4" nextSequence="//@sequences.5" video="//@videos.0"/>
-  <sequences xsi:type="videoGen:Introduction" name="Introduction" nextSequence="//@sequences.0"/>
-  <sequences xsi:type="videoGen:Conclusion" name="Conclusion"/>
+  <sequences xsi:type="videoGen:Introduction" name="Introduction" nextSequence="//@sequences.0" videoGen="/"/>
+  <sequences xsi:type="videoGen:Conclusion" name="Conclusion" nextSequence="//@sequences.9" videoGen="/"/>
   <videos name="haha4" url="videos/haha/haha.mp4" description="Ah ah ah"/>
   <videos name="intro2" url="videos/intro/TimsSuicide.mp4" description="Oh my god, he tries to kill himself with a balloon"/>
   <videos name="outro2" url="videos/outro/Poltergeist.mp4" description="Waouw... F... What's happening ?"/>

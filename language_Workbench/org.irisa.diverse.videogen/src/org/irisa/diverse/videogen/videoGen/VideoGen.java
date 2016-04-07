@@ -16,6 +16,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.irisa.diverse.videogen.videoGen.VideoGen#getVideos <em>Videos</em>}</li>
  *   <li>{@link org.irisa.diverse.videogen.videoGen.VideoGen#getMinDurationConstraint <em>Min Duration Constraint</em>}</li>
  *   <li>{@link org.irisa.diverse.videogen.videoGen.VideoGen#getMaxDurationConstraint <em>Max Duration Constraint</em>}</li>
+ *   <li>{@link org.irisa.diverse.videogen.videoGen.VideoGen#getVariantes <em>Variantes</em>}</li>
  * </ul>
  * </p>
  *
@@ -109,5 +110,32 @@ public interface VideoGen extends NamedElement {
 	 * @generated
 	 */
 	void setMaxDurationConstraint(Integer value);
+
+	/**
+	 * Returns the value of the '<em><b>Variantes</b></em>' attribute.
+	 * The default value is <code>"0"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Variantes</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Variantes</em>' attribute.
+	 * @see #setVariantes(Integer)
+	 * @see org.irisa.diverse.videogen.videoGen.VideoGenPackage#getVideoGen_Variantes()
+	 * @model default="0" required="true"
+	 * @generated
+	 */
+	Integer getVariantes();
+
+	/**
+	 * Sets the value of the '{@link org.irisa.diverse.videogen.videoGen.VideoGen#getVariantes <em>Variantes</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Variantes</em>' attribute.
+	 * @see #getVariantes()
+	 * @generated
+	 */
+	void setVariantes(Integer value);
 
 } // VideoGen

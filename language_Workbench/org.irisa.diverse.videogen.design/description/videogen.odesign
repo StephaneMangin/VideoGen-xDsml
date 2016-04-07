@@ -26,6 +26,13 @@
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
             </style>
           </borderedNodeMappings>
+          <borderedNodeMappings name="Variantes" semanticCandidatesExpression="var:self" domainClass="videoGen.VideoGen">
+            <style xsi:type="style:SquareDescription" borderSizeComputationExpression="2" labelFormat="bold" showIcon="false" labelExpression="['Variantes: ' + self.variantes/]" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_red']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            </style>
+          </borderedNodeMappings>
           <subNodeMappings name="Mandatory" labelDirectEdit="//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='LabelDirectEdition']" semanticCandidatesExpression="feature:sequences" doubleClickDescription="//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='MandatoryDBClick']" synchronizationLock="true" domainClass="videoGen.Mandatory">
             <style xsi:type="style:SquareDescription" showIcon="false" iconPath="/org.irisa.diverse.videogen.edit/icons/full/obj16/Mandatory.gif" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>

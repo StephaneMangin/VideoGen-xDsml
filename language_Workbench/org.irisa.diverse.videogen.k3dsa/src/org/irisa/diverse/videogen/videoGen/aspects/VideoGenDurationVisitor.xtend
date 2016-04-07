@@ -41,6 +41,7 @@ class VideoGenDurationVisitor {
 			seq.visit
 		} else if (seq instanceof Conclusion) {
 			seq.visit
+			return
 		} else if (seq instanceof Alternatives) {
 			seq.visit
 		}

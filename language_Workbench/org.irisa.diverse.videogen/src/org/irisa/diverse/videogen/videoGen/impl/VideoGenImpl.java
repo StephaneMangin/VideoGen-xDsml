@@ -32,6 +32,7 @@ import org.irisa.diverse.videogen.videoGen.VideoGenPackage;
  *   <li>{@link org.irisa.diverse.videogen.videoGen.impl.VideoGenImpl#getVideos <em>Videos</em>}</li>
  *   <li>{@link org.irisa.diverse.videogen.videoGen.impl.VideoGenImpl#getMinDurationConstraint <em>Min Duration Constraint</em>}</li>
  *   <li>{@link org.irisa.diverse.videogen.videoGen.impl.VideoGenImpl#getMaxDurationConstraint <em>Max Duration Constraint</em>}</li>
+ *   <li>{@link org.irisa.diverse.videogen.videoGen.impl.VideoGenImpl#getVariantes <em>Variantes</em>}</li>
  * </ul>
  * </p>
  *
@@ -97,6 +98,26 @@ public class VideoGenImpl extends NamedElementImpl implements VideoGen {
 	 * @ordered
 	 */
 	protected Integer maxDurationConstraint = MAX_DURATION_CONSTRAINT_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getVariantes() <em>Variantes</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getVariantes()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Integer VARIANTES_EDEFAULT = new Integer(0);
+
+	/**
+	 * The cached value of the '{@link #getVariantes() <em>Variantes</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getVariantes()
+	 * @generated
+	 * @ordered
+	 */
+	protected Integer variantes = VARIANTES_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -188,6 +209,27 @@ public class VideoGenImpl extends NamedElementImpl implements VideoGen {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Integer getVariantes() {
+		return variantes;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setVariantes(Integer newVariantes) {
+		Integer oldVariantes = variantes;
+		variantes = newVariantes;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, VideoGenPackage.VIDEO_GEN__VARIANTES, oldVariantes, variantes));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -215,6 +257,8 @@ public class VideoGenImpl extends NamedElementImpl implements VideoGen {
 				return getMinDurationConstraint();
 			case VideoGenPackage.VIDEO_GEN__MAX_DURATION_CONSTRAINT:
 				return getMaxDurationConstraint();
+			case VideoGenPackage.VIDEO_GEN__VARIANTES:
+				return getVariantes();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -242,6 +286,9 @@ public class VideoGenImpl extends NamedElementImpl implements VideoGen {
 			case VideoGenPackage.VIDEO_GEN__MAX_DURATION_CONSTRAINT:
 				setMaxDurationConstraint((Integer)newValue);
 				return;
+			case VideoGenPackage.VIDEO_GEN__VARIANTES:
+				setVariantes((Integer)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -266,6 +313,9 @@ public class VideoGenImpl extends NamedElementImpl implements VideoGen {
 			case VideoGenPackage.VIDEO_GEN__MAX_DURATION_CONSTRAINT:
 				setMaxDurationConstraint(MAX_DURATION_CONSTRAINT_EDEFAULT);
 				return;
+			case VideoGenPackage.VIDEO_GEN__VARIANTES:
+				setVariantes(VARIANTES_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -286,6 +336,8 @@ public class VideoGenImpl extends NamedElementImpl implements VideoGen {
 				return MIN_DURATION_CONSTRAINT_EDEFAULT == null ? minDurationConstraint != null : !MIN_DURATION_CONSTRAINT_EDEFAULT.equals(minDurationConstraint);
 			case VideoGenPackage.VIDEO_GEN__MAX_DURATION_CONSTRAINT:
 				return MAX_DURATION_CONSTRAINT_EDEFAULT == null ? maxDurationConstraint != null : !MAX_DURATION_CONSTRAINT_EDEFAULT.equals(maxDurationConstraint);
+			case VideoGenPackage.VIDEO_GEN__VARIANTES:
+				return VARIANTES_EDEFAULT == null ? variantes != null : !VARIANTES_EDEFAULT.equals(variantes);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -304,6 +356,8 @@ public class VideoGenImpl extends NamedElementImpl implements VideoGen {
 		result.append(minDurationConstraint);
 		result.append(", maxDurationConstraint: ");
 		result.append(maxDurationConstraint);
+		result.append(", variantes: ");
+		result.append(variantes);
 		result.append(')');
 		return result.toString();
 	}

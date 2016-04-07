@@ -60,7 +60,11 @@ public class VideoGenHelper {
         var Sequence sequence = getIntroduction(videoGen)
         while (sequence !== null) {
 			sequences.add(sequence)
-			sequence = sequence.nextSequence
+			if (sequence instanceof Conclusion) {
+				sequence = null
+			} else {
+				sequence = sequence.nextSequence
+			}
         }
 		sequences
     }

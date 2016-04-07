@@ -151,13 +151,22 @@ public interface VideoGenPackage extends EPackage {
 	int VIDEO_GEN__MAX_DURATION_CONSTRAINT = NAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Variantes</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIDEO_GEN__VARIANTES = NAMED_ELEMENT_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Video Gen</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VIDEO_GEN_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 4;
+	int VIDEO_GEN_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of operations of the '<em>Video Gen</em>' class.
@@ -736,6 +745,17 @@ public interface VideoGenPackage extends EPackage {
 	EAttribute getVideoGen_MaxDurationConstraint();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.irisa.diverse.videogen.videoGen.VideoGen#getVariantes <em>Variantes</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Variantes</em>'.
+	 * @see org.irisa.diverse.videogen.videoGen.VideoGen#getVariantes()
+	 * @see #getVideoGen()
+	 * @generated
+	 */
+	EAttribute getVideoGen_Variantes();
+
+	/**
 	 * Returns the meta object for class '{@link org.irisa.diverse.videogen.videoGen.Sequence <em>Sequence</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1032,6 +1052,14 @@ public interface VideoGenPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute VIDEO_GEN__MAX_DURATION_CONSTRAINT = eINSTANCE.getVideoGen_MaxDurationConstraint();
+
+		/**
+		 * The meta object literal for the '<em><b>Variantes</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute VIDEO_GEN__VARIANTES = eINSTANCE.getVideoGen_Variantes();
 
 		/**
 		 * The meta object literal for the '{@link org.irisa.diverse.videogen.videoGen.Sequence <em>Sequence</em>}' class.

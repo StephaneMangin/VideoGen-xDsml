@@ -1,13 +1,18 @@
 package org.irisa.diverse.videogen.videoGen.aspects
 
 import fr.inria.diverse.k3.al.annotationprocessor.Aspect
+import fr.inria.diverse.k3.al.annotationprocessor.InitializeModel
 import fr.inria.diverse.k3.al.annotationprocessor.Main
 import fr.inria.diverse.k3.al.annotationprocessor.OverrideAspectMethod
 import fr.inria.diverse.k3.al.annotationprocessor.Step
+import java.io.File
+import java.io.FileWriter
 import java.util.HashMap
+import java.util.List
 import java.util.Map
 import org.irisa.diverse.videogen.transformations.VideoGenTransform
 import org.irisa.diverse.videogen.transformations.helpers.VideoGenHelper
+import org.irisa.diverse.videogen.transformations.utils.DistributedRandomNumberGenerator
 import org.irisa.diverse.videogen.videoGen.Alternatives
 import org.irisa.diverse.videogen.videoGen.Conclusion
 import org.irisa.diverse.videogen.videoGen.Introduction
@@ -19,27 +24,18 @@ import org.irisa.diverse.videogen.videoGen.VideoGen
 import org.irisa.diverse.videogen.videoGen.aspects.exceptions.ConstraintsFailed
 import org.irisa.diverse.videogen.videoGen.aspects.exceptions.ConstraintsType
 
-import static extension org.irisa.diverse.videogen.videoGen.aspects.AlternativesAspect.*
 import static extension org.irisa.diverse.videogen.videoGen.aspects.SequenceAspect.*
 import static extension org.irisa.diverse.videogen.videoGen.aspects.VideoAspect.*
-import fr.inria.diverse.k3.al.annotationprocessor.InitializeModel
-import java.util.List
-import org.eclipse.core.resources.ResourcesPlugin
-import java.io.FileWriter
-import java.io.File
-
-
 
 @Aspect(className=VideoGen)
 class VideoGenAspect {
 
+	private long nanotimeStart = 0
+	private long nanotimeEnd = 0
 
 	@Main
 	def void main() {
-		val start = System.nanoTime
 		_self.execute
-		val stop = System.nanoTime
-		println("#### VideoGen, time to execute " + (stop - start))
 	}
 	
 	@Step
@@ -48,7 +44,12 @@ class VideoGenAspect {
 		val start = System.nanoTime
 		
 		// Setup initialization
-		new VideoGenSetupVisitor().visit(_self)		
+		new VideoGenSetupVisitor().visit(_self)	
+		// Variante initialization
+		val variantesVisitor = new VideoGenVarianteVisitor()
+		variantesVisitor.visit(_self)
+		_self.variantes = variantesVisitor.variantes
+		println("Variantes => " + _self.variantes)
 		
 		// Duration initialization
 		val durationVisitor = new VideoGenDurationVisitor(false)
@@ -56,27 +57,25 @@ class VideoGenAspect {
 		// Constraints initialization
 		_self.minDurationConstraint = durationVisitor.minDuration
 		_self.maxDurationConstraint = durationVisitor.maxDuration
+		println("Min duration => " + _self.minDurationConstraint)
+		println("Max duration => " + _self.maxDurationConstraint)
+		
 		
 		val stop = System.nanoTime
 		println("#### VideoGen, time to setup " + (stop - start))
 	}
 	
 	def public void execute() {
-		
+		_self.nanotimeStart = System.nanoTime
 		// Then process each sequences
 		VideoGenHelper.getIntroduction(_self).execute
-		
-		// And at the end (sequential so ok !) call the video generation
-		_self.compute
-	}
-	
-	/**
+	}	
+		/**
 	 * Start the computation (model transformation) of all selected video to create the final sequence (PlayList format)
 	 * 
 	 * @see : ffmpeg
 	 */
-	def public void compute() {
-		val videos = new HashMap
+	def public void compute() {		val videos = new HashMap
 		println("##### VideoGen '" + _self.name + "' start computation.")
 		
 		// Constraints checking
@@ -111,8 +110,10 @@ class VideoGenAspect {
 			"--no-overlay",
 			playlist.toPath.toString)
 		p.start()
+		_self.nanotimeEnd = System.nanoTime
+		println("#### VideoGen, time to execute " + (_self.nanotimeEnd - _self.nanotimeStart))
+		_self.nanotimeStart = System.nanoTime
 	}
-	
 }
 
 @Aspect(className=Sequence)
@@ -265,7 +266,21 @@ class IntroductionAspect extends SequenceAspect {
 
 @Aspect(className=Conclusion)
 class ConclusionAspect extends SequenceAspect {
-	
+		
+	@OverrideAspectMethod
+	def public void execute() {
+		_self.compute
+		_self.super_execute
+	}
+	/**
+	 * Call VideogGen.compute() and wait for 1000 ms before the next turn
+	 * 
+	 * @see : ffmpeg
+	 */
+	def public void compute() {
+		VideoGenAspect.compute(_self.videoGen)
+		Thread.sleep(1000)
+	}
 }
 
 @Aspect(className=Video)
@@ -289,44 +304,6 @@ class VideoAspect {
 	}
 }
 
-/**
- * Randomization helper
- * 
- * @see https://stackoverflow.com/questions/20327958/random-number-with-probabilities/20329901#20329901
- * 
- * @Author http://stackoverflow.com/users/2128755/trylimits
- */
-class DistributedRandomNumberGenerator {
-	HashMap<Integer, Double> distribution
-	double distSum
-
-	new() {
-		distribution = new HashMap()
-	}
-
-	def void addNumber(int value, double distribution) {
-		if (this.distribution.get(value) !== null) {
-			distSum -= this.distribution.get(value)
-		}
-		this.distribution.put(value, distribution)
-		distSum += distribution
-	}
-
-	def int getDistributedRandomNumber() {
-		var double rand = Math.random()
-		var double ratio = 1.0f / distSum
-		var double tempDist = 0
-		for (Integer i : distribution.keySet()) {
-			tempDist += distribution.get(i)
-			if (rand / ratio <= tempDist) {
-				return i
-			}
-
-		}
-		return 0
-	}
-
-}
 
 
 

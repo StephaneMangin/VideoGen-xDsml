@@ -211,6 +211,15 @@ public class VideoGenPackageImpl extends EPackageImpl implements VideoGenPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getVideoGen_Variantes() {
+		return (EAttribute)videoGenEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getSequence() {
 		return sequenceEClass;
 	}
@@ -437,6 +446,7 @@ public class VideoGenPackageImpl extends EPackageImpl implements VideoGenPackage
 		createEReference(videoGenEClass, VIDEO_GEN__VIDEOS);
 		createEAttribute(videoGenEClass, VIDEO_GEN__MIN_DURATION_CONSTRAINT);
 		createEAttribute(videoGenEClass, VIDEO_GEN__MAX_DURATION_CONSTRAINT);
+		createEAttribute(videoGenEClass, VIDEO_GEN__VARIANTES);
 
 		sequenceEClass = createEClass(SEQUENCE);
 		createEReference(sequenceEClass, SEQUENCE__NEXT_SEQUENCE);
@@ -514,6 +524,7 @@ public class VideoGenPackageImpl extends EPackageImpl implements VideoGenPackage
 		initEReference(getVideoGen_Videos(), this.getVideo(), null, "videos", null, 0, -1, VideoGen.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getVideoGen_MinDurationConstraint(), ecorePackage.getEIntegerObject(), "minDurationConstraint", "0", 1, 1, VideoGen.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getVideoGen_MaxDurationConstraint(), ecorePackage.getEIntegerObject(), "maxDurationConstraint", "0", 1, 1, VideoGen.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getVideoGen_Variantes(), ecorePackage.getEIntegerObject(), "variantes", "0", 1, 1, VideoGen.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(sequenceEClass, Sequence.class, "Sequence", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSequence_NextSequence(), this.getSequence(), null, "nextSequence", null, 0, 1, Sequence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -50,6 +50,7 @@ public class VideoGenItemProvider extends NamedElementItemProvider {
 
 			addMinDurationConstraintPropertyDescriptor(object);
 			addMaxDurationConstraintPropertyDescriptor(object);
+			addVariantesPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -90,6 +91,28 @@ public class VideoGenItemProvider extends NamedElementItemProvider {
 				 getString("_UI_VideoGen_maxDurationConstraint_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_VideoGen_maxDurationConstraint_feature", "_UI_VideoGen_type"),
 				 VideoGenPackage.Literals.VIDEO_GEN__MAX_DURATION_CONSTRAINT,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Variantes feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addVariantesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_VideoGen_variantes_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_VideoGen_variantes_feature", "_UI_VideoGen_type"),
+				 VideoGenPackage.Literals.VIDEO_GEN__VARIANTES,
 				 true,
 				 false,
 				 false,
@@ -169,6 +192,7 @@ public class VideoGenItemProvider extends NamedElementItemProvider {
 		switch (notification.getFeatureID(VideoGen.class)) {
 			case VideoGenPackage.VIDEO_GEN__MIN_DURATION_CONSTRAINT:
 			case VideoGenPackage.VIDEO_GEN__MAX_DURATION_CONSTRAINT:
+			case VideoGenPackage.VIDEO_GEN__VARIANTES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case VideoGenPackage.VIDEO_GEN__SEQUENCES:

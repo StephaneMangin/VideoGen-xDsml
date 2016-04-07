@@ -44,6 +44,9 @@
       <genFeatures createChild="false">
         <ecoreFeature xsi:type="ecore:EAttribute" href="VideoGen.ecore#//VideoGen/maxDurationConstraint"/>
       </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="VideoGen.ecore#//VideoGen/variantes"/>
+      </genFeatures>
     </genClasses>
     <genClasses image="false">
       <ecoreClass href="VideoGen.ecore#//Sequence"/>
