@@ -14,7 +14,6 @@ class VideoGenSetupVisitor {
 		VideoGenHelper.allVideos(vid).forEach[visit]
 	}
 	
-	@Step
 	def private visit(Video video) {
 		println("VideoGen Setup Visitor : " + video)
 		if (!video.url.startsWith("/")) {

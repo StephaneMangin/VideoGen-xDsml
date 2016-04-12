@@ -292,13 +292,11 @@ class VideoAspect {
 	 * Select this video and apply any of needed operations (conversion or rename for example)
 	 * 
 	 */
-	@Step
 	def public void select() {
 		println("##### Video '" + _self.name + "' has been selected.")
 		_self.selected = true
 	}
 	
-	@Step
 	def public void setUrl(String url) {
 		_self.url = url
 	}
