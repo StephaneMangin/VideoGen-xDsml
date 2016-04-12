@@ -14,6 +14,7 @@ public class VideogenlDebugServices extends AbstractGemocDebuggerServices {
 	protected List<StringCouple> getRepresentationRefreshList() {
 		final List<StringCouple> res = new ArrayList<StringCouple>();
 
+		res.add(new StringCouple("VideoGenL", "Default"));
 		res.add(new StringCouple("VideoGenL", "Debug"));
 
 		return res;
@@ -35,9 +36,6 @@ public class VideogenlDebugServices extends AbstractGemocDebuggerServices {
 	 *         currently selected sequence, <code>false</code> otherwise
 	 */
 	public boolean isSelectedSequence(EObject instruction) {
-		System.out.println("########################################");
-		System.out.println(instruction);
-		System.out.println("########################################");
 		if (instruction instanceof Optional) {
 			return ((Optional) instruction).getVideo().getSelected();
 		}

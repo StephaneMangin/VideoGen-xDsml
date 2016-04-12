@@ -13,6 +13,7 @@ package org.gemoc.executionframework.extensions.sirius.modelloader;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.function.BiConsumer;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.ResourceSet;
@@ -21,6 +22,7 @@ import org.eclipse.sirius.ecore.extender.business.api.permission.LockStatus;
 import org.eclipse.sirius.ecore.extender.business.internal.permission.AbstractPermissionAuthority;
 import org.gemoc.xdsmlframework.api.core.IExecutionCheckpoint;
 
+@SuppressWarnings("restriction")
 public class DebugPermissionAuthority extends AbstractPermissionAuthority
 		implements IExecutionCheckpoint {
 
@@ -32,41 +34,87 @@ public class DebugPermissionAuthority extends AbstractPermissionAuthority
 
 	public void allow(ResourceSet rs, boolean allow) {
 		Integer integer = this.allow.get(rs);
-		if (allow) {
-			if (integer == null) {
-				this.allow.put(rs, Integer.valueOf(1));
-			} else {
-				this.allow.put(rs, Integer.valueOf(integer.intValue() + 1));
-			}
-		} else {
-			if (integer == null) {
-				this.allow.put(rs, Integer.valueOf(-1));
-			} else {
-				this.allow.put(rs, Integer.valueOf(integer.intValue() - 1));
-			}
-		}
+		this.allow.put(rs, Integer.valueOf(1));
+		return;
+//		if (allow) {
+//			if (integer == null) {
+//				this.allow.put(rs, Integer.valueOf(1));
+//			} else {
+//				this.allow.put(rs, Integer.valueOf(integer.intValue() + 1));
+//			}
+//		} else {
+//			if (integer == null) {
+//				this.allow.put(rs, Integer.valueOf(-1));
+//			} else {
+//				this.allow.put(rs, Integer.valueOf(integer.intValue() - 1));
+//			}
+//		}
 	}
 
 	@Override
 	public boolean canEditFeature(EObject eObj, String featureName) {
+		System.out.println("canEditFeature :");
+		System.out.println(eObj);
+		if (eObj != null) {
+			System.out.println(eObj.eResource());
+			if (eObj.eResource() != null) {
+				System.out.println(eObj.eResource().getResourceSet());
+			}
+		}
 		Integer integer = allow.get(eObj.eResource().getResourceSet());
 		return integer != null && integer.intValue() > 0;
 	}
 
 	@Override
 	public boolean canEditInstance(EObject eObj) {
+		System.out.println("#####################################################################################################");
+		System.out.println("Allow content : ");
+		allow.forEach(new BiConsumer<ResourceSet, Integer>() {
+
+			@Override
+			public void accept(ResourceSet t, Integer u) {
+				// TODO Auto-generated method stub
+				System.out.println("\t" + t + " - " + u);
+			}
+
+		});
+		System.out.println("#####################################################################################################");
+		System.out.println("canEditInstance :");
+		System.out.println(eObj);
+		if (eObj != null) {
+			System.out.println(eObj.eResource());
+			if (eObj.eResource() != null) {
+				System.out.println(eObj.eResource().getResourceSet());
+			}
+		}
 		Integer integer = allow.get(eObj.eResource().getResourceSet());
 		return integer != null && integer.intValue() > 0;
 	}
 
 	@Override
 	public boolean canCreateIn(EObject eObj) {
+		System.out.println("canCreateIn :");
+		System.out.println(eObj);
+		if (eObj != null) {
+			System.out.println(eObj.eResource());
+			if (eObj.eResource() != null) {
+				System.out.println(eObj.eResource().getResourceSet());
+			}
+		}
 		Integer integer = allow.get(eObj.eResource().getResourceSet());
 		return integer != null && integer.intValue() > 0;
 	}
 
 	@Override
 	public boolean canDeleteInstance(EObject target) {
+		System.out.println("canDeleteInstance :");
+		System.out.println(target);
+		if (target != null) {
+			System.out.println(target.eResource());
+			if (target.eResource() != null) {
+				System.out.println(target.eResource().getResourceSet());
+			}
+		}
 		Integer integer = allow.get(target.eResource().getResourceSet());
 		return integer != null && integer.intValue() > 0;
 	}
@@ -91,6 +139,7 @@ public class DebugPermissionAuthority extends AbstractPermissionAuthority
 		// nothing to do here
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public void notifyLock(Collection<? extends EObject> elements) {
 		for (IAuthorityListener listener : listeners) {
@@ -98,6 +147,7 @@ public class DebugPermissionAuthority extends AbstractPermissionAuthority
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public void notifyUnlock(Collection<? extends EObject> elements) {
 		for (IAuthorityListener listener : listeners) {
