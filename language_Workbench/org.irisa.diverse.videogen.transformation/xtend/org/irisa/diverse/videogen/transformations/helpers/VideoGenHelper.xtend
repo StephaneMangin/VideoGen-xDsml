@@ -94,13 +94,7 @@ public class VideoGenHelper {
 				sequence.options.forEach[option |
 					videos += option.video
 				]
-			} else if(sequence instanceof Mandatory) {
-				videos += sequence.video
-			} else if(sequence instanceof Optional) {
-				videos += sequence.video
-			} else if(sequence instanceof Introduction) {
-				videos += sequence.video
-			} else if(sequence instanceof Conclusion) {
+			} else {
 				videos += sequence.video
 			}
 		]	
@@ -118,13 +112,7 @@ public class VideoGenHelper {
 				sequence.options.forEach[option |
 					videos += option.video
 				]
-			} else if(sequence instanceof Mandatory) {
-				videos += sequence.video
-			} else if(sequence instanceof Optional) {
-				videos += sequence.video
-			} else if(sequence instanceof Introduction) {
-				videos += sequence.video
-			} else if(sequence instanceof Conclusion) {
+			} else {
 				videos += sequence.video
 			}
 		]	

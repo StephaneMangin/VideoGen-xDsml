@@ -60,9 +60,6 @@ class VideoGenChecker {
 		if (s instanceof Mandatory) {
 			s.compile()
 		}
-		else if (s instanceof Optional) {
-			s.compile()
-		}
 		else if (s instanceof Alternatives) {
 			s.compile()
 		}
@@ -70,6 +67,9 @@ class VideoGenChecker {
 			s.compile()
 		}
 		else if (s instanceof Conclusion) {
+			s.compile()
+		}
+		else if (s instanceof Optional) {
 			s.compile()
 		}
 		result

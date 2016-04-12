@@ -31,6 +31,15 @@
       </genEnumLiterals>
     </genEnums>
     <genClasses>
+      <ecoreClass href="VideoGen.ecore#//Mandatory"/>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="VideoGen.ecore#//Introduction"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="VideoGen.ecore#//Introduction/videoGen"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
       <ecoreClass href="VideoGen.ecore#//VideoGen"/>
       <genFeatures property="None" children="true" createChild="true">
         <ecoreFeature xsi:type="ecore:EReference" href="VideoGen.ecore#//VideoGen/sequences"/>
@@ -60,14 +69,11 @@
         <ecoreFeature xsi:type="ecore:EAttribute" href="VideoGen.ecore#//Sequence/active"/>
       </genFeatures>
     </genClasses>
-    <genClasses>
-      <ecoreClass href="VideoGen.ecore#//Alternatives"/>
-      <genFeatures property="None" children="true" createChild="true">
-        <ecoreFeature xsi:type="ecore:EReference" href="VideoGen.ecore#//Alternatives/options"/>
+    <genClasses image="false">
+      <ecoreClass href="VideoGen.ecore#//NamedElement"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="VideoGen.ecore#//NamedElement/name"/>
       </genFeatures>
-    </genClasses>
-    <genClasses>
-      <ecoreClass href="VideoGen.ecore#//Mandatory"/>
     </genClasses>
     <genClasses>
       <ecoreClass href="VideoGen.ecore#//Optional"/>
@@ -93,16 +99,10 @@
         <ecoreFeature xsi:type="ecore:EAttribute" href="VideoGen.ecore#//Video/selected"/>
       </genFeatures>
     </genClasses>
-    <genClasses image="false">
-      <ecoreClass href="VideoGen.ecore#//NamedElement"/>
-      <genFeatures createChild="false">
-        <ecoreFeature xsi:type="ecore:EAttribute" href="VideoGen.ecore#//NamedElement/name"/>
-      </genFeatures>
-    </genClasses>
     <genClasses>
-      <ecoreClass href="VideoGen.ecore#//Introduction"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true">
-        <ecoreFeature xsi:type="ecore:EReference" href="VideoGen.ecore#//Introduction/videoGen"/>
+      <ecoreClass href="VideoGen.ecore#//Alternatives"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="VideoGen.ecore#//Alternatives/options"/>
       </genFeatures>
     </genClasses>
     <genClasses>

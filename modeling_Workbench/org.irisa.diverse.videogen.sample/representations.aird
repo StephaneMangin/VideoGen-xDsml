@@ -1389,7 +1389,7 @@
           <foregroundColor xmi:type="viewpoint:RGBValues" xmi:id="_1LVYtvqPEeWIltJWHTRVvw" red="39" green="76" blue="114"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.irisa.diverse.videogen.design/description/videogen.odesign#//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='Mandatory%20diagram']/@defaultLayer/@containerMappings[name='MandatoryContainer']"/>
-        <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_1LVYt_qPEeWIltJWHTRVvw" name="haha3" tooltipText="/tmp/videos/haha/haha.mp4" width="3" height="3" resizeKind="NSEW">
+        <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_1LVYt_qPEeWIltJWHTRVvw" name="haha3" tooltipText="videos/haha/haha.mp4" width="3" height="3" resizeKind="NSEW">
           <target xmi:type="videoGen:Video" href="sample.videogen#//@videos.10"/>
           <semanticElements xmi:type="videoGen:Video" href="sample.videogen#//@videos.10"/>
           <ownedStyle xmi:type="diagram:Square" xmi:id="_1LVYuPqPEeWIltJWHTRVvw" labelPosition="node">

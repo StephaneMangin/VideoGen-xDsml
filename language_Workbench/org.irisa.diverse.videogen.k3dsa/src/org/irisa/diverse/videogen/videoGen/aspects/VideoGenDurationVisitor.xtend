@@ -35,13 +35,13 @@ class VideoGenDurationVisitor {
 		}
 		if (seq instanceof Mandatory) {
 			seq.visit
-		} else if (seq instanceof Optional) {
-			seq.visit
 		} else if (seq instanceof Introduction) {
 			seq.visit
 		} else if (seq instanceof Conclusion) {
 			seq.visit
 			return
+		} else if (seq instanceof Optional) {
+			seq.visit
 		} else if (seq instanceof Alternatives) {
 			seq.visit
 		}

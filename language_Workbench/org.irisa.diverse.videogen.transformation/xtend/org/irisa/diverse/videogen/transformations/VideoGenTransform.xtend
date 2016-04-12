@@ -236,10 +236,6 @@ import org.irisa.diverse.videogen.transformations.strategies.JaveStrategyImpl
 				}
 			} else if (sequence instanceof Alternatives) {
 				video = selectSequence(sequence)
-			} else if (sequence instanceof Introduction) {
-				video = sequence.video
-			} else if (sequence instanceof Conclusion) {
-				video = sequence.video
 			}
 			if (video != null) {
 				val p_video = playlistFactory.createVideo()
