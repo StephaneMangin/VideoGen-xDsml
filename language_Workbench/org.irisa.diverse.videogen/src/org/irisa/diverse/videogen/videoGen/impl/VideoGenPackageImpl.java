@@ -441,6 +441,11 @@ public class VideoGenPackageImpl extends EPackageImpl implements VideoGenPackage
 		isCreated = true;
 
 		// Create classes and their features
+		mandatoryEClass = createEClass(MANDATORY);
+
+		introductionEClass = createEClass(INTRODUCTION);
+		createEReference(introductionEClass, INTRODUCTION__VIDEO_GEN);
+
 		videoGenEClass = createEClass(VIDEO_GEN);
 		createEReference(videoGenEClass, VIDEO_GEN__SEQUENCES);
 		createEReference(videoGenEClass, VIDEO_GEN__VIDEOS);
@@ -453,10 +458,8 @@ public class VideoGenPackageImpl extends EPackageImpl implements VideoGenPackage
 		createEReference(sequenceEClass, SEQUENCE__VIDEO);
 		createEAttribute(sequenceEClass, SEQUENCE__ACTIVE);
 
-		alternativesEClass = createEClass(ALTERNATIVES);
-		createEReference(alternativesEClass, ALTERNATIVES__OPTIONS);
-
-		mandatoryEClass = createEClass(MANDATORY);
+		namedElementEClass = createEClass(NAMED_ELEMENT);
+		createEAttribute(namedElementEClass, NAMED_ELEMENT__NAME);
 
 		optionalEClass = createEClass(OPTIONAL);
 		createEAttribute(optionalEClass, OPTIONAL__PROBABILITY);
@@ -468,11 +471,8 @@ public class VideoGenPackageImpl extends EPackageImpl implements VideoGenPackage
 		createEAttribute(videoEClass, VIDEO__MIMETYPE);
 		createEAttribute(videoEClass, VIDEO__SELECTED);
 
-		namedElementEClass = createEClass(NAMED_ELEMENT);
-		createEAttribute(namedElementEClass, NAMED_ELEMENT__NAME);
-
-		introductionEClass = createEClass(INTRODUCTION);
-		createEReference(introductionEClass, INTRODUCTION__VIDEO_GEN);
+		alternativesEClass = createEClass(ALTERNATIVES);
+		createEReference(alternativesEClass, ALTERNATIVES__OPTIONS);
 
 		conclusionEClass = createEClass(CONCLUSION);
 		createEReference(conclusionEClass, CONCLUSION__VIDEO_GEN);
@@ -509,16 +509,21 @@ public class VideoGenPackageImpl extends EPackageImpl implements VideoGenPackage
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		mandatoryEClass.getESuperTypes().add(this.getSequence());
+		introductionEClass.getESuperTypes().add(this.getOptional());
 		videoGenEClass.getESuperTypes().add(this.getNamedElement());
 		sequenceEClass.getESuperTypes().add(this.getNamedElement());
-		alternativesEClass.getESuperTypes().add(this.getSequence());
-		mandatoryEClass.getESuperTypes().add(this.getSequence());
 		optionalEClass.getESuperTypes().add(this.getSequence());
 		videoEClass.getESuperTypes().add(this.getNamedElement());
-		introductionEClass.getESuperTypes().add(this.getSequence());
-		conclusionEClass.getESuperTypes().add(this.getSequence());
+		alternativesEClass.getESuperTypes().add(this.getSequence());
+		conclusionEClass.getESuperTypes().add(this.getOptional());
 
 		// Initialize classes, features, and operations; add parameters
+		initEClass(mandatoryEClass, Mandatory.class, "Mandatory", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(introductionEClass, Introduction.class, "Introduction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getIntroduction_VideoGen(), this.getVideoGen(), null, "videoGen", null, 1, 1, Introduction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(videoGenEClass, VideoGen.class, "VideoGen", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getVideoGen_Sequences(), this.getSequence(), null, "sequences", null, 0, -1, VideoGen.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getVideoGen_Videos(), this.getVideo(), null, "videos", null, 0, -1, VideoGen.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -531,10 +536,8 @@ public class VideoGenPackageImpl extends EPackageImpl implements VideoGenPackage
 		initEReference(getSequence_Video(), this.getVideo(), null, "video", null, 0, 1, Sequence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSequence_Active(), ecorePackage.getEBooleanObject(), "active", "true", 1, 1, Sequence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(alternativesEClass, Alternatives.class, "Alternatives", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getAlternatives_Options(), this.getOptional(), null, "options", null, 0, -1, Alternatives.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(mandatoryEClass, Mandatory.class, "Mandatory", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(namedElementEClass, NamedElement.class, "NamedElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getNamedElement_Name(), ecorePackage.getEString(), "name", null, 1, 1, NamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(optionalEClass, Optional.class, "Optional", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getOptional_Probability(), ecorePackage.getEIntegerObject(), "probability", "0", 1, 1, Optional.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -546,11 +549,8 @@ public class VideoGenPackageImpl extends EPackageImpl implements VideoGenPackage
 		initEAttribute(getVideo_Mimetype(), this.getMimetypes_Enum(), "mimetype", null, 1, 1, Video.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getVideo_Selected(), ecorePackage.getEBooleanObject(), "selected", "false", 1, 1, Video.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(namedElementEClass, NamedElement.class, "NamedElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getNamedElement_Name(), ecorePackage.getEString(), "name", null, 1, 1, NamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(introductionEClass, Introduction.class, "Introduction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getIntroduction_VideoGen(), this.getVideoGen(), null, "videoGen", null, 1, 1, Introduction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(alternativesEClass, Alternatives.class, "Alternatives", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getAlternatives_Options(), this.getOptional(), null, "options", null, 0, -1, Alternatives.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(conclusionEClass, Conclusion.class, "Conclusion", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getConclusion_VideoGen(), this.getVideoGen(), null, "videoGen", null, 1, 1, Conclusion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

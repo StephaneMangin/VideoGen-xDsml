@@ -202,22 +202,22 @@ public class DefaultModelLoader implements IModelLoader {
 				
 				//diagram.setIsInLayoutingMode(true);
 				
-//				final List<EObject> elements = new ArrayList<EObject>();
-//				elements.add(diagram);
-//
-//				final IEditorPart editorPart = DialectUIManager.INSTANCE.openEditor(session, representation, monitor);
-//				if (editorPart instanceof DDiagramEditor) {
-//					((DDiagramEditor) editorPart).getPaletteManager().addToolFilter(new ToolFilter() {
-//
-//						@Override
-//						public boolean filter(DDiagram diagram, AbstractToolDescription tool) {
-//							return true;
-//						}
-//					});
-//				}
-//				if (editorPart instanceof DiagramEditorWithFlyOutPalette) {
-//					PaletteUtils.colapsePalette((DiagramEditorWithFlyOutPalette) editorPart);
-//				}
+				final List<EObject> elements = new ArrayList<EObject>();
+				elements.add(diagram);
+
+				final IEditorPart editorPart = DialectUIManager.INSTANCE.openEditor(session, representation, monitor);
+				if (editorPart instanceof DDiagramEditor) {
+					((DDiagramEditor) editorPart).getPaletteManager().addToolFilter(new ToolFilter() {
+
+						@Override
+						public boolean filter(DDiagram diagram, AbstractToolDescription tool) {
+							return true;
+						}
+					});
+				}
+				if (editorPart instanceof DiagramEditorWithFlyOutPalette) {
+					PaletteUtils.colapsePalette((DiagramEditorWithFlyOutPalette) editorPart);
+				}
 
 				RecordingCommand command = new RecordingCommand(editingDomain, "Activating animator and debug layers") {
 					@Override

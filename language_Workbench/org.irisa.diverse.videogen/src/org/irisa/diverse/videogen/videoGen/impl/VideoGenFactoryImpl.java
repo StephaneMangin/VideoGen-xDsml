@@ -57,12 +57,12 @@ public class VideoGenFactoryImpl extends EFactoryImpl implements VideoGenFactory
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case VideoGenPackage.VIDEO_GEN: return createVideoGen();
-			case VideoGenPackage.ALTERNATIVES: return createAlternatives();
 			case VideoGenPackage.MANDATORY: return createMandatory();
+			case VideoGenPackage.INTRODUCTION: return createIntroduction();
+			case VideoGenPackage.VIDEO_GEN: return createVideoGen();
 			case VideoGenPackage.OPTIONAL: return createOptional();
 			case VideoGenPackage.VIDEO: return createVideo();
-			case VideoGenPackage.INTRODUCTION: return createIntroduction();
+			case VideoGenPackage.ALTERNATIVES: return createAlternatives();
 			case VideoGenPackage.CONCLUSION: return createConclusion();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");

@@ -14,8 +14,10 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.BiConsumer;
+import java.util.function.Consumer;
 
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.sirius.ecore.extender.business.api.permission.IAuthorityListener;
 import org.eclipse.sirius.ecore.extender.business.api.permission.LockStatus;
@@ -75,6 +77,15 @@ public class DebugPermissionAuthority extends AbstractPermissionAuthority
 			public void accept(ResourceSet t, Integer u) {
 				// TODO Auto-generated method stub
 				System.out.println("\t" + t + " - " + u);
+				t.getResources().forEach(new Consumer<Resource>() {
+
+					@Override
+					public void accept(Resource t) {
+						// TODO Auto-generated method stub
+						System.out.println("\t\t" + t);
+					}
+				});
+				
 			}
 
 		});

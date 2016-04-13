@@ -19,7 +19,7 @@ package org.irisa.diverse.videogen.videoGen;
  * @model
  * @generated
  */
-public interface Conclusion extends Sequence {
+public interface Conclusion extends Optional {
 	/**
 	 * Returns the value of the '<em><b>Video Gen</b></em>' reference.
 	 * <!-- begin-user-doc -->

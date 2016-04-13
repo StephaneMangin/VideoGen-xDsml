@@ -6,7 +6,7 @@
   </sequences>
   <sequences xsi:type="videoGen:Optional" name="haha1" nextSequence="//@sequences.7" video="//@videos.12" probability="30"/>
   <sequences xsi:type="videoGen:Alternatives" name="cats" nextSequence="//@sequences.4">
-    <options name="cats-1" nextSequence="//@sequences.2/@options.1" video="//@videos.13" probability="25"/>
+    <options name="cats-1" video="//@videos.13" probability="25"/>
     <options name="cats-2" video="//@videos.14" probability="75"/>
   </sequences>
   <sequences xsi:type="videoGen:Optional" name="haha2" nextSequence="//@sequences.1" video="//@videos.8" probability="10"/>

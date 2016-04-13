@@ -214,6 +214,16 @@ public class AlternativesItemProvider extends NamedElementItemProvider {
 			(createChildParameter
 				(VideoGenPackage.Literals.ALTERNATIVES__OPTIONS,
 				 VideoGenFactory.eINSTANCE.createOptional()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(VideoGenPackage.Literals.ALTERNATIVES__OPTIONS,
+				 VideoGenFactory.eINSTANCE.createIntroduction()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(VideoGenPackage.Literals.ALTERNATIVES__OPTIONS,
+				 VideoGenFactory.eINSTANCE.createConclusion()));
 	}
 
 }

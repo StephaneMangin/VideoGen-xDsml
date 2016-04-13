@@ -217,11 +217,6 @@ public class VideoGenItemProvider extends NamedElementItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(VideoGenPackage.Literals.VIDEO_GEN__SEQUENCES,
-				 VideoGenFactory.eINSTANCE.createAlternatives()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(VideoGenPackage.Literals.VIDEO_GEN__SEQUENCES,
 				 VideoGenFactory.eINSTANCE.createMandatory()));
 
 		newChildDescriptors.add
@@ -233,6 +228,11 @@ public class VideoGenItemProvider extends NamedElementItemProvider {
 			(createChildParameter
 				(VideoGenPackage.Literals.VIDEO_GEN__SEQUENCES,
 				 VideoGenFactory.eINSTANCE.createIntroduction()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(VideoGenPackage.Literals.VIDEO_GEN__SEQUENCES,
+				 VideoGenFactory.eINSTANCE.createAlternatives()));
 
 		newChildDescriptors.add
 			(createChildParameter

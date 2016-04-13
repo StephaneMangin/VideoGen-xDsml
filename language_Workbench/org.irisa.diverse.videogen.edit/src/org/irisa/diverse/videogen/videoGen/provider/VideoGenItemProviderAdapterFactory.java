@@ -331,12 +331,12 @@ public class VideoGenItemProviderAdapterFactory extends VideoGenAdapterFactory i
 	 * @generated
 	 */
 	public void dispose() {
-		if (videoGenItemProvider != null) videoGenItemProvider.dispose();
-		if (alternativesItemProvider != null) alternativesItemProvider.dispose();
 		if (mandatoryItemProvider != null) mandatoryItemProvider.dispose();
+		if (introductionItemProvider != null) introductionItemProvider.dispose();
+		if (videoGenItemProvider != null) videoGenItemProvider.dispose();
 		if (optionalItemProvider != null) optionalItemProvider.dispose();
 		if (videoItemProvider != null) videoItemProvider.dispose();
-		if (introductionItemProvider != null) introductionItemProvider.dispose();
+		if (alternativesItemProvider != null) alternativesItemProvider.dispose();
 		if (conclusionItemProvider != null) conclusionItemProvider.dispose();
 	}
 

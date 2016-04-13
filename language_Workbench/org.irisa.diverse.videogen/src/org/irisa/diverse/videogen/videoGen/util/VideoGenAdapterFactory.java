@@ -68,6 +68,14 @@ public class VideoGenAdapterFactory extends AdapterFactoryImpl {
 	protected VideoGenSwitch<Adapter> modelSwitch =
 		new VideoGenSwitch<Adapter>() {
 			@Override
+			public Adapter caseMandatory(Mandatory object) {
+				return createMandatoryAdapter();
+			}
+			@Override
+			public Adapter caseIntroduction(Introduction object) {
+				return createIntroductionAdapter();
+			}
+			@Override
 			public Adapter caseVideoGen(VideoGen object) {
 				return createVideoGenAdapter();
 			}
@@ -76,12 +84,8 @@ public class VideoGenAdapterFactory extends AdapterFactoryImpl {
 				return createSequenceAdapter();
 			}
 			@Override
-			public Adapter caseAlternatives(Alternatives object) {
-				return createAlternativesAdapter();
-			}
-			@Override
-			public Adapter caseMandatory(Mandatory object) {
-				return createMandatoryAdapter();
+			public Adapter caseNamedElement(NamedElement object) {
+				return createNamedElementAdapter();
 			}
 			@Override
 			public Adapter caseOptional(Optional object) {
@@ -92,12 +96,8 @@ public class VideoGenAdapterFactory extends AdapterFactoryImpl {
 				return createVideoAdapter();
 			}
 			@Override
-			public Adapter caseNamedElement(NamedElement object) {
-				return createNamedElementAdapter();
-			}
-			@Override
-			public Adapter caseIntroduction(Introduction object) {
-				return createIntroductionAdapter();
+			public Adapter caseAlternatives(Alternatives object) {
+				return createAlternativesAdapter();
 			}
 			@Override
 			public Adapter caseConclusion(Conclusion object) {

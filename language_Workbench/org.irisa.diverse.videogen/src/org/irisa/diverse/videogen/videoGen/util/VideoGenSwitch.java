@@ -66,6 +66,23 @@ public class VideoGenSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
+			case VideoGenPackage.MANDATORY: {
+				Mandatory mandatory = (Mandatory)theEObject;
+				T result = caseMandatory(mandatory);
+				if (result == null) result = caseSequence(mandatory);
+				if (result == null) result = caseNamedElement(mandatory);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case VideoGenPackage.INTRODUCTION: {
+				Introduction introduction = (Introduction)theEObject;
+				T result = caseIntroduction(introduction);
+				if (result == null) result = caseOptional(introduction);
+				if (result == null) result = caseSequence(introduction);
+				if (result == null) result = caseNamedElement(introduction);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case VideoGenPackage.VIDEO_GEN: {
 				VideoGen videoGen = (VideoGen)theEObject;
 				T result = caseVideoGen(videoGen);
@@ -80,19 +97,9 @@ public class VideoGenSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case VideoGenPackage.ALTERNATIVES: {
-				Alternatives alternatives = (Alternatives)theEObject;
-				T result = caseAlternatives(alternatives);
-				if (result == null) result = caseSequence(alternatives);
-				if (result == null) result = caseNamedElement(alternatives);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case VideoGenPackage.MANDATORY: {
-				Mandatory mandatory = (Mandatory)theEObject;
-				T result = caseMandatory(mandatory);
-				if (result == null) result = caseSequence(mandatory);
-				if (result == null) result = caseNamedElement(mandatory);
+			case VideoGenPackage.NAMED_ELEMENT: {
+				NamedElement namedElement = (NamedElement)theEObject;
+				T result = caseNamedElement(namedElement);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -111,23 +118,18 @@ public class VideoGenSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case VideoGenPackage.NAMED_ELEMENT: {
-				NamedElement namedElement = (NamedElement)theEObject;
-				T result = caseNamedElement(namedElement);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case VideoGenPackage.INTRODUCTION: {
-				Introduction introduction = (Introduction)theEObject;
-				T result = caseIntroduction(introduction);
-				if (result == null) result = caseSequence(introduction);
-				if (result == null) result = caseNamedElement(introduction);
+			case VideoGenPackage.ALTERNATIVES: {
+				Alternatives alternatives = (Alternatives)theEObject;
+				T result = caseAlternatives(alternatives);
+				if (result == null) result = caseSequence(alternatives);
+				if (result == null) result = caseNamedElement(alternatives);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case VideoGenPackage.CONCLUSION: {
 				Conclusion conclusion = (Conclusion)theEObject;
 				T result = caseConclusion(conclusion);
+				if (result == null) result = caseOptional(conclusion);
 				if (result == null) result = caseSequence(conclusion);
 				if (result == null) result = caseNamedElement(conclusion);
 				if (result == null) result = defaultCase(theEObject);

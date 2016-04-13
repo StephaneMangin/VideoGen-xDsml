@@ -66,7 +66,7 @@ public interface VideoGenPackage extends EPackage {
 	 * @see org.irisa.diverse.videogen.videoGen.impl.VideoGenPackageImpl#getNamedElement()
 	 * @generated
 	 */
-	int NAMED_ELEMENT = 6;
+	int NAMED_ELEMENT = 4;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -103,7 +103,310 @@ public interface VideoGenPackage extends EPackage {
 	 * @see org.irisa.diverse.videogen.videoGen.impl.VideoGenPackageImpl#getVideoGen()
 	 * @generated
 	 */
-	int VIDEO_GEN = 0;
+	int VIDEO_GEN = 2;
+
+	/**
+	 * The meta object id for the '{@link org.irisa.diverse.videogen.videoGen.Sequence <em>Sequence</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.irisa.diverse.videogen.videoGen.Sequence
+	 * @see org.irisa.diverse.videogen.videoGen.impl.VideoGenPackageImpl#getSequence()
+	 * @generated
+	 */
+	int SEQUENCE = 3;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEQUENCE__NAME = NAMED_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Next Sequence</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEQUENCE__NEXT_SEQUENCE = NAMED_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Video</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEQUENCE__VIDEO = NAMED_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Active</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEQUENCE__ACTIVE = NAMED_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Sequence</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEQUENCE_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of operations of the '<em>Sequence</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEQUENCE_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.irisa.diverse.videogen.videoGen.impl.AlternativesImpl <em>Alternatives</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.irisa.diverse.videogen.videoGen.impl.AlternativesImpl
+	 * @see org.irisa.diverse.videogen.videoGen.impl.VideoGenPackageImpl#getAlternatives()
+	 * @generated
+	 */
+	int ALTERNATIVES = 7;
+
+	/**
+	 * The meta object id for the '{@link org.irisa.diverse.videogen.videoGen.impl.MandatoryImpl <em>Mandatory</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.irisa.diverse.videogen.videoGen.impl.MandatoryImpl
+	 * @see org.irisa.diverse.videogen.videoGen.impl.VideoGenPackageImpl#getMandatory()
+	 * @generated
+	 */
+	int MANDATORY = 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MANDATORY__NAME = SEQUENCE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Next Sequence</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MANDATORY__NEXT_SEQUENCE = SEQUENCE__NEXT_SEQUENCE;
+
+	/**
+	 * The feature id for the '<em><b>Video</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MANDATORY__VIDEO = SEQUENCE__VIDEO;
+
+	/**
+	 * The feature id for the '<em><b>Active</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MANDATORY__ACTIVE = SEQUENCE__ACTIVE;
+
+	/**
+	 * The number of structural features of the '<em>Mandatory</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MANDATORY_FEATURE_COUNT = SEQUENCE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Mandatory</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MANDATORY_OPERATION_COUNT = SEQUENCE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.irisa.diverse.videogen.videoGen.impl.OptionalImpl <em>Optional</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.irisa.diverse.videogen.videoGen.impl.OptionalImpl
+	 * @see org.irisa.diverse.videogen.videoGen.impl.VideoGenPackageImpl#getOptional()
+	 * @generated
+	 */
+	int OPTIONAL = 5;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPTIONAL__NAME = SEQUENCE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Next Sequence</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPTIONAL__NEXT_SEQUENCE = SEQUENCE__NEXT_SEQUENCE;
+
+	/**
+	 * The feature id for the '<em><b>Video</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPTIONAL__VIDEO = SEQUENCE__VIDEO;
+
+	/**
+	 * The feature id for the '<em><b>Active</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPTIONAL__ACTIVE = SEQUENCE__ACTIVE;
+
+	/**
+	 * The feature id for the '<em><b>Probability</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPTIONAL__PROBABILITY = SEQUENCE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Optional</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPTIONAL_FEATURE_COUNT = SEQUENCE_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Optional</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPTIONAL_OPERATION_COUNT = SEQUENCE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.irisa.diverse.videogen.videoGen.impl.VideoImpl <em>Video</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.irisa.diverse.videogen.videoGen.impl.VideoImpl
+	 * @see org.irisa.diverse.videogen.videoGen.impl.VideoGenPackageImpl#getVideo()
+	 * @generated
+	 */
+	int VIDEO = 6;
+
+	/**
+	 * The meta object id for the '{@link org.irisa.diverse.videogen.videoGen.impl.IntroductionImpl <em>Introduction</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.irisa.diverse.videogen.videoGen.impl.IntroductionImpl
+	 * @see org.irisa.diverse.videogen.videoGen.impl.VideoGenPackageImpl#getIntroduction()
+	 * @generated
+	 */
+	int INTRODUCTION = 1;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTRODUCTION__NAME = OPTIONAL__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Next Sequence</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTRODUCTION__NEXT_SEQUENCE = OPTIONAL__NEXT_SEQUENCE;
+
+	/**
+	 * The feature id for the '<em><b>Video</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTRODUCTION__VIDEO = OPTIONAL__VIDEO;
+
+	/**
+	 * The feature id for the '<em><b>Active</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTRODUCTION__ACTIVE = OPTIONAL__ACTIVE;
+
+	/**
+	 * The feature id for the '<em><b>Probability</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTRODUCTION__PROBABILITY = OPTIONAL__PROBABILITY;
+
+	/**
+	 * The feature id for the '<em><b>Video Gen</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTRODUCTION__VIDEO_GEN = OPTIONAL_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Introduction</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTRODUCTION_FEATURE_COUNT = OPTIONAL_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Introduction</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTRODUCTION_OPERATION_COUNT = OPTIONAL_OPERATION_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -178,290 +481,6 @@ public interface VideoGenPackage extends EPackage {
 	int VIDEO_GEN_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link org.irisa.diverse.videogen.videoGen.Sequence <em>Sequence</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.irisa.diverse.videogen.videoGen.Sequence
-	 * @see org.irisa.diverse.videogen.videoGen.impl.VideoGenPackageImpl#getSequence()
-	 * @generated
-	 */
-	int SEQUENCE = 1;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SEQUENCE__NAME = NAMED_ELEMENT__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Next Sequence</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SEQUENCE__NEXT_SEQUENCE = NAMED_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Video</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SEQUENCE__VIDEO = NAMED_ELEMENT_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Active</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SEQUENCE__ACTIVE = NAMED_ELEMENT_FEATURE_COUNT + 2;
-
-	/**
-	 * The number of structural features of the '<em>Sequence</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SEQUENCE_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 3;
-
-	/**
-	 * The number of operations of the '<em>Sequence</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SEQUENCE_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link org.irisa.diverse.videogen.videoGen.impl.AlternativesImpl <em>Alternatives</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.irisa.diverse.videogen.videoGen.impl.AlternativesImpl
-	 * @see org.irisa.diverse.videogen.videoGen.impl.VideoGenPackageImpl#getAlternatives()
-	 * @generated
-	 */
-	int ALTERNATIVES = 2;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ALTERNATIVES__NAME = SEQUENCE__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Next Sequence</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ALTERNATIVES__NEXT_SEQUENCE = SEQUENCE__NEXT_SEQUENCE;
-
-	/**
-	 * The feature id for the '<em><b>Video</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ALTERNATIVES__VIDEO = SEQUENCE__VIDEO;
-
-	/**
-	 * The feature id for the '<em><b>Active</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ALTERNATIVES__ACTIVE = SEQUENCE__ACTIVE;
-
-	/**
-	 * The feature id for the '<em><b>Options</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ALTERNATIVES__OPTIONS = SEQUENCE_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Alternatives</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ALTERNATIVES_FEATURE_COUNT = SEQUENCE_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of operations of the '<em>Alternatives</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ALTERNATIVES_OPERATION_COUNT = SEQUENCE_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link org.irisa.diverse.videogen.videoGen.impl.MandatoryImpl <em>Mandatory</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.irisa.diverse.videogen.videoGen.impl.MandatoryImpl
-	 * @see org.irisa.diverse.videogen.videoGen.impl.VideoGenPackageImpl#getMandatory()
-	 * @generated
-	 */
-	int MANDATORY = 3;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MANDATORY__NAME = SEQUENCE__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Next Sequence</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MANDATORY__NEXT_SEQUENCE = SEQUENCE__NEXT_SEQUENCE;
-
-	/**
-	 * The feature id for the '<em><b>Video</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MANDATORY__VIDEO = SEQUENCE__VIDEO;
-
-	/**
-	 * The feature id for the '<em><b>Active</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MANDATORY__ACTIVE = SEQUENCE__ACTIVE;
-
-	/**
-	 * The number of structural features of the '<em>Mandatory</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MANDATORY_FEATURE_COUNT = SEQUENCE_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Mandatory</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MANDATORY_OPERATION_COUNT = SEQUENCE_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link org.irisa.diverse.videogen.videoGen.impl.OptionalImpl <em>Optional</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.irisa.diverse.videogen.videoGen.impl.OptionalImpl
-	 * @see org.irisa.diverse.videogen.videoGen.impl.VideoGenPackageImpl#getOptional()
-	 * @generated
-	 */
-	int OPTIONAL = 4;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTIONAL__NAME = SEQUENCE__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Next Sequence</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTIONAL__NEXT_SEQUENCE = SEQUENCE__NEXT_SEQUENCE;
-
-	/**
-	 * The feature id for the '<em><b>Video</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTIONAL__VIDEO = SEQUENCE__VIDEO;
-
-	/**
-	 * The feature id for the '<em><b>Active</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTIONAL__ACTIVE = SEQUENCE__ACTIVE;
-
-	/**
-	 * The feature id for the '<em><b>Probability</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTIONAL__PROBABILITY = SEQUENCE_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Optional</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTIONAL_FEATURE_COUNT = SEQUENCE_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of operations of the '<em>Optional</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTIONAL_OPERATION_COUNT = SEQUENCE_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link org.irisa.diverse.videogen.videoGen.impl.VideoImpl <em>Video</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.irisa.diverse.videogen.videoGen.impl.VideoImpl
-	 * @see org.irisa.diverse.videogen.videoGen.impl.VideoGenPackageImpl#getVideo()
-	 * @generated
-	 */
-	int VIDEO = 5;
-
-	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -534,23 +553,13 @@ public interface VideoGenPackage extends EPackage {
 	int VIDEO_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link org.irisa.diverse.videogen.videoGen.impl.IntroductionImpl <em>Introduction</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.irisa.diverse.videogen.videoGen.impl.IntroductionImpl
-	 * @see org.irisa.diverse.videogen.videoGen.impl.VideoGenPackageImpl#getIntroduction()
-	 * @generated
-	 */
-	int INTRODUCTION = 7;
-
-	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INTRODUCTION__NAME = SEQUENCE__NAME;
+	int ALTERNATIVES__NAME = SEQUENCE__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Next Sequence</b></em>' reference.
@@ -559,7 +568,7 @@ public interface VideoGenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INTRODUCTION__NEXT_SEQUENCE = SEQUENCE__NEXT_SEQUENCE;
+	int ALTERNATIVES__NEXT_SEQUENCE = SEQUENCE__NEXT_SEQUENCE;
 
 	/**
 	 * The feature id for the '<em><b>Video</b></em>' reference.
@@ -568,7 +577,7 @@ public interface VideoGenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INTRODUCTION__VIDEO = SEQUENCE__VIDEO;
+	int ALTERNATIVES__VIDEO = SEQUENCE__VIDEO;
 
 	/**
 	 * The feature id for the '<em><b>Active</b></em>' attribute.
@@ -577,34 +586,34 @@ public interface VideoGenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INTRODUCTION__ACTIVE = SEQUENCE__ACTIVE;
+	int ALTERNATIVES__ACTIVE = SEQUENCE__ACTIVE;
 
 	/**
-	 * The feature id for the '<em><b>Video Gen</b></em>' reference.
+	 * The feature id for the '<em><b>Options</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INTRODUCTION__VIDEO_GEN = SEQUENCE_FEATURE_COUNT + 0;
+	int ALTERNATIVES__OPTIONS = SEQUENCE_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>Introduction</em>' class.
+	 * The number of structural features of the '<em>Alternatives</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INTRODUCTION_FEATURE_COUNT = SEQUENCE_FEATURE_COUNT + 1;
+	int ALTERNATIVES_FEATURE_COUNT = SEQUENCE_FEATURE_COUNT + 1;
 
 	/**
-	 * The number of operations of the '<em>Introduction</em>' class.
+	 * The number of operations of the '<em>Alternatives</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INTRODUCTION_OPERATION_COUNT = SEQUENCE_OPERATION_COUNT + 0;
+	int ALTERNATIVES_OPERATION_COUNT = SEQUENCE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.irisa.diverse.videogen.videoGen.impl.ConclusionImpl <em>Conclusion</em>}' class.
@@ -623,7 +632,7 @@ public interface VideoGenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONCLUSION__NAME = SEQUENCE__NAME;
+	int CONCLUSION__NAME = OPTIONAL__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Next Sequence</b></em>' reference.
@@ -632,7 +641,7 @@ public interface VideoGenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONCLUSION__NEXT_SEQUENCE = SEQUENCE__NEXT_SEQUENCE;
+	int CONCLUSION__NEXT_SEQUENCE = OPTIONAL__NEXT_SEQUENCE;
 
 	/**
 	 * The feature id for the '<em><b>Video</b></em>' reference.
@@ -641,7 +650,7 @@ public interface VideoGenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONCLUSION__VIDEO = SEQUENCE__VIDEO;
+	int CONCLUSION__VIDEO = OPTIONAL__VIDEO;
 
 	/**
 	 * The feature id for the '<em><b>Active</b></em>' attribute.
@@ -650,7 +659,16 @@ public interface VideoGenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONCLUSION__ACTIVE = SEQUENCE__ACTIVE;
+	int CONCLUSION__ACTIVE = OPTIONAL__ACTIVE;
+
+	/**
+	 * The feature id for the '<em><b>Probability</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONCLUSION__PROBABILITY = OPTIONAL__PROBABILITY;
 
 	/**
 	 * The feature id for the '<em><b>Video Gen</b></em>' reference.
@@ -659,7 +677,7 @@ public interface VideoGenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONCLUSION__VIDEO_GEN = SEQUENCE_FEATURE_COUNT + 0;
+	int CONCLUSION__VIDEO_GEN = OPTIONAL_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Conclusion</em>' class.
@@ -668,7 +686,7 @@ public interface VideoGenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONCLUSION_FEATURE_COUNT = SEQUENCE_FEATURE_COUNT + 1;
+	int CONCLUSION_FEATURE_COUNT = OPTIONAL_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Conclusion</em>' class.
@@ -677,7 +695,7 @@ public interface VideoGenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONCLUSION_OPERATION_COUNT = SEQUENCE_OPERATION_COUNT + 0;
+	int CONCLUSION_OPERATION_COUNT = OPTIONAL_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.irisa.diverse.videogen.videoGen.Mimetypes_Enum <em>Mimetypes Enum</em>}' enum.
