@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <videoGen:VideoGen xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:videoGen="http://www.irisa.org/diverse/videogen" name="VideoGen1">
-  <transitions xsi:type="videoGen:Alternatives" name="intro" nextTransition="//@transitions.11">
+  <transitions xsi:type="videoGen:Alternatives" name="intro" nextTransition="//@transitions.6">
     <options name="intro-1" video="//@videos.11" probability="30"/>
     <options name="intro-2" video="//@videos.1" probability="70"/>
   </transitions>
@@ -9,7 +9,7 @@
     <options name="cats-1" video="//@videos.13" probability="25"/>
     <options name="cats-2" video="//@videos.14" probability="75"/>
   </transitions>
-  <transitions xsi:type="videoGen:Optional" name="haha2" nextTransition="//@transitions.12" video="//@videos.8" probability="10"/>
+  <transitions xsi:type="videoGen:Optional" name="haha2" nextTransition="//@transitions.1" video="//@videos.8" probability="10"/>
   <transitions xsi:type="videoGen:Optional" name="tv1" nextTransition="//@transitions.8" video="//@videos.9" probability="40"/>
   <transitions xsi:type="videoGen:Alternatives" name="wtf" nextTransition="//@transitions.3">
     <options name="wtf-1" video="//@videos.7" probability="30"/>
@@ -25,8 +25,7 @@
   <transitions xsi:type="videoGen:Mandatory" name="haha4" nextTransition="//@transitions.5" video="//@videos.0"/>
   <transitions xsi:type="videoGen:Initialize" name="Start" nextTransition="//@transitions.0"/>
   <transitions xsi:type="videoGen:Generate" name="Compute" nextTransition="//@transitions.11"/>
-  <transitions xsi:type="videoGen:Delay" name="Wait 20 seconds" nextTransition="//@transitions.6" value="5"/>
-  <transitions xsi:type="videoGen:Delay" nextTransition="//@transitions.1" value="10"/>
+  <transitions xsi:type="videoGen:Delay" nextTransition="//@transitions.9" value="20"/>
   <videos name="haha4" url="videos/haha/haha.mp4" description="Ah ah ah"/>
   <videos name="intro2" url="videos/intro/TimsSuicide.mp4" description="Oh my god, he tries to kill himself with a balloon"/>
   <videos name="outro2" url="videos/outro/Poltergeist.mp4" description="Waouw... F... What's happening ?"/>

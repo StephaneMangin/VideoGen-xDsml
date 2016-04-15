@@ -46,21 +46,35 @@ public class VideoGenHelper {
 	}
 	
  	/**
+ 	 * Return all transitions contained in a VideoGen instance
+ 	 * 
+ 	 */ 
+    def static List<Transition> allTransitions(VideoGen videoGen) {
+		val List<Transition> transitions = new ArrayList<Transition>
+			
+        var Transition transition = getInitialize(videoGen)
+        while (transition !== null) {
+			transitions.add(transition)
+			transition = transition.nextTransition
+			if (transition instanceof Generate) {
+				transition = null
+			}
+        }
+		transitions
+    }
+    
+ 	/**
  	 * Return all sequences contained in a VideoGen instance
  	 * 
  	 */ 
     def static List<Sequence> allSequences(VideoGen videoGen) {
 		val List<Sequence> sequences = new ArrayList<Sequence>
 			
-        var Transition transition = getInitialize(videoGen)
-        while (transition !== null) {
-			transition = transition.nextTransition
-			if (transition instanceof Sequence) {
-				sequences.add(transition)
-			} else if (transition instanceof Initialize || transition instanceof Generate) {
-				transition = null
-			}
-        }
+        allTransitions(videoGen).forEach[transition |
+        	if (transition instanceof Sequence) {
+        		sequences.add(transition as Sequence)
+        	}
+        ]
 		sequences
     }
  	/**

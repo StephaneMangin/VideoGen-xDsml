@@ -5,14 +5,18 @@ import org.irisa.diverse.videogen.transformations.VideoGenTransform
 import org.irisa.diverse.videogen.transformations.helpers.VideoGenHelper
 import org.irisa.diverse.videogen.videoGen.Video
 import org.irisa.diverse.videogen.videoGen.VideoGen
-import fr.inria.diverse.k3.al.annotationprocessor.Step
+import org.irisa.diverse.videogen.videoGen.Transition
 
 class VideoGenSetupVisitor {
 	
 	def visit(VideoGen vid) {
 		println("VideoGen Setup Visitor started...")
-		println(VideoGenHelper.allVideos(vid))
+		VideoGenHelper.allTransitions(vid).forEach[visit]
 		VideoGenHelper.allVideos(vid).forEach[visit]
+	}
+	
+	def private visit(Transition tra) {
+		TransitionAspect.done(tra, false)
 	}
 	
 	def private visit(Video video) {

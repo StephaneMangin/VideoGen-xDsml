@@ -59,17 +59,19 @@ class VideoGenAspect {
 	}
 	
 	@Step
-	@InitializeModel
-	def public void initializeModel(List<String> args){
+	def public void setup() {
 		val start = System.nanoTime
-		
 		// Setup initialization
-		new VideoGenSetupVisitor().visit(_self)	
-		
-		_self.updateConstraints		
+		new VideoGenSetupVisitor().visit(_self)
 		
 		val stop = System.nanoTime
 		println("#### VideoGen, time to setup " + (stop - start))
+	}
+	
+	@InitializeModel
+	def public void initializeModel(List<String> args){
+		_self.setup
+		_self.updateConstraints
 	}
 	
 	def public void execute() {
@@ -127,6 +129,7 @@ class VideoGenAspect {
 @Aspect(className=Transition)
 abstract class TransitionAspect {
 
+	public VideoGen videoGen = null;
 	public Boolean done = false
 	public Boolean callnextTransition = true
 	
@@ -218,12 +221,20 @@ class AlternativesAspect extends SequenceAspect {
 		}
 		_self.super_execute(videoGen)
 	}
+	
+	@Step
+	@Override
+	def void setActive(Boolean bool) {
+		_self.options.forEach[setActive(bool)]
+		_self.setActive(bool)
+	}
 
 }
 
 @Aspect(className=Mandatory)
 class MandatoryAspect extends SequenceAspect {
 	
+	@Step
 	@OverrideAspectMethod
 	def public void execute(VideoGen videoGen) {
 		if (_self.active && !_self.done) {
@@ -259,6 +270,7 @@ class OptionalAspect extends SequenceAspect {
 		drng.getDistributedRandomNumber() > 0
 	}
 
+	@Step
 	@OverrideAspectMethod
 	def public void execute(VideoGen videoGen) {
 		if (_self.active && !_self.done) {
@@ -275,6 +287,14 @@ class OptionalAspect extends SequenceAspect {
 @Aspect(className=Initialize)
 class InitializeAspect extends SequenceAspect {
 	
+	@Step
+	@OverrideAspectMethod
+	def public void execute(VideoGen videoGen) {
+		//VideoGenAspect.setup(videoGen)
+		//VideoGenAspect.updateConstraints(videoGen)
+		_self.super_execute(videoGen)
+	}
+	
 }
 
 @Aspect(className=Generate)
@@ -290,6 +310,7 @@ class GenerateAspect extends SequenceAspect {
 	 * 
 	 * @see : ffmpeg
 	 */
+	@Step
 	def public void compute(VideoGen videoGen) {
 		VideoGenAspect.compute(videoGen)
 		Thread.sleep(1000)
@@ -305,6 +326,7 @@ class VideoAspect {
 	 * Select this video and apply any of needed operations (conversion or rename for example)
 	 * 
 	 */
+	@Step
 	def public void select() {
 		println("##### Video '" + _self.name + "' has been selected.")
 		_self.selected = true
