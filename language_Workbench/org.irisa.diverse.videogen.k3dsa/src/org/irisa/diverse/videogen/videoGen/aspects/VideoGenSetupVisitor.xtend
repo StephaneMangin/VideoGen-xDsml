@@ -11,6 +11,7 @@ class VideoGenSetupVisitor {
 	
 	def visit(VideoGen vid) {
 		println("VideoGen Setup Visitor started...")
+		println(VideoGenHelper.allVideos(vid))
 		VideoGenHelper.allVideos(vid).forEach[visit]
 	}
 	
@@ -19,8 +20,8 @@ class VideoGenSetupVisitor {
 		if (!video.url.startsWith("/")) {
 			val prefix = ResourcesPlugin.workspace.root.projects.get(0).locationURI.toString.replace("file:", "")
 			val newPath = prefix + "/" + video.url
-			println(video.url + " => " + newPath)
-			VideoAspect.setUrl(video, newPath)
+			println("VideoGen Setup Visitor : " + video.url + "=>" + newPath)
+			video.setUrl(newPath)
 		}
 		
 		// Add duration and VideoCodec MimeType

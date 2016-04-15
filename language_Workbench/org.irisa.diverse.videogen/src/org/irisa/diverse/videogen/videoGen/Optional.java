@@ -16,7 +16,9 @@ package org.irisa.diverse.videogen.videoGen;
  * </p>
  *
  * @see org.irisa.diverse.videogen.videoGen.VideoGenPackage#getOptional()
- * @model
+ * @model annotation="http://www.obeo.fr/dsl/dnc/archetype archetype='Description'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='probMax probMin'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot probMax='\n\t\t\tself.probability <= 100' probMin='\n\t\t\tself.probability >= 0'"
  * @generated
  */
 public interface Optional extends Sequence {

@@ -72,16 +72,16 @@ public class VideoGenAdapterFactory extends AdapterFactoryImpl {
 				return createMandatoryAdapter();
 			}
 			@Override
-			public Adapter caseIntroduction(Introduction object) {
-				return createIntroductionAdapter();
+			public Adapter caseInitialize(Initialize object) {
+				return createInitializeAdapter();
 			}
 			@Override
 			public Adapter caseVideoGen(VideoGen object) {
 				return createVideoGenAdapter();
 			}
 			@Override
-			public Adapter caseSequence(Sequence object) {
-				return createSequenceAdapter();
+			public Adapter caseTransition(Transition object) {
+				return createTransitionAdapter();
 			}
 			@Override
 			public Adapter caseNamedElement(NamedElement object) {
@@ -100,8 +100,16 @@ public class VideoGenAdapterFactory extends AdapterFactoryImpl {
 				return createAlternativesAdapter();
 			}
 			@Override
-			public Adapter caseConclusion(Conclusion object) {
-				return createConclusionAdapter();
+			public Adapter caseGenerate(Generate object) {
+				return createGenerateAdapter();
+			}
+			@Override
+			public Adapter caseDelay(Delay object) {
+				return createDelayAdapter();
+			}
+			@Override
+			public Adapter caseSequence(Sequence object) {
+				return createSequenceAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -124,6 +132,34 @@ public class VideoGenAdapterFactory extends AdapterFactoryImpl {
 
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.irisa.diverse.videogen.videoGen.Mandatory <em>Mandatory</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.irisa.diverse.videogen.videoGen.Mandatory
+	 * @generated
+	 */
+	public Adapter createMandatoryAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.irisa.diverse.videogen.videoGen.Initialize <em>Initialize</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.irisa.diverse.videogen.videoGen.Initialize
+	 * @generated
+	 */
+	public Adapter createInitializeAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.irisa.diverse.videogen.videoGen.VideoGen <em>Video Gen</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -138,44 +174,30 @@ public class VideoGenAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.irisa.diverse.videogen.videoGen.Sequence <em>Sequence</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.irisa.diverse.videogen.videoGen.Transition <em>Transition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.irisa.diverse.videogen.videoGen.Sequence
+	 * @see org.irisa.diverse.videogen.videoGen.Transition
 	 * @generated
 	 */
-	public Adapter createSequenceAdapter() {
+	public Adapter createTransitionAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.irisa.diverse.videogen.videoGen.Alternatives <em>Alternatives</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.irisa.diverse.videogen.videoGen.NamedElement <em>Named Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.irisa.diverse.videogen.videoGen.Alternatives
+	 * @see org.irisa.diverse.videogen.videoGen.NamedElement
 	 * @generated
 	 */
-	public Adapter createAlternativesAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.irisa.diverse.videogen.videoGen.Mandatory <em>Mandatory</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.irisa.diverse.videogen.videoGen.Mandatory
-	 * @generated
-	 */
-	public Adapter createMandatoryAdapter() {
+	public Adapter createNamedElementAdapter() {
 		return null;
 	}
 
@@ -208,44 +230,58 @@ public class VideoGenAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.irisa.diverse.videogen.videoGen.NamedElement <em>Named Element</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.irisa.diverse.videogen.videoGen.Alternatives <em>Alternatives</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.irisa.diverse.videogen.videoGen.NamedElement
+	 * @see org.irisa.diverse.videogen.videoGen.Alternatives
 	 * @generated
 	 */
-	public Adapter createNamedElementAdapter() {
+	public Adapter createAlternativesAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.irisa.diverse.videogen.videoGen.Introduction <em>Introduction</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.irisa.diverse.videogen.videoGen.Generate <em>Generate</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.irisa.diverse.videogen.videoGen.Introduction
+	 * @see org.irisa.diverse.videogen.videoGen.Generate
 	 * @generated
 	 */
-	public Adapter createIntroductionAdapter() {
+	public Adapter createGenerateAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.irisa.diverse.videogen.videoGen.Conclusion <em>Conclusion</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.irisa.diverse.videogen.videoGen.Delay <em>Delay</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.irisa.diverse.videogen.videoGen.Conclusion
+	 * @see org.irisa.diverse.videogen.videoGen.Delay
 	 * @generated
 	 */
-	public Adapter createConclusionAdapter() {
+	public Adapter createDelayAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.irisa.diverse.videogen.videoGen.Sequence <em>Sequence</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.irisa.diverse.videogen.videoGen.Sequence
+	 * @generated
+	 */
+	public Adapter createSequenceAdapter() {
 		return null;
 	}
 

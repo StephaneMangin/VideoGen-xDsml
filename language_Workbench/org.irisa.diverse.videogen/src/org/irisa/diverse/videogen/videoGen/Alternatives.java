@@ -17,7 +17,8 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  *
  * @see org.irisa.diverse.videogen.videoGen.VideoGenPackage#getAlternatives()
- * @model
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='probSumMax'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot probSumMax='\n\t\t\tself.options.probability->sum() <= 100'"
  * @generated
  */
 public interface Alternatives extends Sequence {
@@ -32,7 +33,7 @@ public interface Alternatives extends Sequence {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Options</em>' containment reference list.
 	 * @see org.irisa.diverse.videogen.videoGen.VideoGenPackage#getAlternatives_Options()
-	 * @model containment="true"
+	 * @model containment="true" lower="2"
 	 * @generated
 	 */
 	EList<Optional> getOptions();

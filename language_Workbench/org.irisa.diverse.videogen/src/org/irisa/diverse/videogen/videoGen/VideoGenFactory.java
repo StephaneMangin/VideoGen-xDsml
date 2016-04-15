@@ -22,24 +22,6 @@ public interface VideoGenFactory extends EFactory {
 	VideoGenFactory eINSTANCE = org.irisa.diverse.videogen.videoGen.impl.VideoGenFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Video Gen</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Video Gen</em>'.
-	 * @generated
-	 */
-	VideoGen createVideoGen();
-
-	/**
-	 * Returns a new object of class '<em>Alternatives</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Alternatives</em>'.
-	 * @generated
-	 */
-	Alternatives createAlternatives();
-
-	/**
 	 * Returns a new object of class '<em>Mandatory</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -47,6 +29,24 @@ public interface VideoGenFactory extends EFactory {
 	 * @generated
 	 */
 	Mandatory createMandatory();
+
+	/**
+	 * Returns a new object of class '<em>Initialize</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Initialize</em>'.
+	 * @generated
+	 */
+	Initialize createInitialize();
+
+	/**
+	 * Returns a new object of class '<em>Video Gen</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Video Gen</em>'.
+	 * @generated
+	 */
+	VideoGen createVideoGen();
 
 	/**
 	 * Returns a new object of class '<em>Optional</em>'.
@@ -67,22 +67,31 @@ public interface VideoGenFactory extends EFactory {
 	Video createVideo();
 
 	/**
-	 * Returns a new object of class '<em>Introduction</em>'.
+	 * Returns a new object of class '<em>Alternatives</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Introduction</em>'.
+	 * @return a new object of class '<em>Alternatives</em>'.
 	 * @generated
 	 */
-	Introduction createIntroduction();
+	Alternatives createAlternatives();
 
 	/**
-	 * Returns a new object of class '<em>Conclusion</em>'.
+	 * Returns a new object of class '<em>Generate</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Conclusion</em>'.
+	 * @return a new object of class '<em>Generate</em>'.
 	 * @generated
 	 */
-	Conclusion createConclusion();
+	Generate createGenerate();
+
+	/**
+	 * Returns a new object of class '<em>Delay</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Delay</em>'.
+	 * @generated
+	 */
+	Delay createDelay();
 
 	/**
 	 * Returns the package supported by this factory.

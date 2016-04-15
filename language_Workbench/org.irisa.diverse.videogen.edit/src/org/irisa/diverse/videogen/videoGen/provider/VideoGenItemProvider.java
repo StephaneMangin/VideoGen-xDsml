@@ -133,7 +133,7 @@ public class VideoGenItemProvider extends NamedElementItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(VideoGenPackage.Literals.VIDEO_GEN__SEQUENCES);
+			childrenFeatures.add(VideoGenPackage.Literals.VIDEO_GEN__TRANSITIONS);
 			childrenFeatures.add(VideoGenPackage.Literals.VIDEO_GEN__VIDEOS);
 		}
 		return childrenFeatures;
@@ -195,7 +195,7 @@ public class VideoGenItemProvider extends NamedElementItemProvider {
 			case VideoGenPackage.VIDEO_GEN__VARIANTES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case VideoGenPackage.VIDEO_GEN__SEQUENCES:
+			case VideoGenPackage.VIDEO_GEN__TRANSITIONS:
 			case VideoGenPackage.VIDEO_GEN__VIDEOS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -216,28 +216,33 @@ public class VideoGenItemProvider extends NamedElementItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(VideoGenPackage.Literals.VIDEO_GEN__SEQUENCES,
+				(VideoGenPackage.Literals.VIDEO_GEN__TRANSITIONS,
 				 VideoGenFactory.eINSTANCE.createMandatory()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(VideoGenPackage.Literals.VIDEO_GEN__SEQUENCES,
+				(VideoGenPackage.Literals.VIDEO_GEN__TRANSITIONS,
+				 VideoGenFactory.eINSTANCE.createInitialize()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(VideoGenPackage.Literals.VIDEO_GEN__TRANSITIONS,
 				 VideoGenFactory.eINSTANCE.createOptional()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(VideoGenPackage.Literals.VIDEO_GEN__SEQUENCES,
-				 VideoGenFactory.eINSTANCE.createIntroduction()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(VideoGenPackage.Literals.VIDEO_GEN__SEQUENCES,
+				(VideoGenPackage.Literals.VIDEO_GEN__TRANSITIONS,
 				 VideoGenFactory.eINSTANCE.createAlternatives()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(VideoGenPackage.Literals.VIDEO_GEN__SEQUENCES,
-				 VideoGenFactory.eINSTANCE.createConclusion()));
+				(VideoGenPackage.Literals.VIDEO_GEN__TRANSITIONS,
+				 VideoGenFactory.eINSTANCE.createGenerate()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(VideoGenPackage.Literals.VIDEO_GEN__TRANSITIONS,
+				 VideoGenFactory.eINSTANCE.createDelay()));
 
 		newChildDescriptors.add
 			(createChildParameter

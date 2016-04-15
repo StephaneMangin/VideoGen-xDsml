@@ -5,27 +5,32 @@ package org.irisa.diverse.videogen.videoGen.provider;
 
 import java.util.Collection;
 import java.util.List;
+
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.irisa.diverse.videogen.videoGen.Conclusion;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ViewerNotification;
+
+import org.irisa.diverse.videogen.videoGen.Initialize;
 import org.irisa.diverse.videogen.videoGen.VideoGenPackage;
 
 /**
- * This is the item provider adapter for a {@link org.irisa.diverse.videogen.videoGen.Conclusion} object.
+ * This is the item provider adapter for a {@link org.irisa.diverse.videogen.videoGen.Initialize} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ConclusionItemProvider extends OptionalItemProvider {
+public class InitializeItemProvider extends NamedElementItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ConclusionItemProvider(AdapterFactory adapterFactory) {
+	public InitializeItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -40,25 +45,26 @@ public class ConclusionItemProvider extends OptionalItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addVideoGenPropertyDescriptor(object);
+			addNextTransitionPropertyDescriptor(object);
+			addActivePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Video Gen feature.
+	 * This adds a property descriptor for the Next Transition feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addVideoGenPropertyDescriptor(Object object) {
+	protected void addNextTransitionPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Conclusion_videoGen_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Conclusion_videoGen_feature", "_UI_Conclusion_type"),
-				 VideoGenPackage.Literals.CONCLUSION__VIDEO_GEN,
+				 getString("_UI_Transition_nextTransition_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Transition_nextTransition_feature", "_UI_Transition_type"),
+				 VideoGenPackage.Literals.TRANSITION__NEXT_TRANSITION,
 				 true,
 				 false,
 				 true,
@@ -68,14 +74,36 @@ public class ConclusionItemProvider extends OptionalItemProvider {
 	}
 
 	/**
-	 * This returns Conclusion.gif.
+	 * This adds a property descriptor for the Active feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addActivePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Transition_active_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Transition_active_feature", "_UI_Transition_type"),
+				 VideoGenPackage.Literals.TRANSITION__ACTIVE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This returns Initialize.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Conclusion"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Initialize"));
 	}
 
 	/**
@@ -86,10 +114,10 @@ public class ConclusionItemProvider extends OptionalItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Conclusion)object).getName();
+		String label = ((Initialize)object).getName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_Conclusion_type") :
-			getString("_UI_Conclusion_type") + " " + label;
+			getString("_UI_Initialize_type") :
+			getString("_UI_Initialize_type") + " " + label;
 	}
 	
 
@@ -103,6 +131,12 @@ public class ConclusionItemProvider extends OptionalItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
+		switch (notification.getFeatureID(Initialize.class)) {
+			case VideoGenPackage.INITIALIZE__ACTIVE:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+		}
 		super.notifyChanged(notification);
 	}
 

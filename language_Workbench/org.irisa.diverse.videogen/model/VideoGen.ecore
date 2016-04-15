@@ -4,16 +4,20 @@
   <eAnnotations source="http://www.eclipse.org/OCL/Import">
     <details key="ecore" value="http://www.eclipse.org/emf/2002/Ecore"/>
   </eAnnotations>
+  <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+    <details key="invocationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+    <details key="settingDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+    <details key="validationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+  </eAnnotations>
   <eClassifiers xsi:type="ecore:EClass" name="Mandatory" eSuperTypes="#//Sequence"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Introduction" eSuperTypes="#//Optional">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="videoGen" lowerBound="1"
-        eType="#//VideoGen"/>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Initialize" eSuperTypes="#//Transition"/>
   <eClassifiers xsi:type="ecore:EClass" name="VideoGen" eSuperTypes="#//NamedElement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="sequences" upperBound="-1"
-        eType="#//Sequence" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="videos" upperBound="-1"
-        eType="#//Video" containment="true"/>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="minMaxNotEqual"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="minMaxNotEqual" value="&#xA;&#x9;&#x9;&#x9;self.minDurationConstraint &lt;= self.maxDurationConstraint"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="minDurationConstraint"
         lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"
         defaultValueLiteral="0"/>
@@ -23,11 +27,14 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="variantes" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"
         defaultValueLiteral="0"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="transitions" lowerBound="1"
+        upperBound="-1" eType="#//Transition" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="videos" lowerBound="1"
+        upperBound="-1" eType="#//Video" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Sequence" abstract="true" interface="true"
+  <eClassifiers xsi:type="ecore:EClass" name="Transition" abstract="true" interface="true"
       eSuperTypes="#//NamedElement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="nextSequence" eType="#//Sequence"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="video" eType="#//Video"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="nextTransition" eType="#//Transition"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="active" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"
         defaultValueLiteral="true"/>
@@ -36,6 +43,16 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Optional" eSuperTypes="#//Sequence">
+    <eAnnotations source="http://www.obeo.fr/dsl/dnc/archetype">
+      <details key="archetype" value="Description"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="probMax probMin"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="probMax" value="&#xA;&#x9;&#x9;&#x9;self.probability &lt;= 100"/>
+      <details key="probMin" value="&#xA;&#x9;&#x9;&#x9;self.probability >= 0"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="probability" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"
         defaultValueLiteral="0"/>
@@ -64,11 +81,33 @@
     <eLiterals name="avi" value="7"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Alternatives" eSuperTypes="#//Sequence">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="options" upperBound="-1"
-        eType="#//Optional" containment="true"/>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="probSumMax"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="probSumMax" value="&#xA;&#x9;&#x9;&#x9;self.options.probability->sum() &lt;= 100"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="options" lowerBound="2"
+        upperBound="-1" eType="#//Optional" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Conclusion" eSuperTypes="#//Optional">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="videoGen" lowerBound="1"
-        eType="#//VideoGen"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Generate" eSuperTypes="#//Transition"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Delay" eSuperTypes="#//Transition">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="positiveDelay"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="positiveDelay" value="&#xA;&#x9;&#x9;&#x9;self.value >= 0"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"
+        defaultValueLiteral="0"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Sequence" abstract="true" eSuperTypes="#//Transition">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="notIdentical"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="notIdentical" value="&#xA;&#x9;&#x9;&#x9;self.allInstances()->forAll(s1, s2 |&#xA;&#x9;&#x9;&#x9;&#x9;s1 &lt;> s2 implies s1.oclAsType(NamedElement).name &lt;> s2.oclAsType(NamedElement).name)"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="video" lowerBound="1" eType="#//Video"/>
   </eClassifiers>
 </ecore:EPackage>

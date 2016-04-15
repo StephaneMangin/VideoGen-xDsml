@@ -13,7 +13,7 @@ import org.irisa.diverse.videogen.videoGen.VideoGenFactory;
  * <!-- end-user-doc -->
  * @generated
  */
-public class OptionalTest extends NamedElementTest {
+public class OptionalTest extends SequenceTest {
 
 	/**
 	 * <!-- begin-user-doc -->

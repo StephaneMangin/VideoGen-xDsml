@@ -1,8 +1,6 @@
 package org.irisa.diverse.videogen.transformations
 
 import org.irisa.diverse.videogen.videoGen.Alternatives
-import org.irisa.diverse.videogen.videoGen.Conclusion
-import org.irisa.diverse.videogen.videoGen.Introduction
 import org.irisa.diverse.videogen.videoGen.Mandatory
 import org.irisa.diverse.videogen.videoGen.Optional
 import org.irisa.diverse.videogen.videoGen.Video
@@ -11,6 +9,9 @@ import org.irisa.diverse.videogen.videoGen.impl.VideoGenFactoryImpl
 import org.irisa.diverse.videogen.videoGen.Mimetypes_Enum
 import org.irisa.diverse.videogen.videoGen.Sequence
 import org.irisa.diverse.videogen.transformations.helpers.VideoGenHelper
+import org.irisa.diverse.videogen.videoGen.Transition
+import org.irisa.diverse.videogen.videoGen.Initialize
+import org.irisa.diverse.videogen.videoGen.Generate
 
 /**
  * Add missing arguments to a VIdeoGen instance
@@ -41,10 +42,10 @@ class VideoGenChecker {
 	 */
 	def compile(VideoGen v) {
 		result.append('''VideoGen {''' + "\n")
-		var Sequence sequence = VideoGenHelper.getIntroduction(v)
-		while (sequence !== null) {
-			sequence.compile()
-			sequence = sequence.nextSequence
+		var Transition transition = VideoGenHelper.getInitialize(v)
+		while (transition !== null) {
+			transition.compile()
+			transition = transition.nextTransition
 		}
 		result.append('''}''')
 		result
@@ -56,20 +57,30 @@ class VideoGenChecker {
 	 * @param v VideoGen
 	 * @return StringBuilder
 	 */
+	def compile(Transition s) {
+		if (s instanceof Initialize) {
+			s.compile()
+		} else if (s instanceof Generate) {
+			s.compile()
+		} else if (s instanceof Sequence) {
+			s.compile()
+		}
+		result
+
+	}
+
+	/**
+	 * VideoGen check and all descendants
+	 * 
+	 * @param v VideoGen
+	 * @return StringBuilder
+	 */
 	def compile(Sequence s) {
 		if (s instanceof Mandatory) {
 			s.compile()
-		}
-		else if (s instanceof Alternatives) {
+		} else if (s instanceof Alternatives) {
 			s.compile()
-		}
-		else if (s instanceof Introduction) {
-			s.compile()
-		}
-		else if (s instanceof Conclusion) {
-			s.compile()
-		}
-		else if (s instanceof Optional) {
+		} else if (s instanceof Optional) {
 			s.compile()
 		}
 		result
@@ -82,10 +93,9 @@ class VideoGenChecker {
 	 * @param m Mandatory
 	 * @return StringBuilder
 	 */
-	def compile(Introduction m) {
+	def compile(Initialize m) {
 		tabs.append(tabulation)
-		result.append(tabs + '''@Introduction''' + "\n")
-		m.video.compile()
+		result.append(tabs + '''@Initialize''' + "\n")
 		tabs.delete(0, 1)
 		result
 	}
@@ -96,10 +106,9 @@ class VideoGenChecker {
 	 * @param m Mandatory
 	 * @return StringBuilder
 	 */
-	def compile(Conclusion m) {
+	def compile(Generate m) {
 		tabs.append(tabulation)
-		result.append(tabs + '''@Conclusion''' + "\n")
-		m.video.compile()
+		result.append(tabs + '''@Generate''' + "\n")
 		tabs.delete(0, 1)
 		result
 	}

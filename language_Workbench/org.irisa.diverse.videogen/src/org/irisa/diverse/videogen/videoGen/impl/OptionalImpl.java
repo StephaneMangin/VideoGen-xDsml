@@ -5,13 +5,10 @@ package org.irisa.diverse.videogen.videoGen.impl;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.irisa.diverse.videogen.videoGen.Optional;
-import org.irisa.diverse.videogen.videoGen.Sequence;
-import org.irisa.diverse.videogen.videoGen.Video;
 import org.irisa.diverse.videogen.videoGen.VideoGenPackage;
 
 /**
@@ -21,56 +18,13 @@ import org.irisa.diverse.videogen.videoGen.VideoGenPackage;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.irisa.diverse.videogen.videoGen.impl.OptionalImpl#getNextSequence <em>Next Sequence</em>}</li>
- *   <li>{@link org.irisa.diverse.videogen.videoGen.impl.OptionalImpl#getVideo <em>Video</em>}</li>
- *   <li>{@link org.irisa.diverse.videogen.videoGen.impl.OptionalImpl#getActive <em>Active</em>}</li>
  *   <li>{@link org.irisa.diverse.videogen.videoGen.impl.OptionalImpl#getProbability <em>Probability</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class OptionalImpl extends NamedElementImpl implements Optional {
-	/**
-	 * The cached value of the '{@link #getNextSequence() <em>Next Sequence</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getNextSequence()
-	 * @generated
-	 * @ordered
-	 */
-	protected Sequence nextSequence;
-
-	/**
-	 * The cached value of the '{@link #getVideo() <em>Video</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getVideo()
-	 * @generated
-	 * @ordered
-	 */
-	protected Video video;
-
-	/**
-	 * The default value of the '{@link #getActive() <em>Active</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getActive()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final Boolean ACTIVE_EDEFAULT = Boolean.TRUE;
-
-	/**
-	 * The cached value of the '{@link #getActive() <em>Active</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getActive()
-	 * @generated
-	 * @ordered
-	 */
-	protected Boolean active = ACTIVE_EDEFAULT;
-
+public class OptionalImpl extends SequenceImpl implements Optional {
 	/**
 	 * The default value of the '{@link #getProbability() <em>Probability</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -115,103 +69,6 @@ public class OptionalImpl extends NamedElementImpl implements Optional {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Sequence getNextSequence() {
-		if (nextSequence != null && nextSequence.eIsProxy()) {
-			InternalEObject oldNextSequence = (InternalEObject)nextSequence;
-			nextSequence = (Sequence)eResolveProxy(oldNextSequence);
-			if (nextSequence != oldNextSequence) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, VideoGenPackage.OPTIONAL__NEXT_SEQUENCE, oldNextSequence, nextSequence));
-			}
-		}
-		return nextSequence;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Sequence basicGetNextSequence() {
-		return nextSequence;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setNextSequence(Sequence newNextSequence) {
-		Sequence oldNextSequence = nextSequence;
-		nextSequence = newNextSequence;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, VideoGenPackage.OPTIONAL__NEXT_SEQUENCE, oldNextSequence, nextSequence));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Video getVideo() {
-		if (video != null && video.eIsProxy()) {
-			InternalEObject oldVideo = (InternalEObject)video;
-			video = (Video)eResolveProxy(oldVideo);
-			if (video != oldVideo) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, VideoGenPackage.OPTIONAL__VIDEO, oldVideo, video));
-			}
-		}
-		return video;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Video basicGetVideo() {
-		return video;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setVideo(Video newVideo) {
-		Video oldVideo = video;
-		video = newVideo;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, VideoGenPackage.OPTIONAL__VIDEO, oldVideo, video));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Boolean getActive() {
-		return active;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setActive(Boolean newActive) {
-		Boolean oldActive = active;
-		active = newActive;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, VideoGenPackage.OPTIONAL__ACTIVE, oldActive, active));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Integer getProbability() {
 		return probability;
 	}
@@ -236,14 +93,6 @@ public class OptionalImpl extends NamedElementImpl implements Optional {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case VideoGenPackage.OPTIONAL__NEXT_SEQUENCE:
-				if (resolve) return getNextSequence();
-				return basicGetNextSequence();
-			case VideoGenPackage.OPTIONAL__VIDEO:
-				if (resolve) return getVideo();
-				return basicGetVideo();
-			case VideoGenPackage.OPTIONAL__ACTIVE:
-				return getActive();
 			case VideoGenPackage.OPTIONAL__PROBABILITY:
 				return getProbability();
 		}
@@ -258,15 +107,6 @@ public class OptionalImpl extends NamedElementImpl implements Optional {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case VideoGenPackage.OPTIONAL__NEXT_SEQUENCE:
-				setNextSequence((Sequence)newValue);
-				return;
-			case VideoGenPackage.OPTIONAL__VIDEO:
-				setVideo((Video)newValue);
-				return;
-			case VideoGenPackage.OPTIONAL__ACTIVE:
-				setActive((Boolean)newValue);
-				return;
 			case VideoGenPackage.OPTIONAL__PROBABILITY:
 				setProbability((Integer)newValue);
 				return;
@@ -282,15 +122,6 @@ public class OptionalImpl extends NamedElementImpl implements Optional {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case VideoGenPackage.OPTIONAL__NEXT_SEQUENCE:
-				setNextSequence((Sequence)null);
-				return;
-			case VideoGenPackage.OPTIONAL__VIDEO:
-				setVideo((Video)null);
-				return;
-			case VideoGenPackage.OPTIONAL__ACTIVE:
-				setActive(ACTIVE_EDEFAULT);
-				return;
 			case VideoGenPackage.OPTIONAL__PROBABILITY:
 				setProbability(PROBABILITY_EDEFAULT);
 				return;
@@ -306,12 +137,6 @@ public class OptionalImpl extends NamedElementImpl implements Optional {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case VideoGenPackage.OPTIONAL__NEXT_SEQUENCE:
-				return nextSequence != null;
-			case VideoGenPackage.OPTIONAL__VIDEO:
-				return video != null;
-			case VideoGenPackage.OPTIONAL__ACTIVE:
-				return ACTIVE_EDEFAULT == null ? active != null : !ACTIVE_EDEFAULT.equals(active);
 			case VideoGenPackage.OPTIONAL__PROBABILITY:
 				return PROBABILITY_EDEFAULT == null ? probability != null : !PROBABILITY_EDEFAULT.equals(probability);
 		}
@@ -328,9 +153,7 @@ public class OptionalImpl extends NamedElementImpl implements Optional {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (active: ");
-		result.append(active);
-		result.append(", probability: ");
+		result.append(" (probability: ");
 		result.append(probability);
 		result.append(')');
 		return result.toString();

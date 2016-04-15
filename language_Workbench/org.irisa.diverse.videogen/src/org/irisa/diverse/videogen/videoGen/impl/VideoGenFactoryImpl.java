@@ -58,12 +58,13 @@ public class VideoGenFactoryImpl extends EFactoryImpl implements VideoGenFactory
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case VideoGenPackage.MANDATORY: return createMandatory();
-			case VideoGenPackage.INTRODUCTION: return createIntroduction();
+			case VideoGenPackage.INITIALIZE: return createInitialize();
 			case VideoGenPackage.VIDEO_GEN: return createVideoGen();
 			case VideoGenPackage.OPTIONAL: return createOptional();
 			case VideoGenPackage.VIDEO: return createVideo();
 			case VideoGenPackage.ALTERNATIVES: return createAlternatives();
-			case VideoGenPackage.CONCLUSION: return createConclusion();
+			case VideoGenPackage.GENERATE: return createGenerate();
+			case VideoGenPackage.DELAY: return createDelay();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -104,29 +105,29 @@ public class VideoGenFactoryImpl extends EFactoryImpl implements VideoGenFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public VideoGen createVideoGen() {
-		VideoGenImpl videoGen = new VideoGenImpl();
-		return videoGen;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Alternatives createAlternatives() {
-		AlternativesImpl alternatives = new AlternativesImpl();
-		return alternatives;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Mandatory createMandatory() {
 		MandatoryImpl mandatory = new MandatoryImpl();
 		return mandatory;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Initialize createInitialize() {
+		InitializeImpl initialize = new InitializeImpl();
+		return initialize;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public VideoGen createVideoGen() {
+		VideoGenImpl videoGen = new VideoGenImpl();
+		return videoGen;
 	}
 
 	/**
@@ -154,9 +155,9 @@ public class VideoGenFactoryImpl extends EFactoryImpl implements VideoGenFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Introduction createIntroduction() {
-		IntroductionImpl introduction = new IntroductionImpl();
-		return introduction;
+	public Alternatives createAlternatives() {
+		AlternativesImpl alternatives = new AlternativesImpl();
+		return alternatives;
 	}
 
 	/**
@@ -164,9 +165,19 @@ public class VideoGenFactoryImpl extends EFactoryImpl implements VideoGenFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Conclusion createConclusion() {
-		ConclusionImpl conclusion = new ConclusionImpl();
-		return conclusion;
+	public Generate createGenerate() {
+		GenerateImpl generate = new GenerateImpl();
+		return generate;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Delay createDelay() {
+		DelayImpl delay = new DelayImpl();
+		return delay;
 	}
 
 	/**

@@ -11,43 +11,17 @@ package org.irisa.diverse.videogen.videoGen;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.irisa.diverse.videogen.videoGen.Sequence#getNextSequence <em>Next Sequence</em>}</li>
  *   <li>{@link org.irisa.diverse.videogen.videoGen.Sequence#getVideo <em>Video</em>}</li>
- *   <li>{@link org.irisa.diverse.videogen.videoGen.Sequence#getActive <em>Active</em>}</li>
  * </ul>
  * </p>
  *
  * @see org.irisa.diverse.videogen.videoGen.VideoGenPackage#getSequence()
- * @model interface="true" abstract="true"
+ * @model abstract="true"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='notIdentical'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot notIdentical='\n\t\t\tself.allInstances()->forAll(s1, s2 |\n\t\t\t\ts1 <> s2 implies s1.oclAsType(NamedElement).name <> s2.oclAsType(NamedElement).name)'"
  * @generated
  */
-public interface Sequence extends NamedElement {
-	/**
-	 * Returns the value of the '<em><b>Next Sequence</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Next Sequence</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Next Sequence</em>' reference.
-	 * @see #setNextSequence(Sequence)
-	 * @see org.irisa.diverse.videogen.videoGen.VideoGenPackage#getSequence_NextSequence()
-	 * @model
-	 * @generated
-	 */
-	Sequence getNextSequence();
-
-	/**
-	 * Sets the value of the '{@link org.irisa.diverse.videogen.videoGen.Sequence#getNextSequence <em>Next Sequence</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Next Sequence</em>' reference.
-	 * @see #getNextSequence()
-	 * @generated
-	 */
-	void setNextSequence(Sequence value);
-
+public interface Sequence extends Transition {
 	/**
 	 * Returns the value of the '<em><b>Video</b></em>' reference.
 	 * <!-- begin-user-doc -->
@@ -59,7 +33,7 @@ public interface Sequence extends NamedElement {
 	 * @return the value of the '<em>Video</em>' reference.
 	 * @see #setVideo(Video)
 	 * @see org.irisa.diverse.videogen.videoGen.VideoGenPackage#getSequence_Video()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	Video getVideo();
@@ -73,32 +47,5 @@ public interface Sequence extends NamedElement {
 	 * @generated
 	 */
 	void setVideo(Video value);
-
-	/**
-	 * Returns the value of the '<em><b>Active</b></em>' attribute.
-	 * The default value is <code>"true"</code>.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Active</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Active</em>' attribute.
-	 * @see #setActive(Boolean)
-	 * @see org.irisa.diverse.videogen.videoGen.VideoGenPackage#getSequence_Active()
-	 * @model default="true" required="true"
-	 * @generated
-	 */
-	Boolean getActive();
-
-	/**
-	 * Sets the value of the '{@link org.irisa.diverse.videogen.videoGen.Sequence#getActive <em>Active</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Active</em>' attribute.
-	 * @see #getActive()
-	 * @generated
-	 */
-	void setActive(Boolean value);
 
 } // Sequence

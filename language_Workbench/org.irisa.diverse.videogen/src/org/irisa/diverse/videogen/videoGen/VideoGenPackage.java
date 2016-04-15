@@ -23,6 +23,7 @@ import org.eclipse.emf.ecore.EReference;
  * @see org.irisa.diverse.videogen.videoGen.VideoGenFactory
  * @model kind="package"
  *        annotation="http://www.eclipse.org/OCL/Import ecore='http://www.eclipse.org/emf/2002/Ecore'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore invocationDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot' settingDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot' validationDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot'"
  * @generated
  */
 public interface VideoGenPackage extends EPackage {
@@ -96,24 +97,14 @@ public interface VideoGenPackage extends EPackage {
 	int NAMED_ELEMENT_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link org.irisa.diverse.videogen.videoGen.impl.VideoGenImpl <em>Video Gen</em>}' class.
+	 * The meta object id for the '{@link org.irisa.diverse.videogen.videoGen.Transition <em>Transition</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.irisa.diverse.videogen.videoGen.impl.VideoGenImpl
-	 * @see org.irisa.diverse.videogen.videoGen.impl.VideoGenPackageImpl#getVideoGen()
+	 * @see org.irisa.diverse.videogen.videoGen.Transition
+	 * @see org.irisa.diverse.videogen.videoGen.impl.VideoGenPackageImpl#getTransition()
 	 * @generated
 	 */
-	int VIDEO_GEN = 2;
-
-	/**
-	 * The meta object id for the '{@link org.irisa.diverse.videogen.videoGen.Sequence <em>Sequence</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.irisa.diverse.videogen.videoGen.Sequence
-	 * @see org.irisa.diverse.videogen.videoGen.impl.VideoGenPackageImpl#getSequence()
-	 * @generated
-	 */
-	int SEQUENCE = 3;
+	int TRANSITION = 3;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -122,25 +113,16 @@ public interface VideoGenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SEQUENCE__NAME = NAMED_ELEMENT__NAME;
+	int TRANSITION__NAME = NAMED_ELEMENT__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Next Sequence</b></em>' reference.
+	 * The feature id for the '<em><b>Next Transition</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SEQUENCE__NEXT_SEQUENCE = NAMED_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Video</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SEQUENCE__VIDEO = NAMED_ELEMENT_FEATURE_COUNT + 1;
+	int TRANSITION__NEXT_TRANSITION = NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Active</b></em>' attribute.
@@ -149,7 +131,71 @@ public interface VideoGenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SEQUENCE__ACTIVE = NAMED_ELEMENT_FEATURE_COUNT + 2;
+	int TRANSITION__ACTIVE = NAMED_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Transition</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANSITION_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Transition</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANSITION_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.irisa.diverse.videogen.videoGen.impl.SequenceImpl <em>Sequence</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.irisa.diverse.videogen.videoGen.impl.SequenceImpl
+	 * @see org.irisa.diverse.videogen.videoGen.impl.VideoGenPackageImpl#getSequence()
+	 * @generated
+	 */
+	int SEQUENCE = 10;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEQUENCE__NAME = TRANSITION__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Next Transition</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEQUENCE__NEXT_TRANSITION = TRANSITION__NEXT_TRANSITION;
+
+	/**
+	 * The feature id for the '<em><b>Active</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEQUENCE__ACTIVE = TRANSITION__ACTIVE;
+
+	/**
+	 * The feature id for the '<em><b>Video</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEQUENCE__VIDEO = TRANSITION_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Sequence</em>' class.
@@ -158,7 +204,7 @@ public interface VideoGenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SEQUENCE_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 3;
+	int SEQUENCE_FEATURE_COUNT = TRANSITION_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Sequence</em>' class.
@@ -167,17 +213,7 @@ public interface VideoGenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SEQUENCE_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link org.irisa.diverse.videogen.videoGen.impl.AlternativesImpl <em>Alternatives</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.irisa.diverse.videogen.videoGen.impl.AlternativesImpl
-	 * @see org.irisa.diverse.videogen.videoGen.impl.VideoGenPackageImpl#getAlternatives()
-	 * @generated
-	 */
-	int ALTERNATIVES = 7;
+	int SEQUENCE_OPERATION_COUNT = TRANSITION_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.irisa.diverse.videogen.videoGen.impl.MandatoryImpl <em>Mandatory</em>}' class.
@@ -199,22 +235,13 @@ public interface VideoGenPackage extends EPackage {
 	int MANDATORY__NAME = SEQUENCE__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Next Sequence</b></em>' reference.
+	 * The feature id for the '<em><b>Next Transition</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MANDATORY__NEXT_SEQUENCE = SEQUENCE__NEXT_SEQUENCE;
-
-	/**
-	 * The feature id for the '<em><b>Video</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MANDATORY__VIDEO = SEQUENCE__VIDEO;
+	int MANDATORY__NEXT_TRANSITION = SEQUENCE__NEXT_TRANSITION;
 
 	/**
 	 * The feature id for the '<em><b>Active</b></em>' attribute.
@@ -224,6 +251,15 @@ public interface VideoGenPackage extends EPackage {
 	 * @ordered
 	 */
 	int MANDATORY__ACTIVE = SEQUENCE__ACTIVE;
+
+	/**
+	 * The feature id for the '<em><b>Video</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MANDATORY__VIDEO = SEQUENCE__VIDEO;
 
 	/**
 	 * The number of structural features of the '<em>Mandatory</em>' class.
@@ -242,6 +278,143 @@ public interface VideoGenPackage extends EPackage {
 	 * @ordered
 	 */
 	int MANDATORY_OPERATION_COUNT = SEQUENCE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.irisa.diverse.videogen.videoGen.impl.InitializeImpl <em>Initialize</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.irisa.diverse.videogen.videoGen.impl.InitializeImpl
+	 * @see org.irisa.diverse.videogen.videoGen.impl.VideoGenPackageImpl#getInitialize()
+	 * @generated
+	 */
+	int INITIALIZE = 1;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INITIALIZE__NAME = TRANSITION__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Next Transition</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INITIALIZE__NEXT_TRANSITION = TRANSITION__NEXT_TRANSITION;
+
+	/**
+	 * The feature id for the '<em><b>Active</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INITIALIZE__ACTIVE = TRANSITION__ACTIVE;
+
+	/**
+	 * The number of structural features of the '<em>Initialize</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INITIALIZE_FEATURE_COUNT = TRANSITION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Initialize</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INITIALIZE_OPERATION_COUNT = TRANSITION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.irisa.diverse.videogen.videoGen.impl.VideoGenImpl <em>Video Gen</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.irisa.diverse.videogen.videoGen.impl.VideoGenImpl
+	 * @see org.irisa.diverse.videogen.videoGen.impl.VideoGenPackageImpl#getVideoGen()
+	 * @generated
+	 */
+	int VIDEO_GEN = 2;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIDEO_GEN__NAME = NAMED_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Min Duration Constraint</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIDEO_GEN__MIN_DURATION_CONSTRAINT = NAMED_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Max Duration Constraint</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIDEO_GEN__MAX_DURATION_CONSTRAINT = NAMED_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Variantes</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIDEO_GEN__VARIANTES = NAMED_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Transitions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIDEO_GEN__TRANSITIONS = NAMED_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Videos</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIDEO_GEN__VIDEOS = NAMED_ELEMENT_FEATURE_COUNT + 4;
+
+	/**
+	 * The number of structural features of the '<em>Video Gen</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIDEO_GEN_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 5;
+
+	/**
+	 * The number of operations of the '<em>Video Gen</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIDEO_GEN_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.irisa.diverse.videogen.videoGen.impl.OptionalImpl <em>Optional</em>}' class.
@@ -263,22 +436,13 @@ public interface VideoGenPackage extends EPackage {
 	int OPTIONAL__NAME = SEQUENCE__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Next Sequence</b></em>' reference.
+	 * The feature id for the '<em><b>Next Transition</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OPTIONAL__NEXT_SEQUENCE = SEQUENCE__NEXT_SEQUENCE;
-
-	/**
-	 * The feature id for the '<em><b>Video</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTIONAL__VIDEO = SEQUENCE__VIDEO;
+	int OPTIONAL__NEXT_TRANSITION = SEQUENCE__NEXT_TRANSITION;
 
 	/**
 	 * The feature id for the '<em><b>Active</b></em>' attribute.
@@ -288,6 +452,15 @@ public interface VideoGenPackage extends EPackage {
 	 * @ordered
 	 */
 	int OPTIONAL__ACTIVE = SEQUENCE__ACTIVE;
+
+	/**
+	 * The feature id for the '<em><b>Video</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPTIONAL__VIDEO = SEQUENCE__VIDEO;
 
 	/**
 	 * The feature id for the '<em><b>Probability</b></em>' attribute.
@@ -325,160 +498,6 @@ public interface VideoGenPackage extends EPackage {
 	 * @generated
 	 */
 	int VIDEO = 6;
-
-	/**
-	 * The meta object id for the '{@link org.irisa.diverse.videogen.videoGen.impl.IntroductionImpl <em>Introduction</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.irisa.diverse.videogen.videoGen.impl.IntroductionImpl
-	 * @see org.irisa.diverse.videogen.videoGen.impl.VideoGenPackageImpl#getIntroduction()
-	 * @generated
-	 */
-	int INTRODUCTION = 1;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INTRODUCTION__NAME = OPTIONAL__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Next Sequence</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INTRODUCTION__NEXT_SEQUENCE = OPTIONAL__NEXT_SEQUENCE;
-
-	/**
-	 * The feature id for the '<em><b>Video</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INTRODUCTION__VIDEO = OPTIONAL__VIDEO;
-
-	/**
-	 * The feature id for the '<em><b>Active</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INTRODUCTION__ACTIVE = OPTIONAL__ACTIVE;
-
-	/**
-	 * The feature id for the '<em><b>Probability</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INTRODUCTION__PROBABILITY = OPTIONAL__PROBABILITY;
-
-	/**
-	 * The feature id for the '<em><b>Video Gen</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INTRODUCTION__VIDEO_GEN = OPTIONAL_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Introduction</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INTRODUCTION_FEATURE_COUNT = OPTIONAL_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of operations of the '<em>Introduction</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INTRODUCTION_OPERATION_COUNT = OPTIONAL_OPERATION_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VIDEO_GEN__NAME = NAMED_ELEMENT__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Sequences</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VIDEO_GEN__SEQUENCES = NAMED_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Videos</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VIDEO_GEN__VIDEOS = NAMED_ELEMENT_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Min Duration Constraint</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VIDEO_GEN__MIN_DURATION_CONSTRAINT = NAMED_ELEMENT_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Max Duration Constraint</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VIDEO_GEN__MAX_DURATION_CONSTRAINT = NAMED_ELEMENT_FEATURE_COUNT + 3;
-
-	/**
-	 * The feature id for the '<em><b>Variantes</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VIDEO_GEN__VARIANTES = NAMED_ELEMENT_FEATURE_COUNT + 4;
-
-	/**
-	 * The number of structural features of the '<em>Video Gen</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VIDEO_GEN_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 5;
-
-	/**
-	 * The number of operations of the '<em>Video Gen</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VIDEO_GEN_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -553,6 +572,16 @@ public interface VideoGenPackage extends EPackage {
 	int VIDEO_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link org.irisa.diverse.videogen.videoGen.impl.AlternativesImpl <em>Alternatives</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.irisa.diverse.videogen.videoGen.impl.AlternativesImpl
+	 * @see org.irisa.diverse.videogen.videoGen.impl.VideoGenPackageImpl#getAlternatives()
+	 * @generated
+	 */
+	int ALTERNATIVES = 7;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -562,22 +591,13 @@ public interface VideoGenPackage extends EPackage {
 	int ALTERNATIVES__NAME = SEQUENCE__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Next Sequence</b></em>' reference.
+	 * The feature id for the '<em><b>Next Transition</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ALTERNATIVES__NEXT_SEQUENCE = SEQUENCE__NEXT_SEQUENCE;
-
-	/**
-	 * The feature id for the '<em><b>Video</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ALTERNATIVES__VIDEO = SEQUENCE__VIDEO;
+	int ALTERNATIVES__NEXT_TRANSITION = SEQUENCE__NEXT_TRANSITION;
 
 	/**
 	 * The feature id for the '<em><b>Active</b></em>' attribute.
@@ -587,6 +607,15 @@ public interface VideoGenPackage extends EPackage {
 	 * @ordered
 	 */
 	int ALTERNATIVES__ACTIVE = SEQUENCE__ACTIVE;
+
+	/**
+	 * The feature id for the '<em><b>Video</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALTERNATIVES__VIDEO = SEQUENCE__VIDEO;
 
 	/**
 	 * The feature id for the '<em><b>Options</b></em>' containment reference list.
@@ -616,14 +645,14 @@ public interface VideoGenPackage extends EPackage {
 	int ALTERNATIVES_OPERATION_COUNT = SEQUENCE_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link org.irisa.diverse.videogen.videoGen.impl.ConclusionImpl <em>Conclusion</em>}' class.
+	 * The meta object id for the '{@link org.irisa.diverse.videogen.videoGen.impl.GenerateImpl <em>Generate</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.irisa.diverse.videogen.videoGen.impl.ConclusionImpl
-	 * @see org.irisa.diverse.videogen.videoGen.impl.VideoGenPackageImpl#getConclusion()
+	 * @see org.irisa.diverse.videogen.videoGen.impl.GenerateImpl
+	 * @see org.irisa.diverse.videogen.videoGen.impl.VideoGenPackageImpl#getGenerate()
 	 * @generated
 	 */
-	int CONCLUSION = 8;
+	int GENERATE = 8;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -632,25 +661,16 @@ public interface VideoGenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONCLUSION__NAME = OPTIONAL__NAME;
+	int GENERATE__NAME = TRANSITION__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Next Sequence</b></em>' reference.
+	 * The feature id for the '<em><b>Next Transition</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONCLUSION__NEXT_SEQUENCE = OPTIONAL__NEXT_SEQUENCE;
-
-	/**
-	 * The feature id for the '<em><b>Video</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONCLUSION__VIDEO = OPTIONAL__VIDEO;
+	int GENERATE__NEXT_TRANSITION = TRANSITION__NEXT_TRANSITION;
 
 	/**
 	 * The feature id for the '<em><b>Active</b></em>' attribute.
@@ -659,43 +679,89 @@ public interface VideoGenPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONCLUSION__ACTIVE = OPTIONAL__ACTIVE;
+	int GENERATE__ACTIVE = TRANSITION__ACTIVE;
 
 	/**
-	 * The feature id for the '<em><b>Probability</b></em>' attribute.
+	 * The number of structural features of the '<em>Generate</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONCLUSION__PROBABILITY = OPTIONAL__PROBABILITY;
+	int GENERATE_FEATURE_COUNT = TRANSITION_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Video Gen</b></em>' reference.
+	 * The number of operations of the '<em>Generate</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONCLUSION__VIDEO_GEN = OPTIONAL_FEATURE_COUNT + 0;
+	int GENERATE_OPERATION_COUNT = TRANSITION_OPERATION_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>Conclusion</em>' class.
+	 * The meta object id for the '{@link org.irisa.diverse.videogen.videoGen.impl.DelayImpl <em>Delay</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.irisa.diverse.videogen.videoGen.impl.DelayImpl
+	 * @see org.irisa.diverse.videogen.videoGen.impl.VideoGenPackageImpl#getDelay()
+	 * @generated
+	 */
+	int DELAY = 9;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONCLUSION_FEATURE_COUNT = OPTIONAL_FEATURE_COUNT + 1;
+	int DELAY__NAME = TRANSITION__NAME;
 
 	/**
-	 * The number of operations of the '<em>Conclusion</em>' class.
+	 * The feature id for the '<em><b>Next Transition</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONCLUSION_OPERATION_COUNT = OPTIONAL_OPERATION_COUNT + 0;
+	int DELAY__NEXT_TRANSITION = TRANSITION__NEXT_TRANSITION;
+
+	/**
+	 * The feature id for the '<em><b>Active</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DELAY__ACTIVE = TRANSITION__ACTIVE;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DELAY__VALUE = TRANSITION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Delay</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DELAY_FEATURE_COUNT = TRANSITION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Delay</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DELAY_OPERATION_COUNT = TRANSITION_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.irisa.diverse.videogen.videoGen.Mimetypes_Enum <em>Mimetypes Enum</em>}' enum.
@@ -705,8 +771,28 @@ public interface VideoGenPackage extends EPackage {
 	 * @see org.irisa.diverse.videogen.videoGen.impl.VideoGenPackageImpl#getMimetypes_Enum()
 	 * @generated
 	 */
-	int MIMETYPES_ENUM = 9;
+	int MIMETYPES_ENUM = 11;
 
+
+	/**
+	 * Returns the meta object for class '{@link org.irisa.diverse.videogen.videoGen.Mandatory <em>Mandatory</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Mandatory</em>'.
+	 * @see org.irisa.diverse.videogen.videoGen.Mandatory
+	 * @generated
+	 */
+	EClass getMandatory();
+
+	/**
+	 * Returns the meta object for class '{@link org.irisa.diverse.videogen.videoGen.Initialize <em>Initialize</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Initialize</em>'.
+	 * @see org.irisa.diverse.videogen.videoGen.Initialize
+	 * @generated
+	 */
+	EClass getInitialize();
 
 	/**
 	 * Returns the meta object for class '{@link org.irisa.diverse.videogen.videoGen.VideoGen <em>Video Gen</em>}'.
@@ -717,28 +803,6 @@ public interface VideoGenPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getVideoGen();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link org.irisa.diverse.videogen.videoGen.VideoGen#getSequences <em>Sequences</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Sequences</em>'.
-	 * @see org.irisa.diverse.videogen.videoGen.VideoGen#getSequences()
-	 * @see #getVideoGen()
-	 * @generated
-	 */
-	EReference getVideoGen_Sequences();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link org.irisa.diverse.videogen.videoGen.VideoGen#getVideos <em>Videos</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Videos</em>'.
-	 * @see org.irisa.diverse.videogen.videoGen.VideoGen#getVideos()
-	 * @see #getVideoGen()
-	 * @generated
-	 */
-	EReference getVideoGen_Videos();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.irisa.diverse.videogen.videoGen.VideoGen#getMinDurationConstraint <em>Min Duration Constraint</em>}'.
@@ -774,78 +838,79 @@ public interface VideoGenPackage extends EPackage {
 	EAttribute getVideoGen_Variantes();
 
 	/**
-	 * Returns the meta object for class '{@link org.irisa.diverse.videogen.videoGen.Sequence <em>Sequence</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.irisa.diverse.videogen.videoGen.VideoGen#getTransitions <em>Transitions</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Sequence</em>'.
-	 * @see org.irisa.diverse.videogen.videoGen.Sequence
+	 * @return the meta object for the containment reference list '<em>Transitions</em>'.
+	 * @see org.irisa.diverse.videogen.videoGen.VideoGen#getTransitions()
+	 * @see #getVideoGen()
 	 * @generated
 	 */
-	EClass getSequence();
+	EReference getVideoGen_Transitions();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.irisa.diverse.videogen.videoGen.Sequence#getNextSequence <em>Next Sequence</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.irisa.diverse.videogen.videoGen.VideoGen#getVideos <em>Videos</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Next Sequence</em>'.
-	 * @see org.irisa.diverse.videogen.videoGen.Sequence#getNextSequence()
-	 * @see #getSequence()
+	 * @return the meta object for the containment reference list '<em>Videos</em>'.
+	 * @see org.irisa.diverse.videogen.videoGen.VideoGen#getVideos()
+	 * @see #getVideoGen()
 	 * @generated
 	 */
-	EReference getSequence_NextSequence();
+	EReference getVideoGen_Videos();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.irisa.diverse.videogen.videoGen.Sequence#getVideo <em>Video</em>}'.
+	 * Returns the meta object for class '{@link org.irisa.diverse.videogen.videoGen.Transition <em>Transition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Video</em>'.
-	 * @see org.irisa.diverse.videogen.videoGen.Sequence#getVideo()
-	 * @see #getSequence()
+	 * @return the meta object for class '<em>Transition</em>'.
+	 * @see org.irisa.diverse.videogen.videoGen.Transition
 	 * @generated
 	 */
-	EReference getSequence_Video();
+	EClass getTransition();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.irisa.diverse.videogen.videoGen.Sequence#getActive <em>Active</em>}'.
+	 * Returns the meta object for the reference '{@link org.irisa.diverse.videogen.videoGen.Transition#getNextTransition <em>Next Transition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Next Transition</em>'.
+	 * @see org.irisa.diverse.videogen.videoGen.Transition#getNextTransition()
+	 * @see #getTransition()
+	 * @generated
+	 */
+	EReference getTransition_NextTransition();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.irisa.diverse.videogen.videoGen.Transition#getActive <em>Active</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Active</em>'.
-	 * @see org.irisa.diverse.videogen.videoGen.Sequence#getActive()
-	 * @see #getSequence()
+	 * @see org.irisa.diverse.videogen.videoGen.Transition#getActive()
+	 * @see #getTransition()
 	 * @generated
 	 */
-	EAttribute getSequence_Active();
+	EAttribute getTransition_Active();
 
 	/**
-	 * Returns the meta object for class '{@link org.irisa.diverse.videogen.videoGen.Alternatives <em>Alternatives</em>}'.
+	 * Returns the meta object for class '{@link org.irisa.diverse.videogen.videoGen.NamedElement <em>Named Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Alternatives</em>'.
-	 * @see org.irisa.diverse.videogen.videoGen.Alternatives
+	 * @return the meta object for class '<em>Named Element</em>'.
+	 * @see org.irisa.diverse.videogen.videoGen.NamedElement
 	 * @generated
 	 */
-	EClass getAlternatives();
+	EClass getNamedElement();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.irisa.diverse.videogen.videoGen.Alternatives#getOptions <em>Options</em>}'.
+	 * Returns the meta object for the attribute '{@link org.irisa.diverse.videogen.videoGen.NamedElement#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Options</em>'.
-	 * @see org.irisa.diverse.videogen.videoGen.Alternatives#getOptions()
-	 * @see #getAlternatives()
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see org.irisa.diverse.videogen.videoGen.NamedElement#getName()
+	 * @see #getNamedElement()
 	 * @generated
 	 */
-	EReference getAlternatives_Options();
-
-	/**
-	 * Returns the meta object for class '{@link org.irisa.diverse.videogen.videoGen.Mandatory <em>Mandatory</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Mandatory</em>'.
-	 * @see org.irisa.diverse.videogen.videoGen.Mandatory
-	 * @generated
-	 */
-	EClass getMandatory();
+	EAttribute getNamedElement_Name();
 
 	/**
 	 * Returns the meta object for class '{@link org.irisa.diverse.videogen.videoGen.Optional <em>Optional</em>}'.
@@ -934,67 +999,77 @@ public interface VideoGenPackage extends EPackage {
 	EAttribute getVideo_Selected();
 
 	/**
-	 * Returns the meta object for class '{@link org.irisa.diverse.videogen.videoGen.NamedElement <em>Named Element</em>}'.
+	 * Returns the meta object for class '{@link org.irisa.diverse.videogen.videoGen.Alternatives <em>Alternatives</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Named Element</em>'.
-	 * @see org.irisa.diverse.videogen.videoGen.NamedElement
+	 * @return the meta object for class '<em>Alternatives</em>'.
+	 * @see org.irisa.diverse.videogen.videoGen.Alternatives
 	 * @generated
 	 */
-	EClass getNamedElement();
+	EClass getAlternatives();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.irisa.diverse.videogen.videoGen.NamedElement#getName <em>Name</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.irisa.diverse.videogen.videoGen.Alternatives#getOptions <em>Options</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see org.irisa.diverse.videogen.videoGen.NamedElement#getName()
-	 * @see #getNamedElement()
+	 * @return the meta object for the containment reference list '<em>Options</em>'.
+	 * @see org.irisa.diverse.videogen.videoGen.Alternatives#getOptions()
+	 * @see #getAlternatives()
 	 * @generated
 	 */
-	EAttribute getNamedElement_Name();
+	EReference getAlternatives_Options();
 
 	/**
-	 * Returns the meta object for class '{@link org.irisa.diverse.videogen.videoGen.Introduction <em>Introduction</em>}'.
+	 * Returns the meta object for class '{@link org.irisa.diverse.videogen.videoGen.Generate <em>Generate</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Introduction</em>'.
-	 * @see org.irisa.diverse.videogen.videoGen.Introduction
+	 * @return the meta object for class '<em>Generate</em>'.
+	 * @see org.irisa.diverse.videogen.videoGen.Generate
 	 * @generated
 	 */
-	EClass getIntroduction();
+	EClass getGenerate();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.irisa.diverse.videogen.videoGen.Introduction#getVideoGen <em>Video Gen</em>}'.
+	 * Returns the meta object for class '{@link org.irisa.diverse.videogen.videoGen.Delay <em>Delay</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Video Gen</em>'.
-	 * @see org.irisa.diverse.videogen.videoGen.Introduction#getVideoGen()
-	 * @see #getIntroduction()
+	 * @return the meta object for class '<em>Delay</em>'.
+	 * @see org.irisa.diverse.videogen.videoGen.Delay
 	 * @generated
 	 */
-	EReference getIntroduction_VideoGen();
+	EClass getDelay();
 
 	/**
-	 * Returns the meta object for class '{@link org.irisa.diverse.videogen.videoGen.Conclusion <em>Conclusion</em>}'.
+	 * Returns the meta object for the attribute '{@link org.irisa.diverse.videogen.videoGen.Delay#getValue <em>Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Conclusion</em>'.
-	 * @see org.irisa.diverse.videogen.videoGen.Conclusion
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see org.irisa.diverse.videogen.videoGen.Delay#getValue()
+	 * @see #getDelay()
 	 * @generated
 	 */
-	EClass getConclusion();
+	EAttribute getDelay_Value();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.irisa.diverse.videogen.videoGen.Conclusion#getVideoGen <em>Video Gen</em>}'.
+	 * Returns the meta object for class '{@link org.irisa.diverse.videogen.videoGen.Sequence <em>Sequence</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Video Gen</em>'.
-	 * @see org.irisa.diverse.videogen.videoGen.Conclusion#getVideoGen()
-	 * @see #getConclusion()
+	 * @return the meta object for class '<em>Sequence</em>'.
+	 * @see org.irisa.diverse.videogen.videoGen.Sequence
 	 * @generated
 	 */
-	EReference getConclusion_VideoGen();
+	EClass getSequence();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.irisa.diverse.videogen.videoGen.Sequence#getVideo <em>Video</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Video</em>'.
+	 * @see org.irisa.diverse.videogen.videoGen.Sequence#getVideo()
+	 * @see #getSequence()
+	 * @generated
+	 */
+	EReference getSequence_Video();
 
 	/**
 	 * Returns the meta object for enum '{@link org.irisa.diverse.videogen.videoGen.Mimetypes_Enum <em>Mimetypes Enum</em>}'.
@@ -1030,6 +1105,26 @@ public interface VideoGenPackage extends EPackage {
 	 */
 	interface Literals {
 		/**
+		 * The meta object literal for the '{@link org.irisa.diverse.videogen.videoGen.impl.MandatoryImpl <em>Mandatory</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.irisa.diverse.videogen.videoGen.impl.MandatoryImpl
+		 * @see org.irisa.diverse.videogen.videoGen.impl.VideoGenPackageImpl#getMandatory()
+		 * @generated
+		 */
+		EClass MANDATORY = eINSTANCE.getMandatory();
+
+		/**
+		 * The meta object literal for the '{@link org.irisa.diverse.videogen.videoGen.impl.InitializeImpl <em>Initialize</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.irisa.diverse.videogen.videoGen.impl.InitializeImpl
+		 * @see org.irisa.diverse.videogen.videoGen.impl.VideoGenPackageImpl#getInitialize()
+		 * @generated
+		 */
+		EClass INITIALIZE = eINSTANCE.getInitialize();
+
+		/**
 		 * The meta object literal for the '{@link org.irisa.diverse.videogen.videoGen.impl.VideoGenImpl <em>Video Gen</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1038,22 +1133,6 @@ public interface VideoGenPackage extends EPackage {
 		 * @generated
 		 */
 		EClass VIDEO_GEN = eINSTANCE.getVideoGen();
-
-		/**
-		 * The meta object literal for the '<em><b>Sequences</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference VIDEO_GEN__SEQUENCES = eINSTANCE.getVideoGen_Sequences();
-
-		/**
-		 * The meta object literal for the '<em><b>Videos</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference VIDEO_GEN__VIDEOS = eINSTANCE.getVideoGen_Videos();
 
 		/**
 		 * The meta object literal for the '<em><b>Min Duration Constraint</b></em>' attribute feature.
@@ -1080,30 +1159,38 @@ public interface VideoGenPackage extends EPackage {
 		EAttribute VIDEO_GEN__VARIANTES = eINSTANCE.getVideoGen_Variantes();
 
 		/**
-		 * The meta object literal for the '{@link org.irisa.diverse.videogen.videoGen.Sequence <em>Sequence</em>}' class.
+		 * The meta object literal for the '<em><b>Transitions</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.irisa.diverse.videogen.videoGen.Sequence
-		 * @see org.irisa.diverse.videogen.videoGen.impl.VideoGenPackageImpl#getSequence()
 		 * @generated
 		 */
-		EClass SEQUENCE = eINSTANCE.getSequence();
+		EReference VIDEO_GEN__TRANSITIONS = eINSTANCE.getVideoGen_Transitions();
 
 		/**
-		 * The meta object literal for the '<em><b>Next Sequence</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Videos</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference SEQUENCE__NEXT_SEQUENCE = eINSTANCE.getSequence_NextSequence();
+		EReference VIDEO_GEN__VIDEOS = eINSTANCE.getVideoGen_Videos();
 
 		/**
-		 * The meta object literal for the '<em><b>Video</b></em>' reference feature.
+		 * The meta object literal for the '{@link org.irisa.diverse.videogen.videoGen.Transition <em>Transition</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.irisa.diverse.videogen.videoGen.Transition
+		 * @see org.irisa.diverse.videogen.videoGen.impl.VideoGenPackageImpl#getTransition()
+		 * @generated
+		 */
+		EClass TRANSITION = eINSTANCE.getTransition();
+
+		/**
+		 * The meta object literal for the '<em><b>Next Transition</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference SEQUENCE__VIDEO = eINSTANCE.getSequence_Video();
+		EReference TRANSITION__NEXT_TRANSITION = eINSTANCE.getTransition_NextTransition();
 
 		/**
 		 * The meta object literal for the '<em><b>Active</b></em>' attribute feature.
@@ -1111,35 +1198,25 @@ public interface VideoGenPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute SEQUENCE__ACTIVE = eINSTANCE.getSequence_Active();
+		EAttribute TRANSITION__ACTIVE = eINSTANCE.getTransition_Active();
 
 		/**
-		 * The meta object literal for the '{@link org.irisa.diverse.videogen.videoGen.impl.AlternativesImpl <em>Alternatives</em>}' class.
+		 * The meta object literal for the '{@link org.irisa.diverse.videogen.videoGen.impl.NamedElementImpl <em>Named Element</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.irisa.diverse.videogen.videoGen.impl.AlternativesImpl
-		 * @see org.irisa.diverse.videogen.videoGen.impl.VideoGenPackageImpl#getAlternatives()
+		 * @see org.irisa.diverse.videogen.videoGen.impl.NamedElementImpl
+		 * @see org.irisa.diverse.videogen.videoGen.impl.VideoGenPackageImpl#getNamedElement()
 		 * @generated
 		 */
-		EClass ALTERNATIVES = eINSTANCE.getAlternatives();
+		EClass NAMED_ELEMENT = eINSTANCE.getNamedElement();
 
 		/**
-		 * The meta object literal for the '<em><b>Options</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ALTERNATIVES__OPTIONS = eINSTANCE.getAlternatives_Options();
-
-		/**
-		 * The meta object literal for the '{@link org.irisa.diverse.videogen.videoGen.impl.MandatoryImpl <em>Mandatory</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.irisa.diverse.videogen.videoGen.impl.MandatoryImpl
-		 * @see org.irisa.diverse.videogen.videoGen.impl.VideoGenPackageImpl#getMandatory()
-		 * @generated
-		 */
-		EClass MANDATORY = eINSTANCE.getMandatory();
+		EAttribute NAMED_ELEMENT__NAME = eINSTANCE.getNamedElement_Name();
 
 		/**
 		 * The meta object literal for the '{@link org.irisa.diverse.videogen.videoGen.impl.OptionalImpl <em>Optional</em>}' class.
@@ -1210,58 +1287,68 @@ public interface VideoGenPackage extends EPackage {
 		EAttribute VIDEO__SELECTED = eINSTANCE.getVideo_Selected();
 
 		/**
-		 * The meta object literal for the '{@link org.irisa.diverse.videogen.videoGen.impl.NamedElementImpl <em>Named Element</em>}' class.
+		 * The meta object literal for the '{@link org.irisa.diverse.videogen.videoGen.impl.AlternativesImpl <em>Alternatives</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.irisa.diverse.videogen.videoGen.impl.NamedElementImpl
-		 * @see org.irisa.diverse.videogen.videoGen.impl.VideoGenPackageImpl#getNamedElement()
+		 * @see org.irisa.diverse.videogen.videoGen.impl.AlternativesImpl
+		 * @see org.irisa.diverse.videogen.videoGen.impl.VideoGenPackageImpl#getAlternatives()
 		 * @generated
 		 */
-		EClass NAMED_ELEMENT = eINSTANCE.getNamedElement();
+		EClass ALTERNATIVES = eINSTANCE.getAlternatives();
 
 		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Options</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute NAMED_ELEMENT__NAME = eINSTANCE.getNamedElement_Name();
+		EReference ALTERNATIVES__OPTIONS = eINSTANCE.getAlternatives_Options();
 
 		/**
-		 * The meta object literal for the '{@link org.irisa.diverse.videogen.videoGen.impl.IntroductionImpl <em>Introduction</em>}' class.
+		 * The meta object literal for the '{@link org.irisa.diverse.videogen.videoGen.impl.GenerateImpl <em>Generate</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.irisa.diverse.videogen.videoGen.impl.IntroductionImpl
-		 * @see org.irisa.diverse.videogen.videoGen.impl.VideoGenPackageImpl#getIntroduction()
+		 * @see org.irisa.diverse.videogen.videoGen.impl.GenerateImpl
+		 * @see org.irisa.diverse.videogen.videoGen.impl.VideoGenPackageImpl#getGenerate()
 		 * @generated
 		 */
-		EClass INTRODUCTION = eINSTANCE.getIntroduction();
+		EClass GENERATE = eINSTANCE.getGenerate();
 
 		/**
-		 * The meta object literal for the '<em><b>Video Gen</b></em>' reference feature.
+		 * The meta object literal for the '{@link org.irisa.diverse.videogen.videoGen.impl.DelayImpl <em>Delay</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
+		 * @see org.irisa.diverse.videogen.videoGen.impl.DelayImpl
+		 * @see org.irisa.diverse.videogen.videoGen.impl.VideoGenPackageImpl#getDelay()
 		 * @generated
 		 */
-		EReference INTRODUCTION__VIDEO_GEN = eINSTANCE.getIntroduction_VideoGen();
+		EClass DELAY = eINSTANCE.getDelay();
 
 		/**
-		 * The meta object literal for the '{@link org.irisa.diverse.videogen.videoGen.impl.ConclusionImpl <em>Conclusion</em>}' class.
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.irisa.diverse.videogen.videoGen.impl.ConclusionImpl
-		 * @see org.irisa.diverse.videogen.videoGen.impl.VideoGenPackageImpl#getConclusion()
 		 * @generated
 		 */
-		EClass CONCLUSION = eINSTANCE.getConclusion();
+		EAttribute DELAY__VALUE = eINSTANCE.getDelay_Value();
 
 		/**
-		 * The meta object literal for the '<em><b>Video Gen</b></em>' reference feature.
+		 * The meta object literal for the '{@link org.irisa.diverse.videogen.videoGen.impl.SequenceImpl <em>Sequence</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.irisa.diverse.videogen.videoGen.impl.SequenceImpl
+		 * @see org.irisa.diverse.videogen.videoGen.impl.VideoGenPackageImpl#getSequence()
+		 * @generated
+		 */
+		EClass SEQUENCE = eINSTANCE.getSequence();
+
+		/**
+		 * The meta object literal for the '<em><b>Video</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference CONCLUSION__VIDEO_GEN = eINSTANCE.getConclusion_VideoGen();
+		EReference SEQUENCE__VIDEO = eINSTANCE.getSequence_Video();
 
 		/**
 		 * The meta object literal for the '{@link org.irisa.diverse.videogen.videoGen.Mimetypes_Enum <em>Mimetypes Enum</em>}' enum.

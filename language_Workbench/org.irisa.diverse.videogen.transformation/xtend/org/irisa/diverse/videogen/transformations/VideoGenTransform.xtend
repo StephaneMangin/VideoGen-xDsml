@@ -12,8 +12,6 @@ import org.irisa.diverse.videogen.transformations.helpers.VideoGenHelper
 import org.irisa.diverse.videogen.transformations.helpers.VideosHelper
 import org.irisa.diverse.videogen.transformations.utils.DistributedRandomNumberGenerator
 import org.irisa.diverse.videogen.videoGen.Alternatives
-import org.irisa.diverse.videogen.videoGen.Conclusion
-import org.irisa.diverse.videogen.videoGen.Introduction
 import org.irisa.diverse.videogen.videoGen.Mandatory
 import org.irisa.diverse.videogen.videoGen.Optional
 import org.irisa.diverse.videogen.videoGen.Video

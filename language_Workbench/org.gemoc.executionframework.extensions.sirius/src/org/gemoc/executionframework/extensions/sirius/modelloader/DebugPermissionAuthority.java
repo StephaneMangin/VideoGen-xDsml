@@ -55,20 +55,22 @@ public class DebugPermissionAuthority extends AbstractPermissionAuthority
 
 	@Override
 	public boolean canEditFeature(EObject eObj, String featureName) {
+		Integer integer = 1;
 		System.out.println("canEditFeature :");
 		System.out.println(eObj);
 		if (eObj != null) {
 			System.out.println(eObj.eResource());
 			if (eObj.eResource() != null) {
 				System.out.println(eObj.eResource().getResourceSet());
+				integer = allow.get(eObj.eResource().getResourceSet());
 			}
 		}
-		Integer integer = allow.get(eObj.eResource().getResourceSet());
 		return integer != null && integer.intValue() > 0;
 	}
 
 	@Override
 	public boolean canEditInstance(EObject eObj) {
+		Integer integer = 1;
 		System.out.println("#####################################################################################################");
 		System.out.println("Allow content : ");
 		allow.forEach(new BiConsumer<ResourceSet, Integer>() {
@@ -96,37 +98,45 @@ public class DebugPermissionAuthority extends AbstractPermissionAuthority
 			System.out.println(eObj.eResource());
 			if (eObj.eResource() != null) {
 				System.out.println(eObj.eResource().getResourceSet());
+				integer = allow.get(eObj.eResource().getResourceSet());
 			}
 		}
-		Integer integer = allow.get(eObj.eResource().getResourceSet());
+		try {
+			throw new Exception("dfghgsfh");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return integer != null && integer.intValue() > 0;
 	}
 
 	@Override
 	public boolean canCreateIn(EObject eObj) {
+		Integer integer = 1;
 		System.out.println("canCreateIn :");
 		System.out.println(eObj);
 		if (eObj != null) {
 			System.out.println(eObj.eResource());
 			if (eObj.eResource() != null) {
 				System.out.println(eObj.eResource().getResourceSet());
+				integer = allow.get(eObj.eResource().getResourceSet());
 			}
 		}
-		Integer integer = allow.get(eObj.eResource().getResourceSet());
 		return integer != null && integer.intValue() > 0;
 	}
 
 	@Override
 	public boolean canDeleteInstance(EObject target) {
+		Integer integer = 1;
 		System.out.println("canDeleteInstance :");
 		System.out.println(target);
 		if (target != null) {
 			System.out.println(target.eResource());
 			if (target.eResource() != null) {
 				System.out.println(target.eResource().getResourceSet());
+				integer = allow.get(target.eResource().getResourceSet());
 			}
 		}
-		Integer integer = allow.get(target.eResource().getResourceSet());
 		return integer != null && integer.intValue() > 0;
 	}
 

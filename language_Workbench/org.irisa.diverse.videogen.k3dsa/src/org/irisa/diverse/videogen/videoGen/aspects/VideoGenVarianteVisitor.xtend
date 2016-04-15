@@ -8,8 +8,6 @@ import org.irisa.diverse.videogen.videoGen.Optional
 import org.irisa.diverse.videogen.transformations.helpers.VideoGenHelper
 import java.util.ArrayList
 import java.util.List
-import org.irisa.diverse.videogen.videoGen.Introduction
-import org.irisa.diverse.videogen.videoGen.Conclusion
 
 class VideoGenVarianteVisitor {
 	
@@ -21,32 +19,30 @@ class VideoGenVarianteVisitor {
 	}
 	
 	def private void visit(Sequence seq) {
-		println("VideoGen Variante Visitor : " + seq)
-		println("VideoGen Variante Visitor : " + variantes)
-		if (seq instanceof Optional) {
-			seq.visit
-		} else if (seq instanceof Alternatives) {
-			seq.visit
+		if (seq.active) {
+			println("VideoGen Variante Visitor : " + seq)
+			if (seq instanceof Optional) {
+				seq.visit
+			} else if (seq instanceof Alternatives) {
+				seq.visit
+			}
+			println("VideoGen Variante Visitor : " + variantes)
 		}
 	}
 		
 	def private visit(Alternatives alt) {
-		if (alt.active) {
-			if (variantes == 0) {
-				variantes = alt.options.size
-			} else {
-				variantes *= alt.options.size
-			}
+		if (variantes == 0) {
+			variantes = alt.options.size
+		} else {
+			variantes *= alt.options.size
 		}
 	}
 	
 	def private visit(Optional opt) {
-		if (opt.active) {
-			if (variantes == 0) {
-				variantes = 2
-			} else {
-			variantes *= 2
-			}
+		if (variantes == 0) {
+			variantes = 2
+		} else {
+		variantes *= 2
 		}
 	}
 }

@@ -4,16 +4,16 @@ package org.irisa.diverse.videogen.videoGen.tests;
 
 import junit.textui.TestRunner;
 
-import org.irisa.diverse.videogen.videoGen.Introduction;
+import org.irisa.diverse.videogen.videoGen.Delay;
 import org.irisa.diverse.videogen.videoGen.VideoGenFactory;
 
 /**
  * <!-- begin-user-doc -->
- * A test case for the model object '<em><b>Introduction</b></em>'.
+ * A test case for the model object '<em><b>Delay</b></em>'.
  * <!-- end-user-doc -->
  * @generated
  */
-public class IntroductionTest extends OptionalTest {
+public class DelayTest extends NamedElementTest {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -21,28 +21,28 @@ public class IntroductionTest extends OptionalTest {
 	 * @generated
 	 */
 	public static void main(String[] args) {
-		TestRunner.run(IntroductionTest.class);
+		TestRunner.run(DelayTest.class);
 	}
 
 	/**
-	 * Constructs a new Introduction test case with the given name.
+	 * Constructs a new Delay test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public IntroductionTest(String name) {
+	public DelayTest(String name) {
 		super(name);
 	}
 
 	/**
-	 * Returns the fixture for this Introduction test case.
+	 * Returns the fixture for this Delay test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	protected Introduction getFixture() {
-		return (Introduction)fixture;
+	protected Delay getFixture() {
+		return (Delay)fixture;
 	}
 
 	/**
@@ -53,7 +53,7 @@ public class IntroductionTest extends OptionalTest {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(VideoGenFactory.eINSTANCE.createIntroduction());
+		setFixture(VideoGenFactory.eINSTANCE.createDelay());
 	}
 
 	/**
@@ -67,4 +67,4 @@ public class IntroductionTest extends OptionalTest {
 		setFixture(null);
 	}
 
-} //IntroductionTest
+} //DelayTest

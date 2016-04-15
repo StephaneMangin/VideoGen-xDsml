@@ -3,8 +3,6 @@ package org.irisa.diverse.videogen.transformations
 import javax.json.JsonObjectBuilder
 import javax.json.Json
 import org.irisa.diverse.videogen.videoGen.Alternatives
-import org.irisa.diverse.videogen.videoGen.Conclusion
-import org.irisa.diverse.videogen.videoGen.Introduction
 import org.irisa.diverse.videogen.videoGen.Mandatory
 import org.irisa.diverse.videogen.videoGen.Optional
 import org.irisa.diverse.videogen.videoGen.Video
@@ -12,6 +10,8 @@ import org.irisa.diverse.videogen.videoGen.VideoGen
 import org.irisa.diverse.videogen.videoGen.impl.VideoGenFactoryImpl
 import org.irisa.diverse.videogen.videoGen.Mimetypes_Enum
 import org.irisa.diverse.videogen.videoGen.Sequence
+import org.irisa.diverse.videogen.videoGen.Transition
+import org.irisa.diverse.videogen.videoGen.Delay
 
 /**
  * Add missing arguments to a VIdeoGen instance
@@ -35,15 +35,28 @@ class VideoGenSerializer {
 	 */
 	def compile(VideoGen v) {
 		val node = Json.createObjectBuilder()
-		var sequence = v.sequences.get(0)
-		while (sequence !== null) {
-			sequence.compile(node)
-			sequence = sequence.nextSequence
+		var transition = v.transitions.get(0)
+		while (transition !== null) {
+			transition.compile(node)
+			transition = transition.nextTransition
 		}
 		object.add("VideoGen", node)
 		object.build
 	}
 
+	/**
+	 * Transitions
+	 * 
+	 * @param v VideoGen
+	 * @return StringBuilder
+	 */
+	private def void compile(Transition t, JsonObjectBuilder node) {
+		if (t instanceof Sequence) {
+			t.compile(node)
+		}
+
+	}
+	
 	/**
 	 * Statements
 	 * 

@@ -8,20 +8,24 @@ import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
+import org.eclipse.emf.ecore.EValidator;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import org.irisa.diverse.videogen.videoGen.Alternatives;
-import org.irisa.diverse.videogen.videoGen.Conclusion;
-import org.irisa.diverse.videogen.videoGen.Introduction;
+import org.irisa.diverse.videogen.videoGen.Delay;
+import org.irisa.diverse.videogen.videoGen.Generate;
+import org.irisa.diverse.videogen.videoGen.Initialize;
 import org.irisa.diverse.videogen.videoGen.Mandatory;
 import org.irisa.diverse.videogen.videoGen.Mimetypes_Enum;
 import org.irisa.diverse.videogen.videoGen.NamedElement;
 import org.irisa.diverse.videogen.videoGen.Optional;
 import org.irisa.diverse.videogen.videoGen.Sequence;
+import org.irisa.diverse.videogen.videoGen.Transition;
 import org.irisa.diverse.videogen.videoGen.Video;
 import org.irisa.diverse.videogen.videoGen.VideoGen;
 import org.irisa.diverse.videogen.videoGen.VideoGenFactory;
 import org.irisa.diverse.videogen.videoGen.VideoGenPackage;
+import org.irisa.diverse.videogen.videoGen.util.VideoGenValidator;
 
 /**
  * <!-- begin-user-doc -->
@@ -35,6 +39,20 @@ public class VideoGenPackageImpl extends EPackageImpl implements VideoGenPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass mandatoryEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass initializeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass videoGenEClass = null;
 
 	/**
@@ -42,21 +60,14 @@ public class VideoGenPackageImpl extends EPackageImpl implements VideoGenPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass sequenceEClass = null;
+	private EClass transitionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass alternativesEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass mandatoryEClass = null;
+	private EClass namedElementEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -77,21 +88,28 @@ public class VideoGenPackageImpl extends EPackageImpl implements VideoGenPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass namedElementEClass = null;
+	private EClass alternativesEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass introductionEClass = null;
+	private EClass generateEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass conclusionEClass = null;
+	private EClass delayEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass sequenceEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -152,6 +170,15 @@ public class VideoGenPackageImpl extends EPackageImpl implements VideoGenPackage
 		// Initialize created meta-data
 		theVideoGenPackage.initializePackageContents();
 
+		// Register package validator
+		EValidator.Registry.INSTANCE.put
+			(theVideoGenPackage, 
+			 new EValidator.Descriptor() {
+				 public EValidator getEValidator() {
+					 return VideoGenValidator.INSTANCE;
+				 }
+			 });
+
 		// Mark meta-data to indicate it can't be changed
 		theVideoGenPackage.freeze();
 
@@ -159,6 +186,24 @@ public class VideoGenPackageImpl extends EPackageImpl implements VideoGenPackage
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(VideoGenPackage.eNS_URI, theVideoGenPackage);
 		return theVideoGenPackage;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getMandatory() {
+		return mandatoryEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getInitialize() {
+		return initializeEClass;
 	}
 
 	/**
@@ -175,26 +220,8 @@ public class VideoGenPackageImpl extends EPackageImpl implements VideoGenPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getVideoGen_Sequences() {
-		return (EReference)videoGenEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getVideoGen_Videos() {
-		return (EReference)videoGenEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getVideoGen_MinDurationConstraint() {
-		return (EAttribute)videoGenEClass.getEStructuralFeatures().get(2);
+		return (EAttribute)videoGenEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -203,7 +230,7 @@ public class VideoGenPackageImpl extends EPackageImpl implements VideoGenPackage
 	 * @generated
 	 */
 	public EAttribute getVideoGen_MaxDurationConstraint() {
-		return (EAttribute)videoGenEClass.getEStructuralFeatures().get(3);
+		return (EAttribute)videoGenEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -212,7 +239,7 @@ public class VideoGenPackageImpl extends EPackageImpl implements VideoGenPackage
 	 * @generated
 	 */
 	public EAttribute getVideoGen_Variantes() {
-		return (EAttribute)videoGenEClass.getEStructuralFeatures().get(4);
+		return (EAttribute)videoGenEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -220,8 +247,8 @@ public class VideoGenPackageImpl extends EPackageImpl implements VideoGenPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getSequence() {
-		return sequenceEClass;
+	public EReference getVideoGen_Transitions() {
+		return (EReference)videoGenEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -229,8 +256,8 @@ public class VideoGenPackageImpl extends EPackageImpl implements VideoGenPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSequence_NextSequence() {
-		return (EReference)sequenceEClass.getEStructuralFeatures().get(0);
+	public EReference getVideoGen_Videos() {
+		return (EReference)videoGenEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -238,8 +265,8 @@ public class VideoGenPackageImpl extends EPackageImpl implements VideoGenPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSequence_Video() {
-		return (EReference)sequenceEClass.getEStructuralFeatures().get(1);
+	public EClass getTransition() {
+		return transitionEClass;
 	}
 
 	/**
@@ -247,8 +274,8 @@ public class VideoGenPackageImpl extends EPackageImpl implements VideoGenPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSequence_Active() {
-		return (EAttribute)sequenceEClass.getEStructuralFeatures().get(2);
+	public EReference getTransition_NextTransition() {
+		return (EReference)transitionEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -256,8 +283,8 @@ public class VideoGenPackageImpl extends EPackageImpl implements VideoGenPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getAlternatives() {
-		return alternativesEClass;
+	public EAttribute getTransition_Active() {
+		return (EAttribute)transitionEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -265,8 +292,8 @@ public class VideoGenPackageImpl extends EPackageImpl implements VideoGenPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAlternatives_Options() {
-		return (EReference)alternativesEClass.getEStructuralFeatures().get(0);
+	public EClass getNamedElement() {
+		return namedElementEClass;
 	}
 
 	/**
@@ -274,8 +301,8 @@ public class VideoGenPackageImpl extends EPackageImpl implements VideoGenPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getMandatory() {
-		return mandatoryEClass;
+	public EAttribute getNamedElement_Name() {
+		return (EAttribute)namedElementEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -355,8 +382,8 @@ public class VideoGenPackageImpl extends EPackageImpl implements VideoGenPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getNamedElement() {
-		return namedElementEClass;
+	public EClass getAlternatives() {
+		return alternativesEClass;
 	}
 
 	/**
@@ -364,8 +391,8 @@ public class VideoGenPackageImpl extends EPackageImpl implements VideoGenPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getNamedElement_Name() {
-		return (EAttribute)namedElementEClass.getEStructuralFeatures().get(0);
+	public EReference getAlternatives_Options() {
+		return (EReference)alternativesEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -373,8 +400,8 @@ public class VideoGenPackageImpl extends EPackageImpl implements VideoGenPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getIntroduction() {
-		return introductionEClass;
+	public EClass getGenerate() {
+		return generateEClass;
 	}
 
 	/**
@@ -382,8 +409,8 @@ public class VideoGenPackageImpl extends EPackageImpl implements VideoGenPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getIntroduction_VideoGen() {
-		return (EReference)introductionEClass.getEStructuralFeatures().get(0);
+	public EClass getDelay() {
+		return delayEClass;
 	}
 
 	/**
@@ -391,8 +418,8 @@ public class VideoGenPackageImpl extends EPackageImpl implements VideoGenPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getConclusion() {
-		return conclusionEClass;
+	public EAttribute getDelay_Value() {
+		return (EAttribute)delayEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -400,8 +427,17 @@ public class VideoGenPackageImpl extends EPackageImpl implements VideoGenPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getConclusion_VideoGen() {
-		return (EReference)conclusionEClass.getEStructuralFeatures().get(0);
+	public EClass getSequence() {
+		return sequenceEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSequence_Video() {
+		return (EReference)sequenceEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -443,20 +479,18 @@ public class VideoGenPackageImpl extends EPackageImpl implements VideoGenPackage
 		// Create classes and their features
 		mandatoryEClass = createEClass(MANDATORY);
 
-		introductionEClass = createEClass(INTRODUCTION);
-		createEReference(introductionEClass, INTRODUCTION__VIDEO_GEN);
+		initializeEClass = createEClass(INITIALIZE);
 
 		videoGenEClass = createEClass(VIDEO_GEN);
-		createEReference(videoGenEClass, VIDEO_GEN__SEQUENCES);
-		createEReference(videoGenEClass, VIDEO_GEN__VIDEOS);
 		createEAttribute(videoGenEClass, VIDEO_GEN__MIN_DURATION_CONSTRAINT);
 		createEAttribute(videoGenEClass, VIDEO_GEN__MAX_DURATION_CONSTRAINT);
 		createEAttribute(videoGenEClass, VIDEO_GEN__VARIANTES);
+		createEReference(videoGenEClass, VIDEO_GEN__TRANSITIONS);
+		createEReference(videoGenEClass, VIDEO_GEN__VIDEOS);
 
-		sequenceEClass = createEClass(SEQUENCE);
-		createEReference(sequenceEClass, SEQUENCE__NEXT_SEQUENCE);
-		createEReference(sequenceEClass, SEQUENCE__VIDEO);
-		createEAttribute(sequenceEClass, SEQUENCE__ACTIVE);
+		transitionEClass = createEClass(TRANSITION);
+		createEReference(transitionEClass, TRANSITION__NEXT_TRANSITION);
+		createEAttribute(transitionEClass, TRANSITION__ACTIVE);
 
 		namedElementEClass = createEClass(NAMED_ELEMENT);
 		createEAttribute(namedElementEClass, NAMED_ELEMENT__NAME);
@@ -474,8 +508,13 @@ public class VideoGenPackageImpl extends EPackageImpl implements VideoGenPackage
 		alternativesEClass = createEClass(ALTERNATIVES);
 		createEReference(alternativesEClass, ALTERNATIVES__OPTIONS);
 
-		conclusionEClass = createEClass(CONCLUSION);
-		createEReference(conclusionEClass, CONCLUSION__VIDEO_GEN);
+		generateEClass = createEClass(GENERATE);
+
+		delayEClass = createEClass(DELAY);
+		createEAttribute(delayEClass, DELAY__VALUE);
+
+		sequenceEClass = createEClass(SEQUENCE);
+		createEReference(sequenceEClass, SEQUENCE__VIDEO);
 
 		// Create enums
 		mimetypes_EnumEEnum = createEEnum(MIMETYPES_ENUM);
@@ -510,31 +549,31 @@ public class VideoGenPackageImpl extends EPackageImpl implements VideoGenPackage
 
 		// Add supertypes to classes
 		mandatoryEClass.getESuperTypes().add(this.getSequence());
-		introductionEClass.getESuperTypes().add(this.getOptional());
+		initializeEClass.getESuperTypes().add(this.getTransition());
 		videoGenEClass.getESuperTypes().add(this.getNamedElement());
-		sequenceEClass.getESuperTypes().add(this.getNamedElement());
+		transitionEClass.getESuperTypes().add(this.getNamedElement());
 		optionalEClass.getESuperTypes().add(this.getSequence());
 		videoEClass.getESuperTypes().add(this.getNamedElement());
 		alternativesEClass.getESuperTypes().add(this.getSequence());
-		conclusionEClass.getESuperTypes().add(this.getOptional());
+		generateEClass.getESuperTypes().add(this.getTransition());
+		delayEClass.getESuperTypes().add(this.getTransition());
+		sequenceEClass.getESuperTypes().add(this.getTransition());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(mandatoryEClass, Mandatory.class, "Mandatory", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(introductionEClass, Introduction.class, "Introduction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getIntroduction_VideoGen(), this.getVideoGen(), null, "videoGen", null, 1, 1, Introduction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(initializeEClass, Initialize.class, "Initialize", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(videoGenEClass, VideoGen.class, "VideoGen", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getVideoGen_Sequences(), this.getSequence(), null, "sequences", null, 0, -1, VideoGen.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getVideoGen_Videos(), this.getVideo(), null, "videos", null, 0, -1, VideoGen.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getVideoGen_MinDurationConstraint(), ecorePackage.getEIntegerObject(), "minDurationConstraint", "0", 1, 1, VideoGen.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getVideoGen_MaxDurationConstraint(), ecorePackage.getEIntegerObject(), "maxDurationConstraint", "0", 1, 1, VideoGen.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getVideoGen_Variantes(), ecorePackage.getEIntegerObject(), "variantes", "0", 1, 1, VideoGen.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getVideoGen_Transitions(), this.getTransition(), null, "transitions", null, 1, -1, VideoGen.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getVideoGen_Videos(), this.getVideo(), null, "videos", null, 1, -1, VideoGen.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(sequenceEClass, Sequence.class, "Sequence", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSequence_NextSequence(), this.getSequence(), null, "nextSequence", null, 0, 1, Sequence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSequence_Video(), this.getVideo(), null, "video", null, 0, 1, Sequence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSequence_Active(), ecorePackage.getEBooleanObject(), "active", "true", 1, 1, Sequence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(transitionEClass, Transition.class, "Transition", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getTransition_NextTransition(), this.getTransition(), null, "nextTransition", null, 0, 1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTransition_Active(), ecorePackage.getEBooleanObject(), "active", "true", 1, 1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(namedElementEClass, NamedElement.class, "NamedElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getNamedElement_Name(), ecorePackage.getEString(), "name", null, 1, 1, NamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -550,10 +589,15 @@ public class VideoGenPackageImpl extends EPackageImpl implements VideoGenPackage
 		initEAttribute(getVideo_Selected(), ecorePackage.getEBooleanObject(), "selected", "false", 1, 1, Video.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(alternativesEClass, Alternatives.class, "Alternatives", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getAlternatives_Options(), this.getOptional(), null, "options", null, 0, -1, Alternatives.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAlternatives_Options(), this.getOptional(), null, "options", null, 2, -1, Alternatives.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(conclusionEClass, Conclusion.class, "Conclusion", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getConclusion_VideoGen(), this.getVideoGen(), null, "videoGen", null, 1, 1, Conclusion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(generateEClass, Generate.class, "Generate", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(delayEClass, Delay.class, "Delay", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDelay_Value(), ecorePackage.getEIntegerObject(), "value", "0", 0, 1, Delay.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(sequenceEClass, Sequence.class, "Sequence", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSequence_Video(), this.getVideo(), null, "video", null, 1, 1, Sequence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(mimetypes_EnumEEnum, Mimetypes_Enum.class, "Mimetypes_Enum");
@@ -572,6 +616,12 @@ public class VideoGenPackageImpl extends EPackageImpl implements VideoGenPackage
 		// Create annotations
 		// http://www.eclipse.org/OCL/Import
 		createImportAnnotations();
+		// http://www.eclipse.org/emf/2002/Ecore
+		createEcoreAnnotations();
+		// http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot
+		createPivotAnnotations();
+		// http://www.obeo.fr/dsl/dnc/archetype
+		createArchetypeAnnotations();
 	}
 
 	/**
@@ -587,6 +637,111 @@ public class VideoGenPackageImpl extends EPackageImpl implements VideoGenPackage
 		   source, 
 		   new String[] {
 			 "ecore", "http://www.eclipse.org/emf/2002/Ecore"
+		   });
+	}
+
+	/**
+	 * Initializes the annotations for <b>http://www.eclipse.org/emf/2002/Ecore</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createEcoreAnnotations() {
+		String source = "http://www.eclipse.org/emf/2002/Ecore";	
+		addAnnotation
+		  (this, 
+		   source, 
+		   new String[] {
+			 "invocationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
+			 "settingDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
+			 "validationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"
+		   });	
+		addAnnotation
+		  (videoGenEClass, 
+		   source, 
+		   new String[] {
+			 "constraints", "minMaxNotEqual"
+		   });	
+		addAnnotation
+		  (optionalEClass, 
+		   source, 
+		   new String[] {
+			 "constraints", "probMax probMin"
+		   });	
+		addAnnotation
+		  (alternativesEClass, 
+		   source, 
+		   new String[] {
+			 "constraints", "probSumMax"
+		   });	
+		addAnnotation
+		  (delayEClass, 
+		   source, 
+		   new String[] {
+			 "constraints", "positiveDelay"
+		   });	
+		addAnnotation
+		  (sequenceEClass, 
+		   source, 
+		   new String[] {
+			 "constraints", "notIdentical"
+		   });
+	}
+
+	/**
+	 * Initializes the annotations for <b>http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createPivotAnnotations() {
+		String source = "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot";	
+		addAnnotation
+		  (videoGenEClass, 
+		   source, 
+		   new String[] {
+			 "minMaxNotEqual", "\n\t\t\tself.minDurationConstraint <= self.maxDurationConstraint"
+		   });	
+		addAnnotation
+		  (optionalEClass, 
+		   source, 
+		   new String[] {
+			 "probMax", "\n\t\t\tself.probability <= 100",
+			 "probMin", "\n\t\t\tself.probability >= 0"
+		   });	
+		addAnnotation
+		  (alternativesEClass, 
+		   source, 
+		   new String[] {
+			 "probSumMax", "\n\t\t\tself.options.probability->sum() <= 100"
+		   });	
+		addAnnotation
+		  (delayEClass, 
+		   source, 
+		   new String[] {
+			 "positiveDelay", "\n\t\t\tself.value >= 0"
+		   });	
+		addAnnotation
+		  (sequenceEClass, 
+		   source, 
+		   new String[] {
+			 "notIdentical", "\n\t\t\tself.allInstances()->forAll(s1, s2 |\n\t\t\t\ts1 <> s2 implies s1.oclAsType(NamedElement).name <> s2.oclAsType(NamedElement).name)"
+		   });
+	}
+
+	/**
+	 * Initializes the annotations for <b>http://www.obeo.fr/dsl/dnc/archetype</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createArchetypeAnnotations() {
+		String source = "http://www.obeo.fr/dsl/dnc/archetype";	
+		addAnnotation
+		  (optionalEClass, 
+		   source, 
+		   new String[] {
+			 "archetype", "Description"
 		   });
 	}
 

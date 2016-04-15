@@ -1,21 +1,16 @@
 package org.irisa.diverse.videogen.transformations.helpers
 
 import java.util.ArrayList
-import java.util.Collection
 import java.util.HashMap
+import java.util.List
 import java.util.Map
 import org.irisa.diverse.videogen.videoGen.Alternatives
-import org.irisa.diverse.videogen.videoGen.Conclusion
-import org.irisa.diverse.videogen.videoGen.Introduction
-import org.irisa.diverse.videogen.videoGen.Mandatory
-import org.irisa.diverse.videogen.videoGen.Optional
+import org.irisa.diverse.videogen.videoGen.Generate
+import org.irisa.diverse.videogen.videoGen.Initialize
+import org.irisa.diverse.videogen.videoGen.Sequence
+import org.irisa.diverse.videogen.videoGen.Transition
 import org.irisa.diverse.videogen.videoGen.Video
 import org.irisa.diverse.videogen.videoGen.VideoGen
-import org.irisa.diverse.videogen.videoGen.impl.VideoGenFactoryImpl
-import org.irisa.diverse.videogen.videoGen.Mimetypes_Enum
-import org.irisa.diverse.videogen.videoGen.Sequence
-import java.util.List
-import sun.security.jca.GetInstance.Instance
 
 /** 
  * @author Stéphane Mangin <stephane.mangin@freesbee.fr>
@@ -25,26 +20,26 @@ public class VideoGenHelper {
 	
 		
 	/**
-	 * Return the introduction as the main entry point
+	 * Return the Initialize as the main entry point
 	 * 
 	 */
-	def static Introduction getIntroduction(VideoGen videoGen) {
-		for (Sequence sequence : videoGen.sequences) { 
-			if (sequence instanceof Introduction) {
-				return sequence
+	def static Initialize getInitialize(VideoGen videoGen) {
+		for (Transition transition : videoGen.transitions) { 
+			if (transition instanceof Initialize) {
+				return transition
 			}
 		}
 		null
 	}
 	
 	/**
-	 * Return the conclusion as the main end point
+	 * Return the Generate as the main end point
 	 * 
 	 */
-	def static Conclusion getConclusion(VideoGen videoGen) {
-		for (Sequence sequence : videoGen.sequences) { 
-			if (sequence instanceof Conclusion) {
-				return sequence
+	def static Generate getGenerate(VideoGen videoGen) {
+		for (Transition transition : videoGen.transitions) { 
+			if (transition instanceof Generate) {
+				return transition
 			}
 		}
 		null
@@ -57,13 +52,13 @@ public class VideoGenHelper {
     def static List<Sequence> allSequences(VideoGen videoGen) {
 		val List<Sequence> sequences = new ArrayList<Sequence>
 			
-        var Sequence sequence = getIntroduction(videoGen)
-        while (sequence !== null) {
-			sequences.add(sequence)
-			if (sequence instanceof Conclusion) {
-				sequence = null
-			} else {
-				sequence = sequence.nextSequence
+        var Transition transition = getInitialize(videoGen)
+        while (transition !== null) {
+			transition = transition.nextTransition
+			if (transition instanceof Sequence) {
+				sequences.add(transition)
+			} else if (transition instanceof Initialize || transition instanceof Generate) {
+				transition = null
 			}
         }
 		sequences

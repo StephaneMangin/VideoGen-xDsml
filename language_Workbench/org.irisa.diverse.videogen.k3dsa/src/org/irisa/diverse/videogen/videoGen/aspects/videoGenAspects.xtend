@@ -14,8 +14,6 @@ import org.irisa.diverse.videogen.transformations.VideoGenTransform
 import org.irisa.diverse.videogen.transformations.helpers.VideoGenHelper
 import org.irisa.diverse.videogen.transformations.utils.DistributedRandomNumberGenerator
 import org.irisa.diverse.videogen.videoGen.Alternatives
-import org.irisa.diverse.videogen.videoGen.Conclusion
-import org.irisa.diverse.videogen.videoGen.Introduction
 import org.irisa.diverse.videogen.videoGen.Mandatory
 import org.irisa.diverse.videogen.videoGen.Optional
 import org.irisa.diverse.videogen.videoGen.Sequence
@@ -26,6 +24,10 @@ import org.irisa.diverse.videogen.videoGen.aspects.exceptions.ConstraintsType
 
 import static extension org.irisa.diverse.videogen.videoGen.aspects.SequenceAspect.*
 import static extension org.irisa.diverse.videogen.videoGen.aspects.VideoAspect.*
+import org.irisa.diverse.videogen.videoGen.Delay
+import org.irisa.diverse.videogen.videoGen.Transition
+import org.irisa.diverse.videogen.videoGen.Initialize
+import org.irisa.diverse.videogen.videoGen.Generate
 
 @Aspect(className=VideoGen)
 class VideoGenAspect {
@@ -39,12 +41,7 @@ class VideoGenAspect {
 	}
 	
 	@Step
-	@InitializeModel
-	def public void initializeModel(List<String> args){
-		val start = System.nanoTime
-		
-		// Setup initialization
-		new VideoGenSetupVisitor().visit(_self)	
+	def public void updateConstraints() {
 		// Variante initialization
 		val variantesVisitor = new VideoGenVarianteVisitor()
 		variantesVisitor.visit(_self)
@@ -59,7 +56,17 @@ class VideoGenAspect {
 		_self.maxDurationConstraint = durationVisitor.maxDuration
 		println("Min duration => " + _self.minDurationConstraint)
 		println("Max duration => " + _self.maxDurationConstraint)
+	}
+	
+	@Step
+	@InitializeModel
+	def public void initializeModel(List<String> args){
+		val start = System.nanoTime
 		
+		// Setup initialization
+		new VideoGenSetupVisitor().visit(_self)	
+		
+		_self.updateConstraints		
 		
 		val stop = System.nanoTime
 		println("#### VideoGen, time to setup " + (stop - start))
@@ -68,14 +75,15 @@ class VideoGenAspect {
 	def public void execute() {
 		_self.nanotimeStart = System.nanoTime
 		// Then process each sequences
-		VideoGenHelper.getIntroduction(_self).execute
+		VideoGenHelper.getInitialize(_self).execute(_self)
 	}	
 		/**
 	 * Start the computation (model transformation) of all selected video to create the final sequence (PlayList format)
 	 * 
 	 * @see : ffmpeg
 	 */
-	def public void compute() {		val videos = new HashMap
+	def public void compute() {
+		val videos = new HashMap
 		println("##### VideoGen '" + _self.name + "' start computation.")
 		
 		// Constraints checking
@@ -116,11 +124,11 @@ class VideoGenAspect {
 	}
 }
 
-@Aspect(className=Sequence)
-abstract class SequenceAspect {
+@Aspect(className=Transition)
+abstract class TransitionAspect {
 
 	public Boolean done = false
-	public Boolean callNextSequence = true
+	public Boolean callnextTransition = true
 	
 	/**
 	 * Call the sequence processor. Need to be overridden by a inherited class
@@ -129,20 +137,25 @@ abstract class SequenceAspect {
 	 * 
 	 */
 	@Step
-	def public void execute() {
+	def public void execute(VideoGen videoGen) {
 		// If this sequence has already been done, do nothing at all
 		if (!_self.done) {
 			// Call the next sequence in all case
-			if (_self.nextSequence !== null) {
+			if (_self.nextTransition !== null) {
 				//Don't forget to reset current state
 				_self.done = true;
 				// Before calling next sequence
-				if (_self.callNextSequence) {
-					_self.nextSequence.execute	
+				if (_self.callnextTransition) {
+					_self.nextTransition.execute(videoGen)	
 				}
 			}
 		}
 	}
+}
+
+
+@Aspect(className=Sequence)
+abstract class SequenceAspect extends TransitionAspect {
 }
 
 @Aspect(className=Alternatives)
@@ -189,21 +202,21 @@ class AlternativesAspect extends SequenceAspect {
 
 	@Step
 	@OverrideAspectMethod
-	def public void execute() {
+	def public void execute(VideoGen videoGen) {
 		if (_self.active && !_self.done) {
 			println("##### Alternatives '" + _self.name + "' is been processed.")
 			_self.video = _self.selectVideo
 			_self.video.select
 			// Manage optional next sequence
 			_self.options.forEach[option | 
-				if (option.video == _self.video && option.nextSequence != null) {
-					option.nextSequence.execute
-					// Call of nextSequence.process will not be called in super
-					_self.callNextSequence = false
+				if (option.video == _self.video && option.nextTransition != null) {
+					option.nextTransition.execute(videoGen)
+					// Call of nextTransition.process will not be called in super
+					_self.callnextTransition = false
 				}
 			]
 		}
-		_self.super_execute()
+		_self.super_execute(videoGen)
 	}
 
 }
@@ -212,12 +225,12 @@ class AlternativesAspect extends SequenceAspect {
 class MandatoryAspect extends SequenceAspect {
 	
 	@OverrideAspectMethod
-	def public void execute() {
+	def public void execute(VideoGen videoGen) {
 		if (_self.active && !_self.done) {
 			println("##### Mandatory '" + _self.name + "' is been processed.")
 			_self.video.select
 		}
-		_self.super_execute
+		_self.super_execute(videoGen)
 	}
 }
 
@@ -247,38 +260,38 @@ class OptionalAspect extends SequenceAspect {
 	}
 
 	@OverrideAspectMethod
-	def public void execute() {
+	def public void execute(VideoGen videoGen) {
 		if (_self.active && !_self.done) {
 			println("##### Optional '" + _self.name + "' is been processed.")
 			if (_self.isSelected()) {
 				_self.video.select
 			}
 		}
-		_self.super_execute()
+		_self.super_execute(videoGen)
 	}
 }
 
 
-@Aspect(className=Introduction)
-class IntroductionAspect extends SequenceAspect {
+@Aspect(className=Initialize)
+class InitializeAspect extends SequenceAspect {
 	
 }
 
-@Aspect(className=Conclusion)
-class ConclusionAspect extends SequenceAspect {
+@Aspect(className=Generate)
+class GenerateAspect extends SequenceAspect {
 		
 	@OverrideAspectMethod
-	def public void execute() {
-		_self.compute
-		_self.super_execute
+	def public void execute(VideoGen videoGen) {
+		_self.compute(videoGen)
+		_self.super_execute(videoGen)
 	}
 	/**
 	 * Call VideogGen.compute() and wait for 1000 ms before the next turn
 	 * 
 	 * @see : ffmpeg
 	 */
-	def public void compute() {
-		VideoGenAspect.compute(_self.videoGen)
+	def public void compute(VideoGen videoGen) {
+		VideoGenAspect.compute(videoGen)
 		Thread.sleep(1000)
 	}
 }
@@ -296,20 +309,18 @@ class VideoAspect {
 		println("##### Video '" + _self.name + "' has been selected.")
 		_self.selected = true
 	}
-	
-	def public void setUrl(String url) {
-		_self.url = url
-	}
 }
 
-
-
-
-
-
-
-
-
-
-
-
+@Aspect(className=Delay)
+class DelayAspect extends SequenceAspect {
+	
+	@Step
+	@OverrideAspectMethod
+	def void execute(VideoGen videoGen) {
+		try {
+			Thread.sleep(_self.value)
+		} catch (InterruptedException e) {
+			e.printStackTrace()
+		}
+	}
+}

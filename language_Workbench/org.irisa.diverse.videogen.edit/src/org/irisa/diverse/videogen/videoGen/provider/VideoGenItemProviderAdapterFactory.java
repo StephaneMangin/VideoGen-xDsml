@@ -72,52 +72,6 @@ public class VideoGenItemProviderAdapterFactory extends VideoGenAdapterFactory i
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.irisa.diverse.videogen.videoGen.VideoGen} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected VideoGenItemProvider videoGenItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.irisa.diverse.videogen.videoGen.VideoGen}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createVideoGenAdapter() {
-		if (videoGenItemProvider == null) {
-			videoGenItemProvider = new VideoGenItemProvider(this);
-		}
-
-		return videoGenItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link org.irisa.diverse.videogen.videoGen.Alternatives} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected AlternativesItemProvider alternativesItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.irisa.diverse.videogen.videoGen.Alternatives}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createAlternativesAdapter() {
-		if (alternativesItemProvider == null) {
-			alternativesItemProvider = new AlternativesItemProvider(this);
-		}
-
-		return alternativesItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link org.irisa.diverse.videogen.videoGen.Mandatory} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -138,6 +92,52 @@ public class VideoGenItemProviderAdapterFactory extends VideoGenAdapterFactory i
 		}
 
 		return mandatoryItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.irisa.diverse.videogen.videoGen.Initialize} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected InitializeItemProvider initializeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.irisa.diverse.videogen.videoGen.Initialize}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createInitializeAdapter() {
+		if (initializeItemProvider == null) {
+			initializeItemProvider = new InitializeItemProvider(this);
+		}
+
+		return initializeItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.irisa.diverse.videogen.videoGen.VideoGen} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected VideoGenItemProvider videoGenItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.irisa.diverse.videogen.videoGen.VideoGen}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createVideoGenAdapter() {
+		if (videoGenItemProvider == null) {
+			videoGenItemProvider = new VideoGenItemProvider(this);
+		}
+
+		return videoGenItemProvider;
 	}
 
 	/**
@@ -187,49 +187,72 @@ public class VideoGenItemProviderAdapterFactory extends VideoGenAdapterFactory i
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.irisa.diverse.videogen.videoGen.Introduction} instances.
+	 * This keeps track of the one adapter used for all {@link org.irisa.diverse.videogen.videoGen.Alternatives} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected IntroductionItemProvider introductionItemProvider;
+	protected AlternativesItemProvider alternativesItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.irisa.diverse.videogen.videoGen.Introduction}.
+	 * This creates an adapter for a {@link org.irisa.diverse.videogen.videoGen.Alternatives}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createIntroductionAdapter() {
-		if (introductionItemProvider == null) {
-			introductionItemProvider = new IntroductionItemProvider(this);
+	public Adapter createAlternativesAdapter() {
+		if (alternativesItemProvider == null) {
+			alternativesItemProvider = new AlternativesItemProvider(this);
 		}
 
-		return introductionItemProvider;
+		return alternativesItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.irisa.diverse.videogen.videoGen.Conclusion} instances.
+	 * This keeps track of the one adapter used for all {@link org.irisa.diverse.videogen.videoGen.Generate} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ConclusionItemProvider conclusionItemProvider;
+	protected GenerateItemProvider generateItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.irisa.diverse.videogen.videoGen.Conclusion}.
+	 * This creates an adapter for a {@link org.irisa.diverse.videogen.videoGen.Generate}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createConclusionAdapter() {
-		if (conclusionItemProvider == null) {
-			conclusionItemProvider = new ConclusionItemProvider(this);
+	public Adapter createGenerateAdapter() {
+		if (generateItemProvider == null) {
+			generateItemProvider = new GenerateItemProvider(this);
 		}
 
-		return conclusionItemProvider;
+		return generateItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.irisa.diverse.videogen.videoGen.Delay} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DelayItemProvider delayItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.irisa.diverse.videogen.videoGen.Delay}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDelayAdapter() {
+		if (delayItemProvider == null) {
+			delayItemProvider = new DelayItemProvider(this);
+		}
+
+		return delayItemProvider;
 	}
 
 	/**
@@ -332,12 +355,13 @@ public class VideoGenItemProviderAdapterFactory extends VideoGenAdapterFactory i
 	 */
 	public void dispose() {
 		if (mandatoryItemProvider != null) mandatoryItemProvider.dispose();
-		if (introductionItemProvider != null) introductionItemProvider.dispose();
+		if (initializeItemProvider != null) initializeItemProvider.dispose();
 		if (videoGenItemProvider != null) videoGenItemProvider.dispose();
 		if (optionalItemProvider != null) optionalItemProvider.dispose();
 		if (videoItemProvider != null) videoItemProvider.dispose();
 		if (alternativesItemProvider != null) alternativesItemProvider.dispose();
-		if (conclusionItemProvider != null) conclusionItemProvider.dispose();
+		if (generateItemProvider != null) generateItemProvider.dispose();
+		if (delayItemProvider != null) delayItemProvider.dispose();
 	}
 
 }

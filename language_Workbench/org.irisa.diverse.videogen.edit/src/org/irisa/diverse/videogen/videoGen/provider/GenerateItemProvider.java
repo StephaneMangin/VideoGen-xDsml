@@ -5,27 +5,32 @@ package org.irisa.diverse.videogen.videoGen.provider;
 
 import java.util.Collection;
 import java.util.List;
+
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.irisa.diverse.videogen.videoGen.Introduction;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ViewerNotification;
+
+import org.irisa.diverse.videogen.videoGen.Generate;
 import org.irisa.diverse.videogen.videoGen.VideoGenPackage;
 
 /**
- * This is the item provider adapter for a {@link org.irisa.diverse.videogen.videoGen.Introduction} object.
+ * This is the item provider adapter for a {@link org.irisa.diverse.videogen.videoGen.Generate} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class IntroductionItemProvider extends OptionalItemProvider {
+public class GenerateItemProvider extends NamedElementItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public IntroductionItemProvider(AdapterFactory adapterFactory) {
+	public GenerateItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -40,25 +45,26 @@ public class IntroductionItemProvider extends OptionalItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addVideoGenPropertyDescriptor(object);
+			addNextTransitionPropertyDescriptor(object);
+			addActivePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Video Gen feature.
+	 * This adds a property descriptor for the Next Transition feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addVideoGenPropertyDescriptor(Object object) {
+	protected void addNextTransitionPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Introduction_videoGen_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Introduction_videoGen_feature", "_UI_Introduction_type"),
-				 VideoGenPackage.Literals.INTRODUCTION__VIDEO_GEN,
+				 getString("_UI_Transition_nextTransition_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Transition_nextTransition_feature", "_UI_Transition_type"),
+				 VideoGenPackage.Literals.TRANSITION__NEXT_TRANSITION,
 				 true,
 				 false,
 				 true,
@@ -68,14 +74,36 @@ public class IntroductionItemProvider extends OptionalItemProvider {
 	}
 
 	/**
-	 * This returns Introduction.gif.
+	 * This adds a property descriptor for the Active feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addActivePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Transition_active_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Transition_active_feature", "_UI_Transition_type"),
+				 VideoGenPackage.Literals.TRANSITION__ACTIVE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This returns Generate.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Introduction"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Generate"));
 	}
 
 	/**
@@ -86,10 +114,10 @@ public class IntroductionItemProvider extends OptionalItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Introduction)object).getName();
+		String label = ((Generate)object).getName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_Introduction_type") :
-			getString("_UI_Introduction_type") + " " + label;
+			getString("_UI_Generate_type") :
+			getString("_UI_Generate_type") + " " + label;
 	}
 	
 
@@ -103,6 +131,12 @@ public class IntroductionItemProvider extends OptionalItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
+		switch (notification.getFeatureID(Generate.class)) {
+			case VideoGenPackage.GENERATE__ACTIVE:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+		}
 		super.notifyChanged(notification);
 	}
 

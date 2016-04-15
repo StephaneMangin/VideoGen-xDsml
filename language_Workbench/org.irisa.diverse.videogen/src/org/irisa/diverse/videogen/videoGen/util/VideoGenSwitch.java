@@ -70,16 +70,16 @@ public class VideoGenSwitch<T> extends Switch<T> {
 				Mandatory mandatory = (Mandatory)theEObject;
 				T result = caseMandatory(mandatory);
 				if (result == null) result = caseSequence(mandatory);
+				if (result == null) result = caseTransition(mandatory);
 				if (result == null) result = caseNamedElement(mandatory);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case VideoGenPackage.INTRODUCTION: {
-				Introduction introduction = (Introduction)theEObject;
-				T result = caseIntroduction(introduction);
-				if (result == null) result = caseOptional(introduction);
-				if (result == null) result = caseSequence(introduction);
-				if (result == null) result = caseNamedElement(introduction);
+			case VideoGenPackage.INITIALIZE: {
+				Initialize initialize = (Initialize)theEObject;
+				T result = caseInitialize(initialize);
+				if (result == null) result = caseTransition(initialize);
+				if (result == null) result = caseNamedElement(initialize);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -90,10 +90,10 @@ public class VideoGenSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case VideoGenPackage.SEQUENCE: {
-				Sequence sequence = (Sequence)theEObject;
-				T result = caseSequence(sequence);
-				if (result == null) result = caseNamedElement(sequence);
+			case VideoGenPackage.TRANSITION: {
+				Transition transition = (Transition)theEObject;
+				T result = caseTransition(transition);
+				if (result == null) result = caseNamedElement(transition);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -107,6 +107,7 @@ public class VideoGenSwitch<T> extends Switch<T> {
 				Optional optional = (Optional)theEObject;
 				T result = caseOptional(optional);
 				if (result == null) result = caseSequence(optional);
+				if (result == null) result = caseTransition(optional);
 				if (result == null) result = caseNamedElement(optional);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -122,21 +123,67 @@ public class VideoGenSwitch<T> extends Switch<T> {
 				Alternatives alternatives = (Alternatives)theEObject;
 				T result = caseAlternatives(alternatives);
 				if (result == null) result = caseSequence(alternatives);
+				if (result == null) result = caseTransition(alternatives);
 				if (result == null) result = caseNamedElement(alternatives);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case VideoGenPackage.CONCLUSION: {
-				Conclusion conclusion = (Conclusion)theEObject;
-				T result = caseConclusion(conclusion);
-				if (result == null) result = caseOptional(conclusion);
-				if (result == null) result = caseSequence(conclusion);
-				if (result == null) result = caseNamedElement(conclusion);
+			case VideoGenPackage.GENERATE: {
+				Generate generate = (Generate)theEObject;
+				T result = caseGenerate(generate);
+				if (result == null) result = caseTransition(generate);
+				if (result == null) result = caseNamedElement(generate);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case VideoGenPackage.DELAY: {
+				Delay delay = (Delay)theEObject;
+				T result = caseDelay(delay);
+				if (result == null) result = caseTransition(delay);
+				if (result == null) result = caseNamedElement(delay);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case VideoGenPackage.SEQUENCE: {
+				Sequence sequence = (Sequence)theEObject;
+				T result = caseSequence(sequence);
+				if (result == null) result = caseTransition(sequence);
+				if (result == null) result = caseNamedElement(sequence);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			default: return defaultCase(theEObject);
 		}
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Mandatory</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Mandatory</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMandatory(Mandatory object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Initialize</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Initialize</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseInitialize(Initialize object) {
+		return null;
 	}
 
 	/**
@@ -155,47 +202,32 @@ public class VideoGenSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Sequence</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Transition</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Sequence</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Transition</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseSequence(Sequence object) {
+	public T caseTransition(Transition object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Alternatives</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Named Element</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Alternatives</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Named Element</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseAlternatives(Alternatives object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Mandatory</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Mandatory</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseMandatory(Mandatory object) {
+	public T caseNamedElement(NamedElement object) {
 		return null;
 	}
 
@@ -230,47 +262,62 @@ public class VideoGenSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Named Element</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Alternatives</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Named Element</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Alternatives</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseNamedElement(NamedElement object) {
+	public T caseAlternatives(Alternatives object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Introduction</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Generate</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Introduction</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Generate</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseIntroduction(Introduction object) {
+	public T caseGenerate(Generate object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Conclusion</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Delay</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Conclusion</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Delay</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseConclusion(Conclusion object) {
+	public T caseDelay(Delay object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Sequence</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Sequence</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSequence(Sequence object) {
 		return null;
 	}
 
