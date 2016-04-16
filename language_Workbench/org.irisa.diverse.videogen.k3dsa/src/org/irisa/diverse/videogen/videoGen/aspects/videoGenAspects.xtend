@@ -23,6 +23,7 @@ import org.irisa.diverse.videogen.videoGen.aspects.exceptions.ConstraintsFailed
 import org.irisa.diverse.videogen.videoGen.aspects.exceptions.ConstraintsType
 
 import static extension org.irisa.diverse.videogen.videoGen.aspects.SequenceAspect.*
+import static extension org.irisa.diverse.videogen.videoGen.aspects.TransitionAspect.*
 import static extension org.irisa.diverse.videogen.videoGen.aspects.VideoAspect.*
 import org.irisa.diverse.videogen.videoGen.Delay
 import org.irisa.diverse.videogen.videoGen.Transition
@@ -159,6 +160,11 @@ abstract class TransitionAspect {
 
 @Aspect(className=Sequence)
 abstract class SequenceAspect extends TransitionAspect {
+	
+	@OverrideAspectMethod
+	def public void execute(VideoGen videoGen) {
+		_self.super_execute(videoGen)
+	}
 }
 
 @Aspect(className=Alternatives)
@@ -221,14 +227,6 @@ class AlternativesAspect extends SequenceAspect {
 		}
 		_self.super_execute(videoGen)
 	}
-	
-	@Step
-	@Override
-	def void setActive(Boolean bool) {
-		_self.options.forEach[setActive(bool)]
-		_self.setActive(bool)
-	}
-
 }
 
 @Aspect(className=Mandatory)
@@ -285,7 +283,7 @@ class OptionalAspect extends SequenceAspect {
 
 
 @Aspect(className=Initialize)
-class InitializeAspect extends SequenceAspect {
+class InitializeAspect extends TransitionAspect {
 	
 	@Step
 	@OverrideAspectMethod
@@ -298,7 +296,7 @@ class InitializeAspect extends SequenceAspect {
 }
 
 @Aspect(className=Generate)
-class GenerateAspect extends SequenceAspect {
+class GenerateAspect extends TransitionAspect {
 		
 	@OverrideAspectMethod
 	def public void execute(VideoGen videoGen) {
@@ -313,7 +311,6 @@ class GenerateAspect extends SequenceAspect {
 	@Step
 	def public void compute(VideoGen videoGen) {
 		VideoGenAspect.compute(videoGen)
-		Thread.sleep(1000)
 	}
 }
 
@@ -334,7 +331,7 @@ class VideoAspect {
 }
 
 @Aspect(className=Delay)
-class DelayAspect extends SequenceAspect {
+class DelayAspect extends TransitionAspect {
 	
 	@Step
 	@OverrideAspectMethod
@@ -344,5 +341,6 @@ class DelayAspect extends SequenceAspect {
 		} catch (InterruptedException e) {
 			e.printStackTrace()
 		}
+		_self.super_execute(videoGen)
 	}
 }
