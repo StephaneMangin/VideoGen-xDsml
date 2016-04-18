@@ -101,12 +101,6 @@ public class DebugPermissionAuthority extends AbstractPermissionAuthority
 				integer = allow.get(eObj.eResource().getResourceSet());
 			}
 		}
-		try {
-			throw new Exception("dfghgsfh");
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		return integer != null && integer.intValue() > 0;
 	}
 

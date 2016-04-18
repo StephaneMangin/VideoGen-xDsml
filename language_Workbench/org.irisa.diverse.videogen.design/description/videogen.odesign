@@ -34,6 +34,13 @@
             </style>
           </borderedNodeMappings>
           <subNodeMappings name="Mandatory" labelDirectEdit="//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='LabelDirectEdition']" semanticCandidatesExpression="feature:transitions" doubleClickDescription="//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='Active%2FInactive']" synchronizationLock="true" domainClass="videoGen.Mandatory">
+            <borderedNodeMappings name="MimeType" semanticCandidatesExpression="feature:video" domainClass="videoGen.Video">
+              <style xsi:type="style:SquareDescription" labelSize="5" showIcon="false" labelExpression="feature:mimetype" labelPosition="node" resizeKind="NSEW" width="3" height="1">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </style>
+            </borderedNodeMappings>
             <style xsi:type="style:SquareDescription" showIcon="false" iconPath="/org.irisa.diverse.videogen.edit/icons/full/obj16/Mandatory.gif" sizeComputationExpression="" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -46,6 +53,13 @@
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+              </style>
+            </borderedNodeMappings>
+            <borderedNodeMappings name="MimeType" semanticCandidatesExpression="feature:video" domainClass="videoGen.Video">
+              <style xsi:type="style:SquareDescription" labelSize="5" showIcon="false" labelExpression="feature:mimetype" labelPosition="node" resizeKind="NSEW" width="3" height="1">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </style>
             </borderedNodeMappings>
             <style xsi:type="style:EllipseNodeDescription" showIcon="false" iconPath="/org.irisa.diverse.videogen.edit/icons/full/obj16/Optional.gif">
@@ -75,12 +89,19 @@
             </style>
           </subNodeMappings>
           <subContainerMappings xsi:type="description_1:ContainerMappingImport" name="Alternative" labelDirectEdit="//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='LabelDirectEdition']" semanticCandidatesExpression="feature:transitions" doubleClickDescription="//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='Active%2FInactive']" synchronizationLock="true" domainClass="videoGen.Alternatives">
-            <subNodeMappings name="OptionSub" semanticCandidatesExpression="feature:options" doubleClickDescription="//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='Active%2FInactive']" synchronizationLock="true" domainClass="videoGen.Optional">
+            <subNodeMappings name="OptionSub" semanticCandidatesExpression="feature:options" doubleClickDescription="//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='Active%2FInactive']" synchronizationLock="true" domainClass="videoGen.Optional" reusedBorderedNodeMappings="//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGen']/@subNodeMappings[name='Optional']">
               <borderedNodeMappings name="Percentage" labelDirectEdit="//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='Probabilities']" semanticCandidatesExpression="var:self" domainClass="videoGen.Optional">
                 <style xsi:type="style:SquareDescription" labelSize="5" showIcon="false" labelExpression="[self.probability + ' %'/]" labelPosition="node" width="3" height="1">
                   <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                   <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                   <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+                </style>
+              </borderedNodeMappings>
+              <borderedNodeMappings name="MimeType" semanticCandidatesExpression="feature:video" domainClass="videoGen.Video">
+                <style xsi:type="style:SquareDescription" labelSize="5" showIcon="false" labelExpression="feature:mimetype" labelPosition="node" resizeKind="NSEW" width="3" height="1">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+                  <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 </style>
               </borderedNodeMappings>
               <style xsi:type="style:EllipseNodeDescription" showIcon="false" resizeKind="NSEW">

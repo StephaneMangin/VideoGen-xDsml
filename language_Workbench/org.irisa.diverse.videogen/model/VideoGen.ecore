@@ -79,6 +79,7 @@
     <eLiterals name="webm" value="5"/>
     <eLiterals name="wmv" value="6"/>
     <eLiterals name="avi" value="7"/>
+    <eLiterals name="mov" value="8" literal="mov"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Alternatives" eSuperTypes="#//Sequence">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">

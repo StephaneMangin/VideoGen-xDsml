@@ -15,7 +15,8 @@ public enum VideoCodec {
 	MPEG("mpeg", "mpg", "video/mpeg"),
 	WEBM("webm", "webm", "video/webm"),
 	WMV("wmv", "wmv", "video/x-ms-wmv"),
-	AVI("avi", "avi", "video/x-msvideo");
+	AVI("avi", "avi", "video/x-msvideo"),
+	MOV("mov", "mov", "video/mov");
 
 	private final String extention;
 	private final String mimeType;

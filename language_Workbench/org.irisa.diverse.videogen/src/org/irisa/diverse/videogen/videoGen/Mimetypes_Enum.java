@@ -96,7 +96,15 @@ public enum Mimetypes_Enum implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	AVI(7, "avi", "avi");
+	AVI(7, "avi", "avi"), /**
+	 * The '<em><b>Mov</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #MOV_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	MOV(8, "mov", "mov");
 
 	/**
 	 * The '<em><b>None</b></em>' literal value.
@@ -219,6 +227,21 @@ public enum Mimetypes_Enum implements Enumerator {
 	public static final int AVI_VALUE = 7;
 
 	/**
+	 * The '<em><b>Mov</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Mov</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #MOV
+	 * @model name="mov"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int MOV_VALUE = 8;
+
+	/**
 	 * An array of all the '<em><b>Mimetypes Enum</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -234,6 +257,7 @@ public enum Mimetypes_Enum implements Enumerator {
 			WEBM,
 			WMV,
 			AVI,
+			MOV,
 		};
 
 	/**
@@ -292,6 +316,7 @@ public enum Mimetypes_Enum implements Enumerator {
 			case WEBM_VALUE: return WEBM;
 			case WMV_VALUE: return WMV;
 			case AVI_VALUE: return AVI;
+			case MOV_VALUE: return MOV;
 		}
 		return null;
 	}

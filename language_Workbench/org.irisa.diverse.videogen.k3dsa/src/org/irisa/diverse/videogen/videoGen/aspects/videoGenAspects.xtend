@@ -69,12 +69,14 @@ class VideoGenAspect {
 		println("#### VideoGen, time to setup " + (stop - start))
 	}
 	
+	@Step
 	@InitializeModel
 	def public void initializeModel(List<String> args){
 		_self.setup
 		_self.updateConstraints
 	}
 	
+	@Step
 	def public void execute() {
 		_self.nanotimeStart = System.nanoTime
 		// Then process each sequences
@@ -85,6 +87,7 @@ class VideoGenAspect {
 	 * 
 	 * @see : ffmpeg
 	 */
+	@Step
 	def public void compute() {
 		val videos = new HashMap
 		println("##### VideoGen '" + _self.name + "' start computation.")

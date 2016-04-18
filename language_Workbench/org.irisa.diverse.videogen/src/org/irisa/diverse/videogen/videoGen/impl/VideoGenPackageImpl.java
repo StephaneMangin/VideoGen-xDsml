@@ -609,6 +609,7 @@ public class VideoGenPackageImpl extends EPackageImpl implements VideoGenPackage
 		addEEnumLiteral(mimetypes_EnumEEnum, Mimetypes_Enum.WEBM);
 		addEEnumLiteral(mimetypes_EnumEEnum, Mimetypes_Enum.WMV);
 		addEEnumLiteral(mimetypes_EnumEEnum, Mimetypes_Enum.AVI);
+		addEEnumLiteral(mimetypes_EnumEEnum, Mimetypes_Enum.MOV);
 
 		// Create resource
 		createResource(eNS_URI);

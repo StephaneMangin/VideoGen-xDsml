@@ -176,6 +176,31 @@ import org.irisa.diverse.videogen.transformations.strategies.JaveStrategyImpl
     }
     
  	/**
+ 	 * Convert VideoGen Sequence url videos to the given mime type.
+ 	 * Use of VideoGenHelper helper class 
+ 	 * 
+	 * @author Stéphane Mangin <stephane.mangin@freesbee.fr>
+ 	 * @see VideoGenHelper#mkDirs(Path)
+ 	 * @see VideoGenHelper#convert(Path, Path, String)
+	 * 
+ 	 * TODO: somethings should be done better... But what ?
+ 	 */ 
+    def static ConvertTo(Mimetypes_Enum type, Video video){
+   		LOGGER.info("Convertion " + video + "=>" + type)
+    	val codec = VideoCodec.getByFormat(type.getName)
+		val pathes = Lists.newArrayList
+		val dir = Paths.get(tmp + "/" + "converted" + "/" + type.getName + "/")
+		SystemHelper.mkDirs(dir)
+        val fullPath = Paths.get(video.url)
+		val extention = getFileExtension(fullPath.fileName.toString)
+		val newFullPathName = Paths.get(dir + "/" + fullPath.fileName.toString.replaceAll("." + extention, "." + codec.extention))
+		VideosHelper.convert(fullPath, newFullPathName, codec)
+		video.url = newFullPathName.toAbsolutePath.toString
+		video.mimetype = type
+        newFullPathName
+    }
+    
+ 	/**
  	 * Add some probably missing or misformatted metadatas into the VideoGen instance
  	 * For instance, videos duration and mime types.
  	 * Use of VideoGenHelper helper class 
@@ -210,7 +235,8 @@ import org.irisa.diverse.videogen.transformations.strategies.JaveStrategyImpl
     def static addMetadata(Video video){
         val url = Paths.get(video.url)
 		video.duration = VideosHelper.getDuration(url)
-		video.mimetype = Mimetypes_Enum.getByName(VideosHelper.getMimeType(url).name)
+		val format = VideosHelper.getMimeType(url).format
+		video.mimetype = Mimetypes_Enum.getByName(format)
         video
     }
         
