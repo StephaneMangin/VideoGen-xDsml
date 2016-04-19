@@ -14,14 +14,14 @@ import org.irisa.diverse.videogen.videoGen.VideoGen
 
 class VideoGenUserContraintsVisitor {
 	
-	public int minResult = 0
-	public int maxResult = 0
+	private int result = 0
 	private int minConstraint = 0
 	private int maxConstraint = 0
 	private static Logger log = Logger.getLogger("VideoGenUserContraintsVisitor")
-	public List<Optional> sequencesToInactivate = new ArrayList
+	private List<Optional> sequencesToInactivate = new ArrayList
 	
 	new (Integer min, Integer max) {
+		result = min
 		minConstraint = min
 		maxConstraint = max
 		val FileHandler fh = new FileHandler("/tmp/" + class.name + ".log")
@@ -33,8 +33,7 @@ class VideoGenUserContraintsVisitor {
 	def visit(VideoGen vid) {
 		log.info("VideoGen Variante constraints Visitor started...")
 		VideoGenHelper.allTransitions(vid).forEach[visit]
-		log.info("VideoGen Variante constraints Visitor : minResult=" + minResult)
-		log.info("VideoGen Variante constraints Visitor : maxResult=" + maxResult)
+		log.info("VideoGen Variante constraints Visitor : minResult=" + result)
 		log.info("VideoGen Variante constraints Visitor : minConstraint=" + minConstraint)
 		log.info("VideoGen Variante constraints Visitor : maxConstraint=" + maxConstraint)
 		log.info("VideoGen Variante constraints Visitor : sequences=" + sequencesToInactivate)
@@ -57,8 +56,8 @@ class VideoGenUserContraintsVisitor {
 		for (Optional option: alt.options.sortBy[video.duration].reverse) {
 			log.info("VideoGen Variante constraints Visitor : \t" + option)
 			if (
-				minResult + option.video.duration < minConstraint
-				|| maxResult + option.video.duration > maxConstraint
+				(result + option.video.duration) < minConstraint
+				|| (result + option.video.duration) > maxConstraint
 			) {
 				sequencesToInactivate += option
 				option.active = false
@@ -67,7 +66,7 @@ class VideoGenUserContraintsVisitor {
 				// This sequence is good, next one will be smaller so don't need to insert the duration anymore
 				if (!done) {
 					done = true
-					minResult += option.video.duration
+					result += option.video.duration
 				}
 				log.info("VideoGen Variante constraints Visitor : \tOK")
 			}
@@ -77,14 +76,14 @@ class VideoGenUserContraintsVisitor {
 	def private visit(Optional opt) {
 		log.info("VideoGen Variante constraints Visitor : " + opt)
 		if (
-			minResult + opt.video.duration < minConstraint
-			|| maxResult + opt.video.duration > maxConstraint
+			(result + opt.video.duration) < minConstraint
+			|| (result + opt.video.duration) > maxConstraint
 		) {
 			sequencesToInactivate += opt
 			opt.active = false
 			log.info("VideoGen Variante constraints Visitor : KO")
 		} else {
-			minResult += opt.video.duration
+			result += opt.video.duration
 			log.info("VideoGen Variante constraints Visitor : OK")
 		}
 	}

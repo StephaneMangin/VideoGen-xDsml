@@ -13,6 +13,8 @@ import org.irisa.diverse.videogen.videoGen.Video
 import org.irisa.diverse.videogen.videoGen.VideoGen
 
 /** 
+ * Parse the VideoGen model to give helper methods to retrieve various instances
+ * 
  * @author Stéphane Mangin <stephane.mangin@freesbee.fr>
  * 
  */
@@ -68,28 +70,22 @@ public class VideoGenHelper {
  	 * 
  	 */ 
     def static List<Sequence> allSequences(VideoGen videoGen) {
-		val List<Sequence> sequences = new ArrayList<Sequence>
-			
-        allTransitions(videoGen).forEach[transition |
-        	if (transition instanceof Sequence) {
-        		sequences.add(transition as Sequence)
-        	}
-        ]
-		sequences
+        allTransitions(videoGen).filter[it instanceof Sequence].map[it as Sequence].toList
+    }
+    
+ 	/**
+ 	 * Return all active transitions contained in a VideoGen instance
+ 	 * 
+ 	 */ 
+    def static List<Transition> allActiveTransitions(VideoGen videoGen) {
+		allTransitions(videoGen).filter[active].toList
     }
  	/**
  	 * Return all active sequences contained in a VideoGen instance
  	 * 
  	 */ 
     def static List<Sequence> allActiveSequences(VideoGen videoGen) {
-		val List<Sequence> sequences = new ArrayList<Sequence>
-			
-		allSequences(videoGen).forEach[sequence |
-        	if (sequence.active) {
-				sequences.add(sequence)
-        	}
-		]
-		sequences
+		allSequences(videoGen).filter[active].toList
     }
     
  	/**
@@ -98,13 +94,13 @@ public class VideoGenHelper {
  	 */ 
     def static List<Video> allVideos(VideoGen videoGen) {
 		val List<Video> videos = new ArrayList<Video>
-		allSequences(videoGen).forEach[sequence |
-			if (sequence instanceof Alternatives) {
-				sequence.options.forEach[option |
+		allSequences(videoGen).forEach[
+			if (it instanceof Alternatives) {
+				it.options.forEach[option |
 					videos += option.video
 				]
 			} else {
-				videos += sequence.video
+				videos += it.video
 			}
 		]	
         videos.filter[video | video !== null].toList
@@ -116,13 +112,13 @@ public class VideoGenHelper {
  	 */ 
     def static List<Video> allActiveVideos(VideoGen videoGen) {
 		val List<Video> videos = new ArrayList<Video>
-		allActiveSequences(videoGen).forEach[sequence |
-			if (sequence instanceof Alternatives) {
-				sequence.options.forEach[option |
+		allActiveSequences(videoGen).forEach[
+			if (it instanceof Alternatives) {
+				it.options.forEach[option |
 					videos += option.video
 				]
 			} else {
-				videos += sequence.video
+				videos += it.video
 			}
 		]	
         videos.filter[video | video !== null].toList
@@ -133,13 +129,7 @@ public class VideoGenHelper {
  	 * 
  	 */ 
     def static List<Video> allSelectedVideos(VideoGen videoGen) {
-		val List<Video> videos = new ArrayList<Video>	
-        allActiveVideos(videoGen).forEach[video |
-        	if (video.selected) {
-        		videos += video
-        	}
-        ]
-		videos
+        allActiveVideos(videoGen).filter[selected].map[it].toList
     }
     
  	/**

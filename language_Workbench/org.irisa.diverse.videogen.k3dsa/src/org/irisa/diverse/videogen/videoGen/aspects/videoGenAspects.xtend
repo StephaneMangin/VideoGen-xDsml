@@ -53,13 +53,12 @@ class VideoGenAspect {
 		// Duration initialization
 		val durationVisitor = new VideoGenDurationVisitor(false)
 		durationVisitor.visit(_self)
+		
 		// Constraints initialization
 		_self.minDurationConstraint = durationVisitor.minDuration
 		_self.maxDurationConstraint = durationVisitor.maxDuration
 		_self.minUserConstraint = durationVisitor.minDuration
 		_self.maxUserConstraint = durationVisitor.maxDuration
-		println("Min duration => " + _self.minDurationConstraint)
-		println("Max duration => " + _self.maxDurationConstraint)
 	}
 	
 	@Step
@@ -118,12 +117,16 @@ class VideoGenAspect {
 		// TODO: Manage model transformation here
 		val content = VideoGenTransform.toM3U(_self, false, videos)
 		println(content)
-		
+		// Create the temporary file to receive playlist as M3U
 		val playlist = File.createTempFile(Long.toString(System.nanoTime()), "-temp.m3u")
 		val writer = new FileWriter(playlist)
 		writer.write(content)
 		writer.flush
 		writer.close
+		
+		// Start VLC
+		// TODO: add a new tab inside eclipse to start a video player...
+		// If possible (see Jave implementation from org.irisa.diverse.transformations.strategies)
 		val p = new ProcessBuilder(
 			"vlc",
 			"--playlist-autostart",
@@ -131,6 +134,7 @@ class VideoGenAspect {
 			"--no-overlay",
 			playlist.toPath.toString)
 		p.start()
+		
 		_self.nanotimeEnd = System.nanoTime
 		println("#### VideoGen, time to execute " + (_self.nanotimeEnd - _self.nanotimeStart))
 		_self.nanotimeStart = System.nanoTime
@@ -152,8 +156,9 @@ abstract class TransitionAspect {
 	 */
 	@Step
 	def public void execute(VideoGen videoGen) {
+		println("##### '" + _self.class.name + "::" + _self.name + "' is being processed.")
 		// If this sequence has already been done, do nothing at all
-		if (!_self.done) {
+		if (_self.active && !_self.done) {
 			// Call the next sequence in all case
 			if (_self.nextTransition !== null) {
 				//Don't forget to reset current state
@@ -190,16 +195,21 @@ class AlternativesAspect extends SequenceAspect {
 		val result = new HashMap<String, Integer>
 		var totalProb = 0
 		var totalOptions = 0
-		for (option : _self.options) {
+		for (option : _self.options.filter[active]) {
 			if (option.probability == 0) {
 				totalOptions++
 			}
 			totalProb += option.probability
 			result.put(option.video.name, option.probability)
 		}
-		for (name : result.keySet) {
-			if (result.get(name) == 0) {
-				result.put(name, (100 - totalProb) / totalOptions)
+		if (result.size == 1) {
+			result.replace(result.keySet.get(0), 100)	
+		} else {
+			for (name : result.keySet) {
+				val percentageLeft = (100 - totalProb) / totalOptions
+				if (result.get(name) < percentageLeft) {
+					result.put(name, percentageLeft)
+				}
 			}
 		}
 		result
@@ -213,7 +223,7 @@ class AlternativesAspect extends SequenceAspect {
 
 		val drng = new DistributedRandomNumberGenerator()
 		val proba = _self.checkProbabilities()
-		_self.options.map[video.name].forEach [ name |
+		_self.options.filter[active].map[video.name].forEach [ name |
 			drng.addNumber(proba.keySet.toList.indexOf(name), proba.get(name))
 		] 
 		_self.options.get(drng.getDistributedRandomNumber()).video
@@ -222,19 +232,18 @@ class AlternativesAspect extends SequenceAspect {
 	@Step
 	@OverrideAspectMethod
 	def public void execute(VideoGen videoGen) {
-		if (_self.active && !_self.done) {
-			println("##### Alternatives '" + _self.name + "' is been processed.")
-			_self.video = _self.selectVideo
-			_self.video.select
-			// Manage optional next sequence
-			_self.options.forEach[option | 
-				if (option.video == _self.video && option.nextTransition != null) {
-					option.nextTransition.execute(videoGen)
-					// Call of nextTransition.process will not be called in super
-					_self.callnextTransition = false
-				}
-			]
-		}
+		_self.video = _self.selectVideo
+		_self.video.select
+		// Manage optional next sequence
+		_self.options
+		.filter[active]
+		.filter[video == _self.video]
+		.filter[nextTransition != null]
+		.forEach[ 
+			nextTransition.execute(videoGen)
+			// Call of nextTransition.process will not be called in super
+			_self.callnextTransition = false
+		]
 		_self.super_execute(videoGen)
 	}
 }
@@ -245,10 +254,7 @@ class MandatoryAspect extends SequenceAspect {
 	@Step
 	@OverrideAspectMethod
 	def public void execute(VideoGen videoGen) {
-		if (_self.active && !_self.done) {
-			println("##### Mandatory '" + _self.name + "' is been processed.")
-			_self.video.select
-		}
+		_self.video.select
 		_self.super_execute(videoGen)
 	}
 }
@@ -281,11 +287,8 @@ class OptionalAspect extends SequenceAspect {
 	@Step
 	@OverrideAspectMethod
 	def public void execute(VideoGen videoGen) {
-		if (_self.active && !_self.done) {
-			println("##### Optional '" + _self.name + "' is been processed.")
-			if (_self.isSelected()) {
-				_self.video.select
-			}
+		if (_self.isSelected()) {
+			_self.video.select
 		}
 		_self.super_execute(videoGen)
 	}
