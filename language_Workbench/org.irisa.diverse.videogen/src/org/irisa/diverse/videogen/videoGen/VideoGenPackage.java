@@ -399,13 +399,31 @@ public interface VideoGenPackage extends EPackage {
 	int VIDEO_GEN__VIDEOS = NAMED_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
+	 * The feature id for the '<em><b>Min User Constraint</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIDEO_GEN__MIN_USER_CONSTRAINT = NAMED_ELEMENT_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Max User Constraint</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIDEO_GEN__MAX_USER_CONSTRAINT = NAMED_ELEMENT_FEATURE_COUNT + 6;
+
+	/**
 	 * The number of structural features of the '<em>Video Gen</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VIDEO_GEN_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 5;
+	int VIDEO_GEN_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 7;
 
 	/**
 	 * The number of operations of the '<em>Video Gen</em>' class.
@@ -860,6 +878,28 @@ public interface VideoGenPackage extends EPackage {
 	EReference getVideoGen_Videos();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.irisa.diverse.videogen.videoGen.VideoGen#getMinUserConstraint <em>Min User Constraint</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Min User Constraint</em>'.
+	 * @see org.irisa.diverse.videogen.videoGen.VideoGen#getMinUserConstraint()
+	 * @see #getVideoGen()
+	 * @generated
+	 */
+	EAttribute getVideoGen_MinUserConstraint();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.irisa.diverse.videogen.videoGen.VideoGen#getMaxUserConstraint <em>Max User Constraint</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Max User Constraint</em>'.
+	 * @see org.irisa.diverse.videogen.videoGen.VideoGen#getMaxUserConstraint()
+	 * @see #getVideoGen()
+	 * @generated
+	 */
+	EAttribute getVideoGen_MaxUserConstraint();
+
+	/**
 	 * Returns the meta object for class '{@link org.irisa.diverse.videogen.videoGen.Transition <em>Transition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1173,6 +1213,22 @@ public interface VideoGenPackage extends EPackage {
 		 * @generated
 		 */
 		EReference VIDEO_GEN__VIDEOS = eINSTANCE.getVideoGen_Videos();
+
+		/**
+		 * The meta object literal for the '<em><b>Min User Constraint</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute VIDEO_GEN__MIN_USER_CONSTRAINT = eINSTANCE.getVideoGen_MinUserConstraint();
+
+		/**
+		 * The meta object literal for the '<em><b>Max User Constraint</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute VIDEO_GEN__MAX_USER_CONSTRAINT = eINSTANCE.getVideoGen_MaxUserConstraint();
 
 		/**
 		 * The meta object literal for the '{@link org.irisa.diverse.videogen.videoGen.Transition <em>Transition</em>}' class.

@@ -90,9 +90,9 @@ public class DefaultModelLoader implements IModelLoader {
 			try {
 				session = openNewSiriusSession(context, context.getRunConfiguration().getAnimatorURI());
 				resourceSet = session.getTransactionalEditingDomain().getResourceSet();
-				System.out.println("+\t" + "Session: " + session);
-				System.out.println("+\t\t" + "ID: " + session.getID());
-				System.out.println("+\t\t" + "Saving policy: " + session.getSavingPolicy());
+//				System.out.println("+\t" + "Session: " + session);
+//				System.out.println("+\t\t" + "ID: " + session.getID());
+//				System.out.println("+\t\t" + "Saving policy: " + session.getSavingPolicy());
 			} catch (CoreException e) {
 				throw new RuntimeException(e);
 			}
@@ -154,29 +154,29 @@ public class DefaultModelLoader implements IModelLoader {
 	}
 
 	private Session openNewSiriusSession(IExecutionContext context, URI sessionResourceURI) throws CoreException {
-		System.out.println("");
-		System.out.println("################################");
-		System.out.println("DEBUG MODE FOR SIRIUS EXTENSIONS");
-		System.out.println("################################");
-		System.out.println("");
-		System.out.println("\t" + "Context : " + context);
-		System.out.println("\t\t" + "Execution mode: " + context.getExecutionMode());
-		System.out.println("\t\t" + "Execution platform: " + context.getExecutionPlatform());
-		System.out.println("\t\t" + "MSE model: " + context.getMSEModel());
-		System.out.println("\t\t" + "Language extension: " + context.getLanguageDefinitionExtension());
+//		System.out.println("");
+//		System.out.println("################################");
+//		System.out.println("DEBUG MODE FOR SIRIUS EXTENSIONS");
+//		System.out.println("################################");
+//		System.out.println("");
+//		System.out.println("\t" + "Context : " + context);
+//		System.out.println("\t\t" + "Execution mode: " + context.getExecutionMode());
+//		System.out.println("\t\t" + "Execution platform: " + context.getExecutionPlatform());
+//		System.out.println("\t\t" + "MSE model: " + context.getMSEModel());
+//		System.out.println("\t\t" + "Language extension: " + context.getLanguageDefinitionExtension());
 		
 		boolean useMelange = context.getRunConfiguration().getMelangeQuery() != null
 				&& !context.getRunConfiguration().getMelangeQuery().isEmpty();
 		// calculating model URI as MelangeURI
 		URI modelURI = useMelange ? context.getRunConfiguration().getExecutedModelAsMelangeURI() : context
 				.getRunConfiguration().getExecutedModelURI();
-		System.out.println("\t" + "Melange URI : " + modelURI);
+//		System.out.println("\t" + "Melange URI : " + modelURI);
 
 		// create and configure resource set
 		HashMap<String, String> nsURIMapping = getnsURIMapping(context);
-		System.out.println("\t" + "NS URI : " + nsURIMapping);
+//		System.out.println("\t" + "NS URI : " + nsURIMapping);
 		final ResourceSet rs = createAndConfigureResourceSet(modelURI, nsURIMapping);
-		System.out.println("\t" + "RS URI : " + rs);
+//		System.out.println("\t" + "RS URI : " + rs);
 
 		// load model resource and resolve all proxies
 		// Resource r = rs.getResource(modelURI, true);
@@ -184,7 +184,7 @@ public class DefaultModelLoader implements IModelLoader {
 		// calculating aird URI
 		URI airdURI = useMelange ? URI.createURI(sessionResourceURI.toString().replace("platform:/", "melange:/"))
 				: sessionResourceURI;
-		System.out.println("\t" + "AIRD URI : " + airdURI);
+//		System.out.println("\t" + "AIRD URI : " + airdURI);
 		// URI airdURI = sessionResourceURI;
 
 		// create and load sirius session
@@ -195,10 +195,10 @@ public class DefaultModelLoader implements IModelLoader {
 		// EcoreUtil.resolveAll(rs);
 		// activating layers
 		for (DView view : session.getSelectedViews()) {
-			System.out.println("\t" + "DView : " + view);
+//			System.out.println("\t" + "DView : " + view);
 			for (DRepresentation representation : view.getOwnedRepresentations()) {
 				final DSemanticDiagram diagram = (DSemanticDiagram) representation;
-				System.out.println("\t\t" + "DSemanticDiagram : " + diagram);
+//				System.out.println("\t\t" + "DSemanticDiagram : " + diagram);
 				
 				//diagram.setIsInLayoutingMode(true);
 				

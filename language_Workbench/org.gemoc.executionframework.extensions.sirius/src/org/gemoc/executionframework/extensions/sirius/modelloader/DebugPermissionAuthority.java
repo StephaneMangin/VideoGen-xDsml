@@ -56,12 +56,12 @@ public class DebugPermissionAuthority extends AbstractPermissionAuthority
 	@Override
 	public boolean canEditFeature(EObject eObj, String featureName) {
 		Integer integer = 1;
-		System.out.println("canEditFeature :");
-		System.out.println(eObj);
+//		System.out.println("canEditFeature :");
+//		System.out.println(eObj);
 		if (eObj != null) {
-			System.out.println(eObj.eResource());
+//			System.out.println(eObj.eResource());
 			if (eObj.eResource() != null) {
-				System.out.println(eObj.eResource().getResourceSet());
+//				System.out.println(eObj.eResource().getResourceSet());
 				integer = allow.get(eObj.eResource().getResourceSet());
 			}
 		}
@@ -71,33 +71,33 @@ public class DebugPermissionAuthority extends AbstractPermissionAuthority
 	@Override
 	public boolean canEditInstance(EObject eObj) {
 		Integer integer = 1;
-		System.out.println("#####################################################################################################");
-		System.out.println("Allow content : ");
+//		System.out.println("#####################################################################################################");
+//		System.out.println("Allow content : ");
 		allow.forEach(new BiConsumer<ResourceSet, Integer>() {
 
 			@Override
 			public void accept(ResourceSet t, Integer u) {
 				// TODO Auto-generated method stub
-				System.out.println("\t" + t + " - " + u);
+//				System.out.println("\t" + t + " - " + u);
 				t.getResources().forEach(new Consumer<Resource>() {
 
 					@Override
 					public void accept(Resource t) {
 						// TODO Auto-generated method stub
-						System.out.println("\t\t" + t);
+//						System.out.println("\t\t" + t);
 					}
 				});
 				
 			}
 
 		});
-		System.out.println("#####################################################################################################");
-		System.out.println("canEditInstance :");
-		System.out.println(eObj);
+//		System.out.println("#####################################################################################################");
+//		System.out.println("canEditInstance :");
+//		System.out.println(eObj);
 		if (eObj != null) {
-			System.out.println(eObj.eResource());
+//			System.out.println(eObj.eResource());
 			if (eObj.eResource() != null) {
-				System.out.println(eObj.eResource().getResourceSet());
+//				System.out.println(eObj.eResource().getResourceSet());
 				integer = allow.get(eObj.eResource().getResourceSet());
 			}
 		}
@@ -107,12 +107,12 @@ public class DebugPermissionAuthority extends AbstractPermissionAuthority
 	@Override
 	public boolean canCreateIn(EObject eObj) {
 		Integer integer = 1;
-		System.out.println("canCreateIn :");
-		System.out.println(eObj);
+//		System.out.println("canCreateIn :");
+//		System.out.println(eObj);
 		if (eObj != null) {
-			System.out.println(eObj.eResource());
+//			System.out.println(eObj.eResource());
 			if (eObj.eResource() != null) {
-				System.out.println(eObj.eResource().getResourceSet());
+//				System.out.println(eObj.eResource().getResourceSet());
 				integer = allow.get(eObj.eResource().getResourceSet());
 			}
 		}
@@ -122,12 +122,12 @@ public class DebugPermissionAuthority extends AbstractPermissionAuthority
 	@Override
 	public boolean canDeleteInstance(EObject target) {
 		Integer integer = 1;
-		System.out.println("canDeleteInstance :");
-		System.out.println(target);
+//		System.out.println("canDeleteInstance :");
+//		System.out.println(target);
 		if (target != null) {
-			System.out.println(target.eResource());
+//			System.out.println(target.eResource());
 			if (target.eResource() != null) {
-				System.out.println(target.eResource().getResourceSet());
+//				System.out.println(target.eResource().getResourceSet());
 				integer = allow.get(target.eResource().getResourceSet());
 			}
 		}

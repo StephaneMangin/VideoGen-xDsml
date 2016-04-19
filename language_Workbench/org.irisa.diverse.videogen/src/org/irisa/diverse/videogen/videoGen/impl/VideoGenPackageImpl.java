@@ -265,6 +265,24 @@ public class VideoGenPackageImpl extends EPackageImpl implements VideoGenPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getVideoGen_MinUserConstraint() {
+		return (EAttribute)videoGenEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getVideoGen_MaxUserConstraint() {
+		return (EAttribute)videoGenEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getTransition() {
 		return transitionEClass;
 	}
@@ -487,6 +505,8 @@ public class VideoGenPackageImpl extends EPackageImpl implements VideoGenPackage
 		createEAttribute(videoGenEClass, VIDEO_GEN__VARIANTES);
 		createEReference(videoGenEClass, VIDEO_GEN__TRANSITIONS);
 		createEReference(videoGenEClass, VIDEO_GEN__VIDEOS);
+		createEAttribute(videoGenEClass, VIDEO_GEN__MIN_USER_CONSTRAINT);
+		createEAttribute(videoGenEClass, VIDEO_GEN__MAX_USER_CONSTRAINT);
 
 		transitionEClass = createEClass(TRANSITION);
 		createEReference(transitionEClass, TRANSITION__NEXT_TRANSITION);
@@ -570,6 +590,8 @@ public class VideoGenPackageImpl extends EPackageImpl implements VideoGenPackage
 		initEAttribute(getVideoGen_Variantes(), ecorePackage.getEIntegerObject(), "variantes", "0", 1, 1, VideoGen.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getVideoGen_Transitions(), this.getTransition(), null, "transitions", null, 1, -1, VideoGen.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getVideoGen_Videos(), this.getVideo(), null, "videos", null, 1, -1, VideoGen.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getVideoGen_MinUserConstraint(), ecorePackage.getEIntegerObject(), "minUserConstraint", "0", 0, 1, VideoGen.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getVideoGen_MaxUserConstraint(), ecorePackage.getEIntegerObject(), "maxUserConstraint", "0", 0, 1, VideoGen.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(transitionEClass, Transition.class, "Transition", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getTransition_NextTransition(), this.getTransition(), null, "nextTransition", null, 0, 1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

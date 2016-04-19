@@ -17,6 +17,8 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.irisa.diverse.videogen.videoGen.VideoGen#getVariantes <em>Variantes</em>}</li>
  *   <li>{@link org.irisa.diverse.videogen.videoGen.VideoGen#getTransitions <em>Transitions</em>}</li>
  *   <li>{@link org.irisa.diverse.videogen.videoGen.VideoGen#getVideos <em>Videos</em>}</li>
+ *   <li>{@link org.irisa.diverse.videogen.videoGen.VideoGen#getMinUserConstraint <em>Min User Constraint</em>}</li>
+ *   <li>{@link org.irisa.diverse.videogen.videoGen.VideoGen#getMaxUserConstraint <em>Max User Constraint</em>}</li>
  * </ul>
  * </p>
  *
@@ -138,5 +140,59 @@ public interface VideoGen extends NamedElement {
 	 * @generated
 	 */
 	EList<Video> getVideos();
+
+	/**
+	 * Returns the value of the '<em><b>Min User Constraint</b></em>' attribute.
+	 * The default value is <code>"0"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Min User Constraint</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Min User Constraint</em>' attribute.
+	 * @see #setMinUserConstraint(Integer)
+	 * @see org.irisa.diverse.videogen.videoGen.VideoGenPackage#getVideoGen_MinUserConstraint()
+	 * @model default="0"
+	 * @generated
+	 */
+	Integer getMinUserConstraint();
+
+	/**
+	 * Sets the value of the '{@link org.irisa.diverse.videogen.videoGen.VideoGen#getMinUserConstraint <em>Min User Constraint</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Min User Constraint</em>' attribute.
+	 * @see #getMinUserConstraint()
+	 * @generated
+	 */
+	void setMinUserConstraint(Integer value);
+
+	/**
+	 * Returns the value of the '<em><b>Max User Constraint</b></em>' attribute.
+	 * The default value is <code>"0"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Max User Constraint</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Max User Constraint</em>' attribute.
+	 * @see #setMaxUserConstraint(Integer)
+	 * @see org.irisa.diverse.videogen.videoGen.VideoGenPackage#getVideoGen_MaxUserConstraint()
+	 * @model default="0"
+	 * @generated
+	 */
+	Integer getMaxUserConstraint();
+
+	/**
+	 * Sets the value of the '{@link org.irisa.diverse.videogen.videoGen.VideoGen#getMaxUserConstraint <em>Max User Constraint</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Max User Constraint</em>' attribute.
+	 * @see #getMaxUserConstraint()
+	 * @generated
+	 */
+	void setMaxUserConstraint(Integer value);
 
 } // VideoGen

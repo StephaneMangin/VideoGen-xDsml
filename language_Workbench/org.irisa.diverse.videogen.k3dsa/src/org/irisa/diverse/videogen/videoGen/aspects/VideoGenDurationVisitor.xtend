@@ -31,13 +31,15 @@ class VideoGenDurationVisitor {
 	}
 	
 	def private void visit(Sequence seq) {
-		println("VideoGen Duration Visitor : " + seq)
-		if (seq instanceof Mandatory) {
-			seq.visit
-		} else if (seq instanceof Optional) {
-			seq.visit
-		} else if (seq instanceof Alternatives) {
-			seq.visit
+		if (seq.active) {
+			println("VideoGen Duration Visitor : " + seq)
+			if (seq instanceof Mandatory) {
+				seq.visit
+			} else if (seq instanceof Optional) {
+				seq.visit
+			} else if (seq instanceof Alternatives) {
+				seq.visit
+			}
 		}
 	}
 	

@@ -29,6 +29,7 @@ import org.irisa.diverse.videogen.videoGen.Delay
 import org.irisa.diverse.videogen.videoGen.Transition
 import org.irisa.diverse.videogen.videoGen.Initialize
 import org.irisa.diverse.videogen.videoGen.Generate
+import org.irisa.diverse.videogen.transformations.VideoGenChecker
 
 @Aspect(className=VideoGen)
 class VideoGenAspect {
@@ -42,7 +43,7 @@ class VideoGenAspect {
 	}
 	
 	@Step
-	def public void updateConstraints() {
+	def public void updateMetadata() {
 		// Variante initialization
 		val variantesVisitor = new VideoGenVarianteVisitor()
 		variantesVisitor.visit(_self)
@@ -55,6 +56,8 @@ class VideoGenAspect {
 		// Constraints initialization
 		_self.minDurationConstraint = durationVisitor.minDuration
 		_self.maxDurationConstraint = durationVisitor.maxDuration
+		_self.minUserConstraint = durationVisitor.minDuration
+		_self.maxUserConstraint = durationVisitor.maxDuration
 		println("Min duration => " + _self.minDurationConstraint)
 		println("Max duration => " + _self.maxDurationConstraint)
 	}
@@ -73,12 +76,16 @@ class VideoGenAspect {
 	@InitializeModel
 	def public void initializeModel(List<String> args){
 		_self.setup
-		_self.updateConstraints
+		_self.updateMetadata
 	}
 	
 	@Step
 	def public void execute() {
+		
 		_self.nanotimeStart = System.nanoTime
+		// First apply the constraint model before execution
+		val visitor = new VideoGenUserContraintsVisitor(_self.minUserConstraint, _self.maxUserConstraint)
+		visitor.visit(_self)
 		// Then process each sequences
 		VideoGenHelper.getInitialize(_self).execute(_self)
 	}	

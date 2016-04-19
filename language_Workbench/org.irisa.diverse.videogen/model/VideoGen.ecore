@@ -31,6 +31,10 @@
         upperBound="-1" eType="#//Transition" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="videos" lowerBound="1"
         upperBound="-1" eType="#//Video" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="minUserConstraint" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"
+        defaultValueLiteral="0"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxUserConstraint" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"
+        defaultValueLiteral="0"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Transition" abstract="true" interface="true"
       eSuperTypes="#//NamedElement">

@@ -1,13 +1,10 @@
 package org.irisa.diverse.videogen.videoGen.aspects
 
-import org.irisa.diverse.videogen.videoGen.VideoGen
-import org.irisa.diverse.videogen.videoGen.Sequence
-import org.irisa.diverse.videogen.videoGen.Mandatory
+import org.irisa.diverse.videogen.transformations.helpers.VideoGenHelper
 import org.irisa.diverse.videogen.videoGen.Alternatives
 import org.irisa.diverse.videogen.videoGen.Optional
-import org.irisa.diverse.videogen.transformations.helpers.VideoGenHelper
-import java.util.ArrayList
-import java.util.List
+import org.irisa.diverse.videogen.videoGen.Sequence
+import org.irisa.diverse.videogen.videoGen.VideoGen
 
 class VideoGenVarianteVisitor {
 	
@@ -31,10 +28,11 @@ class VideoGenVarianteVisitor {
 	}
 		
 	def private visit(Alternatives alt) {
+		val optionSize = alt.options.filter[active].size
 		if (variantes == 0) {
-			variantes = alt.options.size
+			variantes = optionSize
 		} else {
-			variantes *= alt.options.size
+			variantes *= optionSize
 		}
 	}
 	
@@ -42,7 +40,7 @@ class VideoGenVarianteVisitor {
 		if (variantes == 0) {
 			variantes = 2
 		} else {
-		variantes *= 2
+			variantes *= 2
 		}
 	}
 }

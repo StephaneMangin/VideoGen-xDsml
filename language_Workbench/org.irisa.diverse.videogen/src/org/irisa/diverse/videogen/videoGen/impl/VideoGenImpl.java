@@ -34,6 +34,8 @@ import org.irisa.diverse.videogen.videoGen.VideoGenPackage;
  *   <li>{@link org.irisa.diverse.videogen.videoGen.impl.VideoGenImpl#getVariantes <em>Variantes</em>}</li>
  *   <li>{@link org.irisa.diverse.videogen.videoGen.impl.VideoGenImpl#getTransitions <em>Transitions</em>}</li>
  *   <li>{@link org.irisa.diverse.videogen.videoGen.impl.VideoGenImpl#getVideos <em>Videos</em>}</li>
+ *   <li>{@link org.irisa.diverse.videogen.videoGen.impl.VideoGenImpl#getMinUserConstraint <em>Min User Constraint</em>}</li>
+ *   <li>{@link org.irisa.diverse.videogen.videoGen.impl.VideoGenImpl#getMaxUserConstraint <em>Max User Constraint</em>}</li>
  * </ul>
  * </p>
  *
@@ -119,6 +121,46 @@ public class VideoGenImpl extends NamedElementImpl implements VideoGen {
 	 * @ordered
 	 */
 	protected EList<Video> videos;
+
+	/**
+	 * The default value of the '{@link #getMinUserConstraint() <em>Min User Constraint</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMinUserConstraint()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Integer MIN_USER_CONSTRAINT_EDEFAULT = new Integer(0);
+
+	/**
+	 * The cached value of the '{@link #getMinUserConstraint() <em>Min User Constraint</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMinUserConstraint()
+	 * @generated
+	 * @ordered
+	 */
+	protected Integer minUserConstraint = MIN_USER_CONSTRAINT_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getMaxUserConstraint() <em>Max User Constraint</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMaxUserConstraint()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Integer MAX_USER_CONSTRAINT_EDEFAULT = new Integer(0);
+
+	/**
+	 * The cached value of the '{@link #getMaxUserConstraint() <em>Max User Constraint</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMaxUserConstraint()
+	 * @generated
+	 * @ordered
+	 */
+	protected Integer maxUserConstraint = MAX_USER_CONSTRAINT_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -231,6 +273,48 @@ public class VideoGenImpl extends NamedElementImpl implements VideoGen {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Integer getMinUserConstraint() {
+		return minUserConstraint;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMinUserConstraint(Integer newMinUserConstraint) {
+		Integer oldMinUserConstraint = minUserConstraint;
+		minUserConstraint = newMinUserConstraint;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, VideoGenPackage.VIDEO_GEN__MIN_USER_CONSTRAINT, oldMinUserConstraint, minUserConstraint));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Integer getMaxUserConstraint() {
+		return maxUserConstraint;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMaxUserConstraint(Integer newMaxUserConstraint) {
+		Integer oldMaxUserConstraint = maxUserConstraint;
+		maxUserConstraint = newMaxUserConstraint;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, VideoGenPackage.VIDEO_GEN__MAX_USER_CONSTRAINT, oldMaxUserConstraint, maxUserConstraint));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -260,6 +344,10 @@ public class VideoGenImpl extends NamedElementImpl implements VideoGen {
 				return getTransitions();
 			case VideoGenPackage.VIDEO_GEN__VIDEOS:
 				return getVideos();
+			case VideoGenPackage.VIDEO_GEN__MIN_USER_CONSTRAINT:
+				return getMinUserConstraint();
+			case VideoGenPackage.VIDEO_GEN__MAX_USER_CONSTRAINT:
+				return getMaxUserConstraint();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -290,6 +378,12 @@ public class VideoGenImpl extends NamedElementImpl implements VideoGen {
 				getVideos().clear();
 				getVideos().addAll((Collection<? extends Video>)newValue);
 				return;
+			case VideoGenPackage.VIDEO_GEN__MIN_USER_CONSTRAINT:
+				setMinUserConstraint((Integer)newValue);
+				return;
+			case VideoGenPackage.VIDEO_GEN__MAX_USER_CONSTRAINT:
+				setMaxUserConstraint((Integer)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -317,6 +411,12 @@ public class VideoGenImpl extends NamedElementImpl implements VideoGen {
 			case VideoGenPackage.VIDEO_GEN__VIDEOS:
 				getVideos().clear();
 				return;
+			case VideoGenPackage.VIDEO_GEN__MIN_USER_CONSTRAINT:
+				setMinUserConstraint(MIN_USER_CONSTRAINT_EDEFAULT);
+				return;
+			case VideoGenPackage.VIDEO_GEN__MAX_USER_CONSTRAINT:
+				setMaxUserConstraint(MAX_USER_CONSTRAINT_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -339,6 +439,10 @@ public class VideoGenImpl extends NamedElementImpl implements VideoGen {
 				return transitions != null && !transitions.isEmpty();
 			case VideoGenPackage.VIDEO_GEN__VIDEOS:
 				return videos != null && !videos.isEmpty();
+			case VideoGenPackage.VIDEO_GEN__MIN_USER_CONSTRAINT:
+				return MIN_USER_CONSTRAINT_EDEFAULT == null ? minUserConstraint != null : !MIN_USER_CONSTRAINT_EDEFAULT.equals(minUserConstraint);
+			case VideoGenPackage.VIDEO_GEN__MAX_USER_CONSTRAINT:
+				return MAX_USER_CONSTRAINT_EDEFAULT == null ? maxUserConstraint != null : !MAX_USER_CONSTRAINT_EDEFAULT.equals(maxUserConstraint);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -359,6 +463,10 @@ public class VideoGenImpl extends NamedElementImpl implements VideoGen {
 		result.append(maxDurationConstraint);
 		result.append(", variantes: ");
 		result.append(variantes);
+		result.append(", minUserConstraint: ");
+		result.append(minUserConstraint);
+		result.append(", maxUserConstraint: ");
+		result.append(maxUserConstraint);
 		result.append(')');
 		return result.toString();
 	}
