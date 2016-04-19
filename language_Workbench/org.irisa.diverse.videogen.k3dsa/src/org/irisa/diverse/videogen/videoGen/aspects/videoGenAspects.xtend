@@ -14,41 +14,46 @@ import org.irisa.diverse.videogen.transformations.VideoGenTransform
 import org.irisa.diverse.videogen.transformations.helpers.VideoGenHelper
 import org.irisa.diverse.videogen.transformations.utils.DistributedRandomNumberGenerator
 import org.irisa.diverse.videogen.videoGen.Alternatives
+import org.irisa.diverse.videogen.videoGen.Delay
+import org.irisa.diverse.videogen.videoGen.Generate
+import org.irisa.diverse.videogen.videoGen.Initialize
 import org.irisa.diverse.videogen.videoGen.Mandatory
 import org.irisa.diverse.videogen.videoGen.Optional
 import org.irisa.diverse.videogen.videoGen.Sequence
+import org.irisa.diverse.videogen.videoGen.Transition
 import org.irisa.diverse.videogen.videoGen.Video
 import org.irisa.diverse.videogen.videoGen.VideoGen
 import org.irisa.diverse.videogen.videoGen.aspects.exceptions.ConstraintsFailed
 import org.irisa.diverse.videogen.videoGen.aspects.exceptions.ConstraintsType
-
-import static extension org.irisa.diverse.videogen.videoGen.aspects.SequenceAspect.*
-import static extension org.irisa.diverse.videogen.videoGen.aspects.TransitionAspect.*
 import static extension org.irisa.diverse.videogen.videoGen.aspects.VideoAspect.*
-import org.irisa.diverse.videogen.videoGen.Delay
-import org.irisa.diverse.videogen.videoGen.Transition
-import org.irisa.diverse.videogen.videoGen.Initialize
-import org.irisa.diverse.videogen.videoGen.Generate
-import org.irisa.diverse.videogen.transformations.VideoGenChecker
+import static extension org.irisa.diverse.videogen.videoGen.aspects.InitializeAspect.*
+import java.util.logging.Logger
+import java.util.logging.FileHandler
+import java.util.logging.SimpleFormatter
 
 @Aspect(className=VideoGen)
 class VideoGenAspect {
 
 	private long nanotimeStart = 0
 	private long nanotimeEnd = 0
+	protected static Logger log = Logger.getLogger("VideoGenUserContraintsVisitor")
 
 	@Main
 	def void main() {
+		val FileHandler fh = new FileHandler("/tmp/" + _self.class.name + ".log")
+        val formatter = new SimpleFormatter();  
+        fh.setFormatter(formatter);
+		log.addHandler(fh)
 		_self.execute
 	}
-	
+		
 	@Step
 	def public void updateMetadata() {
 		// Variante initialization
 		val variantesVisitor = new VideoGenVarianteVisitor()
 		variantesVisitor.visit(_self)
 		_self.variantes = variantesVisitor.variantes
-		println("Variantes => " + _self.variantes)
+		log.info("Variantes => " + _self.variantes)
 		
 		// Duration initialization
 		val durationVisitor = new VideoGenDurationVisitor(false)
@@ -68,7 +73,7 @@ class VideoGenAspect {
 		new VideoGenSetupVisitor().visit(_self)
 		
 		val stop = System.nanoTime
-		println("#### VideoGen, time to setup " + (stop - start))
+		log.info("#### VideoGen, time to setup " + (stop - start))
 	}
 	
 	@Step
@@ -96,7 +101,7 @@ class VideoGenAspect {
 	@Step
 	def public void compute() {
 		val videos = new HashMap
-		println("##### VideoGen '" + _self.name + "' start computation.")
+		log.info("##### VideoGen '" + _self.name + "' start computation.")
 		
 		// Constraints checking
 		val durationVisitor = new VideoGenDurationVisitor(true)
@@ -108,15 +113,15 @@ class VideoGenAspect {
 			throw new ConstraintsFailed(ConstraintsType.MAX_DURATION, true)
 		}
 		
-		println("##### Videos computation result in playlist format : ")
+		log.info("##### Videos computation result in playlist format : ")
 		//TODO: re-implement the initial IDM project model transformation. See master branch package 'fr.nemomen.utils'.
 		VideoGenHelper.allSelectedVideos(_self).forEach[video |
-			println("\t" + video.name + ": " + video.url)
+			log.info("\t" + video.name + ": " + video.url)
 			videos.put(video.name, true)
 		]
 		// TODO: Manage model transformation here
 		val content = VideoGenTransform.toM3U(_self, false, videos)
-		println(content)
+		log.info(content)
 		// Create the temporary file to receive playlist as M3U
 		val playlist = File.createTempFile(Long.toString(System.nanoTime()), "-temp.m3u")
 		val writer = new FileWriter(playlist)
@@ -136,7 +141,7 @@ class VideoGenAspect {
 		p.start()
 		
 		_self.nanotimeEnd = System.nanoTime
-		println("#### VideoGen, time to execute " + (_self.nanotimeEnd - _self.nanotimeStart))
+		log.info("#### VideoGen, time to execute " + (_self.nanotimeEnd - _self.nanotimeStart))
 		_self.nanotimeStart = System.nanoTime
 	}
 }
@@ -156,7 +161,7 @@ abstract class TransitionAspect {
 	 */
 	@Step
 	def public void execute(VideoGen videoGen) {
-		println("##### '" + _self.class.name + "::" + _self.name + "' is being processed.")
+		VideoGenAspect.log.info("##### '" + _self.class.name + "::" + _self.name + "' is being processed.")
 		// If this sequence has already been done, do nothing at all
 		if (_self.active && !_self.done) {
 			// Call the next sequence in all case
@@ -191,24 +196,39 @@ class AlternativesAspect extends SequenceAspect {
 	 * 
 	 * @author Stéphane Mangin <stephane.mangin@freesbee.fr>
 	 */
-	def static Map<String, Integer> checkProbabilities() {
-		val result = new HashMap<String, Integer>
+	def static Map<Optional, Integer> checkProbabilities() {
+		val result = new HashMap<Optional, Integer>
 		var totalProb = 0
+		var totalProbLeft = 0
 		var totalOptions = 0
-		for (option : _self.options.filter[active]) {
-			if (option.probability == 0) {
-				totalOptions++
+		VideoGenAspect.log.info(_self.options.filter[active].toList.toString)
+		var inactivated = 0
+		for (option : _self.options) {
+			if (option.active) {
+				if (option.probability == 0) {
+					totalOptions++
+				}
+				totalProb += option.probability
+				result.put(option, option.probability)
+			} else {
+				inactivated++
+				totalProbLeft += option.probability
 			}
-			totalProb += option.probability
-			result.put(option.video.name, option.probability)
 		}
-		if (result.size == 1) {
-			result.replace(result.keySet.get(0), 100)	
-		} else {
-			for (name : result.keySet) {
-				val percentageLeft = (100 - totalProb) / totalOptions
-				if (result.get(name) < percentageLeft) {
-					result.put(name, percentageLeft)
+		if (result.size != 0) {
+			if (result.size == 1) {
+				result.replace(result.keySet.get(0), 100)
+			} else if (inactivated != 0) {
+				for (name : result.keySet) {
+					val percentageLeft = totalProbLeft / inactivated
+					result.put(name, result.get(name) + percentageLeft)
+				}
+			} else {
+				for (name : result.keySet) {
+					if (result.get(name) == 0) {
+						val percentageLeft = (100 - totalProb) / totalOptions
+						result.put(name, percentageLeft)
+					}
 				}
 			}
 		}
@@ -222,28 +242,35 @@ class AlternativesAspect extends SequenceAspect {
 	def private Video selectVideo() {
 
 		val drng = new DistributedRandomNumberGenerator()
-		val proba = _self.checkProbabilities()
-		_self.options.filter[active].map[video.name].forEach [ name |
-			drng.addNumber(proba.keySet.toList.indexOf(name), proba.get(name))
+		val checkedProbabilities = _self.checkProbabilities()
+		if (checkedProbabilities.empty) {
+			return null
+		}
+		checkedProbabilities.forEach[option, proba|
+			VideoGenAspect.log.info("Select Video #######################################################")
+			VideoGenAspect.log.info("Original = " + option.name + "->" +  option.probability + " | Corrected->" + proba)
+			drng.addNumber(checkedProbabilities.keySet.toList.indexOf(option), proba)
 		] 
-		_self.options.get(drng.getDistributedRandomNumber()).video
+		checkedProbabilities.keySet.get(drng.getDistributedRandomNumber()).video
 	}
 
 	@Step
 	@OverrideAspectMethod
 	def public void execute(VideoGen videoGen) {
 		_self.video = _self.selectVideo
-		_self.video.select
-		// Manage optional next sequence
-		_self.options
-		.filter[active]
-		.filter[video == _self.video]
-		.filter[nextTransition != null]
-		.forEach[ 
-			nextTransition.execute(videoGen)
-			// Call of nextTransition.process will not be called in super
-			_self.callnextTransition = false
-		]
+		if (_self.video != null) {
+			_self.video.select
+			// Manage optional next sequence
+			_self.options
+			.filter[active]
+			.filter[video == _self.video]
+			.filter[nextTransition != null]
+			.forEach[ 
+				nextTransition.execute(videoGen)
+				// Call of nextTransition.process will not be called in super
+				_self.callnextTransition = false
+			]
+			}
 		_self.super_execute(videoGen)
 	}
 }
@@ -338,7 +365,7 @@ class VideoAspect {
 	 */
 	@Step
 	def public void select() {
-		println("##### Video '" + _self.name + "' has been selected.")
+		VideoGenAspect.log.info("##### Video '" + _self.name + "' has been selected.")
 		_self.selected = true
 	}
 }
