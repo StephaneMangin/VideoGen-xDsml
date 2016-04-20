@@ -1,5 +1,5 @@
 Bundle-SymbolicName: org.irisa.diverse.videogen.k3dsa; singleton:=true
-Export-Package: org.irisa.diverse.videogen.videoGen.aspects,org.irisa.diverse.videogen.videoGen.aspects.exceptions
+Export-Package: org.irisa.diverse.videogen.videoGen.aspects,org.irisa.diverse.videogen.videoGen.aspects.visitors,org.irisa.diverse.videogen.videoGen.aspects.exceptions
 Bundle-Name: org.irisa.diverse.videogen.k3dsa
 Bundle-Version: 1.0.0
 Bundle-ClassPath: .
@@ -12,7 +12,7 @@ Require-Bundle: com.google.guava,
  org.irisa.diverse.videogen.transformations;bundle-version="1.0.0",
  fr.inria.diverse.k3.al.annotationprocessor.plugin;bundle-version="3.2.0",
  org.eclipse.core.resources;bundle-version="3.9.1",
- org.eclipse.ui.console;bundle-version="3.5.300"
+ org.eclipse.core.runtime;bundle-version="3.10.0"
 Bundle-ManifestVersion: 2
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Import-Package: org.eclipse.swt,org.eclipse.swt.graphics,org.eclipse.swt.widgets,org.irisa.diverse.playlist.PlayList
