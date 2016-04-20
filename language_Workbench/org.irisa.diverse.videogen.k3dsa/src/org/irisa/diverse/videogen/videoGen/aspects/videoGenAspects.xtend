@@ -46,14 +46,17 @@ class VideoGenAspect {
 		log.addHandler(fh)
 		_self.execute
 	}
-		
+	
 	@Step
-	def public void updateMetadata() {
+	def private void updateVariant() {
 		// Variante initialization
 		val variantesVisitor = new VideoGenVarianteVisitor()
 		variantesVisitor.visit(_self)
 		_self.variantes = variantesVisitor.variantes
-		log.info("Variantes => " + _self.variantes)
+	}
+	
+	@Step
+	def private void updateDurations() {
 		
 		// Duration initialization
 		val durationVisitor = new VideoGenDurationVisitor(false)
@@ -64,6 +67,12 @@ class VideoGenAspect {
 		_self.maxDurationConstraint = durationVisitor.maxDuration
 		_self.minUserConstraint = durationVisitor.minDuration
 		_self.maxUserConstraint = durationVisitor.maxDuration
+	}
+	
+	@Step
+	def public void updateModel() {
+		_self.updateVariant
+		_self.updateDurations
 	}
 	
 	@Step
@@ -80,7 +89,7 @@ class VideoGenAspect {
 	@InitializeModel
 	def public void initializeModel(List<String> args){
 		_self.setup
-		_self.updateMetadata
+		_self.updateModel
 	}
 	
 	@Step
@@ -329,7 +338,7 @@ class InitializeAspect extends TransitionAspect {
 	@OverrideAspectMethod
 	def public void execute(VideoGen videoGen) {
 		//VideoGenAspect.setup(videoGen)
-		//VideoGenAspect.updateConstraints(videoGen)
+		//VideoGenAspect.updateModel(videoGen)
 		_self.super_execute(videoGen)
 	}
 	
