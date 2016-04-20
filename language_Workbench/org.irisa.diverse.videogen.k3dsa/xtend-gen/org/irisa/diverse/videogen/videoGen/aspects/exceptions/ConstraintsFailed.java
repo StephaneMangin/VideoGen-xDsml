@@ -1,55 +1,47 @@
 package org.irisa.diverse.videogen.videoGen.aspects.exceptions;
 
-import org.eclipse.swt.SWT;
-import org.eclipse.swt.widgets.Button;
-import org.eclipse.swt.widgets.Display;
-import org.eclipse.swt.widgets.Event;
-import org.eclipse.swt.widgets.Listener;
-import org.eclipse.swt.widgets.MessageBox;
-import org.eclipse.swt.widgets.Shell;
 import org.irisa.diverse.videogen.videoGen.aspects.exceptions.ConstraintsType;
 
 @SuppressWarnings("all")
 public class ConstraintsFailed extends Exception {
   public static class MessageBoxExample {
-    private Display display = new Display();
+    private /* Display */Object display /* Skipped initializer because of errors */;
     
-    private Shell shell = new Shell(this.display);
+    private /* Shell */Object shell /* Skipped initializer because of errors */;
     
-    private Button button;
+    private /* Button */Object button;
     
     public MessageBoxExample(final String message, final int icon) {
-      Button _button = new Button(this.shell, SWT.PUSH);
-      this.button = _button;
-      this.button.addListener(SWT.Selection, new Listener() {
-        @Override
-        public void handleEvent(final Event event) {
-          final MessageBox messageBox = new MessageBox(MessageBoxExample.this.shell, icon);
-          messageBox.setText("Constraint error");
-          messageBox.setMessage(message);
-          messageBox.open();
-        }
-      });
-      this.button.setText("Ok");
-      this.button.setBounds(0, 0, 100, 30);
-      this.shell.pack();
-      this.shell.open();
-      while ((!this.shell.isDisposed())) {
-        boolean _readAndDispatch = this.display.readAndDispatch();
-        boolean _not = (!_readAndDispatch);
-        if (_not) {
-          this.display.sleep();
-        }
-      }
-      this.display.dispose();
+      throw new Error("Unresolved compilation problems:"
+        + "\nButton cannot be resolved."
+        + "\nThe method or field SWT is undefined for the type MessageBoxExample"
+        + "\nThe method or field SWT is undefined for the type MessageBoxExample"
+        + "\nListener cannot be resolved."
+        + "\nMessageBox cannot be resolved."
+        + "\nEvent cannot be resolved to a type."
+        + "\nThe method handleEvent(Event) of type new Object(){} must override a superclass method."
+        + "\nPUSH cannot be resolved"
+        + "\naddListener cannot be resolved"
+        + "\nSelection cannot be resolved"
+        + "\nsetText cannot be resolved"
+        + "\nsetBounds cannot be resolved"
+        + "\npack cannot be resolved"
+        + "\nopen cannot be resolved"
+        + "\nisDisposed cannot be resolved"
+        + "\n! cannot be resolved"
+        + "\nreadAndDispatch cannot be resolved"
+        + "\n! cannot be resolved"
+        + "\nsleep cannot be resolved"
+        + "\ndispose cannot be resolved"
+        + "\nsetText cannot be resolved"
+        + "\nsetMessage cannot be resolved"
+        + "\nopen cannot be resolved");
     }
   }
   
   public ConstraintsFailed(final ConstraintsType type, final Boolean showDialog) {
-    super(type.getMessage());
-    if ((showDialog).booleanValue()) {
-      String _message = type.getMessage();
-      new ConstraintsFailed.MessageBoxExample(_message, SWT.ABORT);
-    }
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field SWT is undefined for the type ConstraintsFailed"
+      + "\nABORT cannot be resolved");
   }
 }

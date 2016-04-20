@@ -1,4 +1,4 @@
-package org.irisa.diverse.videogen.videoGen.aspects
+package org.irisa.diverse.videogen.videoGen.aspects.visitors
 
 import org.eclipse.core.resources.ResourcesPlugin
 import org.irisa.diverse.videogen.transformations.VideoGenTransform
@@ -6,6 +6,7 @@ import org.irisa.diverse.videogen.transformations.helpers.VideoGenHelper
 import org.irisa.diverse.videogen.videoGen.Transition
 import org.irisa.diverse.videogen.videoGen.Video
 import org.irisa.diverse.videogen.videoGen.VideoGen
+import org.irisa.diverse.videogen.videoGen.aspects.TransitionAspect
 
 class VideoGenSetupVisitor {
 	

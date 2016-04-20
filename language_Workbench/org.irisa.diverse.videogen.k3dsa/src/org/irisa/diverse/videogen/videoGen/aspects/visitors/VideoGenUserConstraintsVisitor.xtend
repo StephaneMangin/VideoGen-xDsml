@@ -1,4 +1,4 @@
-package org.irisa.diverse.videogen.videoGen.aspects
+package org.irisa.diverse.videogen.videoGen.aspects.visitors
 
 import java.util.ArrayList
 import java.util.List
@@ -21,10 +21,7 @@ class VideoGenUserContraintsVisitor {
 	private static Logger log = Logger.getLogger("VideoGenUserContraintsVisitor")
 	private List<Optional> sequencesToInactivate = new ArrayList
 	
-	new (Integer min, Integer max) {
-		result = min
-		minConstraint = min
-		maxConstraint = max
+	new () {
 		log.info("minResult=" + result + ", minConstraint=" + minConstraint + ", maxConstraint=" + maxConstraint)
 		val FileHandler fh = new FileHandler("/tmp/" + class.name + ".log")
         val formatter = new SimpleFormatter();  
@@ -32,7 +29,10 @@ class VideoGenUserContraintsVisitor {
 		log.addHandler(fh)
 	}
 	
-	def visit(VideoGen vid) {
+	def visit(VideoGen vid, Integer min, Integer max) {
+		result = min
+		minConstraint = min
+		maxConstraint = max
 		log.info("VideoGen Variante constraints Visitor started...")
 		VideoGenHelper.allSequences(vid).forEach[visit]
 		log.info("minResult=" + result + ", minConstraint=" + minConstraint + ", maxConstraint=" + maxConstraint)

@@ -1,4 +1,4 @@
-package org.irisa.diverse.videogen.videoGen.aspects
+package org.irisa.diverse.videogen.videoGen.aspects.visitors
 
 import org.irisa.diverse.videogen.transformations.helpers.VideoGenHelper
 import org.irisa.diverse.videogen.videoGen.Alternatives
@@ -10,12 +10,13 @@ class VideoGenVarianteVisitor {
 	
 	public int variantes = 0
 		
-	def visit(VideoGen vid) {
+	def VideoGenVarianteVisitor visit(VideoGen vid) {
 		println("VideoGen Variante Visitor started...")
 		VideoGenHelper.allActiveSequences(vid).forEach[visit]
+		this
 	}
 	
-	def private void visit(Sequence seq) {
+	def private visit(Sequence seq) {
 		if (seq.active) {
 			println("VideoGen Variante Visitor : " + seq)
 			if (seq instanceof Optional) {

@@ -1,4 +1,4 @@
-package org.irisa.diverse.videogen.videoGen.aspects
+package org.irisa.diverse.videogen.videoGen.aspects.visitors
 
 import org.irisa.diverse.videogen.videoGen.VideoGen
 import org.irisa.diverse.videogen.videoGen.Sequence
