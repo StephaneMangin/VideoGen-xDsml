@@ -5,6 +5,7 @@ model-gen
 gemoc-gen
 *.xtendbin
 *._trace
+/log
 
 .metadata
 bin/
