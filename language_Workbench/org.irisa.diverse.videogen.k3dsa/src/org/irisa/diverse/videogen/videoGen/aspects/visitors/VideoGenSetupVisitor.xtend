@@ -7,14 +7,15 @@ import org.irisa.diverse.videogen.videoGen.Transition
 import org.irisa.diverse.videogen.videoGen.Video
 import org.irisa.diverse.videogen.videoGen.VideoGen
 import org.irisa.diverse.videogen.videoGen.aspects.TransitionAspect
+import org.irisa.diverse.videogen.videoGen.aspects.utils.LoggableVisitor
 
-class VideoGenSetupVisitor {
+class VideoGenSetupVisitor extends LoggableVisitor {
 	
 	private var VideoGen videoGen = null
 	
 	def visit(VideoGen vid) {
 		videoGen = vid
-		println("VideoGen Setup Visitor started...")
+		log.info("VideoGen Setup Visitor started...")
 		VideoGenHelper.allTransitions(vid).forEach[visit]
 		VideoGenHelper.allVideos(vid).forEach[visit]
 	}
@@ -25,18 +26,18 @@ class VideoGenSetupVisitor {
 	}
 	
 	def private visit(Video video) {
-		println("VideoGen Setup Visitor : " + video)
+		log.info(video.toString)
 		video.selected = false
 		if (!video.url.startsWith("/")) {
 			val prefix = ResourcesPlugin.workspace.root.projects.get(0).locationURI.toString.replace("file:", "")
 			val newPath = prefix + "/" + video.url
-			println("VideoGen Setup Visitor : " + video.url + "=>" + newPath)
+			log.info(video.url + "=>" + newPath)
 			video.setUrl(newPath)
 		}
 		
 		// Add duration and VideoCodec MimeType
-		println("Video before => " + video.duration + ", " + video.mimetype)
+		log.info("Video before => " + video.duration + ", " + video.mimetype)
 		VideoGenTransform.addMetadata(video)
-		println("Video after => " + video.duration + ", " + video.mimetype)
+		log.info("Video after => " + video.duration + ", " + video.mimetype)
 	}
 }

@@ -2,38 +2,30 @@ package org.irisa.diverse.videogen.videoGen.aspects.visitors
 
 import java.util.ArrayList
 import java.util.List
-import java.util.logging.FileHandler
-import java.util.logging.Logger
-import java.util.logging.SimpleFormatter
 import org.irisa.diverse.videogen.transformations.helpers.VideoGenHelper
 import org.irisa.diverse.videogen.videoGen.Alternatives
-import org.irisa.diverse.videogen.videoGen.Mandatory
 import org.irisa.diverse.videogen.videoGen.Optional
-import org.irisa.diverse.videogen.videoGen.Transition
-import org.irisa.diverse.videogen.videoGen.VideoGen
 import org.irisa.diverse.videogen.videoGen.Sequence
+import org.irisa.diverse.videogen.videoGen.VideoGen
+import org.irisa.diverse.videogen.videoGen.aspects.utils.LoggableVisitor
 
-class VideoGenUserContraintsVisitor {
+class VideoGenUserContraintsVisitor extends LoggableVisitor {
 	
-	private int result = 0
-	private int minConstraint = 0
-	private int maxConstraint = 0
-	private static Logger log = Logger.getLogger("VideoGenUserContraintsVisitor")
+	private int result = 0 // minimum result at each step of the process
+	private int minConstraint = 0 // User defined
+	private int maxConstraint = 0 // User defined
 	private List<Optional> sequencesToInactivate = new ArrayList
 	
 	new () {
+		super()
 		log.info("minResult=" + result + ", minConstraint=" + minConstraint + ", maxConstraint=" + maxConstraint)
-		val FileHandler fh = new FileHandler("/tmp/" + class.name + ".log")
-        val formatter = new SimpleFormatter();  
-        fh.setFormatter(formatter);
-		log.addHandler(fh)
 	}
 	
 	def visit(VideoGen vid, Integer min, Integer max) {
 		result = min
 		minConstraint = min
 		maxConstraint = max
-		log.info("VideoGen Variante constraints Visitor started...")
+		log.info("VideoGen User Contraints Visitor started...")
 		VideoGenHelper.allSequences(vid).forEach[visit]
 		log.info("minResult=" + result + ", minConstraint=" + minConstraint + ", maxConstraint=" + maxConstraint)
 		log.info("sequences=" + sequencesToInactivate)
@@ -53,7 +45,7 @@ class VideoGenUserContraintsVisitor {
 		log.info(alt.toString)
 		var done = false
 		// Start with the maximum duration video and parse descendingly
-		for (Optional option: alt.options.sortBy[video.duration].reverse) {
+		for (Optional option: alt.options.sortBy[video.duration]) {
 			log.info(option.toString)
 			if (
 				(result + option.video.duration) < minConstraint
@@ -61,17 +53,16 @@ class VideoGenUserContraintsVisitor {
 			) {
 				sequencesToInactivate += option
 				option.active = false
-				log.info("\tKO")
-				log.info("duration= " + option.video.duration + ", add=" + (result + option.video.duration) + ", minResult=" + result + ", minConstraint=" + minConstraint + ", maxConstraint=" + maxConstraint)
+				log.info("\tKO ------------------------- ")
 			} else {
 				// This sequence is good, next one will be smaller so don't need to insert the duration anymore
-				log.info("\tOK")
+				log.info("\tOK ++++++++++++++++++++++++++++++ ")
 				if (!done) {
 					done = true
-					log.info("duration= " + option.video.duration + ", add=" + (result + option.video.duration) + ", minResult=" + result + ", minConstraint=" + minConstraint + ", maxConstraint=" + maxConstraint)
 					result += option.video.duration
 				}
 			}
+			log.info("duration= " + option.video.duration + ", add=" + (result + option.video.duration) + ", minResult=" + result + ", minConstraint=" + minConstraint + ", maxConstraint=" + maxConstraint)		
 		}
 	}
 	
@@ -83,12 +74,11 @@ class VideoGenUserContraintsVisitor {
 		) {
 			sequencesToInactivate += opt
 			opt.active = false
-			log.info("\tKO")
-			log.info("duration= " + opt.video.duration + ", add=" + (result + opt.video.duration) + ", minResult=" + result + ", minConstraint=" + minConstraint + ", maxConstraint=" + maxConstraint)
+			log.info("\tKO ------------------------- ")
 		} else {
-			log.info("\tOK")
-			log.info("duration= " + opt.video.duration + ", add=" + (result + opt.video.duration) + ", minResult=" + result + ", minConstraint=" + minConstraint + ", maxConstraint=" + maxConstraint)
+			log.info("\tOK ++++++++++++++++++++++++++++++ ")
 			result += opt.video.duration
 		}
+		log.info("duration= " + opt.video.duration + ", add=" + (result + opt.video.duration) + ", minResult=" + result + ", minConstraint=" + minConstraint + ", maxConstraint=" + maxConstraint)	
 	}
 }

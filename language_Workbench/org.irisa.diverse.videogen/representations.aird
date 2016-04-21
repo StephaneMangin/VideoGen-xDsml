@@ -911,7 +911,7 @@
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
         </ownedElements>
-        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="__lwYUAZEEeaaIem6N3W_6Q" name="minUserConstraint : EIntegerObject = 0" tooltipText="&#xA;ERROR : The required feature 'eAttributeType' of 'org.eclipse.emf.ecore.impl.EAttributeImpl@46a6cdb7{platform:/resource/org.irisa.diverse.videogen/model/VideoGen.ecore#//VideoGen/newAttribute}' must be set&#xA;ERROR : The typed element must have a type">
+        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="__lwYUAZEEeaaIem6N3W_6Q" name="minUserConstraint : EIntegerObject = 0" tooltipText="">
           <target xmi:type="ecore:EAttribute" href="model/VideoGen.ecore#//VideoGen/minUserConstraint"/>
           <semanticElements xmi:type="ecore:EAttribute" href="model/VideoGen.ecore#//VideoGen/minUserConstraint"/>
           <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_CBCvAAZFEeaaIem6N3W_6Q" labelAlignment="LEFT">
@@ -922,7 +922,7 @@
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
         </ownedElements>
-        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_Cv2VwAZFEeaaIem6N3W_6Q" name="maxUserConstraint : EIntegerObject = 0" tooltipText="&#xA;ERROR : The required feature 'eAttributeType' of 'org.eclipse.emf.ecore.impl.EAttributeImpl@3de2c37c{platform:/resource/org.irisa.diverse.videogen/model/VideoGen.ecore#//VideoGen/newAttribute}' must be set&#xA;ERROR : The typed element must have a type">
+        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_Cv2VwAZFEeaaIem6N3W_6Q" name="maxUserConstraint : EIntegerObject = 0" tooltipText="">
           <target xmi:type="ecore:EAttribute" href="model/VideoGen.ecore#//VideoGen/maxUserConstraint"/>
           <semanticElements xmi:type="ecore:EAttribute" href="model/VideoGen.ecore#//VideoGen/maxUserConstraint"/>
           <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_GqKPMAZFEeaaIem6N3W_6Q" labelAlignment="LEFT">

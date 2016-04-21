@@ -28,25 +28,25 @@ import static extension org.irisa.diverse.videogen.videoGen.aspects.InitializeAs
 import java.util.logging.Logger
 import java.util.logging.FileHandler
 import java.util.logging.SimpleFormatter
-import org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenVarianteVisitor
-import org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenDurationVisitor
+import org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenContraintsMinMaxVisitor
 import org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenSetupVisitor
 import org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor
+import org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenVariantsVisitor
 
 @Aspect(className=VideoGen)
 class VideoGenAspect {
 
 	private VideoGenSetupVisitor setupVisitor = new VideoGenSetupVisitor()
-	private VideoGenVarianteVisitor variantsVisitor = new VideoGenVarianteVisitor()
-	private VideoGenDurationVisitor durationVisitor = new VideoGenDurationVisitor(false)
+	private VideoGenVariantsVisitor variantsVisitor = new VideoGenVariantsVisitor()
+	private VideoGenContraintsMinMaxVisitor durationVisitor = new VideoGenContraintsMinMaxVisitor(false)
 	private VideoGenUserContraintsVisitor userConstraintsVisitor = new VideoGenUserContraintsVisitor()
 	private long nanotimeStart = 0
 	private long nanotimeEnd = 0
-	protected static Logger log = Logger.getLogger("VideoGenUserContraintsVisitor")
+	protected static Logger log = Logger.getLogger("VideoGenAspect")
 
 	@Main
 	def void main() {
-		val FileHandler fh = new FileHandler("/tmp/" + _self.class.name + ".log")
+		val FileHandler fh = new FileHandler(_self.class.getResource("log/" + log.name + ".log").toString, false)
         val formatter = new SimpleFormatter();  
         fh.setFormatter(formatter);
 		log.addHandler(fh)
@@ -55,7 +55,7 @@ class VideoGenAspect {
 	
 	def private void updateMetadatas() {
 		// Variante initialization
-		_self.variantes = _self.variantsVisitor.visit(_self).variantes
+		_self.variantes = _self.variantsVisitor.visit(_self).variants
 	}
 	
 	def private void updateGlobalConstraints() {

@@ -6,11 +6,6 @@
   <models xmi:type="description:Group" href="platform:/plugin/org.irisa.diverse.videogen.xdsml.debug.design/description/VideoGenL.odesign#/"/>
   <models xmi:type="ecore:EPackage" href="platform:/plugin/org.irisa.diverse.videogen/model/VideoGen.ecore#/"/>
   <models xmi:type="ecore:EPackage" href="http://www.eclipse.org/emf/2002/Ecore#/"/>
-  <models xmi:type="videoGen:VideoGen" href="gemoc-gen/execution/execution-20160405_111835/sample.videogen#/"/>
-  <models xmi:type="videoGen:VideoGen" href="gemoc-gen/execution/execution-20160418_174141/sample.videogen#/"/>
-  <models xmi:type="videoGen:VideoGen" href="gemoc-gen/execution/execution-20160418_180714/sample.videogen#/"/>
-  <models xmi:type="videoGen:VideoGen" href="gemoc-gen/execution/execution-20160419_141057/sample.videogen#/"/>
-  <models xmi:type="videoGen:VideoGen" href="gemoc-gen/execution/execution-20160419_182817/sample.videogen#/"/>
   <ownedViews xmi:type="viewpoint:DRepresentationContainer" xmi:id="_0piZ0PKlEeW5X_bsb2hAMA" initialized="true">
     <ownedRepresentations xmi:type="diagram:DSemanticDiagram" xmi:id="_tJYYMAJVEeaIM-UKRq0ydQ" name="VideoGen1">
       <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_tJz2AAJVEeaIM-UKRq0ydQ" source="GMF_DIAGRAMS">
