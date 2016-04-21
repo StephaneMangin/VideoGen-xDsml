@@ -49,9 +49,9 @@ class VideoGenContraintsMinMaxVisitor extends LoggableVisitor {
 	}
 	
 	def private visit(Alternatives alt) {
-		var durations = alt.options.map[video.duration]
-		if (!selected) {
-			durations = alt.options.filter[video.selected].map[video.duration] as List<Integer>
+		var List<Integer> durations = alt.options.map[video.duration]
+		if (selected) {
+			durations = alt.options.filter[video.selected].map[video.duration].toList
 		}
 		minDuration += durations.min
 		maxDuration += durations.max

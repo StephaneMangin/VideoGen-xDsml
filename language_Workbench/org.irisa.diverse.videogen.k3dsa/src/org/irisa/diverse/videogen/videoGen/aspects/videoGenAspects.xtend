@@ -32,6 +32,9 @@ import org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenContraintsMi
 import org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenSetupVisitor
 import org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor
 import org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenVariantsVisitor
+import java.nio.file.Paths
+import org.eclipse.core.resources.ResourcesPlugin
+import org.irisa.diverse.videogen.transformations.helpers.SystemHelper
 
 @Aspect(className=VideoGen)
 class VideoGenAspect {
@@ -46,7 +49,11 @@ class VideoGenAspect {
 
 	@Main
 	def void main() {
-		val FileHandler fh = new FileHandler(_self.class.getResource("log/" + log.name + ".log").toString, false)
+		val workspacePath = Paths.get(ResourcesPlugin.workspace.root.projects.get(0).locationURI)
+		val logPath = Paths.get(workspacePath + "/log")
+		// Log is reset before use
+		SystemHelper.mkDirs(logPath)
+		val FileHandler fh = new FileHandler(logPath + "/" + log.name + ".log", false)
         val formatter = new SimpleFormatter();  
         fh.setFormatter(formatter);
 		log.addHandler(fh)

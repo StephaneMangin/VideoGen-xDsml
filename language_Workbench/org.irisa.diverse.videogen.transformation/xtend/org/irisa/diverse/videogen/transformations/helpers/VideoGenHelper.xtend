@@ -129,7 +129,7 @@ public class VideoGenHelper {
  	 * 
  	 */ 
     def static List<Video> allSelectedVideos(VideoGen videoGen) {
-        allActiveVideos(videoGen).filter[selected].map[it].toList
+        allActiveVideos(videoGen).filter[selected].toList
     }
     
  	/**
