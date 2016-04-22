@@ -23,7 +23,6 @@ import org.irisa.diverse.videogen.videoGen.VideoGenPackage;
  *   <li>{@link org.irisa.diverse.videogen.videoGen.impl.VideoImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link org.irisa.diverse.videogen.videoGen.impl.VideoImpl#getDuration <em>Duration</em>}</li>
  *   <li>{@link org.irisa.diverse.videogen.videoGen.impl.VideoImpl#getMimetype <em>Mimetype</em>}</li>
- *   <li>{@link org.irisa.diverse.videogen.videoGen.impl.VideoImpl#getSelected <em>Selected</em>}</li>
  * </ul>
  * </p>
  *
@@ -109,26 +108,6 @@ public class VideoImpl extends NamedElementImpl implements Video {
 	 * @ordered
 	 */
 	protected Mimetypes_Enum mimetype = MIMETYPE_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getSelected() <em>Selected</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSelected()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final Boolean SELECTED_EDEFAULT = Boolean.FALSE;
-
-	/**
-	 * The cached value of the '{@link #getSelected() <em>Selected</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSelected()
-	 * @generated
-	 * @ordered
-	 */
-	protected Boolean selected = SELECTED_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -238,27 +217,6 @@ public class VideoImpl extends NamedElementImpl implements Video {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Boolean getSelected() {
-		return selected;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setSelected(Boolean newSelected) {
-		Boolean oldSelected = selected;
-		selected = newSelected;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, VideoGenPackage.VIDEO__SELECTED, oldSelected, selected));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -270,8 +228,6 @@ public class VideoImpl extends NamedElementImpl implements Video {
 				return getDuration();
 			case VideoGenPackage.VIDEO__MIMETYPE:
 				return getMimetype();
-			case VideoGenPackage.VIDEO__SELECTED:
-				return getSelected();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -295,9 +251,6 @@ public class VideoImpl extends NamedElementImpl implements Video {
 				return;
 			case VideoGenPackage.VIDEO__MIMETYPE:
 				setMimetype((Mimetypes_Enum)newValue);
-				return;
-			case VideoGenPackage.VIDEO__SELECTED:
-				setSelected((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -323,9 +276,6 @@ public class VideoImpl extends NamedElementImpl implements Video {
 			case VideoGenPackage.VIDEO__MIMETYPE:
 				setMimetype(MIMETYPE_EDEFAULT);
 				return;
-			case VideoGenPackage.VIDEO__SELECTED:
-				setSelected(SELECTED_EDEFAULT);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -346,8 +296,6 @@ public class VideoImpl extends NamedElementImpl implements Video {
 				return DURATION_EDEFAULT == null ? duration != null : !DURATION_EDEFAULT.equals(duration);
 			case VideoGenPackage.VIDEO__MIMETYPE:
 				return mimetype != MIMETYPE_EDEFAULT;
-			case VideoGenPackage.VIDEO__SELECTED:
-				return SELECTED_EDEFAULT == null ? selected != null : !SELECTED_EDEFAULT.equals(selected);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -370,8 +318,6 @@ public class VideoImpl extends NamedElementImpl implements Video {
 		result.append(duration);
 		result.append(", mimetype: ");
 		result.append(mimetype);
-		result.append(", selected: ");
-		result.append(selected);
 		result.append(')');
 		return result.toString();
 	}

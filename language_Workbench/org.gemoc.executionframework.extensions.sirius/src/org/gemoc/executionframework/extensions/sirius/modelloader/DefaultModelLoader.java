@@ -75,6 +75,7 @@ public class DefaultModelLoader implements IModelLoader {
 		resource = resourceSet.createResource(context.getRunConfiguration().getExecutedModelURI());
 		try {
 			resource.load(null);
+			System.out.println("Resource loded : " + resource + " with context " + context);
 		} catch (IOException e) {
 			new RuntimeException(e);
 		}

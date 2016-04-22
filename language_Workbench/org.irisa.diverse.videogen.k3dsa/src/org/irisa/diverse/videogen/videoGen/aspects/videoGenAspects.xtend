@@ -123,7 +123,7 @@ class VideoGenAspect {
 		val videos = new HashMap
 		log.info("##### VideoGen '" + _self.name + "' start computation.")
 		//TODO: re-implement the initial IDM project model transformation. See master branch package 'fr.nemomen.utils'.
-		VideoGenHelper.allSelectedVideos(_self).forEach[video |
+		VideoGenHelper.allSequences(_self).filter[selected].map[video].forEach[video |
 			videos.put(video.name, true)
 		]
 
@@ -207,73 +207,14 @@ abstract class SequenceAspect extends TransitionAspect {
 
 @Aspect(className=Alternatives)
 class AlternativesAspect extends SequenceAspect {
-	
-	
-	/**
-	 * Return a hashmap with corrected probabilities for an Alternatives instance.
-	 * 
-	 * @author Stéphane Mangin <stephane.mangin@freesbee.fr>
-	 */
-	def static Map<Optional, Integer> checkProbabilities() {
-		val result = new HashMap<Optional, Integer>
-		var totalProb = 0
-		var totalProbLeft = 0
-		var totalOptions = 0
-		VideoGenAspect.log.info(_self.options.filter[active].toList.toString)
-		var inactivated = 0
-		for (option : _self.options) {
-			if (option.active) {
-				if (option.probability == 0) {
-					totalOptions++
-				}
-				totalProb += option.probability
-				result.put(option, option.probability)
-			} else {
-				inactivated++
-				totalProbLeft += option.probability
-			}
-		}
-		if (result.size != 0) {
-			if (result.size == 1) {
-				result.replace(result.keySet.get(0), 100)
-			} else if (inactivated != 0) {
-				for (name : result.keySet) {
-					val percentageLeft = totalProbLeft / inactivated
-					result.put(name, result.get(name) + percentageLeft)
-				}
-			} else {
-				for (name : result.keySet) {
-					if (result.get(name) == 0) {
-						val percentageLeft = (100 - totalProb) / totalOptions
-						result.put(name, percentageLeft)
-					}
-				}
-			}
-		}
-		result
-	}
-
-	/**
- 	 * Process options to find the selectable video
- 	 * 
- 	 */
-	def private Video selectVideo() {
-
-		val drng = new DistributedRandomNumberGenerator()
-		val checkedProbabilities = _self.checkProbabilities()
-		if (checkedProbabilities.empty) {
-			return null
-		}
-		checkedProbabilities.forEach[option, proba|
-			drng.addNumber(checkedProbabilities.keySet.toList.indexOf(option), proba)
-		] 
-		checkedProbabilities.keySet.get(drng.getDistributedRandomNumber()).video
-	}
 
 	@Step
 	@OverrideAspectMethod
 	def public void execute(VideoGen videoGen) {
-		_self.video = _self.selectVideo
+		val selectedOption = VideoGenHelper.selectOption(_self)
+		selectedOption.video.select
+		selectedOption.selected = true
+		_self.video = selectedOption.video
 		if (_self.video != null) {
 			_self.video.select
 			// Manage optional next sequence
@@ -298,6 +239,7 @@ class MandatoryAspect extends SequenceAspect {
 	@OverrideAspectMethod
 	def public void execute(VideoGen videoGen) {
 		_self.video.select
+		_self.selected = true
 		_self.super_execute(videoGen)
 	}
 }
@@ -332,6 +274,7 @@ class OptionalAspect extends SequenceAspect {
 	def public void execute(VideoGen videoGen) {
 		if (_self.isSelected()) {
 			_self.video.select
+			_self.selected = true
 		}
 		_self.super_execute(videoGen)
 	}
@@ -372,9 +315,7 @@ class GenerateAspect extends TransitionAspect {
 
 @Aspect(className=Video)
 class VideoAspect {
-	
-	public Boolean selected = false
-		
+			
 	/**
 	 * Select this video and apply any of needed operations (conversion or rename for example)
 	 * 
@@ -382,7 +323,6 @@ class VideoAspect {
 	@Step
 	def public void select() {
 		VideoGenAspect.log.info("##### Video '" + _self.name + "' has been selected.")
-		_self.selected = true
 	}
 }
 

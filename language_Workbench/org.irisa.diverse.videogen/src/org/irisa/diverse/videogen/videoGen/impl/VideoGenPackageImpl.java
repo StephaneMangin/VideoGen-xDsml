@@ -7,8 +7,8 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-
 import org.eclipse.emf.ecore.EValidator;
+
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import org.irisa.diverse.videogen.videoGen.Alternatives;
@@ -25,6 +25,7 @@ import org.irisa.diverse.videogen.videoGen.Video;
 import org.irisa.diverse.videogen.videoGen.VideoGen;
 import org.irisa.diverse.videogen.videoGen.VideoGenFactory;
 import org.irisa.diverse.videogen.videoGen.VideoGenPackage;
+
 import org.irisa.diverse.videogen.videoGen.util.VideoGenValidator;
 
 /**
@@ -310,6 +311,15 @@ public class VideoGenPackageImpl extends EPackageImpl implements VideoGenPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getTransition_Selected() {
+		return (EAttribute)transitionEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getNamedElement() {
 		return namedElementEClass;
 	}
@@ -384,15 +394,6 @@ public class VideoGenPackageImpl extends EPackageImpl implements VideoGenPackage
 	 */
 	public EAttribute getVideo_Mimetype() {
 		return (EAttribute)videoEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getVideo_Selected() {
-		return (EAttribute)videoEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -511,6 +512,7 @@ public class VideoGenPackageImpl extends EPackageImpl implements VideoGenPackage
 		transitionEClass = createEClass(TRANSITION);
 		createEReference(transitionEClass, TRANSITION__NEXT_TRANSITION);
 		createEAttribute(transitionEClass, TRANSITION__ACTIVE);
+		createEAttribute(transitionEClass, TRANSITION__SELECTED);
 
 		namedElementEClass = createEClass(NAMED_ELEMENT);
 		createEAttribute(namedElementEClass, NAMED_ELEMENT__NAME);
@@ -523,7 +525,6 @@ public class VideoGenPackageImpl extends EPackageImpl implements VideoGenPackage
 		createEAttribute(videoEClass, VIDEO__DESCRIPTION);
 		createEAttribute(videoEClass, VIDEO__DURATION);
 		createEAttribute(videoEClass, VIDEO__MIMETYPE);
-		createEAttribute(videoEClass, VIDEO__SELECTED);
 
 		alternativesEClass = createEClass(ALTERNATIVES);
 		createEReference(alternativesEClass, ALTERNATIVES__OPTIONS);
@@ -596,6 +597,7 @@ public class VideoGenPackageImpl extends EPackageImpl implements VideoGenPackage
 		initEClass(transitionEClass, Transition.class, "Transition", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getTransition_NextTransition(), this.getTransition(), null, "nextTransition", null, 0, 1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTransition_Active(), ecorePackage.getEBooleanObject(), "active", "true", 1, 1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTransition_Selected(), ecorePackage.getEBooleanObject(), "selected", "false", 1, 1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(namedElementEClass, NamedElement.class, "NamedElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getNamedElement_Name(), ecorePackage.getEString(), "name", null, 1, 1, NamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -608,7 +610,6 @@ public class VideoGenPackageImpl extends EPackageImpl implements VideoGenPackage
 		initEAttribute(getVideo_Description(), ecorePackage.getEString(), "description", null, 1, 1, Video.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getVideo_Duration(), ecorePackage.getEIntegerObject(), "duration", "0", 1, 1, Video.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getVideo_Mimetype(), this.getMimetypes_Enum(), "mimetype", null, 1, 1, Video.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getVideo_Selected(), ecorePackage.getEBooleanObject(), "selected", "false", 1, 1, Video.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(alternativesEClass, Alternatives.class, "Alternatives", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getAlternatives_Options(), this.getOptional(), null, "options", null, 2, -1, Alternatives.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

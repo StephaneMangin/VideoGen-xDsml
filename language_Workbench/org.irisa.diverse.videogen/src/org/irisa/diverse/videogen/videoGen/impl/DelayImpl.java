@@ -22,6 +22,7 @@ import org.irisa.diverse.videogen.videoGen.VideoGenPackage;
  * <ul>
  *   <li>{@link org.irisa.diverse.videogen.videoGen.impl.DelayImpl#getNextTransition <em>Next Transition</em>}</li>
  *   <li>{@link org.irisa.diverse.videogen.videoGen.impl.DelayImpl#getActive <em>Active</em>}</li>
+ *   <li>{@link org.irisa.diverse.videogen.videoGen.impl.DelayImpl#getSelected <em>Selected</em>}</li>
  *   <li>{@link org.irisa.diverse.videogen.videoGen.impl.DelayImpl#getValue <em>Value</em>}</li>
  * </ul>
  * </p>
@@ -58,6 +59,26 @@ public class DelayImpl extends NamedElementImpl implements Delay {
 	 * @ordered
 	 */
 	protected Boolean active = ACTIVE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getSelected() <em>Selected</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSelected()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Boolean SELECTED_EDEFAULT = Boolean.FALSE;
+
+	/**
+	 * The cached value of the '{@link #getSelected() <em>Selected</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSelected()
+	 * @generated
+	 * @ordered
+	 */
+	protected Boolean selected = SELECTED_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
@@ -162,6 +183,27 @@ public class DelayImpl extends NamedElementImpl implements Delay {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Boolean getSelected() {
+		return selected;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSelected(Boolean newSelected) {
+		Boolean oldSelected = selected;
+		selected = newSelected;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, VideoGenPackage.DELAY__SELECTED, oldSelected, selected));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Integer getValue() {
 		return value;
 	}
@@ -191,6 +233,8 @@ public class DelayImpl extends NamedElementImpl implements Delay {
 				return basicGetNextTransition();
 			case VideoGenPackage.DELAY__ACTIVE:
 				return getActive();
+			case VideoGenPackage.DELAY__SELECTED:
+				return getSelected();
 			case VideoGenPackage.DELAY__VALUE:
 				return getValue();
 		}
@@ -210,6 +254,9 @@ public class DelayImpl extends NamedElementImpl implements Delay {
 				return;
 			case VideoGenPackage.DELAY__ACTIVE:
 				setActive((Boolean)newValue);
+				return;
+			case VideoGenPackage.DELAY__SELECTED:
+				setSelected((Boolean)newValue);
 				return;
 			case VideoGenPackage.DELAY__VALUE:
 				setValue((Integer)newValue);
@@ -232,6 +279,9 @@ public class DelayImpl extends NamedElementImpl implements Delay {
 			case VideoGenPackage.DELAY__ACTIVE:
 				setActive(ACTIVE_EDEFAULT);
 				return;
+			case VideoGenPackage.DELAY__SELECTED:
+				setSelected(SELECTED_EDEFAULT);
+				return;
 			case VideoGenPackage.DELAY__VALUE:
 				setValue(VALUE_EDEFAULT);
 				return;
@@ -251,6 +301,8 @@ public class DelayImpl extends NamedElementImpl implements Delay {
 				return nextTransition != null;
 			case VideoGenPackage.DELAY__ACTIVE:
 				return ACTIVE_EDEFAULT == null ? active != null : !ACTIVE_EDEFAULT.equals(active);
+			case VideoGenPackage.DELAY__SELECTED:
+				return SELECTED_EDEFAULT == null ? selected != null : !SELECTED_EDEFAULT.equals(selected);
 			case VideoGenPackage.DELAY__VALUE:
 				return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
 		}
@@ -269,6 +321,8 @@ public class DelayImpl extends NamedElementImpl implements Delay {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (active: ");
 		result.append(active);
+		result.append(", selected: ");
+		result.append(selected);
 		result.append(", value: ");
 		result.append(value);
 		result.append(')');

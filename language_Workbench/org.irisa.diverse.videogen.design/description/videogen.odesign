@@ -364,7 +364,7 @@
       </defaultLayer>
       <additionalLayers name="Animator" activeByDefault="true">
         <customization>
-          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="[self.video.selected /]">
+          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="[self.selected /]">
             <featureCustomizations xsi:type="description:EReferenceCustomization" appliedOn="//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGen']/@subNodeMappings[name='Optional']/@style //@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGen']/@subContainerMappings[name='Alternative']/@subNodeMappings[name='OptionSub']/@style" referenceName="color">
               <value href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
             </featureCustomizations>

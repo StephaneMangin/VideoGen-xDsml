@@ -96,7 +96,9 @@ public enum Mimetypes_Enum implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	AVI(7, "avi", "avi"), /**
+	AVI(7, "avi", "avi"),
+
+	/**
 	 * The '<em><b>Mov</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

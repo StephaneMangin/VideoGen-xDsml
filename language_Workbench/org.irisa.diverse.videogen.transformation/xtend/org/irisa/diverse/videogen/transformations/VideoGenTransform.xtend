@@ -156,35 +156,6 @@ import org.irisa.diverse.videogen.transformations.strategies.JaveStrategyImpl
 	 * 
  	 * TODO: somethings should be done better... But what ?
  	 */ 
-    def static ConvertTo(Mimetypes_Enum type, VideoGen videogen){
-   		LOGGER.info("Convertion " + videogen + "=>" + type)
-    	val codec = VideoCodec.getByFormat(type.getName)
-		val pathes = Lists.newArrayList
-		val dir = Paths.get(tmp + "/" + "converted" + "/" + type.getName + "/")
-		SystemHelper.mkDirs(dir)
-        VideoGenHelper.allSelectedVideos(videogen).forEach[video |
-			
-			val fullPath = Paths.get(video.url)
-			val extention = getFileExtension(fullPath.fileName.toString)
-			val newFullPathName = Paths.get(dir + "/" + fullPath.fileName.toString.replaceAll("." + extention, "." + codec.extention))
-			pathes.add(newFullPathName)
-			VideosHelper.convert(fullPath, newFullPathName, codec)
-			video.url = newFullPathName.toAbsolutePath.toString
-			video.mimetype = type
-        ]
-        pathes
-    }
-    
- 	/**
- 	 * Convert VideoGen Sequence url videos to the given mime type.
- 	 * Use of VideoGenHelper helper class 
- 	 * 
-	 * @author Stéphane Mangin <stephane.mangin@freesbee.fr>
- 	 * @see VideoGenHelper#mkDirs(Path)
- 	 * @see VideoGenHelper#convert(Path, Path, String)
-	 * 
- 	 * TODO: somethings should be done better... But what ?
- 	 */ 
     def static ConvertTo(Mimetypes_Enum type, Video video){
    		LOGGER.info("Convertion " + video + "=>" + type)
     	val codec = VideoCodec.getByFormat(type.getName)
@@ -250,25 +221,13 @@ import org.irisa.diverse.videogen.transformations.strategies.JaveStrategyImpl
         val playlistFactory = PlayListFactoryImpl.init()
         val playlist = playlistFactory.createPlayList()
         
-        VideoGenHelper.allActiveSequences(videogen).forEach[sequence |
-			var Video video = null
-			if(sequence instanceof Mandatory) {
-				video = sequence.video
-			} else if(sequence instanceof Optional) {
-				if(isSelected(sequence)){
-					video = sequence.video
-				}
-			} else if (sequence instanceof Alternatives) {
-				video = selectSequence(sequence)
+        VideoGenHelper.allSelectedVideos(videogen).forEach[
+			val p_video = playlistFactory.createVideo()
+			transferData(p_video, it)
+			if (withThumbnail) {
+				p_video.thumbnail = createThumbnails(it).toAbsolutePath.toString
 			}
-			if (video != null) {
-				val p_video = playlistFactory.createVideo()
-				transferData(p_video, video)
-				if (withThumbnail) {
-					p_video.thumbnail = createThumbnails(video).toAbsolutePath.toString
-				}
-				playlist.video.add(p_video)
-			}
+			playlist.video.add(p_video)
         ]
         playlist
     }
@@ -292,7 +251,7 @@ import org.irisa.diverse.videogen.transformations.strategies.JaveStrategyImpl
         val playlistFactory = PlayListFactoryImpl.init()
         val playlist = playlistFactory.createPlayList()
 
-        VideoGenHelper.allActiveSequences(videogen).forEach[sequence |
+        VideoGenHelper.allSequences(videogen).filter[active].filter[selected].forEach[sequence |
 			var Video video = null
 			
 			if(sequence instanceof Mandatory) {

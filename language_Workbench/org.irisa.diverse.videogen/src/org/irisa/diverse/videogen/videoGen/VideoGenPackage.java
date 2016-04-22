@@ -134,13 +134,22 @@ public interface VideoGenPackage extends EPackage {
 	int TRANSITION__ACTIVE = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Selected</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANSITION__SELECTED = NAMED_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Transition</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TRANSITION_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 2;
+	int TRANSITION_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Transition</em>' class.
@@ -187,6 +196,15 @@ public interface VideoGenPackage extends EPackage {
 	 * @ordered
 	 */
 	int SEQUENCE__ACTIVE = TRANSITION__ACTIVE;
+
+	/**
+	 * The feature id for the '<em><b>Selected</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEQUENCE__SELECTED = TRANSITION__SELECTED;
 
 	/**
 	 * The feature id for the '<em><b>Video</b></em>' reference.
@@ -253,6 +271,15 @@ public interface VideoGenPackage extends EPackage {
 	int MANDATORY__ACTIVE = SEQUENCE__ACTIVE;
 
 	/**
+	 * The feature id for the '<em><b>Selected</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MANDATORY__SELECTED = SEQUENCE__SELECTED;
+
+	/**
 	 * The feature id for the '<em><b>Video</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -315,6 +342,15 @@ public interface VideoGenPackage extends EPackage {
 	 * @ordered
 	 */
 	int INITIALIZE__ACTIVE = TRANSITION__ACTIVE;
+
+	/**
+	 * The feature id for the '<em><b>Selected</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INITIALIZE__SELECTED = TRANSITION__SELECTED;
 
 	/**
 	 * The number of structural features of the '<em>Initialize</em>' class.
@@ -472,6 +508,15 @@ public interface VideoGenPackage extends EPackage {
 	int OPTIONAL__ACTIVE = SEQUENCE__ACTIVE;
 
 	/**
+	 * The feature id for the '<em><b>Selected</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPTIONAL__SELECTED = SEQUENCE__SELECTED;
+
+	/**
 	 * The feature id for the '<em><b>Video</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -563,22 +608,13 @@ public interface VideoGenPackage extends EPackage {
 	int VIDEO__MIMETYPE = NAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Selected</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VIDEO__SELECTED = NAMED_ELEMENT_FEATURE_COUNT + 4;
-
-	/**
 	 * The number of structural features of the '<em>Video</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VIDEO_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 5;
+	int VIDEO_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Video</em>' class.
@@ -625,6 +661,15 @@ public interface VideoGenPackage extends EPackage {
 	 * @ordered
 	 */
 	int ALTERNATIVES__ACTIVE = SEQUENCE__ACTIVE;
+
+	/**
+	 * The feature id for the '<em><b>Selected</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALTERNATIVES__SELECTED = SEQUENCE__SELECTED;
 
 	/**
 	 * The feature id for the '<em><b>Video</b></em>' reference.
@@ -700,6 +745,15 @@ public interface VideoGenPackage extends EPackage {
 	int GENERATE__ACTIVE = TRANSITION__ACTIVE;
 
 	/**
+	 * The feature id for the '<em><b>Selected</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATE__SELECTED = TRANSITION__SELECTED;
+
+	/**
 	 * The number of structural features of the '<em>Generate</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -753,6 +807,15 @@ public interface VideoGenPackage extends EPackage {
 	 * @ordered
 	 */
 	int DELAY__ACTIVE = TRANSITION__ACTIVE;
+
+	/**
+	 * The feature id for the '<em><b>Selected</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DELAY__SELECTED = TRANSITION__SELECTED;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -932,6 +995,17 @@ public interface VideoGenPackage extends EPackage {
 	EAttribute getTransition_Active();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.irisa.diverse.videogen.videoGen.Transition#getSelected <em>Selected</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Selected</em>'.
+	 * @see org.irisa.diverse.videogen.videoGen.Transition#getSelected()
+	 * @see #getTransition()
+	 * @generated
+	 */
+	EAttribute getTransition_Selected();
+
+	/**
 	 * Returns the meta object for class '{@link org.irisa.diverse.videogen.videoGen.NamedElement <em>Named Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1026,17 +1100,6 @@ public interface VideoGenPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getVideo_Mimetype();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.irisa.diverse.videogen.videoGen.Video#getSelected <em>Selected</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Selected</em>'.
-	 * @see org.irisa.diverse.videogen.videoGen.Video#getSelected()
-	 * @see #getVideo()
-	 * @generated
-	 */
-	EAttribute getVideo_Selected();
 
 	/**
 	 * Returns the meta object for class '{@link org.irisa.diverse.videogen.videoGen.Alternatives <em>Alternatives</em>}'.
@@ -1257,6 +1320,14 @@ public interface VideoGenPackage extends EPackage {
 		EAttribute TRANSITION__ACTIVE = eINSTANCE.getTransition_Active();
 
 		/**
+		 * The meta object literal for the '<em><b>Selected</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TRANSITION__SELECTED = eINSTANCE.getTransition_Selected();
+
+		/**
 		 * The meta object literal for the '{@link org.irisa.diverse.videogen.videoGen.impl.NamedElementImpl <em>Named Element</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1333,14 +1404,6 @@ public interface VideoGenPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute VIDEO__MIMETYPE = eINSTANCE.getVideo_Mimetype();
-
-		/**
-		 * The meta object literal for the '<em><b>Selected</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute VIDEO__SELECTED = eINSTANCE.getVideo_Selected();
 
 		/**
 		 * The meta object literal for the '{@link org.irisa.diverse.videogen.videoGen.impl.AlternativesImpl <em>Alternatives</em>}' class.

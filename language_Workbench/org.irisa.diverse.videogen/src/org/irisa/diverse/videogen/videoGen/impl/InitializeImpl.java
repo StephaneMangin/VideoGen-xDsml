@@ -22,6 +22,7 @@ import org.irisa.diverse.videogen.videoGen.VideoGenPackage;
  * <ul>
  *   <li>{@link org.irisa.diverse.videogen.videoGen.impl.InitializeImpl#getNextTransition <em>Next Transition</em>}</li>
  *   <li>{@link org.irisa.diverse.videogen.videoGen.impl.InitializeImpl#getActive <em>Active</em>}</li>
+ *   <li>{@link org.irisa.diverse.videogen.videoGen.impl.InitializeImpl#getSelected <em>Selected</em>}</li>
  * </ul>
  * </p>
  *
@@ -57,6 +58,26 @@ public class InitializeImpl extends NamedElementImpl implements Initialize {
 	 * @ordered
 	 */
 	protected Boolean active = ACTIVE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getSelected() <em>Selected</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSelected()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Boolean SELECTED_EDEFAULT = Boolean.FALSE;
+
+	/**
+	 * The cached value of the '{@link #getSelected() <em>Selected</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSelected()
+	 * @generated
+	 * @ordered
+	 */
+	protected Boolean selected = SELECTED_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -141,6 +162,27 @@ public class InitializeImpl extends NamedElementImpl implements Initialize {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Boolean getSelected() {
+		return selected;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSelected(Boolean newSelected) {
+		Boolean oldSelected = selected;
+		selected = newSelected;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, VideoGenPackage.INITIALIZE__SELECTED, oldSelected, selected));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -149,6 +191,8 @@ public class InitializeImpl extends NamedElementImpl implements Initialize {
 				return basicGetNextTransition();
 			case VideoGenPackage.INITIALIZE__ACTIVE:
 				return getActive();
+			case VideoGenPackage.INITIALIZE__SELECTED:
+				return getSelected();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -166,6 +210,9 @@ public class InitializeImpl extends NamedElementImpl implements Initialize {
 				return;
 			case VideoGenPackage.INITIALIZE__ACTIVE:
 				setActive((Boolean)newValue);
+				return;
+			case VideoGenPackage.INITIALIZE__SELECTED:
+				setSelected((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -185,6 +232,9 @@ public class InitializeImpl extends NamedElementImpl implements Initialize {
 			case VideoGenPackage.INITIALIZE__ACTIVE:
 				setActive(ACTIVE_EDEFAULT);
 				return;
+			case VideoGenPackage.INITIALIZE__SELECTED:
+				setSelected(SELECTED_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -201,6 +251,8 @@ public class InitializeImpl extends NamedElementImpl implements Initialize {
 				return nextTransition != null;
 			case VideoGenPackage.INITIALIZE__ACTIVE:
 				return ACTIVE_EDEFAULT == null ? active != null : !ACTIVE_EDEFAULT.equals(active);
+			case VideoGenPackage.INITIALIZE__SELECTED:
+				return SELECTED_EDEFAULT == null ? selected != null : !SELECTED_EDEFAULT.equals(selected);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -217,6 +269,8 @@ public class InitializeImpl extends NamedElementImpl implements Initialize {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (active: ");
 		result.append(active);
+		result.append(", selected: ");
+		result.append(selected);
 		result.append(')');
 		return result.toString();
 	}

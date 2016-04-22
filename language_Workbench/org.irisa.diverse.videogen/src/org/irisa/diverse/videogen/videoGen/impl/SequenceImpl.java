@@ -23,6 +23,7 @@ import org.irisa.diverse.videogen.videoGen.VideoGenPackage;
  * <ul>
  *   <li>{@link org.irisa.diverse.videogen.videoGen.impl.SequenceImpl#getNextTransition <em>Next Transition</em>}</li>
  *   <li>{@link org.irisa.diverse.videogen.videoGen.impl.SequenceImpl#getActive <em>Active</em>}</li>
+ *   <li>{@link org.irisa.diverse.videogen.videoGen.impl.SequenceImpl#getSelected <em>Selected</em>}</li>
  *   <li>{@link org.irisa.diverse.videogen.videoGen.impl.SequenceImpl#getVideo <em>Video</em>}</li>
  * </ul>
  * </p>
@@ -59,6 +60,26 @@ public abstract class SequenceImpl extends NamedElementImpl implements Sequence 
 	 * @ordered
 	 */
 	protected Boolean active = ACTIVE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getSelected() <em>Selected</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSelected()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Boolean SELECTED_EDEFAULT = Boolean.FALSE;
+
+	/**
+	 * The cached value of the '{@link #getSelected() <em>Selected</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSelected()
+	 * @generated
+	 * @ordered
+	 */
+	protected Boolean selected = SELECTED_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getVideo() <em>Video</em>}' reference.
@@ -153,6 +174,27 @@ public abstract class SequenceImpl extends NamedElementImpl implements Sequence 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Boolean getSelected() {
+		return selected;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSelected(Boolean newSelected) {
+		Boolean oldSelected = selected;
+		selected = newSelected;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, VideoGenPackage.SEQUENCE__SELECTED, oldSelected, selected));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Video getVideo() {
 		if (video != null && video.eIsProxy()) {
 			InternalEObject oldVideo = (InternalEObject)video;
@@ -199,6 +241,8 @@ public abstract class SequenceImpl extends NamedElementImpl implements Sequence 
 				return basicGetNextTransition();
 			case VideoGenPackage.SEQUENCE__ACTIVE:
 				return getActive();
+			case VideoGenPackage.SEQUENCE__SELECTED:
+				return getSelected();
 			case VideoGenPackage.SEQUENCE__VIDEO:
 				if (resolve) return getVideo();
 				return basicGetVideo();
@@ -219,6 +263,9 @@ public abstract class SequenceImpl extends NamedElementImpl implements Sequence 
 				return;
 			case VideoGenPackage.SEQUENCE__ACTIVE:
 				setActive((Boolean)newValue);
+				return;
+			case VideoGenPackage.SEQUENCE__SELECTED:
+				setSelected((Boolean)newValue);
 				return;
 			case VideoGenPackage.SEQUENCE__VIDEO:
 				setVideo((Video)newValue);
@@ -241,6 +288,9 @@ public abstract class SequenceImpl extends NamedElementImpl implements Sequence 
 			case VideoGenPackage.SEQUENCE__ACTIVE:
 				setActive(ACTIVE_EDEFAULT);
 				return;
+			case VideoGenPackage.SEQUENCE__SELECTED:
+				setSelected(SELECTED_EDEFAULT);
+				return;
 			case VideoGenPackage.SEQUENCE__VIDEO:
 				setVideo((Video)null);
 				return;
@@ -260,6 +310,8 @@ public abstract class SequenceImpl extends NamedElementImpl implements Sequence 
 				return nextTransition != null;
 			case VideoGenPackage.SEQUENCE__ACTIVE:
 				return ACTIVE_EDEFAULT == null ? active != null : !ACTIVE_EDEFAULT.equals(active);
+			case VideoGenPackage.SEQUENCE__SELECTED:
+				return SELECTED_EDEFAULT == null ? selected != null : !SELECTED_EDEFAULT.equals(selected);
 			case VideoGenPackage.SEQUENCE__VIDEO:
 				return video != null;
 		}
@@ -278,6 +330,8 @@ public abstract class SequenceImpl extends NamedElementImpl implements Sequence 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (active: ");
 		result.append(active);
+		result.append(", selected: ");
+		result.append(selected);
 		result.append(')');
 		return result.toString();
 	}

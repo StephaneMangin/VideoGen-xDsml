@@ -47,6 +47,7 @@ public class GenerateItemProvider extends NamedElementItemProvider {
 
 			addNextTransitionPropertyDescriptor(object);
 			addActivePropertyDescriptor(object);
+			addSelectedPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -96,6 +97,28 @@ public class GenerateItemProvider extends NamedElementItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Selected feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSelectedPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Transition_selected_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Transition_selected_feature", "_UI_Transition_type"),
+				 VideoGenPackage.Literals.TRANSITION__SELECTED,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns Generate.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -134,6 +157,7 @@ public class GenerateItemProvider extends NamedElementItemProvider {
 
 		switch (notification.getFeatureID(Generate.class)) {
 			case VideoGenPackage.GENERATE__ACTIVE:
+			case VideoGenPackage.GENERATE__SELECTED:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

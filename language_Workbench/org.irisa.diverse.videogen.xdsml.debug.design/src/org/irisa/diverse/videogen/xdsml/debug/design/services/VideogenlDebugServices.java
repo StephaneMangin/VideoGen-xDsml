@@ -6,7 +6,9 @@ import java.util.List;
 import org.eclipse.emf.ecore.EObject;
 import org.gemoc.executionframework.extensions.sirius.services.AbstractGemocDebuggerServices;
 import org.irisa.diverse.videogen.videoGen.Optional;
+import org.irisa.diverse.videogen.videoGen.Transition;
 import org.irisa.diverse.videogen.videoGen.VideoGen;
+import org.irisa.diverse.videogen.videoGen.aspects.TransitionAspect;
 
 public class VideogenlDebugServices extends AbstractGemocDebuggerServices {
 
@@ -35,9 +37,9 @@ public class VideogenlDebugServices extends AbstractGemocDebuggerServices {
 	 * @return <code>true</code> if the given {@link EObject instruction} is a
 	 *         currently selected sequence, <code>false</code> otherwise
 	 */
-	public boolean isSelectedSequence(EObject instruction) {
-		if (instruction instanceof Optional) {
-			return ((Optional) instruction).getVideo().getSelected();
+	public boolean isSelected(EObject instruction) {
+		if (instruction instanceof Transition) {
+			return ((Transition) instruction).getSelected();
 		}
 		return false;
 	}

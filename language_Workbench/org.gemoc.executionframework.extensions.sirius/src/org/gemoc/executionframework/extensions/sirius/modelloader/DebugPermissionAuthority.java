@@ -16,12 +16,16 @@ import java.util.Map;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.ecore.extender.business.api.permission.IAuthorityListener;
 import org.eclipse.sirius.ecore.extender.business.api.permission.LockStatus;
 import org.eclipse.sirius.ecore.extender.business.internal.permission.AbstractPermissionAuthority;
+import org.gemoc.executionframework.extensions.sirius.debug.DebugSessionFactory;
 import org.gemoc.xdsmlframework.api.core.IExecutionCheckpoint;
 
 @SuppressWarnings("restriction")
@@ -136,16 +140,19 @@ public class DebugPermissionAuthority extends AbstractPermissionAuthority
 
 	@Override
 	public void notifyInstanceChange(EObject instance) {
+		System.out.println("notifyInstanceChange = " + instance);
 		// nothing to do here
 	}
 
 	@Override
 	public void notifyNewInstanceCreation(EObject instance) {
+		System.out.println("notifyNewInstanceCreation = " + instance);
 		// nothing to do here
 	}
 
 	@Override
 	public void notifyInstanceDeletion(EObject instance) {
+		System.out.println("notifyInstanceDeletion = " + instance);
 		// nothing to do here
 	}
 

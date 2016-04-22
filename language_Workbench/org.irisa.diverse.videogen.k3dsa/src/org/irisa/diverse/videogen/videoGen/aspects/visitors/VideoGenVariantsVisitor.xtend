@@ -12,7 +12,7 @@ class VideoGenVariantsVisitor {
 		
 	def VideoGenVariantsVisitor visit(VideoGen vid) {
 		println("VideoGen Variants Visitor started...")
-		VideoGenHelper.allActiveSequences(vid).forEach[visit]
+		VideoGenHelper.allSequences(vid).forEach[visit]
 		this
 	}
 	

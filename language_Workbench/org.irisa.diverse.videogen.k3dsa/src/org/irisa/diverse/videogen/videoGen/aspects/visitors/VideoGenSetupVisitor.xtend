@@ -21,13 +21,13 @@ class VideoGenSetupVisitor extends LoggableVisitor {
 	}
 	
 	def private visit(Transition tra) {
+		tra.selected = false
 		TransitionAspect.done(tra, false)
 		TransitionAspect.videoGen(tra, videoGen)
 	}
 	
 	def private visit(Video video) {
 		log.info(video.toString)
-		video.selected = false
 		if (!video.url.startsWith("/")) {
 			val prefix = ResourcesPlugin.workspace.root.projects.get(0).locationURI.toString.replace("file:", "")
 			val newPath = prefix + "/" + video.url

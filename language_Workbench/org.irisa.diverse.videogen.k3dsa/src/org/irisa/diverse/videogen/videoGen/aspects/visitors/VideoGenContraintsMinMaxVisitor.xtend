@@ -8,6 +8,7 @@ import org.irisa.diverse.videogen.videoGen.Optional
 import org.irisa.diverse.videogen.videoGen.Sequence
 import org.irisa.diverse.videogen.videoGen.VideoGen
 import org.irisa.diverse.videogen.videoGen.aspects.utils.LoggableVisitor
+import org.irisa.diverse.videogen.videoGen.aspects.OptionalAspect
 
 class VideoGenContraintsMinMaxVisitor extends LoggableVisitor {
 	
@@ -24,7 +25,7 @@ class VideoGenContraintsMinMaxVisitor extends LoggableVisitor {
 	
 	def VideoGenContraintsMinMaxVisitor visit(VideoGen vid) {
 		log.info("VideoGen Constraints Min Max Visitor started...")
-		VideoGenHelper.allActiveSequences(vid).forEach[visit]
+		VideoGenHelper.allSequences(vid).forEach[visit]
 		this
 	}
 	
@@ -51,14 +52,14 @@ class VideoGenContraintsMinMaxVisitor extends LoggableVisitor {
 	def private visit(Alternatives alt) {
 		var List<Integer> durations = alt.options.map[video.duration]
 		if (selected) {
-			durations = alt.options.filter[video.selected].map[video.duration].toList
+			durations = alt.options.filter[selected].map[video.duration].toList
 		}
 		minDuration += durations.min
 		maxDuration += durations.max
 	}
 	
 	def private visit(Optional opt) {
-		if (selected && opt.video.selected) {
+		if (selected && opt.selected) {
 			minDuration += opt.video.duration
 		}
 		maxDuration += opt.video.duration

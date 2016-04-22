@@ -47,6 +47,7 @@ public class DelayItemProvider extends NamedElementItemProvider {
 
 			addNextTransitionPropertyDescriptor(object);
 			addActivePropertyDescriptor(object);
+			addSelectedPropertyDescriptor(object);
 			addValuePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -88,6 +89,28 @@ public class DelayItemProvider extends NamedElementItemProvider {
 				 getString("_UI_Transition_active_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Transition_active_feature", "_UI_Transition_type"),
 				 VideoGenPackage.Literals.TRANSITION__ACTIVE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Selected feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSelectedPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Transition_selected_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Transition_selected_feature", "_UI_Transition_type"),
+				 VideoGenPackage.Literals.TRANSITION__SELECTED,
 				 true,
 				 false,
 				 false,
@@ -157,6 +180,7 @@ public class DelayItemProvider extends NamedElementItemProvider {
 
 		switch (notification.getFeatureID(Delay.class)) {
 			case VideoGenPackage.DELAY__ACTIVE:
+			case VideoGenPackage.DELAY__SELECTED:
 			case VideoGenPackage.DELAY__VALUE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
