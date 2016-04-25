@@ -211,6 +211,10 @@ class AlternativesAspect extends SequenceAspect {
 	@Step
 	@OverrideAspectMethod
 	def public void execute(VideoGen videoGen) {
+		// Selected is always true on Alternatives sequences
+		// Optional could be linked together for alterantives management
+		// A bind relation could be used to replace this data structure (maybe without common sense)
+		_self.selected = true
 		val selectedOption = VideoGenHelper.selectOption(_self)
 		selectedOption.video.select
 		selectedOption.selected = true

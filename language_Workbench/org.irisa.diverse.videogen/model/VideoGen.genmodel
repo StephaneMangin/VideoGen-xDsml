@@ -1,60 +1,127 @@
 <?xml version="1.0" encoding="ASCII"?>
-<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
-    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.irisa.diverse.videogen/src" modelPluginID="org.irisa.diverse.videogen"
-    modelName="VideoGen" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
-    importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0" copyrightFields="false"
-    language="" operationReflection="true" importOrganizing="true">
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.irisa.diverse.videogen/src" modelPluginID="org.irisa.diverse.videogen" modelName="VideoGen" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0" copyrightFields="false" language="" operationReflection="true" importOrganizing="true">
   <foreignModel>VideoGen.ecore</foreignModel>
-  <genPackages prefix="VideoGen" basePackage="org.irisa.diverse.videogen" disposableProviderFactory="true"
-      ecorePackage="VideoGen.ecore#/">
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="VideoGen.ecore#//Mimetypes_Enum">
-      <genEnumLiterals ecoreEnumLiteral="VideoGen.ecore#//Mimetypes_Enum/none"/>
-      <genEnumLiterals ecoreEnumLiteral="VideoGen.ecore#//Mimetypes_Enum/mp4"/>
-      <genEnumLiterals ecoreEnumLiteral="VideoGen.ecore#//Mimetypes_Enum/flv"/>
-      <genEnumLiterals ecoreEnumLiteral="VideoGen.ecore#//Mimetypes_Enum/mpegts"/>
-      <genEnumLiterals ecoreEnumLiteral="VideoGen.ecore#//Mimetypes_Enum/mpeg"/>
-      <genEnumLiterals ecoreEnumLiteral="VideoGen.ecore#//Mimetypes_Enum/webm"/>
-      <genEnumLiterals ecoreEnumLiteral="VideoGen.ecore#//Mimetypes_Enum/wmv"/>
-      <genEnumLiterals ecoreEnumLiteral="VideoGen.ecore#//Mimetypes_Enum/avi"/>
-      <genEnumLiterals ecoreEnumLiteral="VideoGen.ecore#//Mimetypes_Enum/mov"/>
+  <genPackages prefix="VideoGen" basePackage="org.irisa.diverse.videogen" disposableProviderFactory="true">
+    <ecorePackage href="VideoGen.ecore#/"/>
+    <genEnums typeSafeEnumCompatible="false">
+      <ecoreEnum href="VideoGen.ecore#//Mimetypes_Enum"/>
+      <genEnumLiterals>
+        <ecoreEnumLiteral href="VideoGen.ecore#//Mimetypes_Enum/none"/>
+      </genEnumLiterals>
+      <genEnumLiterals>
+        <ecoreEnumLiteral href="VideoGen.ecore#//Mimetypes_Enum/mp4"/>
+      </genEnumLiterals>
+      <genEnumLiterals>
+        <ecoreEnumLiteral href="VideoGen.ecore#//Mimetypes_Enum/flv"/>
+      </genEnumLiterals>
+      <genEnumLiterals>
+        <ecoreEnumLiteral href="VideoGen.ecore#//Mimetypes_Enum/mpegts"/>
+      </genEnumLiterals>
+      <genEnumLiterals>
+        <ecoreEnumLiteral href="VideoGen.ecore#//Mimetypes_Enum/mpeg"/>
+      </genEnumLiterals>
+      <genEnumLiterals>
+        <ecoreEnumLiteral href="VideoGen.ecore#//Mimetypes_Enum/webm"/>
+      </genEnumLiterals>
+      <genEnumLiterals>
+        <ecoreEnumLiteral href="VideoGen.ecore#//Mimetypes_Enum/wmv"/>
+      </genEnumLiterals>
+      <genEnumLiterals>
+        <ecoreEnumLiteral href="VideoGen.ecore#//Mimetypes_Enum/avi"/>
+      </genEnumLiterals>
+      <genEnumLiterals>
+        <ecoreEnumLiteral href="VideoGen.ecore#//Mimetypes_Enum/mov"/>
+      </genEnumLiterals>
     </genEnums>
-    <genClasses ecoreClass="VideoGen.ecore#//Mandatory"/>
-    <genClasses ecoreClass="VideoGen.ecore#//Initialize"/>
-    <genClasses ecoreClass="VideoGen.ecore#//VideoGen">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VideoGen.ecore#//VideoGen/minDurationConstraint"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VideoGen.ecore#//VideoGen/maxDurationConstraint"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VideoGen.ecore#//VideoGen/variantes"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference VideoGen.ecore#//VideoGen/transitions"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference VideoGen.ecore#//VideoGen/videos"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VideoGen.ecore#//VideoGen/minUserConstraint"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VideoGen.ecore#//VideoGen/maxUserConstraint"/>
+    <genClasses>
+      <ecoreClass href="VideoGen.ecore#//Mandatory"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="VideoGen.ecore#//Transition">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference VideoGen.ecore#//Transition/nextTransition"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VideoGen.ecore#//Transition/active"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VideoGen.ecore#//Transition/selected"/>
+    <genClasses>
+      <ecoreClass href="VideoGen.ecore#//Initialize"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="VideoGen.ecore#//NamedElement">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VideoGen.ecore#//NamedElement/name"/>
+    <genClasses>
+      <ecoreClass href="VideoGen.ecore#//VideoGen"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="VideoGen.ecore#//VideoGen/minDurationConstraint"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="VideoGen.ecore#//VideoGen/maxDurationConstraint"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="VideoGen.ecore#//VideoGen/variantes"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="VideoGen.ecore#//VideoGen/transitions"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="VideoGen.ecore#//VideoGen/videos"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="VideoGen.ecore#//VideoGen/minUserConstraint"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="VideoGen.ecore#//VideoGen/maxUserConstraint"/>
+      </genFeatures>
     </genClasses>
-    <genClasses ecoreClass="VideoGen.ecore#//Optional">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VideoGen.ecore#//Optional/probability"/>
+    <genClasses image="false">
+      <ecoreClass href="VideoGen.ecore#//Transition"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="VideoGen.ecore#//Transition/nextTransition"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="VideoGen.ecore#//Transition/active"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="VideoGen.ecore#//Transition/selected"/>
+      </genFeatures>
     </genClasses>
-    <genClasses ecoreClass="VideoGen.ecore#//Video">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VideoGen.ecore#//Video/url"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VideoGen.ecore#//Video/description"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VideoGen.ecore#//Video/duration"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VideoGen.ecore#//Video/mimetype"/>
+    <genClasses image="false">
+      <ecoreClass href="VideoGen.ecore#//NamedElement"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="VideoGen.ecore#//NamedElement/name"/>
+      </genFeatures>
     </genClasses>
-    <genClasses ecoreClass="VideoGen.ecore#//Alternatives">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference VideoGen.ecore#//Alternatives/options"/>
+    <genClasses>
+      <ecoreClass href="VideoGen.ecore#//Optional"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="VideoGen.ecore#//Optional/probability"/>
+      </genFeatures>
     </genClasses>
-    <genClasses ecoreClass="VideoGen.ecore#//Generate"/>
-    <genClasses ecoreClass="VideoGen.ecore#//Delay">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VideoGen.ecore#//Delay/value"/>
+    <genClasses>
+      <ecoreClass href="VideoGen.ecore#//Video"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="VideoGen.ecore#//Video/url"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="VideoGen.ecore#//Video/description"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="VideoGen.ecore#//Video/duration"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="VideoGen.ecore#//Video/mimetype"/>
+      </genFeatures>
     </genClasses>
-    <genClasses ecoreClass="VideoGen.ecore#//Sequence">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference VideoGen.ecore#//Sequence/video"/>
+    <genClasses>
+      <ecoreClass href="VideoGen.ecore#//Alternatives"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="VideoGen.ecore#//Alternatives/options"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="VideoGen.ecore#//Generate"/>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="VideoGen.ecore#//Delay"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="VideoGen.ecore#//Delay/value"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="VideoGen.ecore#//Sequence"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="VideoGen.ecore#//Sequence/video"/>
+      </genFeatures>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

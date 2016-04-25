@@ -943,7 +943,7 @@
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
         </ownedElements>
-        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_scS6UAiYEea2eeAfQHDI1g" name="selected : EBooleanObject = false" tooltipText="&#xA;ERROR : The required feature 'eAttributeType' of 'org.eclipse.emf.ecore.impl.EAttributeImpl@47fbdbc4{platform:/resource/org.irisa.diverse.videogen/model/VideoGen.ecore#//Transition/newAttribute}' must be set&#xA;ERROR : The typed element must have a type">
+        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_scS6UAiYEea2eeAfQHDI1g" name="selected : EBooleanObject = false" tooltipText="">
           <target xmi:type="ecore:EAttribute" href="model/VideoGen.ecore#//Transition/selected"/>
           <semanticElements xmi:type="ecore:EAttribute" href="model/VideoGen.ecore#//Transition/selected"/>
           <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_vPIOUAiYEea2eeAfQHDI1g" labelFormat="bold" labelAlignment="LEFT" description="_vPHnQAiYEea2eeAfQHDI1g">
