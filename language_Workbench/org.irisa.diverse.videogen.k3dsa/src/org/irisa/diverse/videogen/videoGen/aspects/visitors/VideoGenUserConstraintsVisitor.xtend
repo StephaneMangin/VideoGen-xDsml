@@ -21,8 +21,8 @@ class VideoGenUserContraintsVisitor extends LoggableVisitor {
 		log.info("minResult=" + result + ", minConstraint=" + minConstraint + ", maxConstraint=" + maxConstraint)
 	}
 	
-	def visit(VideoGen vid, Integer min, Integer max) {
-		result = min
+	def visit(VideoGen vid, int min, int max) {
+		result = vid.minUserConstraint
 		minConstraint = min
 		maxConstraint = max
 		log.info("VideoGen User Contraints Visitor started...")

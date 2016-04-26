@@ -55,13 +55,15 @@ public class VideoGenHelper {
  	 */ 
     def static List<Transition> allTransitions(VideoGen videoGen) {
 		val List<Transition> transitions = new ArrayList<Transition>
-			
-        var Transition transition = getInitialize(videoGen)
+        val initialize = getInitialize(videoGen)
+		transitions.add(initialize)
+		var transition = initialize.nextTransition
         while (transition !== null) {
-			transitions.add(transition)
-			transition = transition.nextTransition
-			if (transition instanceof Generate) {
+			if (initialize.equals(transition)) {
 				transition = null
+			} else {
+				transitions.add(transition)
+				transition = transition.nextTransition
 			}
         }
 		transitions

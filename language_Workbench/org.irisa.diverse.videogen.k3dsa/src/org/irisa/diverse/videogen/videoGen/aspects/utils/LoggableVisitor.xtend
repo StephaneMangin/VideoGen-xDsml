@@ -11,12 +11,13 @@ class LoggableVisitor {
 	protected Logger log = Logger.getLogger(class.simpleName)
 	
 	new () {
-		val prefix = ResourcesPlugin.workspace.root.projects.get(0).locationURI.toString.replace("file:", "")
-		val logDir = prefix + "/logs/"
-		SystemHelper.mkDirs(Paths.get(logDir))
-		val format = new SimpleFormatter
-		val handler = new FileHandler(logDir + class.simpleName + ".log")
-		handler.formatter = format
-		log.addHandler(handler)
+		val workspacePath = Paths.get(ResourcesPlugin.workspace.root.projects.get(0).locationURI)
+		val logPath = Paths.get(workspacePath + "/logs")
+		// Log is reset before use
+		SystemHelper.mkDirs(logPath)
+		val FileHandler fh = new FileHandler(logPath + "/" + log.name + ".log", true)
+        val formatter = new SimpleFormatter();  
+        fh.setFormatter(formatter);
+		log.addHandler(fh)
 	}
 }

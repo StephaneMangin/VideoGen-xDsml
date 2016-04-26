@@ -9,7 +9,6 @@ import java.io.File
 import java.io.FileWriter
 import java.util.HashMap
 import java.util.List
-import java.util.Map
 import org.irisa.diverse.videogen.transformations.VideoGenTransform
 import org.irisa.diverse.videogen.transformations.helpers.VideoGenHelper
 import org.irisa.diverse.videogen.transformations.utils.DistributedRandomNumberGenerator
@@ -28,120 +27,106 @@ import static extension org.irisa.diverse.videogen.videoGen.aspects.InitializeAs
 import java.util.logging.Logger
 import java.util.logging.FileHandler
 import java.util.logging.SimpleFormatter
-import org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenContraintsMinMaxVisitor
-import org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenSetupVisitor
 import org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor
-import org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenVariantsVisitor
 import java.nio.file.Paths
 import org.eclipse.core.resources.ResourcesPlugin
 import org.irisa.diverse.videogen.transformations.helpers.SystemHelper
+import java.nio.file.Path
 
 @Aspect(className=VideoGen)
 class VideoGenAspect {
 
-	private VideoGenSetupVisitor setupVisitor = new VideoGenSetupVisitor()
-	private VideoGenVariantsVisitor variantsVisitor = new VideoGenVariantsVisitor()
-	private VideoGenContraintsMinMaxVisitor durationVisitor = new VideoGenContraintsMinMaxVisitor(false)
-	private VideoGenUserContraintsVisitor userConstraintsVisitor = new VideoGenUserContraintsVisitor()
+	private Boolean onceSetuped = false;
 	private long nanotimeStart = 0
 	private long nanotimeEnd = 0
 	protected static Logger log = Logger.getLogger("VideoGenAspect")
+	private static Path workspacePath = Paths.get(ResourcesPlugin.workspace.root.projects.get(0).locationURI)
+	private static Path logPath = Paths.get(workspacePath + "/logs")
 
 	@Main
 	def void main() {
-		val workspacePath = Paths.get(ResourcesPlugin.workspace.root.projects.get(0).locationURI)
-		val logPath = Paths.get(workspacePath + "/log")
-		// Log is reset before use
-		SystemHelper.mkDirs(logPath)
-		val FileHandler fh = new FileHandler(logPath + "/" + log.name + ".log", false)
-        val formatter = new SimpleFormatter();  
-        fh.setFormatter(formatter);
-		log.addHandler(fh)
-		_self.execute
+		while (true) {
+			_self.execute
+		}
 	}
 	
-	def private void updateMetadatas() {
-		// Variante initialization
-		_self.variantes = _self.variantsVisitor.visit(_self).variants
-	}
-	
-	def private void updateGlobalConstraints() {
-		
-		// Duration initialization
-		_self.durationVisitor.visit(_self)
-		
-		// Constraints initialization
-		_self.minDurationConstraint = _self.durationVisitor.minDuration
-		_self.maxDurationConstraint = _self.durationVisitor.maxDuration
+	@Step
+	def private void reset() {
 		_self.minUserConstraint = _self.minDurationConstraint
 		_self.maxUserConstraint = _self.maxDurationConstraint
 	}
 	
-	def private void applyUserConstraints() {
-		_self.userConstraintsVisitor.visit(_self, _self.minUserConstraint, _self.maxUserConstraint)
-	}
-	
 	@Step
-	def public void updateModel() {
-		_self.updateMetadatas
-		_self.updateGlobalConstraints
-	}
-	
-	@Step
-	def public void setup() {
+	def private void setup() {
 		val start = System.nanoTime
-		// Setup initialization
-		_self.setupVisitor.visit(_self)
+		// Initialize self variables
+		_self.variantes = 1
+		_self.minDurationConstraint = 0
+		_self.maxDurationConstraint = 0
+		// Then call the visitor to setup all entities
+		for (Transition transition: VideoGenHelper.allTransitions(_self)) {
+			TransitionAspect.setup(transition, _self)
+		}
+		log.info("Metadatas : variants=" + _self.variantes + ", durations=[" + _self.minDurationConstraint + ", " + _self.maxDurationConstraint + "]")
 		
-		val stop = System.nanoTime
-		log.info("#### VideoGen, time to setup " + (stop - start))
+		log.info("#### VideoGen, time to setup " + (System.nanoTime - start))
 	}
 	
 	@Step
 	@InitializeModel
 	def public void initializeModel(List<String> args){
 		_self.setup
-		_self.updateModel
+		if (!args.contains("noreset")) {
+			_self.reset
+		}
+		if (!_self.onceSetuped) {
+			// Log is reset before use
+			SystemHelper.mkDirs(logPath)
+			val FileHandler fh = new FileHandler(logPath + "/" + log.name + ".log", true)
+	        val formatter = new SimpleFormatter()
+	        fh.setFormatter(formatter)
+			log.addHandler(fh)
+			_self.onceSetuped = true
+		}
+		// First apply the constraint model before execution
+		new VideoGenUserContraintsVisitor().visit(_self, _self.minUserConstraint, _self.maxUserConstraint)
+		log.info("Initialize model with " + args)
 	}
 	
 	@Step
 	def public void execute() {
-		_self.nanotimeStart = System.nanoTime
-		// First apply the constraint model before execution
-		_self.applyUserConstraints
 		// Then process each sequences
+		_self.nanotimeStart = System.nanoTime
 		VideoGenHelper.getInitialize(_self).execute(_self)
+		_self.nanotimeEnd = System.nanoTime
+		log.info("#### VideoGen, time to execute " + (_self.nanotimeEnd - _self.nanotimeStart))
 	}	
 	
 	/**
 	 * Start the computation (model transformation) of all selected video to create the final sequence (PlayList format)
 	 * 
-	 * @see : ffmpeg
 	 */
 	@Step
 	def public void compute() {
 		val videos = new HashMap
 		log.info("##### VideoGen '" + _self.name + "' start computation.")
 		//TODO: re-implement the initial IDM project model transformation. See master branch package 'fr.nemomen.utils'.
-		VideoGenHelper.allSequences(_self).filter[selected].map[video].forEach[video |
-			videos.put(video.name, true)
-		]
-
+		VideoGenHelper.allSequences(_self).filter[selected].map[video].forEach[videos.put(name, true)]
 		// TODO: Manage model transformation here
 		val content = VideoGenTransform.toM3U(_self, false, videos)
 		log.info("##### Videos computation result in M3U format : ")
 		log.info(content)
 		val playlist = _self.saveGeneratedModel(content)
-		_self.launchReader(playlist)
-		
-		_self.nanotimeEnd = System.nanoTime
-		log.info("#### VideoGen, time to execute " + (_self.nanotimeEnd - _self.nanotimeStart))
-		_self.nanotimeStart = System.nanoTime
+		//_self.launchReader(playlist)
 	}
 	
+	/**
+	 * Save the given playlist content in a temporary file (hashed by content named)
+	 * 
+	 */
 	def private File saveGeneratedModel(String content) {
 		// Create the temporary file to receive playlist as M3U
-		val playlist = File.createTempFile(Long.toString(System.nanoTime()), "-videogen.m3u")
+		val playlist = File.createTempFile(String.valueOf(content.hashCode), "-videogen.m3u")
 		val writer = new FileWriter(playlist)
 		writer.write(content)
 		writer.flush
@@ -149,6 +134,10 @@ class VideoGenAspect {
 		playlist
 	}
 	
+	/**
+	 * Launch vlc instance with the provided playlist
+	 * 
+	 */
 	def private void launchReader(File playlist) {
 		// Start VLC
 		// TODO: add a new tab inside eclipse to start a video player...
@@ -179,19 +168,33 @@ abstract class TransitionAspect {
 	 */
 	@Step
 	def public void execute(VideoGen videoGen) {
-		VideoGenAspect.log.info("##### '" + _self.class.name + "::" + _self.name + "' is being processed.")
+		VideoGenAspect.log.info("##### '" + _self + "' is being processed.")
+		// Stop invariant while looping the model
+		if (!_self.active && (_self instanceof Initialize || _self instanceof Generate)) {
+			throw new Exception("Transition should not be inactive !")
+		}
 		// If this sequence has already been done, do nothing at all
 		if (_self.active && !_self.done) {
+			VideoGenAspect.log.info("##### '" + _self.class.name + "::" + _self.name + "' is active and not done.")
 			// Call the next sequence in all case
 			if (_self.nextTransition !== null) {
+				VideoGenAspect.log.info("##### '" + _self.class.name + "::" + _self.name + "' next transition.")
 				//Don't forget to reset current state
-				_self.done = true;
+				_self.done = true
 				// Before calling next sequence
 				if (_self.callnextTransition) {
-					_self.nextTransition.execute(videoGen)	
+					VideoGenAspect.log.info("##### '" + _self.class.name + "::" + _self.name + "' next transition called.")
+					_self.nextTransition.execute(videoGen)
 				}
 			}
 		}
+	}
+	
+	@Step
+	def public void setup(VideoGen videoGen) {
+		_self.videoGen = videoGen
+		_self.done = false
+		_self.selected = false
 	}
 }
 
@@ -202,6 +205,11 @@ abstract class SequenceAspect extends TransitionAspect {
 	@OverrideAspectMethod
 	def public void execute(VideoGen videoGen) {
 		_self.super_execute(videoGen)
+	}
+	
+	@OverrideAspectMethod
+	def public void setup(VideoGen videoGen) {
+		_self.super_setup(videoGen)
 	}
 }
 
@@ -216,10 +224,9 @@ class AlternativesAspect extends SequenceAspect {
 		// A bind relation could be used to replace this data structure (maybe without common sense)
 		_self.selected = true
 		val selectedOption = VideoGenHelper.selectOption(_self)
-		selectedOption.video.select
-		selectedOption.selected = true
-		_self.video = selectedOption.video
-		if (_self.video != null) {
+		if (selectedOption != null) {
+			selectedOption.selected = true
+			_self.video = selectedOption.video
 			_self.video.select
 			// Manage optional next sequence
 			_self.options
@@ -231,8 +238,24 @@ class AlternativesAspect extends SequenceAspect {
 				// Call of nextTransition.process will not be called in super
 				_self.callnextTransition = false
 			]
-			}
+		}
 		_self.super_execute(videoGen)
+	}
+	
+	@OverrideAspectMethod
+	def public void setup(VideoGen videoGen) {
+		if (_self.active) {
+			// Variants computation
+			videoGen.variantes = videoGen.variantes * _self.options.filter[active].size
+			// Durations computation
+			var List<Integer> durations = _self.options.map[video.duration]
+			videoGen.minDurationConstraint = videoGen.minDurationConstraint + durations.min
+			videoGen.maxDurationConstraint = videoGen.maxDurationConstraint + durations.max
+			_self.options.forEach[selected = false]
+			_self.options.forEach[done = false]
+			VideoGenAspect.log.info("Metadatas : variants=" + videoGen.variantes + ", durations=[" + videoGen.minDurationConstraint + ", " + videoGen.maxDurationConstraint + "]")
+		}
+		_self.super_setup(videoGen)
 	}
 }
 
@@ -245,6 +268,17 @@ class MandatoryAspect extends SequenceAspect {
 		_self.video.select
 		_self.selected = true
 		_self.super_execute(videoGen)
+	}
+	
+	@OverrideAspectMethod
+	def public void setup(VideoGen videoGen) {
+		if (_self.active) {
+			// Durations computation
+			videoGen.minDurationConstraint = videoGen.minDurationConstraint + _self.video.duration
+			videoGen.maxDurationConstraint = videoGen.maxDurationConstraint + _self.video.duration
+			VideoGenAspect.log.info("Metadatas : variants=" + videoGen.variantes + ", durations=[" + videoGen.minDurationConstraint + ", " + videoGen.maxDurationConstraint + "]")
+		}
+		_self.super_setup(videoGen)
 	}
 }
 
@@ -282,20 +316,28 @@ class OptionalAspect extends SequenceAspect {
 		}
 		_self.super_execute(videoGen)
 	}
+	
+	@OverrideAspectMethod
+	def public void setup(VideoGen videoGen) {
+		if (_self.active) {
+			// Variants computation
+			videoGen.variantes = videoGen.variantes * 2
+			// Durations computation
+			videoGen.maxDurationConstraint = videoGen.maxDurationConstraint + _self.video.duration
+			VideoGenAspect.log.info("Metadatas : variants=" + videoGen.variantes + ", durations=[" + videoGen.minDurationConstraint + ", " + videoGen.maxDurationConstraint + "]")
+		}
+		_self.super_setup(videoGen)
+	}
 }
 
 
 @Aspect(className=Initialize)
 class InitializeAspect extends TransitionAspect {
-	
-	@Step
+		
 	@OverrideAspectMethod
 	def public void execute(VideoGen videoGen) {
-		//VideoGenAspect.setup(videoGen)
-		//VideoGenAspect.updateModel(videoGen)
 		_self.super_execute(videoGen)
 	}
-	
 }
 
 @Aspect(className=Generate)
@@ -304,12 +346,12 @@ class GenerateAspect extends TransitionAspect {
 	@OverrideAspectMethod
 	def public void execute(VideoGen videoGen) {
 		_self.compute(videoGen)
+		// Reinit the model after computation
+		VideoGenAspect.initializeModel(videoGen, newArrayList("noreset"))
 		_self.super_execute(videoGen)
 	}
 	/**
-	 * Call VideogGen.compute() and wait for 1000 ms before the next turn
-	 * 
-	 * @see : ffmpeg
+	 * Call VideogGen.compute()
 	 */
 	@Step
 	def public void compute(VideoGen videoGen) {
@@ -326,6 +368,15 @@ class VideoAspect {
 	 */
 	@Step
 	def public void select() {
+		VideoGenAspect.log.info(_self.toString)
+		if (!_self.url.startsWith("/")) {
+			val prefix = ResourcesPlugin.workspace.root.projects.get(0).locationURI.toString.replace("file:", "")
+			val newPath = prefix + "/" + _self.url
+			VideoGenAspect.log.info(_self.url + "=>" + newPath)
+			_self.setUrl(newPath)
+		}
+		// Add duration and VideoCodec MimeType
+		VideoGenTransform.addMetadata(_self)
 		VideoGenAspect.log.info("##### Video '" + _self.name + "' has been selected.")
 	}
 }
@@ -336,11 +387,8 @@ class DelayAspect extends TransitionAspect {
 	@Step
 	@OverrideAspectMethod
 	def void execute(VideoGen videoGen) {
-		try {
-			Thread.sleep(_self.value)
-		} catch (InterruptedException e) {
-			e.printStackTrace()
-		}
+		VideoGenAspect.log.info("++++++++++++++++++++++++++++++++++++++++++ A pass has finished")
+		//Thread.sleep(_self.value)
 		_self.super_execute(videoGen)
 	}
 }
