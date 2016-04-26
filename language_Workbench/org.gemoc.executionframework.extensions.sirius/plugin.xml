@@ -8,4 +8,11 @@
             providerClass="org.gemoc.executionframework.extensions.sirius.modelloader.DebugPermissionProvider">
       </permissionprovider>
    </extension>
+   <!--extension
+         point="org.eclipse.sirius.ecore.extender.ExtenderProvider">
+      <extenderprovider
+            priority="normal"
+            providerClass="org.gemoc.executionframework.extensions.sirius.accessor.DebugMetamodelExtenderProvider">
+      </extenderprovider>
+   </extension-->
 </plugin>
