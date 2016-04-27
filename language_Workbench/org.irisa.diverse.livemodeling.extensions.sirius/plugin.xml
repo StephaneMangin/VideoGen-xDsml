@@ -8,11 +8,11 @@
             providerClass="org.irisa.diverse.livemodeling.extensions.sirius.accessor.authority.LivePermissionProvider">
       </permissionprovider>
    </extension>
-   <extension
+   <!--extension
          point="org.eclipse.sirius.ecore.extender.ExtenderProvider">
       <extenderprovider
             priority="highest"
             providerClass="org.irisa.diverse.livemodeling.extensions.sirius.accessor.extender.EcoreExtenderProvider">
       </extenderprovider>
-   </extension>
+   </extension-->
 </plugin>
