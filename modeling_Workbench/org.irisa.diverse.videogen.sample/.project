@@ -23,7 +23,6 @@
 	</buildSpec>
 	<natures>
 		<nature>org.eclipse.sirius.nature.modelingproject</nature>
-		<nature>org.eclipse.pde.PluginNature</nature>
 		<nature>org.gemoc.execution.sequential.javaxdsml.ide.ui.GemocSequentialLanguageNature</nature>
 	</natures>
 	<variableList>

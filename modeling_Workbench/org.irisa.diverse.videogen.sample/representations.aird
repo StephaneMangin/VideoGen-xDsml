@@ -7,6 +7,7 @@
   <models xmi:type="ecore:EPackage" href="platform:/plugin/org.irisa.diverse.videogen/model/VideoGen.ecore#/"/>
   <models xmi:type="ecore:EPackage" href="http://www.eclipse.org/emf/2002/Ecore#/"/>
   <models xmi:type="videoGen:VideoGen" href="gemoc-gen/execution/execution-20160425_124521/sample.videogen#/"/>
+  <models xmi:type="videoGen:VideoGen" href="gemoc-gen/execution/execution-20160427_191408/sample.videogen#/"/>
   <ownedViews xmi:type="viewpoint:DRepresentationContainer" xmi:id="_0piZ0PKlEeW5X_bsb2hAMA" initialized="true">
     <ownedRepresentations xmi:type="diagram:DSemanticDiagram" xmi:id="_tJYYMAJVEeaIM-UKRq0ydQ" name="VideoGen1">
       <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_tJz2AAJVEeaIM-UKRq0ydQ" source="GMF_DIAGRAMS">
