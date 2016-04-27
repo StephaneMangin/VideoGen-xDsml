@@ -5,10 +5,7 @@ import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
 import org.gemoc.executionframework.extensions.sirius.services.AbstractGemocDebuggerServices;
-import org.irisa.diverse.videogen.videoGen.Optional;
 import org.irisa.diverse.videogen.videoGen.Transition;
-import org.irisa.diverse.videogen.videoGen.VideoGen;
-import org.irisa.diverse.videogen.videoGen.aspects.TransitionAspect;
 
 public class VideogenlDebugServices extends AbstractGemocDebuggerServices {
 
@@ -16,7 +13,6 @@ public class VideogenlDebugServices extends AbstractGemocDebuggerServices {
 	protected List<StringCouple> getRepresentationRefreshList() {
 		final List<StringCouple> res = new ArrayList<StringCouple>();
 
-		res.add(new StringCouple("VideoGenL", "Default"));
 		res.add(new StringCouple("VideoGenL", "Debug"));
 
 		return res;

@@ -11,10 +11,10 @@ import org.irisa.diverse.videogen.videoGen.aspects.utils.LoggableVisitor
 
 class VideoGenUserContraintsVisitor extends LoggableVisitor {
 	
-	private int result = 0 // minimum result at each step of the process
-	private int minConstraint = 0 // User defined
-	private int maxConstraint = 0 // User defined
-	private List<Optional> sequencesToInactivate = new ArrayList
+	private int result // minimum result at each step of the process
+	private int minConstraint // User defined
+	private int maxConstraint // User defined
+	private List<Optional> sequencesToInactivate
 	
 	new () {
 		super()
@@ -25,9 +25,11 @@ class VideoGenUserContraintsVisitor extends LoggableVisitor {
 		result = vid.minUserConstraint
 		minConstraint = min
 		maxConstraint = max
+		sequencesToInactivate = new ArrayList
 		log.info("VideoGen User Contraints Visitor started...")
+		log.info("BEFORE => minResult=" + result + ", minConstraint=" + minConstraint + ", maxConstraint=" + maxConstraint)
 		VideoGenHelper.allSequences(vid).forEach[visit]
-		log.info("minResult=" + result + ", minConstraint=" + minConstraint + ", maxConstraint=" + maxConstraint)
+		log.info("AFTER => minResult=" + result + ", minConstraint=" + minConstraint + ", maxConstraint=" + maxConstraint)
 		log.info("sequences=" + sequencesToInactivate)
 	}
 	
