@@ -25,30 +25,31 @@ import org.eclipse.sirius.ecore.extender.business.internal.permission.AbstractPe
 import org.gemoc.xdsmlframework.api.core.IExecutionCheckpoint;
 
 @SuppressWarnings("restriction")
-public class LivePermissionAuthority extends AbstractPermissionAuthority
-		implements IExecutionCheckpoint {
+public class LivePermissionAuthority extends AbstractPermissionAuthority implements IExecutionCheckpoint {
+	
 	private String prefix = "####################### \nAUTHORITY ==================== \n";
+	
 	/**
 	 * Strictly positive if allowed.
 	 * FIXME we use a map here because of https://support.jira.obeo.fr/browse/VP-2710
 	 */
 	private static final Map<ResourceSet, Integer> allow = new HashMap<ResourceSet, Integer>();
 
-	public void allow(ResourceSet rs, boolean allow) {
-		Integer integer = this.allow.get(rs);
+	public void allow(ResourceSet rs, boolean allowed) {
+		Integer value = this.allow.get(rs);
 		this.allow.put(rs, Integer.valueOf(1));
 		return;
-//		if (allow) {
-//			if (integer == null) {
+//		if (allowed) {
+//			if (value == null) {
 //				this.allow.put(rs, Integer.valueOf(1));
 //			} else {
-//				this.allow.put(rs, Integer.valueOf(integer.intValue() + 1));
+//				this.allow.put(rs, Integer.valueOf(value.intValue() + 1));
 //			}
 //		} else {
-//			if (integer == null) {
+//			if (value == null) {
 //				this.allow.put(rs, Integer.valueOf(-1));
 //			} else {
-//				this.allow.put(rs, Integer.valueOf(integer.intValue() - 1));
+//				this.allow.put(rs, Integer.valueOf(value.intValue() - 1));
 //			}
 //		}
 	}
@@ -71,33 +72,32 @@ public class LivePermissionAuthority extends AbstractPermissionAuthority
 	@Override
 	public boolean canEditInstance(EObject eObj) {
 		Integer integer = 1;
-//		System.out.println("#####################################################################################################");
-//		System.out.println("Allow content : ");
+		System.out.println("#####################################################################################################");
+		System.out.println("Allow content : ");
 		allow.forEach(new BiConsumer<ResourceSet, Integer>() {
 
 			@Override
 			public void accept(ResourceSet t, Integer u) {
 				// TODO Auto-generated method stub
-//				System.out.println("\t" + t + " - " + u);
+				System.out.println("\t" + t + " - " + u);
 				t.getResources().forEach(new Consumer<Resource>() {
 
 					@Override
 					public void accept(Resource t) {
 						// TODO Auto-generated method stub
-//						System.out.println("\t\t" + t);
+						System.out.println("\t\t" + t);
 					}
 				});
 				
 			}
-
 		});
-//		System.out.println("#####################################################################################################");
-//		System.out.println("canEditInstance :");
-//		System.out.println(eObj);
+		System.out.println("#####################################################################################################");
+		System.out.println("canEditInstance :");
+		System.out.println(eObj);
 		if (eObj != null) {
-//			System.out.println(eObj.eResource());
+			System.out.println(eObj.eResource());
 			if (eObj.eResource() != null) {
-//				System.out.println(eObj.eResource().getResourceSet());
+				System.out.println(eObj.eResource().getResourceSet());
 				integer = allow.get(eObj.eResource().getResourceSet());
 			}
 		}

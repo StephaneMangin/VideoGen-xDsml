@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?eclipse version="3.4"?>
 <plugin>
+  <extension point="org.gemoc.gemoc_language_workbench.sequential.xdsml">
+    <XDSML_Definition
+          gemocDebuggerFactory_class="org.gemoc.executionframework.extensions.sirius.services.AbstractGemocDebuggerServices"
+          modelLoader_class="org.irisa.diverse.livemodeling.extensions.sirius.modelloader.LiveModelLoader"
+          name="org.irisa.diverse.videogen.VideoGenL"
+          xdsmlFilePath="/org.irisa.diverse.videogen.xdsml/src/org/irisa/diverse/videoGen.melange"/>
+  </extension>
 </plugin>

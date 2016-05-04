@@ -15,6 +15,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Iterator;
 
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -30,6 +31,8 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.ECrossReferenceAdapter;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.sirius.business.api.session.Session;
+import org.eclipse.sirius.business.api.session.SessionManager;
 import org.eclipse.sirius.ecore.extender.business.api.accessor.AbstractMetamodelExtender;
 import org.eclipse.sirius.ecore.extender.business.api.accessor.EcoreMetamodelDescriptor;
 import org.eclipse.sirius.ecore.extender.business.api.accessor.ExtensionFeatureDescription;
@@ -37,6 +40,12 @@ import org.eclipse.sirius.ecore.extender.business.api.accessor.MetamodelDescript
 import org.eclipse.sirius.ecore.extender.business.internal.accessor.ecore.EMFUtil;
 import org.eclipse.sirius.ecore.extender.business.internal.accessor.ecore.PackageRegistryIndex;
 import org.eclipse.sirius.ext.emf.EReferencePredicate;
+import org.gemoc.xdsmlframework.api.core.ExecutionMode;
+import org.gemoc.xdsmlframework.api.core.IExecutionContext;
+import org.irisa.diverse.livemodeling.extensions.sirius.modelloader.LiveModelLoader;
+import org.irisa.diverse.livemodeling.extensions.sirius.session.LiveSessionFactory;
+import org.gemoc.execution.sequential.javaengine.SequentialModelExecutionContext;
+import org.gemoc.executionframework.engine.commons.EngineContextException;
 
 import com.google.common.base.Predicates;
 import com.google.common.collect.HashMultimap;
@@ -55,13 +64,25 @@ public class EcoreIntrinsicExtender extends AbstractMetamodelExtender {
 
     private static final String SEPARATOR = ".";
 
-    @SuppressWarnings("restriction")
-	private static PackageRegistryIndex platformIndex = new PackageRegistryIndex(EPackage.Registry.INSTANCE, Predicates.<EPackage> alwaysTrue());
+    private static PackageRegistryIndex platformIndex = new PackageRegistryIndex(EPackage.Registry.INSTANCE, Predicates.<EPackage> alwaysTrue());
 
     private Multimap<String, EClass> viewpointIndex = HashMultimap.create();
 
     private Collection<? extends MetamodelDescriptor> lastDescriptors;
 
+    private void updateModel(final EObject instance) {
+    	Session session = SessionManager.INSTANCE.getSession(instance);
+    	LiveModelLoader loader = new LiveModelLoader();
+    	SequentialModelExecutionContext context;
+		try {
+			context = new SequentialModelExecutionContext(null, null);
+	    	loader.loadModelForAnimation(context);
+		} catch (EngineContextException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    }
+    
     @Override
     public EObject createInstance(final String name) {
         EObject result = null;
@@ -90,6 +111,7 @@ public class EcoreIntrinsicExtender extends AbstractMetamodelExtender {
     @Override
     @SuppressWarnings("unchecked")
     public Object eAdd(final EObject instance, final String name, final Object value) {
+    	System.out.println("===== eAdd ===== " + instance + " , " + name + ", " + value);
         if (eValid(instance, name)) {
             if (eIsMany(instance, name).booleanValue()) {
                 final Object object = instance.eGet(instance.eClass().getEStructuralFeature(name));
@@ -150,6 +172,7 @@ public class EcoreIntrinsicExtender extends AbstractMetamodelExtender {
 
     @Override
     public EObject eDelete(EObject objectToRemove, ECrossReferenceAdapter xref, EReferencePredicate isReferencesToIgnorePredicate) {
+    	System.out.println("===== eDelete ===== " + objectToRemove + " , " + xref + ", " + isReferencesToIgnorePredicate);
         if (xref == null) {
             // If no cross referencer can be found,
             // we simply remove the element from its container
@@ -286,6 +309,7 @@ public class EcoreIntrinsicExtender extends AbstractMetamodelExtender {
 
     @Override
     public Object eRemove(final EObject instance, final String name, final Object value) {
+    	System.out.println("===== eRemove ===== " + instance + " , " + name + ", " + value);
         if (eValid(instance, name)) {
             EcoreUtil.remove(instance, instance.eClass().getEStructuralFeature(name), value);
             return value;
@@ -295,6 +319,7 @@ public class EcoreIntrinsicExtender extends AbstractMetamodelExtender {
 
     @Override
     public Object eSet(final EObject instance, final String name, final Object value) {
+    	System.out.println("===== eSet ===== " + instance + " , " + name + ", " + value);
         if (eValid(instance, name)) {
             final EStructuralFeature feature = instance.eClass().getEStructuralFeature(name);
             if (feature.getEType() instanceof EEnum && (value instanceof String || value instanceof Integer)) {
