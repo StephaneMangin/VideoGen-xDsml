@@ -2,7 +2,7 @@
 <?eclipse version="3.4"?>
 <plugin>
   <extension point="org.gemoc.gemoc_language_workbench.sequential.xdsml">
-    <XDSML_Definition modelLoader_class="org.irisa.diverse.livemodeling.extensions.sirius.modelloader.LiveModelLoader" name="org.irisa.diverse.videogen.VideoGenL" xdsmlFilePath="/org.irisa.diverse.videogen.xdsml/src/org/irisa/diverse/videoGen.melange" />
+    <XDSML_Definition modelLoader_class="org.gemoc.executionframework.extensions.sirius.modelloader.DefaultModelLoader" name="org.irisa.diverse.videogen.VideoGenL" xdsmlFilePath="/org.irisa.diverse.videogen.xdsml/src/org/irisa/diverse/videoGen.melange" />
   </extension>
   <extension point="fr.inria.diverse.melange.modeltype">
     <modeltype id="org.irisa.diverse.videogen.VideoGenLMT" uri="http://videogenlmt/" />

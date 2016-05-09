@@ -24,8 +24,7 @@
   </transitions>
   <transitions xsi:type="videoGen:Mandatory" name="haha4" nextTransition="//@transitions.5" video="//@videos.0"/>
   <transitions xsi:type="videoGen:Initialize" name="Start" nextTransition="//@transitions.0"/>
-  <transitions xsi:type="videoGen:Generate" name="Compute" nextTransition="//@transitions.11"/>
-  <transitions xsi:type="videoGen:Delay" name="" value="20"/>
+  <transitions xsi:type="videoGen:Generate" name="Compute"/>
   <videos name="haha4" url="videos/haha/haha.mp4" description="Ah ah ah"/>
   <videos name="intro2" url="videos/intro/TimsSuicide.mp4" description="Oh my god, he tries to kill himself with a balloon"/>
   <videos name="outro2" url="videos/outro/Poltergeist.mp4" description="Waouw... F... What's happening ?"/>

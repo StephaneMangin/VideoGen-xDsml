@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="ASCII"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="videoGenTrace" nsURI="videoGenTrace" nsPrefix="videoGenTrace">
+  <eClassifiers xsi:type="ecore:EClass" name="Trace">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="VideoGen_Alternatives_Execute_Sequence" upperBound="-1" eType="//Steps/VideoGen_Alternatives_Execute"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="VideoGen_Delay_Execute_Sequence" upperBound="-1" eType="//Steps/VideoGen_Delay_Execute"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="VideoGen_Generate_Compute_Sequence" upperBound="-1" eType="//Steps/VideoGen_Generate_Compute"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="VideoGen_Generate_Execute_Sequence" upperBound="-1" eType="//Steps/VideoGen_Generate_Execute"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="VideoGen_Initialize_Execute_Sequence" upperBound="-1" eType="//Steps/VideoGen_Initialize_Execute"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="VideoGen_Mandatory_Execute_Sequence" upperBound="-1" eType="//Steps/VideoGen_Mandatory_Execute"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="VideoGen_Optional_Execute_Sequence" upperBound="-1" eType="//Steps/VideoGen_Optional_Execute"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="VideoGen_Sequence_Execute_Sequence" upperBound="-1" eType="//Steps/VideoGen_Sequence_Execute"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="VideoGen_Transition_Execute_Sequence" upperBound="-1" eType="//Steps/VideoGen_Transition_Execute"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="VideoGen_Video_Select_Sequence" upperBound="-1" eType="//Steps/VideoGen_Video_Select"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rootSteps" upperBound="-1" eType="//Steps/Step" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="statesTrace" upperBound="-1" eType="//States/State" containment="true"/>
+  </eClassifiers>
+  <eSubpackages name="Steps" nsURI="videoGenTrace_Steps" nsPrefix="events">
+    <eClassifiers xsi:type="ecore:EClass" name="BigStep" abstract="true" eSuperTypes="//Steps/Step"/>
+    <eClassifiers xsi:type="ecore:EClass" name="RootImplicitStep" eSuperTypes="//Steps/SmallStep"/>
+    <eClassifiers xsi:type="ecore:EClass" name="SmallStep" abstract="true" eSuperTypes="//Steps/Step"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Step" abstract="true">
+      <eSuperTypes href="../../org.gemoc.executionframework.engine.mse.model/model/GemocExecutionEngineMSE.ecore#//SequentialLogicalStep"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="endingState" eType="//States/State" eOpposite="//States/State/endedSteps"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="startingState" lowerBound="1" eType="//States/State" eOpposite="//States/State/startedSteps"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="VideoGen_Alternatives_Execute" eSuperTypes="//Steps/SmallStep">
+      <eOperations name="getCaller" lowerBound="1">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="body" value="return (org.irisa.diverse.videogen.videoGen.Alternatives) this.getMse().getCaller();"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EClass" href="../../org.irisa.diverse.videogen/model/VideoGen.ecore#//Alternatives"/>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="VideoGen_Delay_Execute" eSuperTypes="//Steps/SmallStep">
+      <eOperations name="getCaller" lowerBound="1">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="body" value="return (org.irisa.diverse.videogen.videoGen.Delay) this.getMse().getCaller();"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EClass" href="../../org.irisa.diverse.videogen/model/VideoGen.ecore#//Delay"/>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="VideoGen_Generate_Compute" eSuperTypes="//Steps/SmallStep">
+      <eOperations name="getCaller" lowerBound="1">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="body" value="return (org.irisa.diverse.videogen.videoGen.Generate) this.getMse().getCaller();"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EClass" href="../../org.irisa.diverse.videogen/model/VideoGen.ecore#//Generate"/>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="VideoGen_Generate_Execute" eSuperTypes="//Steps/SmallStep">
+      <eOperations name="getCaller" lowerBound="1">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="body" value="return (org.irisa.diverse.videogen.videoGen.Generate) this.getMse().getCaller();"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EClass" href="../../org.irisa.diverse.videogen/model/VideoGen.ecore#//Generate"/>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="VideoGen_Initialize_Execute" eSuperTypes="//Steps/SmallStep">
+      <eOperations name="getCaller" lowerBound="1">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="body" value="return (org.irisa.diverse.videogen.videoGen.Initialize) this.getMse().getCaller();"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EClass" href="../../org.irisa.diverse.videogen/model/VideoGen.ecore#//Initialize"/>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="VideoGen_Mandatory_Execute" eSuperTypes="//Steps/SmallStep">
+      <eOperations name="getCaller" lowerBound="1">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="body" value="return (org.irisa.diverse.videogen.videoGen.Mandatory) this.getMse().getCaller();"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EClass" href="../../org.irisa.diverse.videogen/model/VideoGen.ecore#//Mandatory"/>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="VideoGen_Optional_Execute" eSuperTypes="//Steps/SmallStep">
+      <eOperations name="getCaller" lowerBound="1">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="body" value="return (org.irisa.diverse.videogen.videoGen.Optional) this.getMse().getCaller();"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EClass" href="../../org.irisa.diverse.videogen/model/VideoGen.ecore#//Optional"/>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="VideoGen_Sequence_Execute" eSuperTypes="//Steps/SmallStep">
+      <eOperations name="getCaller" lowerBound="1">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="body" value="return (org.irisa.diverse.videogen.videoGen.Sequence) this.getMse().getCaller();"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EClass" href="../../org.irisa.diverse.videogen/model/VideoGen.ecore#//Sequence"/>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="VideoGen_Transition_Execute" eSuperTypes="//Steps/SmallStep">
+      <eOperations name="getCaller" lowerBound="1">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="body" value="return (org.irisa.diverse.videogen.videoGen.Transition) this.getMse().getCaller();"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EClass" href="../../org.irisa.diverse.videogen/model/VideoGen.ecore#//Transition"/>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="VideoGen_Video_Select" eSuperTypes="//Steps/SmallStep">
+      <eOperations name="getCaller" lowerBound="1">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="body" value="return (org.irisa.diverse.videogen.videoGen.Video) this.getMse().getCaller();"/>
+        </eAnnotations>
+        <eType xsi:type="ecore:EClass" href="../../org.irisa.diverse.videogen/model/VideoGen.ecore#//Video"/>
+      </eOperations>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="States" nsURI="videoGenTrace_States" nsPrefix="tracedclasses">
+    <eClassifiers xsi:type="ecore:EClass" name="State">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="endedSteps" upperBound="-1" eType="//Steps/Step" eOpposite="//Steps/Step/endingState"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="startedSteps" upperBound="-1" eType="//Steps/Step" eOpposite="//Steps/Step/startingState"/>
+    </eClassifiers>
+  </eSubpackages>
+</ecore:EPackage>

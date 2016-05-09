@@ -78,7 +78,6 @@ class VideoGenAspect {
 		log.info("#### VideoGen, time to setup " + (System.nanoTime - start))
 	}
 	
-	@Step
 	@InitializeModel
 	def public void initializeModel(List<String> args){
 		_self.setup
@@ -238,7 +237,6 @@ abstract class SequenceAspect extends TransitionAspect {
 @Aspect(className=Alternatives)
 class AlternativesAspect extends SequenceAspect {
 
-	@Step
 	@OverrideAspectMethod
 	def public void execute(VideoGen videoGen) {
 		
@@ -269,7 +267,6 @@ class AlternativesAspect extends SequenceAspect {
 @Aspect(className=Mandatory)
 class MandatoryAspect extends SequenceAspect {
 	
-	@Step
 	@OverrideAspectMethod
 	def public void execute(VideoGen videoGen) {
 		if (_self.active && !_self.executed) {
@@ -305,7 +302,6 @@ class OptionalAspect extends SequenceAspect {
 		drng.getDistributedRandomNumber() > 0
 	}
 
-	@Step
 	@OverrideAspectMethod
 	def public void execute(VideoGen videoGen) {
 		if (_self.active && !_self.executed) {

@@ -34,7 +34,6 @@ import org.eclipse.sirius.business.api.session.SessionManager;
 import org.eclipse.sirius.common.tools.api.resource.ResourceSetFactory;
 import org.eclipse.sirius.diagram.DSemanticDiagram;
 import org.eclipse.sirius.diagram.description.Layer;
-import org.eclipse.sirius.diagram.tools.internal.command.ChangeLayerActivationCommand;
 import org.eclipse.sirius.ui.business.api.dialect.DialectEditor;
 import org.eclipse.sirius.ui.business.api.session.IEditingSession;
 import org.eclipse.sirius.ui.business.api.session.SessionUIManager;
@@ -193,7 +192,7 @@ public class LiveModelLoader implements IModelLoader {
 				final DSemanticDiagram diagram = (DSemanticDiagram) representation;
 //				System.out.println("\t\t" + "DSemanticDiagram : " + diagram);
 				
-				//diagram.setIsInLayoutingMode(true);
+				diagram.setIsInLayoutingMode(true);
 				
 //				final List<EObject> elements = new ArrayList<EObject>();
 //				elements.add(diagram);
@@ -215,17 +214,17 @@ public class LiveModelLoader implements IModelLoader {
 				RecordingCommand command = new RecordingCommand(editingDomain, "Activating animator and debug layers") {
 					@Override
 					protected void doExecute() {
-						for (Layer l : diagram.getDescription().getAdditionalLayers()) {
-							boolean mustBeActive = AbstractDSLDebuggerServices.LISTENER.isRepresentationToRefresh(
-									MODEL_ID, diagram.getDescription().getName(), l.getName())
-									|| AbstractGemocAnimatorServices.ANIMATOR.isRepresentationToRefresh(diagram
-											.getDescription().getName(), l.getName());
-							if (mustBeActive && !diagram.getActivatedLayers().contains(l)) {
-								ChangeLayerActivationCommand c = new ChangeLayerActivationCommand(editingDomain,
-										diagram, l, monitor);
-								c.execute();
-							}
-						}
+//						for (Layer l : diagram.getDescription().getAdditionalLayers()) {
+//							boolean mustBeActive = AbstractDSLDebuggerServices.LISTENER.isRepresentationToRefresh(
+//									MODEL_ID, diagram.getDescription().getName(), l.getName())
+//									|| AbstractGemocAnimatorServices.ANIMATOR.isRepresentationToRefresh(diagram
+//											.getDescription().getName(), l.getName());
+//							if (mustBeActive && !diagram.getActivatedLayers().contains(l)) {
+//								ChangeLayerActivationCommand c = new ChangeLayerActivationCommand(editingDomain,
+//										diagram, l, monitor);
+//								c.execute();
+//							}
+//						}
 					}
 				};
 				CommandExecution.execute(editingDomain, command);

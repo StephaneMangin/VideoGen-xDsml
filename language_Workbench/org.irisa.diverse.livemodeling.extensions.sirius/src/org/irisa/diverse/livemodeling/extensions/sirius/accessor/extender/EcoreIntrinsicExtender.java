@@ -40,12 +40,15 @@ import org.eclipse.sirius.ecore.extender.business.api.accessor.MetamodelDescript
 import org.eclipse.sirius.ecore.extender.business.internal.accessor.ecore.EMFUtil;
 import org.eclipse.sirius.ecore.extender.business.internal.accessor.ecore.PackageRegistryIndex;
 import org.eclipse.sirius.ext.emf.EReferencePredicate;
+import org.eclipse.ui.IWorkbenchPage;
+import org.eclipse.ui.PlatformUI;
 import org.gemoc.xdsmlframework.api.core.ExecutionMode;
 import org.gemoc.xdsmlframework.api.core.IExecutionContext;
 import org.irisa.diverse.livemodeling.extensions.sirius.modelloader.LiveModelLoader;
 import org.irisa.diverse.livemodeling.extensions.sirius.session.LiveSessionFactory;
 import org.gemoc.execution.sequential.javaengine.SequentialModelExecutionContext;
 import org.gemoc.executionframework.engine.commons.EngineContextException;
+import org.gemoc.executionframework.engine.commons.ModelExecutionContext;
 
 import com.google.common.base.Predicates;
 import com.google.common.collect.HashMultimap;
@@ -70,12 +73,24 @@ public class EcoreIntrinsicExtender extends AbstractMetamodelExtender {
 
     private Collection<? extends MetamodelDescriptor> lastDescriptors;
 
+    /**
+     * Method helper to call the gemoc animation executable and run the model
+     * 
+     * @param instance
+     */
     private void updateModel(final EObject instance) {
+    	// Create a new session if not existing one
     	Session session = SessionManager.INSTANCE.getSession(instance);
+    	// Our own loader specification
     	LiveModelLoader loader = new LiveModelLoader();
-    	SequentialModelExecutionContext context;
+    	IWorkbenchPage activePage = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage();
+    	URI activeURI = (URI) activePage.getInput();
 		try {
-			context = new SequentialModelExecutionContext(null, null);
+			// The needed context that encasulate all needed info about the desired execution
+			SequentialModelExecutionContext context = new SequentialModelExecutionContext(
+					null, //new SequentialRunConfiguration(new ),
+					ExecutionMode.Run);
+			// And then load this context
 	    	loader.loadModelForAnimation(context);
 		} catch (EngineContextException e) {
 			// TODO Auto-generated catch block
@@ -477,8 +492,9 @@ public class EcoreIntrinsicExtender extends AbstractMetamodelExtender {
     }
 
 	@Override
-	public void eRemoveInverseCrossReferences(EObject arg0,
+	public Collection<EObject> eRemoveInverseCrossReferences(EObject arg0,
 			ECrossReferenceAdapter arg1, EReferencePredicate arg2) {
+				return Collections.emptyList();
 		// TODO Auto-generated method stub
 		
 	}
