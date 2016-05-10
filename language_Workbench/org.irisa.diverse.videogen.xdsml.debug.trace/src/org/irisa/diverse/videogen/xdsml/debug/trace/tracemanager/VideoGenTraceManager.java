@@ -20,6 +20,8 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.common.util.TreeIterator;
 
+import videoGenTrace.Steps.Step;
+
 public class VideoGenTraceManager implements fr.inria.diverse.trace.gemoc.api.IGemocTraceManager {
 
 	private videoGenTrace.Trace traceRoot;
@@ -452,10 +454,10 @@ public class VideoGenTraceManager implements fr.inria.diverse.trace.gemoc.api.IG
 	}
 
 	@SuppressWarnings("unchecked")
-	private static void emfAdd(EObject o, String property, Object value) {
-		for (EReference r : o.eClass().getEAllReferences()) {
+	private static void emfAdd(Step step, String property, Object value) {
+		for (EReference r : step.eClass().getEAllReferences()) {
 			if (r.getName().equalsIgnoreCase(property)) {
-				Object coll = o.eGet(r);
+				Object coll = step.eGet(r);
 				if (coll instanceof Collection) {
 					((Collection<Object>) coll).add(value);
 					return;
