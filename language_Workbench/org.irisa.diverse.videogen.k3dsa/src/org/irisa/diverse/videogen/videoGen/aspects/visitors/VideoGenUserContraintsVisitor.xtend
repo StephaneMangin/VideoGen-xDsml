@@ -1,55 +1,67 @@
 package org.irisa.diverse.videogen.videoGen.aspects.visitors
 
-import java.util.ArrayList
-import java.util.List
+import org.chocosolver.solver.Solver
+import org.chocosolver.solver.constraints.IntConstraintFactory
+import org.chocosolver.solver.trace.Chatterbox
+import org.chocosolver.solver.variables.IntVar
+import org.chocosolver.solver.variables.VariableFactory
 import org.irisa.diverse.videogen.transformations.helpers.VideoGenHelper
 import org.irisa.diverse.videogen.videoGen.Alternatives
+import org.irisa.diverse.videogen.videoGen.Mandatory
 import org.irisa.diverse.videogen.videoGen.Optional
 import org.irisa.diverse.videogen.videoGen.Sequence
 import org.irisa.diverse.videogen.videoGen.VideoGen
 import org.irisa.diverse.videogen.videoGen.aspects.utils.LoggableVisitor
-import org.chocosolver.solver.Solver
-import org.chocosolver.solver.trace.Chatterbox
-import org.chocosolver.solver.constraints.IntConstraintFactory
-import org.chocosolver.solver.search.strategy.IntStrategyFactory
-import org.chocosolver.solver.constraints.Constraint
-import org.chocosolver.solver.variables.IntVar
-import org.chocosolver.solver.variables.VariableFactory
-import org.chocosolver.solver.variables.BoolVar
-import org.chocosolver.solver.variables.VF
-import org.irisa.diverse.videogen.videoGen.Mandatory
-import org.chocosolver.solver.constraints.LogicalConstraintFactory
+import org.chocosolver.solver.constraints.SatFactory
 import org.chocosolver.solver.ResolutionPolicy
 
 class VideoGenUserContraintsVisitor extends LoggableVisitor {
 	
-	private IntVar minConstraint // User defined
-	private IntVar maxConstraint // User defined
-	private List<Optional> sequences
-	Solver solver = new Solver("Min/Max Constraints")
-	
-	new () {
-		super()
-		log.info("minConstraint=" + minConstraint + ", maxConstraint=" + maxConstraint)
-	}
-	
+	private IntVar[] globalCoefs
+	private int[] globalDurations
+    private Solver solver
+    private IntVar objective
+    private int globalCount
+    
+    new() {
+		// Define a new solver
+    	solver = new Solver("Min max durations constraints")
+    	globalCount = 0
+    }
+    
 	def visit(VideoGen vid, int min, int max) {
-		minConstraint = VariableFactory.fixed(min, solver)
-		maxConstraint = VariableFactory.fixed(max, solver)
-		sequences = new ArrayList
-		log.info("VideoGen User Contraints Visitor started...")
-		log.info("BEFORE => minConstraint=" + minConstraint + ", maxConstraint=" + maxConstraint)
-		VideoGenHelper.allSequences(vid).forEach[visit]
-		log.info("AFTER => minConstraint=" + minConstraint + ", maxConstraint=" + maxConstraint)
-		log.info("sequences=" + sequences)
+		val videoNumber = VideoGenHelper.allVideos(vid).size
 		
-		// 3. Create and post constraints by using constraint factories
-        //solver.post(IntConstraintFactory.(, "+", sequences.sum, "<=", maxConstraint))
-        // 4. Define the search strategy
-		// 5. Launch the resolution process
-        //solver.findAllOptimalSolutions(ResolutionPolicy.SATISFACTION)
-        //6. Print search statistics
-        Chatterbox.printStatistics(solver)
+		// Define the objective scalar with given contraints
+		objective = VariableFactory.bounded("objective", min, max, solver)
+		globalCoefs = newArrayOfSize(videoNumber) // Used to insert optional's coefficient
+		globalDurations = newIntArrayOfSize(videoNumber) // Used to insert video durations. Must be a partition of coefs
+		
+		log.info("VideoGen User Contraints Visitor started...")
+		log.info("\t => minConstraint=" + min + ", maxConstraint=" + max)
+		
+		// Call the visitor
+		VideoGenHelper.allSequences(vid).filter[active].forEach[visit]
+		
+		// Create and post constraints by using constraint factories
+        solver.post(IntConstraintFactory.scalar(globalCoefs, globalDurations, objective));
+        log.info(solver.toString());
+        // Launch the resolution process
+        solver.findOptimalSolution(ResolutionPolicy.SATISFACTION, objective);
+        // Print search statistics
+        Chatterbox.printStatistics(solver);
+        // Print solutions
+        var i = 0;
+        do {
+        	i++;
+		    log.info("- Solutions " + i)
+		    for (IntVar coef: globalCoefs) {
+		    	log.info("\t" + coef.getName() + " value=" + coef.getValue())
+		    }
+        } while (solver.nextSolution())
+        
+        // Then apply constraints
+		VideoGenHelper.allSequences(vid).filter[active].forEach[applyConstraints]
 	}
 	
 	def private void visit(Sequence tra) {
@@ -65,20 +77,56 @@ class VideoGenUserContraintsVisitor extends LoggableVisitor {
 	}
 		
 	def private visit(Alternatives alt) {
-		solver.post()
+		val optionsSize = alt.options.size
+		val localCoefs = newArrayOfSize(optionsSize)
+		var localCount = 0
+		for (Optional option: alt.options) {
+			val ft = VariableFactory.bool(option.name, solver)
+			localCoefs.set(localCount, ft)
+			localCount++
+			addVar(ft, option.video.duration)
+		}
+		// Create the clause for selecting only one option
+		SatFactory.addAtMostOne(localCoefs)
 	}
 	
 	def private visit(Optional opt) {
-		val ft = VariableFactory.integer(opt.name, 0, 1, solver)
-		val constraint = IntConstraintFactory.arithm(ft,"<=",1)
-		var res = VF.bool(opt.name, solver)
-		constraint.reifyWith(res)
+		// For choco, a bool is a integer between 0 and 1
+		addVar(VariableFactory.bool(opt.name, solver), opt.video.duration)
 	}
 	
 	def private visit(Mandatory man) {
-		val ft = VariableFactory.integer(man.name, 0, 1, solver)
-		val constraint = IntConstraintFactory.arithm(ft,"=",1)
-		var res = VF.bool(man.name, solver)
-		constraint.reifyWith(res)
+		// A mandatory has a fixed coef value of 1, mandatory right ;)
+		addVar(VariableFactory.fixed(man.name, 1, solver), man.video.duration)
 	}
+	
+	def private void addVar(IntVar intvar, int duration) {
+		globalCoefs.set(globalCount, intvar)
+		globalDurations.set(globalCount, duration)
+		globalCount++
+	}
+	
+	
+	def private void applyConstraints(Sequence tra) {
+		if (tra instanceof Optional) {
+			tra.visit
+		} else if (tra instanceof Alternatives) {
+			tra.visit
+		}
+	}
+	
+	def private void applyConstraints(Alternatives alt) {
+		alt.options.forEach[
+			if (globalCoefs.filter[value == 0].exists[name == it.name]) {
+				it.active = false
+			}
+		]
+	}
+	
+	def private void applyConstraints(Optional opt) {
+		if (globalCoefs.filter[value == 0].exists[name == opt.name]) {
+			opt.active = false
+		}
+	}
+	
 }
