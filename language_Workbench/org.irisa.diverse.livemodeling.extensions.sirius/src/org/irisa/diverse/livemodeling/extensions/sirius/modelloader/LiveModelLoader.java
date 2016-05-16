@@ -34,7 +34,7 @@ import org.eclipse.sirius.business.api.session.SessionManager;
 import org.eclipse.sirius.common.tools.api.resource.ResourceSetFactory;
 import org.eclipse.sirius.diagram.DSemanticDiagram;
 import org.eclipse.sirius.diagram.description.Layer;
-import org.eclipse.sirius.diagram.tools.internal.command.ChangeLayerActivationCommand;
+import org.eclipse.sirius.diagram.tools.api.command.ChangeLayerActivationCommand;
 import org.eclipse.sirius.ui.business.api.dialect.DialectEditor;
 import org.eclipse.sirius.ui.business.api.session.IEditingSession;
 import org.eclipse.sirius.ui.business.api.session.SessionUIManager;
@@ -147,16 +147,16 @@ public class LiveModelLoader implements IModelLoader {
 	}
 
 	private Session openNewSiriusSession(IExecutionContext context, URI sessionResourceURI) throws CoreException {
-//		System.out.println("");
-//		System.out.println("################################");
-//		System.out.println("DEBUG MODE FOR SIRIUS EXTENSIONS");
-//		System.out.println("################################");
-//		System.out.println("");
-//		System.out.println("\t" + "Context : " + context);
-//		System.out.println("\t\t" + "Execution mode: " + context.getExecutionMode());
-//		System.out.println("\t\t" + "Execution platform: " + context.getExecutionPlatform());
-//		System.out.println("\t\t" + "MSE model: " + context.getMSEModel());
-//		System.out.println("\t\t" + "Language extension: " + context.getLanguageDefinitionExtension());
+		System.out.println("");
+		System.out.println("################################");
+		System.out.println("DEBUG MODE FOR SIRIUS EXTENSIONS");
+		System.out.println("################################");
+		System.out.println("");
+		System.out.println("\t" + "Context : " + context);
+		System.out.println("\t\t" + "Execution mode: " + context.getExecutionMode());
+		System.out.println("\t\t" + "Execution platform: " + context.getExecutionPlatform());
+		System.out.println("\t\t" + "MSE model: " + context.getMSEModel());
+		System.out.println("\t\t" + "Language extension: " + context.getLanguageDefinitionExtension());
 		
 		boolean useMelange = context.getRunConfiguration().getMelangeQuery() != null
 				&& !context.getRunConfiguration().getMelangeQuery().isEmpty();

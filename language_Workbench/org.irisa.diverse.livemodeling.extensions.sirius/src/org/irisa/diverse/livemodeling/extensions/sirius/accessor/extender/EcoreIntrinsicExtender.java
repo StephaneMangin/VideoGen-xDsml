@@ -452,8 +452,9 @@ public class EcoreIntrinsicExtender extends AbstractMetamodelExtender {
     }
 
 	@Override
-	public void eRemoveInverseCrossReferences(EObject arg0,
+	public Collection<EObject> eRemoveInverseCrossReferences(EObject arg0,
 			ECrossReferenceAdapter arg1, EReferencePredicate arg2) {
+				return Collections.emptyList();
 		// TODO Auto-generated method stub
 		
 	}
