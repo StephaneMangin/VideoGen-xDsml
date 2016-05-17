@@ -94,8 +94,6 @@ class VideoGenAspect {
 			log.addHandler(fh)
 			_self.onceSetuped = true
 		}
-		// First apply the constraint model before execution
-		new VideoGenUserContraintsVisitor().visit(_self, _self.minUserConstraint, _self.maxUserConstraint)
 		log.info("Initialize model with " + args)
 	}
 	
@@ -175,6 +173,10 @@ abstract class TransitionAspect {
 	@Step
 	def public void execute(VideoGen videoGen) {
 		VideoGenAspect.log.info("##### '" + _self + "' is being processed.")
+		
+		// First apply the constraint model before execution
+		new VideoGenUserContraintsVisitor().visit(videoGen, videoGen.minUserConstraint, videoGen.maxUserConstraint)
+		
 		// Stop invariant while looping the model
 		if (!_self.executed) {
 			// Call the next sequence in all case

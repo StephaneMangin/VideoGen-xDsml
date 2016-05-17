@@ -36,21 +36,20 @@ public class LivePermissionAuthority extends AbstractPermissionAuthority
 
 	public void allow(ResourceSet rs, boolean allow) {
 		Integer integer = this.allow.get(rs);
-		this.allow.put(rs, Integer.valueOf(1));
-		return;
-//		if (allow) {
-//			if (integer == null) {
-//				this.allow.put(rs, Integer.valueOf(1));
-//			} else {
-//				this.allow.put(rs, Integer.valueOf(integer.intValue() + 1));
-//			}
-//		} else {
-//			if (integer == null) {
-//				this.allow.put(rs, Integer.valueOf(-1));
-//			} else {
-//				this.allow.put(rs, Integer.valueOf(integer.intValue() - 1));
-//			}
-//		}
+		allow = true;
+		if (allow) {
+			if (integer == null) {
+				this.allow.put(rs, Integer.valueOf(1));
+			} else {
+				this.allow.put(rs, Integer.valueOf(integer.intValue() + 1));
+			}
+		} else {
+			if (integer == null) {
+				this.allow.put(rs, Integer.valueOf(-1));
+			} else {
+				this.allow.put(rs, Integer.valueOf(integer.intValue() - 1));
+			}
+		}
 	}
 
 	@Override

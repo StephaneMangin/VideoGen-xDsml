@@ -15,5 +15,4 @@ language VideoGenL {
 	with org.irisa.diverse.videogen.videoGen.aspects.DelayAspect
 	with org.irisa.diverse.videogen.videoGen.aspects.VideoAspect
 
-	sirius ""
 }

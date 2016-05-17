@@ -49,34 +49,38 @@ class VideoGenUserContraintsVisitor extends LoggableVisitor {
         solver.post(IntConstraintFactory.scalar(variables, constants, objective));
         log.info(solver.toString());
         // Launch the resolution process
-        solver.findAllOptimalSolutions(ResolutionPolicy.SATISFACTION, objective, true);
+        solver.findOptimalSolution(ResolutionPolicy.MAXIMIZE, objective);
         //solver.findParetoFront(ResolutionPolicy.MAXIMIZE, objective);
         //solver.findAllSolutions
         // Print search statistics
         Chatterbox.printStatistics(solver);
         // Print solutions
+	    log.info("Solutions selected " + variables.map[it.getName() + "=" + it.getValue()].join(", "))
+        
+        // Then apply constraints
+		VideoGenHelper.allSequences(vid).filter[active].forEach[applyConstraints]
+        
+        // Get all solutions
+        val solutions = solver.findAllSolutions
+        log.info("Solutions max = " + solutions)
+        vid.variantes = solutions.intValue
         var i = 0
         do {
         	i++
 		    log.info("- Solutions " + i)
 		    for (IntVar coef: variables) {
-		    	log.info("\t" + coef.getName() + " value=" + coef.getValue())
+		    	log.info("\t" + variables.map[it.getName() + "=" + it.getValue()].join(", "))
 		    }
         } while (solver.nextSolution())
-        
-        // Then apply constraints
-		VideoGenHelper.allSequences(vid).filter[active].forEach[applyConstraints]
 	}
 	
 	def private void visit(Sequence tra) {
-		if (tra.active) {
-			if (tra instanceof Optional) {
-				tra.visit
-			} else if (tra instanceof Mandatory) {
-				tra.visit
-			} else if (tra instanceof Alternatives) {
-				tra.visit
-			}
+		if (tra instanceof Optional) {
+			tra.visit
+		} else if (tra instanceof Mandatory) {
+			tra.visit
+		} else if (tra instanceof Alternatives) {
+			tra.visit
 		}
 	}
 		
@@ -84,11 +88,10 @@ class VideoGenUserContraintsVisitor extends LoggableVisitor {
 		val optionsSize = alt.options.size
 		val localVars = newArrayOfSize(optionsSize)
 		var localCount = 0
-		for (Optional option: alt.options) {
-			val ft = VariableFactory.bool(option.name, solver)
+		for (Optional opt: alt.options) {
+			val ft = opt.visit
 			localVars.set(localCount, ft)
 			localCount++
-			addVar(ft, option.video.duration)
 		}
 		
 		// Create the clause
@@ -96,9 +99,20 @@ class VideoGenUserContraintsVisitor extends LoggableVisitor {
 		SatFactory.addClauses(logOp, solver)
 	}
 	
-	def private visit(Optional opt) {
+	def private IntVar visit(Optional opt) {
 		// For choco, a bool is a integer between 0 and 1
-		addVar(VariableFactory.bool(opt.name, solver), opt.video.duration)
+		var IntVar ft
+		if (opt.active) {	
+			if (opt.selected) {
+				ft = VariableFactory.fixed(opt.name, 1, solver)
+			} else {
+				ft = VariableFactory.bool(opt.name, solver)
+			}
+		} else {
+			ft = VariableFactory.fixed(opt.name, 0, solver)
+		}
+		addVar(ft, opt.video.duration)
+		ft
 	}
 	
 	def private visit(Mandatory man) {
@@ -120,16 +134,16 @@ class VideoGenUserContraintsVisitor extends LoggableVisitor {
 	 *			LogOp.xor(...
 	 *				LogOp.xor(firstVar, secondVar)))
 	 */
-	def private LogOp createAlternativesXorClause(BoolVar[] vars) {
+	def private LogOp createAlternativesXorClause(IntVar[] vars) {
 		var LogOp logOp = null
-		var BoolVar firstVar = vars.head
+		var BoolVar firstVar = vars.head  as BoolVar
 		// Browse except the first element
 
-		for (BoolVar boolVar: vars.tail) {
+		for (IntVar boolVar: vars.tail) {
 			if (logOp == null) {
-				logOp = LogOp.xor(firstVar, boolVar)
+				logOp = LogOp.xor(firstVar, boolVar as BoolVar)
 			} else {
-				logOp = LogOp.xor(boolVar, logOp)
+				logOp = LogOp.xor(boolVar as BoolVar, logOp)
 			}
 		}
 		logOp
