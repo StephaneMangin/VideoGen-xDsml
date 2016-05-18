@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<component id="org.eclipse.sirius.table.ui" modificationStamp="88067" version="1.2">
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius.table.ui/src-gen&lt;org.eclipse.sirius.table.metamodel.table.description.provider"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius.table.ui/src&lt;org.eclipse.sirius.table.ui.business.api.helper"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius.table.ui/src&lt;org.eclipse.sirius.table.ui.tools.api.editor"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius.table.ui/src-gen&lt;org.eclipse.sirius.table.metamodel.table.provider"/>
+    </package>
+</component>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<component id="org.eclipse.sirius.tree" modificationStamp="90935" version="1.2">
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius.tree/src-gen&lt;org.eclipse.sirius.tree.description.util"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius.tree/src&lt;org.eclipse.sirius.tree.business.api.interaction"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius.tree/src&lt;org.eclipse.sirius.tree.business.api.command"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius.tree/src-gen&lt;org.eclipse.sirius.tree.description"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius.tree/src-gen&lt;org.eclipse.sirius.tree.description.impl"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius.tree/src-gen&lt;org.eclipse.sirius.tree"/>
+        <fragment handle="=org.eclipse.sirius.tree/src&lt;org.eclipse.sirius.tree"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius.tree/src&lt;org.eclipse.sirius.tree.business.api.query"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius.tree/src-gen&lt;org.eclipse.sirius.tree.impl"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius.tree/src&lt;org.eclipse.sirius.tree.tools.api.interpreter"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius.tree/src-gen&lt;org.eclipse.sirius.tree.util"/>
+    </package>
+</component>

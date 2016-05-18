@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<component id="org.eclipse.sirius.diagram.ui" modificationStamp="80282" version="1.2">
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius.diagram.ui/src-diag&lt;org.eclipse.sirius.diagram.ui.business.api.image"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius.diagram.ui/src-diag&lt;org.eclipse.sirius.diagram.ui.tools.api.wizards.page"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius.diagram.ui/src-diag&lt;org.eclipse.sirius.diagram.ui.business.api.query"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius.diagram.ui/src-diag&lt;org.eclipse.sirius.diagram.ui.tools.api.preferences"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius.diagram.ui/src-diag&lt;org.eclipse.sirius.diagram.ui.tools.api.policies"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius.diagram.ui/src-diag&lt;org.eclipse.sirius.diagram.ui.business.api.view"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius.diagram.ui/src-gen&lt;org.eclipse.sirius.diagram.description.provider"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius.diagram.ui/src-diag&lt;org.eclipse.sirius.diagram.ui.tools.api.color"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius.diagram.ui/src-gen&lt;org.eclipse.sirius.diagram.description.concern.provider"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius.diagram.ui/src-gen&lt;org.eclipse.sirius.diagram.ui.provider"/>
+        <fragment handle="=org.eclipse.sirius.diagram.ui/src&lt;org.eclipse.sirius.diagram.ui.provider"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius.diagram.ui/src-diag&lt;org.eclipse.sirius.diagram.ui.tools.api.figure.locator"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius.diagram.ui/src-diag&lt;org.eclipse.sirius.diagram.ui.tools.api.editor"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius.diagram.ui/src-diag&lt;org.eclipse.sirius.diagram.ui.tools.api.figure"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius.diagram.ui/src-gen&lt;org.eclipse.sirius.diagram.description.filter.provider"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius.diagram.ui/src-diag&lt;org.eclipse.sirius.diagram.ui.tools.api.migration"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius.diagram.ui/src-diag&lt;org.eclipse.sirius.diagram.ui.tools.api.graphical.edit.palette"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius.diagram.ui/src-diag&lt;org.eclipse.sirius.diagram.ui.tools.api.layout.ordering"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius.diagram.ui/src-diag&lt;org.eclipse.sirius.diagram.ui.tools.api.policy"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius.diagram.ui/src-diag&lt;org.eclipse.sirius.diagram.ui.tools.api.draw2d.ui.figures"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius.diagram.ui/src-diag&lt;org.eclipse.sirius.diagram.ui.edit.api.part"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius.diagram.ui/src-diag&lt;org.eclipse.sirius.diagram.ui.tools.api.part"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius.diagram.ui/src-diag&lt;org.eclipse.sirius.diagram.ui.tools.api.properties"/>
+        <fragment handle="=org.eclipse.sirius.diagram.ui/src&lt;org.eclipse.sirius.diagram.ui.tools.api.properties"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius.diagram.ui/src-diag&lt;org.eclipse.sirius.diagram.ui.business.api.helper.graphicalfilters"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius.diagram.ui/src-gen&lt;org.eclipse.sirius.diagram.description.style.provider"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius.diagram.ui/src-diag&lt;org.eclipse.sirius.diagram.ui.graphical.figures"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius.diagram.ui/src-diag&lt;org.eclipse.sirius.diagram.ui.tools.api.util"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius.diagram.ui/src-diag&lt;org.eclipse.sirius.diagram.ui.tools.api.ui.actions"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius.diagram.ui/src-diag&lt;org.eclipse.sirius.diagram.ui.tools.api.graphical.edit.styles"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius.diagram.ui/src-gen&lt;org.eclipse.sirius.diagram.description.tool.provider"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius.diagram.ui/src-diag&lt;org.eclipse.sirius.diagram.ui.tools.api.permission"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius.diagram.ui/src-diag&lt;org.eclipse.sirius.diagram.ui.tools.api.command"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius.diagram.ui/src&lt;org.eclipse.sirius.diagram.ui.business.api.provider"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius.diagram.ui/src-diag&lt;org.eclipse.sirius.diagram.ui.tools.api.action"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius.diagram.ui/src-diag&lt;org.eclipse.sirius.diagram.ui.tools.api.decorators"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius.diagram.ui/src-diag&lt;org.eclipse.sirius.diagram.ui.tools.api.requests"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius.diagram.ui/src-diag&lt;org.eclipse.sirius.diagram.ui.tools.api.layout"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius.diagram.ui/src-diag&lt;org.eclipse.sirius.diagram.ui.part"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius.diagram.ui/src-gen&lt;org.eclipse.sirius.diagram.provider"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius.diagram.ui/src-diag&lt;org.eclipse.sirius.diagram.ui.tools.api.layout.provider"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius.diagram.ui/src-diag&lt;org.eclipse.sirius.diagram.ui.graphical.edit.policies"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius.diagram.ui/src-diag&lt;org.eclipse.sirius.diagram.ui.graphical.edit.part.specific"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius.diagram.ui/src-diag&lt;org.eclipse.sirius.diagram.ui.tools.api.properties.filter"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius.diagram.ui/src-diag&lt;org.eclipse.sirius.diagram.ui.tools.api.figure.anchor"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius.diagram.ui/src&lt;org.eclipse.sirius.diagram.ui.tools.api.image"/>
+    </package>
+</component>

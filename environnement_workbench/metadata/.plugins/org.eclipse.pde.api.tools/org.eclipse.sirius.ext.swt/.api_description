@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<component id="org.eclipse.sirius.ext.swt" modificationStamp="88749" version="1.2">
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius.ext.swt/src&lt;org.eclipse.sirius.ext.swt"/>
+    </package>
+</component>

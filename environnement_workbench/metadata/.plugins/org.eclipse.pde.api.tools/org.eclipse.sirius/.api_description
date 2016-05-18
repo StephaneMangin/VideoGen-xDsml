@@ -1,0 +1,687 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<component id="org.eclipse.sirius" modificationStamp="91276" version="1.2">
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.audit.util"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.audit.util{AuditSwitch.java[AuditSwitch" modificationStamp="92910" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.audit.util{AuditAdapterFactory.java[AuditAdapterFactory" modificationStamp="92909" restrictions="0" visibility="0"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.tools.api.ui.color"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.tools.api.ui.color{EnvironmentSystemColorFactory.java[EnvironmentSystemColorFactory" modificationStamp="92896" restrictions="0" visibility="0"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.componentization"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.componentization{ViewpointResourceHandler.java[ViewpointResourceHandler" modificationStamp="92127" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.componentization{ISiriusComponent.java[ISiriusComponent" modificationStamp="92121" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.componentization{ViewpointRegistryListener2.java[ViewpointRegistryListener2" modificationStamp="92126" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.componentization{ViewpointRegistryImpl.java[ViewpointRegistryImpl" modificationStamp="92125" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.componentization{ViewpointRegistryFilter.java[ViewpointRegistryFilter" modificationStamp="92124" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.componentization{ViewpointRegistry.java[ViewpointRegistry" modificationStamp="92123" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.componentization{ViewpointFileCollector.java[ViewpointFileCollector" modificationStamp="92122" restrictions="0" visibility="0"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.description.contribution"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.description.contribution{RemoveFeatureContribution.java[RemoveFeatureContribution" modificationStamp="91610" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.description.contribution{ComputedEObjectReference.java[ComputedEObjectReference" modificationStamp="91600" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.description.contribution{ContributionFactory.java[ContributionFactory" modificationStamp="91602" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.description.contribution{AddFeatureContribution.java[AddFeatureContribution" modificationStamp="91598" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.description.contribution{EObjectReference.java[EObjectReference" modificationStamp="91607" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.description.contribution{SetFeatureContribution.java[SetFeatureContribution" modificationStamp="91612" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.description.contribution{FeatureContribution.java[FeatureContribution" modificationStamp="91608" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.description.contribution{ResetFeatureContribution.java[ResetFeatureContribution" modificationStamp="91611" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.description.contribution{ContributionProvider.java[ContributionProvider" modificationStamp="91605" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.description.contribution{IgnoreFeatureContribution.java[IgnoreFeatureContribution" modificationStamp="91609" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.description.contribution{ContributionPoint.java[ContributionPoint" modificationStamp="91604" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.description.contribution{DirectEObjectReference.java[DirectEObjectReference" modificationStamp="91606" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.description.contribution{ClearFeatureContribution.java[ClearFeatureContribution" modificationStamp="91599" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.description.contribution{Contribution.java[Contribution" modificationStamp="91601" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.description.contribution{ContributionPackage.java[ContributionPackage" modificationStamp="91603" restrictions="0" visibility="0"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.action"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.action{AbstractExternalJavaAction.java[AbstractExternalJavaAction" modificationStamp="92116" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.action{MoveElementInListAction.java[MoveElementInListAction" modificationStamp="92117" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.action{PrintInterpreterVariablesAction.java[PrintInterpreterVariablesAction" modificationStamp="92118" restrictions="0" visibility="0"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.tools.api.ui"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.tools.api.ui{ExternalJavaActionProvider.java[ExternalJavaActionProvider" modificationStamp="92310" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.tools.api.ui{PostRefreshCommandFactory.java[PostRefreshCommandFactory" modificationStamp="92312" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.tools.api.ui{RefreshEditorsPrecommitListener.java[RefreshEditorsPrecommitListener" modificationStamp="92313" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.tools.api.ui{IExternalJavaAction.java[IExternalJavaAction" modificationStamp="92311" restrictions="0" visibility="0"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.color"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.color{RGBValuesProvider.java[RGBValuesProvider" modificationStamp="92120" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.color{AbstractColorUpdater.java[AbstractColorUpdater" modificationStamp="92119" restrictions="0" visibility="0"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.validation.impl"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.validation.impl{ValidationFixImpl.java[ValidationFixImpl" modificationStamp="92980" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.validation.impl{RuleAuditImpl.java[RuleAuditImpl" modificationStamp="92977" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.validation.impl{ViewValidationRuleImpl.java[ViewValidationRuleImpl" modificationStamp="92984" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.validation.impl{ValidationSetImpl.java[ValidationSetImpl" modificationStamp="92983" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.validation.impl{ValidationFactoryImpl.java[ValidationFactoryImpl" modificationStamp="92979" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.validation.impl{SemanticValidationRuleImpl.java[SemanticValidationRuleImpl" modificationStamp="92978" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.validation.impl{ValidationPackageImpl.java[ValidationPackageImpl" modificationStamp="92981" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.validation.impl{ValidationRuleImpl.java[ValidationRuleImpl" modificationStamp="92982" restrictions="0" visibility="0"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.extender"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.extender{MetamodelDescriptorProvider2.java[MetamodelDescriptorProvider2" modificationStamp="92142" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.extender{MetamodelDescriptorManager.java[MetamodelDescriptorManager" modificationStamp="92140" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.extender{MetamodelDescriptorProvider.java[MetamodelDescriptorProvider" modificationStamp="92141" restrictions="0" visibility="0"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.logger"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.logger{RuntimeLogger.java[RuntimeLogger" modificationStamp="92153" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.logger{RuntimeLoggerInterpreter.java[RuntimeLoggerInterpreter" modificationStamp="92154" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.logger{MarkerRuntimeLogger.java[MarkerRuntimeLogger" modificationStamp="92152" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.logger{RuntimeLoggerManager.java[RuntimeLoggerManager" modificationStamp="92155" restrictions="0" visibility="0"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.control"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.control{SiriusControlCommand.java[SiriusControlCommand" modificationStamp="92128" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.control{SiriusUncontrolCommand.java[SiriusUncontrolCommand" modificationStamp="92129" restrictions="0" visibility="0"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.audit.impl"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.audit.impl{AuditFactoryImpl.java[AuditFactoryImpl" modificationStamp="92905" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.audit.impl{InformationSectionImpl.java[InformationSectionImpl" modificationStamp="92907" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.audit.impl{TemplateInformationSectionImpl.java[TemplateInformationSectionImpl" modificationStamp="92908" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.audit.impl{AuditPackageImpl.java[AuditPackageImpl" modificationStamp="92906" restrictions="0" visibility="0"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.validation.util"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.validation.util{ValidationAdapterFactory.java[ValidationAdapterFactory" modificationStamp="92985" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.validation.util{ValidationSwitch.java[ValidationSwitch" modificationStamp="92986" restrictions="0" visibility="0"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.tools.api.command.view"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.tools.api.command.view{JavaActionFromToolCommand.java[JavaActionFromToolCommand" modificationStamp="92894" restrictions="0" visibility="0"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.tools.api.ui.resource"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.tools.api.ui.resource{ISiriusMessages.java[ISiriusMessages" modificationStamp="92898" restrictions="0" visibility="0"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.validation"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.validation{RuleAudit.java[RuleAudit" modificationStamp="92474" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.validation{ERROR_LEVEL.java[ERROR_LEVEL" modificationStamp="92473" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.validation{ValidationFix.java[ValidationFix" modificationStamp="92477" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.validation{ValidationFactory.java[ValidationFactory" modificationStamp="92476" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.validation{SemanticValidationRule.java[SemanticValidationRule" modificationStamp="92475" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.validation{ValidationSet.java[ValidationSet" modificationStamp="92480" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.validation{ValidationRule.java[ValidationRule" modificationStamp="92479" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.validation{ViewValidationRule.java[ViewValidationRule" modificationStamp="92481" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.validation{ValidationPackage.java[ValidationPackage" modificationStamp="92478" restrictions="0" visibility="0"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.delete"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.delete{IDeleteHook.java[IDeleteHook" modificationStamp="92130" restrictions="0" visibility="0"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.metamodel.helper"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.metamodel.helper{FontFormatHelper.java[FontFormatHelper" modificationStamp="92784" restrictions="0" visibility="0"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.tool"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.tool{ToolFilterDescriptionListener.java[ToolFilterDescriptionListener" modificationStamp="92206" restrictions="0" visibility="0"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.description.contribution.impl"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.description.contribution.impl{DirectEObjectReferenceImpl.java[DirectEObjectReferenceImpl" modificationStamp="92347" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.description.contribution.impl{AddFeatureContributionImpl.java[AddFeatureContributionImpl" modificationStamp="92339" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.description.contribution.impl{ContributionFactoryImpl.java[ContributionFactoryImpl" modificationStamp="92342" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.description.contribution.impl{FeatureContributionImpl.java[FeatureContributionImpl" modificationStamp="92348" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.description.contribution.impl{ClearFeatureContributionImpl.java[ClearFeatureContributionImpl" modificationStamp="92340" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.description.contribution.impl{ContributionPackageImpl.java[ContributionPackageImpl" modificationStamp="92344" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.description.contribution.impl{SetFeatureContributionImpl.java[SetFeatureContributionImpl" modificationStamp="92352" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.description.contribution.impl{IgnoreFeatureContributionImpl.java[IgnoreFeatureContributionImpl" modificationStamp="92349" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.description.contribution.impl{ComputedEObjectReferenceImpl.java[ComputedEObjectReferenceImpl" modificationStamp="92341" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.description.contribution.impl{RemoveFeatureContributionImpl.java[RemoveFeatureContributionImpl" modificationStamp="92350" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.description.contribution.impl{ResetFeatureContributionImpl.java[ResetFeatureContributionImpl" modificationStamp="92351" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.description.contribution.impl{ContributionPointImpl.java[ContributionPointImpl" modificationStamp="92345" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.description.contribution.impl{ContributionImpl.java[ContributionImpl" modificationStamp="92343" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.description.contribution.impl{ContributionProviderImpl.java[ContributionProviderImpl" modificationStamp="92346" restrictions="0" visibility="0"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool{ElementViewVariable.java[ElementViewVariable" modificationStamp="92427" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool{For.java[For" modificationStamp="92432" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool{ToolFactory.java[ToolFactory" modificationStamp="92462" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool{RepresentationCreationDescription.java[RepresentationCreationDescription" modificationStamp="92450" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool{InitialOperation.java[InitialOperation" modificationStamp="92437" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool{Switch.java[Switch" modificationStamp="92458" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool{ToolDescription.java[ToolDescription" modificationStamp="92460" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool{OperationAction.java[OperationAction" modificationStamp="92445" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool{InitialNodeCreationOperation.java[InitialNodeCreationOperation" modificationStamp="92436" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool{PaneBasedSelectionWizardDescription.java[PaneBasedSelectionWizardDescription" modificationStamp="92446" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool{DialogVariable.java[DialogVariable" modificationStamp="92419" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool{ExternalJavaAction.java[ExternalJavaAction" modificationStamp="92428" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool{PopupMenu.java[PopupMenu" modificationStamp="92448" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool{AbstractToolDescription.java[AbstractToolDescription" modificationStamp="92409" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool{ExternalJavaActionCall.java[ExternalJavaActionCall" modificationStamp="92429" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool{SubVariable.java[SubVariable" modificationStamp="92457" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool{ElementDeleteVariable.java[ElementDeleteVariable" modificationStamp="92423" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool{NameVariable.java[NameVariable" modificationStamp="92444" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool{RepresentationNavigationDescription.java[RepresentationNavigationDescription" modificationStamp="92451" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool{Unset.java[Unset" modificationStamp="92465" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool{ToolEntry.java[ToolEntry" modificationStamp="92461" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool{CreateInstance.java[CreateInstance" modificationStamp="92416" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool{SetObject.java[SetObject" modificationStamp="92455" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool{MenuItemDescription.java[MenuItemDescription" modificationStamp="92439" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool{Case.java[Case" modificationStamp="92412" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool{DragSource.java[DragSource" modificationStamp="92420" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool{ContainerViewVariable.java[ContainerViewVariable" modificationStamp="92415" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool{DropContainerVariable.java[DropContainerVariable" modificationStamp="92421" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool{SetValue.java[SetValue" modificationStamp="92456" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool{ContainerModelOperation.java[ContainerModelOperation" modificationStamp="92414" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool{RemoveElement.java[RemoveElement" modificationStamp="92449" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool{MappingBasedToolDescription.java[MappingBasedToolDescription" modificationStamp="92438" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool{ExternalJavaActionParameter.java[ExternalJavaActionParameter" modificationStamp="92430" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool{ElementDropVariable.java[ElementDropVariable" modificationStamp="92424" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool{ToolPackage.java[ToolPackage" modificationStamp="92464" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool{SelectModelElementVariable.java[SelectModelElementVariable" modificationStamp="92453" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool{InitialContainerDropOperation.java[InitialContainerDropOperation" modificationStamp="92435" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool{InitEdgeCreationOperation.java[InitEdgeCreationOperation" modificationStamp="92434" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool{If.java[If" modificationStamp="92433" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool{DeleteView.java[DeleteView" modificationStamp="92418" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool{SelectContainerVariable.java[SelectContainerVariable" modificationStamp="92452" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool{ElementSelectVariable.java[ElementSelectVariable" modificationStamp="92425" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool{MenuItemOrRef.java[MenuItemOrRef" modificationStamp="92441" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool{MenuItemDescriptionReference.java[MenuItemDescriptionReference" modificationStamp="92440" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool{Default.java[Default" modificationStamp="92417" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool{ElementVariable.java[ElementVariable" modificationStamp="92426" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool{FeatureChangeListener.java[FeatureChangeListener" modificationStamp="92431" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool{ToolFilterDescription.java[ToolFilterDescription" modificationStamp="92463" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool{AbstractVariable.java[AbstractVariable" modificationStamp="92410" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool{AcceleoVariable.java[AcceleoVariable" modificationStamp="92411" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool{SwitchChild.java[SwitchChild" modificationStamp="92459" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool{SelectionWizardDescription.java[SelectionWizardDescription" modificationStamp="92454" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool{MoveElement.java[MoveElement" modificationStamp="92443" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool{ModelOperation.java[ModelOperation" modificationStamp="92442" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool{EditMaskVariables.java[EditMaskVariables" modificationStamp="92422" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool{ChangeContext.java[ChangeContext" modificationStamp="92413" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool{VariableContainer.java[VariableContainer" modificationStamp="92466" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool{PasteDescription.java[PasteDescription" modificationStamp="92447" restrictions="0" visibility="0"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.audit"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.audit{InformationSection.java[InformationSection" modificationStamp="92357" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.audit{AuditFactory.java[AuditFactory" modificationStamp="92355" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.audit{AuditPackage.java[AuditPackage" modificationStamp="92356" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.audit{TemplateInformationSection.java[TemplateInformationSection" modificationStamp="92358" restrictions="0" visibility="0"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.dialect.command"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.dialect.command{RenameRepresentationCommand.java[RenameRepresentationCommand" modificationStamp="92764" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.dialect.command{CreateRepresentationCommand.java[CreateRepresentationCommand" modificationStamp="92760" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.dialect.command{RefreshRepresentationsCommand.java[RefreshRepresentationsCommand" modificationStamp="92763" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.dialect.command{CopyRepresentationCommand.java[CopyRepresentationCommand" modificationStamp="92759" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.dialect.command{MoveRepresentationCommand.java[MoveRepresentationCommand" modificationStamp="92762" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.dialect.command{DeleteRepresentationCommand.java[DeleteRepresentationCommand" modificationStamp="92761" restrictions="0" visibility="0"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.impl"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.impl{DProjectImpl.java[DProjectImpl" modificationStamp="91677" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.impl{CustomizableImpl.java[CustomizableImpl" modificationStamp="91669" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.impl{ViewpointPackageImpl.java[ViewpointPackageImpl" modificationStamp="91691" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.impl{DResourceContainerImpl.java[DResourceContainerImpl" modificationStamp="91681" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.impl{DFeatureExtensionImpl.java[DFeatureExtensionImpl" modificationStamp="91673" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.impl{DRepresentationContainerImpl.java[DRepresentationContainerImpl" modificationStamp="91678" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.impl{DRepresentationElementImpl.java[DRepresentationElementImpl" modificationStamp="91679" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.impl{DFileImpl.java[DFileImpl" modificationStamp="91674" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.impl{UIStateImpl.java[UIStateImpl" modificationStamp="91689" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.impl{SessionManagerEObjectImpl.java[SessionManagerEObjectImpl" modificationStamp="91687" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.impl{LabelStyleImpl.java[LabelStyleImpl" modificationStamp="91685" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.impl{MetaModelExtensionImpl.java[MetaModelExtensionImpl" modificationStamp="91686" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.impl{DAnalysisCustomDataImpl.java[DAnalysisCustomDataImpl" modificationStamp="91670" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.impl{DSemanticDecoratorImpl.java[DSemanticDecoratorImpl" modificationStamp="91682" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.impl{DViewImpl.java[DViewImpl" modificationStamp="91683" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.impl{DRepresentationImpl.java[DRepresentationImpl" modificationStamp="91680" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.impl{BasicLabelStyleImpl.java[BasicLabelStyleImpl" modificationStamp="91668" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.impl{DFolderImpl.java[DFolderImpl" modificationStamp="91675" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.impl{ViewpointFactoryImpl.java[ViewpointFactoryImpl" modificationStamp="91690" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.impl{DAnalysisImpl.java[DAnalysisImpl" modificationStamp="91671" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.impl{DModelImpl.java[DModelImpl" modificationStamp="91676" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.impl{DAnalysisSessionEObjectImpl.java[DAnalysisSessionEObjectImpl" modificationStamp="91672" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.impl{StyleImpl.java[StyleImpl" modificationStamp="91688" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.impl{DecorationImpl.java[DecorationImpl" modificationStamp="91684" restrictions="0" visibility="0"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint"/>
+        <fragment handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.viewpoint"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint{DResourceContainer.java[DResourceContainer" modificationStamp="91383" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.viewpoint{RGBValues.java[RGBValues" modificationStamp="91364" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint{SessionManagerEObject.java[SessionManagerEObject" modificationStamp="91392" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint{Style.java[Style" modificationStamp="91393" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint{DAnalysisCustomData.java[DAnalysisCustomData" modificationStamp="91370" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.viewpoint{SiriusPlugin.java[SiriusPlugin" modificationStamp="91365" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint{BasicLabelStyle.java[BasicLabelStyle" modificationStamp="91367" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint{SyncStatus.java[SyncStatus" modificationStamp="91394" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint{DRepresentationContainer.java[DRepresentationContainer" modificationStamp="91380" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint{DResource.java[DResource" modificationStamp="91382" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint{MetaModelExtension.java[MetaModelExtension" modificationStamp="91391" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint{LabelAlignment.java[LabelAlignment" modificationStamp="91389" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint{DRefreshable.java[DRefreshable" modificationStamp="91378" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint{DFile.java[DFile" modificationStamp="91373" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint{DFolder.java[DFolder" modificationStamp="91374" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint{DAnalysis.java[DAnalysis" modificationStamp="91369" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint{ViewpointFactory.java[ViewpointFactory" modificationStamp="91396" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint{DAnalysisSessionEObject.java[DAnalysisSessionEObject" modificationStamp="91371" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint{DView.java[DView" modificationStamp="91386" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint{DRepresentation.java[DRepresentation" modificationStamp="91379" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint{DStylizable.java[DStylizable" modificationStamp="91385" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint{DRepresentationElement.java[DRepresentationElement" modificationStamp="91381" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint{Decoration.java[Decoration" modificationStamp="91387" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint{LabelStyle.java[LabelStyle" modificationStamp="91390" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint{DFeatureExtension.java[DFeatureExtension" modificationStamp="91372" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint{DModel.java[DModel" modificationStamp="91376" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint{DProject.java[DProject" modificationStamp="91377" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint{UIState.java[UIState" modificationStamp="91395" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.viewpoint{Messages.java[Messages" modificationStamp="91363" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint{Customizable.java[Customizable" modificationStamp="91368" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint{ViewpointPackage.java[ViewpointPackage" modificationStamp="91397" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint{DSemanticDecorator.java[DSemanticDecorator" modificationStamp="91384" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint{DMappingBased.java[DMappingBased" modificationStamp="91375" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint{FontFormat.java[FontFormat" modificationStamp="91388" restrictions="0" visibility="0"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.dialect"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.dialect{Dialect.java[Dialect" modificationStamp="92133" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.dialect{AbstractRepresentationDialectServices.java[AbstractRepresentationDialectServices" modificationStamp="92131" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.dialect{DialectManager.java[DialectManager" modificationStamp="92134" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.dialect{DRepresentationNotificationFilter.java[DRepresentationNotificationFilter" modificationStamp="92132" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.dialect{DialectServices.java[DialectServices" modificationStamp="92135" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.dialect{RepresentationNotification.java[RepresentationNotification" modificationStamp="92136" restrictions="0" visibility="0"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.tools.api.validation.constraint"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.tools.api.validation.constraint{RuleWrappingStatus.java[RuleWrappingStatus" modificationStamp="92899" restrictions="0" visibility="0"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.session.danalysis"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.session.danalysis{DAnalysisSelectorService.java[DAnalysisSelectorService" modificationStamp="92787" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.session.danalysis{DAnalysisSession.java[DAnalysisSession" modificationStamp="92788" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.session.danalysis{DAnalysisSessionService.java[DAnalysisSessionService" modificationStamp="92790" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.session.danalysis{SimpleAnalysisSelector.java[SimpleAnalysisSelector" modificationStamp="92792" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.session.danalysis{DAnalysisSelectorProvider.java[DAnalysisSelectorProvider" modificationStamp="92786" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.session.danalysis{DAnalysisSelector.java[DAnalysisSelector" modificationStamp="92785" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.session.danalysis{DAnalysisSessionHelper.java[DAnalysisSessionHelper" modificationStamp="92789" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.session.danalysis{DefaultAnalysisSelectorProvider.java[DefaultAnalysisSelectorProvider" modificationStamp="92791" restrictions="0" visibility="0"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.helper.task"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.helper.task{ICommandTask.java[ICommandTask" modificationStamp="92775" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.helper.task{DeleteEObjectTask.java[DeleteEObjectTask" modificationStamp="92774" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.helper.task{NotificationTask.java[NotificationTask" modificationStamp="92779" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.helper.task{TaskExecutor.java[TaskExecutor" modificationStamp="92780" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.helper.task{ICreationTask.java[ICreationTask" modificationStamp="92776" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.helper.task{InitInterpreterVariablesTask.java[InitInterpreterVariablesTask" modificationStamp="92777" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.helper.task{LaunchRunnableTask.java[LaunchRunnableTask" modificationStamp="92778" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.helper.task{UnexecutableTask.java[UnexecutableTask" modificationStamp="92782" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.helper.task{AbstractCommandTask.java[AbstractCommandTask" modificationStamp="92773" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.helper.task{TaskHelper.java[TaskHelper" modificationStamp="92781" restrictions="0" visibility="0"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.session"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.session{SessionService.java[SessionService" modificationStamp="92200" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.session{AbstractSavingPolicy.java[AbstractSavingPolicy" modificationStamp="92187" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.session{SessionEventBroker.java[SessionEventBroker" modificationStamp="92196" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.session{DefaultLocalSessionCreationOperation.java[DefaultLocalSessionCreationOperation" modificationStamp="92189" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.session{SavingPolicyImpl.java[SavingPolicyImpl" modificationStamp="92193" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.session{ModelChangeTrigger.java[ModelChangeTrigger" modificationStamp="92190" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.session{ReloadingPolicy.java[ReloadingPolicy" modificationStamp="92191" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.session{SessionManager.java[SessionManager" modificationStamp="92198" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.session{Session.java[Session" modificationStamp="92194" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.session{SavingPolicy.java[SavingPolicy" modificationStamp="92192" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.session{CustomDataConstants.java[CustomDataConstants" modificationStamp="92188" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.session{ViewpointSelector.java[ViewpointSelector" modificationStamp="92202" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.session{SessionListener.java[SessionListener" modificationStamp="92197" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.session{SessionStatus.java[SessionStatus" modificationStamp="92201" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.session{SessionCreationOperation.java[SessionCreationOperation" modificationStamp="92195" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.session{SessionManagerListener.java[SessionManagerListener" modificationStamp="92199" restrictions="0" visibility="0"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.tools.api.command.ui"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.tools.api.command.ui{RefreshFilterManager.java[RefreshFilterManager" modificationStamp="92892" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.tools.api.command.ui{RefreshFilter.java[RefreshFilter" modificationStamp="92891" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.tools.api.command.ui{NoUICallback.java[NoUICallback" modificationStamp="92890" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.tools.api.command.ui{UICallBack.java[UICallBack" modificationStamp="92893" restrictions="0" visibility="0"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.dialect.identifier"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.dialect.identifier{RepresentationElementIdentifier.java[RepresentationElementIdentifier" modificationStamp="92772" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.dialect.identifier{AbstractRepresentationElementIdentifier.java[AbstractRepresentationElementIdentifier" modificationStamp="92771" restrictions="0" visibility="0"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.helper.task.label"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.helper.task.label{InitInterpreterFromParsedVariableTask.java[InitInterpreterFromParsedVariableTask" modificationStamp="93036" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.helper.task.label{InitInterpreterFromParsedVariableTask2.java[InitInterpreterFromParsedVariableTask2" modificationStamp="93037" restrictions="0" visibility="0"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.featureextensions"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.featureextensions{FeatureExtensionServices.java[FeatureExtensionServices" modificationStamp="92145" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.featureextensions{AbstractFeatureExtensionServices.java[AbstractFeatureExtensionServices" modificationStamp="92143" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.featureextensions{FeatureExtensionsManager.java[FeatureExtensionsManager" modificationStamp="92146" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.featureextensions{FeatureExtension.java[FeatureExtension" modificationStamp="92144" restrictions="0" visibility="0"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.tools.api.interpreter.context"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.tools.api.interpreter.context{SiriusInterpreterContextFactory.java[SiriusInterpreterContextFactory" modificationStamp="92895" restrictions="0" visibility="0"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.refresh"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.refresh{RefreshConstants.java[RefreshConstants" modificationStamp="92181" restrictions="0" visibility="0"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.tools.api.ui.property"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.tools.api.ui.property{IPropertiesProvider.java[IPropertiesProvider" modificationStamp="92897" restrictions="0" visibility="0"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.style.util"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.style.util{StyleAdapterFactory.java[StyleAdapterFactory" modificationStamp="92918" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.style.util{StyleSwitch.java[StyleSwitch" modificationStamp="92919" restrictions="0" visibility="0"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.tools.api.interpreter"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.tools.api.interpreter{InterpreterUtil.java[InterpreterUtil" modificationStamp="92304" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.tools.api.interpreter{InterpreterRegistry.java[InterpreterRegistry" modificationStamp="92303" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.tools.api.interpreter{IInterpreterMessages.java[IInterpreterMessages" modificationStamp="92302" restrictions="0" visibility="0"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.tools.api.command"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.tools.api.command{DCommand.java[DCommand" modificationStamp="92293" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.tools.api.command{EditingDomainUndoContext.java[EditingDomainUndoContext" modificationStamp="92294" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.tools.api.command{InvalidPermissionCommand.java[InvalidPermissionCommand" modificationStamp="92296" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.tools.api.command{NoNullResourceCommand.java[NoNullResourceCommand" modificationStamp="92297" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.tools.api.command{AbstractCommandFactory.java[AbstractCommandFactory" modificationStamp="92291" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.tools.api.command{SiriusCommand.java[SiriusCommand" modificationStamp="92298" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.tools.api.command{ICommandFactory.java[ICommandFactory" modificationStamp="92295" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.tools.api.command{CommandContext.java[CommandContext" modificationStamp="92292" restrictions="0" visibility="0"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool.util"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool.util{ToolSwitch.java[ToolSwitch" modificationStamp="92976" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool.util{ToolAdapterFactory.java[ToolAdapterFactory" modificationStamp="92975" restrictions="0" visibility="0"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.resource"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.resource{LoadEMFResource.java[LoadEMFResource" modificationStamp="92184" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.resource{ResourceDescriptor.java[ResourceDescriptor" modificationStamp="92185" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.resource{WorkspaceDragAndDropSupport.java[WorkspaceDragAndDropSupport" modificationStamp="92186" restrictions="0" visibility="0"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.util"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.util{ViewpointAdapterFactory.java[ViewpointAdapterFactory" modificationStamp="91692" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.util{ViewpointSwitch.java[ViewpointSwitch" modificationStamp="91693" restrictions="0" visibility="0"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool.impl"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool.impl{AbstractVariableImpl.java[AbstractVariableImpl" modificationStamp="92921" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool.impl{RemoveElementImpl.java[RemoveElementImpl" modificationStamp="92958" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool.impl{EditMaskVariablesImpl.java[EditMaskVariablesImpl" modificationStamp="92932" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool.impl{ChangeContextImpl.java[ChangeContextImpl" modificationStamp="92924" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool.impl{SelectContainerVariableImpl.java[SelectContainerVariableImpl" modificationStamp="92961" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool.impl{SwitchChildImpl.java[SwitchChildImpl" modificationStamp="92967" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool.impl{ModelOperationImpl.java[ModelOperationImpl" modificationStamp="92951" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool.impl{InitialNodeCreationOperationImpl.java[InitialNodeCreationOperationImpl" modificationStamp="92946" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool.impl{ToolFactoryImpl.java[ToolFactoryImpl" modificationStamp="92970" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool.impl{MoveElementImpl.java[MoveElementImpl" modificationStamp="92952" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool.impl{InitialContainerDropOperationImpl.java[InitialContainerDropOperationImpl" modificationStamp="92945" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool.impl{ElementDeleteVariableImpl.java[ElementDeleteVariableImpl" modificationStamp="92933" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool.impl{SetObjectImpl.java[SetObjectImpl" modificationStamp="92964" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool.impl{DeleteViewImpl.java[DeleteViewImpl" modificationStamp="92929" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool.impl{SwitchImpl.java[SwitchImpl" modificationStamp="92968" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool.impl{AcceleoVariableImpl.java[AcceleoVariableImpl" modificationStamp="92922" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool.impl{CaseImpl.java[CaseImpl" modificationStamp="92923" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool.impl{ExternalJavaActionCallImpl.java[ExternalJavaActionCallImpl" modificationStamp="92938" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool.impl{InitEdgeCreationOperationImpl.java[InitEdgeCreationOperationImpl" modificationStamp="92944" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool.impl{ContainerViewVariableImpl.java[ContainerViewVariableImpl" modificationStamp="92926" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool.impl{MappingBasedToolDescriptionImpl.java[MappingBasedToolDescriptionImpl" modificationStamp="92948" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool.impl{PaneBasedSelectionWizardDescriptionImpl.java[PaneBasedSelectionWizardDescriptionImpl" modificationStamp="92955" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool.impl{ExternalJavaActionImpl.java[ExternalJavaActionImpl" modificationStamp="92939" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool.impl{DropContainerVariableImpl.java[DropContainerVariableImpl" modificationStamp="92931" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool.impl{SelectModelElementVariableImpl.java[SelectModelElementVariableImpl" modificationStamp="92962" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool.impl{PopupMenuImpl.java[PopupMenuImpl" modificationStamp="92957" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool.impl{PasteDescriptionImpl.java[PasteDescriptionImpl" modificationStamp="92956" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool.impl{MenuItemDescriptionReferenceImpl.java[MenuItemDescriptionReferenceImpl" modificationStamp="92950" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool.impl{VariableContainerImpl.java[VariableContainerImpl" modificationStamp="92974" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool.impl{ToolDescriptionImpl.java[ToolDescriptionImpl" modificationStamp="92969" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool.impl{SubVariableImpl.java[SubVariableImpl" modificationStamp="92966" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool.impl{UnsetImpl.java[UnsetImpl" modificationStamp="92973" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool.impl{ElementVariableImpl.java[ElementVariableImpl" modificationStamp="92936" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool.impl{NameVariableImpl.java[NameVariableImpl" modificationStamp="92953" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool.impl{ExternalJavaActionParameterImpl.java[ExternalJavaActionParameterImpl" modificationStamp="92940" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool.impl{SelectionWizardDescriptionImpl.java[SelectionWizardDescriptionImpl" modificationStamp="92963" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool.impl{ToolPackageImpl.java[ToolPackageImpl" modificationStamp="92972" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool.impl{FeatureChangeListenerImpl.java[FeatureChangeListenerImpl" modificationStamp="92941" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool.impl{OperationActionImpl.java[OperationActionImpl" modificationStamp="92954" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool.impl{RepresentationNavigationDescriptionImpl.java[RepresentationNavigationDescriptionImpl" modificationStamp="92960" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool.impl{IfImpl.java[IfImpl" modificationStamp="92943" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool.impl{CreateInstanceImpl.java[CreateInstanceImpl" modificationStamp="92927" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool.impl{ElementViewVariableImpl.java[ElementViewVariableImpl" modificationStamp="92937" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool.impl{ToolFilterDescriptionImpl.java[ToolFilterDescriptionImpl" modificationStamp="92971" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool.impl{ElementDropVariableImpl.java[ElementDropVariableImpl" modificationStamp="92934" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool.impl{DefaultImpl.java[DefaultImpl" modificationStamp="92928" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool.impl{MenuItemDescriptionImpl.java[MenuItemDescriptionImpl" modificationStamp="92949" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool.impl{RepresentationCreationDescriptionImpl.java[RepresentationCreationDescriptionImpl" modificationStamp="92959" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool.impl{InitialOperationImpl.java[InitialOperationImpl" modificationStamp="92947" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool.impl{ElementSelectVariableImpl.java[ElementSelectVariableImpl" modificationStamp="92935" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool.impl{SetValueImpl.java[SetValueImpl" modificationStamp="92965" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool.impl{ForImpl.java[ForImpl" modificationStamp="92942" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool.impl{AbstractToolDescriptionImpl.java[AbstractToolDescriptionImpl" modificationStamp="92920" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool.impl{ContainerModelOperationImpl.java[ContainerModelOperationImpl" modificationStamp="92925" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.tool.impl{DialogVariableImpl.java[DialogVariableImpl" modificationStamp="92930" restrictions="0" visibility="0"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.tools.api.profiler"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.tools.api.profiler{SiriusTasksKey.java[SiriusTasksKey" modificationStamp="92309" restrictions="0" visibility="0"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.tools.api.permission"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.tools.api.permission{DRepresentationPermissionStatusListener.java[DRepresentationPermissionStatusListener" modificationStamp="92306" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.tools.api.permission{DRepresentationPermissionStatusQuery.java[DRepresentationPermissionStatusQuery" modificationStamp="92307" restrictions="0" visibility="0"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.query"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.query{URIQuery.java[URIQuery" modificationStamp="92178" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.query{EStructuralFeaturesQuery.java[EStructuralFeaturesQuery" modificationStamp="92172" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.query{ViewpointURIQuery.java[ViewpointURIQuery" modificationStamp="92180" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.query{RepresentationDescriptionQuery.java[RepresentationDescriptionQuery" modificationStamp="92176" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.query{FileQuery.java[FileQuery" modificationStamp="92173" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.query{AirDResouceQuery.java[AirDResouceQuery" modificationStamp="92165" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.query{EClassesQuery.java[EClassesQuery" modificationStamp="92170" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.query{EObjectQuery.java[EObjectQuery" modificationStamp="92171" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.query{IdentifiedElementQuery.java[IdentifiedElementQuery" modificationStamp="92175" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.query{ColorQuery.java[ColorQuery" modificationStamp="92166" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.query{IFileQuery.java[IFileQuery" modificationStamp="92174" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.query{DRepresentationQuery.java[DRepresentationQuery" modificationStamp="92169" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.query{ResourceQuery.java[ResourceQuery" modificationStamp="92177" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.query{ViewpointQuery.java[ViewpointQuery" modificationStamp="92179" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.query{DAnalysisQuery.java[DAnalysisQuery" modificationStamp="92167" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.query{DRepresentationElementQuery.java[DRepresentationElementQuery" modificationStamp="92168" restrictions="0" visibility="0"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.style.impl"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.style.impl{LabelBorderStylesImpl.java[LabelBorderStylesImpl" modificationStamp="92913" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.style.impl{BasicLabelStyleDescriptionImpl.java[BasicLabelStyleDescriptionImpl" modificationStamp="92911" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.style.impl{TooltipStyleDescriptionImpl.java[TooltipStyleDescriptionImpl" modificationStamp="92917" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.style.impl{StylePackageImpl.java[StylePackageImpl" modificationStamp="92916" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.style.impl{StyleFactoryImpl.java[StyleFactoryImpl" modificationStamp="92915" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.style.impl{LabelStyleDescriptionImpl.java[LabelStyleDescriptionImpl" modificationStamp="92914" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.style.impl{LabelBorderStyleDescriptionImpl.java[LabelBorderStyleDescriptionImpl" modificationStamp="92912" restrictions="0" visibility="0"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.migration"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.migration{AbstractVSMMigrationParticipant.java[AbstractVSMMigrationParticipant" modificationStamp="92159" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.migration{IMigrationParticipant.java[IMigrationParticipant" modificationStamp="92160" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.migration{AbstractMigrationParticipant.java[AbstractMigrationParticipant" modificationStamp="92157" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.migration{AbstractRepresentationsFileMigrationParticipant.java[AbstractRepresentationsFileMigrationParticipant" modificationStamp="92158" restrictions="0" visibility="0"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.style"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.style{StyleFactory.java[StyleFactory" modificationStamp="92404" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.style{LabelBorderStyleDescription.java[LabelBorderStyleDescription" modificationStamp="92400" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.style{LabelStyleDescription.java[LabelStyleDescription" modificationStamp="92402" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.style{TooltipStyleDescription.java[TooltipStyleDescription" modificationStamp="92406" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.style{StyleDescription.java[StyleDescription" modificationStamp="92403" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.style{BasicLabelStyleDescription.java[BasicLabelStyleDescription" modificationStamp="92399" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.style{LabelBorderStyles.java[LabelBorderStyles" modificationStamp="92401" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.style{StylePackage.java[StylePackage" modificationStamp="92405" restrictions="0" visibility="0"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.session.resource"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.session.resource{DResource.java[DResource" modificationStamp="92795" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.session.resource{AirdResource.java[AirdResource" modificationStamp="92794" restrictions="0" visibility="0"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.impl"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.impl{InterpolatedColorImpl.java[InterpolatedColorImpl" modificationStamp="92384" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.impl{DAnnotationEntryImpl.java[DAnnotationEntryImpl" modificationStamp="92368" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.impl{DAnnotationImpl.java[DAnnotationImpl" modificationStamp="92369" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.impl{EStructuralFeatureCustomizationImpl.java[EStructuralFeatureCustomizationImpl" modificationStamp="92378" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.impl{VSMElementCustomizationImpl.java[VSMElementCustomizationImpl" modificationStamp="92396" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.impl{FixedColorImpl.java[FixedColorImpl" modificationStamp="92381" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.impl{EAttributeCustomizationImpl.java[EAttributeCustomizationImpl" modificationStamp="92376" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.impl{ColorStepImpl.java[ColorStepImpl" modificationStamp="92364" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.impl{DModelElementImpl.java[DModelElementImpl" modificationStamp="92370" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.impl{IdentifiedElementImpl.java[IdentifiedElementImpl" modificationStamp="92383" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.impl{DescriptionPackageImpl.java[DescriptionPackageImpl" modificationStamp="92374" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.impl{EReferenceCustomizationImpl.java[EReferenceCustomizationImpl" modificationStamp="92377" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.impl{VSMElementCustomizationReuseImpl.java[VSMElementCustomizationReuseImpl" modificationStamp="92397" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.impl{DecorationDescriptionsSetImpl.java[DecorationDescriptionsSetImpl" modificationStamp="92372" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.impl{ViewpointImpl.java[ViewpointImpl" modificationStamp="92398" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.impl{SytemColorsPaletteImpl.java[SytemColorsPaletteImpl" modificationStamp="92392" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.impl{SemanticBasedDecorationImpl.java[SemanticBasedDecorationImpl" modificationStamp="92390" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.impl{UserFixedColorImpl.java[UserFixedColorImpl" modificationStamp="92395" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.impl{MetamodelExtensionSettingImpl.java[MetamodelExtensionSettingImpl" modificationStamp="92386" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.impl{DescriptionFactoryImpl.java[DescriptionFactoryImpl" modificationStamp="92373" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.impl{AnnotationEntryImpl.java[AnnotationEntryImpl" modificationStamp="92362" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.impl{JavaExtensionImpl.java[JavaExtensionImpl" modificationStamp="92385" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.impl{UserColorsPaletteImpl.java[UserColorsPaletteImpl" modificationStamp="92394" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.impl{ColorDescriptionImpl.java[ColorDescriptionImpl" modificationStamp="92363" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.impl{DecorationDescriptionImpl.java[DecorationDescriptionImpl" modificationStamp="92371" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.impl{ConditionalStyleDescriptionImpl.java[ConditionalStyleDescriptionImpl" modificationStamp="92366" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.impl{RepresentationElementMappingImpl.java[RepresentationElementMappingImpl" modificationStamp="92388" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.impl{ComputedColorImpl.java[ComputedColorImpl" modificationStamp="92365" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.impl{RepresentationTemplateImpl.java[RepresentationTemplateImpl" modificationStamp="92389" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.impl{CustomizationImpl.java[CustomizationImpl" modificationStamp="92367" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.impl{PasteTargetDescriptionImpl.java[PasteTargetDescriptionImpl" modificationStamp="92387" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.impl{UserColorImpl.java[UserColorImpl" modificationStamp="92393" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.impl{AbstractMappingImportImpl.java[AbstractMappingImportImpl" modificationStamp="92361" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.impl{GroupImpl.java[GroupImpl" modificationStamp="92382" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.impl{DocumentedElementImpl.java[DocumentedElementImpl" modificationStamp="92375" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.impl{EnvironmentImpl.java[EnvironmentImpl" modificationStamp="92380" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.impl{SystemColorImpl.java[SystemColorImpl" modificationStamp="92391" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.impl{EndUserDocumentedElementImpl.java[EndUserDocumentedElementImpl" modificationStamp="92379" restrictions="0" visibility="0"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description{DescriptionFactory.java[DescriptionFactory" modificationStamp="91628" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description{IdentifiedElement.java[IdentifiedElement" modificationStamp="91640" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description{MetamodelExtensionSetting.java[MetamodelExtensionSetting" modificationStamp="91643" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description{ColorDescription.java[ColorDescription" modificationStamp="91617" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description{DocumentedElement.java[DocumentedElement" modificationStamp="91630" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description{EndUserDocumentedElement.java[EndUserDocumentedElement" modificationStamp="91634" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description{InterpolatedColor.java[InterpolatedColor" modificationStamp="91641" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description{Viewpoint.java[Viewpoint" modificationStamp="91661" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description{VSMElementCustomization.java[VSMElementCustomization" modificationStamp="91659" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description{SytemColorsPalette.java[SytemColorsPalette" modificationStamp="91655" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description{Component.java[Component" modificationStamp="91619" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description{UserFixedColor.java[UserFixedColor" modificationStamp="91658" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description{AnnotationEntry.java[AnnotationEntry" modificationStamp="91616" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description{RepresentationTemplate.java[RepresentationTemplate" modificationStamp="91650" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description{UserColor.java[UserColor" modificationStamp="91656" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description{FixedColor.java[FixedColor" modificationStamp="91637" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description{RepresentationDescription.java[RepresentationDescription" modificationStamp="91646" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description{DecorationDescriptionsSet.java[DecorationDescriptionsSet" modificationStamp="91627" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description{SemanticBasedDecoration.java[SemanticBasedDecoration" modificationStamp="91652" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description{ConditionalStyleDescription.java[ConditionalStyleDescription" modificationStamp="91621" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description{DescriptionPackage.java[DescriptionPackage" modificationStamp="91629" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description{DAnnotationEntry.java[DAnnotationEntry" modificationStamp="91624" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description{ColorStep.java[ColorStep" modificationStamp="91618" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description{EStructuralFeatureCustomization.java[EStructuralFeatureCustomization" modificationStamp="91633" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description{DAnnotation.java[DAnnotation" modificationStamp="91623" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description{SystemColors.java[SystemColors" modificationStamp="91654" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description{SelectionDescription.java[SelectionDescription" modificationStamp="91651" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description{RepresentationElementMapping.java[RepresentationElementMapping" modificationStamp="91647" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description{IVSMElementCustomization.java[IVSMElementCustomization" modificationStamp="91639" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description{Position.java[Position" modificationStamp="91645" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description{SystemColor.java[SystemColor" modificationStamp="91653" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description{EAttributeCustomization.java[EAttributeCustomization" modificationStamp="91631" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description{VSMElementCustomizationReuse.java[VSMElementCustomizationReuse" modificationStamp="91660" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description{RepresentationImportDescription.java[RepresentationImportDescription" modificationStamp="91649" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description{JavaExtension.java[JavaExtension" modificationStamp="91642" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description{UserColorsPalette.java[UserColorsPalette" modificationStamp="91657" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description{RepresentationExtensionDescription.java[RepresentationExtensionDescription" modificationStamp="91648" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description{ComputedColor.java[ComputedColor" modificationStamp="91620" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description{EReferenceCustomization.java[EReferenceCustomization" modificationStamp="91632" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description{AbstractMappingImport.java[AbstractMappingImport" modificationStamp="91615" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description{DModelElement.java[DModelElement" modificationStamp="91625" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description{Group.java[Group" modificationStamp="91638" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description{Customization.java[Customization" modificationStamp="91622" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description{FeatureExtensionDescription.java[FeatureExtensionDescription" modificationStamp="91636" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description{PasteTargetDescription.java[PasteTargetDescription" modificationStamp="91644" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description{DecorationDescription.java[DecorationDescription" modificationStamp="91626" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description{Environment.java[Environment" modificationStamp="91635" restrictions="0" visibility="0"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.dialect.description"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.dialect.description{DefaultInterpretedExpressionTargetSwitch.java[DefaultInterpretedExpressionTargetSwitch" modificationStamp="92767" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.dialect.description{IInterpretedExpressionTargetSwitch.java[IInterpretedExpressionTargetSwitch" modificationStamp="92769" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.dialect.description{DefaultInterpretedExpressionQuery.java[DefaultInterpretedExpressionQuery" modificationStamp="92766" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.dialect.description{MultiLanguagesValidator.java[MultiLanguagesValidator" modificationStamp="92770" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.dialect.description{AbstractInterpretedExpressionQuery.java[AbstractInterpretedExpressionQuery" modificationStamp="92765" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.dialect.description{IInterpretedExpressionQuery.java[IInterpretedExpressionQuery" modificationStamp="92768" restrictions="0" visibility="0"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.util"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.util{DescriptionAdapterFactory.java[DescriptionAdapterFactory" modificationStamp="92469" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.util{DescriptionResourceImpl.java[DescriptionResourceImpl" modificationStamp="92471" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.util{DescriptionSwitch.java[DescriptionSwitch" modificationStamp="92472" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.viewpoint.description.util{DescriptionResourceFactoryImpl.java[DescriptionResourceFactoryImpl" modificationStamp="92470" restrictions="0" visibility="0"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.description.contribution.util"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.description.contribution.util{ContributionSwitch.java[ContributionSwitch" modificationStamp="92354" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src-gen&lt;org.eclipse.sirius.description.contribution.util{ContributionAdapterFactory.java[ContributionAdapterFactory" modificationStamp="92353" restrictions="0" visibility="0"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.helper"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.helper{SiriusHelper.java[SiriusHelper" modificationStamp="92148" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.helper{SiriusResourceHelper.java[SiriusResourceHelper" modificationStamp="92149" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.helper{SiriusUtil.java[SiriusUtil" modificationStamp="92150" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.helper{SelectionDescriptionHelper.java[SelectionDescriptionHelper" modificationStamp="92147" restrictions="0" visibility="0"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.tools.api.preferences"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.tools.api.preferences{DCorePreferences.java[DCorePreferences" modificationStamp="92308" restrictions="3" visibility="0"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.modelingproject"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.modelingproject{IModelingElement.java[IModelingElement" modificationStamp="92162" restrictions="1" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.modelingproject{AbstractRepresentationsFileJob.java[AbstractRepresentationsFileJob" modificationStamp="92161" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.modelingproject{ModelingProject.java[ModelingProject" modificationStamp="92163" restrictions="0" visibility="0"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.tools.api.command.semantic"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.tools.api.command.semantic{AddSemanticResourceCommand.java[AddSemanticResourceCommand" modificationStamp="92887" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.tools.api.command.semantic{RemoveDanglingReferences.java[RemoveDanglingReferences" modificationStamp="92888" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.tools.api.command.semantic{RemoveSemanticResourceCommand.java[RemoveSemanticResourceCommand" modificationStamp="92889" restrictions="0" visibility="0"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.repair"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.repair{SiriusRepairProcess.java[SiriusRepairProcess" modificationStamp="92183" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.repair{IRepairParticipant.java[IRepairParticipant" modificationStamp="92182" restrictions="0" visibility="0"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.session.factory"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.session.factory{SessionFactory.java[SessionFactory" modificationStamp="92793" restrictions="0" visibility="0"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.preferences"/>
+        <type handle="=org.eclipse.sirius/src&lt;org.eclipse.sirius.business.api.preferences{SiriusPreferencesKeys.java[SiriusPreferencesKeys" modificationStamp="92164" restrictions="0" visibility="0"/>
+    </package>
+</component>

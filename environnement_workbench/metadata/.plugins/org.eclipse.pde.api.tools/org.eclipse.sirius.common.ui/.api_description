@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<component id="org.eclipse.sirius.common.ui" modificationStamp="93111" version="1.2">
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius.common.ui/src&lt;org.eclipse.sirius.common.ui.tools.api.view"/>
+        <type handle="=org.eclipse.sirius.common.ui/src&lt;org.eclipse.sirius.common.ui.tools.api.view{IExpandSelectionTarget.java[IExpandSelectionTarget" modificationStamp="93318" restrictions="0" visibility="0"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius.common.ui/src&lt;org.eclipse.sirius.common.ui"/>
+        <type handle="=org.eclipse.sirius.common.ui/src&lt;org.eclipse.sirius.common.ui{Messages.java[Messages" modificationStamp="93146" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius.common.ui/src&lt;org.eclipse.sirius.common.ui{SiriusTransPlugin.java[SiriusTransPlugin" modificationStamp="93147" restrictions="0" visibility="0"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius.common.ui/src&lt;org.eclipse.sirius.common.ui.tools.api.profiler.view"/>
+        <type handle="=org.eclipse.sirius.common.ui/src&lt;org.eclipse.sirius.common.ui.tools.api.profiler.view{TimeProfilerTreeView.java[TimeProfilerTreeView" modificationStamp="93414" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius.common.ui/src&lt;org.eclipse.sirius.common.ui.tools.api.profiler.view{TimeProfilerViewLabelProvider.java[TimeProfilerViewLabelProvider" modificationStamp="93420" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius.common.ui/src&lt;org.eclipse.sirius.common.ui.tools.api.profiler.view{TimeProfilerViewContentProvider.java[TimeProfilerViewContentProvider" modificationStamp="93418" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius.common.ui/src&lt;org.eclipse.sirius.common.ui.tools.api.profiler.view{TimeProfilerTreeViewContentProvider.java[TimeProfilerTreeViewContentProvider" modificationStamp="93415" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius.common.ui/src&lt;org.eclipse.sirius.common.ui.tools.api.profiler.view{TimeProfiler2ViewLabelProvider.java[TimeProfiler2ViewLabelProvider" modificationStamp="93413" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius.common.ui/src&lt;org.eclipse.sirius.common.ui.tools.api.profiler.view{TimeProfilerTreeViewLabelProvider.java[TimeProfilerTreeViewLabelProvider" modificationStamp="93416" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius.common.ui/src&lt;org.eclipse.sirius.common.ui.tools.api.profiler.view{TimeProfiler2TreeViewContentProvider.java[TimeProfiler2TreeViewContentProvider" modificationStamp="93412" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius.common.ui/src&lt;org.eclipse.sirius.common.ui.tools.api.profiler.view{TimeProfilerView.java[TimeProfilerView" modificationStamp="93417" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius.common.ui/src&lt;org.eclipse.sirius.common.ui.tools.api.profiler.view{TimeProfilerViewItem.java[TimeProfilerViewItem" modificationStamp="93419" restrictions="0" visibility="0"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius.common.ui/src&lt;org.eclipse.sirius.common.ui.tools.api.editor"/>
+        <type handle="=org.eclipse.sirius.common.ui/src&lt;org.eclipse.sirius.common.ui.tools.api.editor{IEObjectNavigable.java[IEObjectNavigable" modificationStamp="93298" restrictions="0" visibility="0"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius.common.ui/src&lt;org.eclipse.sirius.common.ui.tools.api.resource"/>
+        <type handle="=org.eclipse.sirius.common.ui/src&lt;org.eclipse.sirius.common.ui.tools.api.resource{WorkspaceResourceDialog.java[WorkspaceResourceDialog" modificationStamp="93305" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius.common.ui/src&lt;org.eclipse.sirius.common.ui.tools.api.resource{WorkspaceResourceDialogWithFilter.java[WorkspaceResourceDialogWithFilter" modificationStamp="93306" restrictions="0" visibility="0"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius.common.ui/src&lt;org.eclipse.sirius.common.ui.tools.api.wizard"/>
+        <type handle="=org.eclipse.sirius.common.ui/src&lt;org.eclipse.sirius.common.ui.tools.api.wizard{CheckboxTreeAndListGroup.java[CheckboxTreeAndListGroup" modificationStamp="93320" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius.common.ui/src&lt;org.eclipse.sirius.common.ui.tools.api.wizard{SelectFilesWizardPage.java[SelectFilesWizardPage" modificationStamp="93321" restrictions="0" visibility="0"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius.common.ui/src&lt;org.eclipse.sirius.common.ui.tools.api.contentassist"/>
+        <type handle="=org.eclipse.sirius.common.ui/src&lt;org.eclipse.sirius.common.ui.tools.api.contentassist{ContentInstanceProposalProvider.java[ContentInstanceProposalProvider" modificationStamp="93290" restrictions="0" visibility="0"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius.common.ui/src&lt;org.eclipse.sirius.common.ui.tools.api.profiler"/>
+        <type handle="=org.eclipse.sirius.common.ui/src&lt;org.eclipse.sirius.common.ui.tools.api.profiler{InitProfilerAction.java[InitProfilerAction" modificationStamp="93303" restrictions="0" visibility="0"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius.common.ui/src&lt;org.eclipse.sirius.common.ui.tools.api.dialog.quickoutline"/>
+        <type handle="=org.eclipse.sirius.common.ui/src&lt;org.eclipse.sirius.common.ui.tools.api.dialog.quickoutline{QuickOutlineControl.java[QuickOutlineControl" modificationStamp="93407" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius.common.ui/src&lt;org.eclipse.sirius.common.ui.tools.api.dialog.quickoutline{QuickOutlinePageDescriptor.java[QuickOutlinePageDescriptor" modificationStamp="93409" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius.common.ui/src&lt;org.eclipse.sirius.common.ui.tools.api.dialog.quickoutline{IQuickOutlineLabelProvider.java[IQuickOutlineLabelProvider" modificationStamp="93405" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius.common.ui/src&lt;org.eclipse.sirius.common.ui.tools.api.dialog.quickoutline{QuickOutlineAdapterFactoryLabelProvider.java[QuickOutlineAdapterFactoryLabelProvider" modificationStamp="93406" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius.common.ui/src&lt;org.eclipse.sirius.common.ui.tools.api.dialog.quickoutline{QuickOutlineDescriptor.java[QuickOutlineDescriptor" modificationStamp="93408" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius.common.ui/src&lt;org.eclipse.sirius.common.ui.tools.api.dialog.quickoutline{IQuickOutlineCallback.java[IQuickOutlineCallback" modificationStamp="93404" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius.common.ui/src&lt;org.eclipse.sirius.common.ui.tools.api.dialog.quickoutline{SiriusInformationPresenterFactory.java[SiriusInformationPresenterFactory" modificationStamp="93411" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius.common.ui/src&lt;org.eclipse.sirius.common.ui.tools.api.dialog.quickoutline{SiriusInformationPresenter.java[SiriusInformationPresenter" modificationStamp="93410" restrictions="0" visibility="0"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius.common.ui/src&lt;org.eclipse.sirius.common.ui.tools.api.plugin"/>
+        <type handle="=org.eclipse.sirius.common.ui/src&lt;org.eclipse.sirius.common.ui.tools.api.plugin{AbstractUIActivator.java[AbstractUIActivator" modificationStamp="93302" restrictions="0" visibility="0"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius.common.ui/src&lt;org.eclipse.sirius.common.ui.business.api.views.properties.tabbed"/>
+        <type handle="=org.eclipse.sirius.common.ui/src&lt;org.eclipse.sirius.common.ui.business.api.views.properties.tabbed{ILabelProviderProvider.java[ILabelProviderProvider" modificationStamp="93437" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius.common.ui/src&lt;org.eclipse.sirius.common.ui.business.api.views.properties.tabbed{LabelProviderProviderService.java[LabelProviderProviderService" modificationStamp="93438" restrictions="0" visibility="0"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius.common.ui/src&lt;org.eclipse.sirius.common.ui.tools.api.util"/>
+        <type handle="=org.eclipse.sirius.common.ui/src&lt;org.eclipse.sirius.common.ui.tools.api.util{ImageProvider.java[ImageProvider" modificationStamp="93315" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius.common.ui/src&lt;org.eclipse.sirius.common.ui.tools.api.util{EclipseUIUtil.java[EclipseUIUtil" modificationStamp="93312" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius.common.ui/src&lt;org.eclipse.sirius.common.ui.tools.api.util{TreeItemWrapperContentProvider.java[TreeItemWrapperContentProvider" modificationStamp="93317" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius.common.ui/src&lt;org.eclipse.sirius.common.ui.tools.api.util{ISaveDialogExtension.java[ISaveDialogExtension" modificationStamp="93314" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius.common.ui/src&lt;org.eclipse.sirius.common.ui.tools.api.util{SWTUtil.java[SWTUtil" modificationStamp="93316" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius.common.ui/src&lt;org.eclipse.sirius.common.ui.tools.api.util{IObjectActionDelegateWrapper.java[IObjectActionDelegateWrapper" modificationStamp="93313" restrictions="0" visibility="0"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius.common.ui/src&lt;org.eclipse.sirius.common.ui.tools.api.navigator"/>
+        <type handle="=org.eclipse.sirius.common.ui/src&lt;org.eclipse.sirius.common.ui.tools.api.navigator{GroupingContentProvider.java[GroupingContentProvider" modificationStamp="93300" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius.common.ui/src&lt;org.eclipse.sirius.common.ui.tools.api.navigator{GroupingItem.java[GroupingItem" modificationStamp="93301" restrictions="0" visibility="0"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius.common.ui/src&lt;org.eclipse.sirius.common.ui.tools.api.dialog"/>
+        <type handle="=org.eclipse.sirius.common.ui/src&lt;org.eclipse.sirius.common.ui.tools.api.dialog{RenameDialog.java[RenameDialog" modificationStamp="93295" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius.common.ui/src&lt;org.eclipse.sirius.common.ui.tools.api.dialog{FeatureEditorDialog.java[FeatureEditorDialog" modificationStamp="93292" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius.common.ui/src&lt;org.eclipse.sirius.common.ui.tools.api.dialog{NewFileDialog.java[NewFileDialog" modificationStamp="93294" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius.common.ui/src&lt;org.eclipse.sirius.common.ui.tools.api.dialog{AbstractFolderSelectionDialog.java[AbstractFolderSelectionDialog" modificationStamp="93291" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius.common.ui/src&lt;org.eclipse.sirius.common.ui.tools.api.dialog{FolderSelectionDialog.java[FolderSelectionDialog" modificationStamp="93293" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius.common.ui/src&lt;org.eclipse.sirius.common.ui.tools.api.dialog{SiriusMessageDialogWithToggle.java[SiriusMessageDialogWithToggle" modificationStamp="93296" restrictions="0" visibility="0"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius.common.ui/src&lt;org.eclipse.sirius.common.ui.tools.api.find"/>
+        <type handle="=org.eclipse.sirius.common.ui/src&lt;org.eclipse.sirius.common.ui.tools.api.find{AbstractFindLabelDialog.java[AbstractFindLabelDialog" modificationStamp="93299" restrictions="0" visibility="0"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius.common.ui/src&lt;org.eclipse.sirius.common.ui.tools.api.view.common.item"/>
+        <type handle="=org.eclipse.sirius.common.ui/src&lt;org.eclipse.sirius.common.ui.tools.api.view.common.item{ItemDecorator.java[ItemDecorator" modificationStamp="93446" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius.common.ui/src&lt;org.eclipse.sirius.common.ui.tools.api.view.common.item{CommonItem.java[CommonItem" modificationStamp="93445" restrictions="0" visibility="0"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius.common.ui/src&lt;org.eclipse.sirius.common.ui.tools.api.selection.page"/>
+        <type handle="=org.eclipse.sirius.common.ui/src&lt;org.eclipse.sirius.common.ui.tools.api.selection.page{EObjectPaneBasedSelectionWizardPage.java[EObjectPaneBasedSelectionWizardPage" modificationStamp="93422" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius.common.ui/src&lt;org.eclipse.sirius.common.ui.tools.api.selection.page{AbstractSelectionWizardPage.java[AbstractSelectionWizardPage" modificationStamp="93421" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius.common.ui/src&lt;org.eclipse.sirius.common.ui.tools.api.selection.page{SelectModelElementWizardPage.java[SelectModelElementWizardPage" modificationStamp="93425" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius.common.ui/src&lt;org.eclipse.sirius.common.ui.tools.api.selection.page{EObjectSelectionWizardPage.java[EObjectSelectionWizardPage" modificationStamp="93424" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius.common.ui/src&lt;org.eclipse.sirius.common.ui.tools.api.selection.page{EObjectSelectionFilter.java[EObjectSelectionFilter" modificationStamp="93423" restrictions="0" visibility="0"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius.common.ui/src&lt;org.eclipse.sirius.common.ui.tools.api.selection"/>
+        <type handle="=org.eclipse.sirius.common.ui/src&lt;org.eclipse.sirius.common.ui.tools.api.selection{EObjectPaneBasedSelectionWizard.java[EObjectPaneBasedSelectionWizard" modificationStamp="93308" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius.common.ui/src&lt;org.eclipse.sirius.common.ui.tools.api.selection{EMFMessageDialog.java[EMFMessageDialog" modificationStamp="93307" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius.common.ui/src&lt;org.eclipse.sirius.common.ui.tools.api.selection{ModelElementChooserDialog.java[ModelElementChooserDialog" modificationStamp="93310" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius.common.ui/src&lt;org.eclipse.sirius.common.ui.tools.api.selection{EObjectSelectionWizard.java[EObjectSelectionWizard" modificationStamp="93309" restrictions="0" visibility="0"/>
+    </package>
+</component>

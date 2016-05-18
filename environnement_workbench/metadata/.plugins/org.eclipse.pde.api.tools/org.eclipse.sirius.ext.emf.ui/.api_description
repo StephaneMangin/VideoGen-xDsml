@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<component id="org.eclipse.sirius.ext.emf.ui" modificationStamp="93937" version="1.2">
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius.ext.emf.ui/src&lt;org.eclipse.sirius.ext.emf.ui.properties"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius.ext.emf.ui/src&lt;org.eclipse.sirius.ext.emf.ui"/>
+    </package>
+</component>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<component id="org.eclipse.sirius.ecore.extender" modificationStamp="96599" version="1.2">
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius.ecore.extender/src&lt;org.eclipse.sirius.ecore.extender.business.api.accessor.exception"/>
+        <type handle="=org.eclipse.sirius.ecore.extender/src&lt;org.eclipse.sirius.ecore.extender.business.api.accessor.exception{FeatureNotFoundException.java[FeatureNotFoundException" modificationStamp="96723" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius.ecore.extender/src&lt;org.eclipse.sirius.ecore.extender.business.api.accessor.exception{IllegalTypeForValueException.java[IllegalTypeForValueException" modificationStamp="96724" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius.ecore.extender/src&lt;org.eclipse.sirius.ecore.extender.business.api.accessor.exception{MetaClassNotFoundException.java[MetaClassNotFoundException" modificationStamp="96725" restrictions="0" visibility="0"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius.ecore.extender/src&lt;org.eclipse.sirius.ecore.extender.tool.api"/>
+        <type handle="=org.eclipse.sirius.ecore.extender/src&lt;org.eclipse.sirius.ecore.extender.tool.api{ModelUtils.java[ModelUtils" modificationStamp="96642" restrictions="0" visibility="0"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius.ecore.extender/src&lt;org.eclipse.sirius.ecore.extender.business.api.permission"/>
+        <type handle="=org.eclipse.sirius.ecore.extender/src&lt;org.eclipse.sirius.ecore.extender.business.api.permission{IPermissionProvider.java[IPermissionProvider" modificationStamp="96695" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius.ecore.extender/src&lt;org.eclipse.sirius.ecore.extender.business.api.permission{IPermissionAuthority.java[IPermissionAuthority" modificationStamp="96693" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius.ecore.extender/src&lt;org.eclipse.sirius.ecore.extender.business.api.permission{LockStatus.java[LockStatus" modificationStamp="96696" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius.ecore.extender/src&lt;org.eclipse.sirius.ecore.extender.business.api.permission{IPermissionAuthorityRegistry.java[IPermissionAuthorityRegistry" modificationStamp="96694" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius.ecore.extender/src&lt;org.eclipse.sirius.ecore.extender.business.api.permission{IAuthorityListener.java[IAuthorityListener" modificationStamp="96692" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius.ecore.extender/src&lt;org.eclipse.sirius.ecore.extender.business.api.permission{PermissionAuthorityRegistry.java[PermissionAuthorityRegistry" modificationStamp="96697" restrictions="0" visibility="0"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius.ecore.extender/src&lt;org.eclipse.sirius.ecore.extender.business.api.permission.exception"/>
+        <type handle="=org.eclipse.sirius.ecore.extender/src&lt;org.eclipse.sirius.ecore.extender.business.api.permission.exception{LockedInstanceException.java[LockedInstanceException" modificationStamp="96726" restrictions="0" visibility="0"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius.ecore.extender/src&lt;org.eclipse.sirius.ecore.extender.business.api.accessor"/>
+        <type handle="=org.eclipse.sirius.ecore.extender/src&lt;org.eclipse.sirius.ecore.extender.business.api.accessor{AbstractMetamodelExtender.java[AbstractMetamodelExtender" modificationStamp="96679" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius.ecore.extender/src&lt;org.eclipse.sirius.ecore.extender.business.api.accessor{MetamodelDescriptor.java[MetamodelDescriptor" modificationStamp="96688" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius.ecore.extender/src&lt;org.eclipse.sirius.ecore.extender.business.api.accessor{ModelAccessor.java[ModelAccessor" modificationStamp="96689" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius.ecore.extender/src&lt;org.eclipse.sirius.ecore.extender.business.api.accessor{ExtenderConstants.java[ExtenderConstants" modificationStamp="96682" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius.ecore.extender/src&lt;org.eclipse.sirius.ecore.extender.business.api.accessor{CompositeMetamodelExtender.java[CompositeMetamodelExtender" modificationStamp="96680" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius.ecore.extender/src&lt;org.eclipse.sirius.ecore.extender.business.api.accessor{IExtensionProvider.java[IExtensionProvider" modificationStamp="96686" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius.ecore.extender/src&lt;org.eclipse.sirius.ecore.extender.business.api.accessor{ExtensionFeatureDescription.java[ExtensionFeatureDescription" modificationStamp="96684" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius.ecore.extender/src&lt;org.eclipse.sirius.ecore.extender.business.api.accessor{EcoreMetamodelDescriptor.java[EcoreMetamodelDescriptor" modificationStamp="96681" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius.ecore.extender/src&lt;org.eclipse.sirius.ecore.extender.business.api.accessor{IExtenderProvider.java[IExtenderProvider" modificationStamp="96685" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius.ecore.extender/src&lt;org.eclipse.sirius.ecore.extender.business.api.accessor{IMetamodelExtender.java[IMetamodelExtender" modificationStamp="96687" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius.ecore.extender/src&lt;org.eclipse.sirius.ecore.extender.business.api.accessor{ExtenderService.java[ExtenderService" modificationStamp="96683" restrictions="0" visibility="0"/>
+        <type handle="=org.eclipse.sirius.ecore.extender/src&lt;org.eclipse.sirius.ecore.extender.business.api.accessor{ModelAccessorsRegistry.java[ModelAccessorsRegistry" modificationStamp="96690" restrictions="0" visibility="0"/>
+    </package>
+</component>

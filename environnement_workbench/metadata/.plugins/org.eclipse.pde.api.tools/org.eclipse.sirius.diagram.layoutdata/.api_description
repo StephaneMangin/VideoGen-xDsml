@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<component id="org.eclipse.sirius.diagram.layoutdata" modificationStamp="93981" version="1.2">
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius.diagram.layoutdata/src-gen&lt;org.eclipse.sirius.diagram.layoutdata"/>
+        <fragment handle="=org.eclipse.sirius.diagram.layoutdata/src&lt;org.eclipse.sirius.diagram.layoutdata"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius.diagram.layoutdata/src&lt;org.eclipse.sirius.diagram.layoutdata.tools"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius.diagram.layoutdata/src&lt;org.eclipse.sirius.diagram.layoutdata.tools.api.util.configuration"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius.diagram.layoutdata/src-gen&lt;org.eclipse.sirius.diagram.layoutdata.util"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius.diagram.layoutdata/src-gen&lt;org.eclipse.sirius.diagram.layoutdata.impl"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius.diagram.layoutdata/src&lt;org.eclipse.sirius.diagram.layoutdata.tools.api.util"/>
+    </package>
+</component>

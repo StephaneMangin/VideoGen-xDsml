@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<component id="org.eclipse.sirius.ext.base" modificationStamp="96237" version="1.2">
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius.ext.base/src&lt;org.eclipse.sirius.ext.base.relations"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius.ext.base/src&lt;org.eclipse.sirius.ext.base.cache"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius.ext.base/src&lt;org.eclipse.sirius.ext.base.collect"/>
+    </package>
+    <package visibility="1">
+        <fragment handle="=org.eclipse.sirius.ext.base/src&lt;org.eclipse.sirius.ext.base"/>
+    </package>
+</component>
