@@ -7,6 +7,12 @@
   <semanticResources>platform:/plugin/org.irisa.diverse.videogen/model/VideoGen.ecore</semanticResources>
   <semanticResources>http://www.eclipse.org/emf/2002/Ecore</semanticResources>
   <semanticResources>gemoc-gen/execution/execution-20160425_124521/sample.videogen</semanticResources>
+  <semanticResources>gemoc-gen/execution/execution-20160519_171634/sample.videogen</semanticResources>
+  <semanticResources>gemoc-gen/execution/execution-20160519_171634/execution.trace</semanticResources>
+  <semanticResources>http://www.irisa.org/diverse/videogen</semanticResources>
+  <semanticResources>gemoc-gen/execution/execution-20160519_171938/sample.videogen</semanticResources>
+  <semanticResources>gemoc-gen/execution/execution-20160519_171938/execution.trace</semanticResources>
+  <semanticResources>gemoc-gen/execution/execution-20160519_172055/sample.videogen</semanticResources>
   <ownedViews xmi:type="viewpoint:DRepresentationContainer" xmi:id="_0piZ0PKlEeW5X_bsb2hAMA">
     <ownedRepresentations xmi:type="diagram:DSemanticDiagram" xmi:id="_tJYYMAJVEeaIM-UKRq0ydQ" name="VideoGen">
       <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_tJz2AAJVEeaIM-UKRq0ydQ" source="GMF_DIAGRAMS">

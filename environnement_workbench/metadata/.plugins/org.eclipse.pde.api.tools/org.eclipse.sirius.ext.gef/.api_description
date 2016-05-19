@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<component id="org.eclipse.sirius.ext.gef" modificationStamp="88023" version="1.2">
-    <package visibility="1">
-        <fragment handle="=org.eclipse.sirius.ext.gef/src&lt;org.eclipse.sirius.ext.gef.editpolicies"/>
-    </package>
-    <package visibility="1">
-        <fragment handle="=org.eclipse.sirius.ext.gef/src&lt;org.eclipse.sirius.ext.gef.query"/>
-    </package>
-</component>

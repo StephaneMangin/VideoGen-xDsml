@@ -1,0 +1,5 @@
+package org.irisa.diverse.videogen.videogenl.adapters.videogenlmt.videoGen;
+
+@SuppressWarnings("all")
+public class GenerateAdapter {
+}

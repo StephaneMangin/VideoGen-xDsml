@@ -1,0 +1,534 @@
+mai 17, 2016 4:02:54 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: VideoGen User Contraints Visitor started...
+mai 17, 2016 4:02:54 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: 	 => minConstraint=42298, maxConstraint=107399
+mai 17, 2016 4:02:54 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: 
+ Solver[Min max durations constraints]
+
+[ 28 vars -- 12 cstrs ]
+Feasability: UNDEFINED
+== variables ==
+objective = [42298,107399]
+intro-1 = 1
+intro-2 = 0
+not(intro-1) = [0,1]
+not(intro-2) = [0,1]
+cste -- 0 = 0
+cste -- 1 = 1
+haha3 = 1
+cats-1 = 1
+cats-2 = 0
+not(cats-1) = [0,1]
+not(cats-2) = [0,1]
+tv1 = [0,1]
+haha4 = 1
+wtf-1 = 0
+wtf-2 = 0
+wtf-3 = 1
+wtf-4 = 0
+not(wtf-1) = [0,1]
+not(wtf-2) = [0,1]
+not(wtf-3) = [0,1]
+not(wtf-4) = [0,1]
+haha2 = [0,1]
+haha1 = [0,1]
+outro-1 = 0
+outro-2 = [0,1]
+not(outro-1) = [0,1]
+not(outro-2) = [0,1]
+== constraints ==
+ArithmeticUnary ([not(intro-1) =/= 1])
+ArithmeticUnary ([not(intro-2) =/= 0])
+SatConstraint ([PropSat(intro-1, intro-2, not(intro-2), ..., not(outro-2))])
+ArithmeticUnary ([not(cats-1) =/= 1])
+ArithmeticUnary ([not(cats-2) =/= 0])
+ArithmeticUnary ([not(wtf-1) =/= 0])
+ArithmeticUnary ([not(wtf-2) =/= 0])
+ArithmeticUnary ([not(wtf-3) =/= 1])
+ArithmeticUnary ([not(wtf-4) =/= 0])
+ArithmeticUnary ([not(outro-1) =/= 0])
+ArithmeticBinary ([prop(not(outro-2).NEQ.outro-2)])
+ScalarProduct ([7000.haha2 + 7000.haha1 + 11200.outro-2 - 1.objective - 1.tv1 = -82200])
+
+mai 17, 2016 4:02:54 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: Solutions selected intro-1=1, intro-2=0, haha3=1, cats-1=1, cats-2=0, tv1=1, haha4=1, wtf-1=0, wtf-2=0, wtf-3=1, wtf-4=0, haha2=1, haha1=1, outro-1=0, outro-2=1
+mai 17, 2016 4:02:54 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: Solutions max = 3
+mai 17, 2016 4:02:54 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: - Solutions 1
+mai 17, 2016 4:02:54 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: 	intro-1=1, intro-2=0, haha3=1, cats-1=1, cats-2=0, tv1=1, haha4=1, wtf-1=0, wtf-2=0, wtf-3=1, wtf-4=0, haha2=1, haha1=1, outro-1=0, outro-2=1
+mai 17, 2016 4:02:54 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: 	intro-1=1, intro-2=0, haha3=1, cats-1=1, cats-2=0, tv1=1, haha4=1, wtf-1=0, wtf-2=0, wtf-3=1, wtf-4=0, haha2=1, haha1=1, outro-1=0, outro-2=1
+mai 17, 2016 4:02:54 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: 	intro-1=1, intro-2=0, haha3=1, cats-1=1, cats-2=0, tv1=1, haha4=1, wtf-1=0, wtf-2=0, wtf-3=1, wtf-4=0, haha2=1, haha1=1, outro-1=0, outro-2=1
+mai 17, 2016 4:02:54 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: 	intro-1=1, intro-2=0, haha3=1, cats-1=1, cats-2=0, tv1=1, haha4=1, wtf-1=0, wtf-2=0, wtf-3=1, wtf-4=0, haha2=1, haha1=1, outro-1=0, outro-2=1
+mai 17, 2016 4:02:54 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: 	intro-1=1, intro-2=0, haha3=1, cats-1=1, cats-2=0, tv1=1, haha4=1, wtf-1=0, wtf-2=0, wtf-3=1, wtf-4=0, haha2=1, haha1=1, outro-1=0, outro-2=1
+mai 17, 2016 4:02:54 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: 	intro-1=1, intro-2=0, haha3=1, cats-1=1, cats-2=0, tv1=1, haha4=1, wtf-1=0, wtf-2=0, wtf-3=1, wtf-4=0, haha2=1, haha1=1, outro-1=0, outro-2=1
+mai 17, 2016 4:02:54 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: 	intro-1=1, intro-2=0, haha3=1, cats-1=1, cats-2=0, tv1=1, haha4=1, wtf-1=0, wtf-2=0, wtf-3=1, wtf-4=0, haha2=1, haha1=1, outro-1=0, outro-2=1
+mai 17, 2016 4:02:54 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: 	intro-1=1, intro-2=0, haha3=1, cats-1=1, cats-2=0, tv1=1, haha4=1, wtf-1=0, wtf-2=0, wtf-3=1, wtf-4=0, haha2=1, haha1=1, outro-1=0, outro-2=1
+mai 17, 2016 4:02:54 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: 	intro-1=1, intro-2=0, haha3=1, cats-1=1, cats-2=0, tv1=1, haha4=1, wtf-1=0, wtf-2=0, wtf-3=1, wtf-4=0, haha2=1, haha1=1, outro-1=0, outro-2=1
+mai 17, 2016 4:02:54 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: 	intro-1=1, intro-2=0, haha3=1, cats-1=1, cats-2=0, tv1=1, haha4=1, wtf-1=0, wtf-2=0, wtf-3=1, wtf-4=0, haha2=1, haha1=1, outro-1=0, outro-2=1
+mai 17, 2016 4:02:54 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: 	intro-1=1, intro-2=0, haha3=1, cats-1=1, cats-2=0, tv1=1, haha4=1, wtf-1=0, wtf-2=0, wtf-3=1, wtf-4=0, haha2=1, haha1=1, outro-1=0, outro-2=1
+mai 17, 2016 4:02:54 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: 	intro-1=1, intro-2=0, haha3=1, cats-1=1, cats-2=0, tv1=1, haha4=1, wtf-1=0, wtf-2=0, wtf-3=1, wtf-4=0, haha2=1, haha1=1, outro-1=0, outro-2=1
+mai 17, 2016 4:02:54 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: 	intro-1=1, intro-2=0, haha3=1, cats-1=1, cats-2=0, tv1=1, haha4=1, wtf-1=0, wtf-2=0, wtf-3=1, wtf-4=0, haha2=1, haha1=1, outro-1=0, outro-2=1
+mai 17, 2016 4:02:54 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: 	intro-1=1, intro-2=0, haha3=1, cats-1=1, cats-2=0, tv1=1, haha4=1, wtf-1=0, wtf-2=0, wtf-3=1, wtf-4=0, haha2=1, haha1=1, outro-1=0, outro-2=1
+mai 17, 2016 4:02:54 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: 	intro-1=1, intro-2=0, haha3=1, cats-1=1, cats-2=0, tv1=1, haha4=1, wtf-1=0, wtf-2=0, wtf-3=1, wtf-4=0, haha2=1, haha1=1, outro-1=0, outro-2=1
+mai 17, 2016 4:02:57 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: VideoGen User Contraints Visitor started...
+mai 17, 2016 4:02:57 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: 	 => minConstraint=42298, maxConstraint=107399
+mai 17, 2016 4:02:57 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: 
+ Solver[Min max durations constraints]
+
+[ 28 vars -- 12 cstrs ]
+Feasability: UNDEFINED
+== variables ==
+objective = [42298,107399]
+intro-1 = 1
+intro-2 = 0
+not(intro-1) = [0,1]
+not(intro-2) = [0,1]
+cste -- 0 = 0
+cste -- 1 = 1
+haha3 = 1
+cats-1 = 1
+cats-2 = 0
+not(cats-1) = [0,1]
+not(cats-2) = [0,1]
+tv1 = [0,1]
+haha4 = 1
+wtf-1 = 0
+wtf-2 = 0
+wtf-3 = 1
+wtf-4 = 0
+not(wtf-1) = [0,1]
+not(wtf-2) = [0,1]
+not(wtf-3) = [0,1]
+not(wtf-4) = [0,1]
+haha2 = [0,1]
+haha1 = [0,1]
+outro-1 = 0
+outro-2 = [0,1]
+not(outro-1) = [0,1]
+not(outro-2) = [0,1]
+== constraints ==
+ArithmeticUnary ([not(intro-1) =/= 1])
+ArithmeticUnary ([not(intro-2) =/= 0])
+SatConstraint ([PropSat(intro-1, intro-2, not(intro-2), ..., not(outro-2))])
+ArithmeticUnary ([not(cats-1) =/= 1])
+ArithmeticUnary ([not(cats-2) =/= 0])
+ArithmeticUnary ([not(wtf-1) =/= 0])
+ArithmeticUnary ([not(wtf-2) =/= 0])
+ArithmeticUnary ([not(wtf-3) =/= 1])
+ArithmeticUnary ([not(wtf-4) =/= 0])
+ArithmeticUnary ([not(outro-1) =/= 0])
+ArithmeticBinary ([prop(not(outro-2).NEQ.outro-2)])
+ScalarProduct ([7000.haha2 + 7000.haha1 + 11200.outro-2 - 1.objective - 1.tv1 = -82200])
+
+mai 17, 2016 4:02:57 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: Solutions selected intro-1=1, intro-2=0, haha3=1, cats-1=1, cats-2=0, tv1=1, haha4=1, wtf-1=0, wtf-2=0, wtf-3=1, wtf-4=0, haha2=1, haha1=1, outro-1=0, outro-2=1
+mai 17, 2016 4:02:57 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: Solutions max = 3
+mai 17, 2016 4:02:57 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: - Solutions 1
+mai 17, 2016 4:02:57 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: 	intro-1=1, intro-2=0, haha3=1, cats-1=1, cats-2=0, tv1=1, haha4=1, wtf-1=0, wtf-2=0, wtf-3=1, wtf-4=0, haha2=1, haha1=1, outro-1=0, outro-2=1
+mai 17, 2016 4:02:57 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: 	intro-1=1, intro-2=0, haha3=1, cats-1=1, cats-2=0, tv1=1, haha4=1, wtf-1=0, wtf-2=0, wtf-3=1, wtf-4=0, haha2=1, haha1=1, outro-1=0, outro-2=1
+mai 17, 2016 4:02:57 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: 	intro-1=1, intro-2=0, haha3=1, cats-1=1, cats-2=0, tv1=1, haha4=1, wtf-1=0, wtf-2=0, wtf-3=1, wtf-4=0, haha2=1, haha1=1, outro-1=0, outro-2=1
+mai 17, 2016 4:02:57 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: 	intro-1=1, intro-2=0, haha3=1, cats-1=1, cats-2=0, tv1=1, haha4=1, wtf-1=0, wtf-2=0, wtf-3=1, wtf-4=0, haha2=1, haha1=1, outro-1=0, outro-2=1
+mai 17, 2016 4:02:57 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: 	intro-1=1, intro-2=0, haha3=1, cats-1=1, cats-2=0, tv1=1, haha4=1, wtf-1=0, wtf-2=0, wtf-3=1, wtf-4=0, haha2=1, haha1=1, outro-1=0, outro-2=1
+mai 17, 2016 4:02:57 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: 	intro-1=1, intro-2=0, haha3=1, cats-1=1, cats-2=0, tv1=1, haha4=1, wtf-1=0, wtf-2=0, wtf-3=1, wtf-4=0, haha2=1, haha1=1, outro-1=0, outro-2=1
+mai 17, 2016 4:02:57 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: 	intro-1=1, intro-2=0, haha3=1, cats-1=1, cats-2=0, tv1=1, haha4=1, wtf-1=0, wtf-2=0, wtf-3=1, wtf-4=0, haha2=1, haha1=1, outro-1=0, outro-2=1
+mai 17, 2016 4:02:57 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: 	intro-1=1, intro-2=0, haha3=1, cats-1=1, cats-2=0, tv1=1, haha4=1, wtf-1=0, wtf-2=0, wtf-3=1, wtf-4=0, haha2=1, haha1=1, outro-1=0, outro-2=1
+mai 17, 2016 4:02:57 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: 	intro-1=1, intro-2=0, haha3=1, cats-1=1, cats-2=0, tv1=1, haha4=1, wtf-1=0, wtf-2=0, wtf-3=1, wtf-4=0, haha2=1, haha1=1, outro-1=0, outro-2=1
+mai 17, 2016 4:02:57 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: 	intro-1=1, intro-2=0, haha3=1, cats-1=1, cats-2=0, tv1=1, haha4=1, wtf-1=0, wtf-2=0, wtf-3=1, wtf-4=0, haha2=1, haha1=1, outro-1=0, outro-2=1
+mai 17, 2016 4:02:57 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: 	intro-1=1, intro-2=0, haha3=1, cats-1=1, cats-2=0, tv1=1, haha4=1, wtf-1=0, wtf-2=0, wtf-3=1, wtf-4=0, haha2=1, haha1=1, outro-1=0, outro-2=1
+mai 17, 2016 4:02:57 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: 	intro-1=1, intro-2=0, haha3=1, cats-1=1, cats-2=0, tv1=1, haha4=1, wtf-1=0, wtf-2=0, wtf-3=1, wtf-4=0, haha2=1, haha1=1, outro-1=0, outro-2=1
+mai 17, 2016 4:02:57 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: 	intro-1=1, intro-2=0, haha3=1, cats-1=1, cats-2=0, tv1=1, haha4=1, wtf-1=0, wtf-2=0, wtf-3=1, wtf-4=0, haha2=1, haha1=1, outro-1=0, outro-2=1
+mai 17, 2016 4:02:57 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: 	intro-1=1, intro-2=0, haha3=1, cats-1=1, cats-2=0, tv1=1, haha4=1, wtf-1=0, wtf-2=0, wtf-3=1, wtf-4=0, haha2=1, haha1=1, outro-1=0, outro-2=1
+mai 17, 2016 4:02:57 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: 	intro-1=1, intro-2=0, haha3=1, cats-1=1, cats-2=0, tv1=1, haha4=1, wtf-1=0, wtf-2=0, wtf-3=1, wtf-4=0, haha2=1, haha1=1, outro-1=0, outro-2=1
+mai 17, 2016 4:03:01 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: VideoGen User Contraints Visitor started...
+mai 17, 2016 4:03:01 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: 	 => minConstraint=42298, maxConstraint=107399
+mai 17, 2016 4:03:01 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: 
+ Solver[Min max durations constraints]
+
+[ 28 vars -- 12 cstrs ]
+Feasability: UNDEFINED
+== variables ==
+objective = [42298,107399]
+intro-1 = 1
+intro-2 = 0
+not(intro-1) = [0,1]
+not(intro-2) = [0,1]
+cste -- 0 = 0
+cste -- 1 = 1
+haha3 = 1
+cats-1 = 1
+cats-2 = 0
+not(cats-1) = [0,1]
+not(cats-2) = [0,1]
+tv1 = [0,1]
+haha4 = 1
+wtf-1 = 0
+wtf-2 = 0
+wtf-3 = 1
+wtf-4 = 0
+not(wtf-1) = [0,1]
+not(wtf-2) = [0,1]
+not(wtf-3) = [0,1]
+not(wtf-4) = [0,1]
+haha2 = [0,1]
+haha1 = [0,1]
+outro-1 = 0
+outro-2 = 1
+not(outro-1) = [0,1]
+not(outro-2) = [0,1]
+== constraints ==
+ArithmeticUnary ([not(intro-1) =/= 1])
+ArithmeticUnary ([not(intro-2) =/= 0])
+SatConstraint ([PropSat(intro-1, intro-2, not(intro-2), ..., not(outro-2))])
+ArithmeticUnary ([not(cats-1) =/= 1])
+ArithmeticUnary ([not(cats-2) =/= 0])
+ArithmeticUnary ([not(wtf-1) =/= 0])
+ArithmeticUnary ([not(wtf-2) =/= 0])
+ArithmeticUnary ([not(wtf-3) =/= 1])
+ArithmeticUnary ([not(wtf-4) =/= 0])
+ArithmeticUnary ([not(outro-1) =/= 0])
+ArithmeticUnary ([not(outro-2) =/= 1])
+ScalarProduct ([7000.haha2 + 7000.haha1 - 1.objective - 1.tv1 = -93400])
+
+mai 17, 2016 4:03:01 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: Solutions selected intro-1=1, intro-2=0, haha3=1, cats-1=1, cats-2=0, tv1=1, haha4=1, wtf-1=0, wtf-2=0, wtf-3=1, wtf-4=0, haha2=1, haha1=1, outro-1=0, outro-2=1
+mai 17, 2016 4:03:01 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: Solutions max = 3
+mai 17, 2016 4:03:01 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: - Solutions 1
+mai 17, 2016 4:03:01 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: 	intro-1=1, intro-2=0, haha3=1, cats-1=1, cats-2=0, tv1=1, haha4=1, wtf-1=0, wtf-2=0, wtf-3=1, wtf-4=0, haha2=1, haha1=1, outro-1=0, outro-2=1
+mai 17, 2016 4:03:01 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: 	intro-1=1, intro-2=0, haha3=1, cats-1=1, cats-2=0, tv1=1, haha4=1, wtf-1=0, wtf-2=0, wtf-3=1, wtf-4=0, haha2=1, haha1=1, outro-1=0, outro-2=1
+mai 17, 2016 4:03:01 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: 	intro-1=1, intro-2=0, haha3=1, cats-1=1, cats-2=0, tv1=1, haha4=1, wtf-1=0, wtf-2=0, wtf-3=1, wtf-4=0, haha2=1, haha1=1, outro-1=0, outro-2=1
+mai 17, 2016 4:03:01 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: 	intro-1=1, intro-2=0, haha3=1, cats-1=1, cats-2=0, tv1=1, haha4=1, wtf-1=0, wtf-2=0, wtf-3=1, wtf-4=0, haha2=1, haha1=1, outro-1=0, outro-2=1
+mai 17, 2016 4:03:01 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: 	intro-1=1, intro-2=0, haha3=1, cats-1=1, cats-2=0, tv1=1, haha4=1, wtf-1=0, wtf-2=0, wtf-3=1, wtf-4=0, haha2=1, haha1=1, outro-1=0, outro-2=1
+mai 17, 2016 4:03:01 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: 	intro-1=1, intro-2=0, haha3=1, cats-1=1, cats-2=0, tv1=1, haha4=1, wtf-1=0, wtf-2=0, wtf-3=1, wtf-4=0, haha2=1, haha1=1, outro-1=0, outro-2=1
+mai 17, 2016 4:03:01 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: 	intro-1=1, intro-2=0, haha3=1, cats-1=1, cats-2=0, tv1=1, haha4=1, wtf-1=0, wtf-2=0, wtf-3=1, wtf-4=0, haha2=1, haha1=1, outro-1=0, outro-2=1
+mai 17, 2016 4:03:01 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: 	intro-1=1, intro-2=0, haha3=1, cats-1=1, cats-2=0, tv1=1, haha4=1, wtf-1=0, wtf-2=0, wtf-3=1, wtf-4=0, haha2=1, haha1=1, outro-1=0, outro-2=1
+mai 17, 2016 4:03:01 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: 	intro-1=1, intro-2=0, haha3=1, cats-1=1, cats-2=0, tv1=1, haha4=1, wtf-1=0, wtf-2=0, wtf-3=1, wtf-4=0, haha2=1, haha1=1, outro-1=0, outro-2=1
+mai 17, 2016 4:03:01 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: 	intro-1=1, intro-2=0, haha3=1, cats-1=1, cats-2=0, tv1=1, haha4=1, wtf-1=0, wtf-2=0, wtf-3=1, wtf-4=0, haha2=1, haha1=1, outro-1=0, outro-2=1
+mai 17, 2016 4:03:01 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: 	intro-1=1, intro-2=0, haha3=1, cats-1=1, cats-2=0, tv1=1, haha4=1, wtf-1=0, wtf-2=0, wtf-3=1, wtf-4=0, haha2=1, haha1=1, outro-1=0, outro-2=1
+mai 17, 2016 4:03:01 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: 	intro-1=1, intro-2=0, haha3=1, cats-1=1, cats-2=0, tv1=1, haha4=1, wtf-1=0, wtf-2=0, wtf-3=1, wtf-4=0, haha2=1, haha1=1, outro-1=0, outro-2=1
+mai 17, 2016 4:03:01 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: 	intro-1=1, intro-2=0, haha3=1, cats-1=1, cats-2=0, tv1=1, haha4=1, wtf-1=0, wtf-2=0, wtf-3=1, wtf-4=0, haha2=1, haha1=1, outro-1=0, outro-2=1
+mai 17, 2016 4:03:01 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: 	intro-1=1, intro-2=0, haha3=1, cats-1=1, cats-2=0, tv1=1, haha4=1, wtf-1=0, wtf-2=0, wtf-3=1, wtf-4=0, haha2=1, haha1=1, outro-1=0, outro-2=1
+mai 17, 2016 4:03:01 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: 	intro-1=1, intro-2=0, haha3=1, cats-1=1, cats-2=0, tv1=1, haha4=1, wtf-1=0, wtf-2=0, wtf-3=1, wtf-4=0, haha2=1, haha1=1, outro-1=0, outro-2=1
+mai 17, 2016 4:03:11 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: VideoGen User Contraints Visitor started...
+mai 17, 2016 4:03:11 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: 	 => minConstraint=42298, maxConstraint=107399
+mai 17, 2016 4:03:11 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: 
+ Solver[Min max durations constraints]
+
+[ 28 vars -- 12 cstrs ]
+Feasability: UNDEFINED
+== variables ==
+objective = [42298,107399]
+intro-1 = [0,1]
+intro-2 = [0,1]
+not(intro-1) = [0,1]
+not(intro-2) = [0,1]
+cste -- 0 = 0
+cste -- 1 = 1
+haha3 = 1
+cats-1 = [0,1]
+cats-2 = [0,1]
+not(cats-1) = [0,1]
+not(cats-2) = [0,1]
+tv1 = [0,1]
+haha4 = 1
+wtf-1 = [0,1]
+wtf-2 = [0,1]
+wtf-3 = [0,1]
+wtf-4 = [0,1]
+not(wtf-1) = [0,1]
+not(wtf-2) = [0,1]
+not(wtf-3) = [0,1]
+not(wtf-4) = [0,1]
+haha2 = [0,1]
+haha1 = [0,1]
+outro-1 = [0,1]
+outro-2 = [0,1]
+not(outro-1) = [0,1]
+not(outro-2) = [0,1]
+== constraints ==
+ArithmeticBinary ([prop(not(intro-1).NEQ.intro-1)])
+ArithmeticBinary ([prop(not(intro-2).NEQ.intro-2)])
+SatConstraint ([PropSat(intro-1, intro-2, not(intro-1), ..., not(outro-2))])
+ArithmeticBinary ([prop(not(cats-1).NEQ.cats-1)])
+ArithmeticBinary ([prop(not(cats-2).NEQ.cats-2)])
+ArithmeticBinary ([prop(not(wtf-1).NEQ.wtf-1)])
+ArithmeticBinary ([prop(not(wtf-2).NEQ.wtf-2)])
+ArithmeticBinary ([prop(not(wtf-3).NEQ.wtf-3)])
+ArithmeticBinary ([prop(not(wtf-4).NEQ.wtf-4)])
+ArithmeticBinary ([prop(not(outro-1).NEQ.outro-1)])
+ArithmeticBinary ([prop(not(outro-2).NEQ.outro-2)])
+ScalarProduct ([30600.intro-1 + 30300.intro-2 + 9400.cats-1 + 7800.wtf-1 + 37800.wtf-3 + 27100.wtf-4 + 7000.haha2 + 7000.haha1 + 7600.outro-1 + 11200.outro-2 - 1.objective - 1.wtf-2 - 1.tv1 - 1.cats-2 = -4400])
+
+mai 17, 2016 4:03:11 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: Solutions selected intro-1=1, intro-2=0, haha3=1, cats-1=1, cats-2=0, tv1=1, haha4=1, wtf-1=0, wtf-2=0, wtf-3=1, wtf-4=0, haha2=1, haha1=1, outro-1=0, outro-2=1
+mai 17, 2016 4:03:11 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: Solutions max = 8
+mai 17, 2016 4:03:11 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: - Solutions 1
+mai 17, 2016 4:03:11 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: 	intro-1=1, intro-2=0, haha3=1, cats-1=1, cats-2=0, tv1=1, haha4=1, wtf-1=0, wtf-2=0, wtf-3=1, wtf-4=0, haha2=1, haha1=1, outro-1=0, outro-2=1
+mai 17, 2016 4:03:11 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: 	intro-1=1, intro-2=0, haha3=1, cats-1=1, cats-2=0, tv1=1, haha4=1, wtf-1=0, wtf-2=0, wtf-3=1, wtf-4=0, haha2=1, haha1=1, outro-1=0, outro-2=1
+mai 17, 2016 4:03:11 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: 	intro-1=1, intro-2=0, haha3=1, cats-1=1, cats-2=0, tv1=1, haha4=1, wtf-1=0, wtf-2=0, wtf-3=1, wtf-4=0, haha2=1, haha1=1, outro-1=0, outro-2=1
+mai 17, 2016 4:03:11 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: 	intro-1=1, intro-2=0, haha3=1, cats-1=1, cats-2=0, tv1=1, haha4=1, wtf-1=0, wtf-2=0, wtf-3=1, wtf-4=0, haha2=1, haha1=1, outro-1=0, outro-2=1
+mai 17, 2016 4:03:11 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: 	intro-1=1, intro-2=0, haha3=1, cats-1=1, cats-2=0, tv1=1, haha4=1, wtf-1=0, wtf-2=0, wtf-3=1, wtf-4=0, haha2=1, haha1=1, outro-1=0, outro-2=1
+mai 17, 2016 4:03:11 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: 	intro-1=1, intro-2=0, haha3=1, cats-1=1, cats-2=0, tv1=1, haha4=1, wtf-1=0, wtf-2=0, wtf-3=1, wtf-4=0, haha2=1, haha1=1, outro-1=0, outro-2=1
+mai 17, 2016 4:03:11 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: 	intro-1=1, intro-2=0, haha3=1, cats-1=1, cats-2=0, tv1=1, haha4=1, wtf-1=0, wtf-2=0, wtf-3=1, wtf-4=0, haha2=1, haha1=1, outro-1=0, outro-2=1
+mai 17, 2016 4:03:11 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: 	intro-1=1, intro-2=0, haha3=1, cats-1=1, cats-2=0, tv1=1, haha4=1, wtf-1=0, wtf-2=0, wtf-3=1, wtf-4=0, haha2=1, haha1=1, outro-1=0, outro-2=1
+mai 17, 2016 4:03:11 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: 	intro-1=1, intro-2=0, haha3=1, cats-1=1, cats-2=0, tv1=1, haha4=1, wtf-1=0, wtf-2=0, wtf-3=1, wtf-4=0, haha2=1, haha1=1, outro-1=0, outro-2=1
+mai 17, 2016 4:03:11 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: 	intro-1=1, intro-2=0, haha3=1, cats-1=1, cats-2=0, tv1=1, haha4=1, wtf-1=0, wtf-2=0, wtf-3=1, wtf-4=0, haha2=1, haha1=1, outro-1=0, outro-2=1
+mai 17, 2016 4:03:11 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: 	intro-1=1, intro-2=0, haha3=1, cats-1=1, cats-2=0, tv1=1, haha4=1, wtf-1=0, wtf-2=0, wtf-3=1, wtf-4=0, haha2=1, haha1=1, outro-1=0, outro-2=1
+mai 17, 2016 4:03:11 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: 	intro-1=1, intro-2=0, haha3=1, cats-1=1, cats-2=0, tv1=1, haha4=1, wtf-1=0, wtf-2=0, wtf-3=1, wtf-4=0, haha2=1, haha1=1, outro-1=0, outro-2=1
+mai 17, 2016 4:03:11 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: 	intro-1=1, intro-2=0, haha3=1, cats-1=1, cats-2=0, tv1=1, haha4=1, wtf-1=0, wtf-2=0, wtf-3=1, wtf-4=0, haha2=1, haha1=1, outro-1=0, outro-2=1
+mai 17, 2016 4:03:11 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: 	intro-1=1, intro-2=0, haha3=1, cats-1=1, cats-2=0, tv1=1, haha4=1, wtf-1=0, wtf-2=0, wtf-3=1, wtf-4=0, haha2=1, haha1=1, outro-1=0, outro-2=1
+mai 17, 2016 4:03:11 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: 	intro-1=1, intro-2=0, haha3=1, cats-1=1, cats-2=0, tv1=1, haha4=1, wtf-1=0, wtf-2=0, wtf-3=1, wtf-4=0, haha2=1, haha1=1, outro-1=0, outro-2=1
+mai 17, 2016 4:03:32 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: VideoGen User Contraints Visitor started...
+mai 17, 2016 4:03:32 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: 	 => minConstraint=42298, maxConstraint=107399
+mai 17, 2016 4:03:32 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: 
+ Solver[Min max durations constraints]
+
+[ 28 vars -- 12 cstrs ]
+Feasability: UNDEFINED
+== variables ==
+objective = [42298,107399]
+intro-1 = [0,1]
+intro-2 = 0
+not(intro-1) = [0,1]
+not(intro-2) = [0,1]
+cste -- 0 = 0
+cste -- 1 = 1
+haha3 = 1
+cats-1 = [0,1]
+cats-2 = 0
+not(cats-1) = [0,1]
+not(cats-2) = [0,1]
+tv1 = [0,1]
+haha4 = 1
+wtf-1 = 0
+wtf-2 = 0
+wtf-3 = [0,1]
+wtf-4 = 0
+not(wtf-1) = [0,1]
+not(wtf-2) = [0,1]
+not(wtf-3) = [0,1]
+not(wtf-4) = [0,1]
+haha2 = [0,1]
+haha1 = [0,1]
+outro-1 = 0
+outro-2 = [0,1]
+not(outro-1) = [0,1]
+not(outro-2) = [0,1]
+== constraints ==
+ArithmeticBinary ([prop(not(intro-1).NEQ.intro-1)])
+ArithmeticUnary ([not(intro-2) =/= 0])
+SatConstraint ([PropSat(intro-1, intro-2, not(intro-2), ..., not(outro-2))])
+ArithmeticBinary ([prop(not(cats-1).NEQ.cats-1)])
+ArithmeticUnary ([not(cats-2) =/= 0])
+ArithmeticUnary ([not(wtf-1) =/= 0])
+ArithmeticUnary ([not(wtf-2) =/= 0])
+ArithmeticBinary ([prop(not(wtf-3).NEQ.wtf-3)])
+ArithmeticUnary ([not(wtf-4) =/= 0])
+ArithmeticUnary ([not(outro-1) =/= 0])
+ArithmeticBinary ([prop(not(outro-2).NEQ.outro-2)])
+ScalarProduct ([30600.intro-1 + 9400.cats-1 + 37800.wtf-3 + 7000.haha2 + 7000.haha1 + 11200.outro-2 - 1.objective - 1.tv1 = -4400])
+
+mai 17, 2016 4:03:32 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: Solutions selected intro-1=1, intro-2=0, haha3=1, cats-1=1, cats-2=0, tv1=1, haha4=1, wtf-1=0, wtf-2=0, wtf-3=1, wtf-4=0, haha2=1, haha1=1, outro-1=0, outro-2=1
+mai 17, 2016 4:03:32 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: Solutions max = 3
+mai 17, 2016 4:03:32 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: - Solutions 1
+mai 17, 2016 4:03:32 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: 	intro-1=1, intro-2=0, haha3=1, cats-1=1, cats-2=0, tv1=1, haha4=1, wtf-1=0, wtf-2=0, wtf-3=1, wtf-4=0, haha2=1, haha1=1, outro-1=0, outro-2=1
+mai 17, 2016 4:03:32 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: 	intro-1=1, intro-2=0, haha3=1, cats-1=1, cats-2=0, tv1=1, haha4=1, wtf-1=0, wtf-2=0, wtf-3=1, wtf-4=0, haha2=1, haha1=1, outro-1=0, outro-2=1
+mai 17, 2016 4:03:32 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: 	intro-1=1, intro-2=0, haha3=1, cats-1=1, cats-2=0, tv1=1, haha4=1, wtf-1=0, wtf-2=0, wtf-3=1, wtf-4=0, haha2=1, haha1=1, outro-1=0, outro-2=1
+mai 17, 2016 4:03:32 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: 	intro-1=1, intro-2=0, haha3=1, cats-1=1, cats-2=0, tv1=1, haha4=1, wtf-1=0, wtf-2=0, wtf-3=1, wtf-4=0, haha2=1, haha1=1, outro-1=0, outro-2=1
+mai 17, 2016 4:03:32 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: 	intro-1=1, intro-2=0, haha3=1, cats-1=1, cats-2=0, tv1=1, haha4=1, wtf-1=0, wtf-2=0, wtf-3=1, wtf-4=0, haha2=1, haha1=1, outro-1=0, outro-2=1
+mai 17, 2016 4:03:32 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: 	intro-1=1, intro-2=0, haha3=1, cats-1=1, cats-2=0, tv1=1, haha4=1, wtf-1=0, wtf-2=0, wtf-3=1, wtf-4=0, haha2=1, haha1=1, outro-1=0, outro-2=1
+mai 17, 2016 4:03:32 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: 	intro-1=1, intro-2=0, haha3=1, cats-1=1, cats-2=0, tv1=1, haha4=1, wtf-1=0, wtf-2=0, wtf-3=1, wtf-4=0, haha2=1, haha1=1, outro-1=0, outro-2=1
+mai 17, 2016 4:03:32 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: 	intro-1=1, intro-2=0, haha3=1, cats-1=1, cats-2=0, tv1=1, haha4=1, wtf-1=0, wtf-2=0, wtf-3=1, wtf-4=0, haha2=1, haha1=1, outro-1=0, outro-2=1
+mai 17, 2016 4:03:32 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: 	intro-1=1, intro-2=0, haha3=1, cats-1=1, cats-2=0, tv1=1, haha4=1, wtf-1=0, wtf-2=0, wtf-3=1, wtf-4=0, haha2=1, haha1=1, outro-1=0, outro-2=1
+mai 17, 2016 4:03:32 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: 	intro-1=1, intro-2=0, haha3=1, cats-1=1, cats-2=0, tv1=1, haha4=1, wtf-1=0, wtf-2=0, wtf-3=1, wtf-4=0, haha2=1, haha1=1, outro-1=0, outro-2=1
+mai 17, 2016 4:03:32 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: 	intro-1=1, intro-2=0, haha3=1, cats-1=1, cats-2=0, tv1=1, haha4=1, wtf-1=0, wtf-2=0, wtf-3=1, wtf-4=0, haha2=1, haha1=1, outro-1=0, outro-2=1
+mai 17, 2016 4:03:32 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: 	intro-1=1, intro-2=0, haha3=1, cats-1=1, cats-2=0, tv1=1, haha4=1, wtf-1=0, wtf-2=0, wtf-3=1, wtf-4=0, haha2=1, haha1=1, outro-1=0, outro-2=1
+mai 17, 2016 4:03:32 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: 	intro-1=1, intro-2=0, haha3=1, cats-1=1, cats-2=0, tv1=1, haha4=1, wtf-1=0, wtf-2=0, wtf-3=1, wtf-4=0, haha2=1, haha1=1, outro-1=0, outro-2=1
+mai 17, 2016 4:03:32 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: 	intro-1=1, intro-2=0, haha3=1, cats-1=1, cats-2=0, tv1=1, haha4=1, wtf-1=0, wtf-2=0, wtf-3=1, wtf-4=0, haha2=1, haha1=1, outro-1=0, outro-2=1
+mai 17, 2016 4:03:32 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: 	intro-1=1, intro-2=0, haha3=1, cats-1=1, cats-2=0, tv1=1, haha4=1, wtf-1=0, wtf-2=0, wtf-3=1, wtf-4=0, haha2=1, haha1=1, outro-1=0, outro-2=1
+mai 17, 2016 4:06:30 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: VideoGen User Contraints Visitor started...
+mai 17, 2016 4:06:30 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: 	 => minConstraint=42298, maxConstraint=107399
+mai 17, 2016 4:06:30 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: 
+ Solver[Min max durations constraints]
+
+[ 28 vars -- 12 cstrs ]
+Feasability: UNDEFINED
+== variables ==
+objective = [42298,107399]
+intro-1 = 1
+intro-2 = 0
+not(intro-1) = [0,1]
+not(intro-2) = [0,1]
+cste -- 0 = 0
+cste -- 1 = 1
+haha3 = 1
+cats-1 = [0,1]
+cats-2 = 0
+not(cats-1) = [0,1]
+not(cats-2) = [0,1]
+tv1 = [0,1]
+haha4 = 1
+wtf-1 = 0
+wtf-2 = 0
+wtf-3 = [0,1]
+wtf-4 = 0
+not(wtf-1) = [0,1]
+not(wtf-2) = [0,1]
+not(wtf-3) = [0,1]
+not(wtf-4) = [0,1]
+haha2 = [0,1]
+haha1 = [0,1]
+outro-1 = 0
+outro-2 = [0,1]
+not(outro-1) = [0,1]
+not(outro-2) = [0,1]
+== constraints ==
+ArithmeticUnary ([not(intro-1) =/= 1])
+ArithmeticUnary ([not(intro-2) =/= 0])
+SatConstraint ([PropSat(intro-1, intro-2, not(intro-2), ..., not(outro-2))])
+ArithmeticBinary ([prop(not(cats-1).NEQ.cats-1)])
+ArithmeticUnary ([not(cats-2) =/= 0])
+ArithmeticUnary ([not(wtf-1) =/= 0])
+ArithmeticUnary ([not(wtf-2) =/= 0])
+ArithmeticBinary ([prop(not(wtf-3).NEQ.wtf-3)])
+ArithmeticUnary ([not(wtf-4) =/= 0])
+ArithmeticUnary ([not(outro-1) =/= 0])
+ArithmeticBinary ([prop(not(outro-2).NEQ.outro-2)])
+ScalarProduct ([9400.cats-1 + 37800.wtf-3 + 7000.haha2 + 7000.haha1 + 11200.outro-2 - 1.objective - 1.tv1 = -35000])
+
+mai 17, 2016 4:06:30 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: Solutions selected intro-1=1, intro-2=0, haha3=1, cats-1=1, cats-2=0, tv1=1, haha4=1, wtf-1=0, wtf-2=0, wtf-3=1, wtf-4=0, haha2=1, haha1=1, outro-1=0, outro-2=1
+mai 17, 2016 4:06:30 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: Solutions max = 3
+mai 17, 2016 4:06:30 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: - Solutions 1
+mai 17, 2016 4:06:30 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: 	intro-1=1, intro-2=0, haha3=1, cats-1=1, cats-2=0, tv1=1, haha4=1, wtf-1=0, wtf-2=0, wtf-3=1, wtf-4=0, haha2=1, haha1=1, outro-1=0, outro-2=1
+mai 17, 2016 4:06:30 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: 	intro-1=1, intro-2=0, haha3=1, cats-1=1, cats-2=0, tv1=1, haha4=1, wtf-1=0, wtf-2=0, wtf-3=1, wtf-4=0, haha2=1, haha1=1, outro-1=0, outro-2=1
+mai 17, 2016 4:06:30 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: 	intro-1=1, intro-2=0, haha3=1, cats-1=1, cats-2=0, tv1=1, haha4=1, wtf-1=0, wtf-2=0, wtf-3=1, wtf-4=0, haha2=1, haha1=1, outro-1=0, outro-2=1
+mai 17, 2016 4:06:30 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: 	intro-1=1, intro-2=0, haha3=1, cats-1=1, cats-2=0, tv1=1, haha4=1, wtf-1=0, wtf-2=0, wtf-3=1, wtf-4=0, haha2=1, haha1=1, outro-1=0, outro-2=1
+mai 17, 2016 4:06:30 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: 	intro-1=1, intro-2=0, haha3=1, cats-1=1, cats-2=0, tv1=1, haha4=1, wtf-1=0, wtf-2=0, wtf-3=1, wtf-4=0, haha2=1, haha1=1, outro-1=0, outro-2=1
+mai 17, 2016 4:06:30 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: 	intro-1=1, intro-2=0, haha3=1, cats-1=1, cats-2=0, tv1=1, haha4=1, wtf-1=0, wtf-2=0, wtf-3=1, wtf-4=0, haha2=1, haha1=1, outro-1=0, outro-2=1
+mai 17, 2016 4:06:30 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: 	intro-1=1, intro-2=0, haha3=1, cats-1=1, cats-2=0, tv1=1, haha4=1, wtf-1=0, wtf-2=0, wtf-3=1, wtf-4=0, haha2=1, haha1=1, outro-1=0, outro-2=1
+mai 17, 2016 4:06:30 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: 	intro-1=1, intro-2=0, haha3=1, cats-1=1, cats-2=0, tv1=1, haha4=1, wtf-1=0, wtf-2=0, wtf-3=1, wtf-4=0, haha2=1, haha1=1, outro-1=0, outro-2=1
+mai 17, 2016 4:06:30 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: 	intro-1=1, intro-2=0, haha3=1, cats-1=1, cats-2=0, tv1=1, haha4=1, wtf-1=0, wtf-2=0, wtf-3=1, wtf-4=0, haha2=1, haha1=1, outro-1=0, outro-2=1
+mai 17, 2016 4:06:30 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: 	intro-1=1, intro-2=0, haha3=1, cats-1=1, cats-2=0, tv1=1, haha4=1, wtf-1=0, wtf-2=0, wtf-3=1, wtf-4=0, haha2=1, haha1=1, outro-1=0, outro-2=1
+mai 17, 2016 4:06:30 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: 	intro-1=1, intro-2=0, haha3=1, cats-1=1, cats-2=0, tv1=1, haha4=1, wtf-1=0, wtf-2=0, wtf-3=1, wtf-4=0, haha2=1, haha1=1, outro-1=0, outro-2=1
+mai 17, 2016 4:06:30 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: 	intro-1=1, intro-2=0, haha3=1, cats-1=1, cats-2=0, tv1=1, haha4=1, wtf-1=0, wtf-2=0, wtf-3=1, wtf-4=0, haha2=1, haha1=1, outro-1=0, outro-2=1
+mai 17, 2016 4:06:30 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: 	intro-1=1, intro-2=0, haha3=1, cats-1=1, cats-2=0, tv1=1, haha4=1, wtf-1=0, wtf-2=0, wtf-3=1, wtf-4=0, haha2=1, haha1=1, outro-1=0, outro-2=1
+mai 17, 2016 4:06:30 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: 	intro-1=1, intro-2=0, haha3=1, cats-1=1, cats-2=0, tv1=1, haha4=1, wtf-1=0, wtf-2=0, wtf-3=1, wtf-4=0, haha2=1, haha1=1, outro-1=0, outro-2=1
+mai 17, 2016 4:06:30 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor visit
+INFOS: 	intro-1=1, intro-2=0, haha3=1, cats-1=1, cats-2=0, tv1=1, haha4=1, wtf-1=0, wtf-2=0, wtf-3=1, wtf-4=0, haha2=1, haha1=1, outro-1=0, outro-2=1

@@ -1,0 +1,44 @@
+mai 17, 2016 4:30:32 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenContraintsMinMaxVisitor <init>
+INFOS: Selected mode: false
+mai 17, 2016 4:30:47 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenContraintsMinMaxVisitor visit
+INFOS: VideoGen Constraints Min Max Visitor started...
+mai 17, 2016 4:30:47 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenContraintsMinMaxVisitor visit
+INFOS: org.irisa.diverse.videogen.videoGen.impl.AlternativesImpl@af2263 (name: intro) (active: true, selected: false)
+mai 17, 2016 4:30:47 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenContraintsMinMaxVisitor visit
+INFOS: minDUration:30300, maxDUration:30600
+mai 17, 2016 4:30:47 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenContraintsMinMaxVisitor visit
+INFOS: org.irisa.diverse.videogen.videoGen.impl.MandatoryImpl@4c2e9012 (name: haha3) (active: true, selected: false)
+mai 17, 2016 4:30:47 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenContraintsMinMaxVisitor visit
+INFOS: duration: 2200
+mai 17, 2016 4:30:47 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenContraintsMinMaxVisitor visit
+INFOS: minDUration:32500, maxDUration:32800
+mai 17, 2016 4:30:47 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenContraintsMinMaxVisitor visit
+INFOS: org.irisa.diverse.videogen.videoGen.impl.AlternativesImpl@4d5a1929 (name: cats) (active: true, selected: false)
+mai 17, 2016 4:30:47 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenContraintsMinMaxVisitor visit
+INFOS: minDUration:32499, maxDUration:42200
+mai 17, 2016 4:30:47 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenContraintsMinMaxVisitor visit
+INFOS: org.irisa.diverse.videogen.videoGen.impl.OptionalImpl@41441ef9 (name: tv1) (active: true, selected: false) (probability: 40)
+mai 17, 2016 4:30:47 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenContraintsMinMaxVisitor visit
+INFOS: minDUration:32499, maxDUration:42199
+mai 17, 2016 4:30:47 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenContraintsMinMaxVisitor visit
+INFOS: org.irisa.diverse.videogen.videoGen.impl.MandatoryImpl@61f39e23 (name: haha4) (active: true, selected: false)
+mai 17, 2016 4:30:47 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenContraintsMinMaxVisitor visit
+INFOS: duration: 2200
+mai 17, 2016 4:30:47 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenContraintsMinMaxVisitor visit
+INFOS: minDUration:34699, maxDUration:44399
+mai 17, 2016 4:30:47 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenContraintsMinMaxVisitor visit
+INFOS: org.irisa.diverse.videogen.videoGen.impl.AlternativesImpl@7fc079b7 (name: wtf) (active: true, selected: false)
+mai 17, 2016 4:30:47 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenContraintsMinMaxVisitor visit
+INFOS: minDUration:34698, maxDUration:82199
+mai 17, 2016 4:30:47 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenContraintsMinMaxVisitor visit
+INFOS: org.irisa.diverse.videogen.videoGen.impl.OptionalImpl@3a1c51f5 (name: haha2) (active: true, selected: false) (probability: 10)
+mai 17, 2016 4:30:47 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenContraintsMinMaxVisitor visit
+INFOS: minDUration:34698, maxDUration:89199
+mai 17, 2016 4:30:47 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenContraintsMinMaxVisitor visit
+INFOS: org.irisa.diverse.videogen.videoGen.impl.OptionalImpl@133d34 (name: haha1) (active: true, selected: false) (probability: 30)
+mai 17, 2016 4:30:47 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenContraintsMinMaxVisitor visit
+INFOS: minDUration:34698, maxDUration:96199
+mai 17, 2016 4:30:47 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenContraintsMinMaxVisitor visit
+INFOS: org.irisa.diverse.videogen.videoGen.impl.AlternativesImpl@9d4a6b2 (name: outro) (active: true, selected: false)
+mai 17, 2016 4:30:47 PM org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenContraintsMinMaxVisitor visit
+INFOS: minDUration:42298, maxDUration:107399

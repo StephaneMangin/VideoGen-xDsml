@@ -7,20 +7,20 @@ gemoc-gen
 *._trace
 logs/
 
-.metadata
+#.metadata
 bin/
 tmp/
 *.tmp
 *.bak
 *.swp
 *~.nib
-local.properties
-.settings/
+#local.properties
+#.settings/
 .loadpath
 .recommenders
 
 # Eclipse Core
-.project
+#.project
 
 # External tool builders
 .externalToolBuilders/

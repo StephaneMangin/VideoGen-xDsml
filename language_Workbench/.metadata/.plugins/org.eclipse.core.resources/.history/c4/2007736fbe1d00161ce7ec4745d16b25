@@ -1,0 +1,5 @@
+package org.irisa.diverse.videogen;
+
+@SuppressWarnings("all")
+public class StandaloneSetup {
+}

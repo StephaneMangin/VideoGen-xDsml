@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<component id="org.eclipse.sirius.ext.emf" modificationStamp="85023" version="1.2">
-    <package visibility="1">
-        <fragment handle="=org.eclipse.sirius.ext.emf/src&lt;org.eclipse.sirius.ext.emf"/>
-    </package>
-</component>

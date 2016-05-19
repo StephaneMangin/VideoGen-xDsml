@@ -33,6 +33,8 @@ import java.nio.file.Path
 import org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenSetupVisitor
 import org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenVariantsVisitor
 import org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenContraintsMinMaxVisitor
+import jargs.gnu.CmdLineParser
+import jargs.gnu.CmdLineParser.Option
 
 @Aspect(className=VideoGen)
 class VideoGenAspect {
@@ -47,19 +49,30 @@ class VideoGenAspect {
 	protected static Logger log = Logger.getLogger("VideoGenAspect")
 	private static Path workspacePath = Paths.get(ResourcesPlugin.workspace.root.projects.get(0).locationURI)
 	private static Path logPath = Paths.get(workspacePath + "/logs")
-
+	private static List<String> args = null
+    
 	@Main
 	def void main() {
-		while (true) {
-			_self.execute
-		}
+		_self.execute
 	}
-	
-	@Step
-	def private void reset() {
-		_self.minUserConstraint = _self.minDurationConstraint
-		_self.maxUserConstraint = _self.maxDurationConstraint
-	}
+
+//	@Step
+//	def private void parseArgs() {
+//		if (_self.args != null) {
+//	        val parser = new CmdLineParser()
+//	        val min = parser.addIntegerOption("minimumDuration")
+//	        val max = parser.addIntegerOption("maximumDuration")
+//	
+//	        try {
+//	            parser.parse(args)
+//	            _self.minUserConstraint = parser.getOptionValue(min, _self.minDurationConstraint) as Integer
+//				_self.maxUserConstraint = parser.getOptionValue(max, _self.maxDurationConstraint) as Integer
+//	        }
+//	        catch ( CmdLineParser.OptionException e ) {
+//	            System.err.println(e.getMessage());
+//	        }
+//	    }
+//	}
 	
 	@Step
 	def private void setup() {
@@ -75,16 +88,7 @@ class VideoGenAspect {
 		_self.minDurationConstraint = _self.durationVisitor.minDuration
 		_self.maxDurationConstraint = _self.durationVisitor.maxDuration
 		
-		log.info("#### VideoGen, time to setup " + (System.nanoTime - start))
-	}
-	
-	@Step
-	@InitializeModel
-	def public void initializeModel(List<String> args){
-		_self.setup
-		if (!args.contains("noreset")) {
-			_self.reset
-		}
+		
 		if (!_self.onceSetuped) {
 			// Log is reset before use
 			SystemHelper.mkDirs(logPath)
@@ -94,6 +98,18 @@ class VideoGenAspect {
 			log.addHandler(fh)
 			_self.onceSetuped = true
 		}
+		
+		log.info("#### VideoGen, time to setup " + (System.nanoTime - start))
+		
+	}
+	
+	@Step
+	@InitializeModel
+	def public void initializeModel(List<String> args){
+		_self.setup
+		//_self.args = args
+		//_self.parseArgs()
+		
 		log.info("Initialize model with " + args)
 	}
 	

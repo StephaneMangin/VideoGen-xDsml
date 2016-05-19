@@ -1,0 +1,399 @@
+package org.gemoc.execution.sequential.javaengine.ui.debug;
+
+import com.google.common.base.Objects;
+import fr.inria.diverse.trace.gemoc.api.IMultiDimensionalTraceAddon;
+import fr.inria.diverse.trace.gemoc.api.ITraceExplorer;
+import fr.inria.diverse.trace.gemoc.api.ITraceListener;
+import fr.obeo.dsl.debug.ide.event.IDSLDebugEventProcessor;
+import java.util.ArrayList;
+import java.util.Deque;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
+import java.util.function.BiPredicate;
+import java.util.function.Supplier;
+import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Status;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EOperation;
+import org.eclipse.jface.dialogs.ErrorDialog;
+import org.eclipse.xtext.naming.DefaultDeclarativeQualifiedNameProvider;
+import org.eclipse.xtext.naming.QualifiedName;
+import org.eclipse.xtext.xbase.lib.Exceptions;
+import org.eclipse.xtext.xbase.lib.Functions.Function1;
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
+import org.gemoc.execution.sequential.javaengine.ui.Activator;
+import org.gemoc.execution.sequential.javaengine.ui.debug.GenericSequentialModelDebugger;
+import org.gemoc.executionframework.engine.core.EngineStoppedException;
+import org.gemoc.executionframework.engine.mse.MSE;
+import org.gemoc.executionframework.engine.mse.MSEOccurrence;
+import org.gemoc.executionframework.engine.mse.Step;
+import org.gemoc.xdsmlframework.api.core.IBasicExecutionEngine;
+import org.gemoc.xdsmlframework.api.core.ISequentialExecutionEngine;
+
+@SuppressWarnings("all")
+public class OmniscientGenericSequentialModelDebugger extends GenericSequentialModelDebugger implements ITraceListener {
+  private ITraceExplorer traceExplorer;
+  
+  private int steppingOverStackFrameIndex = (-1);
+  
+  private int steppingReturnStackFrameIndex = (-1);
+  
+  private final List<EObject> callerStack = new ArrayList<EObject>();
+  
+  private final List<Step> previousCallStack = new ArrayList<Step>();
+  
+  public OmniscientGenericSequentialModelDebugger(final IDSLDebugEventProcessor target, final ISequentialExecutionEngine engine) {
+    super(target, engine);
+  }
+  
+  private MSE getMSEFromStep(final Step step) {
+    final MSEOccurrence mseOccurrence = step.getMseoccurrence();
+    boolean _equals = Objects.equal(mseOccurrence, null);
+    if (_equals) {
+      final EObject container = step.eContainer();
+      if ((container instanceof Step)) {
+        final Step parentStep = ((Step) container);
+        final MSEOccurrence parentMseOccurrence = parentStep.getMseoccurrence();
+        boolean _equals_1 = Objects.equal(parentMseOccurrence, null);
+        if (_equals_1) {
+          throw new IllegalStateException("A step without MSEOccurrence cannot be contained in a step without MSEOccurrence");
+        } else {
+          return parentMseOccurrence.getMse();
+        }
+      } else {
+        throw new IllegalStateException("A step without MSEOccurrence has to be contained in a step");
+      }
+    } else {
+      return mseOccurrence.getMse();
+    }
+  }
+  
+  private void pushStackFrame(final String threadName, final Step step) {
+    MSE mse = this.getMSEFromStep(step);
+    EObject caller = mse.getCaller();
+    final DefaultDeclarativeQualifiedNameProvider nameprovider = new DefaultDeclarativeQualifiedNameProvider();
+    final QualifiedName qname = nameprovider.getFullyQualifiedName(caller);
+    String _xifexpression = null;
+    if ((qname != null)) {
+      _xifexpression = qname.toString();
+    } else {
+      _xifexpression = caller.toString();
+    }
+    final String objectName = _xifexpression;
+    EOperation _action = mse.getAction();
+    String _name = null;
+    if (_action!=null) {
+      _name=_action.getName();
+    }
+    final String opName = _name;
+    EClass _eClass = caller.eClass();
+    final String callerType = _eClass.getName();
+    final String prettyName = (((((("(" + callerType) + ") ") + objectName) + " -> ") + opName) + "()");
+    this.pushStackFrame(threadName, prettyName, caller, caller);
+    this.callerStack.add(0, caller);
+  }
+  
+  @Override
+  public void popStackFrame(final String threadName) {
+    super.popStackFrame(threadName);
+    this.callerStack.remove(0);
+  }
+  
+  @Override
+  public void aboutToExecuteStep(final IBasicExecutionEngine executionEngine, final Step step) {
+    final MSEOccurrence mseOccurrence = step.getMseoccurrence();
+    boolean _notEquals = (!Objects.equal(mseOccurrence, null));
+    if (_notEquals) {
+      boolean _control = this.control(this.threadName, mseOccurrence);
+      boolean _not = (!_control);
+      if (_not) {
+        throw new EngineStoppedException("Debug thread has stopped.");
+      }
+    }
+  }
+  
+  @Override
+  public void resume() {
+    if ((!this.executionTerminated)) {
+      boolean _isInReplayMode = this.traceExplorer.isInReplayMode();
+      if (_isInReplayMode) {
+        this.traceExplorer.loadLastState();
+      }
+      super.resume();
+    }
+  }
+  
+  @Override
+  public void resume(final String threadName) {
+    if ((!this.executionTerminated)) {
+      boolean _isInReplayMode = this.traceExplorer.isInReplayMode();
+      if (_isInReplayMode) {
+        this.traceExplorer.loadLastState();
+      }
+      super.resume(threadName);
+    }
+  }
+  
+  @Override
+  public void terminate() {
+    super.terminate();
+    Activator _default = Activator.getDefault();
+    final Supplier<OmniscientGenericSequentialModelDebugger> _function = () -> {
+      return null;
+    };
+    _default.setDebuggerSupplier(_function);
+  }
+  
+  @Override
+  protected void setupStepOverPredicateBreak() {
+    abstract class __OmniscientGenericSequentialModelDebugger_1 implements BiPredicate<IBasicExecutionEngine, MSEOccurrence> {
+      MSEOccurrence steppedOver;
+    }
+    
+    if ((this.steppingOverStackFrameIndex != (-1))) {
+      final ISequentialExecutionEngine seqEngine = ((ISequentialExecutionEngine) this.engine);
+      final List<Step> stack = this.traceExplorer.getCallStack();
+      int _size = stack.size();
+      final int idx = (_size - this.steppingOverStackFrameIndex);
+      __OmniscientGenericSequentialModelDebugger_1 ___OmniscientGenericSequentialModelDebugger_1 = new __OmniscientGenericSequentialModelDebugger_1() {
+        {
+          steppedOver = stack.get(idx).getMseoccurrence();
+        }
+        @Override
+        public boolean test(final IBasicExecutionEngine t, final MSEOccurrence u) {
+          Deque<MSEOccurrence> _currentStack = seqEngine.getCurrentStack();
+          boolean _contains = _currentStack.contains(this.steppedOver);
+          return (!_contains);
+        }
+      };
+      this.addPredicateBreak(___OmniscientGenericSequentialModelDebugger_1);
+      this.steppingOverStackFrameIndex = (-1);
+    } else {
+      super.setupStepOverPredicateBreak();
+    }
+  }
+  
+  @Override
+  public void stepInto(final String threadName) {
+    boolean _or = false;
+    boolean _isInReplayMode = this.traceExplorer.isInReplayMode();
+    if (_isInReplayMode) {
+      _or = true;
+    } else {
+      _or = this.executionTerminated;
+    }
+    if (_or) {
+      boolean _and = false;
+      boolean _stepInto = this.traceExplorer.stepInto();
+      boolean _not = (!_stepInto);
+      if (!_not) {
+        _and = false;
+      } else {
+        _and = (!this.executionTerminated);
+      }
+      if (_and) {
+        this.traceExplorer.loadLastState();
+        super.stepInto(threadName);
+      }
+    } else {
+      super.stepInto(threadName);
+    }
+  }
+  
+  @Override
+  public void stepOver(final String threadName) {
+    boolean _or = false;
+    boolean _isInReplayMode = this.traceExplorer.isInReplayMode();
+    if (_isInReplayMode) {
+      _or = true;
+    } else {
+      _or = this.executionTerminated;
+    }
+    if (_or) {
+      boolean _and = false;
+      boolean _stepOver = this.traceExplorer.stepOver();
+      boolean _not = (!_stepOver);
+      if (!_not) {
+        _and = false;
+      } else {
+        _and = (!this.executionTerminated);
+      }
+      if (_and) {
+        this.steppingOverStackFrameIndex = (this.nbStackFrames - 1);
+        this.traceExplorer.loadLastState();
+        super.stepOver(threadName);
+      }
+    } else {
+      super.stepOver(threadName);
+    }
+  }
+  
+  @Override
+  protected void setupStepReturnPredicateBreak() {
+    abstract class __OmniscientGenericSequentialModelDebugger_2 implements BiPredicate<IBasicExecutionEngine, MSEOccurrence> {
+      MSEOccurrence steppedReturn;
+    }
+    
+    if ((this.steppingReturnStackFrameIndex != (-1))) {
+      final ISequentialExecutionEngine seqEngine = ((ISequentialExecutionEngine) this.engine);
+      final List<Step> stack = this.traceExplorer.getCallStack();
+      int _size = stack.size();
+      final int idx = (_size - this.steppingReturnStackFrameIndex);
+      __OmniscientGenericSequentialModelDebugger_2 ___OmniscientGenericSequentialModelDebugger_2 = new __OmniscientGenericSequentialModelDebugger_2() {
+        {
+          steppedReturn = stack.get(idx).getMseoccurrence();
+        }
+        @Override
+        public boolean test(final IBasicExecutionEngine t, final MSEOccurrence u) {
+          Deque<MSEOccurrence> _currentStack = seqEngine.getCurrentStack();
+          boolean _contains = _currentStack.contains(this.steppedReturn);
+          return (!_contains);
+        }
+      };
+      this.addPredicateBreak(___OmniscientGenericSequentialModelDebugger_2);
+      this.steppingReturnStackFrameIndex = (-1);
+    } else {
+      super.setupStepReturnPredicateBreak();
+    }
+  }
+  
+  @Override
+  public void stepReturn(final String threadName) {
+    boolean _or = false;
+    boolean _isInReplayMode = this.traceExplorer.isInReplayMode();
+    if (_isInReplayMode) {
+      _or = true;
+    } else {
+      _or = this.executionTerminated;
+    }
+    if (_or) {
+      boolean _and = false;
+      boolean _stepReturn = this.traceExplorer.stepReturn();
+      boolean _not = (!_stepReturn);
+      if (!_not) {
+        _and = false;
+      } else {
+        _and = (!this.executionTerminated);
+      }
+      if (_and) {
+        this.steppingReturnStackFrameIndex = (this.nbStackFrames - 2);
+        this.traceExplorer.loadLastState();
+        super.stepReturn(threadName);
+      }
+    } else {
+      super.stepReturn(threadName);
+    }
+  }
+  
+  public void stepBackInto() {
+    this.traceExplorer.stepBackInto();
+  }
+  
+  public void stepBackOver() {
+    this.traceExplorer.stepBackOver();
+  }
+  
+  public void stepBackOut() {
+    this.traceExplorer.stepBackOut();
+  }
+  
+  public boolean canStepBackInto() {
+    return this.traceExplorer.canStepBackInto();
+  }
+  
+  public boolean canStepBackOver() {
+    return this.traceExplorer.canStepBackOver();
+  }
+  
+  public boolean canStepBackOut() {
+    return this.traceExplorer.canStepBackOut();
+  }
+  
+  @Override
+  public boolean validateVariableValue(final String threadName, final String variableName, final String value) {
+    boolean _isInReplayMode = this.traceExplorer.isInReplayMode();
+    if (_isInReplayMode) {
+      Status _status = new Status(IStatus.ERROR, Activator.PLUGIN_ID, "Illegal variable value set");
+      ErrorDialog.openError(null, "Illegal variable value set", 
+        "Cannot set the value of a variable when in replay mode", _status);
+      return false;
+    }
+    return super.validateVariableValue(threadName, variableName, value);
+  }
+  
+  @Override
+  public void engineStarted(final IBasicExecutionEngine executionEngine) {
+    final Activator activator = Activator.getDefault();
+    final Supplier<OmniscientGenericSequentialModelDebugger> _function = () -> {
+      return this;
+    };
+    activator.setDebuggerSupplier(_function);
+    super.engineStarted(executionEngine);
+    final Set<IMultiDimensionalTraceAddon> traceAddons = executionEngine.<IMultiDimensionalTraceAddon>getAddonsTypedBy(IMultiDimensionalTraceAddon.class);
+    Iterator<IMultiDimensionalTraceAddon> _iterator = traceAddons.iterator();
+    final IMultiDimensionalTraceAddon traceAddon = _iterator.next();
+    ITraceExplorer _traceExplorer = traceAddon.getTraceExplorer();
+    this.traceExplorer = _traceExplorer;
+    this.traceExplorer.addListener(this);
+  }
+  
+  @Override
+  public void engineAboutToStop(final IBasicExecutionEngine engine) {
+    this.traceExplorer.loadLastState();
+    super.engineAboutToStop(engine);
+  }
+  
+  @Override
+  public void engineStopped(final IBasicExecutionEngine executionEngine) {
+    final Activator activator = Activator.getDefault();
+    activator.setDebuggerSupplier(null);
+    super.engineStopped(executionEngine);
+  }
+  
+  @Override
+  public void updateStack(final String threadName, final EObject instruction) {
+    int i = 0;
+    while ((((i < this.previousCallStack.size()) && (i < this.traceExplorer.getCallStack().size())) && Objects.equal(this.previousCallStack.get(i), this.traceExplorer.getCallStack().get(i)))) {
+      i++;
+    }
+    for (int j = i; (j < this.previousCallStack.size()); j++) {
+      this.popStackFrame(threadName);
+    }
+    for (int j = i; (j < this.traceExplorer.getCallStack().size()); j++) {
+      List<Step> _callStack = this.traceExplorer.getCallStack();
+      Step _get = _callStack.get(j);
+      this.pushStackFrame(threadName, _get);
+    }
+    boolean _isEmpty = this.callerStack.isEmpty();
+    boolean _not = (!_isEmpty);
+    if (_not) {
+      EObject _get = this.callerStack.get(0);
+      this.setCurrentInstruction(threadName, _get);
+    }
+    this.previousCallStack.clear();
+    List<Step> _callStack = this.traceExplorer.getCallStack();
+    this.previousCallStack.addAll(_callStack);
+  }
+  
+  @Override
+  public void update() {
+    boolean _notEquals = (!Objects.equal(this.executedModelRoot, null));
+    if (_notEquals) {
+      try {
+        final Function1<EObject, Boolean> _function = (EObject it) -> {
+          return Boolean.valueOf(true);
+        };
+        EObject _findFirst = IterableExtensions.<EObject>findFirst(this.callerStack, _function);
+        this.updateData(this.threadName, _findFirst);
+      } catch (final Throwable _t) {
+        if (_t instanceof IllegalStateException) {
+          final IllegalStateException e = (IllegalStateException)_t;
+        } else {
+          throw Exceptions.sneakyThrow(_t);
+        }
+      }
+    }
+  }
+}

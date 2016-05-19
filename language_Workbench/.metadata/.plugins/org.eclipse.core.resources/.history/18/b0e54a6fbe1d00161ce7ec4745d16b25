@@ -1,0 +1,241 @@
+package org.irisa.diverse.videogen.videogenl.adapters.videogenlmt;
+
+import fr.inria.diverse.melange.adapters.AdaptersFactory;
+import fr.inria.diverse.melange.adapters.EObjectAdapter;
+import java.util.WeakHashMap;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.irisa.diverse.videogen.videoGen.Alternatives;
+import org.irisa.diverse.videogen.videoGen.Delay;
+import org.irisa.diverse.videogen.videoGen.Generate;
+import org.irisa.diverse.videogen.videoGen.Initialize;
+import org.irisa.diverse.videogen.videoGen.Mandatory;
+import org.irisa.diverse.videogen.videoGen.NamedElement;
+import org.irisa.diverse.videogen.videoGen.Optional;
+import org.irisa.diverse.videogen.videoGen.Sequence;
+import org.irisa.diverse.videogen.videoGen.Transition;
+import org.irisa.diverse.videogen.videoGen.Video;
+import org.irisa.diverse.videogen.videoGen.VideoGen;
+import org.irisa.diverse.videogen.videogenl.adapters.videogenlmt.videoGen.AlternativesAdapter;
+import org.irisa.diverse.videogen.videogenl.adapters.videogenlmt.videoGen.DelayAdapter;
+import org.irisa.diverse.videogen.videogenl.adapters.videogenlmt.videoGen.GenerateAdapter;
+import org.irisa.diverse.videogen.videogenl.adapters.videogenlmt.videoGen.InitializeAdapter;
+import org.irisa.diverse.videogen.videogenl.adapters.videogenlmt.videoGen.MandatoryAdapter;
+import org.irisa.diverse.videogen.videogenl.adapters.videogenlmt.videoGen.NamedElementAdapter;
+import org.irisa.diverse.videogen.videogenl.adapters.videogenlmt.videoGen.OptionalAdapter;
+import org.irisa.diverse.videogen.videogenl.adapters.videogenlmt.videoGen.SequenceAdapter;
+import org.irisa.diverse.videogen.videogenl.adapters.videogenlmt.videoGen.TransitionAdapter;
+import org.irisa.diverse.videogen.videogenl.adapters.videogenlmt.videoGen.VideoAdapter;
+import org.irisa.diverse.videogen.videogenl.adapters.videogenlmt.videoGen.VideoGenAdapter;
+
+@SuppressWarnings("all")
+public class VideoGenLMTAdaptersFactory implements AdaptersFactory {
+  private static VideoGenLMTAdaptersFactory instance;
+  
+  public static VideoGenLMTAdaptersFactory getInstance() {
+    if (instance == null) {
+    	instance = new org.irisa.diverse.videogen.videogenl.adapters.videogenlmt.VideoGenLMTAdaptersFactory();
+    }
+    return instance;
+  }
+  
+  private WeakHashMap<EObject, EObjectAdapter> register;
+  
+  public VideoGenLMTAdaptersFactory() {
+    register = new WeakHashMap();
+  }
+  
+  public EObjectAdapter createAdapter(final EObject o, final Resource res) {
+    if (o instanceof org.irisa.diverse.videogen.videoGen.Mandatory){
+    	return createMandatoryAdapter((org.irisa.diverse.videogen.videoGen.Mandatory) o, res);
+    }
+    if (o instanceof org.irisa.diverse.videogen.videoGen.Initialize){
+    	return createInitializeAdapter((org.irisa.diverse.videogen.videoGen.Initialize) o, res);
+    }
+    if (o instanceof org.irisa.diverse.videogen.videoGen.VideoGen){
+    	return createVideoGenAdapter((org.irisa.diverse.videogen.videoGen.VideoGen) o, res);
+    }
+    if (o instanceof org.irisa.diverse.videogen.videoGen.Optional){
+    	return createOptionalAdapter((org.irisa.diverse.videogen.videoGen.Optional) o, res);
+    }
+    if (o instanceof org.irisa.diverse.videogen.videoGen.Video){
+    	return createVideoAdapter((org.irisa.diverse.videogen.videoGen.Video) o, res);
+    }
+    if (o instanceof org.irisa.diverse.videogen.videoGen.Alternatives){
+    	return createAlternativesAdapter((org.irisa.diverse.videogen.videoGen.Alternatives) o, res);
+    }
+    if (o instanceof org.irisa.diverse.videogen.videoGen.Generate){
+    	return createGenerateAdapter((org.irisa.diverse.videogen.videoGen.Generate) o, res);
+    }
+    if (o instanceof org.irisa.diverse.videogen.videoGen.Delay){
+    	return createDelayAdapter((org.irisa.diverse.videogen.videoGen.Delay) o, res);
+    }
+    
+    return null;
+  }
+  
+  public MandatoryAdapter createMandatoryAdapter(final Mandatory adaptee, final Resource res) {
+    if (adaptee == null)
+    	return null;
+    EObjectAdapter adapter = register.get(adaptee);
+    if(adapter != null)
+    	 return (org.irisa.diverse.videogen.videogenl.adapters.videogenlmt.videoGen.MandatoryAdapter) adapter;
+    else {
+    	adapter = new org.irisa.diverse.videogen.videogenl.adapters.videogenlmt.videoGen.MandatoryAdapter();
+    	adapter.setAdaptee(adaptee);
+    	adapter.setResource(res);
+    	register.put(adaptee, adapter);
+    	return (org.irisa.diverse.videogen.videogenl.adapters.videogenlmt.videoGen.MandatoryAdapter) adapter;
+    }
+  }
+  
+  public InitializeAdapter createInitializeAdapter(final Initialize adaptee, final Resource res) {
+    if (adaptee == null)
+    	return null;
+    EObjectAdapter adapter = register.get(adaptee);
+    if(adapter != null)
+    	 return (org.irisa.diverse.videogen.videogenl.adapters.videogenlmt.videoGen.InitializeAdapter) adapter;
+    else {
+    	adapter = new org.irisa.diverse.videogen.videogenl.adapters.videogenlmt.videoGen.InitializeAdapter();
+    	adapter.setAdaptee(adaptee);
+    	adapter.setResource(res);
+    	register.put(adaptee, adapter);
+    	return (org.irisa.diverse.videogen.videogenl.adapters.videogenlmt.videoGen.InitializeAdapter) adapter;
+    }
+  }
+  
+  public VideoGenAdapter createVideoGenAdapter(final VideoGen adaptee, final Resource res) {
+    if (adaptee == null)
+    	return null;
+    EObjectAdapter adapter = register.get(adaptee);
+    if(adapter != null)
+    	 return (org.irisa.diverse.videogen.videogenl.adapters.videogenlmt.videoGen.VideoGenAdapter) adapter;
+    else {
+    	adapter = new org.irisa.diverse.videogen.videogenl.adapters.videogenlmt.videoGen.VideoGenAdapter();
+    	adapter.setAdaptee(adaptee);
+    	adapter.setResource(res);
+    	register.put(adaptee, adapter);
+    	return (org.irisa.diverse.videogen.videogenl.adapters.videogenlmt.videoGen.VideoGenAdapter) adapter;
+    }
+  }
+  
+  public TransitionAdapter createTransitionAdapter(final Transition adaptee, final Resource res) {
+    if (adaptee == null)
+    	return null;
+    EObjectAdapter adapter = register.get(adaptee);
+    if(adapter != null)
+    	 return (org.irisa.diverse.videogen.videogenl.adapters.videogenlmt.videoGen.TransitionAdapter) adapter;
+    else {
+    	adapter = new org.irisa.diverse.videogen.videogenl.adapters.videogenlmt.videoGen.TransitionAdapter();
+    	adapter.setAdaptee(adaptee);
+    	adapter.setResource(res);
+    	register.put(adaptee, adapter);
+    	return (org.irisa.diverse.videogen.videogenl.adapters.videogenlmt.videoGen.TransitionAdapter) adapter;
+    }
+  }
+  
+  public NamedElementAdapter createNamedElementAdapter(final NamedElement adaptee, final Resource res) {
+    if (adaptee == null)
+    	return null;
+    EObjectAdapter adapter = register.get(adaptee);
+    if(adapter != null)
+    	 return (org.irisa.diverse.videogen.videogenl.adapters.videogenlmt.videoGen.NamedElementAdapter) adapter;
+    else {
+    	adapter = new org.irisa.diverse.videogen.videogenl.adapters.videogenlmt.videoGen.NamedElementAdapter();
+    	adapter.setAdaptee(adaptee);
+    	adapter.setResource(res);
+    	register.put(adaptee, adapter);
+    	return (org.irisa.diverse.videogen.videogenl.adapters.videogenlmt.videoGen.NamedElementAdapter) adapter;
+    }
+  }
+  
+  public OptionalAdapter createOptionalAdapter(final Optional adaptee, final Resource res) {
+    if (adaptee == null)
+    	return null;
+    EObjectAdapter adapter = register.get(adaptee);
+    if(adapter != null)
+    	 return (org.irisa.diverse.videogen.videogenl.adapters.videogenlmt.videoGen.OptionalAdapter) adapter;
+    else {
+    	adapter = new org.irisa.diverse.videogen.videogenl.adapters.videogenlmt.videoGen.OptionalAdapter();
+    	adapter.setAdaptee(adaptee);
+    	adapter.setResource(res);
+    	register.put(adaptee, adapter);
+    	return (org.irisa.diverse.videogen.videogenl.adapters.videogenlmt.videoGen.OptionalAdapter) adapter;
+    }
+  }
+  
+  public VideoAdapter createVideoAdapter(final Video adaptee, final Resource res) {
+    if (adaptee == null)
+    	return null;
+    EObjectAdapter adapter = register.get(adaptee);
+    if(adapter != null)
+    	 return (org.irisa.diverse.videogen.videogenl.adapters.videogenlmt.videoGen.VideoAdapter) adapter;
+    else {
+    	adapter = new org.irisa.diverse.videogen.videogenl.adapters.videogenlmt.videoGen.VideoAdapter();
+    	adapter.setAdaptee(adaptee);
+    	adapter.setResource(res);
+    	register.put(adaptee, adapter);
+    	return (org.irisa.diverse.videogen.videogenl.adapters.videogenlmt.videoGen.VideoAdapter) adapter;
+    }
+  }
+  
+  public AlternativesAdapter createAlternativesAdapter(final Alternatives adaptee, final Resource res) {
+    if (adaptee == null)
+    	return null;
+    EObjectAdapter adapter = register.get(adaptee);
+    if(adapter != null)
+    	 return (org.irisa.diverse.videogen.videogenl.adapters.videogenlmt.videoGen.AlternativesAdapter) adapter;
+    else {
+    	adapter = new org.irisa.diverse.videogen.videogenl.adapters.videogenlmt.videoGen.AlternativesAdapter();
+    	adapter.setAdaptee(adaptee);
+    	adapter.setResource(res);
+    	register.put(adaptee, adapter);
+    	return (org.irisa.diverse.videogen.videogenl.adapters.videogenlmt.videoGen.AlternativesAdapter) adapter;
+    }
+  }
+  
+  public GenerateAdapter createGenerateAdapter(final Generate adaptee, final Resource res) {
+    if (adaptee == null)
+    	return null;
+    EObjectAdapter adapter = register.get(adaptee);
+    if(adapter != null)
+    	 return (org.irisa.diverse.videogen.videogenl.adapters.videogenlmt.videoGen.GenerateAdapter) adapter;
+    else {
+    	adapter = new org.irisa.diverse.videogen.videogenl.adapters.videogenlmt.videoGen.GenerateAdapter();
+    	adapter.setAdaptee(adaptee);
+    	adapter.setResource(res);
+    	register.put(adaptee, adapter);
+    	return (org.irisa.diverse.videogen.videogenl.adapters.videogenlmt.videoGen.GenerateAdapter) adapter;
+    }
+  }
+  
+  public DelayAdapter createDelayAdapter(final Delay adaptee, final Resource res) {
+    if (adaptee == null)
+    	return null;
+    EObjectAdapter adapter = register.get(adaptee);
+    if(adapter != null)
+    	 return (org.irisa.diverse.videogen.videogenl.adapters.videogenlmt.videoGen.DelayAdapter) adapter;
+    else {
+    	adapter = new org.irisa.diverse.videogen.videogenl.adapters.videogenlmt.videoGen.DelayAdapter();
+    	adapter.setAdaptee(adaptee);
+    	adapter.setResource(res);
+    	register.put(adaptee, adapter);
+    	return (org.irisa.diverse.videogen.videogenl.adapters.videogenlmt.videoGen.DelayAdapter) adapter;
+    }
+  }
+  
+  public SequenceAdapter createSequenceAdapter(final Sequence adaptee, final Resource res) {
+    if (adaptee == null)
+    	return null;
+    EObjectAdapter adapter = register.get(adaptee);
+    if(adapter != null)
+    	 return (org.irisa.diverse.videogen.videogenl.adapters.videogenlmt.videoGen.SequenceAdapter) adapter;
+    else {
+    	adapter = new org.irisa.diverse.videogen.videogenl.adapters.videogenlmt.videoGen.SequenceAdapter();
+    	adapter.setAdaptee(adaptee);
+    	adapter.setResource(res);
+    	register.put(adaptee, adapter);
+    	return (org.irisa.diverse.videogen.videogenl.adapters.videogenlmt.videoGen.SequenceAdapter) adapter;
+    }
+  }
+}

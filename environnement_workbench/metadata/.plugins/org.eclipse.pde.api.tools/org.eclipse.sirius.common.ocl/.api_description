@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<component id="org.eclipse.sirius.common.ocl" modificationStamp="93895" version="1.2">
-    <package visibility="1">
-        <fragment handle="=org.eclipse.sirius.common.ocl/src&lt;org.eclipse.sirius.common.ocl"/>
-    </package>
-    <package visibility="1">
-        <fragment handle="=org.eclipse.sirius.common.ocl/src&lt;org.eclipse.sirius.common.ocl.tools"/>
-    </package>
-</component>

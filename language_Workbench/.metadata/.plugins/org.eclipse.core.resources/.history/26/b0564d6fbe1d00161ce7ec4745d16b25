@@ -1,0 +1,228 @@
+package org.irisa.diverse.videogen.videogenl.adapters.videogenlmt.videoGen;
+
+import fr.inria.diverse.melange.adapters.EObjectAdapter;
+import java.util.Collection;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EClass;
+import org.irisa.diverse.videogen.videoGen.VideoGen;
+import org.irisa.diverse.videogen.videogenl.adapters.videogenlmt.VideoGenLMTAdaptersFactory;
+
+@SuppressWarnings("all")
+public class VideoGenAdapter extends EObjectAdapter<VideoGen> implements org.irisa.diverse.videogen.videogenlmt.videoGen.VideoGen {
+  private VideoGenLMTAdaptersFactory adaptersFactory;
+  
+  public VideoGenAdapter() {
+    super(org.irisa.diverse.videogen.videogenl.adapters.videogenlmt.VideoGenLMTAdaptersFactory.getInstance());
+    adaptersFactory = org.irisa.diverse.videogen.videogenl.adapters.videogenlmt.VideoGenLMTAdaptersFactory.getInstance();
+  }
+  
+  @Override
+  public String getName() {
+    return adaptee.getName();
+  }
+  
+  @Override
+  public void setName(final String o) {
+    adaptee.setName(o);
+  }
+  
+  @Override
+  public Integer getMinDurationConstraint() {
+    return adaptee.getMinDurationConstraint();
+  }
+  
+  @Override
+  public void setMinDurationConstraint(final Integer o) {
+    adaptee.setMinDurationConstraint(o);
+  }
+  
+  @Override
+  public Integer getMaxDurationConstraint() {
+    return adaptee.getMaxDurationConstraint();
+  }
+  
+  @Override
+  public void setMaxDurationConstraint(final Integer o) {
+    adaptee.setMaxDurationConstraint(o);
+  }
+  
+  @Override
+  public Integer getVariantes() {
+    return adaptee.getVariantes();
+  }
+  
+  @Override
+  public void setVariantes(final Integer o) {
+    adaptee.setVariantes(o);
+  }
+  
+  @Override
+  public Integer getMinUserConstraint() {
+    return adaptee.getMinUserConstraint();
+  }
+  
+  @Override
+  public void setMinUserConstraint(final Integer o) {
+    adaptee.setMinUserConstraint(o);
+  }
+  
+  @Override
+  public Integer getMaxUserConstraint() {
+    return adaptee.getMaxUserConstraint();
+  }
+  
+  @Override
+  public void setMaxUserConstraint(final Integer o) {
+    adaptee.setMaxUserConstraint(o);
+  }
+  
+  private /* EList<org.irisa.diverse.videogen.videogenlmt.videoGen.Transition> */Object transitions_;
+  
+  @Override
+  public /* EList<org.irisa.diverse.videogen.videogenlmt.videoGen.Transition> */Object getTransitions() {
+    if (transitions_ == null)
+    	transitions_ = fr.inria.diverse.melange.adapters.EListAdapter.newInstance(adaptee.getTransitions(), adaptersFactory, eResource);
+    return transitions_;
+  }
+  
+  private /* EList<org.irisa.diverse.videogen.videogenlmt.videoGen.Video> */Object videos_;
+  
+  @Override
+  public /* EList<org.irisa.diverse.videogen.videogenlmt.videoGen.Video> */Object getVideos() {
+    if (videos_ == null)
+    	videos_ = fr.inria.diverse.melange.adapters.EListAdapter.newInstance(adaptee.getVideos(), adaptersFactory, eResource);
+    return videos_;
+  }
+  
+  @Override
+  public void main() {
+    org.irisa.diverse.videogen.videoGen.aspects.VideoGenAspect.main(adaptee);
+  }
+  
+  @Override
+  public void initializeModel(final java.util.List<java.lang.String> args) {
+    org.irisa.diverse.videogen.videoGen.aspects.VideoGenAspect.initializeModel(adaptee, args
+    );
+  }
+  
+  @Override
+  public void execute() {
+    org.irisa.diverse.videogen.videoGen.aspects.VideoGenAspect.execute(adaptee);
+  }
+  
+  @Override
+  public void compute() {
+    org.irisa.diverse.videogen.videoGen.aspects.VideoGenAspect.compute(adaptee);
+  }
+  
+  protected final static String NAME_EDEFAULT = null;
+  
+  protected final static Integer MIN_DURATION_CONSTRAINT_EDEFAULT = new Integer(0);
+  
+  protected final static Integer MAX_DURATION_CONSTRAINT_EDEFAULT = new Integer(0);
+  
+  protected final static Integer VARIANTES_EDEFAULT = new Integer(0);
+  
+  protected final static Integer MIN_USER_CONSTRAINT_EDEFAULT = new Integer(0);
+  
+  protected final static Integer MAX_USER_CONSTRAINT_EDEFAULT = new Integer(0);
+  
+  @Override
+  public EClass eClass() {
+    return org.irisa.diverse.videogen.videogenlmt.videoGen.VideoGenPackage.eINSTANCE.getVideoGen();
+  }
+  
+  @Override
+  public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
+    switch (featureID) {
+    	case org.irisa.diverse.videogen.videogenlmt.videoGen.VideoGenPackage.VIDEO_GEN__NAME:
+    		return getName();
+    	case org.irisa.diverse.videogen.videogenlmt.videoGen.VideoGenPackage.VIDEO_GEN__MIN_DURATION_CONSTRAINT:
+    		return getMinDurationConstraint();
+    	case org.irisa.diverse.videogen.videogenlmt.videoGen.VideoGenPackage.VIDEO_GEN__MAX_DURATION_CONSTRAINT:
+    		return getMaxDurationConstraint();
+    	case org.irisa.diverse.videogen.videogenlmt.videoGen.VideoGenPackage.VIDEO_GEN__VARIANTES:
+    		return getVariantes();
+    	case org.irisa.diverse.videogen.videogenlmt.videoGen.VideoGenPackage.VIDEO_GEN__TRANSITIONS:
+    		return getTransitions();
+    	case org.irisa.diverse.videogen.videogenlmt.videoGen.VideoGenPackage.VIDEO_GEN__VIDEOS:
+    		return getVideos();
+    	case org.irisa.diverse.videogen.videogenlmt.videoGen.VideoGenPackage.VIDEO_GEN__MIN_USER_CONSTRAINT:
+    		return getMinUserConstraint();
+    	case org.irisa.diverse.videogen.videogenlmt.videoGen.VideoGenPackage.VIDEO_GEN__MAX_USER_CONSTRAINT:
+    		return getMaxUserConstraint();
+    }
+    
+    return super.eGet(featureID, resolve, coreType);
+  }
+  
+  @Override
+  public boolean eIsSet(final int featureID) {
+    switch (featureID) {
+    	case org.irisa.diverse.videogen.videogenlmt.videoGen.VideoGenPackage.VIDEO_GEN__NAME:
+    		return getName() != NAME_EDEFAULT;
+    	case org.irisa.diverse.videogen.videogenlmt.videoGen.VideoGenPackage.VIDEO_GEN__MIN_DURATION_CONSTRAINT:
+    		return getMinDurationConstraint() != MIN_DURATION_CONSTRAINT_EDEFAULT;
+    	case org.irisa.diverse.videogen.videogenlmt.videoGen.VideoGenPackage.VIDEO_GEN__MAX_DURATION_CONSTRAINT:
+    		return getMaxDurationConstraint() != MAX_DURATION_CONSTRAINT_EDEFAULT;
+    	case org.irisa.diverse.videogen.videogenlmt.videoGen.VideoGenPackage.VIDEO_GEN__VARIANTES:
+    		return getVariantes() != VARIANTES_EDEFAULT;
+    	case org.irisa.diverse.videogen.videogenlmt.videoGen.VideoGenPackage.VIDEO_GEN__TRANSITIONS:
+    		return getTransitions() != null && !getTransitions().isEmpty();
+    	case org.irisa.diverse.videogen.videogenlmt.videoGen.VideoGenPackage.VIDEO_GEN__VIDEOS:
+    		return getVideos() != null && !getVideos().isEmpty();
+    	case org.irisa.diverse.videogen.videogenlmt.videoGen.VideoGenPackage.VIDEO_GEN__MIN_USER_CONSTRAINT:
+    		return getMinUserConstraint() != MIN_USER_CONSTRAINT_EDEFAULT;
+    	case org.irisa.diverse.videogen.videogenlmt.videoGen.VideoGenPackage.VIDEO_GEN__MAX_USER_CONSTRAINT:
+    		return getMaxUserConstraint() != MAX_USER_CONSTRAINT_EDEFAULT;
+    }
+    
+    return super.eIsSet(featureID);
+  }
+  
+  @Override
+  public void eSet(final int featureID, final Object newValue) {
+    switch (featureID) {
+    	case org.irisa.diverse.videogen.videogenlmt.videoGen.VideoGenPackage.VIDEO_GEN__NAME:
+    		setName(
+    		(java.lang.String)
+    		 newValue);
+    		return;
+    	case org.irisa.diverse.videogen.videogenlmt.videoGen.VideoGenPackage.VIDEO_GEN__MIN_DURATION_CONSTRAINT:
+    		setMinDurationConstraint(
+    		(java.lang.Integer)
+    		 newValue);
+    		return;
+    	case org.irisa.diverse.videogen.videogenlmt.videoGen.VideoGenPackage.VIDEO_GEN__MAX_DURATION_CONSTRAINT:
+    		setMaxDurationConstraint(
+    		(java.lang.Integer)
+    		 newValue);
+    		return;
+    	case org.irisa.diverse.videogen.videogenlmt.videoGen.VideoGenPackage.VIDEO_GEN__VARIANTES:
+    		setVariantes(
+    		(java.lang.Integer)
+    		 newValue);
+    		return;
+    	case org.irisa.diverse.videogen.videogenlmt.videoGen.VideoGenPackage.VIDEO_GEN__TRANSITIONS:
+    		getTransitions().clear();
+    		getTransitions().addAll((Collection) newValue);
+    		return;
+    	case org.irisa.diverse.videogen.videogenlmt.videoGen.VideoGenPackage.VIDEO_GEN__VIDEOS:
+    		getVideos().clear();
+    		getVideos().addAll((Collection) newValue);
+    		return;
+    	case org.irisa.diverse.videogen.videogenlmt.videoGen.VideoGenPackage.VIDEO_GEN__MIN_USER_CONSTRAINT:
+    		setMinUserConstraint(
+    		(java.lang.Integer)
+    		 newValue);
+    		return;
+    	case org.irisa.diverse.videogen.videogenlmt.videoGen.VideoGenPackage.VIDEO_GEN__MAX_USER_CONSTRAINT:
+    		setMaxUserConstraint(
+    		(java.lang.Integer)
+    		 newValue);
+    		return;
+    }
+    
+    super.eSet(featureID, newValue);
+  }
+}
