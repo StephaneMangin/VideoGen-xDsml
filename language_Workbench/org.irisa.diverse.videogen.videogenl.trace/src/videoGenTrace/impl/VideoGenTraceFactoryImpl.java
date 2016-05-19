@@ -56,7 +56,7 @@ public class VideoGenTraceFactoryImpl extends EFactoryImpl implements VideoGenTr
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case VideoGenTracePackage.TRACE: return createTrace();
+			case VideoGenTracePackage.SPECIFIC_TRACE: return createSpecificTrace();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -67,9 +67,9 @@ public class VideoGenTraceFactoryImpl extends EFactoryImpl implements VideoGenTr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Trace createTrace() {
-		TraceImpl trace = new TraceImpl();
-		return trace;
+	public SpecificTrace createSpecificTrace() {
+		SpecificTraceImpl specificTrace = new SpecificTraceImpl();
+		return specificTrace;
 	}
 
 	/**

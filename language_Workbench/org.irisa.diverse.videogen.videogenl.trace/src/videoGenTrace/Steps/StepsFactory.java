@@ -40,6 +40,15 @@ public interface StepsFactory extends EFactory {
 	VideoGen_Alternatives_Execute createVideoGen_Alternatives_Execute();
 
 	/**
+	 * Returns a new object of class '<em>Video Gen Alternatives Execute Implicit Step</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Video Gen Alternatives Execute Implicit Step</em>'.
+	 * @generated
+	 */
+	VideoGen_Alternatives_Execute_ImplicitStep createVideoGen_Alternatives_Execute_ImplicitStep();
+
+	/**
 	 * Returns a new object of class '<em>Video Gen Delay Execute</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -47,6 +56,15 @@ public interface StepsFactory extends EFactory {
 	 * @generated
 	 */
 	VideoGen_Delay_Execute createVideoGen_Delay_Execute();
+
+	/**
+	 * Returns a new object of class '<em>Video Gen Delay Execute Implicit Step</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Video Gen Delay Execute Implicit Step</em>'.
+	 * @generated
+	 */
+	VideoGen_Delay_Execute_ImplicitStep createVideoGen_Delay_Execute_ImplicitStep();
 
 	/**
 	 * Returns a new object of class '<em>Video Gen Generate Compute</em>'.
@@ -58,6 +76,15 @@ public interface StepsFactory extends EFactory {
 	VideoGen_Generate_Compute createVideoGen_Generate_Compute();
 
 	/**
+	 * Returns a new object of class '<em>Video Gen Generate Compute Implicit Step</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Video Gen Generate Compute Implicit Step</em>'.
+	 * @generated
+	 */
+	VideoGen_Generate_Compute_ImplicitStep createVideoGen_Generate_Compute_ImplicitStep();
+
+	/**
 	 * Returns a new object of class '<em>Video Gen Generate Execute</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -65,6 +92,15 @@ public interface StepsFactory extends EFactory {
 	 * @generated
 	 */
 	VideoGen_Generate_Execute createVideoGen_Generate_Execute();
+
+	/**
+	 * Returns a new object of class '<em>Video Gen Generate Execute Implicit Step</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Video Gen Generate Execute Implicit Step</em>'.
+	 * @generated
+	 */
+	VideoGen_Generate_Execute_ImplicitStep createVideoGen_Generate_Execute_ImplicitStep();
 
 	/**
 	 * Returns a new object of class '<em>Video Gen Initialize Execute</em>'.
@@ -76,6 +112,15 @@ public interface StepsFactory extends EFactory {
 	VideoGen_Initialize_Execute createVideoGen_Initialize_Execute();
 
 	/**
+	 * Returns a new object of class '<em>Video Gen Initialize Execute Implicit Step</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Video Gen Initialize Execute Implicit Step</em>'.
+	 * @generated
+	 */
+	VideoGen_Initialize_Execute_ImplicitStep createVideoGen_Initialize_Execute_ImplicitStep();
+
+	/**
 	 * Returns a new object of class '<em>Video Gen Mandatory Execute</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -83,6 +128,15 @@ public interface StepsFactory extends EFactory {
 	 * @generated
 	 */
 	VideoGen_Mandatory_Execute createVideoGen_Mandatory_Execute();
+
+	/**
+	 * Returns a new object of class '<em>Video Gen Mandatory Execute Implicit Step</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Video Gen Mandatory Execute Implicit Step</em>'.
+	 * @generated
+	 */
+	VideoGen_Mandatory_Execute_ImplicitStep createVideoGen_Mandatory_Execute_ImplicitStep();
 
 	/**
 	 * Returns a new object of class '<em>Video Gen Optional Execute</em>'.
@@ -94,6 +148,15 @@ public interface StepsFactory extends EFactory {
 	VideoGen_Optional_Execute createVideoGen_Optional_Execute();
 
 	/**
+	 * Returns a new object of class '<em>Video Gen Optional Execute Implicit Step</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Video Gen Optional Execute Implicit Step</em>'.
+	 * @generated
+	 */
+	VideoGen_Optional_Execute_ImplicitStep createVideoGen_Optional_Execute_ImplicitStep();
+
+	/**
 	 * Returns a new object of class '<em>Video Gen Sequence Execute</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -103,6 +166,15 @@ public interface StepsFactory extends EFactory {
 	VideoGen_Sequence_Execute createVideoGen_Sequence_Execute();
 
 	/**
+	 * Returns a new object of class '<em>Video Gen Sequence Execute Implicit Step</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Video Gen Sequence Execute Implicit Step</em>'.
+	 * @generated
+	 */
+	VideoGen_Sequence_Execute_ImplicitStep createVideoGen_Sequence_Execute_ImplicitStep();
+
+	/**
 	 * Returns a new object of class '<em>Video Gen Transition Execute</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -110,6 +182,51 @@ public interface StepsFactory extends EFactory {
 	 * @generated
 	 */
 	VideoGen_Transition_Execute createVideoGen_Transition_Execute();
+
+	/**
+	 * Returns a new object of class '<em>Video Gen Transition Execute Implicit Step</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Video Gen Transition Execute Implicit Step</em>'.
+	 * @generated
+	 */
+	VideoGen_Transition_Execute_ImplicitStep createVideoGen_Transition_Execute_ImplicitStep();
+
+	/**
+	 * Returns a new object of class '<em>Video Gen Video Gen Compute</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Video Gen Video Gen Compute</em>'.
+	 * @generated
+	 */
+	VideoGen_VideoGen_Compute createVideoGen_VideoGen_Compute();
+
+	/**
+	 * Returns a new object of class '<em>Video Gen Video Gen Execute</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Video Gen Video Gen Execute</em>'.
+	 * @generated
+	 */
+	VideoGen_VideoGen_Execute createVideoGen_VideoGen_Execute();
+
+	/**
+	 * Returns a new object of class '<em>Video Gen Video Gen Execute Implicit Step</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Video Gen Video Gen Execute Implicit Step</em>'.
+	 * @generated
+	 */
+	VideoGen_VideoGen_Execute_ImplicitStep createVideoGen_VideoGen_Execute_ImplicitStep();
+
+	/**
+	 * Returns a new object of class '<em>Video Gen Video Gen Setup</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Video Gen Video Gen Setup</em>'.
+	 * @generated
+	 */
+	VideoGen_VideoGen_Setup createVideoGen_VideoGen_Setup();
 
 	/**
 	 * Returns a new object of class '<em>Video Gen Video Select</em>'.

@@ -7,6 +7,8 @@ import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.util.Switch;
 
+import org.gemoc.executionframework.engine.mse.Trace;
+
 import videoGenTrace.*;
 
 /**
@@ -66,14 +68,30 @@ public class VideoGenTraceSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case VideoGenTracePackage.TRACE: {
-				Trace trace = (Trace)theEObject;
-				T result = caseTrace(trace);
+			case VideoGenTracePackage.SPECIFIC_TRACE: {
+				SpecificTrace specificTrace = (SpecificTrace)theEObject;
+				T result = caseSpecificTrace(specificTrace);
+				if (result == null) result = caseTrace(specificTrace);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			default: return defaultCase(theEObject);
 		}
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Specific Trace</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Specific Trace</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSpecificTrace(SpecificTrace object) {
+		return null;
 	}
 
 	/**
@@ -87,7 +105,7 @@ public class VideoGenTraceSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseTrace(Trace object) {
+	public <StepSubType> T caseTrace(Trace<StepSubType> object) {
 		return null;
 	}
 

@@ -3,6 +3,7 @@
 package videoGenTrace.impl;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -12,6 +13,8 @@ import org.gemoc.executionframework.engine.mse.MsePackage;
 
 import org.irisa.diverse.videogen.videoGen.VideoGenPackage;
 
+import videoGenTrace.SpecificTrace;
+
 import videoGenTrace.States.StatesPackage;
 
 import videoGenTrace.States.impl.StatesPackageImpl;
@@ -20,7 +23,6 @@ import videoGenTrace.Steps.StepsPackage;
 
 import videoGenTrace.Steps.impl.StepsPackageImpl;
 
-import videoGenTrace.Trace;
 import videoGenTrace.VideoGenTraceFactory;
 import videoGenTrace.VideoGenTracePackage;
 
@@ -36,7 +38,7 @@ public class VideoGenTracePackageImpl extends EPackageImpl implements VideoGenTr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass traceEClass = null;
+	private EClass specificTraceEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -116,8 +118,8 @@ public class VideoGenTracePackageImpl extends EPackageImpl implements VideoGenTr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getTrace() {
-		return traceEClass;
+	public EClass getSpecificTrace() {
+		return specificTraceEClass;
 	}
 
 	/**
@@ -125,8 +127,8 @@ public class VideoGenTracePackageImpl extends EPackageImpl implements VideoGenTr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTrace_VideoGen_Alternatives_Execute_Sequence() {
-		return (EReference)traceEClass.getEStructuralFeatures().get(0);
+	public EReference getSpecificTrace_VideoGen_Alternatives_Execute_Sequence() {
+		return (EReference)specificTraceEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -134,8 +136,8 @@ public class VideoGenTracePackageImpl extends EPackageImpl implements VideoGenTr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTrace_VideoGen_Delay_Execute_Sequence() {
-		return (EReference)traceEClass.getEStructuralFeatures().get(1);
+	public EReference getSpecificTrace_VideoGen_Delay_Execute_Sequence() {
+		return (EReference)specificTraceEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -143,8 +145,8 @@ public class VideoGenTracePackageImpl extends EPackageImpl implements VideoGenTr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTrace_VideoGen_Generate_Compute_Sequence() {
-		return (EReference)traceEClass.getEStructuralFeatures().get(2);
+	public EReference getSpecificTrace_VideoGen_Generate_Compute_Sequence() {
+		return (EReference)specificTraceEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -152,8 +154,8 @@ public class VideoGenTracePackageImpl extends EPackageImpl implements VideoGenTr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTrace_VideoGen_Generate_Execute_Sequence() {
-		return (EReference)traceEClass.getEStructuralFeatures().get(3);
+	public EReference getSpecificTrace_VideoGen_Generate_Execute_Sequence() {
+		return (EReference)specificTraceEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -161,8 +163,8 @@ public class VideoGenTracePackageImpl extends EPackageImpl implements VideoGenTr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTrace_VideoGen_Initialize_Execute_Sequence() {
-		return (EReference)traceEClass.getEStructuralFeatures().get(4);
+	public EReference getSpecificTrace_VideoGen_Initialize_Execute_Sequence() {
+		return (EReference)specificTraceEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -170,8 +172,8 @@ public class VideoGenTracePackageImpl extends EPackageImpl implements VideoGenTr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTrace_VideoGen_Mandatory_Execute_Sequence() {
-		return (EReference)traceEClass.getEStructuralFeatures().get(5);
+	public EReference getSpecificTrace_VideoGen_Mandatory_Execute_Sequence() {
+		return (EReference)specificTraceEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -179,8 +181,8 @@ public class VideoGenTracePackageImpl extends EPackageImpl implements VideoGenTr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTrace_VideoGen_Optional_Execute_Sequence() {
-		return (EReference)traceEClass.getEStructuralFeatures().get(6);
+	public EReference getSpecificTrace_VideoGen_Optional_Execute_Sequence() {
+		return (EReference)specificTraceEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -188,8 +190,8 @@ public class VideoGenTracePackageImpl extends EPackageImpl implements VideoGenTr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTrace_VideoGen_Sequence_Execute_Sequence() {
-		return (EReference)traceEClass.getEStructuralFeatures().get(7);
+	public EReference getSpecificTrace_VideoGen_Sequence_Execute_Sequence() {
+		return (EReference)specificTraceEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -197,8 +199,8 @@ public class VideoGenTracePackageImpl extends EPackageImpl implements VideoGenTr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTrace_VideoGen_Transition_Execute_Sequence() {
-		return (EReference)traceEClass.getEStructuralFeatures().get(8);
+	public EReference getSpecificTrace_VideoGen_Transition_Execute_Sequence() {
+		return (EReference)specificTraceEClass.getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -206,8 +208,8 @@ public class VideoGenTracePackageImpl extends EPackageImpl implements VideoGenTr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTrace_VideoGen_Video_Select_Sequence() {
-		return (EReference)traceEClass.getEStructuralFeatures().get(9);
+	public EReference getSpecificTrace_VideoGen_VideoGen_Compute_Sequence() {
+		return (EReference)specificTraceEClass.getEStructuralFeatures().get(9);
 	}
 
 	/**
@@ -215,8 +217,8 @@ public class VideoGenTracePackageImpl extends EPackageImpl implements VideoGenTr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTrace_RootSteps() {
-		return (EReference)traceEClass.getEStructuralFeatures().get(10);
+	public EReference getSpecificTrace_VideoGen_VideoGen_Execute_Sequence() {
+		return (EReference)specificTraceEClass.getEStructuralFeatures().get(10);
 	}
 
 	/**
@@ -224,8 +226,26 @@ public class VideoGenTracePackageImpl extends EPackageImpl implements VideoGenTr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTrace_StatesTrace() {
-		return (EReference)traceEClass.getEStructuralFeatures().get(11);
+	public EReference getSpecificTrace_VideoGen_VideoGen_Setup_Sequence() {
+		return (EReference)specificTraceEClass.getEStructuralFeatures().get(11);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSpecificTrace_VideoGen_Video_Select_Sequence() {
+		return (EReference)specificTraceEClass.getEStructuralFeatures().get(12);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSpecificTrace_StatesTrace() {
+		return (EReference)specificTraceEClass.getEStructuralFeatures().get(13);
 	}
 
 	/**
@@ -256,19 +276,21 @@ public class VideoGenTracePackageImpl extends EPackageImpl implements VideoGenTr
 		isCreated = true;
 
 		// Create classes and their features
-		traceEClass = createEClass(TRACE);
-		createEReference(traceEClass, TRACE__VIDEO_GEN_ALTERNATIVES_EXECUTE_SEQUENCE);
-		createEReference(traceEClass, TRACE__VIDEO_GEN_DELAY_EXECUTE_SEQUENCE);
-		createEReference(traceEClass, TRACE__VIDEO_GEN_GENERATE_COMPUTE_SEQUENCE);
-		createEReference(traceEClass, TRACE__VIDEO_GEN_GENERATE_EXECUTE_SEQUENCE);
-		createEReference(traceEClass, TRACE__VIDEO_GEN_INITIALIZE_EXECUTE_SEQUENCE);
-		createEReference(traceEClass, TRACE__VIDEO_GEN_MANDATORY_EXECUTE_SEQUENCE);
-		createEReference(traceEClass, TRACE__VIDEO_GEN_OPTIONAL_EXECUTE_SEQUENCE);
-		createEReference(traceEClass, TRACE__VIDEO_GEN_SEQUENCE_EXECUTE_SEQUENCE);
-		createEReference(traceEClass, TRACE__VIDEO_GEN_TRANSITION_EXECUTE_SEQUENCE);
-		createEReference(traceEClass, TRACE__VIDEO_GEN_VIDEO_SELECT_SEQUENCE);
-		createEReference(traceEClass, TRACE__ROOT_STEPS);
-		createEReference(traceEClass, TRACE__STATES_TRACE);
+		specificTraceEClass = createEClass(SPECIFIC_TRACE);
+		createEReference(specificTraceEClass, SPECIFIC_TRACE__VIDEO_GEN_ALTERNATIVES_EXECUTE_SEQUENCE);
+		createEReference(specificTraceEClass, SPECIFIC_TRACE__VIDEO_GEN_DELAY_EXECUTE_SEQUENCE);
+		createEReference(specificTraceEClass, SPECIFIC_TRACE__VIDEO_GEN_GENERATE_COMPUTE_SEQUENCE);
+		createEReference(specificTraceEClass, SPECIFIC_TRACE__VIDEO_GEN_GENERATE_EXECUTE_SEQUENCE);
+		createEReference(specificTraceEClass, SPECIFIC_TRACE__VIDEO_GEN_INITIALIZE_EXECUTE_SEQUENCE);
+		createEReference(specificTraceEClass, SPECIFIC_TRACE__VIDEO_GEN_MANDATORY_EXECUTE_SEQUENCE);
+		createEReference(specificTraceEClass, SPECIFIC_TRACE__VIDEO_GEN_OPTIONAL_EXECUTE_SEQUENCE);
+		createEReference(specificTraceEClass, SPECIFIC_TRACE__VIDEO_GEN_SEQUENCE_EXECUTE_SEQUENCE);
+		createEReference(specificTraceEClass, SPECIFIC_TRACE__VIDEO_GEN_TRANSITION_EXECUTE_SEQUENCE);
+		createEReference(specificTraceEClass, SPECIFIC_TRACE__VIDEO_GEN_VIDEO_GEN_COMPUTE_SEQUENCE);
+		createEReference(specificTraceEClass, SPECIFIC_TRACE__VIDEO_GEN_VIDEO_GEN_EXECUTE_SEQUENCE);
+		createEReference(specificTraceEClass, SPECIFIC_TRACE__VIDEO_GEN_VIDEO_GEN_SETUP_SEQUENCE);
+		createEReference(specificTraceEClass, SPECIFIC_TRACE__VIDEO_GEN_VIDEO_SELECT_SEQUENCE);
+		createEReference(specificTraceEClass, SPECIFIC_TRACE__STATES_TRACE);
 	}
 
 	/**
@@ -297,6 +319,7 @@ public class VideoGenTracePackageImpl extends EPackageImpl implements VideoGenTr
 		// Obtain other dependent packages
 		StepsPackage theStepsPackage = (StepsPackage)EPackage.Registry.INSTANCE.getEPackage(StepsPackage.eNS_URI);
 		StatesPackage theStatesPackage = (StatesPackage)EPackage.Registry.INSTANCE.getEPackage(StatesPackage.eNS_URI);
+		MsePackage theMsePackage = (MsePackage)EPackage.Registry.INSTANCE.getEPackage(MsePackage.eNS_URI);
 
 		// Add subpackages
 		getESubpackages().add(theStepsPackage);
@@ -307,21 +330,29 @@ public class VideoGenTracePackageImpl extends EPackageImpl implements VideoGenTr
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		EGenericType g1 = createEGenericType(theMsePackage.getTrace());
+		EGenericType g2 = createEGenericType(theMsePackage.getSequentialStep());
+		g1.getETypeArguments().add(g2);
+		EGenericType g3 = createEGenericType(theStepsPackage.getSpecificStep());
+		g2.getETypeArguments().add(g3);
+		specificTraceEClass.getEGenericSuperTypes().add(g1);
 
 		// Initialize classes, features, and operations; add parameters
-		initEClass(traceEClass, Trace.class, "Trace", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getTrace_VideoGen_Alternatives_Execute_Sequence(), theStepsPackage.getVideoGen_Alternatives_Execute(), null, "VideoGen_Alternatives_Execute_Sequence", null, 0, -1, Trace.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTrace_VideoGen_Delay_Execute_Sequence(), theStepsPackage.getVideoGen_Delay_Execute(), null, "VideoGen_Delay_Execute_Sequence", null, 0, -1, Trace.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTrace_VideoGen_Generate_Compute_Sequence(), theStepsPackage.getVideoGen_Generate_Compute(), null, "VideoGen_Generate_Compute_Sequence", null, 0, -1, Trace.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTrace_VideoGen_Generate_Execute_Sequence(), theStepsPackage.getVideoGen_Generate_Execute(), null, "VideoGen_Generate_Execute_Sequence", null, 0, -1, Trace.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTrace_VideoGen_Initialize_Execute_Sequence(), theStepsPackage.getVideoGen_Initialize_Execute(), null, "VideoGen_Initialize_Execute_Sequence", null, 0, -1, Trace.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTrace_VideoGen_Mandatory_Execute_Sequence(), theStepsPackage.getVideoGen_Mandatory_Execute(), null, "VideoGen_Mandatory_Execute_Sequence", null, 0, -1, Trace.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTrace_VideoGen_Optional_Execute_Sequence(), theStepsPackage.getVideoGen_Optional_Execute(), null, "VideoGen_Optional_Execute_Sequence", null, 0, -1, Trace.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTrace_VideoGen_Sequence_Execute_Sequence(), theStepsPackage.getVideoGen_Sequence_Execute(), null, "VideoGen_Sequence_Execute_Sequence", null, 0, -1, Trace.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTrace_VideoGen_Transition_Execute_Sequence(), theStepsPackage.getVideoGen_Transition_Execute(), null, "VideoGen_Transition_Execute_Sequence", null, 0, -1, Trace.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTrace_VideoGen_Video_Select_Sequence(), theStepsPackage.getVideoGen_Video_Select(), null, "VideoGen_Video_Select_Sequence", null, 0, -1, Trace.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTrace_RootSteps(), theStepsPackage.getStep(), null, "rootSteps", null, 0, -1, Trace.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTrace_StatesTrace(), theStatesPackage.getState(), null, "statesTrace", null, 0, -1, Trace.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(specificTraceEClass, SpecificTrace.class, "SpecificTrace", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSpecificTrace_VideoGen_Alternatives_Execute_Sequence(), theStepsPackage.getVideoGen_Alternatives_Execute(), null, "VideoGen_Alternatives_Execute_Sequence", null, 0, -1, SpecificTrace.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSpecificTrace_VideoGen_Delay_Execute_Sequence(), theStepsPackage.getVideoGen_Delay_Execute(), null, "VideoGen_Delay_Execute_Sequence", null, 0, -1, SpecificTrace.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSpecificTrace_VideoGen_Generate_Compute_Sequence(), theStepsPackage.getVideoGen_Generate_Compute(), null, "VideoGen_Generate_Compute_Sequence", null, 0, -1, SpecificTrace.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSpecificTrace_VideoGen_Generate_Execute_Sequence(), theStepsPackage.getVideoGen_Generate_Execute(), null, "VideoGen_Generate_Execute_Sequence", null, 0, -1, SpecificTrace.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSpecificTrace_VideoGen_Initialize_Execute_Sequence(), theStepsPackage.getVideoGen_Initialize_Execute(), null, "VideoGen_Initialize_Execute_Sequence", null, 0, -1, SpecificTrace.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSpecificTrace_VideoGen_Mandatory_Execute_Sequence(), theStepsPackage.getVideoGen_Mandatory_Execute(), null, "VideoGen_Mandatory_Execute_Sequence", null, 0, -1, SpecificTrace.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSpecificTrace_VideoGen_Optional_Execute_Sequence(), theStepsPackage.getVideoGen_Optional_Execute(), null, "VideoGen_Optional_Execute_Sequence", null, 0, -1, SpecificTrace.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSpecificTrace_VideoGen_Sequence_Execute_Sequence(), theStepsPackage.getVideoGen_Sequence_Execute(), null, "VideoGen_Sequence_Execute_Sequence", null, 0, -1, SpecificTrace.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSpecificTrace_VideoGen_Transition_Execute_Sequence(), theStepsPackage.getVideoGen_Transition_Execute(), null, "VideoGen_Transition_Execute_Sequence", null, 0, -1, SpecificTrace.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSpecificTrace_VideoGen_VideoGen_Compute_Sequence(), theStepsPackage.getVideoGen_VideoGen_Compute(), null, "VideoGen_VideoGen_Compute_Sequence", null, 0, -1, SpecificTrace.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSpecificTrace_VideoGen_VideoGen_Execute_Sequence(), theStepsPackage.getVideoGen_VideoGen_Execute(), null, "VideoGen_VideoGen_Execute_Sequence", null, 0, -1, SpecificTrace.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSpecificTrace_VideoGen_VideoGen_Setup_Sequence(), theStepsPackage.getVideoGen_VideoGen_Setup(), null, "VideoGen_VideoGen_Setup_Sequence", null, 0, -1, SpecificTrace.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSpecificTrace_VideoGen_Video_Select_Sequence(), theStepsPackage.getVideoGen_Video_Select(), null, "VideoGen_Video_Select_Sequence", null, 0, -1, SpecificTrace.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSpecificTrace_StatesTrace(), theStatesPackage.getState(), null, "statesTrace", null, 0, -1, SpecificTrace.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

@@ -101,6 +101,43 @@ public interface StatesPackage extends EPackage {
 	 */
 	int STATE_OPERATION_COUNT = 0;
 
+	/**
+	 * The meta object id for the '{@link videoGenTrace.States.Value <em>Value</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see videoGenTrace.States.Value
+	 * @see videoGenTrace.States.impl.StatesPackageImpl#getValue()
+	 * @generated
+	 */
+	int VALUE = 1;
+
+	/**
+	 * The feature id for the '<em><b>States No Opposite</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE__STATES_NO_OPPOSITE = 0;
+
+	/**
+	 * The number of structural features of the '<em>Value</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Value</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE_OPERATION_COUNT = 0;
+
 
 	/**
 	 * Returns the meta object for class '{@link videoGenTrace.States.State <em>State</em>}'.
@@ -133,6 +170,27 @@ public interface StatesPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getState_StartedSteps();
+
+	/**
+	 * Returns the meta object for class '{@link videoGenTrace.States.Value <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Value</em>'.
+	 * @see videoGenTrace.States.Value
+	 * @generated
+	 */
+	EClass getValue();
+
+	/**
+	 * Returns the meta object for the reference list '{@link videoGenTrace.States.Value#getStatesNoOpposite <em>States No Opposite</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>States No Opposite</em>'.
+	 * @see videoGenTrace.States.Value#getStatesNoOpposite()
+	 * @see #getValue()
+	 * @generated
+	 */
+	EReference getValue_StatesNoOpposite();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -182,6 +240,24 @@ public interface StatesPackage extends EPackage {
 		 * @generated
 		 */
 		EReference STATE__STARTED_STEPS = eINSTANCE.getState_StartedSteps();
+
+		/**
+		 * The meta object literal for the '{@link videoGenTrace.States.Value <em>Value</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see videoGenTrace.States.Value
+		 * @see videoGenTrace.States.impl.StatesPackageImpl#getValue()
+		 * @generated
+		 */
+		EClass VALUE = eINSTANCE.getValue();
+
+		/**
+		 * The meta object literal for the '<em><b>States No Opposite</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference VALUE__STATES_NO_OPPOSITE = eINSTANCE.getValue_StatesNoOpposite();
 
 	}
 

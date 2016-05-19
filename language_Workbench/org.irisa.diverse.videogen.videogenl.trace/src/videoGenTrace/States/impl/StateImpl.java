@@ -19,7 +19,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import videoGenTrace.States.State;
 import videoGenTrace.States.StatesPackage;
 
-import videoGenTrace.Steps.Step;
+import videoGenTrace.Steps.SpecificStep;
 import videoGenTrace.Steps.StepsPackage;
 
 /**
@@ -45,7 +45,7 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Step> endedSteps;
+	protected EList<SpecificStep> endedSteps;
 
 	/**
 	 * The cached value of the '{@link #getStartedSteps() <em>Started Steps</em>}' reference list.
@@ -55,7 +55,7 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Step> startedSteps;
+	protected EList<SpecificStep> startedSteps;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -81,9 +81,9 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Step> getEndedSteps() {
+	public EList<SpecificStep> getEndedSteps() {
 		if (endedSteps == null) {
-			endedSteps = new EObjectWithInverseResolvingEList<Step>(Step.class, this, StatesPackage.STATE__ENDED_STEPS, StepsPackage.STEP__ENDING_STATE);
+			endedSteps = new EObjectWithInverseResolvingEList<SpecificStep>(SpecificStep.class, this, StatesPackage.STATE__ENDED_STEPS, StepsPackage.SPECIFIC_STEP__ENDING_STATE);
 		}
 		return endedSteps;
 	}
@@ -93,9 +93,9 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Step> getStartedSteps() {
+	public EList<SpecificStep> getStartedSteps() {
 		if (startedSteps == null) {
-			startedSteps = new EObjectWithInverseResolvingEList<Step>(Step.class, this, StatesPackage.STATE__STARTED_STEPS, StepsPackage.STEP__STARTING_STATE);
+			startedSteps = new EObjectWithInverseResolvingEList<SpecificStep>(SpecificStep.class, this, StatesPackage.STATE__STARTED_STEPS, StepsPackage.SPECIFIC_STEP__STARTING_STATE);
 		}
 		return startedSteps;
 	}
@@ -160,11 +160,11 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State {
 		switch (featureID) {
 			case StatesPackage.STATE__ENDED_STEPS:
 				getEndedSteps().clear();
-				getEndedSteps().addAll((Collection<? extends Step>)newValue);
+				getEndedSteps().addAll((Collection<? extends SpecificStep>)newValue);
 				return;
 			case StatesPackage.STATE__STARTED_STEPS:
 				getStartedSteps().clear();
-				getStartedSteps().addAll((Collection<? extends Step>)newValue);
+				getStartedSteps().addAll((Collection<? extends SpecificStep>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

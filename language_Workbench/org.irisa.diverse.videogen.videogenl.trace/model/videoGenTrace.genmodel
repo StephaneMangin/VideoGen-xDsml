@@ -1,65 +1,65 @@
 <?xml version="1.0" encoding="ASCII"?>
-<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.irisa.diverse.videogen.videogenl.trace/src" modelPluginID="org.irisa.diverse.videogen.videogenl.trace" modelName="VideoGenTrace" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0" copyrightFields="false" operationReflection="true" importOrganizing="true">
-  <foreignModel>file:/tmp/diverse6261867293609825712tracemmgeneration/videoGenTrace.ecore</foreignModel>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.irisa.diverse.videogen.videogenl.trace/src" modelPluginID="org.irisa.diverse.videogen.videogenl.trace" modelName="VideoGenTrace" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false" operationReflection="true" importOrganizing="true">
+  <foreignModel>file:/tmp/diverse1202929324312295160tracemmgeneration/videoGenTrace.ecore</foreignModel>
   <genPackages prefix="VideoGenTrace" disposableProviderFactory="true">
     <ecorePackage href="videoGenTrace.ecore#/"/>
     <genClasses>
-      <ecoreClass href="videoGenTrace.ecore#//Trace"/>
+      <ecoreClass href="videoGenTrace.ecore#//SpecificTrace"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true">
-        <ecoreFeature xsi:type="ecore:EReference" href="videoGenTrace.ecore#//Trace/VideoGen_Alternatives_Execute_Sequence"/>
+        <ecoreFeature xsi:type="ecore:EReference" href="videoGenTrace.ecore#//SpecificTrace/VideoGen_Alternatives_Execute_Sequence"/>
       </genFeatures>
       <genFeatures notify="false" createChild="false" propertySortChoices="true">
-        <ecoreFeature xsi:type="ecore:EReference" href="videoGenTrace.ecore#//Trace/VideoGen_Delay_Execute_Sequence"/>
+        <ecoreFeature xsi:type="ecore:EReference" href="videoGenTrace.ecore#//SpecificTrace/VideoGen_Delay_Execute_Sequence"/>
       </genFeatures>
       <genFeatures notify="false" createChild="false" propertySortChoices="true">
-        <ecoreFeature xsi:type="ecore:EReference" href="videoGenTrace.ecore#//Trace/VideoGen_Generate_Compute_Sequence"/>
+        <ecoreFeature xsi:type="ecore:EReference" href="videoGenTrace.ecore#//SpecificTrace/VideoGen_Generate_Compute_Sequence"/>
       </genFeatures>
       <genFeatures notify="false" createChild="false" propertySortChoices="true">
-        <ecoreFeature xsi:type="ecore:EReference" href="videoGenTrace.ecore#//Trace/VideoGen_Generate_Execute_Sequence"/>
+        <ecoreFeature xsi:type="ecore:EReference" href="videoGenTrace.ecore#//SpecificTrace/VideoGen_Generate_Execute_Sequence"/>
       </genFeatures>
       <genFeatures notify="false" createChild="false" propertySortChoices="true">
-        <ecoreFeature xsi:type="ecore:EReference" href="videoGenTrace.ecore#//Trace/VideoGen_Initialize_Execute_Sequence"/>
+        <ecoreFeature xsi:type="ecore:EReference" href="videoGenTrace.ecore#//SpecificTrace/VideoGen_Initialize_Execute_Sequence"/>
       </genFeatures>
       <genFeatures notify="false" createChild="false" propertySortChoices="true">
-        <ecoreFeature xsi:type="ecore:EReference" href="videoGenTrace.ecore#//Trace/VideoGen_Mandatory_Execute_Sequence"/>
+        <ecoreFeature xsi:type="ecore:EReference" href="videoGenTrace.ecore#//SpecificTrace/VideoGen_Mandatory_Execute_Sequence"/>
       </genFeatures>
       <genFeatures notify="false" createChild="false" propertySortChoices="true">
-        <ecoreFeature xsi:type="ecore:EReference" href="videoGenTrace.ecore#//Trace/VideoGen_Optional_Execute_Sequence"/>
+        <ecoreFeature xsi:type="ecore:EReference" href="videoGenTrace.ecore#//SpecificTrace/VideoGen_Optional_Execute_Sequence"/>
       </genFeatures>
       <genFeatures notify="false" createChild="false" propertySortChoices="true">
-        <ecoreFeature xsi:type="ecore:EReference" href="videoGenTrace.ecore#//Trace/VideoGen_Sequence_Execute_Sequence"/>
+        <ecoreFeature xsi:type="ecore:EReference" href="videoGenTrace.ecore#//SpecificTrace/VideoGen_Sequence_Execute_Sequence"/>
       </genFeatures>
       <genFeatures notify="false" createChild="false" propertySortChoices="true">
-        <ecoreFeature xsi:type="ecore:EReference" href="videoGenTrace.ecore#//Trace/VideoGen_Transition_Execute_Sequence"/>
+        <ecoreFeature xsi:type="ecore:EReference" href="videoGenTrace.ecore#//SpecificTrace/VideoGen_Transition_Execute_Sequence"/>
       </genFeatures>
       <genFeatures notify="false" createChild="false" propertySortChoices="true">
-        <ecoreFeature xsi:type="ecore:EReference" href="videoGenTrace.ecore#//Trace/VideoGen_Video_Select_Sequence"/>
+        <ecoreFeature xsi:type="ecore:EReference" href="videoGenTrace.ecore#//SpecificTrace/VideoGen_VideoGen_Compute_Sequence"/>
+      </genFeatures>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="videoGenTrace.ecore#//SpecificTrace/VideoGen_VideoGen_Execute_Sequence"/>
+      </genFeatures>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="videoGenTrace.ecore#//SpecificTrace/VideoGen_VideoGen_Setup_Sequence"/>
+      </genFeatures>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="videoGenTrace.ecore#//SpecificTrace/VideoGen_Video_Select_Sequence"/>
       </genFeatures>
       <genFeatures property="None" children="true" createChild="true">
-        <ecoreFeature xsi:type="ecore:EReference" href="videoGenTrace.ecore#//Trace/rootSteps"/>
-      </genFeatures>
-      <genFeatures property="None" children="true" createChild="true">
-        <ecoreFeature xsi:type="ecore:EReference" href="videoGenTrace.ecore#//Trace/statesTrace"/>
+        <ecoreFeature xsi:type="ecore:EReference" href="videoGenTrace.ecore#//SpecificTrace/statesTrace"/>
       </genFeatures>
     </genClasses>
     <nestedGenPackages prefix="Steps" disposableProviderFactory="true">
       <ecorePackage href="videoGenTrace.ecore#//Steps"/>
-      <genClasses image="false">
-        <ecoreClass href="videoGenTrace.ecore#//Steps/BigStep"/>
-      </genClasses>
       <genClasses>
         <ecoreClass href="videoGenTrace.ecore#//Steps/RootImplicitStep"/>
       </genClasses>
       <genClasses image="false">
-        <ecoreClass href="videoGenTrace.ecore#//Steps/SmallStep"/>
-      </genClasses>
-      <genClasses image="false">
-        <ecoreClass href="videoGenTrace.ecore#//Steps/Step"/>
+        <ecoreClass href="videoGenTrace.ecore#//Steps/SpecificStep"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true">
-          <ecoreFeature xsi:type="ecore:EReference" href="videoGenTrace.ecore#//Steps/Step/endingState"/>
+          <ecoreFeature xsi:type="ecore:EReference" href="videoGenTrace.ecore#//Steps/SpecificStep/endingState"/>
         </genFeatures>
         <genFeatures notify="false" createChild="false" propertySortChoices="true">
-          <ecoreFeature xsi:type="ecore:EReference" href="videoGenTrace.ecore#//Steps/Step/startingState"/>
+          <ecoreFeature xsi:type="ecore:EReference" href="videoGenTrace.ecore#//Steps/SpecificStep/startingState"/>
         </genFeatures>
       </genClasses>
       <genClasses>
@@ -68,11 +68,23 @@
           <ecoreOperation href="videoGenTrace.ecore#//Steps/VideoGen_Alternatives_Execute/getCaller"/>
         </genOperations>
       </genClasses>
+      <genClasses image="false">
+        <ecoreClass href="videoGenTrace.ecore#//Steps/VideoGen_Alternatives_Execute_AbstractSubStep"/>
+      </genClasses>
+      <genClasses>
+        <ecoreClass href="videoGenTrace.ecore#//Steps/VideoGen_Alternatives_Execute_ImplicitStep"/>
+      </genClasses>
       <genClasses>
         <ecoreClass href="videoGenTrace.ecore#//Steps/VideoGen_Delay_Execute"/>
         <genOperations>
           <ecoreOperation href="videoGenTrace.ecore#//Steps/VideoGen_Delay_Execute/getCaller"/>
         </genOperations>
+      </genClasses>
+      <genClasses image="false">
+        <ecoreClass href="videoGenTrace.ecore#//Steps/VideoGen_Delay_Execute_AbstractSubStep"/>
+      </genClasses>
+      <genClasses>
+        <ecoreClass href="videoGenTrace.ecore#//Steps/VideoGen_Delay_Execute_ImplicitStep"/>
       </genClasses>
       <genClasses>
         <ecoreClass href="videoGenTrace.ecore#//Steps/VideoGen_Generate_Compute"/>
@@ -80,11 +92,23 @@
           <ecoreOperation href="videoGenTrace.ecore#//Steps/VideoGen_Generate_Compute/getCaller"/>
         </genOperations>
       </genClasses>
+      <genClasses image="false">
+        <ecoreClass href="videoGenTrace.ecore#//Steps/VideoGen_Generate_Compute_AbstractSubStep"/>
+      </genClasses>
+      <genClasses>
+        <ecoreClass href="videoGenTrace.ecore#//Steps/VideoGen_Generate_Compute_ImplicitStep"/>
+      </genClasses>
       <genClasses>
         <ecoreClass href="videoGenTrace.ecore#//Steps/VideoGen_Generate_Execute"/>
         <genOperations>
           <ecoreOperation href="videoGenTrace.ecore#//Steps/VideoGen_Generate_Execute/getCaller"/>
         </genOperations>
+      </genClasses>
+      <genClasses image="false">
+        <ecoreClass href="videoGenTrace.ecore#//Steps/VideoGen_Generate_Execute_AbstractSubStep"/>
+      </genClasses>
+      <genClasses>
+        <ecoreClass href="videoGenTrace.ecore#//Steps/VideoGen_Generate_Execute_ImplicitStep"/>
       </genClasses>
       <genClasses>
         <ecoreClass href="videoGenTrace.ecore#//Steps/VideoGen_Initialize_Execute"/>
@@ -92,11 +116,23 @@
           <ecoreOperation href="videoGenTrace.ecore#//Steps/VideoGen_Initialize_Execute/getCaller"/>
         </genOperations>
       </genClasses>
+      <genClasses image="false">
+        <ecoreClass href="videoGenTrace.ecore#//Steps/VideoGen_Initialize_Execute_AbstractSubStep"/>
+      </genClasses>
+      <genClasses>
+        <ecoreClass href="videoGenTrace.ecore#//Steps/VideoGen_Initialize_Execute_ImplicitStep"/>
+      </genClasses>
       <genClasses>
         <ecoreClass href="videoGenTrace.ecore#//Steps/VideoGen_Mandatory_Execute"/>
         <genOperations>
           <ecoreOperation href="videoGenTrace.ecore#//Steps/VideoGen_Mandatory_Execute/getCaller"/>
         </genOperations>
+      </genClasses>
+      <genClasses image="false">
+        <ecoreClass href="videoGenTrace.ecore#//Steps/VideoGen_Mandatory_Execute_AbstractSubStep"/>
+      </genClasses>
+      <genClasses>
+        <ecoreClass href="videoGenTrace.ecore#//Steps/VideoGen_Mandatory_Execute_ImplicitStep"/>
       </genClasses>
       <genClasses>
         <ecoreClass href="videoGenTrace.ecore#//Steps/VideoGen_Optional_Execute"/>
@@ -104,16 +140,58 @@
           <ecoreOperation href="videoGenTrace.ecore#//Steps/VideoGen_Optional_Execute/getCaller"/>
         </genOperations>
       </genClasses>
+      <genClasses image="false">
+        <ecoreClass href="videoGenTrace.ecore#//Steps/VideoGen_Optional_Execute_AbstractSubStep"/>
+      </genClasses>
+      <genClasses>
+        <ecoreClass href="videoGenTrace.ecore#//Steps/VideoGen_Optional_Execute_ImplicitStep"/>
+      </genClasses>
       <genClasses>
         <ecoreClass href="videoGenTrace.ecore#//Steps/VideoGen_Sequence_Execute"/>
         <genOperations>
           <ecoreOperation href="videoGenTrace.ecore#//Steps/VideoGen_Sequence_Execute/getCaller"/>
         </genOperations>
       </genClasses>
+      <genClasses image="false">
+        <ecoreClass href="videoGenTrace.ecore#//Steps/VideoGen_Sequence_Execute_AbstractSubStep"/>
+      </genClasses>
+      <genClasses>
+        <ecoreClass href="videoGenTrace.ecore#//Steps/VideoGen_Sequence_Execute_ImplicitStep"/>
+      </genClasses>
       <genClasses>
         <ecoreClass href="videoGenTrace.ecore#//Steps/VideoGen_Transition_Execute"/>
         <genOperations>
           <ecoreOperation href="videoGenTrace.ecore#//Steps/VideoGen_Transition_Execute/getCaller"/>
+        </genOperations>
+      </genClasses>
+      <genClasses image="false">
+        <ecoreClass href="videoGenTrace.ecore#//Steps/VideoGen_Transition_Execute_AbstractSubStep"/>
+      </genClasses>
+      <genClasses>
+        <ecoreClass href="videoGenTrace.ecore#//Steps/VideoGen_Transition_Execute_ImplicitStep"/>
+      </genClasses>
+      <genClasses>
+        <ecoreClass href="videoGenTrace.ecore#//Steps/VideoGen_VideoGen_Compute"/>
+        <genOperations>
+          <ecoreOperation href="videoGenTrace.ecore#//Steps/VideoGen_VideoGen_Compute/getCaller"/>
+        </genOperations>
+      </genClasses>
+      <genClasses>
+        <ecoreClass href="videoGenTrace.ecore#//Steps/VideoGen_VideoGen_Execute"/>
+        <genOperations>
+          <ecoreOperation href="videoGenTrace.ecore#//Steps/VideoGen_VideoGen_Execute/getCaller"/>
+        </genOperations>
+      </genClasses>
+      <genClasses image="false">
+        <ecoreClass href="videoGenTrace.ecore#//Steps/VideoGen_VideoGen_Execute_AbstractSubStep"/>
+      </genClasses>
+      <genClasses>
+        <ecoreClass href="videoGenTrace.ecore#//Steps/VideoGen_VideoGen_Execute_ImplicitStep"/>
+      </genClasses>
+      <genClasses>
+        <ecoreClass href="videoGenTrace.ecore#//Steps/VideoGen_VideoGen_Setup"/>
+        <genOperations>
+          <ecoreOperation href="videoGenTrace.ecore#//Steps/VideoGen_VideoGen_Setup/getCaller"/>
         </genOperations>
       </genClasses>
       <genClasses>
@@ -132,6 +210,12 @@
         </genFeatures>
         <genFeatures notify="false" createChild="false" propertySortChoices="true">
           <ecoreFeature xsi:type="ecore:EReference" href="videoGenTrace.ecore#//States/State/startedSteps"/>
+        </genFeatures>
+      </genClasses>
+      <genClasses image="false">
+        <ecoreClass href="videoGenTrace.ecore#//States/Value"/>
+        <genFeatures property="Readonly" notify="false" createChild="false">
+          <ecoreFeature xsi:type="ecore:EReference" href="videoGenTrace.ecore#//States/Value/statesNoOpposite"/>
         </genFeatures>
       </genClasses>
     </nestedGenPackages>

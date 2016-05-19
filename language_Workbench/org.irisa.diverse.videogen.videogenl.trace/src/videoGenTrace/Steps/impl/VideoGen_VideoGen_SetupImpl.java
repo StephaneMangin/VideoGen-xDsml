@@ -2,37 +2,43 @@
  */
 package videoGenTrace.Steps.impl;
 
+import java.lang.reflect.InvocationTargetException;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.gemoc.executionframework.engine.mse.impl.SequentialLogicalStepImpl;
+import org.gemoc.executionframework.engine.mse.impl.StepImpl;
+
+import org.irisa.diverse.videogen.videoGen.VideoGen;
 
 import videoGenTrace.States.State;
 import videoGenTrace.States.StatesPackage;
 
-import videoGenTrace.Steps.Step;
 import videoGenTrace.Steps.StepsPackage;
+import videoGenTrace.Steps.VideoGen_VideoGen_Setup;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Step</b></em>'.
+ * An implementation of the model object '<em><b>Video Gen Video Gen Setup</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link videoGenTrace.Steps.impl.StepImpl#getEndingState <em>Ending State</em>}</li>
- *   <li>{@link videoGenTrace.Steps.impl.StepImpl#getStartingState <em>Starting State</em>}</li>
+ *   <li>{@link videoGenTrace.Steps.impl.VideoGen_VideoGen_SetupImpl#getEndingState <em>Ending State</em>}</li>
+ *   <li>{@link videoGenTrace.Steps.impl.VideoGen_VideoGen_SetupImpl#getStartingState <em>Starting State</em>}</li>
  * </ul>
  *
  * @generated
  */
-public abstract class StepImpl extends SequentialLogicalStepImpl implements Step {
+public class VideoGen_VideoGen_SetupImpl extends StepImpl implements VideoGen_VideoGen_Setup {
 	/**
 	 * The cached value of the '{@link #getEndingState() <em>Ending State</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -58,7 +64,7 @@ public abstract class StepImpl extends SequentialLogicalStepImpl implements Step
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected StepImpl() {
+	protected VideoGen_VideoGen_SetupImpl() {
 		super();
 	}
 
@@ -69,7 +75,7 @@ public abstract class StepImpl extends SequentialLogicalStepImpl implements Step
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return StepsPackage.Literals.STEP;
+		return StepsPackage.Literals.VIDEO_GEN_VIDEO_GEN_SETUP;
 	}
 
 	/**
@@ -83,7 +89,7 @@ public abstract class StepImpl extends SequentialLogicalStepImpl implements Step
 			endingState = (State)eResolveProxy(oldEndingState);
 			if (endingState != oldEndingState) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, StepsPackage.STEP__ENDING_STATE, oldEndingState, endingState));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, StepsPackage.VIDEO_GEN_VIDEO_GEN_SETUP__ENDING_STATE, oldEndingState, endingState));
 			}
 		}
 		return endingState;
@@ -107,7 +113,7 @@ public abstract class StepImpl extends SequentialLogicalStepImpl implements Step
 		State oldEndingState = endingState;
 		endingState = newEndingState;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, StepsPackage.STEP__ENDING_STATE, oldEndingState, newEndingState);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, StepsPackage.VIDEO_GEN_VIDEO_GEN_SETUP__ENDING_STATE, oldEndingState, newEndingState);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -129,7 +135,7 @@ public abstract class StepImpl extends SequentialLogicalStepImpl implements Step
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StepsPackage.STEP__ENDING_STATE, newEndingState, newEndingState));
+			eNotify(new ENotificationImpl(this, Notification.SET, StepsPackage.VIDEO_GEN_VIDEO_GEN_SETUP__ENDING_STATE, newEndingState, newEndingState));
 	}
 
 	/**
@@ -143,7 +149,7 @@ public abstract class StepImpl extends SequentialLogicalStepImpl implements Step
 			startingState = (State)eResolveProxy(oldStartingState);
 			if (startingState != oldStartingState) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, StepsPackage.STEP__STARTING_STATE, oldStartingState, startingState));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, StepsPackage.VIDEO_GEN_VIDEO_GEN_SETUP__STARTING_STATE, oldStartingState, startingState));
 			}
 		}
 		return startingState;
@@ -167,7 +173,7 @@ public abstract class StepImpl extends SequentialLogicalStepImpl implements Step
 		State oldStartingState = startingState;
 		startingState = newStartingState;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, StepsPackage.STEP__STARTING_STATE, oldStartingState, newStartingState);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, StepsPackage.VIDEO_GEN_VIDEO_GEN_SETUP__STARTING_STATE, oldStartingState, newStartingState);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -189,7 +195,16 @@ public abstract class StepImpl extends SequentialLogicalStepImpl implements Step
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StepsPackage.STEP__STARTING_STATE, newStartingState, newStartingState));
+			eNotify(new ENotificationImpl(this, Notification.SET, StepsPackage.VIDEO_GEN_VIDEO_GEN_SETUP__STARTING_STATE, newStartingState, newStartingState));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public VideoGen getCaller() {
+		return (org.irisa.diverse.videogen.videoGen.VideoGen) this.getMseoccurrence().getMse().getCaller();
 	}
 
 	/**
@@ -200,11 +215,11 @@ public abstract class StepImpl extends SequentialLogicalStepImpl implements Step
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case StepsPackage.STEP__ENDING_STATE:
+			case StepsPackage.VIDEO_GEN_VIDEO_GEN_SETUP__ENDING_STATE:
 				if (endingState != null)
 					msgs = ((InternalEObject)endingState).eInverseRemove(this, StatesPackage.STATE__ENDED_STEPS, State.class, msgs);
 				return basicSetEndingState((State)otherEnd, msgs);
-			case StepsPackage.STEP__STARTING_STATE:
+			case StepsPackage.VIDEO_GEN_VIDEO_GEN_SETUP__STARTING_STATE:
 				if (startingState != null)
 					msgs = ((InternalEObject)startingState).eInverseRemove(this, StatesPackage.STATE__STARTED_STEPS, State.class, msgs);
 				return basicSetStartingState((State)otherEnd, msgs);
@@ -220,9 +235,9 @@ public abstract class StepImpl extends SequentialLogicalStepImpl implements Step
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case StepsPackage.STEP__ENDING_STATE:
+			case StepsPackage.VIDEO_GEN_VIDEO_GEN_SETUP__ENDING_STATE:
 				return basicSetEndingState(null, msgs);
-			case StepsPackage.STEP__STARTING_STATE:
+			case StepsPackage.VIDEO_GEN_VIDEO_GEN_SETUP__STARTING_STATE:
 				return basicSetStartingState(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -236,10 +251,10 @@ public abstract class StepImpl extends SequentialLogicalStepImpl implements Step
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case StepsPackage.STEP__ENDING_STATE:
+			case StepsPackage.VIDEO_GEN_VIDEO_GEN_SETUP__ENDING_STATE:
 				if (resolve) return getEndingState();
 				return basicGetEndingState();
-			case StepsPackage.STEP__STARTING_STATE:
+			case StepsPackage.VIDEO_GEN_VIDEO_GEN_SETUP__STARTING_STATE:
 				if (resolve) return getStartingState();
 				return basicGetStartingState();
 		}
@@ -254,10 +269,10 @@ public abstract class StepImpl extends SequentialLogicalStepImpl implements Step
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case StepsPackage.STEP__ENDING_STATE:
+			case StepsPackage.VIDEO_GEN_VIDEO_GEN_SETUP__ENDING_STATE:
 				setEndingState((State)newValue);
 				return;
-			case StepsPackage.STEP__STARTING_STATE:
+			case StepsPackage.VIDEO_GEN_VIDEO_GEN_SETUP__STARTING_STATE:
 				setStartingState((State)newValue);
 				return;
 		}
@@ -272,10 +287,10 @@ public abstract class StepImpl extends SequentialLogicalStepImpl implements Step
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case StepsPackage.STEP__ENDING_STATE:
+			case StepsPackage.VIDEO_GEN_VIDEO_GEN_SETUP__ENDING_STATE:
 				setEndingState((State)null);
 				return;
-			case StepsPackage.STEP__STARTING_STATE:
+			case StepsPackage.VIDEO_GEN_VIDEO_GEN_SETUP__STARTING_STATE:
 				setStartingState((State)null);
 				return;
 		}
@@ -290,12 +305,26 @@ public abstract class StepImpl extends SequentialLogicalStepImpl implements Step
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case StepsPackage.STEP__ENDING_STATE:
+			case StepsPackage.VIDEO_GEN_VIDEO_GEN_SETUP__ENDING_STATE:
 				return endingState != null;
-			case StepsPackage.STEP__STARTING_STATE:
+			case StepsPackage.VIDEO_GEN_VIDEO_GEN_SETUP__STARTING_STATE:
 				return startingState != null;
 		}
 		return super.eIsSet(featureID);
 	}
 
-} //StepImpl
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case StepsPackage.VIDEO_GEN_VIDEO_GEN_SETUP___GET_CALLER:
+				return getCaller();
+		}
+		return super.eInvoke(operationID, arguments);
+	}
+
+} //VideoGen_VideoGen_SetupImpl

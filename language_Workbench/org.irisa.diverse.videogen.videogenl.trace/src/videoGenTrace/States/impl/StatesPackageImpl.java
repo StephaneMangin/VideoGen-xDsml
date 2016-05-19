@@ -15,6 +15,7 @@ import org.irisa.diverse.videogen.videoGen.VideoGenPackage;
 import videoGenTrace.States.State;
 import videoGenTrace.States.StatesFactory;
 import videoGenTrace.States.StatesPackage;
+import videoGenTrace.States.Value;
 
 import videoGenTrace.Steps.StepsPackage;
 
@@ -37,6 +38,13 @@ public class StatesPackageImpl extends EPackageImpl implements StatesPackage {
 	 * @generated
 	 */
 	private EClass stateEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass valueEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -143,6 +151,24 @@ public class StatesPackageImpl extends EPackageImpl implements StatesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getValue() {
+		return valueEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getValue_StatesNoOpposite() {
+		return (EReference)valueEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public StatesFactory getStatesFactory() {
 		return (StatesFactory)getEFactoryInstance();
 	}
@@ -169,6 +195,9 @@ public class StatesPackageImpl extends EPackageImpl implements StatesPackage {
 		stateEClass = createEClass(STATE);
 		createEReference(stateEClass, STATE__ENDED_STEPS);
 		createEReference(stateEClass, STATE__STARTED_STEPS);
+
+		valueEClass = createEClass(VALUE);
+		createEReference(valueEClass, VALUE__STATES_NO_OPPOSITE);
 	}
 
 	/**
@@ -205,8 +234,11 @@ public class StatesPackageImpl extends EPackageImpl implements StatesPackage {
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(stateEClass, State.class, "State", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getState_EndedSteps(), theStepsPackage.getStep(), theStepsPackage.getStep_EndingState(), "endedSteps", null, 0, -1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getState_StartedSteps(), theStepsPackage.getStep(), theStepsPackage.getStep_StartingState(), "startedSteps", null, 0, -1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getState_EndedSteps(), theStepsPackage.getSpecificStep(), theStepsPackage.getSpecificStep_EndingState(), "endedSteps", null, 0, -1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getState_StartedSteps(), theStepsPackage.getSpecificStep(), theStepsPackage.getSpecificStep_StartingState(), "startedSteps", null, 0, -1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(valueEClass, Value.class, "Value", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getValue_StatesNoOpposite(), this.getState(), null, "statesNoOpposite", null, 1, -1, Value.class, !IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 	}
 
 } //StatesPackageImpl

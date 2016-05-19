@@ -2,28 +2,28 @@
  */
 package videoGenTrace.Steps;
 
-import org.gemoc.executionframework.engine.mse.SequentialLogicalStep;
+import org.gemoc.executionframework.engine.mse.Step;
 
 import videoGenTrace.States.State;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Step</b></em>'.
+ * A representation of the model object '<em><b>Specific Step</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link videoGenTrace.Steps.Step#getEndingState <em>Ending State</em>}</li>
- *   <li>{@link videoGenTrace.Steps.Step#getStartingState <em>Starting State</em>}</li>
+ *   <li>{@link videoGenTrace.Steps.SpecificStep#getEndingState <em>Ending State</em>}</li>
+ *   <li>{@link videoGenTrace.Steps.SpecificStep#getStartingState <em>Starting State</em>}</li>
  * </ul>
  *
- * @see videoGenTrace.Steps.StepsPackage#getStep()
- * @model abstract="true"
+ * @see videoGenTrace.Steps.StepsPackage#getSpecificStep()
+ * @model interface="true" abstract="true"
  * @generated
  */
-public interface Step extends SequentialLogicalStep {
+public interface SpecificStep extends Step {
 	/**
 	 * Returns the value of the '<em><b>Ending State</b></em>' reference.
 	 * It is bidirectional and its opposite is '{@link videoGenTrace.States.State#getEndedSteps <em>Ended Steps</em>}'.
@@ -35,7 +35,7 @@ public interface Step extends SequentialLogicalStep {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Ending State</em>' reference.
 	 * @see #setEndingState(State)
-	 * @see videoGenTrace.Steps.StepsPackage#getStep_EndingState()
+	 * @see videoGenTrace.Steps.StepsPackage#getSpecificStep_EndingState()
 	 * @see videoGenTrace.States.State#getEndedSteps
 	 * @model opposite="endedSteps"
 	 * @generated
@@ -43,7 +43,7 @@ public interface Step extends SequentialLogicalStep {
 	State getEndingState();
 
 	/**
-	 * Sets the value of the '{@link videoGenTrace.Steps.Step#getEndingState <em>Ending State</em>}' reference.
+	 * Sets the value of the '{@link videoGenTrace.Steps.SpecificStep#getEndingState <em>Ending State</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Ending State</em>' reference.
@@ -63,7 +63,7 @@ public interface Step extends SequentialLogicalStep {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Starting State</em>' reference.
 	 * @see #setStartingState(State)
-	 * @see videoGenTrace.Steps.StepsPackage#getStep_StartingState()
+	 * @see videoGenTrace.Steps.StepsPackage#getSpecificStep_StartingState()
 	 * @see videoGenTrace.States.State#getStartedSteps
 	 * @model opposite="startedSteps" required="true"
 	 * @generated
@@ -71,7 +71,7 @@ public interface Step extends SequentialLogicalStep {
 	State getStartingState();
 
 	/**
-	 * Sets the value of the '{@link videoGenTrace.Steps.Step#getStartingState <em>Starting State</em>}' reference.
+	 * Sets the value of the '{@link videoGenTrace.Steps.SpecificStep#getStartingState <em>Starting State</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Starting State</em>' reference.
@@ -80,4 +80,4 @@ public interface Step extends SequentialLogicalStep {
 	 */
 	void setStartingState(State value);
 
-} // Step
+} // SpecificStep

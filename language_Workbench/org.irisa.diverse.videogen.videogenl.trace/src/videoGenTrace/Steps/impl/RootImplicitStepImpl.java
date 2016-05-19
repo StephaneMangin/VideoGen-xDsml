@@ -4,6 +4,8 @@ package videoGenTrace.Steps.impl;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.gemoc.executionframework.engine.mse.impl.SmallStepImpl;
+
 import videoGenTrace.Steps.RootImplicitStep;
 import videoGenTrace.Steps.StepsPackage;
 

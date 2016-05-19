@@ -2,6 +2,7 @@
  */
 package videoGenTrace.Steps;
 
+import org.gemoc.executionframework.engine.mse.SmallStep;
 
 /**
  * <!-- begin-user-doc -->

@@ -9,6 +9,8 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 
 import org.eclipse.emf.ecore.EObject;
 
+import org.gemoc.executionframework.engine.mse.Trace;
+
 import videoGenTrace.*;
 
 /**
@@ -68,7 +70,11 @@ public class VideoGenTraceAdapterFactory extends AdapterFactoryImpl {
 	protected VideoGenTraceSwitch<Adapter> modelSwitch =
 		new VideoGenTraceSwitch<Adapter>() {
 			@Override
-			public Adapter caseTrace(Trace object) {
+			public Adapter caseSpecificTrace(SpecificTrace object) {
+				return createSpecificTraceAdapter();
+			}
+			@Override
+			public <StepSubType> Adapter caseTrace(Trace<StepSubType> object) {
 				return createTraceAdapter();
 			}
 			@Override
@@ -92,13 +98,27 @@ public class VideoGenTraceAdapterFactory extends AdapterFactoryImpl {
 
 
 	/**
-	 * Creates a new adapter for an object of class '{@link videoGenTrace.Trace <em>Trace</em>}'.
+	 * Creates a new adapter for an object of class '{@link videoGenTrace.SpecificTrace <em>Specific Trace</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see videoGenTrace.Trace
+	 * @see videoGenTrace.SpecificTrace
+	 * @generated
+	 */
+	public Adapter createSpecificTraceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.gemoc.executionframework.engine.mse.Trace <em>Trace</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.gemoc.executionframework.engine.mse.Trace
 	 * @generated
 	 */
 	public Adapter createTraceAdapter() {
