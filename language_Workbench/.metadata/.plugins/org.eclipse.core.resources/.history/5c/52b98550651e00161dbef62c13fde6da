@@ -1,0 +1,70 @@
+package org.irisa.diverse.videogen.videoGen.aspects.visitors;
+
+import java.util.List;
+import java.util.function.Consumer;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.xtext.xbase.lib.Functions.Function1;
+import org.eclipse.xtext.xbase.lib.InputOutput;
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
+import org.irisa.diverse.videogen.transformations.helpers.VideoGenHelper;
+import org.irisa.diverse.videogen.videoGen.Alternatives;
+import org.irisa.diverse.videogen.videoGen.Optional;
+import org.irisa.diverse.videogen.videoGen.Sequence;
+import org.irisa.diverse.videogen.videoGen.VideoGen;
+
+@SuppressWarnings("all")
+public class VideoGenVariantsVisitor {
+  public int variants;
+  
+  public VideoGenVariantsVisitor visit(final VideoGen vid) {
+    VideoGenVariantsVisitor _xblockexpression = null;
+    {
+      this.variants = 1;
+      InputOutput.<String>println("VideoGen Variants Visitor started...");
+      List<Sequence> _allSequences = VideoGenHelper.allSequences(vid);
+      final Consumer<Sequence> _function = (Sequence it) -> {
+        this.visit(it);
+      };
+      _allSequences.forEach(_function);
+      _xblockexpression = this;
+    }
+    return _xblockexpression;
+  }
+  
+  private String visit(final Sequence seq) {
+    String _xifexpression = null;
+    Boolean _active = seq.getActive();
+    if ((_active).booleanValue()) {
+      String _xblockexpression = null;
+      {
+        InputOutput.<String>println(("VideoGen Variants Visitor : " + seq));
+        if ((seq instanceof Optional)) {
+          this.visit(((Optional)seq));
+        } else {
+          if ((seq instanceof Alternatives)) {
+            this.visit(((Alternatives)seq));
+          }
+        }
+        _xblockexpression = InputOutput.<String>println(("VideoGen Variants Visitor : " + Integer.valueOf(this.variants)));
+      }
+      _xifexpression = _xblockexpression;
+    }
+    return _xifexpression;
+  }
+  
+  private int visit(final Alternatives alt) {
+    int _variants = this.variants;
+    EList<Optional> _options = alt.getOptions();
+    final Function1<Optional, Boolean> _function = (Optional it) -> {
+      return it.getActive();
+    };
+    Iterable<Optional> _filter = IterableExtensions.<Optional>filter(_options, _function);
+    int _size = IterableExtensions.size(_filter);
+    return this.variants = (_variants * _size);
+  }
+  
+  private int visit(final Optional opt) {
+    int _variants = this.variants;
+    return this.variants = (_variants * 2);
+  }
+}

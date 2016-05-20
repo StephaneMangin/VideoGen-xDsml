@@ -78,7 +78,7 @@
               <children xsi:type="advanced:Placeholder" xmi:id="_vzznyh3YEeaedLC1pyYUzw" elementId="org.eclipse.jdt.ui.TypeHierarchy" toBeRendered="false" ref="_vz02Mx3YEeaedLC1pyYUzw"/>
               <children xsi:type="advanced:Placeholder" xmi:id="_vzznyx3YEeaedLC1pyYUzw" elementId="org.eclipse.pde.ui.PluginsView" toBeRendered="false" ref="_vz02NB3YEeaedLC1pyYUzw"/>
             </children>
-            <children xsi:type="basic:PartSashContainer" xmi:id="_vz0O0B3YEeaedLC1pyYUzw" containerData="7500" selectedElement="_vz0O1R3YEeaedLC1pyYUzw">
+            <children xsi:type="basic:PartSashContainer" xmi:id="_vz0O0B3YEeaedLC1pyYUzw" containerData="7500" selectedElement="_vz0O0R3YEeaedLC1pyYUzw">
               <children xsi:type="basic:PartSashContainer" xmi:id="_vz0O0R3YEeaedLC1pyYUzw" containerData="5069" selectedElement="_vz0O0h3YEeaedLC1pyYUzw" horizontal="true">
                 <children xsi:type="advanced:Placeholder" xmi:id="_vz0O0h3YEeaedLC1pyYUzw" elementId="org.eclipse.ui.editorss" containerData="7500" ref="_vz02ER3YEeaedLC1pyYUzw"/>
                 <children xsi:type="basic:PartStack" xmi:id="_vz0O0x3YEeaedLC1pyYUzw" elementId="right" containerData="2500" selectedElement="_vz0O1B3YEeaedLC1pyYUzw">
@@ -86,7 +86,7 @@
                   <children xsi:type="advanced:Placeholder" xmi:id="_vz0O1B3YEeaedLC1pyYUzw" elementId="org.eclipse.ui.views.ContentOutline" ref="_vz02gB3YEeaedLC1pyYUzw"/>
                 </children>
               </children>
-              <children xsi:type="basic:PartSashContainer" xmi:id="_vz0O1R3YEeaedLC1pyYUzw" containerData="4931" selectedElement="_vz0O1h3YEeaedLC1pyYUzw" horizontal="true">
+              <children xsi:type="basic:PartSashContainer" xmi:id="_vz0O1R3YEeaedLC1pyYUzw" containerData="4931" selectedElement="_vz0O3h3YEeaedLC1pyYUzw" horizontal="true">
                 <children xsi:type="basic:PartStack" xmi:id="_vz0O1h3YEeaedLC1pyYUzw" elementId="bottom" containerData="6000" selectedElement="_vz0O3R3YEeaedLC1pyYUzw">
                   <tags>newtablook</tags>
                   <tags>noFocus</tags>
@@ -152,20 +152,19 @@
           <tags>persp.viewSC:org.gemoc.executionframework.ui.views.engine.EnginesStatusView</tags>
           <tags>persp.perspSC:org.eclipse.sirius.ui.tools.perspective.modeling</tags>
           <tags>persp.viewSC:org.gemoc.sequential_addons.multidimensional.timeline.views.timeline.MultidimensionalTimeLineView</tags>
-          <children xsi:type="basic:PartSashContainer" xmi:id="_vz0O5B3YEeaedLC1pyYUzw" selectedElement="_vz0O_B3YEeaedLC1pyYUzw">
-            <children xsi:type="basic:PartSashContainer" xmi:id="_vz0O5R3YEeaedLC1pyYUzw" visible="false" containerData="7289" selectedElement="_vz0O9R3YEeaedLC1pyYUzw">
-              <children xsi:type="basic:PartSashContainer" xmi:id="_vz0O5h3YEeaedLC1pyYUzw" visible="false" containerData="3982" selectedElement="_vz0O5x3YEeaedLC1pyYUzw" horizontal="true">
-                <children xsi:type="basic:PartStack" xmi:id="_vz0O5x3YEeaedLC1pyYUzw" elementId="org.eclipse.debug.internal.ui.NavigatorFolderView" visible="false" containerData="5000" selectedElement="_vz0O6B3YEeaedLC1pyYUzw">
+          <children xsi:type="basic:PartSashContainer" xmi:id="_vz0O5B3YEeaedLC1pyYUzw" selectedElement="_vz0O5R3YEeaedLC1pyYUzw">
+            <children xsi:type="basic:PartSashContainer" xmi:id="_vz0O5R3YEeaedLC1pyYUzw" containerData="7289" selectedElement="_vz0O9R3YEeaedLC1pyYUzw">
+              <children xsi:type="basic:PartSashContainer" xmi:id="_vz0O5h3YEeaedLC1pyYUzw" containerData="3982" selectedElement="_vz0O5x3YEeaedLC1pyYUzw" horizontal="true">
+                <children xsi:type="basic:PartStack" xmi:id="_vz0O5x3YEeaedLC1pyYUzw" elementId="org.eclipse.debug.internal.ui.NavigatorFolderView" containerData="5000" selectedElement="_vz0O6B3YEeaedLC1pyYUzw">
                   <tags>newtablook</tags>
                   <tags>org.eclipse.e4.primaryNavigationStack</tags>
-                  <tags>Minimized</tags>
                   <tags>MinimizedByZoom</tags>
                   <children xsi:type="advanced:Placeholder" xmi:id="_vz0O6B3YEeaedLC1pyYUzw" elementId="org.eclipse.debug.ui.DebugView" ref="_vz02mB3YEeaedLC1pyYUzw"/>
                   <children xsi:type="advanced:Placeholder" xmi:id="_vz0O6R3YEeaedLC1pyYUzw" elementId="org.eclipse.ui.navigator.ProjectExplorer" toBeRendered="false" ref="_vz02Hx3YEeaedLC1pyYUzw"/>
                   <children xsi:type="advanced:Placeholder" xmi:id="_vz0O6h3YEeaedLC1pyYUzw" elementId="org.eclipse.jdt.ui.PackageExplorer" toBeRendered="false" ref="_vz02Mh3YEeaedLC1pyYUzw"/>
                   <children xsi:type="advanced:Placeholder" xmi:id="_vz0O6x3YEeaedLC1pyYUzw" elementId="org.eclipse.jdt.ui.TypeHierarchy" toBeRendered="false" ref="_vz02Mx3YEeaedLC1pyYUzw"/>
                 </children>
-                <children xsi:type="basic:PartSashContainer" xmi:id="_vz0O7B3YEeaedLC1pyYUzw" visible="false" containerData="5000" selectedElement="_vz0O7R3YEeaedLC1pyYUzw" horizontal="true">
+                <children xsi:type="basic:PartSashContainer" xmi:id="_vz0O7B3YEeaedLC1pyYUzw" containerData="5000" selectedElement="_vz0O7R3YEeaedLC1pyYUzw" horizontal="true">
                   <children xsi:type="basic:PartStack" xmi:id="_vz0O7R3YEeaedLC1pyYUzw" elementId="org.eclipse.debug.internal.ui.ToolsFolderView" visible="false" containerData="5000" selectedElement="_vz0O7h3YEeaedLC1pyYUzw">
                     <tags>newtablook</tags>
                     <tags>Minimized</tags>
@@ -176,17 +175,15 @@
                     <children xsi:type="advanced:Placeholder" xmi:id="_vz0O8R3YEeaedLC1pyYUzw" elementId="org.eclipse.debug.ui.RegisterView" toBeRendered="false" ref="_vz1c_h3YEeaedLC1pyYUzw"/>
                     <children xsi:type="advanced:Placeholder" xmi:id="_vz0O8h3YEeaedLC1pyYUzw" elementId="org.eclipse.m2m.internal.qvt.oml.debug.ui.views.trace" ref="_vz1dAh3YEeaedLC1pyYUzw"/>
                   </children>
-                  <children xsi:type="basic:PartStack" xmi:id="_vz0O8x3YEeaedLC1pyYUzw" elementId="org.gemoc.executionframework.engine.io.views.steps.LogicalStepsViewMStack" visible="false" containerData="5000" selectedElement="_vz0O9B3YEeaedLC1pyYUzw">
+                  <children xsi:type="basic:PartStack" xmi:id="_vz0O8x3YEeaedLC1pyYUzw" elementId="org.gemoc.executionframework.engine.io.views.steps.LogicalStepsViewMStack" containerData="5000" selectedElement="_vz0O9B3YEeaedLC1pyYUzw">
                     <tags>newtablook</tags>
-                    <tags>Minimized</tags>
                     <tags>MinimizedByZoom</tags>
                     <children xsi:type="advanced:Placeholder" xmi:id="_vz0O9B3YEeaedLC1pyYUzw" elementId="org.gemoc.executionframework.engine.io.views.steps.LogicalStepsView" ref="_vz1dCB3YEeaedLC1pyYUzw"/>
                   </children>
                 </children>
               </children>
-              <children xsi:type="basic:PartSashContainer" xmi:id="_vz0O9R3YEeaedLC1pyYUzw" visible="false" containerData="6018" selectedElement="_vz0O9h3YEeaedLC1pyYUzw" horizontal="true">
-                <children xsi:type="advanced:Placeholder" xmi:id="_vz0O9h3YEeaedLC1pyYUzw" elementId="org.eclipse.ui.editorss" visible="false" containerData="7500" ref="_vz02ER3YEeaedLC1pyYUzw">
-                  <tags>Minimized</tags>
+              <children xsi:type="basic:PartSashContainer" xmi:id="_vz0O9R3YEeaedLC1pyYUzw" containerData="6018" selectedElement="_vz0O9h3YEeaedLC1pyYUzw" horizontal="true">
+                <children xsi:type="advanced:Placeholder" xmi:id="_vz0O9h3YEeaedLC1pyYUzw" elementId="org.eclipse.ui.editorss" containerData="7500" ref="_vz02ER3YEeaedLC1pyYUzw">
                   <tags>MinimizedByZoom</tags>
                 </children>
                 <children xsi:type="basic:PartStack" xmi:id="_vz0O9x3YEeaedLC1pyYUzw" elementId="org.eclipse.debug.internal.ui.OutlineFolderView" visible="false" containerData="2500" selectedElement="_vz0O-x3YEeaedLC1pyYUzw">
@@ -205,7 +202,6 @@
               <children xsi:type="basic:PartStack" xmi:id="_vz0O_R3YEeaedLC1pyYUzw" elementId="org.eclipse.debug.internal.ui.ConsoleFolderView" containerData="5000" selectedElement="_vz0O_h3YEeaedLC1pyYUzw">
                 <tags>newtablook</tags>
                 <tags>org.eclipse.e4.secondaryDataStack</tags>
-                <tags>active</tags>
                 <tags>Maximized</tags>
                 <children xsi:type="advanced:Placeholder" xmi:id="_vz0O_h3YEeaedLC1pyYUzw" elementId="org.eclipse.ui.console.ConsoleView" ref="_vz02YB3YEeaedLC1pyYUzw"/>
                 <children xsi:type="advanced:Placeholder" xmi:id="_vz0O_x3YEeaedLC1pyYUzw" elementId="org.eclipse.ui.views.TaskList" ref="_vz02lh3YEeaedLC1pyYUzw"/>
@@ -292,6 +288,7 @@
         <tags>newtablook</tags>
         <tags>org.eclipse.e4.primaryDataStack</tags>
         <tags>EditorStack</tags>
+        <tags>active</tags>
       </children>
     </sharedElements>
     <sharedElements xsi:type="basic:Part" xmi:id="_vz02Hx3YEeaedLC1pyYUzw" elementId="org.eclipse.ui.navigator.ProjectExplorer" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Project Explorer" iconURI="platform:/plugin/org.eclipse.ui.navigator.resources/icons/full/eview16/resource_persp.gif" closeable="true">
@@ -387,8 +384,6 @@
       <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;view/>"/>
       <tags>View</tags>
       <tags>categoryTag:General</tags>
-      <tags>active</tags>
-      <tags>activeOnClose</tags>
       <menus xmi:id="_vz02YR3YEeaedLC1pyYUzw" elementId="org.eclipse.ui.console.ConsoleView">
         <tags>ViewMenu</tags>
         <tags>menuContribution:menu</tags>
@@ -491,7 +486,7 @@
         <tags>ViewMenu</tags>
         <tags>menuContribution:menu</tags>
       </menus>
-      <toolbar xmi:id="_vz02jx3YEeaedLC1pyYUzw" elementId="org.gemoc.sequential_addons.multidimensional.timeline.views.timeline.MultidimensionalTimeLineView"/>
+      <toolbar xmi:id="_vz02jx3YEeaedLC1pyYUzw" elementId="org.gemoc.sequential_addons.multidimensional.timeline.views.timeline.MultidimensionalTimeLineView" visible="false"/>
     </sharedElements>
     <sharedElements xsi:type="basic:Part" xmi:id="_vz02lh3YEeaedLC1pyYUzw" elementId="org.eclipse.ui.views.TaskList" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Tasks" iconURI="platform:/plugin/org.eclipse.ui.ide/icons/full/eview16/tasks_tsk.png" closeable="true">
       <tags>View</tags>
@@ -754,7 +749,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_vz1dHh3YEeaedLC1pyYUzw" elementId="org.eclipse.ui.workbench.file">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_6DXzEB3YEeaWdIIxwc8rIw" elementId="print" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" enabled="false" command="_vz699R3YEeaedLC1pyYUzw"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_7ExqoB5lEeaqyo9LsyIS1w" elementId="print" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" enabled="false" command="_vz699R3YEeaedLC1pyYUzw"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_vz1dKx3YEeaedLC1pyYUzw" elementId="additions" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -775,7 +770,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_vz1dhB3YEeaedLC1pyYUzw" elementId="org.eclipse.ui.workbench.navigate">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_6DbdcR3YEeaWdIIxwc8rIw" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_vz69nB3YEeaedLC1pyYUzw"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_7E18ER5lEeaqyo9LsyIS1w" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_vz69nB3YEeaedLC1pyYUzw"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_vz1dmR3YEeaedLC1pyYUzw" elementId="group.editor" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -809,16 +804,16 @@
         <tags>Draggable</tags>
       </children>
     </trimBars>
-    <trimBars xmi:id="_vz1dqR3YEeaedLC1pyYUzw" elementId="org.eclipse.ui.trim.vertical1" contributorURI="platform:/plugin/org.eclipse.ui.workbench" side="Left">
-      <children xsi:type="menu:ToolControl" xmi:id="_vz1dqh3YEeaedLC1pyYUzw" elementId="org.eclipse.debug.internal.ui.NavigatorFolderView(org.eclipse.debug.ui.DebugPerspective)" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.minmax.TrimStack">
+    <trimBars xmi:id="_vz1dqR3YEeaedLC1pyYUzw" elementId="org.eclipse.ui.trim.vertical1" contributorURI="platform:/plugin/org.eclipse.ui.workbench" toBeRendered="false" side="Left">
+      <children xsi:type="menu:ToolControl" xmi:id="_vz1dqh3YEeaedLC1pyYUzw" elementId="org.eclipse.debug.internal.ui.NavigatorFolderView(org.eclipse.debug.ui.DebugPerspective)" toBeRendered="false" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.minmax.TrimStack">
         <tags>TrimStack</tags>
       </children>
-      <children xsi:type="menu:ToolControl" xmi:id="_vz1dqx3YEeaedLC1pyYUzw" elementId="org.eclipse.ui.editorss(org.eclipse.debug.ui.DebugPerspective)" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.minmax.TrimStack">
+      <children xsi:type="menu:ToolControl" xmi:id="_vz1dqx3YEeaedLC1pyYUzw" elementId="org.eclipse.ui.editorss(org.eclipse.debug.ui.DebugPerspective)" toBeRendered="false" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.minmax.TrimStack">
         <tags>TrimStack</tags>
       </children>
     </trimBars>
     <trimBars xmi:id="_vz1drB3YEeaedLC1pyYUzw" elementId="org.eclipse.ui.trim.vertical2" contributorURI="platform:/plugin/org.eclipse.ui.workbench" side="Right">
-      <children xsi:type="menu:ToolControl" xmi:id="_vz1drR3YEeaedLC1pyYUzw" elementId="org.gemoc.executionframework.engine.io.views.steps.LogicalStepsViewMStack(org.eclipse.debug.ui.DebugPerspective)" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.minmax.TrimStack">
+      <children xsi:type="menu:ToolControl" xmi:id="_vz1drR3YEeaedLC1pyYUzw" elementId="org.gemoc.executionframework.engine.io.views.steps.LogicalStepsViewMStack(org.eclipse.debug.ui.DebugPerspective)" toBeRendered="false" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.minmax.TrimStack">
         <tags>TrimStack</tags>
       </children>
       <children xsi:type="menu:ToolControl" xmi:id="_vz1drh3YEeaedLC1pyYUzw" elementId="org.eclipse.debug.internal.ui.ToolsFolderView(org.eclipse.debug.ui.DebugPerspective)" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.minmax.TrimStack">

@@ -93,18 +93,6 @@ public class StepsAdapterFactory extends AdapterFactoryImpl {
 				return createVideoGen_Alternatives_Execute_ImplicitStepAdapter();
 			}
 			@Override
-			public Adapter caseVideoGen_Delay_Execute(VideoGen_Delay_Execute object) {
-				return createVideoGen_Delay_ExecuteAdapter();
-			}
-			@Override
-			public Adapter caseVideoGen_Delay_Execute_AbstractSubStep(VideoGen_Delay_Execute_AbstractSubStep object) {
-				return createVideoGen_Delay_Execute_AbstractSubStepAdapter();
-			}
-			@Override
-			public Adapter caseVideoGen_Delay_Execute_ImplicitStep(VideoGen_Delay_Execute_ImplicitStep object) {
-				return createVideoGen_Delay_Execute_ImplicitStepAdapter();
-			}
-			@Override
 			public Adapter caseVideoGen_Generate_Compute(VideoGen_Generate_Compute object) {
 				return createVideoGen_Generate_ComputeAdapter();
 			}
@@ -203,6 +191,18 @@ public class StepsAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseVideoGen_VideoGen_Execute_ImplicitStep(VideoGen_VideoGen_Execute_ImplicitStep object) {
 				return createVideoGen_VideoGen_Execute_ImplicitStepAdapter();
+			}
+			@Override
+			public Adapter caseVideoGen_VideoGen_InitializeModel(VideoGen_VideoGen_InitializeModel object) {
+				return createVideoGen_VideoGen_InitializeModelAdapter();
+			}
+			@Override
+			public Adapter caseVideoGen_VideoGen_InitializeModel_AbstractSubStep(VideoGen_VideoGen_InitializeModel_AbstractSubStep object) {
+				return createVideoGen_VideoGen_InitializeModel_AbstractSubStepAdapter();
+			}
+			@Override
+			public Adapter caseVideoGen_VideoGen_InitializeModel_ImplicitStep(VideoGen_VideoGen_InitializeModel_ImplicitStep object) {
+				return createVideoGen_VideoGen_InitializeModel_ImplicitStepAdapter();
 			}
 			@Override
 			public Adapter caseVideoGen_VideoGen_Setup(VideoGen_VideoGen_Setup object) {
@@ -315,48 +315,6 @@ public class StepsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createVideoGen_Alternatives_Execute_ImplicitStepAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link videoGenTrace.Steps.VideoGen_Delay_Execute <em>Video Gen Delay Execute</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see videoGenTrace.Steps.VideoGen_Delay_Execute
-	 * @generated
-	 */
-	public Adapter createVideoGen_Delay_ExecuteAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link videoGenTrace.Steps.VideoGen_Delay_Execute_AbstractSubStep <em>Video Gen Delay Execute Abstract Sub Step</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see videoGenTrace.Steps.VideoGen_Delay_Execute_AbstractSubStep
-	 * @generated
-	 */
-	public Adapter createVideoGen_Delay_Execute_AbstractSubStepAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link videoGenTrace.Steps.VideoGen_Delay_Execute_ImplicitStep <em>Video Gen Delay Execute Implicit Step</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see videoGenTrace.Steps.VideoGen_Delay_Execute_ImplicitStep
-	 * @generated
-	 */
-	public Adapter createVideoGen_Delay_Execute_ImplicitStepAdapter() {
 		return null;
 	}
 
@@ -707,6 +665,48 @@ public class StepsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createVideoGen_VideoGen_Execute_ImplicitStepAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link videoGenTrace.Steps.VideoGen_VideoGen_InitializeModel <em>Video Gen Video Gen Initialize Model</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see videoGenTrace.Steps.VideoGen_VideoGen_InitializeModel
+	 * @generated
+	 */
+	public Adapter createVideoGen_VideoGen_InitializeModelAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link videoGenTrace.Steps.VideoGen_VideoGen_InitializeModel_AbstractSubStep <em>Video Gen Video Gen Initialize Model Abstract Sub Step</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see videoGenTrace.Steps.VideoGen_VideoGen_InitializeModel_AbstractSubStep
+	 * @generated
+	 */
+	public Adapter createVideoGen_VideoGen_InitializeModel_AbstractSubStepAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link videoGenTrace.Steps.VideoGen_VideoGen_InitializeModel_ImplicitStep <em>Video Gen Video Gen Initialize Model Implicit Step</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see videoGenTrace.Steps.VideoGen_VideoGen_InitializeModel_ImplicitStep
+	 * @generated
+	 */
+	public Adapter createVideoGen_VideoGen_InitializeModel_ImplicitStepAdapter() {
 		return null;
 	}
 

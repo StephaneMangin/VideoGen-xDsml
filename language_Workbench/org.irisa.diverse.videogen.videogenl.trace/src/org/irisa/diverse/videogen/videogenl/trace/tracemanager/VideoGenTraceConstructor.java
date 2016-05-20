@@ -108,9 +108,6 @@ public class VideoGenTraceConstructor implements ITraceConstructor {
 			if (step_cast instanceof videoGenTrace.Steps.VideoGen_Alternatives_Execute) {
 				videoGenTrace.Steps.VideoGen_Alternatives_Execute videoGen_Alternatives_ExecuteInstance = (videoGenTrace.Steps.VideoGen_Alternatives_Execute) step_cast;
 				traceRoot.getVideoGen_Alternatives_Execute_Sequence().add(videoGen_Alternatives_ExecuteInstance);
-			} else if (step_cast instanceof videoGenTrace.Steps.VideoGen_Delay_Execute) {
-				videoGenTrace.Steps.VideoGen_Delay_Execute videoGen_Delay_ExecuteInstance = (videoGenTrace.Steps.VideoGen_Delay_Execute) step_cast;
-				traceRoot.getVideoGen_Delay_Execute_Sequence().add(videoGen_Delay_ExecuteInstance);
 			} else if (step_cast instanceof videoGenTrace.Steps.VideoGen_Generate_Compute) {
 				videoGenTrace.Steps.VideoGen_Generate_Compute videoGen_Generate_ComputeInstance = (videoGenTrace.Steps.VideoGen_Generate_Compute) step_cast;
 				traceRoot.getVideoGen_Generate_Compute_Sequence().add(videoGen_Generate_ComputeInstance);
@@ -141,6 +138,10 @@ public class VideoGenTraceConstructor implements ITraceConstructor {
 			} else if (step_cast instanceof videoGenTrace.Steps.VideoGen_VideoGen_Execute) {
 				videoGenTrace.Steps.VideoGen_VideoGen_Execute videoGen_VideoGen_ExecuteInstance = (videoGenTrace.Steps.VideoGen_VideoGen_Execute) step_cast;
 				traceRoot.getVideoGen_VideoGen_Execute_Sequence().add(videoGen_VideoGen_ExecuteInstance);
+			} else if (step_cast instanceof videoGenTrace.Steps.VideoGen_VideoGen_InitializeModel) {
+				videoGenTrace.Steps.VideoGen_VideoGen_InitializeModel videoGen_VideoGen_InitializeModelInstance = (videoGenTrace.Steps.VideoGen_VideoGen_InitializeModel) step_cast;
+				traceRoot.getVideoGen_VideoGen_InitializeModel_Sequence()
+						.add(videoGen_VideoGen_InitializeModelInstance);
 			} else if (step_cast instanceof videoGenTrace.Steps.VideoGen_VideoGen_Setup) {
 				videoGenTrace.Steps.VideoGen_VideoGen_Setup videoGen_VideoGen_SetupInstance = (videoGenTrace.Steps.VideoGen_VideoGen_Setup) step_cast;
 				traceRoot.getVideoGen_VideoGen_Setup_Sequence().add(videoGen_VideoGen_SetupInstance);
@@ -157,8 +158,6 @@ public class VideoGenTraceConstructor implements ITraceConstructor {
 		if (currentStep instanceof videoGenTrace.Steps.VideoGen_Alternatives_Execute) {
 			implicitStep = videoGenTrace.Steps.StepsFactory.eINSTANCE
 					.createVideoGen_Alternatives_Execute_ImplicitStep();
-		} else if (currentStep instanceof videoGenTrace.Steps.VideoGen_Delay_Execute) {
-			implicitStep = videoGenTrace.Steps.StepsFactory.eINSTANCE.createVideoGen_Delay_Execute_ImplicitStep();
 		} else if (currentStep instanceof videoGenTrace.Steps.VideoGen_Generate_Compute) {
 			implicitStep = videoGenTrace.Steps.StepsFactory.eINSTANCE.createVideoGen_Generate_Compute_ImplicitStep();
 		} else if (currentStep instanceof videoGenTrace.Steps.VideoGen_Generate_Execute) {
@@ -175,6 +174,9 @@ public class VideoGenTraceConstructor implements ITraceConstructor {
 			implicitStep = videoGenTrace.Steps.StepsFactory.eINSTANCE.createVideoGen_Transition_Execute_ImplicitStep();
 		} else if (currentStep instanceof videoGenTrace.Steps.VideoGen_VideoGen_Execute) {
 			implicitStep = videoGenTrace.Steps.StepsFactory.eINSTANCE.createVideoGen_VideoGen_Execute_ImplicitStep();
+		} else if (currentStep instanceof videoGenTrace.Steps.VideoGen_VideoGen_InitializeModel) {
+			implicitStep = videoGenTrace.Steps.StepsFactory.eINSTANCE
+					.createVideoGen_VideoGen_InitializeModel_ImplicitStep();
 		}
 		if (implicitStep != null) {
 			implicitStep.setStartingState(startingState);

@@ -17,10 +17,6 @@ public class VideoGenTraceStepFactory implements IStepFactory {
 			step = videoGenTrace.Steps.StepsFactory.eINSTANCE.createVideoGen_Alternatives_Execute();
 		} else
 
-		if (stepRule.equalsIgnoreCase("videoGen.Delay.execute")) {
-			step = videoGenTrace.Steps.StepsFactory.eINSTANCE.createVideoGen_Delay_Execute();
-		} else
-
 		if (stepRule.equalsIgnoreCase("videoGen.Generate.compute")) {
 			step = videoGenTrace.Steps.StepsFactory.eINSTANCE.createVideoGen_Generate_Compute();
 		} else
@@ -69,6 +65,10 @@ public class VideoGenTraceStepFactory implements IStepFactory {
 
 		if (stepRule.equalsIgnoreCase("videoGen.VideoGen.execute")) {
 			step = videoGenTrace.Steps.StepsFactory.eINSTANCE.createVideoGen_VideoGen_Execute();
+		} else
+
+		if (stepRule.equalsIgnoreCase("videoGen.VideoGen.initializeModel")) {
+			step = videoGenTrace.Steps.StepsFactory.eINSTANCE.createVideoGen_VideoGen_InitializeModel();
 		} else
 
 		if (stepRule.equalsIgnoreCase("videoGen.VideoGen.setup")) {

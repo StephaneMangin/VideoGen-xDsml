@@ -1,0 +1,10 @@
+package org.irisa.diverse.videogen.videoGen.aspects;
+
+import fr.inria.diverse.k3.al.annotationprocessor.Aspect;
+import org.irisa.diverse.videogen.videoGen.Sequence;
+import org.irisa.diverse.videogen.videoGen.aspects.TransitionAspect;
+
+@Aspect(className = Sequence.class)
+@SuppressWarnings("all")
+public abstract class SequenceAspect extends TransitionAspect {
+}

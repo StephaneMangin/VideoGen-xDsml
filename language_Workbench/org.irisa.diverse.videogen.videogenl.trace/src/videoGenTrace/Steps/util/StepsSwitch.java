@@ -89,16 +89,14 @@ public class StepsSwitch<T> extends Switch<T> {
 			case StepsPackage.VIDEO_GEN_ALTERNATIVES_EXECUTE: {
 				VideoGen_Alternatives_Execute videoGen_Alternatives_Execute = (VideoGen_Alternatives_Execute)theEObject;
 				T result = caseVideoGen_Alternatives_Execute(videoGen_Alternatives_Execute);
+				if (result == null) result = caseVideoGen_Sequence_Execute_AbstractSubStep(videoGen_Alternatives_Execute);
 				if (result == null) result = caseSequentialStep(videoGen_Alternatives_Execute);
 				if (result == null) result = caseVideoGen_Alternatives_Execute_AbstractSubStep(videoGen_Alternatives_Execute);
 				if (result == null) result = caseVideoGen_Mandatory_Execute_AbstractSubStep(videoGen_Alternatives_Execute);
 				if (result == null) result = caseVideoGen_Optional_Execute_AbstractSubStep(videoGen_Alternatives_Execute);
 				if (result == null) result = caseVideoGen_Transition_Execute_AbstractSubStep(videoGen_Alternatives_Execute);
-				if (result == null) result = caseVideoGen_VideoGen_Execute_AbstractSubStep(videoGen_Alternatives_Execute);
-				if (result == null) result = caseVideoGen_Generate_Execute_AbstractSubStep(videoGen_Alternatives_Execute);
-				if (result == null) result = caseVideoGen_Delay_Execute_AbstractSubStep(videoGen_Alternatives_Execute);
 				if (result == null) result = caseVideoGen_Initialize_Execute_AbstractSubStep(videoGen_Alternatives_Execute);
-				if (result == null) result = caseVideoGen_Sequence_Execute_AbstractSubStep(videoGen_Alternatives_Execute);
+				if (result == null) result = caseVideoGen_Generate_Execute_AbstractSubStep(videoGen_Alternatives_Execute);
 				if (result == null) result = caseSpecificStep(videoGen_Alternatives_Execute);
 				if (result == null) result = caseBigStep(videoGen_Alternatives_Execute);
 				if (result == null) result = caseStep(videoGen_Alternatives_Execute);
@@ -120,43 +118,6 @@ public class StepsSwitch<T> extends Switch<T> {
 				if (result == null) result = caseSmallStep(videoGen_Alternatives_Execute_ImplicitStep);
 				if (result == null) result = caseSpecificStep(videoGen_Alternatives_Execute_ImplicitStep);
 				if (result == null) result = caseStep(videoGen_Alternatives_Execute_ImplicitStep);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case StepsPackage.VIDEO_GEN_DELAY_EXECUTE: {
-				VideoGen_Delay_Execute videoGen_Delay_Execute = (VideoGen_Delay_Execute)theEObject;
-				T result = caseVideoGen_Delay_Execute(videoGen_Delay_Execute);
-				if (result == null) result = caseVideoGen_Alternatives_Execute_AbstractSubStep(videoGen_Delay_Execute);
-				if (result == null) result = caseVideoGen_Mandatory_Execute_AbstractSubStep(videoGen_Delay_Execute);
-				if (result == null) result = caseVideoGen_Optional_Execute_AbstractSubStep(videoGen_Delay_Execute);
-				if (result == null) result = caseVideoGen_Transition_Execute_AbstractSubStep(videoGen_Delay_Execute);
-				if (result == null) result = caseVideoGen_VideoGen_Execute_AbstractSubStep(videoGen_Delay_Execute);
-				if (result == null) result = caseVideoGen_Generate_Execute_AbstractSubStep(videoGen_Delay_Execute);
-				if (result == null) result = caseSequentialStep(videoGen_Delay_Execute);
-				if (result == null) result = caseVideoGen_Delay_Execute_AbstractSubStep(videoGen_Delay_Execute);
-				if (result == null) result = caseVideoGen_Initialize_Execute_AbstractSubStep(videoGen_Delay_Execute);
-				if (result == null) result = caseVideoGen_Sequence_Execute_AbstractSubStep(videoGen_Delay_Execute);
-				if (result == null) result = caseSpecificStep(videoGen_Delay_Execute);
-				if (result == null) result = caseBigStep(videoGen_Delay_Execute);
-				if (result == null) result = caseStep(videoGen_Delay_Execute);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case StepsPackage.VIDEO_GEN_DELAY_EXECUTE_ABSTRACT_SUB_STEP: {
-				VideoGen_Delay_Execute_AbstractSubStep videoGen_Delay_Execute_AbstractSubStep = (VideoGen_Delay_Execute_AbstractSubStep)theEObject;
-				T result = caseVideoGen_Delay_Execute_AbstractSubStep(videoGen_Delay_Execute_AbstractSubStep);
-				if (result == null) result = caseSpecificStep(videoGen_Delay_Execute_AbstractSubStep);
-				if (result == null) result = caseStep(videoGen_Delay_Execute_AbstractSubStep);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case StepsPackage.VIDEO_GEN_DELAY_EXECUTE_IMPLICIT_STEP: {
-				VideoGen_Delay_Execute_ImplicitStep videoGen_Delay_Execute_ImplicitStep = (VideoGen_Delay_Execute_ImplicitStep)theEObject;
-				T result = caseVideoGen_Delay_Execute_ImplicitStep(videoGen_Delay_Execute_ImplicitStep);
-				if (result == null) result = caseVideoGen_Delay_Execute_AbstractSubStep(videoGen_Delay_Execute_ImplicitStep);
-				if (result == null) result = caseSmallStep(videoGen_Delay_Execute_ImplicitStep);
-				if (result == null) result = caseSpecificStep(videoGen_Delay_Execute_ImplicitStep);
-				if (result == null) result = caseStep(videoGen_Delay_Execute_ImplicitStep);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -192,16 +153,14 @@ public class StepsSwitch<T> extends Switch<T> {
 			case StepsPackage.VIDEO_GEN_GENERATE_EXECUTE: {
 				VideoGen_Generate_Execute videoGen_Generate_Execute = (VideoGen_Generate_Execute)theEObject;
 				T result = caseVideoGen_Generate_Execute(videoGen_Generate_Execute);
+				if (result == null) result = caseVideoGen_Sequence_Execute_AbstractSubStep(videoGen_Generate_Execute);
 				if (result == null) result = caseVideoGen_Alternatives_Execute_AbstractSubStep(videoGen_Generate_Execute);
 				if (result == null) result = caseVideoGen_Mandatory_Execute_AbstractSubStep(videoGen_Generate_Execute);
 				if (result == null) result = caseVideoGen_Optional_Execute_AbstractSubStep(videoGen_Generate_Execute);
 				if (result == null) result = caseVideoGen_Transition_Execute_AbstractSubStep(videoGen_Generate_Execute);
-				if (result == null) result = caseVideoGen_VideoGen_Execute_AbstractSubStep(videoGen_Generate_Execute);
+				if (result == null) result = caseVideoGen_Initialize_Execute_AbstractSubStep(videoGen_Generate_Execute);
 				if (result == null) result = caseSequentialStep(videoGen_Generate_Execute);
 				if (result == null) result = caseVideoGen_Generate_Execute_AbstractSubStep(videoGen_Generate_Execute);
-				if (result == null) result = caseVideoGen_Delay_Execute_AbstractSubStep(videoGen_Generate_Execute);
-				if (result == null) result = caseVideoGen_Initialize_Execute_AbstractSubStep(videoGen_Generate_Execute);
-				if (result == null) result = caseVideoGen_Sequence_Execute_AbstractSubStep(videoGen_Generate_Execute);
 				if (result == null) result = caseSpecificStep(videoGen_Generate_Execute);
 				if (result == null) result = caseBigStep(videoGen_Generate_Execute);
 				if (result == null) result = caseStep(videoGen_Generate_Execute);
@@ -229,16 +188,15 @@ public class StepsSwitch<T> extends Switch<T> {
 			case StepsPackage.VIDEO_GEN_INITIALIZE_EXECUTE: {
 				VideoGen_Initialize_Execute videoGen_Initialize_Execute = (VideoGen_Initialize_Execute)theEObject;
 				T result = caseVideoGen_Initialize_Execute(videoGen_Initialize_Execute);
+				if (result == null) result = caseVideoGen_Sequence_Execute_AbstractSubStep(videoGen_Initialize_Execute);
 				if (result == null) result = caseVideoGen_Alternatives_Execute_AbstractSubStep(videoGen_Initialize_Execute);
 				if (result == null) result = caseVideoGen_Mandatory_Execute_AbstractSubStep(videoGen_Initialize_Execute);
 				if (result == null) result = caseVideoGen_Optional_Execute_AbstractSubStep(videoGen_Initialize_Execute);
 				if (result == null) result = caseVideoGen_Transition_Execute_AbstractSubStep(videoGen_Initialize_Execute);
 				if (result == null) result = caseVideoGen_VideoGen_Execute_AbstractSubStep(videoGen_Initialize_Execute);
-				if (result == null) result = caseVideoGen_Generate_Execute_AbstractSubStep(videoGen_Initialize_Execute);
-				if (result == null) result = caseVideoGen_Delay_Execute_AbstractSubStep(videoGen_Initialize_Execute);
 				if (result == null) result = caseSequentialStep(videoGen_Initialize_Execute);
 				if (result == null) result = caseVideoGen_Initialize_Execute_AbstractSubStep(videoGen_Initialize_Execute);
-				if (result == null) result = caseVideoGen_Sequence_Execute_AbstractSubStep(videoGen_Initialize_Execute);
+				if (result == null) result = caseVideoGen_Generate_Execute_AbstractSubStep(videoGen_Initialize_Execute);
 				if (result == null) result = caseSpecificStep(videoGen_Initialize_Execute);
 				if (result == null) result = caseBigStep(videoGen_Initialize_Execute);
 				if (result == null) result = caseStep(videoGen_Initialize_Execute);
@@ -266,16 +224,14 @@ public class StepsSwitch<T> extends Switch<T> {
 			case StepsPackage.VIDEO_GEN_MANDATORY_EXECUTE: {
 				VideoGen_Mandatory_Execute videoGen_Mandatory_Execute = (VideoGen_Mandatory_Execute)theEObject;
 				T result = caseVideoGen_Mandatory_Execute(videoGen_Mandatory_Execute);
+				if (result == null) result = caseVideoGen_Sequence_Execute_AbstractSubStep(videoGen_Mandatory_Execute);
 				if (result == null) result = caseVideoGen_Alternatives_Execute_AbstractSubStep(videoGen_Mandatory_Execute);
 				if (result == null) result = caseSequentialStep(videoGen_Mandatory_Execute);
 				if (result == null) result = caseVideoGen_Mandatory_Execute_AbstractSubStep(videoGen_Mandatory_Execute);
 				if (result == null) result = caseVideoGen_Optional_Execute_AbstractSubStep(videoGen_Mandatory_Execute);
 				if (result == null) result = caseVideoGen_Transition_Execute_AbstractSubStep(videoGen_Mandatory_Execute);
-				if (result == null) result = caseVideoGen_VideoGen_Execute_AbstractSubStep(videoGen_Mandatory_Execute);
-				if (result == null) result = caseVideoGen_Generate_Execute_AbstractSubStep(videoGen_Mandatory_Execute);
-				if (result == null) result = caseVideoGen_Delay_Execute_AbstractSubStep(videoGen_Mandatory_Execute);
 				if (result == null) result = caseVideoGen_Initialize_Execute_AbstractSubStep(videoGen_Mandatory_Execute);
-				if (result == null) result = caseVideoGen_Sequence_Execute_AbstractSubStep(videoGen_Mandatory_Execute);
+				if (result == null) result = caseVideoGen_Generate_Execute_AbstractSubStep(videoGen_Mandatory_Execute);
 				if (result == null) result = caseSpecificStep(videoGen_Mandatory_Execute);
 				if (result == null) result = caseBigStep(videoGen_Mandatory_Execute);
 				if (result == null) result = caseStep(videoGen_Mandatory_Execute);
@@ -303,16 +259,14 @@ public class StepsSwitch<T> extends Switch<T> {
 			case StepsPackage.VIDEO_GEN_OPTIONAL_EXECUTE: {
 				VideoGen_Optional_Execute videoGen_Optional_Execute = (VideoGen_Optional_Execute)theEObject;
 				T result = caseVideoGen_Optional_Execute(videoGen_Optional_Execute);
+				if (result == null) result = caseVideoGen_Sequence_Execute_AbstractSubStep(videoGen_Optional_Execute);
 				if (result == null) result = caseVideoGen_Alternatives_Execute_AbstractSubStep(videoGen_Optional_Execute);
 				if (result == null) result = caseVideoGen_Mandatory_Execute_AbstractSubStep(videoGen_Optional_Execute);
 				if (result == null) result = caseSequentialStep(videoGen_Optional_Execute);
 				if (result == null) result = caseVideoGen_Optional_Execute_AbstractSubStep(videoGen_Optional_Execute);
 				if (result == null) result = caseVideoGen_Transition_Execute_AbstractSubStep(videoGen_Optional_Execute);
-				if (result == null) result = caseVideoGen_VideoGen_Execute_AbstractSubStep(videoGen_Optional_Execute);
-				if (result == null) result = caseVideoGen_Generate_Execute_AbstractSubStep(videoGen_Optional_Execute);
-				if (result == null) result = caseVideoGen_Delay_Execute_AbstractSubStep(videoGen_Optional_Execute);
 				if (result == null) result = caseVideoGen_Initialize_Execute_AbstractSubStep(videoGen_Optional_Execute);
-				if (result == null) result = caseVideoGen_Sequence_Execute_AbstractSubStep(videoGen_Optional_Execute);
+				if (result == null) result = caseVideoGen_Generate_Execute_AbstractSubStep(videoGen_Optional_Execute);
 				if (result == null) result = caseSpecificStep(videoGen_Optional_Execute);
 				if (result == null) result = caseBigStep(videoGen_Optional_Execute);
 				if (result == null) result = caseStep(videoGen_Optional_Execute);
@@ -340,16 +294,14 @@ public class StepsSwitch<T> extends Switch<T> {
 			case StepsPackage.VIDEO_GEN_SEQUENCE_EXECUTE: {
 				VideoGen_Sequence_Execute videoGen_Sequence_Execute = (VideoGen_Sequence_Execute)theEObject;
 				T result = caseVideoGen_Sequence_Execute(videoGen_Sequence_Execute);
+				if (result == null) result = caseSequentialStep(videoGen_Sequence_Execute);
+				if (result == null) result = caseVideoGen_Sequence_Execute_AbstractSubStep(videoGen_Sequence_Execute);
 				if (result == null) result = caseVideoGen_Alternatives_Execute_AbstractSubStep(videoGen_Sequence_Execute);
 				if (result == null) result = caseVideoGen_Mandatory_Execute_AbstractSubStep(videoGen_Sequence_Execute);
 				if (result == null) result = caseVideoGen_Optional_Execute_AbstractSubStep(videoGen_Sequence_Execute);
 				if (result == null) result = caseVideoGen_Transition_Execute_AbstractSubStep(videoGen_Sequence_Execute);
-				if (result == null) result = caseVideoGen_VideoGen_Execute_AbstractSubStep(videoGen_Sequence_Execute);
-				if (result == null) result = caseVideoGen_Generate_Execute_AbstractSubStep(videoGen_Sequence_Execute);
-				if (result == null) result = caseVideoGen_Delay_Execute_AbstractSubStep(videoGen_Sequence_Execute);
 				if (result == null) result = caseVideoGen_Initialize_Execute_AbstractSubStep(videoGen_Sequence_Execute);
-				if (result == null) result = caseSequentialStep(videoGen_Sequence_Execute);
-				if (result == null) result = caseVideoGen_Sequence_Execute_AbstractSubStep(videoGen_Sequence_Execute);
+				if (result == null) result = caseVideoGen_Generate_Execute_AbstractSubStep(videoGen_Sequence_Execute);
 				if (result == null) result = caseSpecificStep(videoGen_Sequence_Execute);
 				if (result == null) result = caseBigStep(videoGen_Sequence_Execute);
 				if (result == null) result = caseStep(videoGen_Sequence_Execute);
@@ -377,16 +329,13 @@ public class StepsSwitch<T> extends Switch<T> {
 			case StepsPackage.VIDEO_GEN_TRANSITION_EXECUTE: {
 				VideoGen_Transition_Execute videoGen_Transition_Execute = (VideoGen_Transition_Execute)theEObject;
 				T result = caseVideoGen_Transition_Execute(videoGen_Transition_Execute);
+				if (result == null) result = caseVideoGen_Sequence_Execute_AbstractSubStep(videoGen_Transition_Execute);
 				if (result == null) result = caseVideoGen_Alternatives_Execute_AbstractSubStep(videoGen_Transition_Execute);
 				if (result == null) result = caseVideoGen_Mandatory_Execute_AbstractSubStep(videoGen_Transition_Execute);
 				if (result == null) result = caseVideoGen_Optional_Execute_AbstractSubStep(videoGen_Transition_Execute);
 				if (result == null) result = caseSequentialStep(videoGen_Transition_Execute);
-				if (result == null) result = caseVideoGen_Transition_Execute_AbstractSubStep(videoGen_Transition_Execute);
-				if (result == null) result = caseVideoGen_VideoGen_Execute_AbstractSubStep(videoGen_Transition_Execute);
-				if (result == null) result = caseVideoGen_Generate_Execute_AbstractSubStep(videoGen_Transition_Execute);
-				if (result == null) result = caseVideoGen_Delay_Execute_AbstractSubStep(videoGen_Transition_Execute);
 				if (result == null) result = caseVideoGen_Initialize_Execute_AbstractSubStep(videoGen_Transition_Execute);
-				if (result == null) result = caseVideoGen_Sequence_Execute_AbstractSubStep(videoGen_Transition_Execute);
+				if (result == null) result = caseVideoGen_Generate_Execute_AbstractSubStep(videoGen_Transition_Execute);
 				if (result == null) result = caseSpecificStep(videoGen_Transition_Execute);
 				if (result == null) result = caseBigStep(videoGen_Transition_Execute);
 				if (result == null) result = caseStep(videoGen_Transition_Execute);
@@ -449,11 +398,40 @@ public class StepsSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case StepsPackage.VIDEO_GEN_VIDEO_GEN_INITIALIZE_MODEL: {
+				VideoGen_VideoGen_InitializeModel videoGen_VideoGen_InitializeModel = (VideoGen_VideoGen_InitializeModel)theEObject;
+				T result = caseVideoGen_VideoGen_InitializeModel(videoGen_VideoGen_InitializeModel);
+				if (result == null) result = caseSequentialStep(videoGen_VideoGen_InitializeModel);
+				if (result == null) result = caseVideoGen_Generate_Execute_AbstractSubStep(videoGen_VideoGen_InitializeModel);
+				if (result == null) result = caseSpecificStep(videoGen_VideoGen_InitializeModel);
+				if (result == null) result = caseBigStep(videoGen_VideoGen_InitializeModel);
+				if (result == null) result = caseStep(videoGen_VideoGen_InitializeModel);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case StepsPackage.VIDEO_GEN_VIDEO_GEN_INITIALIZE_MODEL_ABSTRACT_SUB_STEP: {
+				VideoGen_VideoGen_InitializeModel_AbstractSubStep videoGen_VideoGen_InitializeModel_AbstractSubStep = (VideoGen_VideoGen_InitializeModel_AbstractSubStep)theEObject;
+				T result = caseVideoGen_VideoGen_InitializeModel_AbstractSubStep(videoGen_VideoGen_InitializeModel_AbstractSubStep);
+				if (result == null) result = caseSpecificStep(videoGen_VideoGen_InitializeModel_AbstractSubStep);
+				if (result == null) result = caseStep(videoGen_VideoGen_InitializeModel_AbstractSubStep);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case StepsPackage.VIDEO_GEN_VIDEO_GEN_INITIALIZE_MODEL_IMPLICIT_STEP: {
+				VideoGen_VideoGen_InitializeModel_ImplicitStep videoGen_VideoGen_InitializeModel_ImplicitStep = (VideoGen_VideoGen_InitializeModel_ImplicitStep)theEObject;
+				T result = caseVideoGen_VideoGen_InitializeModel_ImplicitStep(videoGen_VideoGen_InitializeModel_ImplicitStep);
+				if (result == null) result = caseVideoGen_VideoGen_InitializeModel_AbstractSubStep(videoGen_VideoGen_InitializeModel_ImplicitStep);
+				if (result == null) result = caseSmallStep(videoGen_VideoGen_InitializeModel_ImplicitStep);
+				if (result == null) result = caseSpecificStep(videoGen_VideoGen_InitializeModel_ImplicitStep);
+				if (result == null) result = caseStep(videoGen_VideoGen_InitializeModel_ImplicitStep);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case StepsPackage.VIDEO_GEN_VIDEO_GEN_SETUP: {
 				VideoGen_VideoGen_Setup videoGen_VideoGen_Setup = (VideoGen_VideoGen_Setup)theEObject;
 				T result = caseVideoGen_VideoGen_Setup(videoGen_VideoGen_Setup);
+				if (result == null) result = caseVideoGen_VideoGen_InitializeModel_AbstractSubStep(videoGen_VideoGen_Setup);
 				if (result == null) result = caseSmallStep(videoGen_VideoGen_Setup);
-				if (result == null) result = caseVideoGen_Generate_Execute_AbstractSubStep(videoGen_VideoGen_Setup);
 				if (result == null) result = caseSpecificStep(videoGen_VideoGen_Setup);
 				if (result == null) result = caseStep(videoGen_VideoGen_Setup);
 				if (result == null) result = defaultCase(theEObject);
@@ -547,51 +525,6 @@ public class StepsSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseVideoGen_Alternatives_Execute_ImplicitStep(VideoGen_Alternatives_Execute_ImplicitStep object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Video Gen Delay Execute</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Video Gen Delay Execute</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseVideoGen_Delay_Execute(VideoGen_Delay_Execute object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Video Gen Delay Execute Abstract Sub Step</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Video Gen Delay Execute Abstract Sub Step</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseVideoGen_Delay_Execute_AbstractSubStep(VideoGen_Delay_Execute_AbstractSubStep object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Video Gen Delay Execute Implicit Step</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Video Gen Delay Execute Implicit Step</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseVideoGen_Delay_Execute_ImplicitStep(VideoGen_Delay_Execute_ImplicitStep object) {
 		return null;
 	}
 
@@ -967,6 +900,51 @@ public class StepsSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseVideoGen_VideoGen_Execute_ImplicitStep(VideoGen_VideoGen_Execute_ImplicitStep object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Video Gen Video Gen Initialize Model</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Video Gen Video Gen Initialize Model</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseVideoGen_VideoGen_InitializeModel(VideoGen_VideoGen_InitializeModel object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Video Gen Video Gen Initialize Model Abstract Sub Step</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Video Gen Video Gen Initialize Model Abstract Sub Step</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseVideoGen_VideoGen_InitializeModel_AbstractSubStep(VideoGen_VideoGen_InitializeModel_AbstractSubStep object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Video Gen Video Gen Initialize Model Implicit Step</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Video Gen Video Gen Initialize Model Implicit Step</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseVideoGen_VideoGen_InitializeModel_ImplicitStep(VideoGen_VideoGen_InitializeModel_ImplicitStep object) {
 		return null;
 	}
 

@@ -59,8 +59,6 @@ public class StepsFactoryImpl extends EFactoryImpl implements StepsFactory {
 			case StepsPackage.ROOT_IMPLICIT_STEP: return createRootImplicitStep();
 			case StepsPackage.VIDEO_GEN_ALTERNATIVES_EXECUTE: return createVideoGen_Alternatives_Execute();
 			case StepsPackage.VIDEO_GEN_ALTERNATIVES_EXECUTE_IMPLICIT_STEP: return createVideoGen_Alternatives_Execute_ImplicitStep();
-			case StepsPackage.VIDEO_GEN_DELAY_EXECUTE: return createVideoGen_Delay_Execute();
-			case StepsPackage.VIDEO_GEN_DELAY_EXECUTE_IMPLICIT_STEP: return createVideoGen_Delay_Execute_ImplicitStep();
 			case StepsPackage.VIDEO_GEN_GENERATE_COMPUTE: return createVideoGen_Generate_Compute();
 			case StepsPackage.VIDEO_GEN_GENERATE_COMPUTE_IMPLICIT_STEP: return createVideoGen_Generate_Compute_ImplicitStep();
 			case StepsPackage.VIDEO_GEN_GENERATE_EXECUTE: return createVideoGen_Generate_Execute();
@@ -78,6 +76,8 @@ public class StepsFactoryImpl extends EFactoryImpl implements StepsFactory {
 			case StepsPackage.VIDEO_GEN_VIDEO_GEN_COMPUTE: return createVideoGen_VideoGen_Compute();
 			case StepsPackage.VIDEO_GEN_VIDEO_GEN_EXECUTE: return createVideoGen_VideoGen_Execute();
 			case StepsPackage.VIDEO_GEN_VIDEO_GEN_EXECUTE_IMPLICIT_STEP: return createVideoGen_VideoGen_Execute_ImplicitStep();
+			case StepsPackage.VIDEO_GEN_VIDEO_GEN_INITIALIZE_MODEL: return createVideoGen_VideoGen_InitializeModel();
+			case StepsPackage.VIDEO_GEN_VIDEO_GEN_INITIALIZE_MODEL_IMPLICIT_STEP: return createVideoGen_VideoGen_InitializeModel_ImplicitStep();
 			case StepsPackage.VIDEO_GEN_VIDEO_GEN_SETUP: return createVideoGen_VideoGen_Setup();
 			case StepsPackage.VIDEO_GEN_VIDEO_SELECT: return createVideoGen_Video_Select();
 			default:
@@ -113,26 +113,6 @@ public class StepsFactoryImpl extends EFactoryImpl implements StepsFactory {
 	public VideoGen_Alternatives_Execute_ImplicitStep createVideoGen_Alternatives_Execute_ImplicitStep() {
 		VideoGen_Alternatives_Execute_ImplicitStepImpl videoGen_Alternatives_Execute_ImplicitStep = new VideoGen_Alternatives_Execute_ImplicitStepImpl();
 		return videoGen_Alternatives_Execute_ImplicitStep;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public VideoGen_Delay_Execute createVideoGen_Delay_Execute() {
-		VideoGen_Delay_ExecuteImpl videoGen_Delay_Execute = new VideoGen_Delay_ExecuteImpl();
-		return videoGen_Delay_Execute;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public VideoGen_Delay_Execute_ImplicitStep createVideoGen_Delay_Execute_ImplicitStep() {
-		VideoGen_Delay_Execute_ImplicitStepImpl videoGen_Delay_Execute_ImplicitStep = new VideoGen_Delay_Execute_ImplicitStepImpl();
-		return videoGen_Delay_Execute_ImplicitStep;
 	}
 
 	/**
@@ -303,6 +283,26 @@ public class StepsFactoryImpl extends EFactoryImpl implements StepsFactory {
 	public VideoGen_VideoGen_Execute_ImplicitStep createVideoGen_VideoGen_Execute_ImplicitStep() {
 		VideoGen_VideoGen_Execute_ImplicitStepImpl videoGen_VideoGen_Execute_ImplicitStep = new VideoGen_VideoGen_Execute_ImplicitStepImpl();
 		return videoGen_VideoGen_Execute_ImplicitStep;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public VideoGen_VideoGen_InitializeModel createVideoGen_VideoGen_InitializeModel() {
+		VideoGen_VideoGen_InitializeModelImpl videoGen_VideoGen_InitializeModel = new VideoGen_VideoGen_InitializeModelImpl();
+		return videoGen_VideoGen_InitializeModel;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public VideoGen_VideoGen_InitializeModel_ImplicitStep createVideoGen_VideoGen_InitializeModel_ImplicitStep() {
+		VideoGen_VideoGen_InitializeModel_ImplicitStepImpl videoGen_VideoGen_InitializeModel_ImplicitStep = new VideoGen_VideoGen_InitializeModel_ImplicitStepImpl();
+		return videoGen_VideoGen_InitializeModel_ImplicitStep;
 	}
 
 	/**

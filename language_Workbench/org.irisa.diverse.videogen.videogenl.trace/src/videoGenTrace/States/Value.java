@@ -34,7 +34,7 @@ public interface Value extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>States No Opposite</em>' reference list.
 	 * @see videoGenTrace.States.StatesPackage#getValue_StatesNoOpposite()
-	 * @model required="true" changeable="false" volatile="true" derived="true"
+	 * @model required="true" transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */
 	EList<State> getStatesNoOpposite();

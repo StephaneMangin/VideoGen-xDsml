@@ -1,0 +1,93 @@
+package org.irisa.diverse.videogen.videoGen.aspects;
+
+import fr.inria.diverse.k3.al.annotationprocessor.Aspect;
+import fr.inria.diverse.k3.al.annotationprocessor.Step;
+import java.util.ArrayList;
+import org.eclipse.xtext.xbase.lib.CollectionLiterals;
+import org.irisa.diverse.videogen.videoGen.Generate;
+import org.irisa.diverse.videogen.videoGen.Transition;
+import org.irisa.diverse.videogen.videoGen.VideoGen;
+import org.irisa.diverse.videogen.videoGen.aspects.GenerateAspectGenerateAspectProperties;
+import org.irisa.diverse.videogen.videoGen.aspects.TransitionAspect;
+import org.irisa.diverse.videogen.videoGen.aspects.VideoGenAspect;
+import org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor;
+
+@Aspect(className = Generate.class)
+@SuppressWarnings("all")
+public class GenerateAspect extends TransitionAspect {
+  @Step
+  public static void execute(final Generate _self, final VideoGen videoGen) {
+    final org.irisa.diverse.videogen.videoGen.aspects.GenerateAspectGenerateAspectProperties _self_ = org.irisa.diverse.videogen.videoGen.aspects.GenerateAspectGenerateAspectContext.getSelf(_self);
+     if (_self instanceof org.irisa.diverse.videogen.videoGen.Generate){
+    					fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand command = new fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand() {
+    						@Override
+    						public void execute() {
+    							org.irisa.diverse.videogen.videoGen.aspects.GenerateAspect._privk3_execute(_self_, (org.irisa.diverse.videogen.videoGen.Generate)_self,videoGen);
+    						}
+    					};
+    					fr.inria.diverse.k3.al.annotationprocessor.stepmanager.IStepManager manager = fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepManagerRegistry.getInstance().findStepManager(_self);
+    					if (manager != null) {
+    						manager.executeStep(_self,command,"Generate","execute");
+    					} else {
+    						command.execute();
+    					}
+    					;
+    } else  if (_self instanceof org.irisa.diverse.videogen.videoGen.Transition){
+    					org.irisa.diverse.videogen.videoGen.aspects.TransitionAspect.execute((org.irisa.diverse.videogen.videoGen.Transition)_self,videoGen);
+    } else  { throw new IllegalArgumentException("Unhandled parameter types: " + java.util.Arrays.<Object>asList(_self).toString()); };
+  }
+  
+  /**
+   * Call VideogGen.compute()
+   */
+  @Step
+  public static void compute(final Generate _self, final VideoGen videoGen) {
+    final org.irisa.diverse.videogen.videoGen.aspects.GenerateAspectGenerateAspectProperties _self_ = org.irisa.diverse.videogen.videoGen.aspects.GenerateAspectGenerateAspectContext.getSelf(_self);
+    fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand command = new fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand() {
+    	@Override
+    	public void execute() {
+    		_privk3_compute(_self_, _self,videoGen);
+    	}
+    };
+    fr.inria.diverse.k3.al.annotationprocessor.stepmanager.IStepManager manager = fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepManagerRegistry.getInstance().findStepManager(_self);
+    if (manager != null) {
+    	manager.executeStep(_self,command,"Generate","compute");
+    } else {
+    	command.execute();
+    }
+    ;;
+  }
+  
+  protected static void _privk3_execute(final GenerateAspectGenerateAspectProperties _self_, final Generate _self, final VideoGen videoGen) {
+    Boolean _executed = TransitionAspect.executed(_self);
+    boolean _not = (!(_executed).booleanValue());
+    if (_not) {
+      GenerateAspect.compute(_self, videoGen);
+      ArrayList<String> _newArrayList = CollectionLiterals.<String>newArrayList("noreset");
+      VideoGenAspect.initializeModel(videoGen, _newArrayList);
+    }
+    VideoGenAspect.log.info((("##### \'" + _self) + "\' is being processed."));
+    VideoGenUserContraintsVisitor _videoGenUserContraintsVisitor = new VideoGenUserContraintsVisitor();
+    Integer _minUserConstraint = videoGen.getMinUserConstraint();
+    Integer _maxUserConstraint = videoGen.getMaxUserConstraint();
+    _videoGenUserContraintsVisitor.visit(videoGen, (_minUserConstraint).intValue(), (_maxUserConstraint).intValue());
+    Boolean _executed_1 = TransitionAspect.executed(_self);
+    boolean _not_1 = (!(_executed_1).booleanValue());
+    if (_not_1) {
+      Transition _nextTransition = _self.getNextTransition();
+      boolean _tripleNotEquals = (_nextTransition != null);
+      if (_tripleNotEquals) {
+        TransitionAspect.executed(_self, Boolean.valueOf(true));
+        Boolean _callnextTransition = TransitionAspect.callnextTransition(_self);
+        if ((_callnextTransition).booleanValue()) {
+          Transition _nextTransition_1 = _self.getNextTransition();
+          TransitionAspect.execute(_nextTransition_1, videoGen);
+        }
+      }
+    }
+  }
+  
+  protected static void _privk3_compute(final GenerateAspectGenerateAspectProperties _self_, final Generate _self, final VideoGen videoGen) {
+    VideoGenAspect.compute(videoGen);
+  }
+}

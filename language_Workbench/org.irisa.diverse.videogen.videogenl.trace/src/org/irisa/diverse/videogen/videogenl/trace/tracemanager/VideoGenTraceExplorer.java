@@ -789,7 +789,8 @@ public class VideoGenTraceExplorer implements ITraceExplorer {
 			computeExplorerState(newPath);
 			update();
 		} else {
-			throw new IllegalArgumentException("ArduinoTraceExplorer expects arduino-specific steps");
+			throw new IllegalArgumentException("VideoGenTraceExplorer expects specific steps and cannot handle this: "
+					+ step);
 		}
 	}
 

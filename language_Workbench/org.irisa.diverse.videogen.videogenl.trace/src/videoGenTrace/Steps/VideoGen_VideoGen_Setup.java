@@ -16,7 +16,7 @@ import org.irisa.diverse.videogen.videoGen.VideoGen;
  * @model
  * @generated
  */
-public interface VideoGen_VideoGen_Setup extends SpecificStep, SmallStep, VideoGen_Generate_Execute_AbstractSubStep {
+public interface VideoGen_VideoGen_Setup extends VideoGen_VideoGen_InitializeModel_AbstractSubStep, SpecificStep, SmallStep {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

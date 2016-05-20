@@ -25,9 +25,6 @@ import videoGenTrace.Steps.StepsPackage;
 import videoGenTrace.Steps.VideoGen_Alternatives_Execute;
 import videoGenTrace.Steps.VideoGen_Alternatives_Execute_AbstractSubStep;
 import videoGenTrace.Steps.VideoGen_Alternatives_Execute_ImplicitStep;
-import videoGenTrace.Steps.VideoGen_Delay_Execute;
-import videoGenTrace.Steps.VideoGen_Delay_Execute_AbstractSubStep;
-import videoGenTrace.Steps.VideoGen_Delay_Execute_ImplicitStep;
 import videoGenTrace.Steps.VideoGen_Generate_Compute;
 import videoGenTrace.Steps.VideoGen_Generate_Compute_AbstractSubStep;
 import videoGenTrace.Steps.VideoGen_Generate_Compute_ImplicitStep;
@@ -53,6 +50,9 @@ import videoGenTrace.Steps.VideoGen_VideoGen_Compute;
 import videoGenTrace.Steps.VideoGen_VideoGen_Execute;
 import videoGenTrace.Steps.VideoGen_VideoGen_Execute_AbstractSubStep;
 import videoGenTrace.Steps.VideoGen_VideoGen_Execute_ImplicitStep;
+import videoGenTrace.Steps.VideoGen_VideoGen_InitializeModel;
+import videoGenTrace.Steps.VideoGen_VideoGen_InitializeModel_AbstractSubStep;
+import videoGenTrace.Steps.VideoGen_VideoGen_InitializeModel_ImplicitStep;
 import videoGenTrace.Steps.VideoGen_VideoGen_Setup;
 import videoGenTrace.Steps.VideoGen_Video_Select;
 
@@ -101,27 +101,6 @@ public class StepsPackageImpl extends EPackageImpl implements StepsPackage {
 	 * @generated
 	 */
 	private EClass videoGen_Alternatives_Execute_ImplicitStepEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass videoGen_Delay_ExecuteEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass videoGen_Delay_Execute_AbstractSubStepEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass videoGen_Delay_Execute_ImplicitStepEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -303,6 +282,27 @@ public class StepsPackageImpl extends EPackageImpl implements StepsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass videoGen_VideoGen_InitializeModelEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass videoGen_VideoGen_InitializeModel_AbstractSubStepEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass videoGen_VideoGen_InitializeModel_ImplicitStepEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass videoGen_VideoGen_SetupEClass = null;
 
 	/**
@@ -455,42 +455,6 @@ public class StepsPackageImpl extends EPackageImpl implements StepsPackage {
 	 */
 	public EClass getVideoGen_Alternatives_Execute_ImplicitStep() {
 		return videoGen_Alternatives_Execute_ImplicitStepEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getVideoGen_Delay_Execute() {
-		return videoGen_Delay_ExecuteEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getVideoGen_Delay_Execute__GetCaller() {
-		return videoGen_Delay_ExecuteEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getVideoGen_Delay_Execute_AbstractSubStep() {
-		return videoGen_Delay_Execute_AbstractSubStepEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getVideoGen_Delay_Execute_ImplicitStep() {
-		return videoGen_Delay_Execute_ImplicitStepEClass;
 	}
 
 	/**
@@ -804,6 +768,42 @@ public class StepsPackageImpl extends EPackageImpl implements StepsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getVideoGen_VideoGen_InitializeModel() {
+		return videoGen_VideoGen_InitializeModelEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getVideoGen_VideoGen_InitializeModel__GetCaller() {
+		return videoGen_VideoGen_InitializeModelEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getVideoGen_VideoGen_InitializeModel_AbstractSubStep() {
+		return videoGen_VideoGen_InitializeModel_AbstractSubStepEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getVideoGen_VideoGen_InitializeModel_ImplicitStep() {
+		return videoGen_VideoGen_InitializeModel_ImplicitStepEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getVideoGen_VideoGen_Setup() {
 		return videoGen_VideoGen_SetupEClass;
 	}
@@ -876,13 +876,6 @@ public class StepsPackageImpl extends EPackageImpl implements StepsPackage {
 
 		videoGen_Alternatives_Execute_ImplicitStepEClass = createEClass(VIDEO_GEN_ALTERNATIVES_EXECUTE_IMPLICIT_STEP);
 
-		videoGen_Delay_ExecuteEClass = createEClass(VIDEO_GEN_DELAY_EXECUTE);
-		createEOperation(videoGen_Delay_ExecuteEClass, VIDEO_GEN_DELAY_EXECUTE___GET_CALLER);
-
-		videoGen_Delay_Execute_AbstractSubStepEClass = createEClass(VIDEO_GEN_DELAY_EXECUTE_ABSTRACT_SUB_STEP);
-
-		videoGen_Delay_Execute_ImplicitStepEClass = createEClass(VIDEO_GEN_DELAY_EXECUTE_IMPLICIT_STEP);
-
 		videoGen_Generate_ComputeEClass = createEClass(VIDEO_GEN_GENERATE_COMPUTE);
 		createEOperation(videoGen_Generate_ComputeEClass, VIDEO_GEN_GENERATE_COMPUTE___GET_CALLER);
 
@@ -942,6 +935,13 @@ public class StepsPackageImpl extends EPackageImpl implements StepsPackage {
 
 		videoGen_VideoGen_Execute_ImplicitStepEClass = createEClass(VIDEO_GEN_VIDEO_GEN_EXECUTE_IMPLICIT_STEP);
 
+		videoGen_VideoGen_InitializeModelEClass = createEClass(VIDEO_GEN_VIDEO_GEN_INITIALIZE_MODEL);
+		createEOperation(videoGen_VideoGen_InitializeModelEClass, VIDEO_GEN_VIDEO_GEN_INITIALIZE_MODEL___GET_CALLER);
+
+		videoGen_VideoGen_InitializeModel_AbstractSubStepEClass = createEClass(VIDEO_GEN_VIDEO_GEN_INITIALIZE_MODEL_ABSTRACT_SUB_STEP);
+
+		videoGen_VideoGen_InitializeModel_ImplicitStepEClass = createEClass(VIDEO_GEN_VIDEO_GEN_INITIALIZE_MODEL_IMPLICIT_STEP);
+
 		videoGen_VideoGen_SetupEClass = createEClass(VIDEO_GEN_VIDEO_GEN_SETUP);
 		createEOperation(videoGen_VideoGen_SetupEClass, VIDEO_GEN_VIDEO_GEN_SETUP___GET_CALLER);
 
@@ -984,7 +984,9 @@ public class StepsPackageImpl extends EPackageImpl implements StepsPackage {
 		// Add supertypes to classes
 		rootImplicitStepEClass.getESuperTypes().add(theMsePackage.getSmallStep());
 		specificStepEClass.getESuperTypes().add(theMsePackage.getStep());
-		EGenericType g1 = createEGenericType(this.getSpecificStep());
+		EGenericType g1 = createEGenericType(this.getVideoGen_Sequence_Execute_AbstractSubStep());
+		videoGen_Alternatives_ExecuteEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(this.getSpecificStep());
 		videoGen_Alternatives_ExecuteEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(theMsePackage.getSequentialStep());
 		EGenericType g2 = createEGenericType(this.getVideoGen_Alternatives_Execute_AbstractSubStep());
@@ -998,46 +1000,13 @@ public class StepsPackageImpl extends EPackageImpl implements StepsPackage {
 		videoGen_Alternatives_ExecuteEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(this.getVideoGen_Transition_Execute_AbstractSubStep());
 		videoGen_Alternatives_ExecuteEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(this.getVideoGen_VideoGen_Execute_AbstractSubStep());
-		videoGen_Alternatives_ExecuteEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(this.getVideoGen_Generate_Execute_AbstractSubStep());
-		videoGen_Alternatives_ExecuteEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(this.getVideoGen_Delay_Execute_AbstractSubStep());
-		videoGen_Alternatives_ExecuteEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(this.getVideoGen_Initialize_Execute_AbstractSubStep());
 		videoGen_Alternatives_ExecuteEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(this.getVideoGen_Sequence_Execute_AbstractSubStep());
+		g1 = createEGenericType(this.getVideoGen_Generate_Execute_AbstractSubStep());
 		videoGen_Alternatives_ExecuteEClass.getEGenericSuperTypes().add(g1);
 		videoGen_Alternatives_Execute_AbstractSubStepEClass.getESuperTypes().add(this.getSpecificStep());
 		videoGen_Alternatives_Execute_ImplicitStepEClass.getESuperTypes().add(this.getVideoGen_Alternatives_Execute_AbstractSubStep());
 		videoGen_Alternatives_Execute_ImplicitStepEClass.getESuperTypes().add(theMsePackage.getSmallStep());
-		g1 = createEGenericType(this.getVideoGen_Alternatives_Execute_AbstractSubStep());
-		videoGen_Delay_ExecuteEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(this.getVideoGen_Mandatory_Execute_AbstractSubStep());
-		videoGen_Delay_ExecuteEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(this.getVideoGen_Optional_Execute_AbstractSubStep());
-		videoGen_Delay_ExecuteEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(this.getVideoGen_Transition_Execute_AbstractSubStep());
-		videoGen_Delay_ExecuteEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(this.getVideoGen_VideoGen_Execute_AbstractSubStep());
-		videoGen_Delay_ExecuteEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(this.getVideoGen_Generate_Execute_AbstractSubStep());
-		videoGen_Delay_ExecuteEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(this.getSpecificStep());
-		videoGen_Delay_ExecuteEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(theMsePackage.getSequentialStep());
-		g2 = createEGenericType(this.getVideoGen_Delay_Execute_AbstractSubStep());
-		g1.getETypeArguments().add(g2);
-		videoGen_Delay_ExecuteEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(this.getVideoGen_Delay_Execute_AbstractSubStep());
-		videoGen_Delay_ExecuteEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(this.getVideoGen_Initialize_Execute_AbstractSubStep());
-		videoGen_Delay_ExecuteEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(this.getVideoGen_Sequence_Execute_AbstractSubStep());
-		videoGen_Delay_ExecuteEClass.getEGenericSuperTypes().add(g1);
-		videoGen_Delay_Execute_AbstractSubStepEClass.getESuperTypes().add(this.getSpecificStep());
-		videoGen_Delay_Execute_ImplicitStepEClass.getESuperTypes().add(this.getVideoGen_Delay_Execute_AbstractSubStep());
-		videoGen_Delay_Execute_ImplicitStepEClass.getESuperTypes().add(theMsePackage.getSmallStep());
 		g1 = createEGenericType(this.getSpecificStep());
 		videoGen_Generate_ComputeEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(theMsePackage.getSequentialStep());
@@ -1049,6 +1018,8 @@ public class StepsPackageImpl extends EPackageImpl implements StepsPackage {
 		videoGen_Generate_Compute_AbstractSubStepEClass.getESuperTypes().add(this.getSpecificStep());
 		videoGen_Generate_Compute_ImplicitStepEClass.getESuperTypes().add(this.getVideoGen_Generate_Compute_AbstractSubStep());
 		videoGen_Generate_Compute_ImplicitStepEClass.getESuperTypes().add(theMsePackage.getSmallStep());
+		g1 = createEGenericType(this.getVideoGen_Sequence_Execute_AbstractSubStep());
+		videoGen_Generate_ExecuteEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(this.getVideoGen_Alternatives_Execute_AbstractSubStep());
 		videoGen_Generate_ExecuteEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(this.getVideoGen_Mandatory_Execute_AbstractSubStep());
@@ -1057,7 +1028,7 @@ public class StepsPackageImpl extends EPackageImpl implements StepsPackage {
 		videoGen_Generate_ExecuteEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(this.getVideoGen_Transition_Execute_AbstractSubStep());
 		videoGen_Generate_ExecuteEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(this.getVideoGen_VideoGen_Execute_AbstractSubStep());
+		g1 = createEGenericType(this.getVideoGen_Initialize_Execute_AbstractSubStep());
 		videoGen_Generate_ExecuteEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(this.getSpecificStep());
 		videoGen_Generate_ExecuteEClass.getEGenericSuperTypes().add(g1);
@@ -1067,15 +1038,11 @@ public class StepsPackageImpl extends EPackageImpl implements StepsPackage {
 		videoGen_Generate_ExecuteEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(this.getVideoGen_Generate_Execute_AbstractSubStep());
 		videoGen_Generate_ExecuteEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(this.getVideoGen_Delay_Execute_AbstractSubStep());
-		videoGen_Generate_ExecuteEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(this.getVideoGen_Initialize_Execute_AbstractSubStep());
-		videoGen_Generate_ExecuteEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(this.getVideoGen_Sequence_Execute_AbstractSubStep());
-		videoGen_Generate_ExecuteEClass.getEGenericSuperTypes().add(g1);
 		videoGen_Generate_Execute_AbstractSubStepEClass.getESuperTypes().add(this.getSpecificStep());
 		videoGen_Generate_Execute_ImplicitStepEClass.getESuperTypes().add(this.getVideoGen_Generate_Execute_AbstractSubStep());
 		videoGen_Generate_Execute_ImplicitStepEClass.getESuperTypes().add(theMsePackage.getSmallStep());
+		g1 = createEGenericType(this.getVideoGen_Sequence_Execute_AbstractSubStep());
+		videoGen_Initialize_ExecuteEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(this.getVideoGen_Alternatives_Execute_AbstractSubStep());
 		videoGen_Initialize_ExecuteEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(this.getVideoGen_Mandatory_Execute_AbstractSubStep());
@@ -1086,10 +1053,6 @@ public class StepsPackageImpl extends EPackageImpl implements StepsPackage {
 		videoGen_Initialize_ExecuteEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(this.getVideoGen_VideoGen_Execute_AbstractSubStep());
 		videoGen_Initialize_ExecuteEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(this.getVideoGen_Generate_Execute_AbstractSubStep());
-		videoGen_Initialize_ExecuteEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(this.getVideoGen_Delay_Execute_AbstractSubStep());
-		videoGen_Initialize_ExecuteEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(this.getSpecificStep());
 		videoGen_Initialize_ExecuteEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(theMsePackage.getSequentialStep());
@@ -1098,11 +1061,13 @@ public class StepsPackageImpl extends EPackageImpl implements StepsPackage {
 		videoGen_Initialize_ExecuteEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(this.getVideoGen_Initialize_Execute_AbstractSubStep());
 		videoGen_Initialize_ExecuteEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(this.getVideoGen_Sequence_Execute_AbstractSubStep());
+		g1 = createEGenericType(this.getVideoGen_Generate_Execute_AbstractSubStep());
 		videoGen_Initialize_ExecuteEClass.getEGenericSuperTypes().add(g1);
 		videoGen_Initialize_Execute_AbstractSubStepEClass.getESuperTypes().add(this.getSpecificStep());
 		videoGen_Initialize_Execute_ImplicitStepEClass.getESuperTypes().add(this.getVideoGen_Initialize_Execute_AbstractSubStep());
 		videoGen_Initialize_Execute_ImplicitStepEClass.getESuperTypes().add(theMsePackage.getSmallStep());
+		g1 = createEGenericType(this.getVideoGen_Sequence_Execute_AbstractSubStep());
+		videoGen_Mandatory_ExecuteEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(this.getVideoGen_Alternatives_Execute_AbstractSubStep());
 		videoGen_Mandatory_ExecuteEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(this.getSpecificStep());
@@ -1117,19 +1082,15 @@ public class StepsPackageImpl extends EPackageImpl implements StepsPackage {
 		videoGen_Mandatory_ExecuteEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(this.getVideoGen_Transition_Execute_AbstractSubStep());
 		videoGen_Mandatory_ExecuteEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(this.getVideoGen_VideoGen_Execute_AbstractSubStep());
-		videoGen_Mandatory_ExecuteEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(this.getVideoGen_Generate_Execute_AbstractSubStep());
-		videoGen_Mandatory_ExecuteEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(this.getVideoGen_Delay_Execute_AbstractSubStep());
-		videoGen_Mandatory_ExecuteEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(this.getVideoGen_Initialize_Execute_AbstractSubStep());
 		videoGen_Mandatory_ExecuteEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(this.getVideoGen_Sequence_Execute_AbstractSubStep());
+		g1 = createEGenericType(this.getVideoGen_Generate_Execute_AbstractSubStep());
 		videoGen_Mandatory_ExecuteEClass.getEGenericSuperTypes().add(g1);
 		videoGen_Mandatory_Execute_AbstractSubStepEClass.getESuperTypes().add(this.getSpecificStep());
 		videoGen_Mandatory_Execute_ImplicitStepEClass.getESuperTypes().add(this.getVideoGen_Mandatory_Execute_AbstractSubStep());
 		videoGen_Mandatory_Execute_ImplicitStepEClass.getESuperTypes().add(theMsePackage.getSmallStep());
+		g1 = createEGenericType(this.getVideoGen_Sequence_Execute_AbstractSubStep());
+		videoGen_Optional_ExecuteEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(this.getVideoGen_Alternatives_Execute_AbstractSubStep());
 		videoGen_Optional_ExecuteEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(this.getVideoGen_Mandatory_Execute_AbstractSubStep());
@@ -1144,35 +1105,13 @@ public class StepsPackageImpl extends EPackageImpl implements StepsPackage {
 		videoGen_Optional_ExecuteEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(this.getVideoGen_Transition_Execute_AbstractSubStep());
 		videoGen_Optional_ExecuteEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(this.getVideoGen_VideoGen_Execute_AbstractSubStep());
-		videoGen_Optional_ExecuteEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(this.getVideoGen_Generate_Execute_AbstractSubStep());
-		videoGen_Optional_ExecuteEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(this.getVideoGen_Delay_Execute_AbstractSubStep());
-		videoGen_Optional_ExecuteEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(this.getVideoGen_Initialize_Execute_AbstractSubStep());
 		videoGen_Optional_ExecuteEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(this.getVideoGen_Sequence_Execute_AbstractSubStep());
+		g1 = createEGenericType(this.getVideoGen_Generate_Execute_AbstractSubStep());
 		videoGen_Optional_ExecuteEClass.getEGenericSuperTypes().add(g1);
 		videoGen_Optional_Execute_AbstractSubStepEClass.getESuperTypes().add(this.getSpecificStep());
 		videoGen_Optional_Execute_ImplicitStepEClass.getESuperTypes().add(this.getVideoGen_Optional_Execute_AbstractSubStep());
 		videoGen_Optional_Execute_ImplicitStepEClass.getESuperTypes().add(theMsePackage.getSmallStep());
-		g1 = createEGenericType(this.getVideoGen_Alternatives_Execute_AbstractSubStep());
-		videoGen_Sequence_ExecuteEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(this.getVideoGen_Mandatory_Execute_AbstractSubStep());
-		videoGen_Sequence_ExecuteEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(this.getVideoGen_Optional_Execute_AbstractSubStep());
-		videoGen_Sequence_ExecuteEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(this.getVideoGen_Transition_Execute_AbstractSubStep());
-		videoGen_Sequence_ExecuteEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(this.getVideoGen_VideoGen_Execute_AbstractSubStep());
-		videoGen_Sequence_ExecuteEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(this.getVideoGen_Generate_Execute_AbstractSubStep());
-		videoGen_Sequence_ExecuteEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(this.getVideoGen_Delay_Execute_AbstractSubStep());
-		videoGen_Sequence_ExecuteEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(this.getVideoGen_Initialize_Execute_AbstractSubStep());
-		videoGen_Sequence_ExecuteEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(this.getSpecificStep());
 		videoGen_Sequence_ExecuteEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(theMsePackage.getSequentialStep());
@@ -1181,9 +1120,23 @@ public class StepsPackageImpl extends EPackageImpl implements StepsPackage {
 		videoGen_Sequence_ExecuteEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(this.getVideoGen_Sequence_Execute_AbstractSubStep());
 		videoGen_Sequence_ExecuteEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(this.getVideoGen_Alternatives_Execute_AbstractSubStep());
+		videoGen_Sequence_ExecuteEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(this.getVideoGen_Mandatory_Execute_AbstractSubStep());
+		videoGen_Sequence_ExecuteEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(this.getVideoGen_Optional_Execute_AbstractSubStep());
+		videoGen_Sequence_ExecuteEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(this.getVideoGen_Transition_Execute_AbstractSubStep());
+		videoGen_Sequence_ExecuteEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(this.getVideoGen_Initialize_Execute_AbstractSubStep());
+		videoGen_Sequence_ExecuteEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(this.getVideoGen_Generate_Execute_AbstractSubStep());
+		videoGen_Sequence_ExecuteEClass.getEGenericSuperTypes().add(g1);
 		videoGen_Sequence_Execute_AbstractSubStepEClass.getESuperTypes().add(this.getSpecificStep());
 		videoGen_Sequence_Execute_ImplicitStepEClass.getESuperTypes().add(this.getVideoGen_Sequence_Execute_AbstractSubStep());
 		videoGen_Sequence_Execute_ImplicitStepEClass.getESuperTypes().add(theMsePackage.getSmallStep());
+		g1 = createEGenericType(this.getVideoGen_Sequence_Execute_AbstractSubStep());
+		videoGen_Transition_ExecuteEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(this.getVideoGen_Alternatives_Execute_AbstractSubStep());
 		videoGen_Transition_ExecuteEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(this.getVideoGen_Mandatory_Execute_AbstractSubStep());
@@ -1196,17 +1149,9 @@ public class StepsPackageImpl extends EPackageImpl implements StepsPackage {
 		g2 = createEGenericType(this.getVideoGen_Transition_Execute_AbstractSubStep());
 		g1.getETypeArguments().add(g2);
 		videoGen_Transition_ExecuteEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(this.getVideoGen_Transition_Execute_AbstractSubStep());
-		videoGen_Transition_ExecuteEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(this.getVideoGen_VideoGen_Execute_AbstractSubStep());
-		videoGen_Transition_ExecuteEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(this.getVideoGen_Generate_Execute_AbstractSubStep());
-		videoGen_Transition_ExecuteEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(this.getVideoGen_Delay_Execute_AbstractSubStep());
-		videoGen_Transition_ExecuteEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(this.getVideoGen_Initialize_Execute_AbstractSubStep());
 		videoGen_Transition_ExecuteEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(this.getVideoGen_Sequence_Execute_AbstractSubStep());
+		g1 = createEGenericType(this.getVideoGen_Generate_Execute_AbstractSubStep());
 		videoGen_Transition_ExecuteEClass.getEGenericSuperTypes().add(g1);
 		videoGen_Transition_Execute_AbstractSubStepEClass.getESuperTypes().add(this.getSpecificStep());
 		videoGen_Transition_Execute_ImplicitStepEClass.getESuperTypes().add(this.getVideoGen_Transition_Execute_AbstractSubStep());
@@ -1223,9 +1168,20 @@ public class StepsPackageImpl extends EPackageImpl implements StepsPackage {
 		videoGen_VideoGen_Execute_AbstractSubStepEClass.getESuperTypes().add(this.getSpecificStep());
 		videoGen_VideoGen_Execute_ImplicitStepEClass.getESuperTypes().add(this.getVideoGen_VideoGen_Execute_AbstractSubStep());
 		videoGen_VideoGen_Execute_ImplicitStepEClass.getESuperTypes().add(theMsePackage.getSmallStep());
+		g1 = createEGenericType(this.getSpecificStep());
+		videoGen_VideoGen_InitializeModelEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(theMsePackage.getSequentialStep());
+		g2 = createEGenericType(this.getVideoGen_VideoGen_InitializeModel_AbstractSubStep());
+		g1.getETypeArguments().add(g2);
+		videoGen_VideoGen_InitializeModelEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(this.getVideoGen_Generate_Execute_AbstractSubStep());
+		videoGen_VideoGen_InitializeModelEClass.getEGenericSuperTypes().add(g1);
+		videoGen_VideoGen_InitializeModel_AbstractSubStepEClass.getESuperTypes().add(this.getSpecificStep());
+		videoGen_VideoGen_InitializeModel_ImplicitStepEClass.getESuperTypes().add(this.getVideoGen_VideoGen_InitializeModel_AbstractSubStep());
+		videoGen_VideoGen_InitializeModel_ImplicitStepEClass.getESuperTypes().add(theMsePackage.getSmallStep());
+		videoGen_VideoGen_SetupEClass.getESuperTypes().add(this.getVideoGen_VideoGen_InitializeModel_AbstractSubStep());
 		videoGen_VideoGen_SetupEClass.getESuperTypes().add(this.getSpecificStep());
 		videoGen_VideoGen_SetupEClass.getESuperTypes().add(theMsePackage.getSmallStep());
-		videoGen_VideoGen_SetupEClass.getESuperTypes().add(this.getVideoGen_Generate_Execute_AbstractSubStep());
 		videoGen_Video_SelectEClass.getESuperTypes().add(this.getVideoGen_Alternatives_Execute_AbstractSubStep());
 		videoGen_Video_SelectEClass.getESuperTypes().add(this.getVideoGen_Mandatory_Execute_AbstractSubStep());
 		videoGen_Video_SelectEClass.getESuperTypes().add(this.getVideoGen_Optional_Execute_AbstractSubStep());
@@ -1246,14 +1202,6 @@ public class StepsPackageImpl extends EPackageImpl implements StepsPackage {
 		initEClass(videoGen_Alternatives_Execute_AbstractSubStepEClass, VideoGen_Alternatives_Execute_AbstractSubStep.class, "VideoGen_Alternatives_Execute_AbstractSubStep", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(videoGen_Alternatives_Execute_ImplicitStepEClass, VideoGen_Alternatives_Execute_ImplicitStep.class, "VideoGen_Alternatives_Execute_ImplicitStep", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(videoGen_Delay_ExecuteEClass, VideoGen_Delay_Execute.class, "VideoGen_Delay_Execute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEOperation(getVideoGen_Delay_Execute__GetCaller(), theVideoGenPackage.getDelay(), "getCaller", 1, 1, IS_UNIQUE, IS_ORDERED);
-
-		initEClass(videoGen_Delay_Execute_AbstractSubStepEClass, VideoGen_Delay_Execute_AbstractSubStep.class, "VideoGen_Delay_Execute_AbstractSubStep", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(videoGen_Delay_Execute_ImplicitStepEClass, VideoGen_Delay_Execute_ImplicitStep.class, "VideoGen_Delay_Execute_ImplicitStep", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(videoGen_Generate_ComputeEClass, VideoGen_Generate_Compute.class, "VideoGen_Generate_Compute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1322,6 +1270,14 @@ public class StepsPackageImpl extends EPackageImpl implements StepsPackage {
 		initEClass(videoGen_VideoGen_Execute_AbstractSubStepEClass, VideoGen_VideoGen_Execute_AbstractSubStep.class, "VideoGen_VideoGen_Execute_AbstractSubStep", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(videoGen_VideoGen_Execute_ImplicitStepEClass, VideoGen_VideoGen_Execute_ImplicitStep.class, "VideoGen_VideoGen_Execute_ImplicitStep", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(videoGen_VideoGen_InitializeModelEClass, VideoGen_VideoGen_InitializeModel.class, "VideoGen_VideoGen_InitializeModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEOperation(getVideoGen_VideoGen_InitializeModel__GetCaller(), theVideoGenPackage.getVideoGen(), "getCaller", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(videoGen_VideoGen_InitializeModel_AbstractSubStepEClass, VideoGen_VideoGen_InitializeModel_AbstractSubStep.class, "VideoGen_VideoGen_InitializeModel_AbstractSubStep", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(videoGen_VideoGen_InitializeModel_ImplicitStepEClass, VideoGen_VideoGen_InitializeModel_ImplicitStep.class, "VideoGen_VideoGen_InitializeModel_ImplicitStep", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(videoGen_VideoGen_SetupEClass, VideoGen_VideoGen_Setup.class, "VideoGen_VideoGen_Setup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

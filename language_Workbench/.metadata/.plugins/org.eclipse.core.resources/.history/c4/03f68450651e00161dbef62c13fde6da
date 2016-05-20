@@ -1,0 +1,67 @@
+package org.irisa.diverse.videogen.videoGen.aspects;
+
+import fr.inria.diverse.k3.al.annotationprocessor.Aspect;
+import fr.inria.diverse.k3.al.annotationprocessor.Step;
+import java.net.URI;
+import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IWorkspace;
+import org.eclipse.core.resources.IWorkspaceRoot;
+import org.eclipse.core.resources.ResourcesPlugin;
+import org.irisa.diverse.videogen.transformations.VideoGenTransform;
+import org.irisa.diverse.videogen.videoGen.Video;
+import org.irisa.diverse.videogen.videoGen.aspects.VideoAspectVideoAspectProperties;
+import org.irisa.diverse.videogen.videoGen.aspects.VideoGenAspect;
+
+@Aspect(className = Video.class)
+@SuppressWarnings("all")
+public class VideoAspect {
+  /**
+   * Select this video and apply any of needed operations (conversion or rename for example)
+   */
+  @Step
+  public static void select(final Video _self) {
+    final org.irisa.diverse.videogen.videoGen.aspects.VideoAspectVideoAspectProperties _self_ = org.irisa.diverse.videogen.videoGen.aspects.VideoAspectVideoAspectContext.getSelf(_self);
+    fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand command = new fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand() {
+    	@Override
+    	public void execute() {
+    		_privk3_select(_self_, _self);
+    	}
+    };
+    fr.inria.diverse.k3.al.annotationprocessor.stepmanager.IStepManager manager = fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepManagerRegistry.getInstance().findStepManager(_self);
+    if (manager != null) {
+    	manager.executeStep(_self,command,"Video","select");
+    } else {
+    	command.execute();
+    }
+    ;;
+  }
+  
+  protected static void _privk3_select(final VideoAspectVideoAspectProperties _self_, final Video _self) {
+    String _string = _self.toString();
+    VideoGenAspect.log.info(_string);
+    String _url = _self.getUrl();
+    boolean _startsWith = _url.startsWith("/");
+    boolean _not = (!_startsWith);
+    if (_not) {
+      IWorkspace _workspace = ResourcesPlugin.getWorkspace();
+      IWorkspaceRoot _root = _workspace.getRoot();
+      IProject[] _projects = _root.getProjects();
+      IProject _get = _projects[0];
+      URI _locationURI = _get.getLocationURI();
+      String _string_1 = _locationURI.toString();
+      final String prefix = _string_1.replace("file:", "");
+      String _url_1 = _self.getUrl();
+      final String newPath = ((prefix + "/") + _url_1);
+      String _url_2 = _self.getUrl();
+      String _plus = (_url_2 + "=>");
+      String _plus_1 = (_plus + newPath);
+      VideoGenAspect.log.info(_plus_1);
+      _self.setUrl(newPath);
+    }
+    VideoGenTransform.addMetadata(_self);
+    String _name = _self.getName();
+    String _plus_2 = ("##### Video \'" + _name);
+    String _plus_3 = (_plus_2 + "\' has been selected.");
+    VideoGenAspect.log.info(_plus_3);
+  }
+}

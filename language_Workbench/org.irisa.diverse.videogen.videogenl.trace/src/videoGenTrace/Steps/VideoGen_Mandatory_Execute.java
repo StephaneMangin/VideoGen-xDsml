@@ -16,7 +16,7 @@ import org.irisa.diverse.videogen.videoGen.Mandatory;
  * @model
  * @generated
  */
-public interface VideoGen_Mandatory_Execute extends VideoGen_Alternatives_Execute_AbstractSubStep, SpecificStep, SequentialStep<VideoGen_Mandatory_Execute_AbstractSubStep>, VideoGen_Mandatory_Execute_AbstractSubStep, VideoGen_Optional_Execute_AbstractSubStep, VideoGen_Transition_Execute_AbstractSubStep, VideoGen_VideoGen_Execute_AbstractSubStep, VideoGen_Generate_Execute_AbstractSubStep, VideoGen_Delay_Execute_AbstractSubStep, VideoGen_Initialize_Execute_AbstractSubStep, VideoGen_Sequence_Execute_AbstractSubStep {
+public interface VideoGen_Mandatory_Execute extends VideoGen_Sequence_Execute_AbstractSubStep, VideoGen_Alternatives_Execute_AbstractSubStep, SpecificStep, SequentialStep<VideoGen_Mandatory_Execute_AbstractSubStep>, VideoGen_Mandatory_Execute_AbstractSubStep, VideoGen_Optional_Execute_AbstractSubStep, VideoGen_Transition_Execute_AbstractSubStep, VideoGen_Initialize_Execute_AbstractSubStep, VideoGen_Generate_Execute_AbstractSubStep {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

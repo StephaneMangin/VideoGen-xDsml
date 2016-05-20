@@ -25,7 +25,6 @@ import videoGenTrace.States.State;
 
 import videoGenTrace.Steps.SpecificStep;
 import videoGenTrace.Steps.VideoGen_Alternatives_Execute;
-import videoGenTrace.Steps.VideoGen_Delay_Execute;
 import videoGenTrace.Steps.VideoGen_Generate_Compute;
 import videoGenTrace.Steps.VideoGen_Generate_Execute;
 import videoGenTrace.Steps.VideoGen_Initialize_Execute;
@@ -35,6 +34,7 @@ import videoGenTrace.Steps.VideoGen_Sequence_Execute;
 import videoGenTrace.Steps.VideoGen_Transition_Execute;
 import videoGenTrace.Steps.VideoGen_VideoGen_Compute;
 import videoGenTrace.Steps.VideoGen_VideoGen_Execute;
+import videoGenTrace.Steps.VideoGen_VideoGen_InitializeModel;
 import videoGenTrace.Steps.VideoGen_VideoGen_Setup;
 import videoGenTrace.Steps.VideoGen_Video_Select;
 
@@ -49,7 +49,6 @@ import videoGenTrace.VideoGenTracePackage;
  * </p>
  * <ul>
  *   <li>{@link videoGenTrace.impl.SpecificTraceImpl#getVideoGen_Alternatives_Execute_Sequence <em>Video Gen Alternatives Execute Sequence</em>}</li>
- *   <li>{@link videoGenTrace.impl.SpecificTraceImpl#getVideoGen_Delay_Execute_Sequence <em>Video Gen Delay Execute Sequence</em>}</li>
  *   <li>{@link videoGenTrace.impl.SpecificTraceImpl#getVideoGen_Generate_Compute_Sequence <em>Video Gen Generate Compute Sequence</em>}</li>
  *   <li>{@link videoGenTrace.impl.SpecificTraceImpl#getVideoGen_Generate_Execute_Sequence <em>Video Gen Generate Execute Sequence</em>}</li>
  *   <li>{@link videoGenTrace.impl.SpecificTraceImpl#getVideoGen_Initialize_Execute_Sequence <em>Video Gen Initialize Execute Sequence</em>}</li>
@@ -59,6 +58,7 @@ import videoGenTrace.VideoGenTracePackage;
  *   <li>{@link videoGenTrace.impl.SpecificTraceImpl#getVideoGen_Transition_Execute_Sequence <em>Video Gen Transition Execute Sequence</em>}</li>
  *   <li>{@link videoGenTrace.impl.SpecificTraceImpl#getVideoGen_VideoGen_Compute_Sequence <em>Video Gen Video Gen Compute Sequence</em>}</li>
  *   <li>{@link videoGenTrace.impl.SpecificTraceImpl#getVideoGen_VideoGen_Execute_Sequence <em>Video Gen Video Gen Execute Sequence</em>}</li>
+ *   <li>{@link videoGenTrace.impl.SpecificTraceImpl#getVideoGen_VideoGen_InitializeModel_Sequence <em>Video Gen Video Gen Initialize Model Sequence</em>}</li>
  *   <li>{@link videoGenTrace.impl.SpecificTraceImpl#getVideoGen_VideoGen_Setup_Sequence <em>Video Gen Video Gen Setup Sequence</em>}</li>
  *   <li>{@link videoGenTrace.impl.SpecificTraceImpl#getVideoGen_Video_Select_Sequence <em>Video Gen Video Select Sequence</em>}</li>
  *   <li>{@link videoGenTrace.impl.SpecificTraceImpl#getStatesTrace <em>States Trace</em>}</li>
@@ -76,16 +76,6 @@ public class SpecificTraceImpl extends TraceImpl<SequentialStep<SpecificStep>> i
 	 * @ordered
 	 */
 	protected EList<VideoGen_Alternatives_Execute> videoGen_Alternatives_Execute_Sequence;
-
-	/**
-	 * The cached value of the '{@link #getVideoGen_Delay_Execute_Sequence() <em>Video Gen Delay Execute Sequence</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getVideoGen_Delay_Execute_Sequence()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<VideoGen_Delay_Execute> videoGen_Delay_Execute_Sequence;
 
 	/**
 	 * The cached value of the '{@link #getVideoGen_Generate_Compute_Sequence() <em>Video Gen Generate Compute Sequence</em>}' reference list.
@@ -178,6 +168,16 @@ public class SpecificTraceImpl extends TraceImpl<SequentialStep<SpecificStep>> i
 	protected EList<VideoGen_VideoGen_Execute> videoGen_VideoGen_Execute_Sequence;
 
 	/**
+	 * The cached value of the '{@link #getVideoGen_VideoGen_InitializeModel_Sequence() <em>Video Gen Video Gen Initialize Model Sequence</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getVideoGen_VideoGen_InitializeModel_Sequence()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<VideoGen_VideoGen_InitializeModel> videoGen_VideoGen_InitializeModel_Sequence;
+
+	/**
 	 * The cached value of the '{@link #getVideoGen_VideoGen_Setup_Sequence() <em>Video Gen Video Gen Setup Sequence</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -247,18 +247,6 @@ public class SpecificTraceImpl extends TraceImpl<SequentialStep<SpecificStep>> i
 			videoGen_Alternatives_Execute_Sequence = new EObjectResolvingEList<VideoGen_Alternatives_Execute>(VideoGen_Alternatives_Execute.class, this, VideoGenTracePackage.SPECIFIC_TRACE__VIDEO_GEN_ALTERNATIVES_EXECUTE_SEQUENCE);
 		}
 		return videoGen_Alternatives_Execute_Sequence;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<VideoGen_Delay_Execute> getVideoGen_Delay_Execute_Sequence() {
-		if (videoGen_Delay_Execute_Sequence == null) {
-			videoGen_Delay_Execute_Sequence = new EObjectResolvingEList<VideoGen_Delay_Execute>(VideoGen_Delay_Execute.class, this, VideoGenTracePackage.SPECIFIC_TRACE__VIDEO_GEN_DELAY_EXECUTE_SEQUENCE);
-		}
-		return videoGen_Delay_Execute_Sequence;
 	}
 
 	/**
@@ -374,6 +362,18 @@ public class SpecificTraceImpl extends TraceImpl<SequentialStep<SpecificStep>> i
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<VideoGen_VideoGen_InitializeModel> getVideoGen_VideoGen_InitializeModel_Sequence() {
+		if (videoGen_VideoGen_InitializeModel_Sequence == null) {
+			videoGen_VideoGen_InitializeModel_Sequence = new EObjectResolvingEList<VideoGen_VideoGen_InitializeModel>(VideoGen_VideoGen_InitializeModel.class, this, VideoGenTracePackage.SPECIFIC_TRACE__VIDEO_GEN_VIDEO_GEN_INITIALIZE_MODEL_SEQUENCE);
+		}
+		return videoGen_VideoGen_InitializeModel_Sequence;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<VideoGen_VideoGen_Setup> getVideoGen_VideoGen_Setup_Sequence() {
 		if (videoGen_VideoGen_Setup_Sequence == null) {
 			videoGen_VideoGen_Setup_Sequence = new EObjectResolvingEList<VideoGen_VideoGen_Setup>(VideoGen_VideoGen_Setup.class, this, VideoGenTracePackage.SPECIFIC_TRACE__VIDEO_GEN_VIDEO_GEN_SETUP_SEQUENCE);
@@ -429,8 +429,6 @@ public class SpecificTraceImpl extends TraceImpl<SequentialStep<SpecificStep>> i
 		switch (featureID) {
 			case VideoGenTracePackage.SPECIFIC_TRACE__VIDEO_GEN_ALTERNATIVES_EXECUTE_SEQUENCE:
 				return getVideoGen_Alternatives_Execute_Sequence();
-			case VideoGenTracePackage.SPECIFIC_TRACE__VIDEO_GEN_DELAY_EXECUTE_SEQUENCE:
-				return getVideoGen_Delay_Execute_Sequence();
 			case VideoGenTracePackage.SPECIFIC_TRACE__VIDEO_GEN_GENERATE_COMPUTE_SEQUENCE:
 				return getVideoGen_Generate_Compute_Sequence();
 			case VideoGenTracePackage.SPECIFIC_TRACE__VIDEO_GEN_GENERATE_EXECUTE_SEQUENCE:
@@ -449,6 +447,8 @@ public class SpecificTraceImpl extends TraceImpl<SequentialStep<SpecificStep>> i
 				return getVideoGen_VideoGen_Compute_Sequence();
 			case VideoGenTracePackage.SPECIFIC_TRACE__VIDEO_GEN_VIDEO_GEN_EXECUTE_SEQUENCE:
 				return getVideoGen_VideoGen_Execute_Sequence();
+			case VideoGenTracePackage.SPECIFIC_TRACE__VIDEO_GEN_VIDEO_GEN_INITIALIZE_MODEL_SEQUENCE:
+				return getVideoGen_VideoGen_InitializeModel_Sequence();
 			case VideoGenTracePackage.SPECIFIC_TRACE__VIDEO_GEN_VIDEO_GEN_SETUP_SEQUENCE:
 				return getVideoGen_VideoGen_Setup_Sequence();
 			case VideoGenTracePackage.SPECIFIC_TRACE__VIDEO_GEN_VIDEO_SELECT_SEQUENCE:
@@ -471,10 +471,6 @@ public class SpecificTraceImpl extends TraceImpl<SequentialStep<SpecificStep>> i
 			case VideoGenTracePackage.SPECIFIC_TRACE__VIDEO_GEN_ALTERNATIVES_EXECUTE_SEQUENCE:
 				getVideoGen_Alternatives_Execute_Sequence().clear();
 				getVideoGen_Alternatives_Execute_Sequence().addAll((Collection<? extends VideoGen_Alternatives_Execute>)newValue);
-				return;
-			case VideoGenTracePackage.SPECIFIC_TRACE__VIDEO_GEN_DELAY_EXECUTE_SEQUENCE:
-				getVideoGen_Delay_Execute_Sequence().clear();
-				getVideoGen_Delay_Execute_Sequence().addAll((Collection<? extends VideoGen_Delay_Execute>)newValue);
 				return;
 			case VideoGenTracePackage.SPECIFIC_TRACE__VIDEO_GEN_GENERATE_COMPUTE_SEQUENCE:
 				getVideoGen_Generate_Compute_Sequence().clear();
@@ -512,6 +508,10 @@ public class SpecificTraceImpl extends TraceImpl<SequentialStep<SpecificStep>> i
 				getVideoGen_VideoGen_Execute_Sequence().clear();
 				getVideoGen_VideoGen_Execute_Sequence().addAll((Collection<? extends VideoGen_VideoGen_Execute>)newValue);
 				return;
+			case VideoGenTracePackage.SPECIFIC_TRACE__VIDEO_GEN_VIDEO_GEN_INITIALIZE_MODEL_SEQUENCE:
+				getVideoGen_VideoGen_InitializeModel_Sequence().clear();
+				getVideoGen_VideoGen_InitializeModel_Sequence().addAll((Collection<? extends VideoGen_VideoGen_InitializeModel>)newValue);
+				return;
 			case VideoGenTracePackage.SPECIFIC_TRACE__VIDEO_GEN_VIDEO_GEN_SETUP_SEQUENCE:
 				getVideoGen_VideoGen_Setup_Sequence().clear();
 				getVideoGen_VideoGen_Setup_Sequence().addAll((Collection<? extends VideoGen_VideoGen_Setup>)newValue);
@@ -538,9 +538,6 @@ public class SpecificTraceImpl extends TraceImpl<SequentialStep<SpecificStep>> i
 		switch (featureID) {
 			case VideoGenTracePackage.SPECIFIC_TRACE__VIDEO_GEN_ALTERNATIVES_EXECUTE_SEQUENCE:
 				getVideoGen_Alternatives_Execute_Sequence().clear();
-				return;
-			case VideoGenTracePackage.SPECIFIC_TRACE__VIDEO_GEN_DELAY_EXECUTE_SEQUENCE:
-				getVideoGen_Delay_Execute_Sequence().clear();
 				return;
 			case VideoGenTracePackage.SPECIFIC_TRACE__VIDEO_GEN_GENERATE_COMPUTE_SEQUENCE:
 				getVideoGen_Generate_Compute_Sequence().clear();
@@ -569,6 +566,9 @@ public class SpecificTraceImpl extends TraceImpl<SequentialStep<SpecificStep>> i
 			case VideoGenTracePackage.SPECIFIC_TRACE__VIDEO_GEN_VIDEO_GEN_EXECUTE_SEQUENCE:
 				getVideoGen_VideoGen_Execute_Sequence().clear();
 				return;
+			case VideoGenTracePackage.SPECIFIC_TRACE__VIDEO_GEN_VIDEO_GEN_INITIALIZE_MODEL_SEQUENCE:
+				getVideoGen_VideoGen_InitializeModel_Sequence().clear();
+				return;
 			case VideoGenTracePackage.SPECIFIC_TRACE__VIDEO_GEN_VIDEO_GEN_SETUP_SEQUENCE:
 				getVideoGen_VideoGen_Setup_Sequence().clear();
 				return;
@@ -592,8 +592,6 @@ public class SpecificTraceImpl extends TraceImpl<SequentialStep<SpecificStep>> i
 		switch (featureID) {
 			case VideoGenTracePackage.SPECIFIC_TRACE__VIDEO_GEN_ALTERNATIVES_EXECUTE_SEQUENCE:
 				return videoGen_Alternatives_Execute_Sequence != null && !videoGen_Alternatives_Execute_Sequence.isEmpty();
-			case VideoGenTracePackage.SPECIFIC_TRACE__VIDEO_GEN_DELAY_EXECUTE_SEQUENCE:
-				return videoGen_Delay_Execute_Sequence != null && !videoGen_Delay_Execute_Sequence.isEmpty();
 			case VideoGenTracePackage.SPECIFIC_TRACE__VIDEO_GEN_GENERATE_COMPUTE_SEQUENCE:
 				return videoGen_Generate_Compute_Sequence != null && !videoGen_Generate_Compute_Sequence.isEmpty();
 			case VideoGenTracePackage.SPECIFIC_TRACE__VIDEO_GEN_GENERATE_EXECUTE_SEQUENCE:
@@ -612,6 +610,8 @@ public class SpecificTraceImpl extends TraceImpl<SequentialStep<SpecificStep>> i
 				return videoGen_VideoGen_Compute_Sequence != null && !videoGen_VideoGen_Compute_Sequence.isEmpty();
 			case VideoGenTracePackage.SPECIFIC_TRACE__VIDEO_GEN_VIDEO_GEN_EXECUTE_SEQUENCE:
 				return videoGen_VideoGen_Execute_Sequence != null && !videoGen_VideoGen_Execute_Sequence.isEmpty();
+			case VideoGenTracePackage.SPECIFIC_TRACE__VIDEO_GEN_VIDEO_GEN_INITIALIZE_MODEL_SEQUENCE:
+				return videoGen_VideoGen_InitializeModel_Sequence != null && !videoGen_VideoGen_InitializeModel_Sequence.isEmpty();
 			case VideoGenTracePackage.SPECIFIC_TRACE__VIDEO_GEN_VIDEO_GEN_SETUP_SEQUENCE:
 				return videoGen_VideoGen_Setup_Sequence != null && !videoGen_VideoGen_Setup_Sequence.isEmpty();
 			case VideoGenTracePackage.SPECIFIC_TRACE__VIDEO_GEN_VIDEO_SELECT_SEQUENCE:

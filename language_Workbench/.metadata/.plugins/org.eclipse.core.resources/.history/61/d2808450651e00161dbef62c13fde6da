@@ -1,0 +1,22 @@
+package org.irisa.diverse.videogen.videoGen.aspects;
+
+import java.util.Map;
+import org.irisa.diverse.videogen.videoGen.Delay;
+import org.irisa.diverse.videogen.videoGen.aspects.DelayAspectDelayAspectProperties;
+
+@SuppressWarnings("all")
+public class DelayAspectDelayAspectContext {
+  public final static DelayAspectDelayAspectContext INSTANCE = new DelayAspectDelayAspectContext();
+  
+  public static DelayAspectDelayAspectProperties getSelf(final Delay _self) {
+    		if (!INSTANCE.map.containsKey(_self))
+    			INSTANCE.map.put(_self, new org.irisa.diverse.videogen.videoGen.aspects.DelayAspectDelayAspectProperties());
+    		return INSTANCE.map.get(_self);
+  }
+  
+  private Map<Delay, DelayAspectDelayAspectProperties> map = new java.util.WeakHashMap<org.irisa.diverse.videogen.videoGen.Delay, org.irisa.diverse.videogen.videoGen.aspects.DelayAspectDelayAspectProperties>();
+  
+  public Map<Delay, DelayAspectDelayAspectProperties> getMap() {
+    return map;
+  }
+}

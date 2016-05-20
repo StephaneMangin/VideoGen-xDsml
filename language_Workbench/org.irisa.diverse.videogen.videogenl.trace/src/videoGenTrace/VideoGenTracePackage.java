@@ -95,22 +95,13 @@ public interface VideoGenTracePackage extends EPackage {
 	int SPECIFIC_TRACE__VIDEO_GEN_ALTERNATIVES_EXECUTE_SEQUENCE = MsePackage.TRACE_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Video Gen Delay Execute Sequence</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SPECIFIC_TRACE__VIDEO_GEN_DELAY_EXECUTE_SEQUENCE = MsePackage.TRACE_FEATURE_COUNT + 1;
-
-	/**
 	 * The feature id for the '<em><b>Video Gen Generate Compute Sequence</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SPECIFIC_TRACE__VIDEO_GEN_GENERATE_COMPUTE_SEQUENCE = MsePackage.TRACE_FEATURE_COUNT + 2;
+	int SPECIFIC_TRACE__VIDEO_GEN_GENERATE_COMPUTE_SEQUENCE = MsePackage.TRACE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Video Gen Generate Execute Sequence</b></em>' reference list.
@@ -119,7 +110,7 @@ public interface VideoGenTracePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SPECIFIC_TRACE__VIDEO_GEN_GENERATE_EXECUTE_SEQUENCE = MsePackage.TRACE_FEATURE_COUNT + 3;
+	int SPECIFIC_TRACE__VIDEO_GEN_GENERATE_EXECUTE_SEQUENCE = MsePackage.TRACE_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Video Gen Initialize Execute Sequence</b></em>' reference list.
@@ -128,7 +119,7 @@ public interface VideoGenTracePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SPECIFIC_TRACE__VIDEO_GEN_INITIALIZE_EXECUTE_SEQUENCE = MsePackage.TRACE_FEATURE_COUNT + 4;
+	int SPECIFIC_TRACE__VIDEO_GEN_INITIALIZE_EXECUTE_SEQUENCE = MsePackage.TRACE_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Video Gen Mandatory Execute Sequence</b></em>' reference list.
@@ -137,7 +128,7 @@ public interface VideoGenTracePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SPECIFIC_TRACE__VIDEO_GEN_MANDATORY_EXECUTE_SEQUENCE = MsePackage.TRACE_FEATURE_COUNT + 5;
+	int SPECIFIC_TRACE__VIDEO_GEN_MANDATORY_EXECUTE_SEQUENCE = MsePackage.TRACE_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Video Gen Optional Execute Sequence</b></em>' reference list.
@@ -146,7 +137,7 @@ public interface VideoGenTracePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SPECIFIC_TRACE__VIDEO_GEN_OPTIONAL_EXECUTE_SEQUENCE = MsePackage.TRACE_FEATURE_COUNT + 6;
+	int SPECIFIC_TRACE__VIDEO_GEN_OPTIONAL_EXECUTE_SEQUENCE = MsePackage.TRACE_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Video Gen Sequence Execute Sequence</b></em>' reference list.
@@ -155,7 +146,7 @@ public interface VideoGenTracePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SPECIFIC_TRACE__VIDEO_GEN_SEQUENCE_EXECUTE_SEQUENCE = MsePackage.TRACE_FEATURE_COUNT + 7;
+	int SPECIFIC_TRACE__VIDEO_GEN_SEQUENCE_EXECUTE_SEQUENCE = MsePackage.TRACE_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Video Gen Transition Execute Sequence</b></em>' reference list.
@@ -164,7 +155,7 @@ public interface VideoGenTracePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SPECIFIC_TRACE__VIDEO_GEN_TRANSITION_EXECUTE_SEQUENCE = MsePackage.TRACE_FEATURE_COUNT + 8;
+	int SPECIFIC_TRACE__VIDEO_GEN_TRANSITION_EXECUTE_SEQUENCE = MsePackage.TRACE_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Video Gen Video Gen Compute Sequence</b></em>' reference list.
@@ -173,7 +164,7 @@ public interface VideoGenTracePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SPECIFIC_TRACE__VIDEO_GEN_VIDEO_GEN_COMPUTE_SEQUENCE = MsePackage.TRACE_FEATURE_COUNT + 9;
+	int SPECIFIC_TRACE__VIDEO_GEN_VIDEO_GEN_COMPUTE_SEQUENCE = MsePackage.TRACE_FEATURE_COUNT + 8;
 
 	/**
 	 * The feature id for the '<em><b>Video Gen Video Gen Execute Sequence</b></em>' reference list.
@@ -182,7 +173,16 @@ public interface VideoGenTracePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SPECIFIC_TRACE__VIDEO_GEN_VIDEO_GEN_EXECUTE_SEQUENCE = MsePackage.TRACE_FEATURE_COUNT + 10;
+	int SPECIFIC_TRACE__VIDEO_GEN_VIDEO_GEN_EXECUTE_SEQUENCE = MsePackage.TRACE_FEATURE_COUNT + 9;
+
+	/**
+	 * The feature id for the '<em><b>Video Gen Video Gen Initialize Model Sequence</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPECIFIC_TRACE__VIDEO_GEN_VIDEO_GEN_INITIALIZE_MODEL_SEQUENCE = MsePackage.TRACE_FEATURE_COUNT + 10;
 
 	/**
 	 * The feature id for the '<em><b>Video Gen Video Gen Setup Sequence</b></em>' reference list.
@@ -250,17 +250,6 @@ public interface VideoGenTracePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getSpecificTrace_VideoGen_Alternatives_Execute_Sequence();
-
-	/**
-	 * Returns the meta object for the reference list '{@link videoGenTrace.SpecificTrace#getVideoGen_Delay_Execute_Sequence <em>Video Gen Delay Execute Sequence</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Video Gen Delay Execute Sequence</em>'.
-	 * @see videoGenTrace.SpecificTrace#getVideoGen_Delay_Execute_Sequence()
-	 * @see #getSpecificTrace()
-	 * @generated
-	 */
-	EReference getSpecificTrace_VideoGen_Delay_Execute_Sequence();
 
 	/**
 	 * Returns the meta object for the reference list '{@link videoGenTrace.SpecificTrace#getVideoGen_Generate_Compute_Sequence <em>Video Gen Generate Compute Sequence</em>}'.
@@ -362,6 +351,17 @@ public interface VideoGenTracePackage extends EPackage {
 	EReference getSpecificTrace_VideoGen_VideoGen_Execute_Sequence();
 
 	/**
+	 * Returns the meta object for the reference list '{@link videoGenTrace.SpecificTrace#getVideoGen_VideoGen_InitializeModel_Sequence <em>Video Gen Video Gen Initialize Model Sequence</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Video Gen Video Gen Initialize Model Sequence</em>'.
+	 * @see videoGenTrace.SpecificTrace#getVideoGen_VideoGen_InitializeModel_Sequence()
+	 * @see #getSpecificTrace()
+	 * @generated
+	 */
+	EReference getSpecificTrace_VideoGen_VideoGen_InitializeModel_Sequence();
+
+	/**
 	 * Returns the meta object for the reference list '{@link videoGenTrace.SpecificTrace#getVideoGen_VideoGen_Setup_Sequence <em>Video Gen Video Gen Setup Sequence</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -436,14 +436,6 @@ public interface VideoGenTracePackage extends EPackage {
 		EReference SPECIFIC_TRACE__VIDEO_GEN_ALTERNATIVES_EXECUTE_SEQUENCE = eINSTANCE.getSpecificTrace_VideoGen_Alternatives_Execute_Sequence();
 
 		/**
-		 * The meta object literal for the '<em><b>Video Gen Delay Execute Sequence</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SPECIFIC_TRACE__VIDEO_GEN_DELAY_EXECUTE_SEQUENCE = eINSTANCE.getSpecificTrace_VideoGen_Delay_Execute_Sequence();
-
-		/**
 		 * The meta object literal for the '<em><b>Video Gen Generate Compute Sequence</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -514,6 +506,14 @@ public interface VideoGenTracePackage extends EPackage {
 		 * @generated
 		 */
 		EReference SPECIFIC_TRACE__VIDEO_GEN_VIDEO_GEN_EXECUTE_SEQUENCE = eINSTANCE.getSpecificTrace_VideoGen_VideoGen_Execute_Sequence();
+
+		/**
+		 * The meta object literal for the '<em><b>Video Gen Video Gen Initialize Model Sequence</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SPECIFIC_TRACE__VIDEO_GEN_VIDEO_GEN_INITIALIZE_MODEL_SEQUENCE = eINSTANCE.getSpecificTrace_VideoGen_VideoGen_InitializeModel_Sequence();
 
 		/**
 		 * The meta object literal for the '<em><b>Video Gen Video Gen Setup Sequence</b></em>' reference list feature.

@@ -1,0 +1,94 @@
+package org.irisa.diverse.videogen.videoGen.aspects.visitors;
+
+import java.net.URI;
+import java.util.List;
+import java.util.function.Consumer;
+import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IWorkspace;
+import org.eclipse.core.resources.IWorkspaceRoot;
+import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.emf.common.util.EList;
+import org.irisa.diverse.videogen.transformations.VideoGenTransform;
+import org.irisa.diverse.videogen.transformations.helpers.VideoGenHelper;
+import org.irisa.diverse.videogen.videoGen.Alternatives;
+import org.irisa.diverse.videogen.videoGen.Mimetypes_Enum;
+import org.irisa.diverse.videogen.videoGen.Optional;
+import org.irisa.diverse.videogen.videoGen.Sequence;
+import org.irisa.diverse.videogen.videoGen.Transition;
+import org.irisa.diverse.videogen.videoGen.Video;
+import org.irisa.diverse.videogen.videoGen.VideoGen;
+import org.irisa.diverse.videogen.videoGen.aspects.TransitionAspect;
+import org.irisa.diverse.videogen.videoGen.aspects.utils.LoggableVisitor;
+
+@SuppressWarnings("all")
+public class VideoGenSetupVisitor extends LoggableVisitor {
+  private VideoGen videoGen;
+  
+  public void visit(final VideoGen vid) {
+    this.videoGen = vid;
+    this.log.info("VideoGen Setup Visitor started...");
+    List<Transition> _allTransitions = VideoGenHelper.allTransitions(vid);
+    final Consumer<Transition> _function = (Transition it) -> {
+      this.visit(it);
+    };
+    _allTransitions.forEach(_function);
+    List<Sequence> _allSequences = VideoGenHelper.allSequences(vid);
+    final Consumer<Sequence> _function_1 = (Sequence it) -> {
+      this.visit(it);
+    };
+    _allSequences.forEach(_function_1);
+    List<Video> _allVideos = VideoGenHelper.allVideos(vid);
+    final Consumer<Video> _function_2 = (Video it) -> {
+      this.visit(it);
+    };
+    _allVideos.forEach(_function_2);
+  }
+  
+  private void visit(final Transition tra) {
+    tra.setSelected(Boolean.valueOf(false));
+    tra.setActive(Boolean.valueOf(true));
+    TransitionAspect.executed(tra, Boolean.valueOf(false));
+    TransitionAspect.videoGen(tra, this.videoGen);
+    if ((tra instanceof Alternatives)) {
+      EList<Optional> _options = ((Alternatives)tra).getOptions();
+      final Consumer<Optional> _function = (Optional opt) -> {
+        opt.setSelected(Boolean.valueOf(false));
+        opt.setActive(Boolean.valueOf(true));
+        TransitionAspect.executed(opt, Boolean.valueOf(false));
+        TransitionAspect.videoGen(opt, this.videoGen);
+      };
+      _options.forEach(_function);
+    }
+  }
+  
+  private void visit(final Video video) {
+    String _string = video.toString();
+    this.log.info(_string);
+    String _url = video.getUrl();
+    boolean _startsWith = _url.startsWith("/");
+    boolean _not = (!_startsWith);
+    if (_not) {
+      IWorkspace _workspace = ResourcesPlugin.getWorkspace();
+      IWorkspaceRoot _root = _workspace.getRoot();
+      IProject[] _projects = _root.getProjects();
+      IProject _get = _projects[0];
+      URI _locationURI = _get.getLocationURI();
+      String _string_1 = _locationURI.toString();
+      final String prefix = _string_1.replace("file:", "");
+      String _url_1 = video.getUrl();
+      final String newPath = ((prefix + "/") + _url_1);
+      String _url_2 = video.getUrl();
+      String _plus = (_url_2 + "=>");
+      String _plus_1 = (_plus + newPath);
+      this.log.info(_plus_1);
+      video.setUrl(newPath);
+    }
+    VideoGenTransform.addMetadata(video);
+    Integer _duration = video.getDuration();
+    String _plus_2 = ("Video configured => " + _duration);
+    String _plus_3 = (_plus_2 + ", ");
+    Mimetypes_Enum _mimetype = video.getMimetype();
+    String _plus_4 = (_plus_3 + _mimetype);
+    this.log.info(_plus_4);
+  }
+}

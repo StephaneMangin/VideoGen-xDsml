@@ -505,3 +505,153 @@ Command-line arguments:  -product org.gemoc.gemoc_studio.branding.gemoc_studio -
 !ENTRY org.eclipse.equinox.ds 1 0 2016-05-19 17:46:36.665
 !MESSAGE Could not bind a reference of component org.eclipse.fx.core.internal.JUtilLoggerFactory. The reference is: Reference[name = registerHandler, interface = java.util.logging.Handler, policy = dynamic, policy-option = greedy, cardinality = 0..n, target = null, bind = registerHandler, unbind = unregisterHandler, updated = null]
 
+!SESSION 2016-05-20 09:10:37.194 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.8.0_74
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=fr_FR
+Framework arguments:  -product org.gemoc.gemoc_studio.branding.gemoc_studio
+Command-line arguments:  -product org.gemoc.gemoc_studio.branding.gemoc_studio -data /home/smangin/Workspace/VideoGen-xDsml/environnement_workbench/../language_Workbench -dev file:/home/smangin/Workspace/VideoGen-xDsml/environnement_workbench/.metadata/.plugins/org.eclipse.pde.core/VideoGen/dev.properties -os linux -ws gtk -arch x86_64 -consoleLog
+
+!ENTRY org.eclipse.core.resources 4 567 2016-05-20 09:10:39.644
+!MESSAGE Workspace restored, but some problems occurred.
+!SUBENTRY 1 org.eclipse.core.resources 4 567 2016-05-20 09:10:39.644
+!MESSAGE Could not read metadata for '.JETEmitters'.
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: The project description file (.project) for '.JETEmitters' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:851)
+	at org.eclipse.core.internal.resources.SaveManager.restoreMetaInfo(SaveManager.java:884)
+	at org.eclipse.core.internal.resources.SaveManager.restoreMetaInfo(SaveManager.java:864)
+	at org.eclipse.core.internal.resources.SaveManager.restore(SaveManager.java:715)
+	at org.eclipse.core.internal.resources.SaveManager.startup(SaveManager.java:1565)
+	at org.eclipse.core.internal.resources.Workspace.startup(Workspace.java:2464)
+	at org.eclipse.core.internal.resources.Workspace.open(Workspace.java:2219)
+	at org.eclipse.core.resources.ResourcesPlugin.start(ResourcesPlugin.java:447)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$3.run(BundleContextImpl.java:771)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$3.run(BundleContextImpl.java:1)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.startActivator(BundleContextImpl.java:764)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.start(BundleContextImpl.java:721)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.startWorker0(EquinoxBundle.java:936)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$EquinoxModule.startWorker(EquinoxBundle.java:319)
+	at org.eclipse.osgi.container.Module.doStart(Module.java:571)
+	at org.eclipse.osgi.container.Module.start(Module.java:439)
+	at org.eclipse.osgi.framework.util.SecureAction.start(SecureAction.java:454)
+	at org.eclipse.osgi.internal.hooks.EclipseLazyStarter.postFindLocalClass(EclipseLazyStarter.java:107)
+	at org.eclipse.osgi.internal.loader.classpath.ClasspathManager.findLocalClass(ClasspathManager.java:531)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.findLocalClass(ModuleClassLoader.java:324)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findLocalClass(BundleLoader.java:320)
+	at org.eclipse.osgi.internal.loader.sources.SingleSourcePackage.loadClass(SingleSourcePackage.java:36)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:391)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:345)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:337)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:160)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:357)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:136)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:380)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:235)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:648)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:603)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1438)
+!SUBENTRY 2 org.eclipse.core.resources 4 567 2016-05-20 09:10:39.667
+!MESSAGE The project description file (.project) for '.JETEmitters' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
+
+!ENTRY org.eclipse.equinox.ds 1 0 2016-05-20 09:10:42.526
+!MESSAGE Could not bind a reference of component org.eclipse.fx.core.internal.JUtilLoggerFactory. The reference is: Reference[name = registerHandler, interface = java.util.logging.Handler, policy = dynamic, policy-option = greedy, cardinality = 0..n, target = null, bind = registerHandler, unbind = unregisterHandler, updated = null]
+
+!ENTRY org.eclipse.core.resources 4 376 2016-05-20 09:32:32.693
+!MESSAGE Marker id 2728 not found.
+
+!ENTRY org.eclipse.core.resources 4 376 2016-05-20 09:32:32.698
+!MESSAGE Marker id 2727 not found.
+
+!ENTRY org.eclipse.core.resources 4 376 2016-05-20 09:32:32.698
+!MESSAGE Marker id 2726 not found.
+
+!SESSION 2016-05-20 10:01:47.227 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.8.0_74
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=fr_FR
+Framework arguments:  -product org.gemoc.gemoc_studio.branding.gemoc_studio
+Command-line arguments:  -product org.gemoc.gemoc_studio.branding.gemoc_studio -data /home/smangin/Workspace/VideoGen-xDsml/environnement_workbench/../language_Workbench -dev file:/home/smangin/Workspace/VideoGen-xDsml/environnement_workbench/.metadata/.plugins/org.eclipse.pde.core/VideoGen/dev.properties -os linux -ws gtk -arch x86_64 -consoleLog
+
+!ENTRY org.eclipse.equinox.ds 1 0 2016-05-20 10:01:58.046
+!MESSAGE Could not bind a reference of component org.eclipse.fx.core.internal.JUtilLoggerFactory. The reference is: Reference[name = registerHandler, interface = java.util.logging.Handler, policy = dynamic, policy-option = greedy, cardinality = 0..n, target = null, bind = registerHandler, unbind = unregisterHandler, updated = null]
+!SESSION 2016-05-20 10:21:10.182 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.8.0_74
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=fr_FR
+Framework arguments:  -product org.gemoc.gemoc_studio.branding.gemoc_studio
+Command-line arguments:  -product org.gemoc.gemoc_studio.branding.gemoc_studio -data /home/smangin/Workspace/VideoGen-xDsml/environnement_workbench/../language_Workbench -dev file:/home/smangin/Workspace/VideoGen-xDsml/environnement_workbench/.metadata/.plugins/org.eclipse.pde.core/VideoGen/dev.properties -os linux -ws gtk -arch x86_64 -consoleLog
+
+!ENTRY org.eclipse.core.resources 2 10035 2016-05-20 10:21:11.964
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY org.eclipse.equinox.ds 1 0 2016-05-20 10:21:16.406
+!MESSAGE Could not bind a reference of component org.eclipse.fx.core.internal.JUtilLoggerFactory. The reference is: Reference[name = registerHandler, interface = java.util.logging.Handler, policy = dynamic, policy-option = greedy, cardinality = 0..n, target = null, bind = registerHandler, unbind = unregisterHandler, updated = null]
+
+!SESSION 2016-05-20 10:28:26.467 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.8.0_74
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=fr_FR
+Framework arguments:  -product org.gemoc.gemoc_studio.branding.gemoc_studio
+Command-line arguments:  -product org.gemoc.gemoc_studio.branding.gemoc_studio -data /home/smangin/Workspace/VideoGen-xDsml/environnement_workbench/../language_Workbench -dev file:/home/smangin/Workspace/VideoGen-xDsml/environnement_workbench/.metadata/.plugins/org.eclipse.pde.core/VideoGen/dev.properties -os linux -ws gtk -arch x86_64 -consoleLog
+
+!ENTRY org.eclipse.equinox.ds 1 0 2016-05-20 10:28:41.319
+!MESSAGE Could not bind a reference of component org.eclipse.fx.core.internal.JUtilLoggerFactory. The reference is: Reference[name = registerHandler, interface = java.util.logging.Handler, policy = dynamic, policy-option = greedy, cardinality = 0..n, target = null, bind = registerHandler, unbind = unregisterHandler, updated = null]
+
+!ENTRY org.eclipse.jdt.core 4 4 2016-05-20 10:29:11.325
+!MESSAGE JavaBuilder handling ImageBuilderInternalException while building: org.gemoc.execution.sequential.javaengine.ui
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource already exists on disk: '/org.gemoc.execution.sequential.javaengine.ui/bin/.gitignore'.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.copy(FileSystemResourceManager.java:305)
+	at org.eclipse.core.internal.resources.Resource.copy(Resource.java:566)
+	at org.eclipse.jdt.internal.core.builder.AbstractImageBuilder.copyResource(AbstractImageBuilder.java:409)
+	at org.eclipse.jdt.internal.core.builder.IncrementalImageBuilder.findSourceFiles(IncrementalImageBuilder.java:682)
+	at org.eclipse.jdt.internal.core.builder.IncrementalImageBuilder.findSourceFiles(IncrementalImageBuilder.java:498)
+	at org.eclipse.jdt.internal.core.builder.IncrementalImageBuilder.build(IncrementalImageBuilder.java:98)
+	at org.eclipse.jdt.internal.core.builder.JavaBuilder.buildDeltas(JavaBuilder.java:267)
+	at org.eclipse.jdt.internal.core.builder.JavaBuilder.build(JavaBuilder.java:195)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:734)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:206)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:246)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:299)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:302)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:358)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:381)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:143)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.core.resources 4 272 2016-05-20 10:29:11.328
+!MESSAGE Resource already exists on disk: '/org.gemoc.execution.sequential.javaengine.ui/bin/.gitignore'.
+
+!ENTRY org.eclipse.core.resources 4 376 2016-05-20 10:34:11.061
+!MESSAGE Marker id 3322 not found.
+
+!ENTRY org.eclipse.core.resources 4 376 2016-05-20 10:34:11.070
+!MESSAGE Marker id 3321 not found.
+
+!ENTRY org.eclipse.core.resources 4 376 2016-05-20 10:34:11.070
+!MESSAGE Marker id 3320 not found.
+
+!ENTRY org.eclipse.core.resources 4 376 2016-05-20 10:35:09.609
+!MESSAGE Marker id 3332 not found.
+
+!ENTRY org.eclipse.core.resources 4 376 2016-05-20 10:35:09.609
+!MESSAGE Marker id 3331 not found.
+
+!ENTRY org.eclipse.core.resources 4 376 2016-05-20 10:35:09.609
+!MESSAGE Marker id 3330 not found.

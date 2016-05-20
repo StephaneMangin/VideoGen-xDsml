@@ -11,7 +11,6 @@ import videoGenTrace.States.State;
 
 import videoGenTrace.Steps.SpecificStep;
 import videoGenTrace.Steps.VideoGen_Alternatives_Execute;
-import videoGenTrace.Steps.VideoGen_Delay_Execute;
 import videoGenTrace.Steps.VideoGen_Generate_Compute;
 import videoGenTrace.Steps.VideoGen_Generate_Execute;
 import videoGenTrace.Steps.VideoGen_Initialize_Execute;
@@ -21,6 +20,7 @@ import videoGenTrace.Steps.VideoGen_Sequence_Execute;
 import videoGenTrace.Steps.VideoGen_Transition_Execute;
 import videoGenTrace.Steps.VideoGen_VideoGen_Compute;
 import videoGenTrace.Steps.VideoGen_VideoGen_Execute;
+import videoGenTrace.Steps.VideoGen_VideoGen_InitializeModel;
 import videoGenTrace.Steps.VideoGen_VideoGen_Setup;
 import videoGenTrace.Steps.VideoGen_Video_Select;
 
@@ -34,7 +34,6 @@ import videoGenTrace.Steps.VideoGen_Video_Select;
  * </p>
  * <ul>
  *   <li>{@link videoGenTrace.SpecificTrace#getVideoGen_Alternatives_Execute_Sequence <em>Video Gen Alternatives Execute Sequence</em>}</li>
- *   <li>{@link videoGenTrace.SpecificTrace#getVideoGen_Delay_Execute_Sequence <em>Video Gen Delay Execute Sequence</em>}</li>
  *   <li>{@link videoGenTrace.SpecificTrace#getVideoGen_Generate_Compute_Sequence <em>Video Gen Generate Compute Sequence</em>}</li>
  *   <li>{@link videoGenTrace.SpecificTrace#getVideoGen_Generate_Execute_Sequence <em>Video Gen Generate Execute Sequence</em>}</li>
  *   <li>{@link videoGenTrace.SpecificTrace#getVideoGen_Initialize_Execute_Sequence <em>Video Gen Initialize Execute Sequence</em>}</li>
@@ -44,6 +43,7 @@ import videoGenTrace.Steps.VideoGen_Video_Select;
  *   <li>{@link videoGenTrace.SpecificTrace#getVideoGen_Transition_Execute_Sequence <em>Video Gen Transition Execute Sequence</em>}</li>
  *   <li>{@link videoGenTrace.SpecificTrace#getVideoGen_VideoGen_Compute_Sequence <em>Video Gen Video Gen Compute Sequence</em>}</li>
  *   <li>{@link videoGenTrace.SpecificTrace#getVideoGen_VideoGen_Execute_Sequence <em>Video Gen Video Gen Execute Sequence</em>}</li>
+ *   <li>{@link videoGenTrace.SpecificTrace#getVideoGen_VideoGen_InitializeModel_Sequence <em>Video Gen Video Gen Initialize Model Sequence</em>}</li>
  *   <li>{@link videoGenTrace.SpecificTrace#getVideoGen_VideoGen_Setup_Sequence <em>Video Gen Video Gen Setup Sequence</em>}</li>
  *   <li>{@link videoGenTrace.SpecificTrace#getVideoGen_Video_Select_Sequence <em>Video Gen Video Select Sequence</em>}</li>
  *   <li>{@link videoGenTrace.SpecificTrace#getStatesTrace <em>States Trace</em>}</li>
@@ -69,22 +69,6 @@ public interface SpecificTrace extends Trace<SequentialStep<SpecificStep>> {
 	 * @generated
 	 */
 	EList<VideoGen_Alternatives_Execute> getVideoGen_Alternatives_Execute_Sequence();
-
-	/**
-	 * Returns the value of the '<em><b>Video Gen Delay Execute Sequence</b></em>' reference list.
-	 * The list contents are of type {@link videoGenTrace.Steps.VideoGen_Delay_Execute}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Video Gen Delay Execute Sequence</em>' reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Video Gen Delay Execute Sequence</em>' reference list.
-	 * @see videoGenTrace.VideoGenTracePackage#getSpecificTrace_VideoGen_Delay_Execute_Sequence()
-	 * @model
-	 * @generated
-	 */
-	EList<VideoGen_Delay_Execute> getVideoGen_Delay_Execute_Sequence();
 
 	/**
 	 * Returns the value of the '<em><b>Video Gen Generate Compute Sequence</b></em>' reference list.
@@ -229,6 +213,22 @@ public interface SpecificTrace extends Trace<SequentialStep<SpecificStep>> {
 	 * @generated
 	 */
 	EList<VideoGen_VideoGen_Execute> getVideoGen_VideoGen_Execute_Sequence();
+
+	/**
+	 * Returns the value of the '<em><b>Video Gen Video Gen Initialize Model Sequence</b></em>' reference list.
+	 * The list contents are of type {@link videoGenTrace.Steps.VideoGen_VideoGen_InitializeModel}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Video Gen Video Gen Initialize Model Sequence</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Video Gen Video Gen Initialize Model Sequence</em>' reference list.
+	 * @see videoGenTrace.VideoGenTracePackage#getSpecificTrace_VideoGen_VideoGen_InitializeModel_Sequence()
+	 * @model
+	 * @generated
+	 */
+	EList<VideoGen_VideoGen_InitializeModel> getVideoGen_VideoGen_InitializeModel_Sequence();
 
 	/**
 	 * Returns the value of the '<em><b>Video Gen Video Gen Setup Sequence</b></em>' reference list.

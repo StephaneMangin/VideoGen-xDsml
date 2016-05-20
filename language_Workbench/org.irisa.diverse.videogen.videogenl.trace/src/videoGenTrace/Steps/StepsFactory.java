@@ -49,24 +49,6 @@ public interface StepsFactory extends EFactory {
 	VideoGen_Alternatives_Execute_ImplicitStep createVideoGen_Alternatives_Execute_ImplicitStep();
 
 	/**
-	 * Returns a new object of class '<em>Video Gen Delay Execute</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Video Gen Delay Execute</em>'.
-	 * @generated
-	 */
-	VideoGen_Delay_Execute createVideoGen_Delay_Execute();
-
-	/**
-	 * Returns a new object of class '<em>Video Gen Delay Execute Implicit Step</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Video Gen Delay Execute Implicit Step</em>'.
-	 * @generated
-	 */
-	VideoGen_Delay_Execute_ImplicitStep createVideoGen_Delay_Execute_ImplicitStep();
-
-	/**
 	 * Returns a new object of class '<em>Video Gen Generate Compute</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -218,6 +200,24 @@ public interface StepsFactory extends EFactory {
 	 * @generated
 	 */
 	VideoGen_VideoGen_Execute_ImplicitStep createVideoGen_VideoGen_Execute_ImplicitStep();
+
+	/**
+	 * Returns a new object of class '<em>Video Gen Video Gen Initialize Model</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Video Gen Video Gen Initialize Model</em>'.
+	 * @generated
+	 */
+	VideoGen_VideoGen_InitializeModel createVideoGen_VideoGen_InitializeModel();
+
+	/**
+	 * Returns a new object of class '<em>Video Gen Video Gen Initialize Model Implicit Step</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Video Gen Video Gen Initialize Model Implicit Step</em>'.
+	 * @generated
+	 */
+	VideoGen_VideoGen_InitializeModel_ImplicitStep createVideoGen_VideoGen_InitializeModel_ImplicitStep();
 
 	/**
 	 * Returns a new object of class '<em>Video Gen Video Gen Setup</em>'.

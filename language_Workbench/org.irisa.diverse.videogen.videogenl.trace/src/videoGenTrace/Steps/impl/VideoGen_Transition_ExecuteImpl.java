@@ -31,15 +31,13 @@ import videoGenTrace.States.State;
 import videoGenTrace.States.StatesPackage;
 
 import videoGenTrace.Steps.StepsPackage;
-import videoGenTrace.Steps.VideoGen_Delay_Execute_AbstractSubStep;
+import videoGenTrace.Steps.VideoGen_Alternatives_Execute_AbstractSubStep;
 import videoGenTrace.Steps.VideoGen_Generate_Execute_AbstractSubStep;
 import videoGenTrace.Steps.VideoGen_Initialize_Execute_AbstractSubStep;
 import videoGenTrace.Steps.VideoGen_Mandatory_Execute_AbstractSubStep;
 import videoGenTrace.Steps.VideoGen_Optional_Execute_AbstractSubStep;
-import videoGenTrace.Steps.VideoGen_Sequence_Execute_AbstractSubStep;
 import videoGenTrace.Steps.VideoGen_Transition_Execute;
 import videoGenTrace.Steps.VideoGen_Transition_Execute_AbstractSubStep;
-import videoGenTrace.Steps.VideoGen_VideoGen_Execute_AbstractSubStep;
 
 /**
  * <!-- begin-user-doc -->
@@ -374,6 +372,11 @@ public class VideoGen_Transition_ExecuteImpl extends StepImpl implements VideoGe
 	 */
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == VideoGen_Alternatives_Execute_AbstractSubStep.class) {
+			switch (derivedFeatureID) {
+				default: return -1;
+			}
+		}
 		if (baseClass == VideoGen_Mandatory_Execute_AbstractSubStep.class) {
 			switch (derivedFeatureID) {
 				default: return -1;
@@ -395,32 +398,12 @@ public class VideoGen_Transition_ExecuteImpl extends StepImpl implements VideoGe
 				default: return -1;
 			}
 		}
-		if (baseClass == VideoGen_Transition_Execute_AbstractSubStep.class) {
-			switch (derivedFeatureID) {
-				default: return -1;
-			}
-		}
-		if (baseClass == VideoGen_VideoGen_Execute_AbstractSubStep.class) {
-			switch (derivedFeatureID) {
-				default: return -1;
-			}
-		}
-		if (baseClass == VideoGen_Generate_Execute_AbstractSubStep.class) {
-			switch (derivedFeatureID) {
-				default: return -1;
-			}
-		}
-		if (baseClass == VideoGen_Delay_Execute_AbstractSubStep.class) {
-			switch (derivedFeatureID) {
-				default: return -1;
-			}
-		}
 		if (baseClass == VideoGen_Initialize_Execute_AbstractSubStep.class) {
 			switch (derivedFeatureID) {
 				default: return -1;
 			}
 		}
-		if (baseClass == VideoGen_Sequence_Execute_AbstractSubStep.class) {
+		if (baseClass == VideoGen_Generate_Execute_AbstractSubStep.class) {
 			switch (derivedFeatureID) {
 				default: return -1;
 			}
@@ -435,6 +418,11 @@ public class VideoGen_Transition_ExecuteImpl extends StepImpl implements VideoGe
 	 */
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == VideoGen_Alternatives_Execute_AbstractSubStep.class) {
+			switch (baseFeatureID) {
+				default: return -1;
+			}
+		}
 		if (baseClass == VideoGen_Mandatory_Execute_AbstractSubStep.class) {
 			switch (baseFeatureID) {
 				default: return -1;
@@ -456,32 +444,12 @@ public class VideoGen_Transition_ExecuteImpl extends StepImpl implements VideoGe
 				default: return -1;
 			}
 		}
-		if (baseClass == VideoGen_Transition_Execute_AbstractSubStep.class) {
-			switch (baseFeatureID) {
-				default: return -1;
-			}
-		}
-		if (baseClass == VideoGen_VideoGen_Execute_AbstractSubStep.class) {
-			switch (baseFeatureID) {
-				default: return -1;
-			}
-		}
-		if (baseClass == VideoGen_Generate_Execute_AbstractSubStep.class) {
-			switch (baseFeatureID) {
-				default: return -1;
-			}
-		}
-		if (baseClass == VideoGen_Delay_Execute_AbstractSubStep.class) {
-			switch (baseFeatureID) {
-				default: return -1;
-			}
-		}
 		if (baseClass == VideoGen_Initialize_Execute_AbstractSubStep.class) {
 			switch (baseFeatureID) {
 				default: return -1;
 			}
 		}
-		if (baseClass == VideoGen_Sequence_Execute_AbstractSubStep.class) {
+		if (baseClass == VideoGen_Generate_Execute_AbstractSubStep.class) {
 			switch (baseFeatureID) {
 				default: return -1;
 			}

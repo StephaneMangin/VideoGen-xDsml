@@ -117,7 +117,7 @@ class VideoGenAspect {
 	def public void execute() {
 		// Then process each sequences
 		_self.nanotimeStart = System.nanoTime
-		TransitionAspect.execute(VideoGenHelper.getInitialize(_self), _self)
+		InitializeAspect.execute(VideoGenHelper.getInitialize(_self), _self)
 		_self.nanotimeEnd = System.nanoTime
 		log.info("#### VideoGen, time to execute " + (_self.nanotimeEnd - _self.nanotimeStart))
 	}	
@@ -180,31 +180,9 @@ abstract class TransitionAspect {
 	public Boolean executed = false
 	public Boolean callnextTransition = true
 	
-	/**
-	 * Call the sequence processor. Need to be overridden by a inherited class
-	 * Be careful to call this super method at the end of the override call.
-	 * 	cf: _self.super_process() (kermeta style)
-	 * 
-	 */
 	@Step
 	def public void execute(VideoGen videoGen) {
-		VideoGenAspect.log.info("##### '" + _self + "' is being processed.")
 		
-		// First apply the constraint model before execution
-		new VideoGenUserContraintsVisitor().visit(videoGen, videoGen.minUserConstraint, videoGen.maxUserConstraint)
-		
-		// Stop invariant while looping the model
-		if (!_self.executed) {
-			// Call the next sequence in all case
-			if (_self.nextTransition !== null) {
-				//Don't forget to reset current state
-				_self.executed = true
-				// Before calling next sequence
-				if (_self.callnextTransition) {
-					_self.nextTransition.execute(videoGen)
-				}
-			}
-		}
 	}
 }
 
@@ -233,24 +211,18 @@ class VideoAspect {
 
 @Aspect(className=Delay)
 class DelayAspect extends TransitionAspect {
-	
-	@OverrideAspectMethod
-	def void execute(VideoGen videoGen) {
-		if (_self.active && !_self.executed) {
-			VideoGenAspect.log.info("++++++++++++++++++++++++++++++++++++++++++ A pass has finished")
-			//Thread.sleep(_self.value)
-		}
-		_self.super_execute(videoGen)
-	}
+
 }
 
 @Aspect(className=Sequence)
 abstract class SequenceAspect extends TransitionAspect {
-	
+
+	@Step
 	@OverrideAspectMethod
 	def public void execute(VideoGen videoGen) {
-		_self.super_execute(videoGen)
+		
 	}
+	
 }
 
 @Aspect(className=Alternatives)
@@ -280,7 +252,25 @@ class AlternativesAspect extends SequenceAspect {
 				_self.callnextTransition = false
 			]
 		}
-		_self.super_execute(videoGen)
+		//_self.super_execute(videoGen)
+				VideoGenAspect.log.info("##### '" + _self + "' is being processed.")
+		
+		// First apply the constraint model before execution
+		new VideoGenUserContraintsVisitor().visit(videoGen, videoGen.minUserConstraint, videoGen.maxUserConstraint)
+		
+		// Stop invariant while looping the model
+		if (!_self.executed) {
+			// Call the next sequence in all case
+			if (_self.nextTransition !== null) {
+				//Don't forget to reset current state
+				_self.executed = true
+				// Before calling next sequence
+				if (_self.callnextTransition) {
+					_self.nextTransition.execute(videoGen)
+				}
+			}
+		}
+		
 	}
 }
 
@@ -294,7 +284,25 @@ class MandatoryAspect extends SequenceAspect {
 			VideoAspect.select(_self.video)
 			_self.selected = true
 		}
-		_self.super_execute(videoGen)
+		//_self.super_execute(videoGen)
+		
+		VideoGenAspect.log.info("##### '" + _self + "' is being processed.")
+		
+		// First apply the constraint model before execution
+		new VideoGenUserContraintsVisitor().visit(videoGen, videoGen.minUserConstraint, videoGen.maxUserConstraint)
+		
+		// Stop invariant while looping the model
+		if (!_self.executed) {
+			// Call the next sequence in all case
+			if (_self.nextTransition !== null) {
+				//Don't forget to reset current state
+				_self.executed = true
+				// Before calling next sequence
+				if (_self.callnextTransition) {
+					_self.nextTransition.execute(videoGen)
+				}
+			}
+		}
 	}
 }
 
@@ -332,26 +340,59 @@ class OptionalAspect extends SequenceAspect {
 				_self.selected = true
 			}
 		}
-		_self.super_execute(videoGen)
+		//_self.super_execute(videoGen)
+		
+		VideoGenAspect.log.info("##### '" + _self + "' is being processed.")
+		
+		// First apply the constraint model before execution
+		new VideoGenUserContraintsVisitor().visit(videoGen, videoGen.minUserConstraint, videoGen.maxUserConstraint)
+		
+		// Stop invariant while looping the model
+		if (!_self.executed) {
+			// Call the next sequence in all case
+			if (_self.nextTransition !== null) {
+				//Don't forget to reset current state
+				_self.executed = true
+				// Before calling next sequence
+				if (_self.callnextTransition) {
+					_self.nextTransition.execute(videoGen)
+				}
+			}
+		}
 	}
 }
 
 
 @Aspect(className=Initialize)
 class InitializeAspect extends TransitionAspect {
-		
+	
+	@Step
 	@OverrideAspectMethod
-	def public void execute(VideoGen videoGen) {
+	def public void execute(VideoGen videoGen) {		
+		VideoGenAspect.log.info("##### '" + _self + "' is being processed.")
+		
+		// First apply the constraint model before execution
+		new VideoGenUserContraintsVisitor().visit(videoGen, videoGen.minUserConstraint, videoGen.maxUserConstraint)
+		
+		// Stop invariant while looping the model
 		if (!_self.executed) {
-			//TODO
+			// Call the next sequence in all case
+			if (_self.nextTransition !== null) {
+				//Don't forget to reset current state
+				_self.executed = true
+				// Before calling next sequence
+				if (_self.callnextTransition) {
+					_self.nextTransition.execute(videoGen)
+				}
+			}
 		}
-		_self.super_execute(videoGen)
-	}
+	}	
 }
 
 @Aspect(className=Generate)
 class GenerateAspect extends TransitionAspect {
-		
+	
+	@Step
 	@OverrideAspectMethod
 	def public void execute(VideoGen videoGen) {
 		if (!_self.executed) {
@@ -359,7 +400,25 @@ class GenerateAspect extends TransitionAspect {
 			// Reinit the model after computation
 			VideoGenAspect.initializeModel(videoGen, newArrayList("noreset"))
 		}
-		_self.super_execute(videoGen)
+		//_self.super_execute(videoGen)
+		
+		VideoGenAspect.log.info("##### '" + _self + "' is being processed.")
+		
+		// First apply the constraint model before execution
+		new VideoGenUserContraintsVisitor().visit(videoGen, videoGen.minUserConstraint, videoGen.maxUserConstraint)
+		
+		// Stop invariant while looping the model
+		if (!_self.executed) {
+			// Call the next sequence in all case
+			if (_self.nextTransition !== null) {
+				//Don't forget to reset current state
+				_self.executed = true
+				// Before calling next sequence
+				if (_self.callnextTransition) {
+					_self.nextTransition.execute(videoGen)
+				}
+			}
+		}
 	}
 	/**
 	 * Call VideogGen.compute()
