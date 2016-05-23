@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;VideoGenHelper.xtend&apos; to &apos;org.irisa.diverse.videogen.solvers/src/org.irisa.diverse.videogen.solvers.visitors&apos;&#x0A;- Original project: &apos;org.irisa.diverse.videogen.transformation&apos;&#x0A;- Destination element: &apos;org.irisa.diverse.videogen.solvers/src/org.irisa.diverse.videogen.solvers.visitors&apos;&#x0A;- Original element: &apos;VideoGenHelper.xtend&apos;" description="Copy file" destination="=org.irisa.diverse.videogen.solvers/src&lt;org.irisa.diverse.videogen.solvers.visitors" element1="xtend/org/irisa/diverse/videogen/transformations/helpers/VideoGenHelper.xtend" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1464012499547" units="0" version="1.0"/>
+</session>

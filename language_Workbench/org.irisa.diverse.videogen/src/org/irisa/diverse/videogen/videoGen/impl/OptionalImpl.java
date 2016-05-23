@@ -17,10 +17,10 @@ import org.irisa.diverse.videogen.videoGen.VideoGenPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.irisa.diverse.videogen.videoGen.impl.OptionalImpl#getProbability <em>Probability</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

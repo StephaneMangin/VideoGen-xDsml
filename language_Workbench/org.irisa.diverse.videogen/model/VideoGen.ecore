@@ -38,6 +38,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Transition" abstract="true" interface="true"
       eSuperTypes="#//NamedElement">
+    <eOperations name="execute" lowerBound="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="nextTransition" eType="#//Transition"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="active" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"

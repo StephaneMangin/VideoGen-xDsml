@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Solvers
+Bundle-SymbolicName: org.irisa.diverse.videogen.solvers
+Bundle-Version: 1.0.0.qualifier
+Bundle-ClassPath: solvers.jar,
+ libs/choco-solver-3.3.3-sources.jar,
+ libs/choco-solver-3.3.3-with-dependencies.jar

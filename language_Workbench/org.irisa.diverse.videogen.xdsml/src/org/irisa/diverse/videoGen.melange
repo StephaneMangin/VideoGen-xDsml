@@ -1,9 +1,14 @@
 package org.irisa.diverse.videogen
 
 
-language VideoGenL {
+language VideoGenS {
 	syntax "platform:/resource//org.irisa.diverse.videogen/model/VideoGen.ecore"
+	
+	exactType VideoGenSMT
+}
 
+language VideoGenL inherits VideoGenS {
+	
 	with org.irisa.diverse.videogen.videoGen.aspects.VideoGenAspect
 	with org.irisa.diverse.videogen.videoGen.aspects.TransitionAspect
 	with org.irisa.diverse.videogen.videoGen.aspects.MandatoryAspect
@@ -14,5 +19,7 @@ language VideoGenL {
 	with org.irisa.diverse.videogen.videoGen.aspects.SequenceAspect
 	with org.irisa.diverse.videogen.videoGen.aspects.DelayAspect
 	with org.irisa.diverse.videogen.videoGen.aspects.VideoAspect
-
+	
+	exactType VideoGenLMT
+	
 }

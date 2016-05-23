@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="ASCII"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.irisa.diverse.videogen.xdsml/src-gen" modelName="VideoGenSMT" complianceLevel="7.0" copyrightFields="false">
+  <foreignModel>platform:/resource/org.irisa.diverse.videogen.xdsml/model-gen/VideoGenSMT.ecore</foreignModel>
+  <genPackages prefix="VideoGen" basePackage="org.irisa.diverse.videogen.videogensmt" disposableProviderFactory="true">
+    <ecorePackage href="VideoGenSMT.ecore#/"/>
+    <genEnums typeSafeEnumCompatible="false">
+      <ecoreEnum href="VideoGenSMT.ecore#//Mimetypes_Enum"/>
+      <genEnumLiterals>
+        <ecoreEnumLiteral href="VideoGenSMT.ecore#//Mimetypes_Enum/none"/>
+      </genEnumLiterals>
+      <genEnumLiterals>
+        <ecoreEnumLiteral href="VideoGenSMT.ecore#//Mimetypes_Enum/mp4"/>
+      </genEnumLiterals>
+      <genEnumLiterals>
+        <ecoreEnumLiteral href="VideoGenSMT.ecore#//Mimetypes_Enum/flv"/>
+      </genEnumLiterals>
+      <genEnumLiterals>
+        <ecoreEnumLiteral href="VideoGenSMT.ecore#//Mimetypes_Enum/mpegts"/>
+      </genEnumLiterals>
+      <genEnumLiterals>
+        <ecoreEnumLiteral href="VideoGenSMT.ecore#//Mimetypes_Enum/mpeg"/>
+      </genEnumLiterals>
+      <genEnumLiterals>
+        <ecoreEnumLiteral href="VideoGenSMT.ecore#//Mimetypes_Enum/webm"/>
+      </genEnumLiterals>
+      <genEnumLiterals>
+        <ecoreEnumLiteral href="VideoGenSMT.ecore#//Mimetypes_Enum/wmv"/>
+      </genEnumLiterals>
+      <genEnumLiterals>
+        <ecoreEnumLiteral href="VideoGenSMT.ecore#//Mimetypes_Enum/avi"/>
+      </genEnumLiterals>
+      <genEnumLiterals>
+        <ecoreEnumLiteral href="VideoGenSMT.ecore#//Mimetypes_Enum/mov"/>
+      </genEnumLiterals>
+    </genEnums>
+    <genClasses>
+      <ecoreClass href="VideoGenSMT.ecore#//Mandatory"/>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="VideoGenSMT.ecore#//Initialize"/>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="VideoGenSMT.ecore#//VideoGen"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="VideoGenSMT.ecore#//VideoGen/minDurationConstraint"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="VideoGenSMT.ecore#//VideoGen/maxDurationConstraint"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="VideoGenSMT.ecore#//VideoGen/variantes"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="VideoGenSMT.ecore#//VideoGen/transitions"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="VideoGenSMT.ecore#//VideoGen/videos"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="VideoGenSMT.ecore#//VideoGen/minUserConstraint"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="VideoGenSMT.ecore#//VideoGen/maxUserConstraint"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses image="false">
+      <ecoreClass href="VideoGenSMT.ecore#//Transition"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="VideoGenSMT.ecore#//Transition/nextTransition"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="VideoGenSMT.ecore#//Transition/active"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="VideoGenSMT.ecore#//Transition/selected"/>
+      </genFeatures>
+      <genOperations>
+        <ecoreOperation href="VideoGenSMT.ecore#//Transition/execute"/>
+      </genOperations>
+    </genClasses>
+    <genClasses image="false">
+      <ecoreClass href="VideoGenSMT.ecore#//NamedElement"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="VideoGenSMT.ecore#//NamedElement/name"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="VideoGenSMT.ecore#//Optional"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="VideoGenSMT.ecore#//Optional/probability"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="VideoGenSMT.ecore#//Video"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="VideoGenSMT.ecore#//Video/url"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="VideoGenSMT.ecore#//Video/description"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="VideoGenSMT.ecore#//Video/duration"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="VideoGenSMT.ecore#//Video/mimetype"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="VideoGenSMT.ecore#//Alternatives"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="VideoGenSMT.ecore#//Alternatives/options"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="VideoGenSMT.ecore#//Generate"/>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="VideoGenSMT.ecore#//Delay"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="VideoGenSMT.ecore#//Delay/value"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses image="false">
+      <ecoreClass href="VideoGenSMT.ecore#//Sequence"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="VideoGenSMT.ecore#//Sequence/video"/>
+      </genFeatures>
+    </genClasses>
+  </genPackages>
+  <usedGenPackages href="../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore"/>
+</genmodel:GenModel>

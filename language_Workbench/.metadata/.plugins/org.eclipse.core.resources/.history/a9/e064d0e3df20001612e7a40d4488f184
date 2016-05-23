@@ -1,0 +1,14 @@
+source.. = src/,\
+           xtend-gen/
+output.. = bin/
+bin.includes = plugin.xml,\
+               META-INF/,\
+               .,\
+               libs/choco-solver-3.3.3-sources.jar,\
+               libs/choco-solver-3.3.3-with-dependencies.jar,\
+               libs/jargs.jar
+src.includes = src/,\
+               xtend-gen/,\
+               libs/
+jars.compile.order = .,\
+                     libs/

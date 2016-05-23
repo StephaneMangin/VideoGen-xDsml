@@ -1,5 +1,4 @@
 eclipse.preferences.version=1
-org.eclipse.jdt.core.builder.resourceCopyExclusionFilter=
 org.eclipse.jdt.core.classpathVariable.EMF_CODEGEN=/home/smangin/bin/gemoc-studio/plugins/org.eclipse.emf.codegen_2.11.0.v20160208-0841.jar
 org.eclipse.jdt.core.classpathVariable.EMF_CODEGEN_ECORE=/home/smangin/bin/gemoc-studio/plugins/org.eclipse.emf.codegen.ecore_2.11.1.v20160208-0841.jar
 org.eclipse.jdt.core.classpathVariable.EMF_COMMON=/home/smangin/bin/gemoc-studio/plugins/org.eclipse.emf.common_2.11.1.v20160208-0816.jar

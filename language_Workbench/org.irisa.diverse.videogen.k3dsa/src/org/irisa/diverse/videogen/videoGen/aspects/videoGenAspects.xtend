@@ -7,34 +7,34 @@ import fr.inria.diverse.k3.al.annotationprocessor.OverrideAspectMethod
 import fr.inria.diverse.k3.al.annotationprocessor.Step
 import java.io.File
 import java.io.FileWriter
+import java.nio.file.Path
+import java.nio.file.Paths
 import java.util.HashMap
 import java.util.List
+import java.util.Map
+import java.util.logging.FileHandler
+import java.util.logging.Logger
+import java.util.logging.SimpleFormatter
+import org.eclipse.core.resources.ResourcesPlugin
 import org.irisa.diverse.videogen.transformations.VideoGenTransform
+import org.irisa.diverse.videogen.transformations.helpers.SystemHelper
 import org.irisa.diverse.videogen.transformations.helpers.VideoGenHelper
 import org.irisa.diverse.videogen.transformations.utils.DistributedRandomNumberGenerator
-import org.irisa.diverse.videogen.videoGen.Alternatives
-import org.irisa.diverse.videogen.videoGen.Delay
-import org.irisa.diverse.videogen.videoGen.Generate
-import org.irisa.diverse.videogen.videoGen.Initialize
-import org.irisa.diverse.videogen.videoGen.Mandatory
-import org.irisa.diverse.videogen.videoGen.Optional
-import org.irisa.diverse.videogen.videoGen.Sequence
-import org.irisa.diverse.videogen.videoGen.Transition
-import org.irisa.diverse.videogen.videoGen.Video
-import org.irisa.diverse.videogen.videoGen.VideoGen
-import java.util.logging.Logger
-import java.util.logging.FileHandler
-import java.util.logging.SimpleFormatter
-import org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor
-import java.nio.file.Paths
-import org.eclipse.core.resources.ResourcesPlugin
-import org.irisa.diverse.videogen.transformations.helpers.SystemHelper
-import java.nio.file.Path
+import org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenContraintsMinMaxVisitor
 import org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenSetupVisitor
 import org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenVariantsVisitor
-import org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenContraintsMinMaxVisitor
-import jargs.gnu.CmdLineParser
-import jargs.gnu.CmdLineParser.Option
+import org.irisa.diverse.videogen.videogenl.videoGen.Alternatives
+import org.irisa.diverse.videogen.videogenl.videoGen.Delay
+import org.irisa.diverse.videogen.videogenl.videoGen.Generate
+import org.irisa.diverse.videogen.videogenl.videoGen.Initialize
+import org.irisa.diverse.videogen.videogenl.videoGen.Mandatory
+import org.irisa.diverse.videogen.videogenl.videoGen.Optional
+import org.irisa.diverse.videogen.videogenl.videoGen.Sequence
+import org.irisa.diverse.videogen.videogenl.videoGen.Transition
+import org.irisa.diverse.videogen.videogenl.videoGen.Video
+import org.irisa.diverse.videogen.videogenl.videoGen.VideoGen
+
+import static extension org.irisa.diverse.videogen.videoGen.aspects.TransitionAspect.*
 
 @Aspect(className=VideoGen)
 class VideoGenAspect {
@@ -228,6 +228,66 @@ abstract class SequenceAspect extends TransitionAspect {
 @Aspect(className=Alternatives)
 class AlternativesAspect extends SequenceAspect {
 
+	/**
+	 * Return a hashmap with corrected probabilities for an Alternatives instance.
+	 * 
+	 * @author Stéphane Mangin <stephane.mangin@freesbee.fr>
+	 */
+	def private static Map<Optional, Integer> checkProbabilities() {
+		val result = new HashMap<Optional, Integer>
+		var totalProb = 0
+		var totalProbLeft = 0
+		var totalOptions = 0
+		var inactivated = 0
+		for (option : _self.options) {
+			if (option.active) {
+				if (option.probability == 0) {
+					totalOptions++
+				}
+				totalProb += option.probability
+				result.put(option, option.probability)
+			} else {
+				inactivated++
+				totalProbLeft += option.probability
+			}
+		}
+		if (result.size != 0) {
+			if (result.size == 1) {
+				result.replace(result.keySet.get(0), 100)
+			} else if (inactivated != 0) {
+				for (name : result.keySet) {
+					val percentageLeft = totalProbLeft / inactivated
+					result.put(name, result.get(name) + percentageLeft)
+				}
+			} else {
+				for (name : result.keySet) {
+					if (result.get(name) == 0) {
+						val percentageLeft = (100 - totalProb) / totalOptions
+						result.put(name, percentageLeft)
+					}
+				}
+			}
+		}
+		result
+	}
+	
+	/**
+ 	 * Process options to find the selectable video
+ 	 * 
+ 	 */
+	def private Optional selectOption() {
+
+		val drng = new DistributedRandomNumberGenerator()
+		val checkedProbabilities = _self.checkProbabilities()
+		if (checkedProbabilities.empty) {
+			return null
+		}
+		checkedProbabilities.forEach[option, proba|
+			drng.addNumber(checkedProbabilities.keySet.toList.indexOf(option), proba)
+		] 
+		checkedProbabilities.keySet.get(drng.getDistributedRandomNumber())
+	}
+	
 	@Step
 	@OverrideAspectMethod
 	def public void execute(VideoGen videoGen) {
@@ -236,7 +296,7 @@ class AlternativesAspect extends SequenceAspect {
 		// Optional could be linked together for alterantives management
 		// A bind relation could be used to replace this data structure (maybe without common sense)
 		_self.selected = true
-		val selectedOption = VideoGenHelper.selectOption(_self)
+		val selectedOption = _self.selectOption()
 		if (selectedOption != null) {
 			selectedOption.selected = true
 			_self.video = selectedOption.video
@@ -253,10 +313,11 @@ class AlternativesAspect extends SequenceAspect {
 			]
 		}
 		//_self.super_execute(videoGen)
-				VideoGenAspect.log.info("##### '" + _self + "' is being processed.")
-		
+		VideoGenAspect.log.info("##### '" + _self + "' is being processed.")
+		val int min = videoGen.minUserConstraint.intValue
+		val int max = videoGen.maxUserConstraint.intValue
 		// First apply the constraint model before execution
-		new VideoGenUserContraintsVisitor().visit(videoGen, videoGen.minUserConstraint, videoGen.maxUserConstraint)
+		new VideoGenUserContraintsVisitor().visit(videoGen, min, max)
 		
 		// Stop invariant while looping the model
 		if (!_self.executed) {

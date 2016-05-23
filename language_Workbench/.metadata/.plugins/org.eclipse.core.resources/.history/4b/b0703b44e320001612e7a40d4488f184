@@ -1,0 +1,72 @@
+package org.irisa.diverse.videogen.videogenl.transformations.strategies;
+
+import java.nio.file.Path;
+import java.time.LocalTime;
+import java.util.List;
+import org.eclipse.xtend2.lib.StringConcatenation;
+import org.eclipse.xtext.xbase.lib.Conversions;
+import org.eclipse.xtext.xbase.lib.Functions.Function1;
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
+import org.irisa.diverse.videogen.transformations.VideoCodec;
+import org.irisa.diverse.videogen.transformations.utils.Executor;
+import org.irisa.diverse.videogen.videogenl.transformations.strategies.VideosStrategy;
+
+/**
+ * @author Stéphane Mangin <stephane.mangin@freesbee.fr>
+ */
+@SuppressWarnings("all")
+public class AvconvStrategyImpl /* extends Executor  */implements VideosStrategy {
+  @Override
+  public void createThumbnails(final Path fullPath, final Path thumbFileName) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nAccess restriction: The type ExecResult is not accessible due to restriction on required project org.irisa.diverse.videogen.transformation");
+  }
+  
+  @Override
+  public void convert(final Path fullPath, final Path newFullPathName, final VideoCodec codec) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nAccess restriction: The type ExecResult is not accessible due to restriction on required project org.irisa.diverse.videogen.videogenl.transformation");
+  }
+  
+  @Override
+  public VideoCodec getMimeType(final Path fullPath) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nAccess restriction: The type ExecResult is not accessible due to restriction on required project org.irisa.diverse.videogen.videogenl.transformation");
+  }
+  
+  @Override
+  public int getDuration(final Path fullPath) {
+    int _xblockexpression = (int) 0;
+    {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("avconv -i \"");
+      _builder.append(fullPath, "");
+      _builder.append("\" 2>&1");
+      String cmd = _builder.toString();
+      Executor.ExecResult result = Executor.execCmd(cmd, 1);
+      Executor.processResult(result);
+      List<String> _lines = result.getLines();
+      final Function1<String, Boolean> _function = (String it) -> {
+        return Boolean.valueOf(it.contains("Duration"));
+      };
+      final Iterable<String> durationPattern = IterableExtensions.<String>filter(_lines, _function);
+      int duration = 0;
+      int _size = IterableExtensions.size(durationPattern);
+      boolean _greaterThan = (_size > 0);
+      if (_greaterThan) {
+        String _get = ((String[])Conversions.unwrapArray(durationPattern, String.class))[0];
+        String[] _split = _get.split(" ");
+        String _get_1 = _split[3];
+        String tmpResult = _get_1.replace(",", "");
+        final LocalTime repr = LocalTime.parse(tmpResult);
+        int _minute = repr.getMinute();
+        int _multiply = (_minute * 60);
+        int _second = repr.getSecond();
+        int _plus = (_multiply + _second);
+        duration = _plus;
+      }
+      _xblockexpression = duration;
+    }
+    return _xblockexpression;
+  }
+}

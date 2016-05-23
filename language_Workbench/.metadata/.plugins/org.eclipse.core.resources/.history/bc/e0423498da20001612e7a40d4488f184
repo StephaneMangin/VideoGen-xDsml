@@ -1,0 +1,24 @@
+package org.irisa.diverse.videogen
+
+
+language VideoGenS {
+	syntax "platform:/resource//org.irisa.diverse.videogen/model/VideoGen.ecore"
+
+}
+
+language VideoGenL inherits VideoGenS {
+	
+	with org.irisa.diverse.videogen.videoGen.aspects.VideoGenAspect
+	with org.irisa.diverse.videogen.videoGen.aspects.TransitionAspect
+	with org.irisa.diverse.videogen.videoGen.aspects.MandatoryAspect
+	with org.irisa.diverse.videogen.videoGen.aspects.OptionalAspect
+	with org.irisa.diverse.videogen.videoGen.aspects.AlternativesAspect
+	with org.irisa.diverse.videogen.videoGen.aspects.InitializeAspect
+	with org.irisa.diverse.videogen.videoGen.aspects.GenerateAspect
+	with org.irisa.diverse.videogen.videoGen.aspects.SequenceAspect
+	with org.irisa.diverse.videogen.videoGen.aspects.DelayAspect
+	with org.irisa.diverse.videogen.videoGen.aspects.VideoAspect
+	
+	exactType "VideoGenLMT"
+	
+}

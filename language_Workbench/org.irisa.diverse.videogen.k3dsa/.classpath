@@ -5,8 +5,6 @@
 	<classpathentry exported="true" kind="lib" path="libs/jargs.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
-	<classpathentry kind="lib" path="libs/choco-solver-3.3.3-sources.jar"/>
-	<classpathentry kind="lib" path="libs/choco-solver-3.3.3-with-dependencies.jar" sourcepath="libs/choco-solver-3.3.3-sources.jar"/>
 	<classpathentry kind="lib" path="/home/smangin/Workspace/VideoGen-xDsml/language_Workbench/org.irisa.diverse.videogen.k3dsa/libs/jargs.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

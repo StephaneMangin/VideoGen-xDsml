@@ -5,6 +5,7 @@ package org.irisa.diverse.videogen.videoGen;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -152,13 +153,22 @@ public interface VideoGenPackage extends EPackage {
 	int TRANSITION_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
+	 * The operation id for the '<em>Execute</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANSITION___EXECUTE = NAMED_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Transition</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TRANSITION_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
+	int TRANSITION_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link org.irisa.diverse.videogen.videoGen.impl.SequenceImpl <em>Sequence</em>}' class.
@@ -223,6 +233,15 @@ public interface VideoGenPackage extends EPackage {
 	 * @ordered
 	 */
 	int SEQUENCE_FEATURE_COUNT = TRANSITION_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Execute</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEQUENCE___EXECUTE = TRANSITION___EXECUTE;
 
 	/**
 	 * The number of operations of the '<em>Sequence</em>' class.
@@ -298,6 +317,15 @@ public interface VideoGenPackage extends EPackage {
 	int MANDATORY_FEATURE_COUNT = SEQUENCE_FEATURE_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Execute</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MANDATORY___EXECUTE = SEQUENCE___EXECUTE;
+
+	/**
 	 * The number of operations of the '<em>Mandatory</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -360,6 +388,15 @@ public interface VideoGenPackage extends EPackage {
 	 * @ordered
 	 */
 	int INITIALIZE_FEATURE_COUNT = TRANSITION_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Execute</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INITIALIZE___EXECUTE = TRANSITION___EXECUTE;
 
 	/**
 	 * The number of operations of the '<em>Initialize</em>' class.
@@ -544,6 +581,15 @@ public interface VideoGenPackage extends EPackage {
 	int OPTIONAL_FEATURE_COUNT = SEQUENCE_FEATURE_COUNT + 1;
 
 	/**
+	 * The operation id for the '<em>Execute</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPTIONAL___EXECUTE = SEQUENCE___EXECUTE;
+
+	/**
 	 * The number of operations of the '<em>Optional</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -699,6 +745,15 @@ public interface VideoGenPackage extends EPackage {
 	int ALTERNATIVES_FEATURE_COUNT = SEQUENCE_FEATURE_COUNT + 1;
 
 	/**
+	 * The operation id for the '<em>Execute</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALTERNATIVES___EXECUTE = SEQUENCE___EXECUTE;
+
+	/**
 	 * The number of operations of the '<em>Alternatives</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -761,6 +816,15 @@ public interface VideoGenPackage extends EPackage {
 	 * @ordered
 	 */
 	int GENERATE_FEATURE_COUNT = TRANSITION_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Execute</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATE___EXECUTE = TRANSITION___EXECUTE;
 
 	/**
 	 * The number of operations of the '<em>Generate</em>' class.
@@ -834,6 +898,15 @@ public interface VideoGenPackage extends EPackage {
 	 * @ordered
 	 */
 	int DELAY_FEATURE_COUNT = TRANSITION_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Execute</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DELAY___EXECUTE = TRANSITION___EXECUTE;
 
 	/**
 	 * The number of operations of the '<em>Delay</em>' class.
@@ -1004,6 +1077,16 @@ public interface VideoGenPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getTransition_Selected();
+
+	/**
+	 * Returns the meta object for the '{@link org.irisa.diverse.videogen.videoGen.Transition#execute() <em>Execute</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Execute</em>' operation.
+	 * @see org.irisa.diverse.videogen.videoGen.Transition#execute()
+	 * @generated
+	 */
+	EOperation getTransition__Execute();
 
 	/**
 	 * Returns the meta object for class '{@link org.irisa.diverse.videogen.videoGen.NamedElement <em>Named Element</em>}'.
@@ -1326,6 +1409,14 @@ public interface VideoGenPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute TRANSITION__SELECTED = eINSTANCE.getTransition_Selected();
+
+		/**
+		 * The meta object literal for the '<em><b>Execute</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation TRANSITION___EXECUTE = eINSTANCE.getTransition__Execute();
 
 		/**
 		 * The meta object literal for the '{@link org.irisa.diverse.videogen.videoGen.impl.NamedElementImpl <em>Named Element</em>}' class.

@@ -2,11 +2,11 @@ package org.irisa.diverse.videogen.videoGen.aspects.visitors
 
 import java.util.List
 import org.irisa.diverse.videogen.transformations.helpers.VideoGenHelper
-import org.irisa.diverse.videogen.videoGen.Alternatives
-import org.irisa.diverse.videogen.videoGen.Mandatory
-import org.irisa.diverse.videogen.videoGen.Optional
-import org.irisa.diverse.videogen.videoGen.Sequence
-import org.irisa.diverse.videogen.videoGen.VideoGen
+import org.irisa.diverse.videogen.videogenl.videoGen.Alternatives
+import org.irisa.diverse.videogen.videogenl.videoGen.Mandatory
+import org.irisa.diverse.videogen.videogenl.videoGen.Optional
+import org.irisa.diverse.videogen.videogenl.videoGen.Sequence
+import org.irisa.diverse.videogen.videogenl.videoGen.VideoGen
 import org.irisa.diverse.videogen.videoGen.aspects.utils.LoggableVisitor
 
 class VideoGenContraintsMinMaxVisitor extends LoggableVisitor {

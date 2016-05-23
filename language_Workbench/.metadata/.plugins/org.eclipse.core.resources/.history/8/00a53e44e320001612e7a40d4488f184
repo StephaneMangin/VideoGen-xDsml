@@ -1,0 +1,84 @@
+package org.irisa.diverse.videogen.videogenl.transformations.strategies;
+
+import com.google.common.base.Objects;
+import com.xuggle.mediatool.IMediaReader;
+import com.xuggle.mediatool.IMediaWriter;
+import com.xuggle.mediatool.ToolFactory;
+import java.io.File;
+import java.nio.file.Path;
+import java.util.ArrayList;
+import java.util.List;
+import org.eclipse.xtext.xbase.lib.Conversions;
+import org.eclipse.xtext.xbase.lib.Functions.Function1;
+import org.eclipse.xtext.xbase.lib.ListExtensions;
+import org.irisa.diverse.videogen.transformations.VideoCodec;
+import org.irisa.diverse.videogen.videogenl.transformations.strategies.VideosStrategy;
+
+/**
+ * @author Stéphane Mangin <stephane.mangin@freesbee.fr>
+ */
+@SuppressWarnings("all")
+public class XugglerStrategyImpl implements VideosStrategy {
+  @Override
+  public void createThumbnails(final Path fullPath, final Path thumbFileName) {
+    File _file = fullPath.toFile();
+    boolean _exists = _file.exists();
+    if (_exists) {
+      Path _absolutePath = thumbFileName.toAbsolutePath();
+      String _string = _absolutePath.toString();
+      final IMediaReader reader = ToolFactory.makeReader(_string);
+    }
+  }
+  
+  @Override
+  public void convert(final Path fullPath, final Path newFullPathName, final VideoCodec codec) {
+    File _file = newFullPathName.toFile();
+    boolean _exists = _file.exists();
+    if (_exists) {
+      Path _absolutePath = fullPath.toAbsolutePath();
+      String _string = _absolutePath.toString();
+      final IMediaReader reader = ToolFactory.makeReader(_string);
+      Path _absolutePath_1 = newFullPathName.toAbsolutePath();
+      String _string_1 = _absolutePath_1.toString();
+      IMediaWriter _makeWriter = ToolFactory.makeWriter(_string_1, reader);
+      reader.addListener(_makeWriter);
+      while (Objects.equal(reader.readPacket(), null)) {
+      }
+    }
+  }
+  
+  @Override
+  public VideoCodec getMimeType(final Path fullPath) {
+    VideoCodec _xblockexpression = null;
+    {
+      final ArrayList<String> durationPattern = new ArrayList<String>();
+      int _size = durationPattern.size();
+      boolean _greaterThan = (_size > 0);
+      if (_greaterThan) {
+        for (final String mt : durationPattern) {
+          VideoCodec[] _values = VideoCodec.values();
+          final Function1<VideoCodec, String> _function = (VideoCodec mte) -> {
+            return mte.format();
+          };
+          List<String> _map = ListExtensions.<VideoCodec, String>map(((List<VideoCodec>)Conversions.doWrapArray(_values)), _function);
+          boolean _contains = _map.contains(mt);
+          if (_contains) {
+            return VideoCodec.getByFormat(mt);
+          }
+        }
+      }
+      _xblockexpression = VideoCodec.NONE;
+    }
+    return _xblockexpression;
+  }
+  
+  @Override
+  public int getDuration(final Path fullPath) {
+    int _xblockexpression = (int) 0;
+    {
+      int duration = 0;
+      _xblockexpression = duration;
+    }
+    return _xblockexpression;
+  }
+}

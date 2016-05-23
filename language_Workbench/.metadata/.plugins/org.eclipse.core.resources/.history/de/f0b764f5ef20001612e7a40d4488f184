@@ -1,0 +1,196 @@
+package org.irisa.diverse.videogen.solvers;
+
+import com.google.common.base.Objects;
+import java.util.function.Consumer;
+import org.chocosolver.solver.Solver;
+import org.chocosolver.solver.constraints.SatFactory;
+import org.chocosolver.solver.constraints.nary.cnf.LogOp;
+import org.chocosolver.solver.variables.BoolVar;
+import org.chocosolver.solver.variables.IntVar;
+import org.chocosolver.solver.variables.VariableFactory;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.xtext.xbase.lib.Conversions;
+import org.eclipse.xtext.xbase.lib.Functions.Function1;
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
+import org.irisa.diverse.videogen.videoGen.aspects.utils.LoggableVisitor;
+import org.irisa.diverse.videogen.videogenl.videoGen.Alternatives;
+import org.irisa.diverse.videogen.videogenl.videoGen.Mandatory;
+import org.irisa.diverse.videogen.videogenl.videoGen.Optional;
+import org.irisa.diverse.videogen.videogenl.videoGen.Sequence;
+import org.irisa.diverse.videogen.videogenl.videoGen.Video;
+import org.irisa.diverse.videogen.videogenl.videoGen.VideoGen;
+
+@SuppressWarnings("all")
+public class VideoGenUserContraintsVisitor extends LoggableVisitor {
+  private IntVar[] variables;
+  
+  private int[] constants;
+  
+  private Solver solver;
+  
+  private IntVar objective;
+  
+  private int indice;
+  
+  public VideoGenUserContraintsVisitor() {
+    Solver _solver = new Solver("Min max durations constraints");
+    this.solver = _solver;
+    this.indice = 0;
+  }
+  
+  private int videosNumber(final VideoGen vid) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nType mismatch: cannot convert from VideoGen to VideoGen");
+  }
+  
+  public void visit(final VideoGen vid, final int min, final int max) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nType mismatch: cannot convert from VideoGen to VideoGen"
+      + "\nType mismatch: cannot convert implicit first argument from Sequence to Alternatives"
+      + "\nType mismatch: cannot convert from VideoGen to VideoGen"
+      + "\nType mismatch: cannot convert implicit first argument from Sequence to Alternatives");
+  }
+  
+  private void visit(final Sequence tra) {
+    if ((tra instanceof Optional)) {
+      this.visit(((Optional)tra));
+    } else {
+      if ((tra instanceof Mandatory)) {
+        this.visit(((Mandatory)tra));
+      } else {
+        if ((tra instanceof Alternatives)) {
+          this.visit(((Alternatives)tra));
+        }
+      }
+    }
+  }
+  
+  private boolean visit(final Alternatives alt) {
+    boolean _xblockexpression = false;
+    {
+      EList<Optional> _options = alt.getOptions();
+      final int optionsSize = _options.size();
+      final IntVar[] localVars = new IntVar[optionsSize];
+      int localCount = 0;
+      EList<Optional> _options_1 = alt.getOptions();
+      for (final Optional opt : _options_1) {
+        {
+          final IntVar ft = this.visit(opt);
+          localVars[localCount] = ft;
+          localCount++;
+        }
+      }
+      final LogOp logOp = this.createAlternativesXorClause(localVars);
+      _xblockexpression = SatFactory.addClauses(logOp, this.solver);
+    }
+    return _xblockexpression;
+  }
+  
+  private IntVar visit(final Optional opt) {
+    IntVar _xblockexpression = null;
+    {
+      IntVar ft = null;
+      Boolean _active = opt.getActive();
+      if ((_active).booleanValue()) {
+        Boolean _selected = opt.getSelected();
+        if ((_selected).booleanValue()) {
+          String _name = opt.getName();
+          IntVar _fixed = VariableFactory.fixed(_name, 1, this.solver);
+          ft = _fixed;
+        } else {
+          String _name_1 = opt.getName();
+          BoolVar _bool = VariableFactory.bool(_name_1, this.solver);
+          ft = _bool;
+        }
+      } else {
+        String _name_2 = opt.getName();
+        IntVar _fixed_1 = VariableFactory.fixed(_name_2, 0, this.solver);
+        ft = _fixed_1;
+      }
+      Video _video = opt.getVideo();
+      Integer _duration = _video.getDuration();
+      this.addVar(ft, (_duration).intValue());
+      _xblockexpression = ft;
+    }
+    return _xblockexpression;
+  }
+  
+  private void visit(final Mandatory man) {
+    String _name = man.getName();
+    IntVar _fixed = VariableFactory.fixed(_name, 1, this.solver);
+    Video _video = man.getVideo();
+    Integer _duration = _video.getDuration();
+    this.addVar(_fixed, (_duration).intValue());
+  }
+  
+  private void addVar(final IntVar intvar, final int duration) {
+    this.variables[this.indice] = intvar;
+    this.constants[this.indice] = duration;
+    this.indice++;
+  }
+  
+  /**
+   * Constructs the Xor constraints fro man Alternative
+   * 
+   * Result is :
+   * 		logOp = LogOp.xor(lastVar,
+   * 			LogOp.xor(...
+   * 				LogOp.xor(firstVar, secondVar)))
+   */
+  private LogOp createAlternativesXorClause(final IntVar[] vars) {
+    LogOp _xblockexpression = null;
+    {
+      LogOp logOp = null;
+      IntVar _head = IterableExtensions.<IntVar>head(((Iterable<IntVar>)Conversions.doWrapArray(vars)));
+      BoolVar firstVar = ((BoolVar) _head);
+      Iterable<IntVar> _tail = IterableExtensions.<IntVar>tail(((Iterable<IntVar>)Conversions.doWrapArray(vars)));
+      for (final IntVar boolVar : _tail) {
+        boolean _equals = Objects.equal(logOp, null);
+        if (_equals) {
+          LogOp _xor = LogOp.xor(firstVar, ((BoolVar) boolVar));
+          logOp = _xor;
+        } else {
+          LogOp _xor_1 = LogOp.xor(((BoolVar) boolVar), logOp);
+          logOp = _xor_1;
+        }
+      }
+      _xblockexpression = logOp;
+    }
+    return _xblockexpression;
+  }
+  
+  private void applyConstraints(final Sequence tra) {
+    if ((tra instanceof Optional)) {
+      this.applyConstraints(((Optional)tra));
+    } else {
+      if ((tra instanceof Alternatives)) {
+        this.applyConstraints(((Alternatives)tra));
+      }
+    }
+  }
+  
+  private void applyConstraints(final Alternatives alt) {
+    EList<Optional> _options = alt.getOptions();
+    final Consumer<Optional> _function = (Optional it) -> {
+      this.applyConstraints(it);
+    };
+    _options.forEach(_function);
+  }
+  
+  private void applyConstraints(final Optional opt) {
+    final Function1<IntVar, Boolean> _function = (IntVar it) -> {
+      int _value = it.getValue();
+      return Boolean.valueOf((_value == 0));
+    };
+    Iterable<IntVar> _filter = IterableExtensions.<IntVar>filter(((Iterable<IntVar>)Conversions.doWrapArray(this.variables)), _function);
+    final Function1<IntVar, Boolean> _function_1 = (IntVar it) -> {
+      String _name = it.getName();
+      String _name_1 = opt.getName();
+      return Boolean.valueOf(Objects.equal(_name, _name_1));
+    };
+    boolean _exists = IterableExtensions.<IntVar>exists(_filter, _function_1);
+    if (_exists) {
+      opt.setActive(Boolean.valueOf(false));
+    }
+  }
+}

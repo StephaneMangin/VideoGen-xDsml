@@ -1,0 +1,112 @@
+package org.irisa.diverse.videogen.videogenl.transformations.strategies;
+
+import it.sauronsoftware.jave.AudioAttributes;
+import it.sauronsoftware.jave.Encoder;
+import it.sauronsoftware.jave.EncodingAttributes;
+import it.sauronsoftware.jave.MultimediaInfo;
+import it.sauronsoftware.jave.VideoAttributes;
+import it.sauronsoftware.jave.VideoSize;
+import java.io.File;
+import java.net.URI;
+import java.nio.file.Path;
+import java.util.List;
+import org.eclipse.xtext.xbase.lib.Conversions;
+import org.eclipse.xtext.xbase.lib.Exceptions;
+import org.eclipse.xtext.xbase.lib.Functions.Function1;
+import org.eclipse.xtext.xbase.lib.InputOutput;
+import org.eclipse.xtext.xbase.lib.ListExtensions;
+import org.irisa.diverse.videogen.transformations.VideoCodec;
+import org.irisa.diverse.videogen.videogenl.transformations.strategies.VideosStrategy;
+
+/**
+ * @author Stéphane Mangin <stephane.mangin@freesbee.fr>
+ */
+@SuppressWarnings("all")
+public class JaveStrategyImpl implements VideosStrategy {
+  private final static Encoder encoder = new Encoder();
+  
+  @Override
+  public void createThumbnails(final Path fullPath, final Path thumbFileName) {
+  }
+  
+  @Override
+  public void convert(final Path fullPath, final Path newFullPathName, final VideoCodec codec) {
+    try {
+      URI _uri = fullPath.toUri();
+      InputOutput.<URI>println(_uri);
+      URI _uri_1 = newFullPathName.toUri();
+      InputOutput.<URI>println(_uri_1);
+      URI _uri_2 = fullPath.toUri();
+      final File fileIn = new File(_uri_2);
+      URI _uri_3 = newFullPathName.toUri();
+      final File fileOut = new File(_uri_3);
+      final AudioAttributes audio = new AudioAttributes();
+      audio.setCodec("libmp3lame");
+      Integer _integer = new Integer(64000);
+      audio.setBitRate(_integer);
+      Integer _integer_1 = new Integer(1);
+      audio.setChannels(_integer_1);
+      Integer _integer_2 = new Integer(22050);
+      audio.setSamplingRate(_integer_2);
+      final VideoAttributes video = new VideoAttributes();
+      String _format = codec.format();
+      video.setCodec(_format);
+      Integer _integer_3 = new Integer(160000);
+      video.setBitRate(_integer_3);
+      Integer _integer_4 = new Integer(15);
+      video.setFrameRate(_integer_4);
+      VideoSize _videoSize = new VideoSize(400, 300);
+      video.setSize(_videoSize);
+      final EncodingAttributes attrs = new EncodingAttributes();
+      String _format_1 = codec.format();
+      attrs.setFormat(_format_1);
+      attrs.setAudioAttributes(audio);
+      attrs.setVideoAttributes(video);
+      JaveStrategyImpl.encoder.encode(fileIn, fileOut, attrs);
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+  
+  @Override
+  public VideoCodec getMimeType(final Path fullPath) {
+    try {
+      VideoCodec _xblockexpression = null;
+      {
+        File _file = fullPath.toFile();
+        final MultimediaInfo info = JaveStrategyImpl.encoder.getInfo(_file);
+        VideoCodec[] _values = VideoCodec.values();
+        final Function1<VideoCodec, String> _function = (VideoCodec mte) -> {
+          return mte.format();
+        };
+        List<String> _map = ListExtensions.<VideoCodec, String>map(((List<VideoCodec>)Conversions.doWrapArray(_values)), _function);
+        String _format = info.getFormat();
+        boolean _contains = _map.contains(_format);
+        if (_contains) {
+          String _format_1 = info.getFormat();
+          return VideoCodec.getByFormat(_format_1);
+        }
+        _xblockexpression = VideoCodec.NONE;
+      }
+      return _xblockexpression;
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+  
+  @Override
+  public int getDuration(final Path fullPath) {
+    try {
+      int _xblockexpression = (int) 0;
+      {
+        File _file = fullPath.toFile();
+        final MultimediaInfo info = JaveStrategyImpl.encoder.getInfo(_file);
+        long _duration = info.getDuration();
+        _xblockexpression = Long.valueOf(_duration).intValue();
+      }
+      return _xblockexpression;
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+}

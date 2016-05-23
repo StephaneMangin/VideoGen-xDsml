@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: org.irisa.diverse.videogen.videogenl
+Bundle-SymbolicName: org.irisa.diverse.videogen.videogenl;singleton:=true
+Bundle-Version: 0.1.0
+Require-Bundle: org.eclipse.emf.ecore,
+  fr.inria.diverse.k3.al.annotationprocessor.plugin,
+  org.eclipse.xtext.xbase.lib
+Export-Package: org.irisa.diverse.videogen.videogenl.aspects
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+

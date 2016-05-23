@@ -1,0 +1,130 @@
+package org.irisa.diverse.videogen.videogenl.transformations.helpers
+
+import java.util.ArrayList
+import java.util.List
+import org.irisa.diverse.videogen.videoGen.Alternatives
+import org.irisa.diverse.videogen.videoGen.Generate
+import org.irisa.diverse.videogen.videoGen.Initialize
+import org.irisa.diverse.videogen.videoGen.Sequence
+import org.irisa.diverse.videogen.videoGen.Transition
+import org.irisa.diverse.videogen.videoGen.Video
+import org.irisa.diverse.videogen.videoGen.VideoGen
+
+/** 
+ * Parse the VideoGen model to give helper methods to retrieve various instances
+ * 
+ * @author Stéphane Mangin <stephane.mangin@freesbee.fr>
+ * 
+ */
+public class VideoGenHelper {
+	
+		
+	/**
+	 * Return the Initialize as the main entry point
+	 * 
+	 */
+	def static Initialize getInitialize(VideoGen videoGen) {
+		for (Transition transition : videoGen.transitions) { 
+			if (transition instanceof Initialize) {
+				return transition
+			}
+		}
+		null
+	}
+	
+	/**
+	 * Return the Generate as the main end point
+	 * 
+	 */
+	def static Generate getGenerate(VideoGen videoGen) {
+		for (Transition transition : videoGen.transitions) { 
+			if (transition instanceof Generate) {
+				return transition
+			}
+		}
+		null
+	}
+	
+ 	/**
+ 	 * Return all transitions contained in a VideoGen instance
+ 	 * 
+ 	 */ 
+    def static List<Transition> allTransitions(VideoGen videoGen) {
+		val List<Transition> transitions = new ArrayList<Transition>
+        val initialize = getInitialize(videoGen)
+		transitions.add(initialize)
+		var transition = initialize.nextTransition
+        while (transition !== null) {
+			if (initialize.equals(transition)) {
+				transition = null
+			} else {
+				transitions.add(transition)
+				transition = transition.nextTransition
+			}
+        }
+		transitions
+    }
+    
+ 	/**
+ 	 * Return all sequences contained in a VideoGen instance
+ 	 * 
+ 	 */ 
+    def static List<Sequence> allSequences(VideoGen videoGen) {
+        allTransitions(videoGen).filter[it instanceof Sequence].map[it as Sequence].toList
+    }
+    
+ 	/**
+ 	 * Return all videos from all sequences contained in a VideoGen instance
+ 	 * 
+ 	 */ 
+    def static List<Video> allVideos(VideoGen videoGen) {
+		val List<Video> videos = new ArrayList<Video>
+		allSequences(videoGen).forEach[
+			if (it instanceof Alternatives) {
+				it.options.forEach[option |
+					videos += option.video
+				]
+			} else {
+				videos += it.video
+			}
+		]	
+        videos.filter[video | video !== null].toList
+    }
+    
+ 	/**
+ 	 * Return all videos from active sequences contained in a VideoGen instance
+ 	 * 
+ 	 */ 
+    def static List<Video> allActiveVideos(VideoGen videoGen) {
+		val List<Video> videos = new ArrayList<Video>
+		allSequences(videoGen).filter[active].forEach[
+			if (it instanceof Alternatives) {
+				it.options.forEach[option |
+					videos += option.video
+				]
+			} else {
+				videos += it.video
+			}
+		]	
+        videos.filter[video | video !== null].toList
+    }
+    
+ 	/**
+ 	 * Return all videos from active sequences contained in a VideoGen instance
+ 	 * 
+ 	 */ 
+    def static List<Video> allSelectedVideos(VideoGen videoGen) {
+		val List<Video> videos = new ArrayList<Video>
+		allSequences(videoGen).filter[active].filter[selected].forEach[
+			if (it instanceof Alternatives) {
+				it.options.forEach[option |
+					videos += option.video
+				]
+			} else {
+				videos += it.video
+			}
+		]	
+        videos.filter[video | video !== null].toList
+    }
+
+}

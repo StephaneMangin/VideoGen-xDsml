@@ -11,8 +11,6 @@ import org.irisa.diverse.videogen.videoGen.VideoGenPackage;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Mandatory</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */

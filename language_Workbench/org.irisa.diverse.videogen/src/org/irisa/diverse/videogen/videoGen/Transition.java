@@ -10,12 +10,12 @@ package org.irisa.diverse.videogen.videoGen;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.irisa.diverse.videogen.videoGen.Transition#getNextTransition <em>Next Transition</em>}</li>
  *   <li>{@link org.irisa.diverse.videogen.videoGen.Transition#getActive <em>Active</em>}</li>
  *   <li>{@link org.irisa.diverse.videogen.videoGen.Transition#getSelected <em>Selected</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.irisa.diverse.videogen.videoGen.VideoGenPackage#getTransition()
  * @model interface="true" abstract="true"
@@ -101,5 +101,13 @@ public interface Transition extends NamedElement {
 	 * @generated
 	 */
 	void setSelected(Boolean value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void execute();
 
 } // Transition
