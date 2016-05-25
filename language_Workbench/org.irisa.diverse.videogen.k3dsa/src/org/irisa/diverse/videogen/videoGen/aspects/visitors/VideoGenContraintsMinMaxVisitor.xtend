@@ -26,7 +26,10 @@ class VideoGenContraintsMinMaxVisitor extends LoggableVisitor {
 		minDuration = 0
 		maxDuration = 0
 		log.info("VideoGen Constraints Min Max Visitor started...")
-		VideoGenHelper.allSequences(vid).forEach[visit]
+		vid.transitions
+			.filter[it instanceof Sequence]
+			.map[it as Sequence]
+			.forEach[visit]
 		this
 	}
 	
