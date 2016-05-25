@@ -1,3 +1,0 @@
-Export-Package: org.irisa.diverse.videogen.videoGen.aspects,
-org.irisa.diverse.videogen.videoGen.aspects.visitors,
- org.irisa.diverse.videogen.videoGen.aspects.utils

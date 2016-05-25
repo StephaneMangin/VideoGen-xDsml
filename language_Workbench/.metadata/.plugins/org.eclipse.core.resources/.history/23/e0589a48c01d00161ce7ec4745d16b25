@@ -1,5 +1,0 @@
-package org.irisa.diverse.videogen.videogenl.adapters.videogenlmt;
-
-@SuppressWarnings("all")
-public class VideoGenLAdapter {
-}
