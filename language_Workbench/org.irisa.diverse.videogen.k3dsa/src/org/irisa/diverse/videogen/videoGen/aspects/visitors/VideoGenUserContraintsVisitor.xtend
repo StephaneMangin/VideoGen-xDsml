@@ -46,32 +46,34 @@ class VideoGenUserContraintsVisitor extends LoggableVisitor {
 		VideoGenHelper.allSequences(vid).filter[active].forEach[visit]
 		
 		// Create and post constraints by using constraint factories
-        solver.post(IntConstraintFactory.scalar(variables, constants, objective));
-        log.info(solver.toString());
+        solver.post(IntConstraintFactory.scalar(variables, constants, objective))
+        log.info(solver.toString())
         // Launch the resolution process
-        solver.findOptimalSolution(ResolutionPolicy.MAXIMIZE, objective);
-        //solver.findParetoFront(ResolutionPolicy.MAXIMIZE, objective);
+        //solver.findOptimalSolution(ResolutionPolicy.SATISFACTION, objective)
+        //solver.findOptimalSolution(ResolutionPolicy.MAXIMIZE, objective)
+        //solver.findOptimalSolution(ResolutionPolicy.MINIMIZE, objective)
         //solver.findAllSolutions
+        solver.findSolution
         // Print search statistics
-        Chatterbox.printStatistics(solver);
+        Chatterbox.printStatistics(solver)
         // Print solutions
-	    log.info("Solutions selected " + variables.map[it.getName() + "=" + it.getValue()].join(", "))
+	    //log.info("Solutions selected " + variables.map[it.getName() + "=" + it.getValue()].join(", "))
         
         // Then apply constraints
 		VideoGenHelper.allSequences(vid).filter[active].forEach[applyConstraints]
         
         // Get all solutions
-        val solutions = solver.findAllSolutions
-        log.info("Solutions max = " + solutions)
-        vid.variantes = solutions.intValue
-        var i = 0
-        do {
-        	i++
-		    log.info("- Solutions " + i)
-		    for (IntVar coef: variables) {
-		    	log.info("\t" + variables.map[it.getName() + "=" + it.getValue()].join(", "))
-		    }
-        } while (solver.nextSolution())
+//        val solutions = solver.findAllSolutions
+//        log.info("Solutions max = " + solutions)
+//        vid.variantes = solutions.intValue
+//        var i = 0
+//        do {
+//        	i++
+//		    log.info("- Solutions " + i)
+//		    for (IntVar coef: variables) {
+//		    	log.info("\t" + variables.map[it.getName() + "=" + it.getValue()].join(", "))
+//		    }
+//        } while (solver.nextSolution())
 	}
 	
 	def private void visit(Sequence tra) {
@@ -85,41 +87,51 @@ class VideoGenUserContraintsVisitor extends LoggableVisitor {
 	}
 		
 	def private visit(Alternatives alt) {
+		// Local vars
 		val optionsSize = alt.options.size
 		val localVars = newArrayOfSize(optionsSize)
 		var localCount = 0
+		
+		// Effective parse to inject a feature for each option
 		for (Optional opt: alt.options) {
-			val ft = opt.visit
-			localVars.set(localCount, ft)
+			val feature = opt.visit
+			localVars.set(localCount, feature)
 			localCount++
 		}
 		
-		// Create the clause
+		// Create and insert the xor clause
 		val logOp = createAlternativesXorClause(localVars)
 		SatFactory.addClauses(logOp, solver)
 	}
 	
 	def private IntVar visit(Optional opt) {
 		// For choco, a bool is a integer between 0 and 1
-		var IntVar ft
+		var IntVar feature
 		if (opt.active) {	
 			if (opt.selected) {
-				ft = VariableFactory.fixed(opt.name, 1, solver)
+				feature = VariableFactory.fixed(opt.name, 1, solver)
 			} else {
-				ft = VariableFactory.bool(opt.name, solver)
+				feature = VariableFactory.bool(opt.name, solver)
 			}
 		} else {
-			ft = VariableFactory.fixed(opt.name, 0, solver)
+			feature = VariableFactory.fixed(opt.name, 0, solver)
 		}
-		addVar(ft, opt.video.duration)
-		ft
+		addVar(feature, opt.video.duration)
+		feature
 	}
 	
 	def private visit(Mandatory man) {
 		// A mandatory has a fixed coef value of 1, mandatory right ;)
-		addVar(VariableFactory.fixed(man.name, 1, solver), man.video.duration)
+		val feature = VariableFactory.fixed(man.name, 1, solver)
+		addVar(feature, man.video.duration)
 	}
 	
+	/**
+	 * Add a new expression to the objective
+	 * 
+	 * feature => bool * duration
+	 * 
+	 */
 	def private void addVar(IntVar intvar, int duration) {
 		variables.set(indice, intvar)
 		constants.set(indice, duration)
@@ -127,7 +139,7 @@ class VideoGenUserContraintsVisitor extends LoggableVisitor {
 	}
 	
 	/*
-	 * Constructs the Xor constraints fro man Alternative
+	 * Constructs the Xor constraints from an Alternative
 	 * 
 	 * Result is :
 	 * 		logOp = LogOp.xor(lastVar,
@@ -149,6 +161,10 @@ class VideoGenUserContraintsVisitor extends LoggableVisitor {
 		logOp
 	}
 	
+	/**
+	 * Modify the model in conformity of the solver results
+	 * 
+	 */
 	def private void applyConstraints(Sequence tra) {
 		if (tra instanceof Optional) {
 			tra.applyConstraints
@@ -157,10 +173,18 @@ class VideoGenUserContraintsVisitor extends LoggableVisitor {
 		}
 	}
 	
+	/**
+	 * Modify the model in conformity of the solver results
+	 * 
+	 */
 	def private void applyConstraints(Alternatives alt) {
 		alt.options.forEach[applyConstraints]
 	}
 	
+	/**
+	 * Modify the model in conformity of the solver results
+	 * 
+	 */
 	def private void applyConstraints(Optional opt) {
 		if (variables.filter[value == 0].exists[name == opt.name]) {
 			opt.active = false
