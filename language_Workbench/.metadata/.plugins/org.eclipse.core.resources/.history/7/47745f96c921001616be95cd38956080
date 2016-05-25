@@ -1,0 +1,96 @@
+package org.irisa.diverse.videogen.videoGen.aspects.visitors;
+
+import com.google.common.base.Objects;
+import fr.inria.diverse.k3.al.annotationprocessor.Aspect;
+import java.util.function.Consumer;
+import org.chocosolver.solver.Solver;
+import org.chocosolver.solver.constraints.SatFactory;
+import org.chocosolver.solver.constraints.nary.cnf.LogOp;
+import org.chocosolver.solver.variables.BoolVar;
+import org.chocosolver.solver.variables.IntVar;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.xtext.xbase.lib.Conversions;
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
+import org.irisa.diverse.videogen.videoGen.Alternatives;
+import org.irisa.diverse.videogen.videoGen.Optional;
+import org.irisa.diverse.videogen.videoGen.VideoGen;
+import org.irisa.diverse.videogen.videoGen.aspects.visitors.AlternativesDurationConstraintsAspectAlternativesAspectProperties;
+import org.irisa.diverse.videogen.videoGen.aspects.visitors.OptionalDurationConstraintsAspect;
+import org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenDurationConstraintsAspect;
+
+@Aspect(className = Alternatives.class)
+@SuppressWarnings("all")
+public class AlternativesDurationConstraintsAspect {
+  public static void visit(final Alternatives _self, final VideoGen vid) {
+    final org.irisa.diverse.videogen.videoGen.aspects.visitors.AlternativesDurationConstraintsAspectAlternativesAspectProperties _self_ = org.irisa.diverse.videogen.videoGen.aspects.visitors.AlternativesDurationConstraintsAspectAlternativesAspectContext.getSelf(_self);
+    _privk3_visit(_self_, _self,vid);;
+  }
+  
+  public static void applyConstraints(final Alternatives _self, final VideoGen vid) {
+    final org.irisa.diverse.videogen.videoGen.aspects.visitors.AlternativesDurationConstraintsAspectAlternativesAspectProperties _self_ = org.irisa.diverse.videogen.videoGen.aspects.visitors.AlternativesDurationConstraintsAspectAlternativesAspectContext.getSelf(_self);
+    _privk3_applyConstraints(_self_, _self,vid);;
+  }
+  
+  /**
+   * Constructs the Xor constraints fro man Alternative
+   * 
+   * Result is :
+   * 		logOp = LogOp.xor(lastVar,
+   * 			LogOp.xor(...
+   * 				LogOp.xor(firstVar, secondVar)))
+   */
+  private static LogOp createAlternativesXorClause(final Alternatives _self, final IntVar[] vars) {
+    final org.irisa.diverse.videogen.videoGen.aspects.visitors.AlternativesDurationConstraintsAspectAlternativesAspectProperties _self_ = org.irisa.diverse.videogen.videoGen.aspects.visitors.AlternativesDurationConstraintsAspectAlternativesAspectContext.getSelf(_self);
+    Object result = null;
+    result = _privk3_createAlternativesXorClause(_self_, _self,vars);;
+    return (org.chocosolver.solver.constraints.nary.cnf.LogOp)result;
+  }
+  
+  protected static void _privk3_visit(final AlternativesDurationConstraintsAspectAlternativesAspectProperties _self_, final Alternatives _self, final VideoGen vid) {
+    EList<Optional> _options = _self.getOptions();
+    final int optionsSize = _options.size();
+    final IntVar[] localVars = new IntVar[optionsSize];
+    int localCount = 0;
+    EList<Optional> _options_1 = _self.getOptions();
+    for (final Optional opt : _options_1) {
+      {
+        final IntVar ft = OptionalDurationConstraintsAspect.visit(opt, vid);
+        localVars[localCount] = ft;
+        localCount++;
+      }
+    }
+    final LogOp logOp = AlternativesDurationConstraintsAspect.createAlternativesXorClause(_self, localVars);
+    Solver _solver = VideoGenDurationConstraintsAspect.solver(vid);
+    SatFactory.addClauses(logOp, _solver);
+  }
+  
+  protected static void _privk3_applyConstraints(final AlternativesDurationConstraintsAspectAlternativesAspectProperties _self_, final Alternatives _self, final VideoGen vid) {
+    EList<Optional> _options = _self.getOptions();
+    final Consumer<Optional> _function = (Optional it) -> {
+      OptionalDurationConstraintsAspect.applyConstraints(it, vid);
+    };
+    _options.forEach(_function);
+  }
+  
+  protected static LogOp _privk3_createAlternativesXorClause(final AlternativesDurationConstraintsAspectAlternativesAspectProperties _self_, final Alternatives _self, final IntVar[] vars) {
+    LogOp _xblockexpression = null;
+    {
+      LogOp logOp = null;
+      IntVar _head = IterableExtensions.<IntVar>head(((Iterable<IntVar>)Conversions.doWrapArray(vars)));
+      BoolVar firstVar = ((BoolVar) _head);
+      Iterable<IntVar> _tail = IterableExtensions.<IntVar>tail(((Iterable<IntVar>)Conversions.doWrapArray(vars)));
+      for (final IntVar boolVar : _tail) {
+        boolean _equals = Objects.equal(logOp, null);
+        if (_equals) {
+          LogOp _xor = LogOp.xor(firstVar, ((BoolVar) boolVar));
+          logOp = _xor;
+        } else {
+          LogOp _xor_1 = LogOp.xor(((BoolVar) boolVar), logOp);
+          logOp = _xor_1;
+        }
+      }
+      _xblockexpression = logOp;
+    }
+    return _xblockexpression;
+  }
+}

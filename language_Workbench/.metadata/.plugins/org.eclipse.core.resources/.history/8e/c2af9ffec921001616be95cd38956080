@@ -1,0 +1,25 @@
+/**
+ */
+package org.irisa.diverse.videogen.videogenlmt.videoGen;
+
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Initialize</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ *
+ * @see org.irisa.diverse.videogen.videogenlmt.videoGen.VideoGenPackage#getInitialize()
+ * @model
+ * @generated
+ */
+public interface Initialize extends Transition {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void execute(VideoGen videoGen);
+
+} // Initialize

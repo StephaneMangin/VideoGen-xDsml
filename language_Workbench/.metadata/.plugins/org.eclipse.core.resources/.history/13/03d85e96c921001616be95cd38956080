@@ -1,0 +1,12 @@
+package org.irisa.diverse.videogen.videoGen.aspects;
+
+import org.irisa.diverse.videogen.videoGen.VideoGen;
+
+@SuppressWarnings("all")
+public class TransitionAspectTransitionAspectProperties {
+  public VideoGen videoGen = null;
+  
+  public Boolean executed = Boolean.valueOf(false);
+  
+  public Boolean callnextTransition = Boolean.valueOf(true);
+}

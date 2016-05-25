@@ -1,0 +1,59 @@
+package org.irisa.diverse.videogen.videoGen.aspects.visitors
+
+import org.eclipse.core.resources.ResourcesPlugin
+import org.irisa.diverse.videogen.transformations.VideoGenTransform
+import org.irisa.diverse.videogen.videoGen.Transition
+import org.irisa.diverse.videogen.videoGen.Video
+import org.irisa.diverse.videogen.videoGen.VideoGen
+import org.irisa.diverse.videogen.videoGen.aspects.TransitionAspect
+import org.irisa.diverse.videogen.videoGen.aspects.utils.LoggableVisitor
+import org.irisa.diverse.videogen.videoGen.Alternatives
+import fr.inria.diverse.k3.al.annotationprocessor.Aspect
+import static extension org.irisa.diverse.videogen.videoGen.aspects.TransitionAspect.*
+import static extension org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenSetupAspect.*
+import static extension org.irisa.diverse.videogen.videoGen.aspects.visitors.TransitionSetupAspect.*
+import static extension org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoSetupAspect.*
+import static extension org.irisa.diverse.videogen.videoGen.aspects.visitors.SequenceDurationConstraintsAspect.*
+import static extension org.irisa.diverse.videogen.videoGen.aspects.visitors.OptionalDurationConstraintsAspect.*
+
+@Aspect(className=VideoGen)
+class VideoGenSetupAspect {
+	    
+	def void setup() {
+		_self.transitions.forEach[setup(_self)]
+		_self.videos.forEach[setup(_self)]
+	}
+}
+
+@Aspect(className=Transition)
+class TransitionSetupAspect {
+
+	def void setup(VideoGen vid) {
+		_self.selected = false
+		_self.active = true
+		_self.executed = false
+		TransitionAspect.videoGen(_self, vid)
+		if (_self instanceof Alternatives) {
+			_self.options.forEach[opt |
+				opt.selected = false
+				opt.active = true
+				TransitionAspect.executed(opt, false)
+				TransitionAspect.videoGen(opt, vid)
+			]
+		}
+	}
+}
+
+@Aspect(className=Video)
+class VideoSetupAspect {
+	
+	def void setup(VideoGen vid) {
+		if (!_self.url.startsWith("/")) {
+			val prefix = ResourcesPlugin.workspace.root.projects.get(0).locationURI.toString.replace("file:", "")
+			val newPath = prefix + "/" + _self.url
+			_self.setUrl(newPath)
+		}
+		// Add duration and VideoCodec MimeType
+		VideoGenTransform.addMetadata(_self)
+	}
+}

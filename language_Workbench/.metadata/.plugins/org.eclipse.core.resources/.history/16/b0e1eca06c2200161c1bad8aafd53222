@@ -1,0 +1,20 @@
+package org.irisa.diverse.videogen
+
+import org.irisa.diverse.videogen.videoGen.aspects.VideoGenAspect
+import org.irisa.diverse.videogen.videoGen.aspects.VideoGenVariantsAspect
+import org.irisa.diverse.videogen.videoGen.aspects.VideoGenDurationsAspect
+import org.irisa.diverse.videogen.videoGen.aspects.VideoGenDurationConstraintsAspect
+
+language VideoGenS {
+	syntax "platform:/resource//org.irisa.diverse.videogen/model/VideoGen.ecore"
+
+}
+
+language VideoGenL inherits VideoGenS {
+
+	with VideoGenAspect
+	with VideoGenVariantsAspect
+	with VideoGenDurationsAspect
+	with VideoGenDurationConstraintsAspect
+
+}

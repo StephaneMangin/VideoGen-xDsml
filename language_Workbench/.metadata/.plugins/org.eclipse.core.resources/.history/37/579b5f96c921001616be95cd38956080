@@ -1,0 +1,22 @@
+package org.irisa.diverse.videogen.videoGen.aspects.visitors;
+
+import java.util.Map;
+import org.irisa.diverse.videogen.videoGen.Sequence;
+import org.irisa.diverse.videogen.videoGen.aspects.visitors.SequenceDurationConstraintsAspectSequenceAspectProperties;
+
+@SuppressWarnings("all")
+public class SequenceDurationConstraintsAspectSequenceAspectContext {
+  public final static SequenceDurationConstraintsAspectSequenceAspectContext INSTANCE = new SequenceDurationConstraintsAspectSequenceAspectContext();
+  
+  public static SequenceDurationConstraintsAspectSequenceAspectProperties getSelf(final Sequence _self) {
+    		if (!INSTANCE.map.containsKey(_self))
+    			INSTANCE.map.put(_self, new org.irisa.diverse.videogen.videoGen.aspects.visitors.SequenceDurationConstraintsAspectSequenceAspectProperties());
+    		return INSTANCE.map.get(_self);
+  }
+  
+  private Map<Sequence, SequenceDurationConstraintsAspectSequenceAspectProperties> map = new java.util.WeakHashMap<org.irisa.diverse.videogen.videoGen.Sequence, org.irisa.diverse.videogen.videoGen.aspects.visitors.SequenceDurationConstraintsAspectSequenceAspectProperties>();
+  
+  public Map<Sequence, SequenceDurationConstraintsAspectSequenceAspectProperties> getMap() {
+    return map;
+  }
+}

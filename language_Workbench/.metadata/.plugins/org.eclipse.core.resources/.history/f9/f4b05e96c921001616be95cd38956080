@@ -1,0 +1,119 @@
+package org.irisa.diverse.videogen.videoGen.aspects;
+
+import fr.inria.diverse.k3.al.annotationprocessor.Aspect;
+import fr.inria.diverse.k3.al.annotationprocessor.OverrideAspectMethod;
+import fr.inria.diverse.k3.al.annotationprocessor.Step;
+import org.irisa.diverse.videogen.transformations.utils.DistributedRandomNumberGenerator;
+import org.irisa.diverse.videogen.videoGen.Optional;
+import org.irisa.diverse.videogen.videoGen.Transition;
+import org.irisa.diverse.videogen.videoGen.Video;
+import org.irisa.diverse.videogen.videoGen.VideoGen;
+import org.irisa.diverse.videogen.videoGen.aspects.OptionalAspectOptionalAspectProperties;
+import org.irisa.diverse.videogen.videoGen.aspects.SequenceAspect;
+import org.irisa.diverse.videogen.videoGen.aspects.TransitionAspect;
+import org.irisa.diverse.videogen.videoGen.aspects.VideoAspect;
+import org.irisa.diverse.videogen.videoGen.aspects.VideoGenAspect;
+import org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenDurationConstraintsAspect;
+
+@Aspect(className = Optional.class)
+@SuppressWarnings("all")
+public class OptionalAspect extends SequenceAspect {
+  /**
+   * Is this video is selectable or not ?
+   * applies 50% in case of undefined proba
+   * 
+   * @author Stéphane Mangin <stephane.mangin@freesbee.fr>
+   */
+  private static Boolean isSelected(final Optional _self) {
+    final org.irisa.diverse.videogen.videoGen.aspects.OptionalAspectOptionalAspectProperties _self_ = org.irisa.diverse.videogen.videoGen.aspects.OptionalAspectOptionalAspectContext.getSelf(_self);
+    Object result = null;
+    result = _privk3_isSelected(_self_, _self);;
+    return (java.lang.Boolean)result;
+  }
+  
+  @Step
+  @OverrideAspectMethod
+  public static void execute(final Optional _self, final VideoGen videoGen) {
+    final org.irisa.diverse.videogen.videoGen.aspects.OptionalAspectOptionalAspectProperties _self_ = org.irisa.diverse.videogen.videoGen.aspects.OptionalAspectOptionalAspectContext.getSelf(_self);
+     if (_self instanceof org.irisa.diverse.videogen.videoGen.Optional){
+    					fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand command = new fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand() {
+    						@Override
+    						public void execute() {
+    							org.irisa.diverse.videogen.videoGen.aspects.OptionalAspect._privk3_execute(_self_, (org.irisa.diverse.videogen.videoGen.Optional)_self,videoGen);
+    						}
+    					};
+    					fr.inria.diverse.k3.al.annotationprocessor.stepmanager.IStepManager manager = fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepManagerRegistry.getInstance().findStepManager(_self);
+    					if (manager != null) {
+    						manager.executeStep(_self,command,"Optional","execute");
+    					} else {
+    						command.execute();
+    					}
+    					;
+    } else  if (_self instanceof org.irisa.diverse.videogen.videoGen.Sequence){
+    					org.irisa.diverse.videogen.videoGen.aspects.SequenceAspect.execute((org.irisa.diverse.videogen.videoGen.Sequence)_self,videoGen);
+    } else  if (_self instanceof org.irisa.diverse.videogen.videoGen.Transition){
+    					org.irisa.diverse.videogen.videoGen.aspects.TransitionAspect.execute((org.irisa.diverse.videogen.videoGen.Transition)_self,videoGen);
+    } else  { throw new IllegalArgumentException("Unhandled parameter types: " + java.util.Arrays.<Object>asList(_self).toString()); };
+  }
+  
+  protected static Boolean _privk3_isSelected(final OptionalAspectOptionalAspectProperties _self_, final Optional _self) {
+    boolean _xblockexpression = false;
+    {
+      DistributedRandomNumberGenerator drng = new DistributedRandomNumberGenerator();
+      float proba = 0;
+      proba = 50;
+      Integer _probability = _self.getProbability();
+      boolean _notEquals = ((_probability).intValue() != 0);
+      if (_notEquals) {
+        Integer _probability_1 = _self.getProbability();
+        proba = (_probability_1).intValue();
+      }
+      drng.addNumber(1, proba);
+      drng.addNumber(0, (100 - proba));
+      int _distributedRandomNumber = drng.getDistributedRandomNumber();
+      _xblockexpression = (_distributedRandomNumber > 0);
+    }
+    return Boolean.valueOf(_xblockexpression);
+  }
+  
+  private static void super_execute(final Optional _self, final VideoGen videoGen) {
+    final org.irisa.diverse.videogen.videoGen.aspects.SequenceAspectSequenceAspectProperties _self_ = org.irisa.diverse.videogen.videoGen.aspects.SequenceAspectSequenceAspectContext.getSelf(_self);
+     org.irisa.diverse.videogen.videoGen.aspects.SequenceAspect._privk3_execute(_self_, _self,videoGen);
+  }
+  
+  protected static void _privk3_execute(final OptionalAspectOptionalAspectProperties _self_, final Optional _self, final VideoGen videoGen) {
+    boolean _and = false;
+    Boolean _active = _self.getActive();
+    if (!(_active).booleanValue()) {
+      _and = false;
+    } else {
+      Boolean _executed = TransitionAspect.executed(_self);
+      boolean _not = (!(_executed).booleanValue());
+      _and = _not;
+    }
+    if (_and) {
+      Boolean _isSelected = OptionalAspect.isSelected(_self);
+      if ((_isSelected).booleanValue()) {
+        Video _video = _self.getVideo();
+        VideoAspect.select(_video);
+        _self.setSelected(Boolean.valueOf(true));
+      }
+    }
+    VideoGenAspect.log.info((("##### \'" + _self) + "\' is being processed."));
+    VideoGenDurationConstraintsAspect.visit(videoGen);
+    Boolean _executed_1 = TransitionAspect.executed(_self);
+    boolean _not_1 = (!(_executed_1).booleanValue());
+    if (_not_1) {
+      Transition _nextTransition = _self.getNextTransition();
+      boolean _tripleNotEquals = (_nextTransition != null);
+      if (_tripleNotEquals) {
+        TransitionAspect.executed(_self, Boolean.valueOf(true));
+        Boolean _callnextTransition = TransitionAspect.callnextTransition(_self);
+        if ((_callnextTransition).booleanValue()) {
+          Transition _nextTransition_1 = _self.getNextTransition();
+          TransitionAspect.execute(_nextTransition_1, videoGen);
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,50 @@
+package org.irisa.diverse.videogen.videoGen.aspects;
+
+import fr.inria.diverse.k3.al.annotationprocessor.Aspect;
+import fr.inria.diverse.k3.al.annotationprocessor.OverrideAspectMethod;
+import fr.inria.diverse.k3.al.annotationprocessor.Step;
+import org.irisa.diverse.videogen.videoGen.Sequence;
+import org.irisa.diverse.videogen.videoGen.VideoGen;
+import org.irisa.diverse.videogen.videoGen.aspects.SequenceAspectSequenceAspectProperties;
+import org.irisa.diverse.videogen.videoGen.aspects.TransitionAspect;
+
+@Aspect(className = Sequence.class)
+@SuppressWarnings("all")
+public abstract class SequenceAspect extends TransitionAspect {
+  @Step
+  @OverrideAspectMethod
+  public static void execute(final Sequence _self, final VideoGen videoGen) {
+    final org.irisa.diverse.videogen.videoGen.aspects.SequenceAspectSequenceAspectProperties _self_ = org.irisa.diverse.videogen.videoGen.aspects.SequenceAspectSequenceAspectContext.getSelf(_self);
+     if (_self instanceof org.irisa.diverse.videogen.videoGen.Optional){
+    					org.irisa.diverse.videogen.videoGen.aspects.OptionalAspect.execute((org.irisa.diverse.videogen.videoGen.Optional)_self,videoGen);
+    } else  if (_self instanceof org.irisa.diverse.videogen.videoGen.Mandatory){
+    					org.irisa.diverse.videogen.videoGen.aspects.MandatoryAspect.execute((org.irisa.diverse.videogen.videoGen.Mandatory)_self,videoGen);
+    } else  if (_self instanceof org.irisa.diverse.videogen.videoGen.Alternatives){
+    					org.irisa.diverse.videogen.videoGen.aspects.AlternativesAspect.execute((org.irisa.diverse.videogen.videoGen.Alternatives)_self,videoGen);
+    } else  if (_self instanceof org.irisa.diverse.videogen.videoGen.Sequence){
+    					fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand command = new fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand() {
+    						@Override
+    						public void execute() {
+    							org.irisa.diverse.videogen.videoGen.aspects.SequenceAspect._privk3_execute(_self_, (org.irisa.diverse.videogen.videoGen.Sequence)_self,videoGen);
+    						}
+    					};
+    					fr.inria.diverse.k3.al.annotationprocessor.stepmanager.IStepManager manager = fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepManagerRegistry.getInstance().findStepManager(_self);
+    					if (manager != null) {
+    						manager.executeStep(_self,command,"Sequence","execute");
+    					} else {
+    						command.execute();
+    					}
+    					;
+    } else  if (_self instanceof org.irisa.diverse.videogen.videoGen.Transition){
+    					org.irisa.diverse.videogen.videoGen.aspects.TransitionAspect.execute((org.irisa.diverse.videogen.videoGen.Transition)_self,videoGen);
+    } else  { throw new IllegalArgumentException("Unhandled parameter types: " + java.util.Arrays.<Object>asList(_self).toString()); };
+  }
+  
+  private static void super_execute(final Sequence _self, final VideoGen videoGen) {
+    final org.irisa.diverse.videogen.videoGen.aspects.TransitionAspectTransitionAspectProperties _self_ = org.irisa.diverse.videogen.videoGen.aspects.TransitionAspectTransitionAspectContext.getSelf(_self);
+     org.irisa.diverse.videogen.videoGen.aspects.TransitionAspect._privk3_execute(_self_, _self,videoGen);
+  }
+  
+  protected static void _privk3_execute(final SequenceAspectSequenceAspectProperties _self_, final Sequence _self, final VideoGen videoGen) {
+  }
+}

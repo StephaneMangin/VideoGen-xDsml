@@ -1,0 +1,6 @@
+# List of the Java classes that have been aspectized and name of the aspect classes separated by comma
+	org.irisa.diverse.videogen.videoGen.Sequence = org.irisa.diverse.videogen.videoGen.aspects.visitors.SequenceDurationConstraintsAspect
+	org.irisa.diverse.videogen.videoGen.Alternatives = org.irisa.diverse.videogen.videoGen.aspects.visitors.AlternativesDurationConstraintsAspect
+	org.irisa.diverse.videogen.videoGen.Optional = org.irisa.diverse.videogen.videoGen.aspects.visitors.OptionalDurationConstraintsAspect
+	org.irisa.diverse.videogen.videoGen.Mandatory = org.irisa.diverse.videogen.videoGen.aspects.visitors.MandatoryDurationConstraintsAspect
+	org.irisa.diverse.videogen.videoGen.VideoGen = org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenDurationConstraintsAspect

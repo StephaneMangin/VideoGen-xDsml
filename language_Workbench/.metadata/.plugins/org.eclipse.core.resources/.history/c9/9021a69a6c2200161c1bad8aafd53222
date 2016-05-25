@@ -1,0 +1,13 @@
+package org.irisa.diverse.videogen
+
+
+language VideoGenS {
+	syntax "platform:/resource//org.irisa.diverse.videogen/model/VideoGen.ecore"
+
+}
+
+language VideoGenL inherits VideoGenS {
+
+	with org.irisa.diverse.videogen.videoGen.aspects.*
+
+}

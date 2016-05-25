@@ -1,0 +1,529 @@
+package org.irisa.diverse.videogen.videoGen.aspects;
+
+import fr.inria.diverse.k3.al.annotationprocessor.Aspect;
+import fr.inria.diverse.k3.al.annotationprocessor.InitializeModel;
+import fr.inria.diverse.k3.al.annotationprocessor.Main;
+import fr.inria.diverse.k3.al.annotationprocessor.Step;
+import java.io.File;
+import java.io.FileWriter;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.HashMap;
+import java.util.List;
+import java.util.function.Consumer;
+import java.util.logging.FileHandler;
+import java.util.logging.Logger;
+import java.util.logging.SimpleFormatter;
+import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.xtext.xbase.lib.Exceptions;
+import org.eclipse.xtext.xbase.lib.Functions.Function1;
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
+import org.irisa.diverse.videogen.transformations.helpers.SystemHelper;
+import org.irisa.diverse.videogen.videoGen.Initialize;
+import org.irisa.diverse.videogen.videoGen.Sequence;
+import org.irisa.diverse.videogen.videoGen.Transition;
+import org.irisa.diverse.videogen.videoGen.Video;
+import org.irisa.diverse.videogen.videoGen.VideoGen;
+import org.irisa.diverse.videogen.videoGen.aspects.InitializeAspect;
+import org.irisa.diverse.videogen.videoGen.aspects.VideoGenAspectVideoGenAspectProperties;
+import org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenContraintsMinMaxVisitor;
+import org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenSetupVisitor;
+import org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenVariantsVisitor;
+
+@Aspect(className = VideoGen.class)
+@SuppressWarnings("all")
+public class VideoGenAspect {
+  protected static Logger log = Logger.getLogger("VideoGenAspect");
+  
+  private static Path workspacePath = Paths.get(ResourcesPlugin.getWorkspace().getRoot().getProjects()[0].getLocationURI());
+  
+  private static Path logPath = Paths.get((VideoGenAspect.workspacePath + "/logs"));
+  
+  private static List<String> args = null;
+  
+  @Main
+  public static void main(final VideoGen _self) {
+    final org.irisa.diverse.videogen.videoGen.aspects.VideoGenAspectVideoGenAspectProperties _self_ = org.irisa.diverse.videogen.videoGen.aspects.VideoGenAspectVideoGenAspectContext.getSelf(_self);
+    _privk3_main(_self_, _self);;
+  }
+  
+  @Step
+  private static void setup(final VideoGen _self) {
+    final org.irisa.diverse.videogen.videoGen.aspects.VideoGenAspectVideoGenAspectProperties _self_ = org.irisa.diverse.videogen.videoGen.aspects.VideoGenAspectVideoGenAspectContext.getSelf(_self);
+    fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand command = new fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand() {
+    	@Override
+    	public void execute() {
+    		_privk3_setup(_self_, _self);
+    	}
+    };
+    fr.inria.diverse.k3.al.annotationprocessor.stepmanager.IStepManager manager = fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepManagerRegistry.getInstance().findStepManager(_self);
+    if (manager != null) {
+    	manager.executeStep(_self,command,"VideoGen","setup");
+    } else {
+    	command.execute();
+    }
+    ;;
+  }
+  
+  @Step
+  @InitializeModel
+  public static void initializeModel(final VideoGen _self, final List<String> args) {
+    final org.irisa.diverse.videogen.videoGen.aspects.VideoGenAspectVideoGenAspectProperties _self_ = org.irisa.diverse.videogen.videoGen.aspects.VideoGenAspectVideoGenAspectContext.getSelf(_self);
+    fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand command = new fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand() {
+    	@Override
+    	public void execute() {
+    		_privk3_initializeModel(_self_, _self,args);
+    	}
+    };
+    fr.inria.diverse.k3.al.annotationprocessor.stepmanager.IStepManager manager = fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepManagerRegistry.getInstance().findStepManager(_self);
+    if (manager != null) {
+    	manager.executeStep(_self,command,"VideoGen","initializeModel");
+    } else {
+    	command.execute();
+    }
+    ;;
+  }
+  
+  @Step
+  public static void execute(final VideoGen _self) {
+    final org.irisa.diverse.videogen.videoGen.aspects.VideoGenAspectVideoGenAspectProperties _self_ = org.irisa.diverse.videogen.videoGen.aspects.VideoGenAspectVideoGenAspectContext.getSelf(_self);
+    fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand command = new fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand() {
+    	@Override
+    	public void execute() {
+    		_privk3_execute(_self_, _self);
+    	}
+    };
+    fr.inria.diverse.k3.al.annotationprocessor.stepmanager.IStepManager manager = fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepManagerRegistry.getInstance().findStepManager(_self);
+    if (manager != null) {
+    	manager.executeStep(_self,command,"VideoGen","execute");
+    } else {
+    	command.execute();
+    }
+    ;;
+  }
+  
+  /**
+   * Start the computation (model transformation) of all selected video to create the final sequence (PlayList format)
+   */
+  @Step
+  public static void compute(final VideoGen _self) {
+    final org.irisa.diverse.videogen.videoGen.aspects.VideoGenAspectVideoGenAspectProperties _self_ = org.irisa.diverse.videogen.videoGen.aspects.VideoGenAspectVideoGenAspectContext.getSelf(_self);
+    fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand command = new fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand() {
+    	@Override
+    	public void execute() {
+    		_privk3_compute(_self_, _self);
+    	}
+    };
+    fr.inria.diverse.k3.al.annotationprocessor.stepmanager.IStepManager manager = fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepManagerRegistry.getInstance().findStepManager(_self);
+    if (manager != null) {
+    	manager.executeStep(_self,command,"VideoGen","compute");
+    } else {
+    	command.execute();
+    }
+    ;;
+  }
+  
+  /**
+   * Save the given playlist content in a temporary file (hashed by content named)
+   */
+  private static File saveGeneratedModel(final VideoGen _self, final String content) {
+    final org.irisa.diverse.videogen.videoGen.aspects.VideoGenAspectVideoGenAspectProperties _self_ = org.irisa.diverse.videogen.videoGen.aspects.VideoGenAspectVideoGenAspectContext.getSelf(_self);
+    Object result = null;
+    result = _privk3_saveGeneratedModel(_self_, _self,content);;
+    return (java.io.File)result;
+  }
+  
+  /**
+   * Launch vlc instance with the provided playlist
+   */
+  private static void launchReader(final VideoGen _self, final File playlist) {
+    final org.irisa.diverse.videogen.videoGen.aspects.VideoGenAspectVideoGenAspectProperties _self_ = org.irisa.diverse.videogen.videoGen.aspects.VideoGenAspectVideoGenAspectContext.getSelf(_self);
+    _privk3_launchReader(_self_, _self,playlist);;
+  }
+  
+  private static VideoGenSetupVisitor setupVisitor(final VideoGen _self) {
+    final org.irisa.diverse.videogen.videoGen.aspects.VideoGenAspectVideoGenAspectProperties _self_ = org.irisa.diverse.videogen.videoGen.aspects.VideoGenAspectVideoGenAspectContext.getSelf(_self);
+    Object result = null;
+    result = _privk3_setupVisitor(_self_, _self);;
+    return (org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenSetupVisitor)result;
+  }
+  
+  private static void setupVisitor(final VideoGen _self, final VideoGenSetupVisitor setupVisitor) {
+    final org.irisa.diverse.videogen.videoGen.aspects.VideoGenAspectVideoGenAspectProperties _self_ = org.irisa.diverse.videogen.videoGen.aspects.VideoGenAspectVideoGenAspectContext.getSelf(_self);
+    _privk3_setupVisitor(_self_, _self,setupVisitor);;
+  }
+  
+  private static VideoGenVariantsVisitor variantsVisitor(final VideoGen _self) {
+    final org.irisa.diverse.videogen.videoGen.aspects.VideoGenAspectVideoGenAspectProperties _self_ = org.irisa.diverse.videogen.videoGen.aspects.VideoGenAspectVideoGenAspectContext.getSelf(_self);
+    Object result = null;
+    result = _privk3_variantsVisitor(_self_, _self);;
+    return (org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenVariantsVisitor)result;
+  }
+  
+  private static void variantsVisitor(final VideoGen _self, final VideoGenVariantsVisitor variantsVisitor) {
+    final org.irisa.diverse.videogen.videoGen.aspects.VideoGenAspectVideoGenAspectProperties _self_ = org.irisa.diverse.videogen.videoGen.aspects.VideoGenAspectVideoGenAspectContext.getSelf(_self);
+    _privk3_variantsVisitor(_self_, _self,variantsVisitor);;
+  }
+  
+  private static VideoGenContraintsMinMaxVisitor durationVisitor(final VideoGen _self) {
+    final org.irisa.diverse.videogen.videoGen.aspects.VideoGenAspectVideoGenAspectProperties _self_ = org.irisa.diverse.videogen.videoGen.aspects.VideoGenAspectVideoGenAspectContext.getSelf(_self);
+    Object result = null;
+    result = _privk3_durationVisitor(_self_, _self);;
+    return (org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenContraintsMinMaxVisitor)result;
+  }
+  
+  private static void durationVisitor(final VideoGen _self, final VideoGenContraintsMinMaxVisitor durationVisitor) {
+    final org.irisa.diverse.videogen.videoGen.aspects.VideoGenAspectVideoGenAspectProperties _self_ = org.irisa.diverse.videogen.videoGen.aspects.VideoGenAspectVideoGenAspectContext.getSelf(_self);
+    _privk3_durationVisitor(_self_, _self,durationVisitor);;
+  }
+  
+  private static Boolean onceSetuped(final VideoGen _self) {
+    final org.irisa.diverse.videogen.videoGen.aspects.VideoGenAspectVideoGenAspectProperties _self_ = org.irisa.diverse.videogen.videoGen.aspects.VideoGenAspectVideoGenAspectContext.getSelf(_self);
+    Object result = null;
+    result = _privk3_onceSetuped(_self_, _self);;
+    return (java.lang.Boolean)result;
+  }
+  
+  private static void onceSetuped(final VideoGen _self, final Boolean onceSetuped) {
+    final org.irisa.diverse.videogen.videoGen.aspects.VideoGenAspectVideoGenAspectProperties _self_ = org.irisa.diverse.videogen.videoGen.aspects.VideoGenAspectVideoGenAspectContext.getSelf(_self);
+    _privk3_onceSetuped(_self_, _self,onceSetuped);;
+  }
+  
+  private static long nanotimeStart(final VideoGen _self) {
+    final org.irisa.diverse.videogen.videoGen.aspects.VideoGenAspectVideoGenAspectProperties _self_ = org.irisa.diverse.videogen.videoGen.aspects.VideoGenAspectVideoGenAspectContext.getSelf(_self);
+    Object result = null;
+    result = _privk3_nanotimeStart(_self_, _self);;
+    return (long)result;
+  }
+  
+  private static void nanotimeStart(final VideoGen _self, final long nanotimeStart) {
+    final org.irisa.diverse.videogen.videoGen.aspects.VideoGenAspectVideoGenAspectProperties _self_ = org.irisa.diverse.videogen.videoGen.aspects.VideoGenAspectVideoGenAspectContext.getSelf(_self);
+    _privk3_nanotimeStart(_self_, _self,nanotimeStart);;
+  }
+  
+  private static long nanotimeEnd(final VideoGen _self) {
+    final org.irisa.diverse.videogen.videoGen.aspects.VideoGenAspectVideoGenAspectProperties _self_ = org.irisa.diverse.videogen.videoGen.aspects.VideoGenAspectVideoGenAspectContext.getSelf(_self);
+    Object result = null;
+    result = _privk3_nanotimeEnd(_self_, _self);;
+    return (long)result;
+  }
+  
+  private static void nanotimeEnd(final VideoGen _self, final long nanotimeEnd) {
+    final org.irisa.diverse.videogen.videoGen.aspects.VideoGenAspectVideoGenAspectProperties _self_ = org.irisa.diverse.videogen.videoGen.aspects.VideoGenAspectVideoGenAspectContext.getSelf(_self);
+    _privk3_nanotimeEnd(_self_, _self,nanotimeEnd);;
+  }
+  
+  protected static void _privk3_main(final VideoGenAspectVideoGenAspectProperties _self_, final VideoGen _self) {
+    VideoGenAspect.execute(_self);
+  }
+  
+  protected static void _privk3_setup(final VideoGenAspectVideoGenAspectProperties _self_, final VideoGen _self) {
+    try {
+      final long start = System.nanoTime();
+      VideoGenSetupVisitor _setupVisitor = VideoGenAspect.setupVisitor(_self);
+      _setupVisitor.visit(_self);
+      VideoGenVariantsVisitor _variantsVisitor = VideoGenAspect.variantsVisitor(_self);
+      VideoGenVariantsVisitor _visit = _variantsVisitor.visit(_self);
+      _self.setVariantes(Integer.valueOf(_visit.variants));
+      VideoGenContraintsMinMaxVisitor _durationVisitor = VideoGenAspect.durationVisitor(_self);
+      _durationVisitor.visit(_self);
+      VideoGenContraintsMinMaxVisitor _durationVisitor_1 = VideoGenAspect.durationVisitor(_self);
+      _self.setMinDurationConstraint(Integer.valueOf(_durationVisitor_1.minDuration));
+      VideoGenContraintsMinMaxVisitor _durationVisitor_2 = VideoGenAspect.durationVisitor(_self);
+      _self.setMaxDurationConstraint(Integer.valueOf(_durationVisitor_2.maxDuration));
+      Boolean _onceSetuped = VideoGenAspect.onceSetuped(_self);
+      boolean _not = (!(_onceSetuped).booleanValue());
+      if (_not) {
+        SystemHelper.mkDirs(VideoGenAspect.logPath);
+        String _plus = (VideoGenAspect.logPath + "/");
+        String _name = VideoGenAspect.log.getName();
+        String _plus_1 = (_plus + _name);
+        String _plus_2 = (_plus_1 + ".log");
+        final FileHandler fh = new FileHandler(_plus_2, true);
+        final SimpleFormatter formatter = new SimpleFormatter();
+        fh.setFormatter(formatter);
+        VideoGenAspect.log.addHandler(fh);
+        VideoGenAspect.onceSetuped(_self, Boolean.valueOf(true));
+      }
+      long _nanoTime = System.nanoTime();
+      long _minus = (_nanoTime - start);
+      String _plus_3 = ("#### VideoGen, time to setup " + Long.valueOf(_minus));
+      VideoGenAspect.log.info(_plus_3);
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+  
+  protected static void _privk3_initializeModel(final VideoGenAspectVideoGenAspectProperties _self_, final VideoGen _self, final List<String> args) {
+    VideoGenAspect.setup(_self);
+    VideoGenAspect.log.info(("Initialize model with " + args));
+  }
+  
+  protected static void _privk3_execute(final VideoGenAspectVideoGenAspectProperties _self_, final VideoGen _self) {
+    long _nanoTime = System.nanoTime();
+    VideoGenAspect.nanotimeStart(_self, _nanoTime);
+    EList<Transition> _transitions = _self.getTransitions();
+    final Function1<Transition, Boolean> _function = (Transition it) -> {
+      return Boolean.valueOf((it instanceof Initialize));
+    };
+    Iterable<Transition> _filter = IterableExtensions.<Transition>filter(_transitions, _function);
+    final Function1<Transition, Initialize> _function_1 = (Transition it) -> {
+      return ((Initialize) it);
+    };
+    Iterable<Initialize> _map = IterableExtensions.<Transition, Initialize>map(_filter, _function_1);
+    Initialize _head = IterableExtensions.<Initialize>head(_map);
+    InitializeAspect.execute(_head, _self);
+    long _nanoTime_1 = System.nanoTime();
+    VideoGenAspect.nanotimeEnd(_self, _nanoTime_1);
+    long _nanotimeEnd = VideoGenAspect.nanotimeEnd(_self);
+    long _nanotimeStart = VideoGenAspect.nanotimeStart(_self);
+    long _minus = (_nanotimeEnd - _nanotimeStart);
+    String _plus = ("#### VideoGen, time to execute " + Long.valueOf(_minus));
+    VideoGenAspect.log.info(_plus);
+  }
+  
+  protected static void _privk3_compute(final VideoGenAspectVideoGenAspectProperties _self_, final VideoGen _self) {
+    final HashMap<String, Boolean> videos = new HashMap<String, Boolean>();
+    String _name = _self.getName();
+    String _plus = ("##### VideoGen \'" + _name);
+    String _plus_1 = (_plus + "\' start computation.");
+    VideoGenAspect.log.info(_plus_1);
+    EList<Transition> _transitions = _self.getTransitions();
+    final Function1<Transition, Boolean> _function = (Transition it) -> {
+      return Boolean.valueOf((it instanceof Sequence));
+    };
+    Iterable<Transition> _filter = IterableExtensions.<Transition>filter(_transitions, _function);
+    final Function1<Transition, Sequence> _function_1 = (Transition it) -> {
+      return ((Sequence) it);
+    };
+    Iterable<Sequence> _map = IterableExtensions.<Transition, Sequence>map(_filter, _function_1);
+    final Function1<Sequence, Boolean> _function_2 = (Sequence it) -> {
+      return it.getSelected();
+    };
+    Iterable<Sequence> _filter_1 = IterableExtensions.<Sequence>filter(_map, _function_2);
+    final Function1<Sequence, Video> _function_3 = (Sequence it) -> {
+      return it.getVideo();
+    };
+    Iterable<Video> _map_1 = IterableExtensions.<Sequence, Video>map(_filter_1, _function_3);
+    final Consumer<Video> _function_4 = (Video it) -> {
+      String _name_1 = it.getName();
+      videos.put(_name_1, Boolean.valueOf(true));
+    };
+    _map_1.forEach(_function_4);
+  }
+  
+  protected static File _privk3_saveGeneratedModel(final VideoGenAspectVideoGenAspectProperties _self_, final VideoGen _self, final String content) {
+    try {
+      File _xblockexpression = null;
+      {
+        int _hashCode = content.hashCode();
+        String _valueOf = String.valueOf(_hashCode);
+        final File playlist = File.createTempFile(_valueOf, "-videogen.m3u");
+        final FileWriter writer = new FileWriter(playlist);
+        writer.write(content);
+        writer.flush();
+        writer.close();
+        _xblockexpression = playlist;
+      }
+      return _xblockexpression;
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+  
+  protected static void _privk3_launchReader(final VideoGenAspectVideoGenAspectProperties _self_, final VideoGen _self, final File playlist) {
+    try {
+      Path _path = playlist.toPath();
+      String _string = _path.toString();
+      final ProcessBuilder p = new ProcessBuilder(
+        "vlc", 
+        "--playlist-autostart", 
+        "--playlist-tree", 
+        "--no-overlay", _string);
+      p.start();
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+  
+  protected static VideoGenSetupVisitor _privk3_setupVisitor(final VideoGenAspectVideoGenAspectProperties _self_, final VideoGen _self) {
+    try {
+    	for (java.lang.reflect.Method m : _self.getClass().getMethods()) {
+    		if (m.getName().equals("getSetupVisitor") &&
+    			m.getParameterTypes().length == 0) {
+    				Object ret = m.invoke(_self);
+    				if (ret != null) {
+    					return (org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenSetupVisitor) ret;
+    				}
+    		}
+    	}
+    } catch (Exception e) {
+    	// Chut !
+    }
+    return _self_.setupVisitor;
+  }
+  
+  protected static void _privk3_setupVisitor(final VideoGenAspectVideoGenAspectProperties _self_, final VideoGen _self, final VideoGenSetupVisitor setupVisitor) {
+    _self_.setupVisitor = setupVisitor; try {
+    	for (java.lang.reflect.Method m : _self.getClass().getMethods()) {
+    		if (m.getName().equals("setSetupVisitor")
+    				&& m.getParameterTypes().length == 1) {
+    			m.invoke(_self, setupVisitor);
+    		}
+    	}
+    } catch (Exception e) {
+    	// Chut !
+    }
+  }
+  
+  protected static VideoGenVariantsVisitor _privk3_variantsVisitor(final VideoGenAspectVideoGenAspectProperties _self_, final VideoGen _self) {
+    try {
+    	for (java.lang.reflect.Method m : _self.getClass().getMethods()) {
+    		if (m.getName().equals("getVariantsVisitor") &&
+    			m.getParameterTypes().length == 0) {
+    				Object ret = m.invoke(_self);
+    				if (ret != null) {
+    					return (org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenVariantsVisitor) ret;
+    				}
+    		}
+    	}
+    } catch (Exception e) {
+    	// Chut !
+    }
+    return _self_.variantsVisitor;
+  }
+  
+  protected static void _privk3_variantsVisitor(final VideoGenAspectVideoGenAspectProperties _self_, final VideoGen _self, final VideoGenVariantsVisitor variantsVisitor) {
+    _self_.variantsVisitor = variantsVisitor; try {
+    	for (java.lang.reflect.Method m : _self.getClass().getMethods()) {
+    		if (m.getName().equals("setVariantsVisitor")
+    				&& m.getParameterTypes().length == 1) {
+    			m.invoke(_self, variantsVisitor);
+    		}
+    	}
+    } catch (Exception e) {
+    	// Chut !
+    }
+  }
+  
+  protected static VideoGenContraintsMinMaxVisitor _privk3_durationVisitor(final VideoGenAspectVideoGenAspectProperties _self_, final VideoGen _self) {
+    try {
+    	for (java.lang.reflect.Method m : _self.getClass().getMethods()) {
+    		if (m.getName().equals("getDurationVisitor") &&
+    			m.getParameterTypes().length == 0) {
+    				Object ret = m.invoke(_self);
+    				if (ret != null) {
+    					return (org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenContraintsMinMaxVisitor) ret;
+    				}
+    		}
+    	}
+    } catch (Exception e) {
+    	// Chut !
+    }
+    return _self_.durationVisitor;
+  }
+  
+  protected static void _privk3_durationVisitor(final VideoGenAspectVideoGenAspectProperties _self_, final VideoGen _self, final VideoGenContraintsMinMaxVisitor durationVisitor) {
+    _self_.durationVisitor = durationVisitor; try {
+    	for (java.lang.reflect.Method m : _self.getClass().getMethods()) {
+    		if (m.getName().equals("setDurationVisitor")
+    				&& m.getParameterTypes().length == 1) {
+    			m.invoke(_self, durationVisitor);
+    		}
+    	}
+    } catch (Exception e) {
+    	// Chut !
+    }
+  }
+  
+  protected static Boolean _privk3_onceSetuped(final VideoGenAspectVideoGenAspectProperties _self_, final VideoGen _self) {
+    try {
+    	for (java.lang.reflect.Method m : _self.getClass().getMethods()) {
+    		if (m.getName().equals("getOnceSetuped") &&
+    			m.getParameterTypes().length == 0) {
+    				Object ret = m.invoke(_self);
+    				if (ret != null) {
+    					return (java.lang.Boolean) ret;
+    				}
+    		}
+    	}
+    } catch (Exception e) {
+    	// Chut !
+    }
+    return _self_.onceSetuped;
+  }
+  
+  protected static void _privk3_onceSetuped(final VideoGenAspectVideoGenAspectProperties _self_, final VideoGen _self, final Boolean onceSetuped) {
+    _self_.onceSetuped = onceSetuped; try {
+    	for (java.lang.reflect.Method m : _self.getClass().getMethods()) {
+    		if (m.getName().equals("setOnceSetuped")
+    				&& m.getParameterTypes().length == 1) {
+    			m.invoke(_self, onceSetuped);
+    		}
+    	}
+    } catch (Exception e) {
+    	// Chut !
+    }
+  }
+  
+  protected static long _privk3_nanotimeStart(final VideoGenAspectVideoGenAspectProperties _self_, final VideoGen _self) {
+    try {
+    	for (java.lang.reflect.Method m : _self.getClass().getMethods()) {
+    		if (m.getName().equals("getNanotimeStart") &&
+    			m.getParameterTypes().length == 0) {
+    				Object ret = m.invoke(_self);
+    				if (ret != null) {
+    					return (long) ret;
+    				}
+    		}
+    	}
+    } catch (Exception e) {
+    	// Chut !
+    }
+    return _self_.nanotimeStart;
+  }
+  
+  protected static void _privk3_nanotimeStart(final VideoGenAspectVideoGenAspectProperties _self_, final VideoGen _self, final long nanotimeStart) {
+    _self_.nanotimeStart = nanotimeStart; try {
+    	for (java.lang.reflect.Method m : _self.getClass().getMethods()) {
+    		if (m.getName().equals("setNanotimeStart")
+    				&& m.getParameterTypes().length == 1) {
+    			m.invoke(_self, nanotimeStart);
+    		}
+    	}
+    } catch (Exception e) {
+    	// Chut !
+    }
+  }
+  
+  protected static long _privk3_nanotimeEnd(final VideoGenAspectVideoGenAspectProperties _self_, final VideoGen _self) {
+    try {
+    	for (java.lang.reflect.Method m : _self.getClass().getMethods()) {
+    		if (m.getName().equals("getNanotimeEnd") &&
+    			m.getParameterTypes().length == 0) {
+    				Object ret = m.invoke(_self);
+    				if (ret != null) {
+    					return (long) ret;
+    				}
+    		}
+    	}
+    } catch (Exception e) {
+    	// Chut !
+    }
+    return _self_.nanotimeEnd;
+  }
+  
+  protected static void _privk3_nanotimeEnd(final VideoGenAspectVideoGenAspectProperties _self_, final VideoGen _self, final long nanotimeEnd) {
+    _self_.nanotimeEnd = nanotimeEnd; try {
+    	for (java.lang.reflect.Method m : _self.getClass().getMethods()) {
+    		if (m.getName().equals("setNanotimeEnd")
+    				&& m.getParameterTypes().length == 1) {
+    			m.invoke(_self, nanotimeEnd);
+    		}
+    	}
+    } catch (Exception e) {
+    	// Chut !
+    }
+  }
+}

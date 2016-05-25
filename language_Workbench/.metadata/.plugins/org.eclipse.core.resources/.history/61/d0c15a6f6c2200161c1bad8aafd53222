@@ -1,0 +1,52 @@
+package org.irisa.diverse.videogen.videoGen.aspects.visitors
+
+import org.irisa.diverse.videogen.videoGen.Alternatives
+import org.irisa.diverse.videogen.videoGen.Optional
+import org.irisa.diverse.videogen.videoGen.Sequence
+import org.irisa.diverse.videogen.videoGen.VideoGen
+import fr.inria.diverse.k3.al.annotationprocessor.Aspect
+
+@Aspect(className=VideoGen)
+class VideoGenVariantsAspect {
+	    
+	def VideoGen findVariants() {
+		_self.variantes = 1
+		println("VideoGen Variants Visitor started...")
+		// Call the visitor
+		_self.transitions.filter[it instanceof Sequence]
+			.map[it as Sequence]
+			.forEach[findVariants(_self)]
+		_self
+	}
+}
+
+@Aspect(className=Sequence)
+class SequenceVariantsAspect {
+
+	def private void findVariants(VideoGen vid) {
+		if (_self.active) {
+			println("VideoGen Variants Visitor : " + _self)
+			if (_self instanceof Optional) {
+				_self.findVariants(vid)
+			} else if (_self instanceof Alternatives) {
+				_self.findVariants(vid)
+			}
+			println("VideoGen Variants Visitor : " + vid.variantes)
+		}
+	}
+}	
+@Aspect(className=Alternatives)
+class AlternativesVariantsAspect {
+	
+	def private void findVariants(VideoGen vid) {
+		vid.variantes = vid.variantes * _self.options.filter[active].size
+	}
+}
+
+@Aspect(className=Optional)
+class OptionalVariantsAspect {
+	
+	def private void findVariants(VideoGen vid) {
+		vid.variantes = vid.variantes * 2
+	}
+}

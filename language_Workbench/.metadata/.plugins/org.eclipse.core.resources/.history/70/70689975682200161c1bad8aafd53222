@@ -1,0 +1,63 @@
+package org.irisa.diverse.videogen.videoGen.aspects.visitors
+
+import java.util.List
+import org.irisa.diverse.videogen.transformations.helpers.VideoGenHelper
+import org.irisa.diverse.videogen.videoGen.Alternatives
+import org.irisa.diverse.videogen.videoGen.Mandatory
+import org.irisa.diverse.videogen.videoGen.Optional
+import org.irisa.diverse.videogen.videoGen.Sequence
+import org.irisa.diverse.videogen.videoGen.VideoGen
+import org.irisa.diverse.videogen.videoGen.aspects.utils.LoggableVisitor
+import fr.inria.diverse.k3.al.annotationprocessor.Aspect
+
+@Aspect(className=VideoGen)
+class VideoGenDurationsAspect {
+	    
+	def void findDurations() {
+		_self.transitions
+			.filter[it instanceof Sequence]
+			.map[it as Sequence]
+			.forEach[findDurations(_self)]
+	}
+}
+
+@Aspect(className=Sequence)
+class SequenceDurationsAspect {
+
+	def void findDurations(VideoGen vid) {
+		if (_self.active) {
+			if (_self instanceof Mandatory) {
+				_self.findDurations(vid)
+			} else if (_self instanceof Optional) {
+				_self.findDurations(vid)
+			} else if (_self instanceof Alternatives) {
+				_self.findDurations(vid)
+			}
+		}
+	}
+}	
+@Aspect(className=Alternatives)
+class AlternativesDurationsAspect {
+	
+	def void findDurations(VideoGen vid) {
+		var List<Integer> durations = _self.options.map[video.duration]
+		vid.minDurationConstraint = vid.minDurationConstraint + durations.min
+		vid.maxDurationConstraint = vid.maxDurationConstraint + durations.max
+	}
+}
+
+@Aspect(className=Optional)
+class OptionalDurationsAspect {
+	
+	def void findDurations(VideoGen vid) {
+		vid.maxDurationConstraint = vid.maxDurationConstraint + _self.video.duration
+	}
+}
+@Aspect(className=Mandatory)
+class MandatoryDurationsAspect {
+	
+	def void findDurations(VideoGen vid) {
+		vid.minDurationConstraint = vid.minDurationConstraint + _self.video.duration
+		vid.maxDurationConstraint = vid.maxDurationConstraint + _self.video.duration
+	}
+}

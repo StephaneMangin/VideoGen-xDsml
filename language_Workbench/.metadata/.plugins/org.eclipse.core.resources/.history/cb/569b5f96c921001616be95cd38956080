@@ -1,0 +1,48 @@
+package org.irisa.diverse.videogen.videoGen.aspects.visitors;
+
+import fr.inria.diverse.k3.al.annotationprocessor.Aspect;
+import org.irisa.diverse.videogen.videoGen.Alternatives;
+import org.irisa.diverse.videogen.videoGen.Mandatory;
+import org.irisa.diverse.videogen.videoGen.Optional;
+import org.irisa.diverse.videogen.videoGen.Sequence;
+import org.irisa.diverse.videogen.videoGen.VideoGen;
+import org.irisa.diverse.videogen.videoGen.aspects.visitors.OptionalDurationConstraintsAspect;
+import org.irisa.diverse.videogen.videoGen.aspects.visitors.SequenceDurationConstraintsAspectSequenceAspectProperties;
+
+@Aspect(className = Sequence.class)
+@SuppressWarnings("all")
+public class SequenceDurationConstraintsAspect {
+  public static void visit(final Sequence _self, final VideoGen vid) {
+    final org.irisa.diverse.videogen.videoGen.aspects.visitors.SequenceDurationConstraintsAspectSequenceAspectProperties _self_ = org.irisa.diverse.videogen.videoGen.aspects.visitors.SequenceDurationConstraintsAspectSequenceAspectContext.getSelf(_self);
+    _privk3_visit(_self_, _self,vid);;
+  }
+  
+  public static void applyConstraints(final Sequence _self, final VideoGen vid) {
+    final org.irisa.diverse.videogen.videoGen.aspects.visitors.SequenceDurationConstraintsAspectSequenceAspectProperties _self_ = org.irisa.diverse.videogen.videoGen.aspects.visitors.SequenceDurationConstraintsAspectSequenceAspectContext.getSelf(_self);
+    _privk3_applyConstraints(_self_, _self,vid);;
+  }
+  
+  protected static void _privk3_visit(final SequenceDurationConstraintsAspectSequenceAspectProperties _self_, final Sequence _self, final VideoGen vid) {
+    if ((_self instanceof Optional)) {
+      OptionalDurationConstraintsAspect.visit(((Optional)_self), vid);
+    } else {
+      if ((_self instanceof Mandatory)) {
+        SequenceDurationConstraintsAspect.visit(_self, vid);
+      } else {
+        if ((_self instanceof Alternatives)) {
+          SequenceDurationConstraintsAspect.visit(_self, vid);
+        }
+      }
+    }
+  }
+  
+  protected static void _privk3_applyConstraints(final SequenceDurationConstraintsAspectSequenceAspectProperties _self_, final Sequence _self, final VideoGen vid) {
+    if ((_self instanceof Optional)) {
+      OptionalDurationConstraintsAspect.applyConstraints(((Optional)_self), vid);
+    } else {
+      if ((_self instanceof Alternatives)) {
+        SequenceDurationConstraintsAspect.applyConstraints(_self, vid);
+      }
+    }
+  }
+}

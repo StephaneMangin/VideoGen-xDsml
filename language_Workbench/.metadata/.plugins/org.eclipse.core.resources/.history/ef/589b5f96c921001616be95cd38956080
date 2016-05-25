@@ -1,0 +1,5 @@
+package org.irisa.diverse.videogen.videoGen.aspects.visitors;
+
+@SuppressWarnings("all")
+public class SequenceDurationConstraintsAspectSequenceAspectProperties {
+}

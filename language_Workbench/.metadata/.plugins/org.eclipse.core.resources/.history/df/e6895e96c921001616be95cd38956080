@@ -1,0 +1,22 @@
+package org.irisa.diverse.videogen.videoGen.aspects;
+
+import java.util.Map;
+import org.irisa.diverse.videogen.videoGen.Generate;
+import org.irisa.diverse.videogen.videoGen.aspects.GenerateAspectGenerateAspectProperties;
+
+@SuppressWarnings("all")
+public class GenerateAspectGenerateAspectContext {
+  public final static GenerateAspectGenerateAspectContext INSTANCE = new GenerateAspectGenerateAspectContext();
+  
+  public static GenerateAspectGenerateAspectProperties getSelf(final Generate _self) {
+    		if (!INSTANCE.map.containsKey(_self))
+    			INSTANCE.map.put(_self, new org.irisa.diverse.videogen.videoGen.aspects.GenerateAspectGenerateAspectProperties());
+    		return INSTANCE.map.get(_self);
+  }
+  
+  private Map<Generate, GenerateAspectGenerateAspectProperties> map = new java.util.WeakHashMap<org.irisa.diverse.videogen.videoGen.Generate, org.irisa.diverse.videogen.videoGen.aspects.GenerateAspectGenerateAspectProperties>();
+  
+  public Map<Generate, GenerateAspectGenerateAspectProperties> getMap() {
+    return map;
+  }
+}
