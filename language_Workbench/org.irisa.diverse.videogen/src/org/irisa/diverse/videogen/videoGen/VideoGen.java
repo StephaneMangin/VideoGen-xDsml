@@ -3,6 +3,7 @@
 package org.irisa.diverse.videogen.videoGen;
 
 import org.eclipse.emf.common.util.EList;
+import java.util.List;
 
 /**
  * <!-- begin-user-doc -->

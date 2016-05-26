@@ -2,7 +2,7 @@ Bundle-SymbolicName: org.irisa.diverse.videogen.k3dsa; singleton:=true
 Export-Package: org.irisa.diverse.videogen.videoGen.aspects,org.irisa.diverse.videogen.videoGen.aspects.visitors,org.irisa.diverse.videogen.videoGen.aspects.exceptions,org.irisa.diverse.videogen.videoGen.aspects.utils
 Bundle-Name: org.irisa.diverse.videogen.k3dsa
 Bundle-Version: 1.0.0
-Bundle-ClassPath: .
+Bundle-ClassPath: .,libs/choco-solver-3.3.3-sources.jar,libs/choco-solver-3.3.3-with-dependencies.jar,libs/jargs.jar
 Require-Bundle: com.google.guava,
  org.eclipse.xtext.xbase.lib,
  org.eclipse.xtend.lib,

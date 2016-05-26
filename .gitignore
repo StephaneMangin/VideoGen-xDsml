@@ -1,11 +1,11 @@
-xtend-gen
-src-gen
-model-gen
-.JETEmitters
-gemoc-gen
+xtend-gen/
+src-gen/
+model-gen/
+.JETEmitters/
+gemoc-gen/
 *.xtendbin
 *._trace
-log/
+logs/
 
 .metadata
 bin/

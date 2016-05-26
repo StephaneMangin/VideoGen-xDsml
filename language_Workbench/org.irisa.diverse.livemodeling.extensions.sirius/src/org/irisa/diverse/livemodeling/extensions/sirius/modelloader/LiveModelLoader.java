@@ -147,16 +147,16 @@ public class LiveModelLoader implements IModelLoader {
 	}
 
 	private Session openNewSiriusSession(IExecutionContext context, URI sessionResourceURI) throws CoreException {
-//		System.out.println("");
-//		System.out.println("################################");
-//		System.out.println("DEBUG MODE FOR SIRIUS EXTENSIONS");
-//		System.out.println("################################");
-//		System.out.println("");
-//		System.out.println("\t" + "Context : " + context);
-//		System.out.println("\t\t" + "Execution mode: " + context.getExecutionMode());
-//		System.out.println("\t\t" + "Execution platform: " + context.getExecutionPlatform());
-//		System.out.println("\t\t" + "MSE model: " + context.getMSEModel());
-//		System.out.println("\t\t" + "Language extension: " + context.getLanguageDefinitionExtension());
+		System.out.println("");
+		System.out.println("################################");
+		System.out.println("DEBUG MODE FOR SIRIUS EXTENSIONS");
+		System.out.println("################################");
+		System.out.println("");
+		System.out.println("\t" + "Context : " + context);
+		System.out.println("\t\t" + "Execution mode: " + context.getExecutionMode());
+		System.out.println("\t\t" + "Execution platform: " + context.getExecutionPlatform());
+		System.out.println("\t\t" + "MSE model: " + context.getMSEModel());
+		System.out.println("\t\t" + "Language extension: " + context.getLanguageDefinitionExtension());
 		
 		boolean useMelange = context.getRunConfiguration().getMelangeQuery() != null
 				&& !context.getRunConfiguration().getMelangeQuery().isEmpty();
