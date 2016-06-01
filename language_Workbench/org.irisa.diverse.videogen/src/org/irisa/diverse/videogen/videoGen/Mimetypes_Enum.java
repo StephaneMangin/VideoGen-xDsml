@@ -274,6 +274,8 @@ public enum Mimetypes_Enum implements Enumerator {
 	 * Returns the '<em><b>Mimetypes Enum</b></em>' literal with the specified literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param literal the literal.
+	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static Mimetypes_Enum get(String literal) {
@@ -290,6 +292,8 @@ public enum Mimetypes_Enum implements Enumerator {
 	 * Returns the '<em><b>Mimetypes Enum</b></em>' literal with the specified name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param name the name.
+	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static Mimetypes_Enum getByName(String name) {
@@ -306,6 +310,8 @@ public enum Mimetypes_Enum implements Enumerator {
 	 * Returns the '<em><b>Mimetypes Enum</b></em>' literal with the specified integer value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param value the integer value.
+	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static Mimetypes_Enum get(int value) {

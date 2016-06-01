@@ -11,10 +11,10 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.irisa.diverse.videogen.videoGen.Alternatives#getOptions <em>Options</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.irisa.diverse.videogen.videoGen.VideoGenPackage#getAlternatives()
  * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='probSumMax'"

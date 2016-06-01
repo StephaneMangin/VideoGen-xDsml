@@ -32,6 +32,9 @@ class VideoGenUserContraintsVisitor extends LoggableVisitor {
     }
     
 	def visit(VideoGen vid, int min, int max) {
+		if (min > max || max == 0) {
+			throw new Exception("You have to indicate a min and a max value")
+		}
 		val videoNumber = VideoGenHelper.allVideos(vid).size
 		
 		// Define the objective scalar with given contraints

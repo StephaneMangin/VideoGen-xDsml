@@ -20,13 +20,13 @@ import org.irisa.diverse.videogen.videoGen.VideoGenPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.irisa.diverse.videogen.videoGen.impl.SequenceImpl#getNextTransition <em>Next Transition</em>}</li>
  *   <li>{@link org.irisa.diverse.videogen.videoGen.impl.SequenceImpl#getActive <em>Active</em>}</li>
  *   <li>{@link org.irisa.diverse.videogen.videoGen.impl.SequenceImpl#getSelected <em>Selected</em>}</li>
  *   <li>{@link org.irisa.diverse.videogen.videoGen.impl.SequenceImpl#getVideo <em>Video</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

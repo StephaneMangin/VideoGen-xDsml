@@ -71,6 +71,8 @@ class VideoGenAspect {
 		_self.durationVisitor.visit(_self)
 		_self.minDurationConstraint = _self.durationVisitor.minDuration
 		_self.maxDurationConstraint = _self.durationVisitor.maxDuration
+		_self.minUserConstraint = _self.minDurationConstraint
+		_self.maxUserConstraint = _self.maxDurationConstraint
 		
 		// Log definition
 		SystemHelper.mkDirs(logPath)
@@ -171,9 +173,7 @@ abstract class TransitionAspect {
 	@Step
 	def public void finishExecute(VideoGen videoGen) {
 		VideoGenAspect.log.info("##### '" + _self + "' is being processed.")
-		
-		// First apply the constraint model before execution
-		new VideoGenUserContraintsVisitor().visit(videoGen, videoGen.minUserConstraint, videoGen.maxUserConstraint)
+	
 		
 		// Stop invariant while looping the model
 		if (!_self.executed) {

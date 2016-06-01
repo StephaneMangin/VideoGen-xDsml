@@ -10,10 +10,10 @@ package org.irisa.diverse.videogen.videoGen;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.irisa.diverse.videogen.videoGen.Sequence#getVideo <em>Video</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.irisa.diverse.videogen.videoGen.VideoGenPackage#getSequence()
  * @model abstract="true"

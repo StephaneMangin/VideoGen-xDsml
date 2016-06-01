@@ -19,12 +19,12 @@ import org.irisa.diverse.videogen.videoGen.VideoGenPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.irisa.diverse.videogen.videoGen.impl.GenerateImpl#getNextTransition <em>Next Transition</em>}</li>
  *   <li>{@link org.irisa.diverse.videogen.videoGen.impl.GenerateImpl#getActive <em>Active</em>}</li>
  *   <li>{@link org.irisa.diverse.videogen.videoGen.impl.GenerateImpl#getSelected <em>Selected</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

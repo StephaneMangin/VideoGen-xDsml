@@ -10,10 +10,10 @@ package org.irisa.diverse.videogen.videoGen;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.irisa.diverse.videogen.videoGen.Optional#getProbability <em>Probability</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.irisa.diverse.videogen.videoGen.VideoGenPackage#getOptional()
  * @model annotation="http://www.obeo.fr/dsl/dnc/archetype archetype='Description'"

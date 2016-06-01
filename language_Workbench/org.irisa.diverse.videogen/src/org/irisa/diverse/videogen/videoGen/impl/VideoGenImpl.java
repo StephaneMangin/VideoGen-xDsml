@@ -28,6 +28,7 @@ import org.irisa.diverse.videogen.videoGen.VideoGenPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.irisa.diverse.videogen.videoGen.impl.VideoGenImpl#getMinDurationConstraint <em>Min Duration Constraint</em>}</li>
  *   <li>{@link org.irisa.diverse.videogen.videoGen.impl.VideoGenImpl#getMaxDurationConstraint <em>Max Duration Constraint</em>}</li>
@@ -37,7 +38,6 @@ import org.irisa.diverse.videogen.videoGen.VideoGenPackage;
  *   <li>{@link org.irisa.diverse.videogen.videoGen.impl.VideoGenImpl#getMinUserConstraint <em>Min User Constraint</em>}</li>
  *   <li>{@link org.irisa.diverse.videogen.videoGen.impl.VideoGenImpl#getMaxUserConstraint <em>Max User Constraint</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

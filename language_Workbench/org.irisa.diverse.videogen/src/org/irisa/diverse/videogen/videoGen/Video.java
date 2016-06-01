@@ -10,13 +10,13 @@ package org.irisa.diverse.videogen.videoGen;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.irisa.diverse.videogen.videoGen.Video#getUrl <em>Url</em>}</li>
  *   <li>{@link org.irisa.diverse.videogen.videoGen.Video#getDescription <em>Description</em>}</li>
  *   <li>{@link org.irisa.diverse.videogen.videoGen.Video#getDuration <em>Duration</em>}</li>
  *   <li>{@link org.irisa.diverse.videogen.videoGen.Video#getMimetype <em>Mimetype</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.irisa.diverse.videogen.videoGen.VideoGenPackage#getVideo()
  * @model

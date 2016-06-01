@@ -67,7 +67,7 @@ public class LiveModelLoader implements IModelLoader {
 		resource = resourceSet.createResource(context.getRunConfiguration().getExecutedModelURI());
 		try {
 			resource.load(null);
-			System.out.println("Resource loded : " + resource + " with context " + context);
+			System.out.println("Resource loaded : " + resource + " with context " + context);
 		} catch (IOException e) {
 			new RuntimeException(e);
 		}
@@ -193,7 +193,8 @@ public class LiveModelLoader implements IModelLoader {
 				final DSemanticDiagram diagram = (DSemanticDiagram) representation;
 //				System.out.println("\t\t" + "DSemanticDiagram : " + diagram);
 				
-				diagram.setIsInLayoutingMode(true);
+				
+				diagram.setIsInLayoutingMode(false);
 				
 //				final List<EObject> elements = new ArrayList<EObject>();
 //				elements.add(diagram);
@@ -396,5 +397,5 @@ public class LiveModelLoader implements IModelLoader {
 			return resolvedURI;
 		}
 	}
-
+	
 }

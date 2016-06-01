@@ -18,13 +18,13 @@ import org.irisa.diverse.videogen.videoGen.VideoGenPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.irisa.diverse.videogen.videoGen.impl.VideoImpl#getUrl <em>Url</em>}</li>
  *   <li>{@link org.irisa.diverse.videogen.videoGen.impl.VideoImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link org.irisa.diverse.videogen.videoGen.impl.VideoImpl#getDuration <em>Duration</em>}</li>
  *   <li>{@link org.irisa.diverse.videogen.videoGen.impl.VideoImpl#getMimetype <em>Mimetype</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

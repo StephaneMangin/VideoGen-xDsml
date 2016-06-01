@@ -37,6 +37,7 @@ public class LivePermissionAuthority extends AbstractPermissionAuthority impleme
 
 	public void allow(ResourceSet rs, boolean allowed) {
 		Integer value = this.allow.get(rs);
+		value = 1;
 		allowed = true;
 		if (allowed) {
 			if (value == null) {

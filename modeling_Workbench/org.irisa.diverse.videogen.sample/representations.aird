@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<viewpoint:DAnalysis xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:videoGen="http://www.irisa.org/diverse/videogen" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style" xmi:id="_uVJDkPKlEeW5X_bsb2hAMA" selectedViews="_0piZ0PKlEeW5X_bsb2hAMA _UnPTEPnZEeWRALJu0IY1Tg" version="10.1.0.201509162000">
+<viewpoint:DAnalysis xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:videoGen="http://www.irisa.org/diverse/videogen" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style" xmi:id="_uVJDkPKlEeW5X_bsb2hAMA" selectedViews="_0piZ0PKlEeW5X_bsb2hAMA _UnPTEPnZEeWRALJu0IY1Tg _YVHP0CNWEea2-5jjtfSlOg _YVj7wCNWEea2-5jjtfSlOg _YV7vMCNWEea2-5jjtfSlOg" version="10.1.0.201509162000">
   <semanticResources>sample.videogen</semanticResources>
   <semanticResources>platform:/plugin/org.irisa.diverse.videogen.design/description/videogen.odesign</semanticResources>
   <semanticResources>environment:/viewpoint</semanticResources>
   <semanticResources>platform:/plugin/org.irisa.diverse.videogen.xdsml.debug.design/description/VideoGenL.odesign</semanticResources>
   <semanticResources>platform:/plugin/org.irisa.diverse.videogen/model/VideoGen.ecore</semanticResources>
   <semanticResources>http://www.eclipse.org/emf/2002/Ecore</semanticResources>
+  <semanticResources>gemoc-gen/execution/execution-20160425_124521/sample.videogen</semanticResources>
+  <semanticResources>gemoc-gen/execution/execution-20160519_171634/sample.videogen</semanticResources>
+  <semanticResources>gemoc-gen/execution/execution-20160519_171634/execution.trace</semanticResources>
   <semanticResources>http://www.irisa.org/diverse/videogen</semanticResources>
+  <semanticResources>gemoc-gen/execution/execution-20160519_171938/sample.videogen</semanticResources>
+  <semanticResources>gemoc-gen/execution/execution-20160519_171938/execution.trace</semanticResources>
+  <semanticResources>gemoc-gen/execution/execution-20160519_172055/sample.videogen</semanticResources>
   <ownedViews xmi:type="viewpoint:DRepresentationContainer" xmi:id="_0piZ0PKlEeW5X_bsb2hAMA">
     <ownedRepresentations xmi:type="diagram:DSemanticDiagram" xmi:id="_tJYYMAJVEeaIM-UKRq0ydQ" name="VideoGen">
       <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_tJz2AAJVEeaIM-UKRq0ydQ" source="GMF_DIAGRAMS">
@@ -788,30 +794,6 @@
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.irisa.diverse.videogen.design/description/videogen.odesign#//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGen']/@borderedNodeMappings[name='Variantes']"/>
         </ownedBorderedNodes>
-        <ownedBorderedNodes xmi:type="diagram:DNode" xmi:id="_jNkBcAZJEeawAsirS9jIkw" name="Min custom duration: 0" width="3" height="3" resizeKind="NSEW">
-          <target xmi:type="videoGen:VideoGen" href="sample.videogen#/"/>
-          <semanticElements xmi:type="videoGen:VideoGen" href="sample.videogen#/"/>
-          <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
-          <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
-          <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-          <ownedStyle xmi:type="diagram:Square" xmi:id="_jOFl4AZJEeawAsirS9jIkw" showIcon="false" labelAlignment="LEFT" borderSize="2" borderSizeComputationExpression="2" borderColor="156,12,12" labelPosition="node" color="255,255,255">
-            <labelFormat>bold</labelFormat>
-            <description xmi:type="style:SquareDescription" href="platform:/plugin/org.irisa.diverse.videogen.design/description/videogen.odesign#//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGen']/@borderedNodeMappings[name='minUserConstraint']/@style"/>
-          </ownedStyle>
-          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.irisa.diverse.videogen.design/description/videogen.odesign#//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGen']/@borderedNodeMappings[name='minUserConstraint']"/>
-        </ownedBorderedNodes>
-        <ownedBorderedNodes xmi:type="diagram:DNode" xmi:id="_jOHbEAZJEeawAsirS9jIkw" name="Max custom duration: 0" width="3" height="3" resizeKind="NSEW">
-          <target xmi:type="videoGen:VideoGen" href="sample.videogen#/"/>
-          <semanticElements xmi:type="videoGen:VideoGen" href="sample.videogen#/"/>
-          <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
-          <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
-          <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-          <ownedStyle xmi:type="diagram:Square" xmi:id="_jOPW4AZJEeawAsirS9jIkw" showIcon="false" labelAlignment="LEFT" borderSize="2" borderSizeComputationExpression="2" borderColor="156,12,12" labelPosition="node" color="255,255,255">
-            <labelFormat>bold</labelFormat>
-            <description xmi:type="style:SquareDescription" href="platform:/plugin/org.irisa.diverse.videogen.design/description/videogen.odesign#//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGen']/@borderedNodeMappings[name='maxUserConstraint']/@style"/>
-          </ownedStyle>
-          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.irisa.diverse.videogen.design/description/videogen.odesign#//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGen']/@borderedNodeMappings[name='maxUserConstraint']"/>
-        </ownedBorderedNodes>
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
         <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
         <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
@@ -1540,5 +1522,14 @@
   </ownedViews>
   <ownedViews xmi:type="viewpoint:DRepresentationContainer" xmi:id="_UnPTEPnZEeWRALJu0IY1Tg">
     <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.irisa.diverse.videogen.xdsml.debug.design/description/VideoGenL.odesign#//@ownedViewpoints[name='VideoGenLViewpoint']"/>
+  </ownedViews>
+  <ownedViews xmi:type="viewpoint:DRepresentationContainer" xmi:id="_YVHP0CNWEea2-5jjtfSlOg">
+    <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']"/>
+  </ownedViews>
+  <ownedViews xmi:type="viewpoint:DRepresentationContainer" xmi:id="_YVj7wCNWEea2-5jjtfSlOg">
+    <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
+  </ownedViews>
+  <ownedViews xmi:type="viewpoint:DRepresentationContainer" xmi:id="_YV7vMCNWEea2-5jjtfSlOg">
+    <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Archetype']"/>
   </ownedViews>
 </viewpoint:DAnalysis>

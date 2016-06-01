@@ -24,10 +24,10 @@ import org.irisa.diverse.videogen.videoGen.VideoGenPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.irisa.diverse.videogen.videoGen.impl.AlternativesImpl#getOptions <em>Options</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

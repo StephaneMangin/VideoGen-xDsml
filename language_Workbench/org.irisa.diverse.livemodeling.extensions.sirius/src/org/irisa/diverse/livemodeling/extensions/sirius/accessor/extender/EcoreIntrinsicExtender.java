@@ -151,6 +151,7 @@ public class EcoreIntrinsicExtender extends AbstractMetamodelExtender {
 
     @Override
     public Object eClear(final EObject instance, final String name) {
+    	System.out.println("===== eClear ===== " + instance + " , " + name);
         if (eValid(instance, name)) {
             final EStructuralFeature feat = instance.eClass().getEStructuralFeature(name);
             final Object value = instance.eGet(feat);

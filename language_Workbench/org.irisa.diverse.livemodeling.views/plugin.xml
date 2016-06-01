@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            id="org.gemoc.executionframework.ui.category"
+            name="Gemoc">
+      </category>
+      <view
+            category="org.gemoc.executionframework.ui.category"
+            class="org.irisa.diverse.live_modeling.views.constraint.View"
+            icon="icons/IconeGemocModel-16.png"
+            id="org.irisa.diverse.live_modeling.views.constraint.View"
+            name="Constraint View">
+      </view>
+	</extension>
+   <extension
+         point="org.gemoc.gemoc_language_workbench.engine_addon_group">
+         <AddonGroup
+            Name="Sequential"
+            id="Sequential.AddonGroup">
+      </AddonGroup>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectiveExtensions">
+      <perspectiveExtension
+            targetID="org.eclipse.debug.ui.DebugPerspective">
+         <viewShortcut
+               id="org.irisa.diverse.live_modeling.views.constraint.View">
+         </viewShortcut>
+      </perspectiveExtension>
+      <perspectiveExtension
+            targetID="org.eclipse.sirius.ui.tools.perspective.modeling">
+         <viewShortcut
+               id="org.irisa.diverse.live_modeling.views.constraint.View">
+         </viewShortcut>
+      </perspectiveExtension>
+   </extension>
+   
+   
+  <extension point="org.gemoc.gemoc_language_workbench.engine_addon">
+    <Addon
+    	Class="org.irisa.diverse.live_modeling.views.constraint.ConstraintEngineAddon"
+    	Default="false"
+    	id="org.irisa.diverse.live_modeling.views.constraint"
+    	Name="Constraint view"
+    	ShortDescription="Constraint support dedicated to videoGen language"
+    	openViewIds="org.irisa.diverse.live_modeling.views.constraint.View" />
+  </extension>
+</plugin>
