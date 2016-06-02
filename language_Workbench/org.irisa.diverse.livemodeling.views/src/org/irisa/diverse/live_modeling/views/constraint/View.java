@@ -12,7 +12,6 @@ package org.irisa.diverse.live_modeling.views.constraint;
 
 import javafx.embed.swt.FXCanvas;
 import javafx.scene.Scene;
-
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Shell;
@@ -51,8 +50,7 @@ public class View extends AbstractView {
 
 	@Override
 	public void engineSelectionChanged(IBasicExecutionEngine engine) {
-		if (engine != null) {
-			//
-		}
+		// TODO Auto-generated method stub
+		
 	}
 }

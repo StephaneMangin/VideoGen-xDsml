@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.irisa.diverse.live_modeling.views;
 
-import java.util.List;
-import java.util.Map;
 import java.util.function.Supplier;
 
 import org.eclipse.core.runtime.IStatus;
@@ -31,6 +29,8 @@ public class Activator extends AbstractUIPlugin {
 
 	// The shared instance
 	private static Activator plugin;
+
+	private Supplier<IView> viewSupplier;
 	
 	/**
 	 * The constructor
@@ -49,7 +49,8 @@ public class Activator extends AbstractUIPlugin {
 		try {
 			Class.forName("javafx.embed.swt.FXCanvas");
 			super.start(context);
-			plugin = this;	
+			plugin = this;
+			viewSupplier.get().executeModel();
 		} catch (ClassNotFoundException e) {
 			ErrorDialog.openError(null,"View Unavailable", "Please install JavaFX or use the Oracle JRE",
 					new Status(IStatus.ERROR,PLUGIN_ID,"JavaFX is needed for the timeline to work"));
@@ -89,5 +90,13 @@ public class Activator extends AbstractUIPlugin {
                 Status.OK, 
                 msg, 
                 e));
+	}
+
+	public Supplier<IView> getViewSupplier() {
+		return viewSupplier;
+	}
+
+	public void setViewSupplier(Supplier<IView> viewSupplier) {
+		this.viewSupplier = viewSupplier;
 	}
 }

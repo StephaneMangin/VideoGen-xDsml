@@ -8,11 +8,21 @@ import org.eclipse.jface.action.Action
 import org.gemoc.executionframework.engine.mse.MseFactory
 import org.gemoc.executionframework.ui.views.engine.EngineSelectionDependentViewPart
 import org.gemoc.xdsmlframework.api.core.IRunConfiguration
+import org.irisa.diverse.live_modeling.views.Activator
 
 abstract class AbstractView extends EngineSelectionDependentViewPart implements IView {
 	
 	private Map<String, Object> runConfigurationAttributes = null
 
+	new() {
+		Activator.^default.viewSupplier = this
+	}
+
+	override void dispose() {
+		Activator.^default.viewSupplier = null;
+		super.dispose();
+	}
+	
 	override void addActionToToolbar(Action action) {
 		val actionBars = getViewSite().getActionBars()
 		val toolBar = actionBars.getToolBarManager()
@@ -65,5 +75,4 @@ abstract class AbstractView extends EngineSelectionDependentViewPart implements 
 			e.printStackTrace()
 		}
 	}
-		
 }
