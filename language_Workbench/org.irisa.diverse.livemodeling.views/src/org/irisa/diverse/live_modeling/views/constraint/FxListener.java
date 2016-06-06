@@ -27,6 +27,8 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Paint;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 
 public class FxListener extends Pane {
 
@@ -35,8 +37,8 @@ public class FxListener extends Pane {
     //creating the chart
     final private NumberAxis xAxis;
     final private NumberAxis yAxis;
-    final private LineChart<Number,Number> lineChart;
-    final private Series<Number, Number> series;
+    private LineChart<Number,Number> lineChart;
+    private Series<Number, Number> series;
 	final private VBox headerPane;
 	final private Pane bodyPane;
 	final private BooleanProperty displayGrid;
@@ -66,64 +68,80 @@ public class FxListener extends Pane {
 		bodyPane = new Pane();
 		bodyScrollPane = new ScrollPane(bodyPane);
 		displayGrid = new SimpleBooleanProperty();
-		xAxis = new NumberAxis("X axis", 0, 20, 0.1);
-	    yAxis = new NumberAxis("Y axis", 0, 50, 0.1);
-	    lineChart = new LineChart<Number,Number>(xAxis, yAxis);
 
 		bodyScrollPane.setFitToWidth(true);
 		bodyScrollPane.setFitToHeight(true);
 		bodyScrollPane.setBorder(Border.EMPTY);
 		bodyScrollPane.setBackground(BODY_BACKGROUND);
-		bodyScrollPane.setVisible(true);
 		bodyPane.setBackground(BODY_BACKGROUND);
 		headerPane.setBackground(HEADER_BACKGROUND);
 		setBackground(BODY_BACKGROUND);
-		headerPane.minWidthProperty().bind(widthProperty());
-		headerPane.maxWidthProperty().bind(widthProperty());
-		lineChart.setBackground(TRANSPARENT_BACKGROUND);
-		lineChart.setVisible(true);
-		
-		//defining the axes
-        lineChart.setTitle("VideoGen Fake Monitoring");
+		//headerPane.minWidthProperty().bind(widthProperty());
+		//headerPane.maxWidthProperty().bind(widthProperty());
+		Text title = new Text("VideoGen Time Duration Graph");
+		title.setFont(Font.font(5));
+		headerPane.getChildren().add(title);
 
+		xAxis = new NumberAxis();
+		xAxis.setLabel("Durations");
+	    yAxis = new NumberAxis();
+		yAxis.setLabel("");
+		createLineChart("VideoGen Fake Monitoring");
 		series = new Series();
         series.setName("Series");
         updateSeries(false);
 
 		
-		bodyPane.getChildren().add(lineChart);
-		bodyScrollPane.translateYProperty().bind(headerPane.heightProperty());
-		bodyScrollPane.maxHeightProperty().bind(heightProperty().subtract(headerPane.heightProperty()));
-
 		getChildren().add(headerPane);
 		getChildren().add(bodyScrollPane);
-		minHeightProperty().bind(headerPane.heightProperty().add(bodyScrollPane.heightProperty()));
-		prefHeightProperty().bind(headerPane.heightProperty().add(bodyScrollPane.heightProperty()));
-		maxHeightProperty().bind(headerPane.heightProperty().add(bodyScrollPane.heightProperty()));
+		//bodyScrollPane.translateYProperty().bind(headerPane.heightProperty());
+		//bodyScrollPane.maxHeightProperty().bind(heightProperty().subtract(headerPane.heightProperty()));
+		//minHeightProperty().bind(headerPane.heightProperty().add(bodyScrollPane.heightProperty()));
+		//prefHeightProperty().bind(headerPane.heightProperty().add(bodyScrollPane.heightProperty()));
+		//maxHeightProperty().bind(headerPane.heightProperty().add(bodyScrollPane.heightProperty()));
 		setVisible(true);
 	}
 	
+	/**
+	 * Update the data
+	 * 
+	 * @param flushBefore (purge all previous data if true)
+	 */
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public void updateSeries(Boolean flushBefore) {
-
+	private void updateSeries(Boolean flushBefore) {
         if (flushBefore) {
-        	series.getData().clear();
-        	lineChart.getData().clear();
+        	// Remove only previous series
+        	lineChart.getData().remove(series);
+        	series = new Series();
         }
-        series.getData().addAll(
-        	new Data(1, 23),
-        	new Data(2, 14),
-		    new Data(3, 15),
-		    new Data(4, 24),
-		    new Data(5, 34),
-		    new Data(6, 36),
-		    new Data(7, 22),
-		    new Data(8, 45),
-		    new Data(9, 43),
-		    new Data(10, 17),
-		    new Data(11, 29),
-		    new Data(12, 25));
+        series.getData().add(new Data(1, 23));
+        series.getData().add(new Data(2, 4));
+        series.getData().add(new Data(3, 15));
+	    series.getData().add(new Data(4, 24));
+	    series.getData().add(new Data(5, 34));
+        series.getData().add(new Data(6, 36));
+        series.getData().add(new Data(7, 20));
+        series.getData().add(new Data(8, 45));
+        series.getData().add(new Data(9, 43));
+        series.getData().add(new Data(10, 17));
+        series.getData().add(new Data(11, 50));
+        series.getData().add(new Data(12, 25));
         lineChart.getData().add(series);
+	}
+	
+	/**
+	 * Constructor purpose method only
+	 */
+	private void createLineChart(String name) {
+		if (lineChart != null) {
+			bodyPane.getChildren().remove(lineChart);
+		}
+		lineChart = new LineChart<Number, Number>(xAxis, yAxis);
+        lineChart.setTitle(name);
+		lineChart.setBackground(TRANSPARENT_BACKGROUND);
+		lineChart.setVisible(true);
+		lineChart.setCreateSymbols(false);
+		bodyPane.getChildren().add(lineChart);
 	}
 	
 	public void refresh() {
