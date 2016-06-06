@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Gemoc MultiDimensional Timeline Addon
-Bundle-SymbolicName: org.irisa.diverse.livemodeling.views;singleton:=true
+Bundle-Name: Gemoc Constraint Model View Addon
+Bundle-SymbolicName: org.irisa.diverse.live_modeling.views;singleton:=true
 Bundle-Version: 0.1.0.qualifier
 Bundle-Activator: org.irisa.diverse.live_modeling.views.Activator
 Require-Bundle: org.gemoc.xdsmlframework.api,
@@ -57,4 +57,5 @@ Import-Package: javafx.animation;version="2.0.0",
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: org.irisa.diverse.live_modeling.views,
+ org.irisa.diverse.live_modeling.views.api,
  org.irisa.diverse.live_modeling.views.constraint

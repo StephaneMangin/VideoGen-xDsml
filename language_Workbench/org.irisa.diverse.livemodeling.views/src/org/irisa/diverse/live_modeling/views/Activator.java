@@ -50,7 +50,7 @@ public class Activator extends AbstractUIPlugin {
 			Class.forName("javafx.embed.swt.FXCanvas");
 			super.start(context);
 			plugin = this;
-			viewSupplier.get().executeModel();
+			//viewSupplier.get().executeModel();
 		} catch (ClassNotFoundException e) {
 			ErrorDialog.openError(null,"View Unavailable", "Please install JavaFX or use the Oracle JRE",
 					new Status(IStatus.ERROR,PLUGIN_ID,"JavaFX is needed for the timeline to work"));

@@ -14,8 +14,6 @@ import javafx.application.Platform;
 import javafx.beans.binding.BooleanBinding;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
@@ -38,7 +36,7 @@ public class FxListener extends Pane {
     final private NumberAxis xAxis;
     final private NumberAxis yAxis;
     final private LineChart<Number,Number> lineChart;
-    final private ObservableList<Series<Number, Number>> data;
+    final private Series<Number, Number> series;
 	final private VBox headerPane;
 	final private Pane bodyPane;
 	final private BooleanProperty displayGrid;
@@ -62,7 +60,7 @@ public class FxListener extends Pane {
 			0.5);
 	private static final Background LINE_BACKGROUND = new Background(new BackgroundFill(LINE_PAINT, null, null));
 
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public FxListener() {
 		headerPane = new VBox();
 		bodyPane = new Pane();
@@ -70,14 +68,13 @@ public class FxListener extends Pane {
 		displayGrid = new SimpleBooleanProperty();
 		xAxis = new NumberAxis("X axis", 0, 20, 0.1);
 	    yAxis = new NumberAxis("Y axis", 0, 50, 0.1);
-		data = (ObservableList<Series<Number, Number>>) FXCollections.emptyObservableMap();
-	    lineChart = new LineChart<Number,Number>(xAxis, yAxis, data);
+	    lineChart = new LineChart<Number,Number>(xAxis, yAxis);
 
 		bodyScrollPane.setFitToWidth(true);
 		bodyScrollPane.setFitToHeight(true);
 		bodyScrollPane.setBorder(Border.EMPTY);
 		bodyScrollPane.setBackground(BODY_BACKGROUND);
-		bodyScrollPane.setVisible(false);
+		bodyScrollPane.setVisible(true);
 		bodyPane.setBackground(BODY_BACKGROUND);
 		headerPane.setBackground(HEADER_BACKGROUND);
 		setBackground(BODY_BACKGROUND);
@@ -88,8 +85,10 @@ public class FxListener extends Pane {
 		
 		//defining the axes
         lineChart.setTitle("VideoGen Fake Monitoring");
-        
-        updateSeries();
+
+		series = new Series();
+        series.setName("Series");
+        updateSeries(false);
 
 		
 		bodyPane.getChildren().add(lineChart);
@@ -105,9 +104,12 @@ public class FxListener extends Pane {
 	}
 	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public void updateSeries() {
-        Series series = new Series();
-        series.setName("Series " + data.size());
+	public void updateSeries(Boolean flushBefore) {
+
+        if (flushBefore) {
+        	series.getData().clear();
+        	lineChart.getData().clear();
+        }
         series.getData().addAll(
         	new Data(1, 23),
         	new Data(2, 14),
@@ -121,10 +123,9 @@ public class FxListener extends Pane {
 		    new Data(10, 17),
 		    new Data(11, 29),
 		    new Data(12, 25));
-        data.add(series);
+        lineChart.getData().add(series);
 	}
 	
-	@SuppressWarnings("unchecked")
 	public void refresh() {
 		Platform.runLater(() -> {
 			displayGrid.unbind();
@@ -136,7 +137,7 @@ public class FxListener extends Pane {
 				}
 			};
 
-			updateSeries();
+			updateSeries(true);
 
 			displayGrid.bind(displayGridBinding);
 		});

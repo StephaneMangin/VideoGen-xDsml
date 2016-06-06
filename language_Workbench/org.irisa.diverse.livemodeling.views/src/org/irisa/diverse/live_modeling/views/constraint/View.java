@@ -12,18 +12,30 @@ package org.irisa.diverse.live_modeling.views.constraint;
 
 import javafx.embed.swt.FXCanvas;
 import javafx.scene.Scene;
+
+import org.eclipse.jface.action.Action;
+import org.eclipse.jface.action.IToolBarManager;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Shell;
+import org.eclipse.ui.IActionBars;
 import org.gemoc.xdsmlframework.api.core.IBasicExecutionEngine;
 import org.irisa.diverse.live_modeling.views.api.AbstractView;
+import org.irisa.diverse.live_modeling.views.api.IView;
 
 public class View extends AbstractView {
 
 	public final String ID = "org.irisa.diverse.live_modeling.views.constraint.View";
 
-	private FXCanvas fxCanvas;
-	private FxListener viewListener;
+	private FXCanvas fxCanvas = null;
+	private FxListener viewListener = null;
+	
+	@Override 
+	public void addActionToToolbar(Action action) {
+		IActionBars actionBars = getViewSite().getActionBars();
+		IToolBarManager toolBar = actionBars.getToolBarManager();
+		toolBar.add(action);
+	}
 	
 	@Override
 	public void setFocus() {
@@ -49,8 +61,13 @@ public class View extends AbstractView {
 	}
 
 	@Override
-	public void engineSelectionChanged(IBasicExecutionEngine engine) {
-		// TODO Auto-generated method stub
-		
+	public IView get() {
+		return this;
 	}
+
+	@Override
+	public void engineSelectionChanged(IBasicExecutionEngine engine) {
+		// TODO
+	}
+
 }

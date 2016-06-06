@@ -17,7 +17,7 @@ abstract class AbstractView extends EngineSelectionDependentViewPart implements 
 	new() {
 		Activator.^default.viewSupplier = this
 	}
-
+      
 	override void dispose() {
 		Activator.^default.viewSupplier = null;
 		super.dispose();
@@ -41,6 +41,8 @@ abstract class AbstractView extends EngineSelectionDependentViewPart implements 
 		}
 		if (launchConfiguration.airdResourceURI != null) {
 			attributes.put("airdResource", launchConfiguration.airdResourceURI)
+		} else {
+			attributes.put(AbstractDSLLaunchConfigurationDelegate.RESOURCE_URI, "platform:/resource//org.irisa.diverse.videogen/model/VideoGen.ecore")
 		}
 		if (launchConfiguration.methodEntryPoint != null) {
 			attributes.put(IRunConfiguration.LAUNCH_METHOD_ENTRY_POINT, launchConfiguration.methodEntryPoint)
