@@ -21,7 +21,9 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IActionBars;
 import org.gemoc.xdsmlframework.api.core.IBasicExecutionEngine;
 import org.irisa.diverse.live_modeling.views.api.AbstractView;
+import org.irisa.diverse.live_modeling.views.api.IModelAdapter;
 import org.irisa.diverse.live_modeling.views.api.IView;
+import org.irisa.diverse.live_modeling.views.impl.ModelAdapterImpl;
 
 public class View extends AbstractView {
 
@@ -29,6 +31,7 @@ public class View extends AbstractView {
 
 	private FXCanvas fxCanvas = null;
 	private FxListener viewListener = null;
+	private IModelAdapter modelAdapter = null;
 	
 	@Override 
 	public void addActionToToolbar(Action action) {
@@ -67,7 +70,8 @@ public class View extends AbstractView {
 
 	@Override
 	public void engineSelectionChanged(IBasicExecutionEngine engine) {
-		// TODO
+		modelAdapter = new ModelAdapterImpl(engine.getExecutionContext().getResourceModel());
+		modelAdapter.addListener(viewListener);
 	}
 
 }

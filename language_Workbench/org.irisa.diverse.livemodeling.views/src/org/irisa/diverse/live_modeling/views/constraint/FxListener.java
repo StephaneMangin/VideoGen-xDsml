@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.irisa.diverse.live_modeling.views.constraint;
 
+import org.irisa.diverse.live_modeling.views.api.IModelListener;
+
 import javafx.application.Platform;
 import javafx.beans.binding.BooleanBinding;
 import javafx.beans.property.BooleanProperty;
@@ -30,7 +32,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
-public class FxListener extends Pane {
+public class FxListener extends Pane implements IModelListener {
 
 	final private ScrollPane bodyScrollPane;
 
@@ -159,5 +161,10 @@ public class FxListener extends Pane {
 
 			displayGrid.bind(displayGridBinding);
 		});
+	}
+
+	@Override
+	public void update() {
+		this.refresh();
 	}
 }

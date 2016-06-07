@@ -82,12 +82,6 @@ public abstract class ConstraintEngineAddon implements IEngineAddon, IModelListe
 
 			val modelResource = _executionContext.resourceModel
 
-			// Creating the resource of the trace
-			val ResourceSet rs = modelResource.getResourceSet()
-			val URI traceModelURI = URI.createPlatformResourceURI(
-				_executionContext.getWorkspace().getExecutionPath().toString() + "/execution.trace", false)
-			val Resource traceResource = rs.createResource(traceModelURI)
-
 			// We construct a new listener addon if required
 			this.listenerAddon = if (engine.hasAddon(BatchModelChangeListenerAddon)) {
 				engine.getAddon(BatchModelChangeListenerAddon)

@@ -85,7 +85,6 @@ class VideoGenAspect {
 		
 	}
 	
-	@Step
 	@InitializeModel
 	def public void initializeModel(List<String> args){
 		_self.setup
@@ -223,12 +222,6 @@ class DelayAspect extends TransitionAspect {
 @Aspect(className=Sequence)
 abstract class SequenceAspect extends TransitionAspect {
 
-	@Step
-	@OverrideAspectMethod
-	def public void execute(VideoGen videoGen) {
-		
-	}
-	
 }
 
 @Aspect(className=Alternatives)
