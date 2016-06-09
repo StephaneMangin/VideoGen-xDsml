@@ -1,19 +1,19 @@
 package org.irisa.diverse.live_modeling.views.impl
 
-import org.eclipse.emf.ecore.resource.Resource
+import java.util.ArrayList
+import java.util.List
+import java.util.Map
 import org.irisa.diverse.live_modeling.views.api.IModelAdapter
 import org.irisa.diverse.live_modeling.views.api.IModelListener
-import java.util.List
-import java.util.ArrayList
-import org.eclipse.emf.ecore.EObject
-import java.util.Map
+import org.irisa.diverse.videogen.videoGen.Sequence
 import org.irisa.diverse.videogen.videoGen.VideoGen
+import static extension org.irisa.diverse.videogen.videoGen.aspects.VideoGenAspect.*
 
 class ModelAdapterImpl implements IModelAdapter {
 	
-	private Resource model
+	private VideoGen model
 	
-	new(Resource model) {
+	new(VideoGen model) {
 		this.model = model
 	}
 	
@@ -26,16 +26,24 @@ class ModelAdapterImpl implements IModelAdapter {
 	override void removeListener(IModelListener listener) { listeners.remove(listener) }
 		
 	override Map<Object, Object> getValues() {
-//		val values = newLinkedHashMap()
-//		val objects = model.resourceSet.resources.get(0).contents
-//		for (root: objects) {
-//			if (root instanceof VideoGen) {
-//				for (transition: root.transitions) {
-//					
-//				}
-//			}
-//		}
-//		values as Map<Number, Number>
+		// Call the solver to get all possible solutions
+		println("################# GET VALUES START")
+		val values = newLinkedHashMap()
+		val sequences = model.transitions.filter[active == true].filter[it instanceof Sequence].map[it as Sequence]
+		model.solutions.forEach[indice, solutions |
+			var duration = 0
+			for (name: solutions.keySet) {
+				for (sequence: sequences) {
+					if (sequence.name.equals(name) && solutions.get(name)) {
+						duration += sequence.video.duration
+					} 
+				}	
+			}
+			values.put(indice, duration)
+		]
+		println(values)
+		println("##### GET VALUES END")
+		values
 	}
 	
 }

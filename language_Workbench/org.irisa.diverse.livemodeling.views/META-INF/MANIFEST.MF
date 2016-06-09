@@ -27,7 +27,9 @@ Require-Bundle: org.gemoc.xdsmlframework.api,
  org.eclipse.xtend.lib,
  org.eclipse.xtend.lib.macro,
  org.eclipse.xtext,
- org.irisa.diverse.videogen;bundle-version="1.0.0"
+ org.irisa.diverse.videogen;bundle-version="1.0.0",
+ org.eclipse.emf.ecore,
+ org.irisa.diverse.videogen.k3dsa;bundle-version="1.0.0"
 Import-Package: javafx.animation;version="2.0.0",
  javafx.application;version="2.0.0",
  javafx.beans;version="2.0.0",

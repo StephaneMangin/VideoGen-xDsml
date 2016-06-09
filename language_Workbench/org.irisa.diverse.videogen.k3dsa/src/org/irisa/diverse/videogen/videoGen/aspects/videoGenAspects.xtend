@@ -7,9 +7,23 @@ import fr.inria.diverse.k3.al.annotationprocessor.OverrideAspectMethod
 import fr.inria.diverse.k3.al.annotationprocessor.Step
 import java.io.File
 import java.io.FileWriter
+import java.nio.file.Path
+import java.nio.file.Paths
 import java.util.HashMap
 import java.util.List
+import java.util.Map
+import java.util.logging.FileHandler
+import java.util.logging.Logger
+import java.util.logging.SimpleFormatter
+import org.chocosolver.solver.Solver
+import org.chocosolver.solver.constraints.IntConstraintFactory
+import org.chocosolver.solver.trace.Chatterbox
+import org.chocosolver.solver.variables.IntVar
+import org.chocosolver.solver.variables.VariableFactory
+import org.chocosolver.solver.constraints.SatFactory
+import org.eclipse.core.resources.ResourcesPlugin
 import org.irisa.diverse.videogen.transformations.VideoGenTransform
+import org.irisa.diverse.videogen.transformations.helpers.SystemHelper
 import org.irisa.diverse.videogen.transformations.helpers.VideoGenHelper
 import org.irisa.diverse.videogen.transformations.utils.DistributedRandomNumberGenerator
 import org.irisa.diverse.videogen.videoGen.Alternatives
@@ -22,36 +36,83 @@ import org.irisa.diverse.videogen.videoGen.Sequence
 import org.irisa.diverse.videogen.videoGen.Transition
 import org.irisa.diverse.videogen.videoGen.Video
 import org.irisa.diverse.videogen.videoGen.VideoGen
-import java.util.logging.Logger
-import java.util.logging.FileHandler
-import java.util.logging.SimpleFormatter
-import org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenUserContraintsVisitor
-import java.nio.file.Paths
-import org.eclipse.core.resources.ResourcesPlugin
-import org.irisa.diverse.videogen.transformations.helpers.SystemHelper
-import java.nio.file.Path
-import org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenSetupVisitor
-import org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenVariantsVisitor
-import org.irisa.diverse.videogen.videoGen.aspects.visitors.VideoGenContraintsMinMaxVisitor
+import static extension org.irisa.diverse.videogen.videoGen.aspects.VideoGenAspect.*
+import static extension org.irisa.diverse.videogen.videoGen.aspects.TransitionAspect.*
+import static extension org.irisa.diverse.videogen.videoGen.aspects.SequenceAspect.*
+import static extension org.irisa.diverse.videogen.videoGen.aspects.VideoAspect.*
+import static extension org.irisa.diverse.videogen.videoGen.aspects.SequenceAspect.*
+import static extension org.irisa.diverse.videogen.videoGen.aspects.OptionalAspect.*
+import static extension org.irisa.diverse.videogen.videoGen.aspects.MandatoryAspect.*
+import static extension org.irisa.diverse.videogen.videoGen.aspects.AlternativesAspect.*
+import org.chocosolver.solver.constraints.nary.cnf.LogOp
+import org.chocosolver.solver.variables.BoolVar
 
 @Aspect(className=VideoGen)
 class VideoGenAspect {
 	
-	private VideoGenSetupVisitor setupVisitor
-	private VideoGenVariantsVisitor variantsVisitor
-	private VideoGenContraintsMinMaxVisitor durationVisitor
-	private VideoGenUserContraintsVisitor userConstraintsVisitor
 	private long nanotimeStart = 0
 	private long nanotimeEnd = 0
 	protected static Logger log = Logger.getLogger("VideoGenAspect")
 	private static Path workspacePath = Paths.get(ResourcesPlugin.workspace.root.projects.get(0).locationURI)
 	private static Path logPath = Paths.get(workspacePath + "/logs")
-    
+    private List<IntVar> variables
+	private List<Integer> constants
+    public Solver solver = new Solver("Min max durations constraints")
+    private IntVar objective
+    private int indice = 0
+	public Map<Long, Map<String, Boolean>> allSolutions = newHashMap
+	
 	@Main
 	def void main() {
 		_self.execute
 	}
 	
+	@Step
+	def void solve() {
+		// Define a new solver
+    	_self.solver = new Solver("Min max durations constraints")
+    	_self.indice = 0
+    	_self.allSolutions = newHashMap
+		if (_self.minUserConstraint > _self.maxUserConstraint || _self.maxUserConstraint == 0) {
+			throw new Exception("You have to indicate a min and a max value")
+		}
+		val videoNumber = VideoGenHelper.allVideos(_self).size
+		
+		// Define the objective scalar with given contraints
+		_self.objective = VariableFactory.bounded("objective", _self.minUserConstraint, _self.maxUserConstraint, _self.solver)
+		_self.variables = newArrayOfSize(videoNumber) // Used to insert optional's coefficient
+		_self.constants = newIntArrayOfSize(videoNumber) // Used to insert video durations. Must be a partition of coefs
+				
+		// Call the visitor
+		_self.transitions.filter[it instanceof Sequence].filter[active].map[it as Sequence].forEach[solve]
+		
+		// Create and post constraints by using constraint factories
+        _self.solver.post(IntConstraintFactory.scalar(_self.variables, _self.constants, _self.objective))
+        // Launch the resolution process
+        //solver.findOptimalSolution(ResolutionPolicy.SATISFACTION, objective)
+        //solver.findOptimalSolution(ResolutionPolicy.MAXIMIZE, objective)
+        //solver.findOptimalSolution(ResolutionPolicy.MINIMIZE, objective)
+        _self.solver.findSolution
+        // Print search statistics
+        Chatterbox.printStatistics(_self.solver)
+        // Print solutions
+	    //log.info("Solutions selected " + variables.map[it.getName() + "=" + it.getValue()].join(", "))
+        
+        // Get all solutions
+        val solutions = _self.solver.findAllSolutions
+        log.info("Solutions max = " + solutions)
+        _self.variantes = solutions.intValue
+        var long i = 0
+        do {
+        	i++
+		    log.info("- Solutions " + i)
+		    val solution = newHashMap()
+		    _self.variables.forEach[
+		    	solution.put(it.name, it.value != 0 )
+		    ]
+		    _self.allSolutions.put(i, solution)
+        } while (_self.solver.nextSolution())
+	}
 	/**
 	 * This method is intended to configure the model
 	 * Called by the initializeModel method
@@ -60,17 +121,12 @@ class VideoGenAspect {
 	@Step
 	def private void setup() {
 		val start = System.nanoTime
-		_self.setupVisitor = new VideoGenSetupVisitor()
-		_self.variantsVisitor = new VideoGenVariantsVisitor()
-		_self.durationVisitor = new VideoGenContraintsMinMaxVisitor(false)
-		_self.userConstraintsVisitor = new VideoGenUserContraintsVisitor()
-		
+		println("Setup start...")
+		_self.transitions.forEach[it.setup(_self)]
+		println("Setup end...")
+		_self.configureDuration
+				
 		// Visitors calls to populate model mutables
-		_self.setupVisitor.visit(_self)
-		_self.variantes = _self.variantsVisitor.visit(_self).variants
-		_self.durationVisitor.visit(_self)
-		_self.minDurationConstraint = _self.durationVisitor.minDuration
-		_self.maxDurationConstraint = _self.durationVisitor.maxDuration
 		_self.minUserConstraint = _self.minDurationConstraint
 		_self.maxUserConstraint = _self.maxDurationConstraint
 		
@@ -92,10 +148,16 @@ class VideoGenAspect {
 	}
 	
 	@Step
+	def public Map<Long, Map<String, Boolean>> getSolutions() {
+		_self.allSolutions
+	}
+	
+	@Step
 	def public void execute() {
 		_self.nanotimeStart = System.nanoTime
+		_self.solve
 		// Process each transitions, starting with the Initialize
-		InitializeAspect.execute(VideoGenHelper.getInitialize(_self), _self)
+		VideoGenHelper.getInitialize(_self).execute(_self)
 		_self.nanotimeEnd = System.nanoTime
 		log.info("#### VideoGen, time to execute " + (_self.nanotimeEnd - _self.nanotimeStart))
 	}	
@@ -109,7 +171,7 @@ class VideoGenAspect {
 	def public void compute() {
 		val videos = new HashMap
 		log.info("##### VideoGen '" + _self.name + "' start computation.")
-		VideoGenHelper.allSelectedVideos(_self).forEach[videos.put(name, true)]
+		_self.transitions.filter[selected].filter[it instanceof Sequence].map[it as Sequence].map[video].forEach[videos.put(name, true)]
 		// TODO: Manage model transformation here
 		// TODO: re-implement the initial IDM project model transformation. See master branch package 'fr.nemomen.utils'.
 		val content = VideoGenTransform.toM3U(_self, false, videos)
@@ -150,6 +212,26 @@ class VideoGenAspect {
 		p.start()
 	}
 	
+	@Step
+	def private void configureDuration() {
+		_self.transitions
+			.filter[it instanceof Sequence]
+			.map[it as Sequence]
+			.forEach[configureDuration(_self)]
+	}
+	
+	/**
+	 * Add a new expression to the objective
+	 * 
+	 * feature => bool * duration
+	 * 
+	 */
+	@Step
+	def void addVar(IntVar intvar, int duration) {
+		_self.variables.set(_self.indice, intvar)
+		_self.constants.set(_self.indice, duration)
+		_self.indice = _self.indice + 1
+	}
 }
 
 @Aspect(className=Transition)
@@ -172,8 +254,7 @@ abstract class TransitionAspect {
 	@Step
 	def public void finishExecute(VideoGen videoGen) {
 		VideoGenAspect.log.info("##### '" + _self + "' is being processed.")
-	
-		
+			
 		// Stop invariant while looping the model
 		if (!_self.executed) {
 			// Call the next sequence in all case
@@ -187,41 +268,61 @@ abstract class TransitionAspect {
 			}
 		}
 	}
-}
-
-
-@Aspect(className=Video)
-class VideoAspect {
-			
-	/**
-	 * Select this video and apply any of needed operations (conversion or rename for example)
-	 * 
-	 */
+	
 	@Step
-	def public void select() {
-		VideoGenAspect.log.info(_self.toString)
-		if (!_self.url.startsWith("/")) {
-			val prefix = ResourcesPlugin.workspace.root.projects.get(0).locationURI.toString.replace("file:", "")
-			val newPath = prefix + "/" + _self.url
-			VideoGenAspect.log.info(_self.url + "=>" + newPath)
-			_self.url = newPath
+	def void setup(VideoGen vid) {
+		println("Setup transition...")
+		_self.selected = false
+		_self.active = true
+		_self.executed = false
+		_self.videoGen = vid
+		if (_self instanceof Sequence) {
+			(_self as Sequence).setup(vid)
 		}
-		// Add duration and VideoCodec MimeType
-		VideoGenTransform.addMetadata(_self)
-		
-		// It's bad to call the aspect class but easier than giving an attribute to the method signature
-		VideoGenAspect.log.info("##### Video '" + _self.name + "' has been selected.")
 	}
 }
 
-@Aspect(className=Delay)
-class DelayAspect extends TransitionAspect {
-
-}
 
 @Aspect(className=Sequence)
 abstract class SequenceAspect extends TransitionAspect {
 
+	@Step
+	def public void setup() {
+		println("Setup sequence...")
+		if (_self instanceof Alternatives) {
+			_self.options.forEach[opt |
+				opt.selected = false
+				opt.active = true
+				opt.executed = false
+				opt.videoGen = _self.videoGen
+			]
+		}
+		_self.video.setup
+	}
+	
+	@Step
+	def void configureDuration() {
+		if (_self.active) {
+			if (_self instanceof Mandatory) {
+				(_self as Mandatory).configureDuration
+			} else if (_self instanceof Optional) {
+				(_self as Optional).configureDuration
+			} else if (_self instanceof Alternatives) {
+				(_self as Alternatives).configureDuration
+			}
+		}
+	}
+	
+	@Step
+	def void solve() {
+		if (_self instanceof Optional) {
+			_self.solve
+		} else if (_self instanceof Mandatory) {
+			_self.solve
+		} else if (_self instanceof Alternatives) {
+			_self.solve
+		}
+	}
 }
 
 @Aspect(className=Alternatives)
@@ -257,6 +358,58 @@ class AlternativesAspect extends SequenceAspect {
 		_self.finishExecute(vid)
 		
 	}
+	
+	@Step
+	def void configureDuration() {
+		var List<Integer> durations = _self.options.map[video.duration]
+		durations = _self.options.filter[selected].map[video.duration].toList
+		_self.videoGen.minDurationConstraint = _self.videoGen.minDurationConstraint + durations.min
+		_self.videoGen.maxDurationConstraint = _self.videoGen.maxDurationConstraint + durations.max
+		_self.videoGen.variantes = _self.videoGen.variantes * _self.options.filter[active].size
+	}
+	
+	@Step
+	def void solve() {
+		// Local vars
+		val optionsSize = _self.options.size
+		val localVars = newArrayList()
+		var localCount = 0
+		
+		// Effective parse to inject a feature for each option
+		for (Optional opt: _self.options) {
+			val feature = opt.solve
+			localVars.set(localCount, feature)
+			localCount++
+		}
+		
+		// Create and insert the xor clause
+		val logOp = _self.createAlternativesXorClause(localVars)
+		SatFactory.addClauses(logOp, _self.videoGen.solver)
+	}
+	
+	/*
+	 * Constructs the Xor constraints from an Alternative
+	 * 
+	 * Result is :
+	 * 		logOp = LogOp.xor(lastVar,
+	 *			LogOp.xor(...
+	 *				LogOp.xor(firstVar, secondVar)))
+	 */
+	@Step
+	def private LogOp createAlternativesXorClause(List<IntVar> vars) {
+		var LogOp logOp = null
+		var BoolVar firstVar = vars.head  as BoolVar
+		// Browse except the first element
+
+		for (IntVar boolVar: vars.tail) {
+			if (logOp == null) {
+				logOp = LogOp.xor(firstVar, boolVar as BoolVar)
+			} else {
+				logOp = LogOp.xor(boolVar as BoolVar, logOp)
+			}
+		}
+		logOp
+	}
 }
 
 @Aspect(className=Mandatory)
@@ -272,6 +425,19 @@ class MandatoryAspect extends SequenceAspect {
 		//_self.super_execute(videoGen)
 
 		_self.finishExecute(vid)
+	}
+	
+	@Step
+	def void configureDuration() {
+		_self.videoGen.minDurationConstraint = _self.videoGen.minDurationConstraint + _self.video.duration
+		_self.videoGen.maxDurationConstraint = _self.videoGen.maxDurationConstraint + _self.video.duration
+	}
+		
+	@Step
+	def void solve() {
+		// A mandatory has a fixed coef value of 1, mandatory right ;)
+		val feature = VariableFactory.fixed(_self.name, 1, _self.videoGen.solver)
+		_self.videoGen.addVar(feature, _self.video.duration)
 	}
 }
 
@@ -313,8 +479,71 @@ class OptionalAspect extends SequenceAspect {
 
 		_self.finishExecute(vid)
 	}
+	
+	@Step
+	def void configureDuration() {
+		_self.videoGen.minDurationConstraint = _self.videoGen.minDurationConstraint + _self.video.duration
+		_self.videoGen.variantes = _self.videoGen.variantes * 2
+	}
+	
+	@Step
+	def IntVar solve() {
+		// For choco, a bool is a integer between 0 and 1
+		var IntVar feature
+		if (_self.active) {	
+			if (_self.selected) {
+				feature = VariableFactory.fixed(_self.name, 1, _self.videoGen.solver)
+			} else {
+				feature = VariableFactory.bool(_self.name, _self.videoGen.solver)
+			}
+		} else {
+			feature = VariableFactory.fixed(_self.name, 0, _self.videoGen.solver)
+		}
+		_self.videoGen.addVar(feature, _self.video.duration)
+		feature
+	}
 }
 
+
+@Aspect(className=Video)
+class VideoAspect {
+			
+	/**
+	 * Select this video and apply any of needed operations (conversion or rename for example)
+	 * 
+	 */
+	@Step
+	def public void select() {
+		VideoGenAspect.log.info(_self.toString)
+		if (!_self.url.startsWith("/")) {
+			val prefix = ResourcesPlugin.workspace.root.projects.get(0).locationURI.toString.replace("file:", "")
+			val newPath = prefix + "/" + _self.url
+			VideoGenAspect.log.info(_self.url + "=>" + newPath)
+			_self.url = newPath
+		}
+		// Add duration and VideoCodec MimeType
+		VideoGenTransform.addMetadata(_self)
+		
+		// It's bad to call the aspect class but easier than giving an attribute to the method signature
+		VideoGenAspect.log.info("##### Video '" + _self.name + "' has been selected.")
+	}
+	
+	@Step
+	def public void setup() {
+		if (!_self.url.startsWith("/")) {
+			val prefix = ResourcesPlugin.workspace.root.projects.get(0).locationURI.toString.replace("file:", "")
+			val newPath = prefix + "/" + _self.url
+			_self.setUrl(newPath)
+		}
+		// Add duration and VideoCodec MimeType
+		VideoGenTransform.addMetadata(_self)
+	}
+}
+
+@Aspect(className=Delay)
+class DelayAspect extends TransitionAspect {
+
+}
 
 @Aspect(className=Initialize)
 class InitializeAspect extends TransitionAspect {

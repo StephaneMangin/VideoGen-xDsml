@@ -4,11 +4,12 @@ import com.google.common.collect.BiMap
 import com.google.common.collect.HashBiMap
 import java.util.ArrayList
 import java.util.List
-import org.eclipse.emf.common.util.URI
+import java.util.Map
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.emf.ecore.EPackage
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.emf.ecore.resource.ResourceSet
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl
 import org.gemoc.executionframework.engine.mse.LaunchConfiguration
 import org.gemoc.executionframework.engine.mse.MseFactory
 import org.gemoc.xdsmlframework.api.core.IBasicExecutionEngine
@@ -16,10 +17,13 @@ import org.gemoc.xdsmlframework.api.core.IExecutionContext
 import org.gemoc.xdsmlframework.api.core.IRunConfiguration
 import org.gemoc.xdsmlframework.api.engine_addon.IEngineAddon
 import org.gemoc.xdsmlframework.api.engine_addon.modelchangelistener.BatchModelChangeListenerAddon
+import org.irisa.diverse.live_modeling.views.api.IModelAdapter
 import org.irisa.diverse.live_modeling.views.api.IModelListener
 import org.irisa.diverse.live_modeling.views.api.IModelNotifier
 import org.irisa.diverse.live_modeling.views.impl.ModelAdapterImpl
-import org.irisa.diverse.live_modeling.views.api.IModelAdapter
+import org.irisa.diverse.videogen.videoGen.VideoGen
+import org.irisa.diverse.videogen.videoGen.VideoGenPackage
+import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl
 
 public abstract class ConstraintEngineAddon implements IEngineAddon, IModelListener, IModelNotifier {
 
@@ -77,6 +81,7 @@ public abstract class ConstraintEngineAddon implements IEngineAddon, IModelListe
 	 * Sort-of constructor for the constraint manager.
 	 */
 	private def void setUp(IBasicExecutionEngine engine) {
+		print("Setup engaged")
 		if (_executionContext == null) {
 			_executionContext = engine.executionContext
 
@@ -95,7 +100,7 @@ public abstract class ConstraintEngineAddon implements IEngineAddon, IModelListe
 			val BiMap<EObject, EObject> exeToTraced = HashBiMap.create
 			if (modelAdapter == null) {
 				// And we enable trace exploration by loading it in a new trace explorer
-				modelAdapter = new ModelAdapterImpl(modelResource)
+				modelAdapter = new ModelAdapterImpl(loadModel(modelResource))
 				listenerAddon.registerObserver(modelAdapter)
 			}
 		}
@@ -119,5 +124,23 @@ public abstract class ConstraintEngineAddon implements IEngineAddon, IModelListe
 	override engineAboutToStart(IBasicExecutionEngine engine) {
 		setUp(engine)
 	}
+	
+	def static VideoGen loadModel(Resource model) {
+		// Initialize the model
+		VideoGenPackage.eINSTANCE.eClass()
 
+		// Register the XMI resource factory for the .videogen extension
+		val reg = Resource.Factory.Registry.INSTANCE
+		val m = reg.getExtensionToFactoryMap()
+		m.put("videogen", new XMIResourceFactoryImpl())
+
+		// Obtain a new resource set
+		val resSet = new ResourceSetImpl();
+
+		// Get the resource
+		val resource = resSet.getResource(model.getURI(), true)
+		// Get the first model element and cast it to the right type, in my
+		// example everything is hierarchical included in this first node
+		resource.getContents().get(0) as VideoGen
+	}
 }

@@ -24,6 +24,7 @@ import org.irisa.diverse.live_modeling.views.api.AbstractView;
 import org.irisa.diverse.live_modeling.views.api.IModelAdapter;
 import org.irisa.diverse.live_modeling.views.api.IView;
 import org.irisa.diverse.live_modeling.views.impl.ModelAdapterImpl;
+import org.irisa.diverse.videogen.videoGen.VideoGen;
 
 public class View extends AbstractView {
 
@@ -56,11 +57,17 @@ public class View extends AbstractView {
 		parent.getShell().addListener(SWT.Resize, (e) -> {
 			viewListener.refresh();
 		});
+		parent.getShell().addListener(SWT.Expand, (e) -> {
+			viewListener.scale();
+		});
+		parent.getShell().addListener(SWT.Resize, (e) -> {
+			viewListener.scale();
+		});
 		buildMenu(parent.getShell());
 	}
 
 	private void buildMenu(Shell shell) {
-
+		// No need right now, but keep it for later additions
 	}
 
 	@Override
@@ -70,8 +77,13 @@ public class View extends AbstractView {
 
 	@Override
 	public void engineSelectionChanged(IBasicExecutionEngine engine) {
-		modelAdapter = new ModelAdapterImpl(engine.getExecutionContext().getResourceModel());
+		System.out.println("###########################################");
+		System.out.println("Engine Selection Changed " + engine);
+		System.out.println("###########################################");
+		modelAdapter = new ModelAdapterImpl((VideoGen)(ConstraintEngineAddon.loadModel(engine.getExecutionContext().getResourceModel())));
 		modelAdapter.addListener(viewListener);
+		viewListener.setModel(modelAdapter);
+		viewListener.refresh();
 	}
 
 }

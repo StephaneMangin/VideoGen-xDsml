@@ -10,6 +10,10 @@
  *******************************************************************************/
 package org.irisa.diverse.live_modeling.views.constraint;
 
+import java.util.function.BiConsumer;
+import java.util.function.Consumer;
+
+import org.irisa.diverse.live_modeling.views.api.IModelAdapter;
 import org.irisa.diverse.live_modeling.views.api.IModelListener;
 
 import javafx.application.Platform;
@@ -46,6 +50,8 @@ public class FxListener extends Pane implements IModelListener {
 	final private BooleanProperty displayGrid;
 
 	private BooleanBinding displayGridBinding;
+
+	private IModelAdapter model;
 	
 	private static final int H_MARGIN = 8;
 	private static final int V_MARGIN = 2;
@@ -78,8 +84,6 @@ public class FxListener extends Pane implements IModelListener {
 		bodyPane.setBackground(BODY_BACKGROUND);
 		headerPane.setBackground(HEADER_BACKGROUND);
 		setBackground(BODY_BACKGROUND);
-		//headerPane.minWidthProperty().bind(widthProperty());
-		//headerPane.maxWidthProperty().bind(widthProperty());
 		Text title = new Text("VideoGen Time Duration Graph");
 		title.setFont(Font.font(5));
 		headerPane.getChildren().add(title);
@@ -96,11 +100,6 @@ public class FxListener extends Pane implements IModelListener {
 		
 		getChildren().add(headerPane);
 		getChildren().add(bodyScrollPane);
-		//bodyScrollPane.translateYProperty().bind(headerPane.heightProperty());
-		//bodyScrollPane.maxHeightProperty().bind(heightProperty().subtract(headerPane.heightProperty()));
-		//minHeightProperty().bind(headerPane.heightProperty().add(bodyScrollPane.heightProperty()));
-		//prefHeightProperty().bind(headerPane.heightProperty().add(bodyScrollPane.heightProperty()));
-		//maxHeightProperty().bind(headerPane.heightProperty().add(bodyScrollPane.heightProperty()));
 		setVisible(true);
 	}
 	
@@ -111,24 +110,20 @@ public class FxListener extends Pane implements IModelListener {
 	 */
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	private void updateSeries(Boolean flushBefore) {
-        if (flushBefore) {
-        	// Remove only previous series
-        	lineChart.getData().remove(series);
-        	series = new Series();
+        if (model != null) {
+	        if (flushBefore) {
+	        	// Remove only previous series
+	        	lineChart.getData().remove(series);
+	        	series = new Series();
+	        }
+	        model.getValues().forEach(new BiConsumer<Object, Object>() {
+				@Override
+				public void accept(Object key, Object value) {
+					series.getData().add(new Data((Number)key, (Number)value));
+				}
+			});
+	        lineChart.getData().add(series);
         }
-        series.getData().add(new Data(1, 23));
-        series.getData().add(new Data(2, 4));
-        series.getData().add(new Data(3, 15));
-	    series.getData().add(new Data(4, 24));
-	    series.getData().add(new Data(5, 34));
-        series.getData().add(new Data(6, 36));
-        series.getData().add(new Data(7, 20));
-        series.getData().add(new Data(8, 45));
-        series.getData().add(new Data(9, 43));
-        series.getData().add(new Data(10, 17));
-        series.getData().add(new Data(11, 50));
-        series.getData().add(new Data(12, 25));
-        lineChart.getData().add(series);
 	}
 	
 	/**
@@ -144,6 +139,16 @@ public class FxListener extends Pane implements IModelListener {
 		lineChart.setVisible(true);
 		lineChart.setCreateSymbols(false);
 		bodyPane.getChildren().add(lineChart);
+	}
+	
+	public void scale() {
+		headerPane.minWidthProperty().bind(widthProperty());
+		headerPane.maxWidthProperty().bind(widthProperty());
+		bodyScrollPane.translateYProperty().bind(headerPane.heightProperty());
+		bodyScrollPane.maxHeightProperty().bind(heightProperty().subtract(headerPane.heightProperty()));
+		minHeightProperty().bind(headerPane.heightProperty().add(bodyScrollPane.heightProperty()));
+		prefHeightProperty().bind(headerPane.heightProperty().add(bodyScrollPane.heightProperty()));
+		maxHeightProperty().bind(headerPane.heightProperty().add(bodyScrollPane.heightProperty()));
 	}
 	
 	public void refresh() {
@@ -166,5 +171,9 @@ public class FxListener extends Pane implements IModelListener {
 	@Override
 	public void update() {
 		this.refresh();
+	}
+
+	public void setModel(IModelAdapter modelAdapter) {
+		this.model = modelAdapter;
 	}
 }
