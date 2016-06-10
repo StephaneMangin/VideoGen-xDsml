@@ -126,6 +126,7 @@ public abstract class ConstraintEngineAddon implements IEngineAddon, IModelListe
 	}
 	
 	def static VideoGen loadModel(Resource model) {
+		
 		// Initialize the model
 		VideoGenPackage.eINSTANCE.eClass()
 

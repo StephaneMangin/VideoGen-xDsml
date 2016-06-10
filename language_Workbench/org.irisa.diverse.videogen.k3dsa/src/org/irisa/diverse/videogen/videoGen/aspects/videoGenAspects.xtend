@@ -67,6 +67,10 @@ class VideoGenAspect {
 		_self.execute
 	}
 	
+	/**
+	 * This method generates a linear system to satisfy the min and max user constraints
+	 * 
+	 */
 	@Step
 	def void solve() {
 		// Define a new solver
@@ -79,9 +83,13 @@ class VideoGenAspect {
 		val videoNumber = VideoGenHelper.allVideos(_self).size
 		
 		// Define the objective scalar with given contraints
-		_self.objective = VariableFactory.bounded("objective", _self.minUserConstraint, _self.maxUserConstraint, _self.solver)
+		_self.objective = VariableFactory.bounded(
+			"objective",
+			_self.minUserConstraint,
+			_self.maxUserConstraint,
+			_self.solver)
 		_self.variables = newArrayOfSize(videoNumber) // Used to insert optional's coefficient
-		_self.constants = newIntArrayOfSize(videoNumber) // Used to insert video durations. Must be a partition of coefs
+		_self.constants = newIntArrayOfSize(videoNumber) // Used to insert video durations
 				
 		// Call the visitor
 		_self.transitions.filter[it instanceof Sequence].filter[active].map[it as Sequence].forEach[solve]
@@ -113,6 +121,7 @@ class VideoGenAspect {
 		    _self.allSolutions.put(i, solution)
         } while (_self.solver.nextSolution())
 	}
+	
 	/**
 	 * This method is intended to configure the model
 	 * Called by the initializeModel method
@@ -122,9 +131,9 @@ class VideoGenAspect {
 	def private void setup() {
 		val start = System.nanoTime
 		println("Setup start...")
+		// Don't forget the 'it' otherwise recursive call only on VideoGenAspect class ?? !!
 		_self.transitions.forEach[it.setup(_self)]
-		println("Setup end...")
-		_self.configureDuration
+		_self.videos.forEach[it.setup]
 				
 		// Visitors calls to populate model mutables
 		_self.minUserConstraint = _self.minDurationConstraint
@@ -147,7 +156,10 @@ class VideoGenAspect {
 		log.info("Initialize model with " + args)
 	}
 	
-	@Step
+	/**
+	 * Retrieves all solutions from linear system constraints solving
+	 * 
+	 */
 	def public Map<Long, Map<String, Boolean>> getSolutions() {
 		_self.allSolutions
 	}
@@ -212,16 +224,8 @@ class VideoGenAspect {
 		p.start()
 	}
 	
-	@Step
-	def private void configureDuration() {
-		_self.transitions
-			.filter[it instanceof Sequence]
-			.map[it as Sequence]
-			.forEach[configureDuration(_self)]
-	}
-	
 	/**
-	 * Add a new expression to the objective
+	 * Add a new expression to the objective of the linear system constraints
 	 * 
 	 * feature => bool * duration
 	 * 
@@ -267,17 +271,27 @@ abstract class TransitionAspect {
 				}
 			}
 		}
-	}
-	
+	}	
+
+	/** 
+	 * Setup all sequences, recursive for alternatives' optionals
+	 * 
+	 */
 	@Step
-	def void setup(VideoGen vid) {
-		println("Setup transition...")
+	def public void setup(VideoGen videoGen) {
 		_self.selected = false
 		_self.active = true
 		_self.executed = false
-		_self.videoGen = vid
-		if (_self instanceof Sequence) {
-			(_self as Sequence).setup(vid)
+		_self.videoGen = videoGen
+		if (_self instanceof Sequence) {			
+			if (_self instanceof Alternatives) {
+				_self.options.forEach[opt |
+					opt.setup(videoGen)
+				]
+			} else {
+				_self.video.setup
+			}
+			_self.configureDuration
 		}
 	}
 }
@@ -285,30 +299,16 @@ abstract class TransitionAspect {
 
 @Aspect(className=Sequence)
 abstract class SequenceAspect extends TransitionAspect {
-
-	@Step
-	def public void setup() {
-		println("Setup sequence...")
-		if (_self instanceof Alternatives) {
-			_self.options.forEach[opt |
-				opt.selected = false
-				opt.active = true
-				opt.executed = false
-				opt.videoGen = _self.videoGen
-			]
-		}
-		_self.video.setup
-	}
 	
 	@Step
 	def void configureDuration() {
 		if (_self.active) {
 			if (_self instanceof Mandatory) {
-				(_self as Mandatory).configureDuration
+				_self.configureDuration
 			} else if (_self instanceof Optional) {
-				(_self as Optional).configureDuration
+				_self.configureDuration
 			} else if (_self instanceof Alternatives) {
-				(_self as Alternatives).configureDuration
+				_self.configureDuration
 			}
 		}
 	}
@@ -360,9 +360,10 @@ class AlternativesAspect extends SequenceAspect {
 	}
 	
 	@Step
+	@OverrideAspectMethod
 	def void configureDuration() {
 		var List<Integer> durations = _self.options.map[video.duration]
-		durations = _self.options.filter[selected].map[video.duration].toList
+		//durations = _self.options.filter[selected].map[video.duration]
 		_self.videoGen.minDurationConstraint = _self.videoGen.minDurationConstraint + durations.min
 		_self.videoGen.maxDurationConstraint = _self.videoGen.maxDurationConstraint + durations.max
 		_self.videoGen.variantes = _self.videoGen.variantes * _self.options.filter[active].size
@@ -428,6 +429,7 @@ class MandatoryAspect extends SequenceAspect {
 	}
 	
 	@Step
+	@OverrideAspectMethod
 	def void configureDuration() {
 		_self.videoGen.minDurationConstraint = _self.videoGen.minDurationConstraint + _self.video.duration
 		_self.videoGen.maxDurationConstraint = _self.videoGen.maxDurationConstraint + _self.video.duration
@@ -553,7 +555,7 @@ class InitializeAspect extends TransitionAspect {
 	def public void execute(VideoGen vid) {		
 
 		_self.finishExecute(vid)
-	}	
+	}
 }
 
 @Aspect(className=Generate)
@@ -572,5 +574,4 @@ class GenerateAspect extends TransitionAspect {
 
 		_self.finishExecute(vid)
 	}
-
 }

@@ -14,5 +14,4 @@ language VideoGenL {
 	with org.irisa.diverse.videogen.videoGen.aspects.SequenceAspect
 	with org.irisa.diverse.videogen.videoGen.aspects.DelayAspect
 	with org.irisa.diverse.videogen.videoGen.aspects.VideoAspect
-
 }
