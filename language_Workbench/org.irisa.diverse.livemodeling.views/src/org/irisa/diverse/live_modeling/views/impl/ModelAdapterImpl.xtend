@@ -30,17 +30,19 @@ class ModelAdapterImpl implements IModelAdapter {
 		println("################# GET VALUES START")
 		val values = newLinkedHashMap()
 		val sequences = model.transitions.filter[active == true].filter[it instanceof Sequence].map[it as Sequence]
-		model.solutions.forEach[indice, solutions |
-			var duration = 0
-			for (name: solutions.keySet) {
-				for (sequence: sequences) {
-					if (sequence.name.equals(name) && solutions.get(name)) {
-						duration += sequence.video.duration
-					} 
-				}	
-			}
-			values.put(indice, duration)
-		]
+		if (!model.allSolutions.empty) {
+			model.allSolutions.forEach[indice, solutions |
+				var duration = 0
+				for (name: solutions.keySet) {
+					for (sequence: sequences) {
+						if (sequence.name.equals(name) && solutions.get(name)) {
+							duration += sequence.video.duration
+						} 
+					}	
+				}
+				values.put(indice, duration)
+			]
+ 		}
 		println(values)
 		println("##### GET VALUES END")
 		values

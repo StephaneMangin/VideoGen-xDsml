@@ -24,4 +24,6 @@ interface IView extends Supplier<IView> {
 	override get() {
 		this
 	}
+	
+	def void update()
 }

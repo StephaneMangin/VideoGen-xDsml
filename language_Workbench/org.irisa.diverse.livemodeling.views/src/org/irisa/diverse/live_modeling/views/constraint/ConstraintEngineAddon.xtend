@@ -24,6 +24,7 @@ import org.irisa.diverse.live_modeling.views.impl.ModelAdapterImpl
 import org.irisa.diverse.videogen.videoGen.VideoGen
 import org.irisa.diverse.videogen.videoGen.VideoGenPackage
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl
+import org.irisa.diverse.live_modeling.views.Activator
 
 public abstract class ConstraintEngineAddon implements IEngineAddon, IModelListener, IModelNotifier {
 
@@ -123,6 +124,13 @@ public abstract class ConstraintEngineAddon implements IEngineAddon, IModelListe
 	 */
 	override engineAboutToStart(IBasicExecutionEngine engine) {
 		setUp(engine)
+	}
+	
+	/**
+	 * Operation called after the engine has been stopped
+	 */
+	override void engineStopped(IBasicExecutionEngine engine) {
+		Activator.viewSupplier.get().update()
 	}
 	
 	def static VideoGen loadModel(Resource model) {

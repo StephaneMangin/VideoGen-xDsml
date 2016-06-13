@@ -26,7 +26,7 @@ public class EcoreExtenderProvider implements IExtenderProvider {
      * {@inheritDoc}
      */
     public IMetamodelExtender getExtender(final ResourceSet set) {
-        return new EcoreIntrinsicExtender();
+        return new LiveEcoreIntrinsicExtender();
     }
 
     /**

@@ -86,4 +86,8 @@ public class View extends AbstractView {
 		viewListener.refresh();
 	}
 
+	public void update() {
+		System.out.println("Update viewListener");
+		viewListener.refresh();
+	}
 }

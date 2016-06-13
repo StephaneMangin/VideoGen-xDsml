@@ -18,7 +18,9 @@ import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionListener;
 import org.eclipse.sirius.business.api.session.SessionManager;
 import org.eclipse.sirius.ecore.extender.business.api.permission.IPermissionAuthority;
+import org.eclipse.sirius.ecore.extender.business.internal.permission.DummyPermissionAuthority;
 import org.gemoc.xdsmlframework.api.core.IExecutionCheckpoint;
+import org.gemoc.executionframework.extensions.sirius.modelloader.DebugPermissionAuthority;
 import org.gemoc.executionframework.extensions.sirius.modelloader.DebugPermissionProvider;
 
 public class LivePermissionProvider extends DebugPermissionProvider {
@@ -26,7 +28,9 @@ public class LivePermissionProvider extends DebugPermissionProvider {
 	@Override
 	public IPermissionAuthority getAuthority(final ResourceSet set) {
 		final LivePermissionAuthority res;
-		final LivePermissionAuthority existing = (LivePermissionAuthority) IExecutionCheckpoint.CHECKPOINTS.get(set);
+
+		final LivePermissionAuthority existing = (LivePermissionAuthority) IExecutionCheckpoint.CHECKPOINTS
+				.get(set);
 
 		if (existing != null) {
 			res = existing;
@@ -35,12 +39,12 @@ public class LivePermissionProvider extends DebugPermissionProvider {
 			IExecutionCheckpoint.CHECKPOINTS.put(set, res);
 			declareResource(set);
 		}
-		
+
 		return res;
 	}
 
 	/**
-	 * 
+	 * Add listeners to the session for action related changes
 	 * 
 	 * @param set
 	 */

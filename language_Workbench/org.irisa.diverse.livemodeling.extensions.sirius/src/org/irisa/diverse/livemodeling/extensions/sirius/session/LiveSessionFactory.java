@@ -44,7 +44,6 @@ import org.eclipse.sirius.viewpoint.ViewpointFactory;
  * @author <a href="mailto:yvan.lussaud@obeo.fr">Yvan Lussaud</a>
  *
  */
-@SuppressWarnings("restriction")
 public final class LiveSessionFactory {
 
 	/**
