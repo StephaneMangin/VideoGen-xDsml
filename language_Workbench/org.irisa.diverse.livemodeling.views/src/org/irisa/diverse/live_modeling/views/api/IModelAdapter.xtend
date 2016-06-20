@@ -4,6 +4,6 @@ import java.util.Map
 
 interface IModelAdapter extends IModelNotifier {
 		
-	def Map<Object, Object> getValues()
+	def Map<Long, Integer> getValues()
 	
 }

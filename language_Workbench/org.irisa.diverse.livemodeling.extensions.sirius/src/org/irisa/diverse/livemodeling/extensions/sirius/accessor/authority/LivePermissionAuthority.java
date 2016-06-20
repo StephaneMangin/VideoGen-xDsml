@@ -17,6 +17,11 @@ import org.gemoc.xdsmlframework.api.core.IExecutionCheckpoint;
 @SuppressWarnings("restriction")
 public class LivePermissionAuthority extends DummyPermissionAuthority implements IExecutionCheckpoint {
 
+	public LivePermissionAuthority() {
+		super();
+		System.out.println("+++++++++++++++++++++++++ INSTANCIATION : LivePermissionAuthority");
+	}
+	
 	@Override
 	public void allow(ResourceSet rs, boolean allow) {
 		// TODO Auto-generated method stub

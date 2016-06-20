@@ -1,22 +1,16 @@
 package org.irisa.diverse.videogen.videoGen.aspects.visitors
 
+import java.util.Map
 import org.chocosolver.solver.Solver
 import org.chocosolver.solver.constraints.IntConstraintFactory
 import org.chocosolver.solver.trace.Chatterbox
 import org.chocosolver.solver.variables.IntVar
 import org.chocosolver.solver.variables.VariableFactory
-import org.irisa.diverse.videogen.transformations.helpers.VideoGenHelper
 import org.irisa.diverse.videogen.videoGen.Alternatives
-import org.irisa.diverse.videogen.videoGen.Mandatory
 import org.irisa.diverse.videogen.videoGen.Optional
 import org.irisa.diverse.videogen.videoGen.Sequence
 import org.irisa.diverse.videogen.videoGen.VideoGen
 import org.irisa.diverse.videogen.videoGen.aspects.utils.LoggableVisitor
-import org.chocosolver.solver.constraints.SatFactory
-import org.chocosolver.solver.ResolutionPolicy
-import org.chocosolver.solver.constraints.nary.cnf.LogOp
-import org.chocosolver.solver.variables.BoolVar
-import java.util.Map
 
 class VideoGenUserContraintsVisitor extends LoggableVisitor {
 	
@@ -42,7 +36,7 @@ class VideoGenUserContraintsVisitor extends LoggableVisitor {
 		if (min > max || max == 0) {
 			throw new Exception("You have to indicate a min and a max value")
 		}
-		val videoNumber = VideoGenHelper.allVideos(vid).size
+		val videoNumber = 0//VideoGenHelper.allVideos(vid).size
 		
 		// Define the objective scalar with given contraints
 		objective = VariableFactory.bounded("objective", min, max, solver)
@@ -87,7 +81,7 @@ class VideoGenUserContraintsVisitor extends LoggableVisitor {
 
 	
 	def void applyConstraints(VideoGen vid) {
-		VideoGenHelper.allSequences(vid).filter[active].forEach[applyConstraints]
+		//VideoGenHelper.allSequences(vid).filter[active].forEach[applyConstraints]
 	}
 	/**
 	 * Modify the model in conformity of the solver results

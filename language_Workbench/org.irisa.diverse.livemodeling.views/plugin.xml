@@ -42,7 +42,7 @@
   <extension point="org.gemoc.gemoc_language_workbench.engine_addon">
     <Addon
     	Class="org.irisa.diverse.live_modeling.views.constraint.ConstraintEngineAddon"
-    	Default="false"
+    	Default="true"
     	id="org.irisa.diverse.live_modeling.views.constraint"
     	Name="Constraint view"
     	ShortDescription="Constraint support dedicated to videoGen language"

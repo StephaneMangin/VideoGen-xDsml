@@ -25,20 +25,24 @@ import org.gemoc.executionframework.extensions.sirius.modelloader.DebugPermissio
 
 public class LivePermissionProvider extends DebugPermissionProvider {
 
+	public LivePermissionProvider() {
+		super();
+		System.out.println("+++++++++++++++++++++++++ INSTANCIATION : LivePermissionProvider");
+	}
+	
 	@Override
 	public IPermissionAuthority getAuthority(final ResourceSet set) {
 		final LivePermissionAuthority res;
 
-		final LivePermissionAuthority existing = (LivePermissionAuthority) IExecutionCheckpoint.CHECKPOINTS
-				.get(set);
-
-		if (existing != null) {
-			res = existing;
-		} else {
+//		final LivePermissionAuthority existing = (LivePermissionAuthority) IExecutionCheckpoint.CHECKPOINTS
+//				.get(set);
+//		if (existing != null) {
+//			res = existing;
+//		} else {
 			res = new LivePermissionAuthority();
 			IExecutionCheckpoint.CHECKPOINTS.put(set, res);
 			declareResource(set);
-		}
+//		}
 
 		return res;
 	}
@@ -56,14 +60,49 @@ public class LivePermissionProvider extends DebugPermissionProvider {
 				session.addListener(new SessionListener() {
 					@Override
 					public void notify(int changeKind) {
+						System.out.println("############################# Representation notify ################################");
+					
 						switch (changeKind) {
 						
 							case SessionListener.CLOSED:
 								IExecutionCheckpoint.CHECKPOINTS.remove(set);
+								System.out.println("############################# Representation has been closed ################################");
 								break;
-								
+
 							case SessionListener.REPRESENTATION_CHANGE:
 								System.out.println("############################# Representation has changed ################################");
+								break;
+								
+							case SessionListener.REPRESENTATION_EDITION_PERMISSION_DENIED:
+								System.out.println("############################# Representation edition denied ################################");
+								break;
+								
+							case SessionListener.REPRESENTATION_EDITION_PERMISSION_GRANTED:
+								System.out.println("############################# Representation edition granted ################################");
+								break;
+								
+							case SessionListener.ABOUT_TO_BE_REPLACED:
+								System.out.println("############################# Representation about to be replaced ################################");
+								break;
+								
+							case SessionListener.CLOSING:
+								System.out.println("############################# Representation closing ################################");
+								break;
+								
+							case SessionListener.DIRTY:
+								System.out.println("############################# Representation dirty ################################");
+								break;
+								
+							case SessionListener.OPENING:
+								System.out.println("############################# Representation opening ################################");
+								break;
+								
+							case SessionListener.REPLACED:
+								System.out.println("############################# Representation replaced ################################");
+								break;
+								
+							case SessionListener.OTHER:
+								System.out.println("############################# Representation other action ################################");
 								break;
 								
 							default:

@@ -7,9 +7,28 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.function.Function;
 import java.util.function.Predicate;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
+import org.eclipse.emf.common.util.Monitor;
+import org.eclipse.emf.compare.Comparison;
+import org.eclipse.emf.compare.Diff;
+import org.eclipse.emf.compare.EMFCompare;
+import org.eclipse.emf.compare.Match;
+import org.eclipse.emf.compare.diff.DefaultDiffEngine;
+import org.eclipse.emf.compare.diff.DiffBuilder;
+import org.eclipse.emf.compare.diff.FeatureFilter;
+import org.eclipse.emf.compare.diff.IDiffEngine;
+import org.eclipse.emf.compare.diff.IDiffProcessor;
+import org.eclipse.emf.compare.internal.spec.MatchSpec;
+import org.eclipse.emf.compare.postprocessor.BasicPostProcessorDescriptorImpl;
+import org.eclipse.emf.compare.postprocessor.IPostProcessor;
+import org.eclipse.emf.compare.postprocessor.IPostProcessor.Descriptor.Registry;
+import org.eclipse.emf.compare.postprocessor.PostProcessorDescriptorRegistryImpl;
+import org.eclipse.emf.compare.scope.DefaultComparisonScope;
+import org.eclipse.emf.compare.scope.IComparisonScope;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -19,10 +38,10 @@ import org.eclipse.emf.transaction.util.TransactionUtil;
 import org.eclipse.xtext.naming.DefaultDeclarativeQualifiedNameProvider;
 import org.eclipse.xtext.naming.QualifiedName;
 import org.gemoc.executionframework.engine.core.CommandExecution;
-import org.gemoc.executionframework.engine.mse.LaunchConfiguration;
-import org.gemoc.executionframework.engine.mse.SequentialStep;
-import org.gemoc.executionframework.engine.mse.Step;
 
+import fr.inria.diverse.trace.commons.model.trace.LaunchConfiguration;
+import fr.inria.diverse.trace.commons.model.trace.SequentialStep;
+import fr.inria.diverse.trace.commons.model.trace.Step;
 import fr.inria.diverse.trace.gemoc.api.ITraceExplorer;
 import fr.inria.diverse.trace.gemoc.api.ITraceListener;
 
@@ -59,14 +78,68 @@ public class VideoGenTraceExplorer implements ITraceExplorer {
 
 	public VideoGenTraceExplorer(Map<EObject, EObject> tracedToExe) {
 		this.tracedToExe = tracedToExe;
+		configureDiffEngine();
 	}
 
 	public VideoGenTraceExplorer() {
 		this.tracedToExe = null;
+		configureDiffEngine();
+	}
+
+	private IDiffEngine diffEngine = null;
+
+	private void configureDiffEngine() {
+		IDiffProcessor diffProcessor = new DiffBuilder();
+		diffEngine = new DefaultDiffEngine(diffProcessor) {
+			@Override
+			protected FeatureFilter createFeatureFilter() {
+				return new FeatureFilter() {
+					@Override
+					protected boolean isIgnoredReference(Match match, EReference reference) {
+						return true;
+					}
+				};
+			}
+		};
 	}
 
 	private List<List<? extends videoGenTrace.States.Value>> getAllValueTraces() {
 		final List<List<? extends videoGenTrace.States.Value>> result = new ArrayList<>();
+		for (videoGenTrace.States.videoGen.TracedAlternatives tracedObject : traceRoot
+				.getVideoGen_tracedAlternativess()) {
+			result.add(tracedObject.getCallnextTransitionSequence());
+			result.add(tracedObject.getExecutedSequence());
+			result.add(tracedObject.getVideoGenSequence());
+		}
+		for (videoGenTrace.States.videoGen.TracedDelay tracedObject : traceRoot.getVideoGen_tracedDelays()) {
+			result.add(tracedObject.getCallnextTransitionSequence());
+			result.add(tracedObject.getExecutedSequence());
+			result.add(tracedObject.getVideoGenSequence());
+		}
+		for (videoGenTrace.States.videoGen.TracedGenerate tracedObject : traceRoot.getVideoGen_tracedGenerates()) {
+			result.add(tracedObject.getCallnextTransitionSequence());
+			result.add(tracedObject.getExecutedSequence());
+			result.add(tracedObject.getVideoGenSequence());
+		}
+		for (videoGenTrace.States.videoGen.TracedInitialize tracedObject : traceRoot.getVideoGen_tracedInitializes()) {
+			result.add(tracedObject.getCallnextTransitionSequence());
+			result.add(tracedObject.getExecutedSequence());
+			result.add(tracedObject.getVideoGenSequence());
+		}
+		for (videoGenTrace.States.videoGen.TracedMandatory tracedObject : traceRoot.getVideoGen_tracedMandatorys()) {
+			result.add(tracedObject.getCallnextTransitionSequence());
+			result.add(tracedObject.getExecutedSequence());
+			result.add(tracedObject.getVideoGenSequence());
+		}
+		for (videoGenTrace.States.videoGen.TracedOptional tracedObject : traceRoot.getVideoGen_tracedOptionals()) {
+			result.add(tracedObject.getCallnextTransitionSequence());
+			result.add(tracedObject.getExecutedSequence());
+			result.add(tracedObject.getVideoGenSequence());
+		}
+		for (videoGenTrace.States.videoGen.TracedVideo tracedObject : traceRoot.getVideoGen_tracedVideos()) {
+		}
+		for (videoGenTrace.States.videoGen.TracedVideoGen tracedObject : traceRoot.getVideoGen_tracedVideoGens()) {
+		}
 		return result;
 	}
 
@@ -133,6 +206,172 @@ public class VideoGenTraceExplorer implements ITraceExplorer {
 		final int firstStateIndex = statesTrace.indexOf(firstState);
 		final int lastStateIndex = (int) (firstStateIndex + states.stream().distinct().count() - 1);
 		return new ValueWrapper(value, firstStateIndex, lastStateIndex, valueIndex);
+	}
+
+	private final IPostProcessor customPostProcessor = new IPostProcessor() {
+
+		private final Function<EObject, String> getIdFunction = e -> e.eClass().getName();
+
+		@Override
+		public void postMatch(Comparison comparison, Monitor monitor) {
+			final List<Match> matches = new ArrayList<>(comparison.getMatches());
+			final List<Match> treatedMatches = new ArrayList<>();
+			matches.forEach(m1 -> {
+				matches.forEach(m2 -> {
+					if (m1 != m2 && !treatedMatches.contains(m2)) {
+						final EObject left;
+						final EObject right;
+						if (m1.getLeft() != null && m1.getRight() == null && m2.getLeft() == null
+								&& m2.getRight() != null) {
+							left = m1.getLeft();
+							right = m2.getRight();
+						} else if (m2.getLeft() != null && m2.getRight() == null && m1.getLeft() == null
+								&& m1.getRight() != null) {
+							left = m2.getLeft();
+							right = m1.getRight();
+						} else {
+							return;
+						}
+						final String leftId = getIdFunction.apply(left);
+						final String rightId = getIdFunction.apply(right);
+						if (leftId.equals(rightId)) {
+							comparison.getMatches().remove(m1);
+							comparison.getMatches().remove(m2);
+							final Match match = new MatchSpec();
+							match.setLeft(left);
+							match.setRight(right);
+							comparison.getMatches().add(match);
+						}
+					}
+				});
+				treatedMatches.add(m1);
+			});
+		}
+
+		@Override
+		public void postDiff(Comparison comparison, Monitor monitor) {
+		}
+
+		@Override
+		public void postRequirements(Comparison comparison, Monitor monitor) {
+		}
+
+		@Override
+		public void postEquivalences(Comparison comparison, Monitor monitor) {
+		}
+
+		@Override
+		public void postConflicts(Comparison comparison, Monitor monitor) {
+		}
+
+		@Override
+		public void postComparison(Comparison comparison, Monitor monitor) {
+		}
+	};
+
+	private List<Diff> compareEObjects(EObject e1, EObject e2) {
+		IPostProcessor.Descriptor descriptor = new BasicPostProcessorDescriptorImpl(customPostProcessor,
+				Pattern.compile(".*"), null);
+
+		Registry registry = new PostProcessorDescriptorRegistryImpl();
+		registry.put(customPostProcessor.getClass().getName(), descriptor);
+
+		final EMFCompare compare;
+
+		compare = EMFCompare.builder().setPostProcessorRegistry(registry).setDiffEngine(diffEngine).build();
+
+		final IComparisonScope scope = new DefaultComparisonScope(e1, e2, null);
+		final Comparison comparison = compare.compare(scope);
+		return comparison.getDifferences();
+	}
+
+	@Override
+	public boolean compareStates(EObject eObject1, EObject eObject2, List<Integer> hiddenValues) {
+		final videoGenTrace.States.State state1;
+		final videoGenTrace.States.State state2;
+
+		if (eObject1 instanceof videoGenTrace.States.State) {
+			state1 = (videoGenTrace.States.State) eObject1;
+		} else {
+			return false;
+		}
+
+		if (eObject2 instanceof videoGenTrace.States.State) {
+			state2 = (videoGenTrace.States.State) eObject2;
+		} else {
+			return false;
+		}
+
+		final List<videoGenTrace.States.Value> values1 = getAllStateValues(state1);
+		final List<videoGenTrace.States.Value> values2 = getAllStateValues(state2);
+
+		if (values1.size() != values2.size()) {
+			return false;
+		} else {
+			final List<Diff> result = new ArrayList<>();
+			for (int i = 0; i < values1.size(); i++) {
+				if (!hiddenValues.contains(i)) {
+					result.addAll(compareEObjects(values1.get(i), values2.get(i)));
+				}
+			}
+			return result.isEmpty();
+		}
+	}
+
+	private List<videoGenTrace.States.Value> getAllStateValues(videoGenTrace.States.State state) {
+		final List<List<? extends videoGenTrace.States.Value>> traces = new ArrayList<>();
+		final List<videoGenTrace.States.Value> result = new ArrayList<>();
+		for (videoGenTrace.States.videoGen.TracedAlternatives tracedObject : ((videoGenTrace.SpecificTrace) state
+				.eContainer()).getVideoGen_tracedAlternativess()) {
+			traces.add(tracedObject.getCallnextTransitionSequence());
+			traces.add(tracedObject.getExecutedSequence());
+			traces.add(tracedObject.getVideoGenSequence());
+		}
+		for (videoGenTrace.States.videoGen.TracedDelay tracedObject : ((videoGenTrace.SpecificTrace) state.eContainer())
+				.getVideoGen_tracedDelays()) {
+			traces.add(tracedObject.getCallnextTransitionSequence());
+			traces.add(tracedObject.getExecutedSequence());
+			traces.add(tracedObject.getVideoGenSequence());
+		}
+		for (videoGenTrace.States.videoGen.TracedGenerate tracedObject : ((videoGenTrace.SpecificTrace) state
+				.eContainer()).getVideoGen_tracedGenerates()) {
+			traces.add(tracedObject.getCallnextTransitionSequence());
+			traces.add(tracedObject.getExecutedSequence());
+			traces.add(tracedObject.getVideoGenSequence());
+		}
+		for (videoGenTrace.States.videoGen.TracedInitialize tracedObject : ((videoGenTrace.SpecificTrace) state
+				.eContainer()).getVideoGen_tracedInitializes()) {
+			traces.add(tracedObject.getCallnextTransitionSequence());
+			traces.add(tracedObject.getExecutedSequence());
+			traces.add(tracedObject.getVideoGenSequence());
+		}
+		for (videoGenTrace.States.videoGen.TracedMandatory tracedObject : ((videoGenTrace.SpecificTrace) state
+				.eContainer()).getVideoGen_tracedMandatorys()) {
+			traces.add(tracedObject.getCallnextTransitionSequence());
+			traces.add(tracedObject.getExecutedSequence());
+			traces.add(tracedObject.getVideoGenSequence());
+		}
+		for (videoGenTrace.States.videoGen.TracedOptional tracedObject : ((videoGenTrace.SpecificTrace) state
+				.eContainer()).getVideoGen_tracedOptionals()) {
+			traces.add(tracedObject.getCallnextTransitionSequence());
+			traces.add(tracedObject.getExecutedSequence());
+			traces.add(tracedObject.getVideoGenSequence());
+		}
+		for (videoGenTrace.States.videoGen.TracedVideo tracedObject : ((videoGenTrace.SpecificTrace) state.eContainer())
+				.getVideoGen_tracedVideos()) {
+		}
+		for (videoGenTrace.States.videoGen.TracedVideoGen tracedObject : ((videoGenTrace.SpecificTrace) state
+				.eContainer()).getVideoGen_tracedVideoGens()) {
+		}
+		for (List<? extends videoGenTrace.States.Value> trace : traces) {
+			for (videoGenTrace.States.Value value : trace) {
+				if (value.getStatesNoOpposite().contains(state)) {
+					result.add(value);
+					break;
+				}
+			}
+		}
+		return result;
 	}
 
 	private int getStartingIndex(videoGenTrace.Steps.SpecificStep step) {
@@ -317,26 +556,236 @@ public class VideoGenTraceExplorer implements ITraceExplorer {
 
 	private void computeExplorerState(List<videoGenTrace.Steps.SpecificStep> stepPath) {
 		final List<videoGenTrace.Steps.SpecificStep> rootSteps = getStepsForStates(0, statesTrace.size());
-		
+
 		final List<videoGenTrace.Steps.SpecificStep> stepPathUnmodifiable = Collections.unmodifiableList(stepPath);
-		
+
 		stepIntoResult = computeStepInto(stepPathUnmodifiable, rootSteps);
 		stepOverResult = computeStepOver(stepPathUnmodifiable, rootSteps);
 		stepReturnResult = computeStepReturn(stepPathUnmodifiable, rootSteps);
-		
+
 		stepBackIntoResult = computeBackInto(stepPathUnmodifiable);
 		stepBackOverResult = computeBackOver(stepPathUnmodifiable);
 		stepBackOutResult = computeBackOut(stepPathUnmodifiable);
-		
+
 		callStack.clear();
-		callStack.addAll(stepPathUnmodifiable.stream().map(s -> (Step) s)
-				.collect(Collectors.toList()));
+		callStack.addAll(stepPathUnmodifiable.stream().map(s -> (Step) s).collect(Collectors.toList()));
 	}
 
 	@SuppressWarnings("unchecked")
 	private void goTo(EObject eObject) {
 		if (eObject instanceof videoGenTrace.States.State) {
 			videoGenTrace.States.State stateToGo = (videoGenTrace.States.State) eObject;
+			for (videoGenTrace.States.Transition_callnextTransition_Value value : stateToGo
+					.getTransition_callnextTransition_Values()) {
+				if (value.getParent() instanceof videoGenTrace.States.videoGen.TracedAlternatives) {
+					videoGenTrace.States.videoGen.TracedAlternatives parent_cast = (videoGenTrace.States.videoGen.TracedAlternatives) value
+							.getParent();
+					java.lang.Boolean toset = value.getCallnextTransition();
+					java.lang.Boolean current = ((org.irisa.diverse.videogen.videogenl.videoGen.Transition) parent_cast
+							.getOriginalObject()).getCallnextTransition();
+					if (current != toset) {
+						((org.irisa.diverse.videogen.videogenl.videoGen.Transition) parent_cast.getOriginalObject())
+								.setCallnextTransition((java.lang.Boolean) toset);
+					}
+				}
+				if (value.getParent() instanceof videoGenTrace.States.videoGen.TracedDelay) {
+					videoGenTrace.States.videoGen.TracedDelay parent_cast = (videoGenTrace.States.videoGen.TracedDelay) value
+							.getParent();
+					java.lang.Boolean toset = value.getCallnextTransition();
+					java.lang.Boolean current = ((org.irisa.diverse.videogen.videogenl.videoGen.Transition) parent_cast
+							.getOriginalObject()).getCallnextTransition();
+					if (current != toset) {
+						((org.irisa.diverse.videogen.videogenl.videoGen.Transition) parent_cast.getOriginalObject())
+								.setCallnextTransition((java.lang.Boolean) toset);
+					}
+				}
+				if (value.getParent() instanceof videoGenTrace.States.videoGen.TracedGenerate) {
+					videoGenTrace.States.videoGen.TracedGenerate parent_cast = (videoGenTrace.States.videoGen.TracedGenerate) value
+							.getParent();
+					java.lang.Boolean toset = value.getCallnextTransition();
+					java.lang.Boolean current = ((org.irisa.diverse.videogen.videogenl.videoGen.Transition) parent_cast
+							.getOriginalObject()).getCallnextTransition();
+					if (current != toset) {
+						((org.irisa.diverse.videogen.videogenl.videoGen.Transition) parent_cast.getOriginalObject())
+								.setCallnextTransition((java.lang.Boolean) toset);
+					}
+				}
+				if (value.getParent() instanceof videoGenTrace.States.videoGen.TracedInitialize) {
+					videoGenTrace.States.videoGen.TracedInitialize parent_cast = (videoGenTrace.States.videoGen.TracedInitialize) value
+							.getParent();
+					java.lang.Boolean toset = value.getCallnextTransition();
+					java.lang.Boolean current = ((org.irisa.diverse.videogen.videogenl.videoGen.Transition) parent_cast
+							.getOriginalObject()).getCallnextTransition();
+					if (current != toset) {
+						((org.irisa.diverse.videogen.videogenl.videoGen.Transition) parent_cast.getOriginalObject())
+								.setCallnextTransition((java.lang.Boolean) toset);
+					}
+				}
+				if (value.getParent() instanceof videoGenTrace.States.videoGen.TracedMandatory) {
+					videoGenTrace.States.videoGen.TracedMandatory parent_cast = (videoGenTrace.States.videoGen.TracedMandatory) value
+							.getParent();
+					java.lang.Boolean toset = value.getCallnextTransition();
+					java.lang.Boolean current = ((org.irisa.diverse.videogen.videogenl.videoGen.Transition) parent_cast
+							.getOriginalObject()).getCallnextTransition();
+					if (current != toset) {
+						((org.irisa.diverse.videogen.videogenl.videoGen.Transition) parent_cast.getOriginalObject())
+								.setCallnextTransition((java.lang.Boolean) toset);
+					}
+				}
+				if (value.getParent() instanceof videoGenTrace.States.videoGen.TracedOptional) {
+					videoGenTrace.States.videoGen.TracedOptional parent_cast = (videoGenTrace.States.videoGen.TracedOptional) value
+							.getParent();
+					java.lang.Boolean toset = value.getCallnextTransition();
+					java.lang.Boolean current = ((org.irisa.diverse.videogen.videogenl.videoGen.Transition) parent_cast
+							.getOriginalObject()).getCallnextTransition();
+					if (current != toset) {
+						((org.irisa.diverse.videogen.videogenl.videoGen.Transition) parent_cast.getOriginalObject())
+								.setCallnextTransition((java.lang.Boolean) toset);
+					}
+				}
+			}
+			for (videoGenTrace.States.Transition_executed_Value value : stateToGo.getTransition_executed_Values()) {
+				if (value.getParent() instanceof videoGenTrace.States.videoGen.TracedAlternatives) {
+					videoGenTrace.States.videoGen.TracedAlternatives parent_cast = (videoGenTrace.States.videoGen.TracedAlternatives) value
+							.getParent();
+					java.lang.Boolean toset = value.getExecuted();
+					java.lang.Boolean current = ((org.irisa.diverse.videogen.videogenl.videoGen.Transition) parent_cast
+							.getOriginalObject()).getExecuted();
+					if (current != toset) {
+						((org.irisa.diverse.videogen.videogenl.videoGen.Transition) parent_cast.getOriginalObject())
+								.setExecuted((java.lang.Boolean) toset);
+					}
+				}
+				if (value.getParent() instanceof videoGenTrace.States.videoGen.TracedDelay) {
+					videoGenTrace.States.videoGen.TracedDelay parent_cast = (videoGenTrace.States.videoGen.TracedDelay) value
+							.getParent();
+					java.lang.Boolean toset = value.getExecuted();
+					java.lang.Boolean current = ((org.irisa.diverse.videogen.videogenl.videoGen.Transition) parent_cast
+							.getOriginalObject()).getExecuted();
+					if (current != toset) {
+						((org.irisa.diverse.videogen.videogenl.videoGen.Transition) parent_cast.getOriginalObject())
+								.setExecuted((java.lang.Boolean) toset);
+					}
+				}
+				if (value.getParent() instanceof videoGenTrace.States.videoGen.TracedGenerate) {
+					videoGenTrace.States.videoGen.TracedGenerate parent_cast = (videoGenTrace.States.videoGen.TracedGenerate) value
+							.getParent();
+					java.lang.Boolean toset = value.getExecuted();
+					java.lang.Boolean current = ((org.irisa.diverse.videogen.videogenl.videoGen.Transition) parent_cast
+							.getOriginalObject()).getExecuted();
+					if (current != toset) {
+						((org.irisa.diverse.videogen.videogenl.videoGen.Transition) parent_cast.getOriginalObject())
+								.setExecuted((java.lang.Boolean) toset);
+					}
+				}
+				if (value.getParent() instanceof videoGenTrace.States.videoGen.TracedInitialize) {
+					videoGenTrace.States.videoGen.TracedInitialize parent_cast = (videoGenTrace.States.videoGen.TracedInitialize) value
+							.getParent();
+					java.lang.Boolean toset = value.getExecuted();
+					java.lang.Boolean current = ((org.irisa.diverse.videogen.videogenl.videoGen.Transition) parent_cast
+							.getOriginalObject()).getExecuted();
+					if (current != toset) {
+						((org.irisa.diverse.videogen.videogenl.videoGen.Transition) parent_cast.getOriginalObject())
+								.setExecuted((java.lang.Boolean) toset);
+					}
+				}
+				if (value.getParent() instanceof videoGenTrace.States.videoGen.TracedMandatory) {
+					videoGenTrace.States.videoGen.TracedMandatory parent_cast = (videoGenTrace.States.videoGen.TracedMandatory) value
+							.getParent();
+					java.lang.Boolean toset = value.getExecuted();
+					java.lang.Boolean current = ((org.irisa.diverse.videogen.videogenl.videoGen.Transition) parent_cast
+							.getOriginalObject()).getExecuted();
+					if (current != toset) {
+						((org.irisa.diverse.videogen.videogenl.videoGen.Transition) parent_cast.getOriginalObject())
+								.setExecuted((java.lang.Boolean) toset);
+					}
+				}
+				if (value.getParent() instanceof videoGenTrace.States.videoGen.TracedOptional) {
+					videoGenTrace.States.videoGen.TracedOptional parent_cast = (videoGenTrace.States.videoGen.TracedOptional) value
+							.getParent();
+					java.lang.Boolean toset = value.getExecuted();
+					java.lang.Boolean current = ((org.irisa.diverse.videogen.videogenl.videoGen.Transition) parent_cast
+							.getOriginalObject()).getExecuted();
+					if (current != toset) {
+						((org.irisa.diverse.videogen.videogenl.videoGen.Transition) parent_cast.getOriginalObject())
+								.setExecuted((java.lang.Boolean) toset);
+					}
+				}
+			}
+			for (videoGenTrace.States.Transition_videoGen_Value value : stateToGo.getTransition_videoGen_Values()) {
+				if (value.getParent() instanceof videoGenTrace.States.videoGen.TracedAlternatives) {
+					videoGenTrace.States.videoGen.TracedAlternatives parent_cast = (videoGenTrace.States.videoGen.TracedAlternatives) value
+							.getParent();
+					org.irisa.diverse.videogen.videogenl.videoGen.VideoGen toset = (org.irisa.diverse.videogen.videogenl.videoGen.VideoGen) getTracedToExe(
+							value.getVideoGen());
+					org.irisa.diverse.videogen.videogenl.videoGen.VideoGen current = ((org.irisa.diverse.videogen.videogenl.videoGen.Transition) parent_cast
+							.getOriginalObject()).getVideoGen();
+					if (current != toset) {
+						((org.irisa.diverse.videogen.videogenl.videoGen.Transition) parent_cast.getOriginalObject())
+								.setVideoGen((org.irisa.diverse.videogen.videogenl.videoGen.VideoGen) toset);
+					}
+				}
+				if (value.getParent() instanceof videoGenTrace.States.videoGen.TracedDelay) {
+					videoGenTrace.States.videoGen.TracedDelay parent_cast = (videoGenTrace.States.videoGen.TracedDelay) value
+							.getParent();
+					org.irisa.diverse.videogen.videogenl.videoGen.VideoGen toset = (org.irisa.diverse.videogen.videogenl.videoGen.VideoGen) getTracedToExe(
+							value.getVideoGen());
+					org.irisa.diverse.videogen.videogenl.videoGen.VideoGen current = ((org.irisa.diverse.videogen.videogenl.videoGen.Transition) parent_cast
+							.getOriginalObject()).getVideoGen();
+					if (current != toset) {
+						((org.irisa.diverse.videogen.videogenl.videoGen.Transition) parent_cast.getOriginalObject())
+								.setVideoGen((org.irisa.diverse.videogen.videogenl.videoGen.VideoGen) toset);
+					}
+				}
+				if (value.getParent() instanceof videoGenTrace.States.videoGen.TracedGenerate) {
+					videoGenTrace.States.videoGen.TracedGenerate parent_cast = (videoGenTrace.States.videoGen.TracedGenerate) value
+							.getParent();
+					org.irisa.diverse.videogen.videogenl.videoGen.VideoGen toset = (org.irisa.diverse.videogen.videogenl.videoGen.VideoGen) getTracedToExe(
+							value.getVideoGen());
+					org.irisa.diverse.videogen.videogenl.videoGen.VideoGen current = ((org.irisa.diverse.videogen.videogenl.videoGen.Transition) parent_cast
+							.getOriginalObject()).getVideoGen();
+					if (current != toset) {
+						((org.irisa.diverse.videogen.videogenl.videoGen.Transition) parent_cast.getOriginalObject())
+								.setVideoGen((org.irisa.diverse.videogen.videogenl.videoGen.VideoGen) toset);
+					}
+				}
+				if (value.getParent() instanceof videoGenTrace.States.videoGen.TracedInitialize) {
+					videoGenTrace.States.videoGen.TracedInitialize parent_cast = (videoGenTrace.States.videoGen.TracedInitialize) value
+							.getParent();
+					org.irisa.diverse.videogen.videogenl.videoGen.VideoGen toset = (org.irisa.diverse.videogen.videogenl.videoGen.VideoGen) getTracedToExe(
+							value.getVideoGen());
+					org.irisa.diverse.videogen.videogenl.videoGen.VideoGen current = ((org.irisa.diverse.videogen.videogenl.videoGen.Transition) parent_cast
+							.getOriginalObject()).getVideoGen();
+					if (current != toset) {
+						((org.irisa.diverse.videogen.videogenl.videoGen.Transition) parent_cast.getOriginalObject())
+								.setVideoGen((org.irisa.diverse.videogen.videogenl.videoGen.VideoGen) toset);
+					}
+				}
+				if (value.getParent() instanceof videoGenTrace.States.videoGen.TracedMandatory) {
+					videoGenTrace.States.videoGen.TracedMandatory parent_cast = (videoGenTrace.States.videoGen.TracedMandatory) value
+							.getParent();
+					org.irisa.diverse.videogen.videogenl.videoGen.VideoGen toset = (org.irisa.diverse.videogen.videogenl.videoGen.VideoGen) getTracedToExe(
+							value.getVideoGen());
+					org.irisa.diverse.videogen.videogenl.videoGen.VideoGen current = ((org.irisa.diverse.videogen.videogenl.videoGen.Transition) parent_cast
+							.getOriginalObject()).getVideoGen();
+					if (current != toset) {
+						((org.irisa.diverse.videogen.videogenl.videoGen.Transition) parent_cast.getOriginalObject())
+								.setVideoGen((org.irisa.diverse.videogen.videogenl.videoGen.VideoGen) toset);
+					}
+				}
+				if (value.getParent() instanceof videoGenTrace.States.videoGen.TracedOptional) {
+					videoGenTrace.States.videoGen.TracedOptional parent_cast = (videoGenTrace.States.videoGen.TracedOptional) value
+							.getParent();
+					org.irisa.diverse.videogen.videogenl.videoGen.VideoGen toset = (org.irisa.diverse.videogen.videogenl.videoGen.VideoGen) getTracedToExe(
+							value.getVideoGen());
+					org.irisa.diverse.videogen.videogenl.videoGen.VideoGen current = ((org.irisa.diverse.videogen.videogenl.videoGen.Transition) parent_cast
+							.getOriginalObject()).getVideoGen();
+					if (current != toset) {
+						((org.irisa.diverse.videogen.videogenl.videoGen.Transition) parent_cast.getOriginalObject())
+								.setVideoGen((org.irisa.diverse.videogen.videogenl.videoGen.VideoGen) toset);
+					}
+				}
+			}
 		} else if (eObject instanceof videoGenTrace.States.Value) {
 			goTo(((videoGenTrace.States.Value) eObject).getStatesNoOpposite().get(0));
 		}
@@ -356,6 +805,18 @@ public class VideoGenTraceExplorer implements ITraceExplorer {
 				throw e;
 			}
 		}
+	}
+
+	private Collection<? extends EObject> getTracedToExe(Collection<? extends EObject> tracedObjects) {
+		Collection<EObject> result = new ArrayList<EObject>();
+		for (EObject tracedObject : tracedObjects) {
+			result.add(getTracedToExe(tracedObject));
+		}
+		return result;
+	}
+
+	private EObject getTracedToExe(EObject tracedObject) {
+		return tracedToExe.get(tracedObject);
 	}
 
 	private void jumpBeforeStep(videoGenTrace.Steps.SpecificStep step) {
@@ -392,15 +853,11 @@ public class VideoGenTraceExplorer implements ITraceExplorer {
 	@Override
 	public boolean canBackValue(int traceIndex) {
 		if (traceIndex > -1 && traceIndex < valueTraces.size()) {
-			return canBackValueCache
-					.computeIfAbsent(
-							traceIndex,
-							i -> {
-								final List<? extends videoGenTrace.States.Value> valueTrace = valueTraces
-										.get(traceIndex);
-								final int previousValueIndex = getPreviousValueIndex(valueTrace);
-								return previousValueIndex > -1;
-							});
+			return canBackValueCache.computeIfAbsent(traceIndex, i -> {
+				final List<? extends videoGenTrace.States.Value> valueTrace = valueTraces.get(traceIndex);
+				final int previousValueIndex = getPreviousValueIndex(valueTrace);
+				return previousValueIndex > -1;
+			});
 		}
 		return false;
 	}
@@ -451,7 +908,8 @@ public class VideoGenTraceExplorer implements ITraceExplorer {
 				final List<videoGenTrace.Steps.SpecificStep> currentSubSteps = new ArrayList<>();
 				if (currentStep instanceof SequentialStep<?>) {
 					final SequentialStep<videoGenTrace.Steps.SpecificStep> currentStep_cast = (SequentialStep<videoGenTrace.Steps.SpecificStep>) currentStep;
-					currentSubSteps.addAll(currentStep_cast.getSubSteps().stream().filter(p).collect(Collectors.toList()));
+					currentSubSteps
+							.addAll(currentStep_cast.getSubSteps().stream().filter(p).collect(Collectors.toList()));
 				}
 				while (firstStepOfState == null) {
 					final int startingIndex = getStartingIndex(currentStep);
@@ -467,7 +925,8 @@ public class VideoGenTraceExplorer implements ITraceExplorer {
 							currentSubSteps.clear();
 							if (currentStep instanceof SequentialStep<?>) {
 								final SequentialStep<videoGenTrace.Steps.SpecificStep> currentStep_cast = (SequentialStep<videoGenTrace.Steps.SpecificStep>) currentStep;
-								currentSubSteps.addAll(currentStep_cast.getSubSteps().stream().filter(p).collect(Collectors.toList()));
+								currentSubSteps.addAll(
+										currentStep_cast.getSubSteps().stream().filter(p).collect(Collectors.toList()));
 							}
 						}
 					} else if (endingIndex == i && startingIndex != i) {
@@ -481,7 +940,8 @@ public class VideoGenTraceExplorer implements ITraceExplorer {
 									currentStep = siblingSteps.get(idx);
 									if (currentStep instanceof SequentialStep<?>) {
 										final SequentialStep<videoGenTrace.Steps.SpecificStep> currentStep_cast = (SequentialStep<videoGenTrace.Steps.SpecificStep>) currentStep;
-										currentSubSteps.addAll(currentStep_cast.getSubSteps().stream().filter(p).collect(Collectors.toList()));
+										currentSubSteps.addAll(currentStep_cast.getSubSteps().stream().filter(p)
+												.collect(Collectors.toList()));
 									}
 								} else {
 									if (searchPath.isEmpty()) {
@@ -495,7 +955,8 @@ public class VideoGenTraceExplorer implements ITraceExplorer {
 											final videoGenTrace.Steps.SpecificStep s = searchPath.get(0);
 											if (s instanceof SequentialStep<?>) {
 												final SequentialStep<videoGenTrace.Steps.SpecificStep> s_cast = (SequentialStep<videoGenTrace.Steps.SpecificStep>) s;
-												siblingSteps.addAll((s_cast).getSubSteps().stream().filter(p).collect(Collectors.toList()));
+												siblingSteps.addAll((s_cast).getSubSteps().stream().filter(p)
+														.collect(Collectors.toList()));
 											}
 										}
 									}
@@ -510,7 +971,8 @@ public class VideoGenTraceExplorer implements ITraceExplorer {
 							currentSubSteps.clear();
 							if (currentStep instanceof SequentialStep<?>) {
 								final SequentialStep<videoGenTrace.Steps.SpecificStep> currentStep_cast = (SequentialStep<videoGenTrace.Steps.SpecificStep>) currentStep;
-								currentSubSteps.addAll(currentStep_cast.getSubSteps().stream().filter(p).collect(Collectors.toList()));
+								currentSubSteps.addAll(
+										currentStep_cast.getSubSteps().stream().filter(p).collect(Collectors.toList()));
 							}
 						}
 					} else if (startingIndex == i) {
@@ -555,17 +1017,34 @@ public class VideoGenTraceExplorer implements ITraceExplorer {
 		Predicate<videoGenTrace.Steps.SpecificStep> predicate = s -> {
 			final int stepStartingState = getStartingIndex(s);
 			final int stepEndingState = getEndingIndex(s);
-			return (stepEndingState == -1 || stepEndingState >= startingState)
-					&& stepStartingState <= endingState;
+			return (stepEndingState == -1 || stepEndingState >= startingState) && stepStartingState <= endingState;
 		};
-		return traceRoot.getRootStep().getSubSteps().stream().filter(predicate)
-				.collect(Collectors.toList());
+		return traceRoot.getRootStep().getSubSteps().stream().filter(predicate).collect(Collectors.toList());
+	}
+
+	private boolean isStateBreakable(videoGenTrace.States.State state) {
+		final boolean b = state.getStartedSteps().size() == 1;
+		if (b) {
+			videoGenTrace.Steps.SpecificStep s = state.getStartedSteps().get(0);
+			return !(s instanceof videoGenTrace.Steps.VideoGen_Alternatives_Execute_ImplicitStep
+					|| s instanceof videoGenTrace.Steps.VideoGen_Generate_Execute_ImplicitStep
+					|| s instanceof videoGenTrace.Steps.VideoGen_Initialize_Execute_ImplicitStep
+					|| s instanceof videoGenTrace.Steps.VideoGen_Mandatory_Execute_ImplicitStep
+					|| s instanceof videoGenTrace.Steps.VideoGen_Optional_Execute_ImplicitStep
+					|| s instanceof videoGenTrace.Steps.VideoGen_Transition_Execute_ImplicitStep
+					|| s instanceof videoGenTrace.Steps.VideoGen_Transition_FinishExecute_ImplicitStep
+					|| s instanceof videoGenTrace.Steps.VideoGen_VideoGen_Execute_ImplicitStep
+					|| s instanceof videoGenTrace.Steps.VideoGen_VideoGen_InitializeModel_ImplicitStep
+					|| s instanceof videoGenTrace.Steps.VideoGen_VideoGen_Setup_ImplicitStep);
+		}
+		return true;
 	}
 
 	@Override
 	public StateWrapper getStateWrapper(int stateIndex) {
 		if (stateIndex > -1 && stateIndex < statesTrace.size()) {
-			return new StateWrapper(statesTrace.get(stateIndex), stateIndex);
+			final videoGenTrace.States.State state = statesTrace.get(stateIndex);
+			return new StateWrapper(state, stateIndex, isStateBreakable(state));
 		}
 		return null;
 	}
@@ -577,7 +1056,8 @@ public class VideoGenTraceExplorer implements ITraceExplorer {
 		final int endStateIndex = Math.min(statesTrace.size() - 1, end);
 
 		for (int i = startStateIndex; i < endStateIndex + 1; i++) {
-			result.add(new StateWrapper(statesTrace.get(i), i));
+			final videoGenTrace.States.State state = statesTrace.get(i);
+			result.add(new StateWrapper(state, i, isStateBreakable(state)));
 		}
 
 		return result;
@@ -789,8 +1269,8 @@ public class VideoGenTraceExplorer implements ITraceExplorer {
 			computeExplorerState(newPath);
 			update();
 		} else {
-			throw new IllegalArgumentException("VideoGenTraceExplorer expects specific steps and cannot handle this: "
-					+ step);
+			throw new IllegalArgumentException(
+					"VideoGenTraceExplorer expects specific steps and cannot handle this: " + step);
 		}
 	}
 
@@ -806,15 +1286,13 @@ public class VideoGenTraceExplorer implements ITraceExplorer {
 			final EObject container = value.eContainer();
 			final List<String> attributes = container.eClass().getEAllReferences().stream()
 					.filter(r -> r.getName().endsWith("Sequence"))
-					.map(r->r.getName().substring(0, r.getName().length() - 8))
-					.collect(Collectors.toList());
+					.map(r -> r.getName().substring(0, r.getName().length() - 8)).collect(Collectors.toList());
 			if (!attributes.isEmpty()) {
-				attributes.removeIf(s->!value.getClass().getName().contains("_" + s + "_"));
+				attributes.removeIf(s -> !value.getClass().getName().contains("_" + s + "_"));
 				attributeName = attributes.get(0);
 			}
-			final Optional<EReference> originalObject = container.eClass().getEAllReferences()
-					.stream().filter(r -> r.getName().equals("originalObject"))
-					.findFirst();
+			final Optional<EReference> originalObject = container.eClass().getEAllReferences().stream()
+					.filter(r -> r.getName().equals("originalObject")).findFirst();
 			if (originalObject.isPresent()) {
 				final Object o = container.eGet(originalObject.get());
 				if (o instanceof EObject) {

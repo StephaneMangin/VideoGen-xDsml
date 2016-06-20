@@ -57,6 +57,9 @@ public class StatesFactoryImpl extends EFactoryImpl implements StatesFactory {
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case StatesPackage.STATE: return createState();
+			case StatesPackage.TRANSITION_CALLNEXT_TRANSITION_VALUE: return createTransition_callnextTransition_Value();
+			case StatesPackage.TRANSITION_EXECUTED_VALUE: return createTransition_executed_Value();
+			case StatesPackage.TRANSITION_VIDEO_GEN_VALUE: return createTransition_videoGen_Value();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -70,6 +73,36 @@ public class StatesFactoryImpl extends EFactoryImpl implements StatesFactory {
 	public State createState() {
 		StateImpl state = new StateImpl();
 		return state;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Transition_callnextTransition_Value createTransition_callnextTransition_Value() {
+		Transition_callnextTransition_ValueImpl transition_callnextTransition_Value = new Transition_callnextTransition_ValueImpl();
+		return transition_callnextTransition_Value;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Transition_executed_Value createTransition_executed_Value() {
+		Transition_executed_ValueImpl transition_executed_Value = new Transition_executed_ValueImpl();
+		return transition_executed_Value;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Transition_videoGen_Value createTransition_videoGen_Value() {
+		Transition_videoGen_ValueImpl transition_videoGen_Value = new Transition_videoGen_ValueImpl();
+		return transition_videoGen_Value;
 	}
 
 	/**

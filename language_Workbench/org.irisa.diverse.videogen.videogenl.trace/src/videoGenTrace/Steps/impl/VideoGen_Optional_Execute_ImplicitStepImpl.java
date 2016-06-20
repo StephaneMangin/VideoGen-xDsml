@@ -2,6 +2,8 @@
  */
 package videoGenTrace.Steps.impl;
 
+import fr.inria.diverse.trace.commons.model.trace.impl.StepImpl;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -9,8 +11,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
-import org.gemoc.executionframework.engine.mse.impl.StepImpl;
 
 import videoGenTrace.States.State;
 import videoGenTrace.States.StatesPackage;

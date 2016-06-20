@@ -2,9 +2,9 @@
  */
 package videoGenTrace.Steps;
 
-import org.gemoc.executionframework.engine.mse.SequentialStep;
+import fr.inria.diverse.trace.commons.model.trace.SequentialStep;
 
-import org.irisa.diverse.videogen.videoGen.VideoGen;
+import videoGenTrace.States.videoGen.TracedVideoGen;
 
 /**
  * <!-- begin-user-doc -->
@@ -21,9 +21,9 @@ public interface VideoGen_VideoGen_InitializeModel extends SpecificStep, Sequent
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model kind="operation" required="true"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='return (org.irisa.diverse.videogen.videoGen.VideoGen) this.getMseoccurrence().getMse().getCaller();'"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='return (videoGenTrace.States.videoGen.TracedVideoGen) this.getMseoccurrence().getMse().getCaller();'"
 	 * @generated
 	 */
-	VideoGen getCaller();
+	TracedVideoGen getCaller();
 
 } // VideoGen_VideoGen_InitializeModel

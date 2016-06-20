@@ -31,6 +31,33 @@ public interface StatesFactory extends EFactory {
 	State createState();
 
 	/**
+	 * Returns a new object of class '<em>Transition callnext Transition Value</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Transition callnext Transition Value</em>'.
+	 * @generated
+	 */
+	Transition_callnextTransition_Value createTransition_callnextTransition_Value();
+
+	/**
+	 * Returns a new object of class '<em>Transition executed Value</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Transition executed Value</em>'.
+	 * @generated
+	 */
+	Transition_executed_Value createTransition_executed_Value();
+
+	/**
+	 * Returns a new object of class '<em>Transition video Gen Value</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Transition video Gen Value</em>'.
+	 * @generated
+	 */
+	Transition_videoGen_Value createTransition_videoGen_Value();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

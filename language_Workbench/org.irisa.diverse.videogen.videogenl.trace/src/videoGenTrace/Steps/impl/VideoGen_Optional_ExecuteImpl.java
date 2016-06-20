@@ -2,6 +2,12 @@
  */
 package videoGenTrace.Steps.impl;
 
+import fr.inria.diverse.trace.commons.model.trace.BigStep;
+import fr.inria.diverse.trace.commons.model.trace.SequentialStep;
+import fr.inria.diverse.trace.commons.model.trace.TracePackage;
+
+import fr.inria.diverse.trace.commons.model.trace.impl.StepImpl;
+
 import java.lang.reflect.InvocationTargetException;
 
 import java.util.Collection;
@@ -19,22 +25,13 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.gemoc.executionframework.engine.mse.BigStep;
-import org.gemoc.executionframework.engine.mse.MsePackage;
-import org.gemoc.executionframework.engine.mse.SequentialStep;
-
-import org.gemoc.executionframework.engine.mse.impl.StepImpl;
-
-import org.irisa.diverse.videogen.videoGen.Optional;
-
 import videoGenTrace.States.State;
 import videoGenTrace.States.StatesPackage;
 
+import videoGenTrace.States.videoGen.TracedOptional;
+
 import videoGenTrace.Steps.StepsPackage;
 import videoGenTrace.Steps.VideoGen_Alternatives_Execute_AbstractSubStep;
-import videoGenTrace.Steps.VideoGen_Generate_Execute_AbstractSubStep;
-import videoGenTrace.Steps.VideoGen_Initialize_Execute_AbstractSubStep;
-import videoGenTrace.Steps.VideoGen_Mandatory_Execute_AbstractSubStep;
 import videoGenTrace.Steps.VideoGen_Optional_Execute;
 import videoGenTrace.Steps.VideoGen_Optional_Execute_AbstractSubStep;
 import videoGenTrace.Steps.VideoGen_Transition_Execute_AbstractSubStep;
@@ -242,8 +239,8 @@ public class VideoGen_Optional_ExecuteImpl extends StepImpl implements VideoGen_
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Optional getCaller() {
-		return (org.irisa.diverse.videogen.videoGen.Optional) this.getMseoccurrence().getMse().getCaller();
+	public TracedOptional getCaller() {
+		return (videoGenTrace.States.videoGen.TracedOptional) this.getMseoccurrence().getMse().getCaller();
 	}
 
 	/**
@@ -378,14 +375,14 @@ public class VideoGen_Optional_ExecuteImpl extends StepImpl implements VideoGen_
 				default: return -1;
 			}
 		}
-		if (baseClass == VideoGen_Mandatory_Execute_AbstractSubStep.class) {
+		if (baseClass == VideoGen_Transition_Execute_AbstractSubStep.class) {
 			switch (derivedFeatureID) {
 				default: return -1;
 			}
 		}
 		if (baseClass == BigStep.class) {
 			switch (derivedFeatureID) {
-				case StepsPackage.VIDEO_GEN_OPTIONAL_EXECUTE__SUB_STEPS: return MsePackage.BIG_STEP__SUB_STEPS;
+				case StepsPackage.VIDEO_GEN_OPTIONAL_EXECUTE__SUB_STEPS: return TracePackage.BIG_STEP__SUB_STEPS;
 				default: return -1;
 			}
 		}
@@ -394,27 +391,7 @@ public class VideoGen_Optional_ExecuteImpl extends StepImpl implements VideoGen_
 				default: return -1;
 			}
 		}
-		if (baseClass == VideoGen_Optional_Execute_AbstractSubStep.class) {
-			switch (derivedFeatureID) {
-				default: return -1;
-			}
-		}
-		if (baseClass == VideoGen_Transition_Execute_AbstractSubStep.class) {
-			switch (derivedFeatureID) {
-				default: return -1;
-			}
-		}
 		if (baseClass == VideoGen_Transition_FinishExecute_AbstractSubStep.class) {
-			switch (derivedFeatureID) {
-				default: return -1;
-			}
-		}
-		if (baseClass == VideoGen_Initialize_Execute_AbstractSubStep.class) {
-			switch (derivedFeatureID) {
-				default: return -1;
-			}
-		}
-		if (baseClass == VideoGen_Generate_Execute_AbstractSubStep.class) {
 			switch (derivedFeatureID) {
 				default: return -1;
 			}
@@ -434,14 +411,14 @@ public class VideoGen_Optional_ExecuteImpl extends StepImpl implements VideoGen_
 				default: return -1;
 			}
 		}
-		if (baseClass == VideoGen_Mandatory_Execute_AbstractSubStep.class) {
+		if (baseClass == VideoGen_Transition_Execute_AbstractSubStep.class) {
 			switch (baseFeatureID) {
 				default: return -1;
 			}
 		}
 		if (baseClass == BigStep.class) {
 			switch (baseFeatureID) {
-				case MsePackage.BIG_STEP__SUB_STEPS: return StepsPackage.VIDEO_GEN_OPTIONAL_EXECUTE__SUB_STEPS;
+				case TracePackage.BIG_STEP__SUB_STEPS: return StepsPackage.VIDEO_GEN_OPTIONAL_EXECUTE__SUB_STEPS;
 				default: return -1;
 			}
 		}
@@ -450,27 +427,7 @@ public class VideoGen_Optional_ExecuteImpl extends StepImpl implements VideoGen_
 				default: return -1;
 			}
 		}
-		if (baseClass == VideoGen_Optional_Execute_AbstractSubStep.class) {
-			switch (baseFeatureID) {
-				default: return -1;
-			}
-		}
-		if (baseClass == VideoGen_Transition_Execute_AbstractSubStep.class) {
-			switch (baseFeatureID) {
-				default: return -1;
-			}
-		}
 		if (baseClass == VideoGen_Transition_FinishExecute_AbstractSubStep.class) {
-			switch (baseFeatureID) {
-				default: return -1;
-			}
-		}
-		if (baseClass == VideoGen_Initialize_Execute_AbstractSubStep.class) {
-			switch (baseFeatureID) {
-				default: return -1;
-			}
-		}
-		if (baseClass == VideoGen_Generate_Execute_AbstractSubStep.class) {
 			switch (baseFeatureID) {
 				default: return -1;
 			}

@@ -2,6 +2,8 @@
  */
 package videoGenTrace.Steps.impl;
 
+import fr.inria.diverse.trace.commons.model.trace.impl.StepImpl;
+
 import java.lang.reflect.InvocationTargetException;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -14,12 +16,10 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.gemoc.executionframework.engine.mse.impl.StepImpl;
-
-import org.irisa.diverse.videogen.videoGen.VideoGen;
-
 import videoGenTrace.States.State;
 import videoGenTrace.States.StatesPackage;
+
+import videoGenTrace.States.videoGen.TracedVideoGen;
 
 import videoGenTrace.Steps.StepsPackage;
 import videoGenTrace.Steps.VideoGen_VideoGen_Compute;
@@ -203,8 +203,8 @@ public class VideoGen_VideoGen_ComputeImpl extends StepImpl implements VideoGen_
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public VideoGen getCaller() {
-		return (org.irisa.diverse.videogen.videoGen.VideoGen) this.getMseoccurrence().getMse().getCaller();
+	public TracedVideoGen getCaller() {
+		return (videoGenTrace.States.videoGen.TracedVideoGen) this.getMseoccurrence().getMse().getCaller();
 	}
 
 	/**

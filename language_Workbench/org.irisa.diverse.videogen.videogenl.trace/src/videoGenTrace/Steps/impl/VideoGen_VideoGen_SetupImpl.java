@@ -2,7 +2,15 @@
  */
 package videoGenTrace.Steps.impl;
 
+import fr.inria.diverse.trace.commons.model.trace.BigStep;
+import fr.inria.diverse.trace.commons.model.trace.SequentialStep;
+import fr.inria.diverse.trace.commons.model.trace.TracePackage;
+
+import fr.inria.diverse.trace.commons.model.trace.impl.StepImpl;
+
 import java.lang.reflect.InvocationTargetException;
+
+import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -14,15 +22,17 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.gemoc.executionframework.engine.mse.impl.StepImpl;
-
-import org.irisa.diverse.videogen.videoGen.VideoGen;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 import videoGenTrace.States.State;
 import videoGenTrace.States.StatesPackage;
 
+import videoGenTrace.States.videoGen.TracedVideoGen;
+
 import videoGenTrace.Steps.StepsPackage;
 import videoGenTrace.Steps.VideoGen_VideoGen_Setup;
+import videoGenTrace.Steps.VideoGen_VideoGen_Setup_AbstractSubStep;
 
 /**
  * <!-- begin-user-doc -->
@@ -34,6 +44,7 @@ import videoGenTrace.Steps.VideoGen_VideoGen_Setup;
  * <ul>
  *   <li>{@link videoGenTrace.Steps.impl.VideoGen_VideoGen_SetupImpl#getEndingState <em>Ending State</em>}</li>
  *   <li>{@link videoGenTrace.Steps.impl.VideoGen_VideoGen_SetupImpl#getStartingState <em>Starting State</em>}</li>
+ *   <li>{@link videoGenTrace.Steps.impl.VideoGen_VideoGen_SetupImpl#getSubSteps <em>Sub Steps</em>}</li>
  * </ul>
  *
  * @generated
@@ -58,6 +69,16 @@ public class VideoGen_VideoGen_SetupImpl extends StepImpl implements VideoGen_Vi
 	 * @ordered
 	 */
 	protected State startingState;
+
+	/**
+	 * The cached value of the '{@link #getSubSteps() <em>Sub Steps</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSubSteps()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<VideoGen_VideoGen_Setup_AbstractSubStep> subSteps;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -203,8 +224,20 @@ public class VideoGen_VideoGen_SetupImpl extends StepImpl implements VideoGen_Vi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public VideoGen getCaller() {
-		return (org.irisa.diverse.videogen.videoGen.VideoGen) this.getMseoccurrence().getMse().getCaller();
+	public EList<VideoGen_VideoGen_Setup_AbstractSubStep> getSubSteps() {
+		if (subSteps == null) {
+			subSteps = new EObjectContainmentEList<VideoGen_VideoGen_Setup_AbstractSubStep>(VideoGen_VideoGen_Setup_AbstractSubStep.class, this, StepsPackage.VIDEO_GEN_VIDEO_GEN_SETUP__SUB_STEPS);
+		}
+		return subSteps;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TracedVideoGen getCaller() {
+		return (videoGenTrace.States.videoGen.TracedVideoGen) this.getMseoccurrence().getMse().getCaller();
 	}
 
 	/**
@@ -239,6 +272,8 @@ public class VideoGen_VideoGen_SetupImpl extends StepImpl implements VideoGen_Vi
 				return basicSetEndingState(null, msgs);
 			case StepsPackage.VIDEO_GEN_VIDEO_GEN_SETUP__STARTING_STATE:
 				return basicSetStartingState(null, msgs);
+			case StepsPackage.VIDEO_GEN_VIDEO_GEN_SETUP__SUB_STEPS:
+				return ((InternalEList<?>)getSubSteps()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -257,6 +292,8 @@ public class VideoGen_VideoGen_SetupImpl extends StepImpl implements VideoGen_Vi
 			case StepsPackage.VIDEO_GEN_VIDEO_GEN_SETUP__STARTING_STATE:
 				if (resolve) return getStartingState();
 				return basicGetStartingState();
+			case StepsPackage.VIDEO_GEN_VIDEO_GEN_SETUP__SUB_STEPS:
+				return getSubSteps();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -266,6 +303,7 @@ public class VideoGen_VideoGen_SetupImpl extends StepImpl implements VideoGen_Vi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -274,6 +312,10 @@ public class VideoGen_VideoGen_SetupImpl extends StepImpl implements VideoGen_Vi
 				return;
 			case StepsPackage.VIDEO_GEN_VIDEO_GEN_SETUP__STARTING_STATE:
 				setStartingState((State)newValue);
+				return;
+			case StepsPackage.VIDEO_GEN_VIDEO_GEN_SETUP__SUB_STEPS:
+				getSubSteps().clear();
+				getSubSteps().addAll((Collection<? extends VideoGen_VideoGen_Setup_AbstractSubStep>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -293,6 +335,9 @@ public class VideoGen_VideoGen_SetupImpl extends StepImpl implements VideoGen_Vi
 			case StepsPackage.VIDEO_GEN_VIDEO_GEN_SETUP__STARTING_STATE:
 				setStartingState((State)null);
 				return;
+			case StepsPackage.VIDEO_GEN_VIDEO_GEN_SETUP__SUB_STEPS:
+				getSubSteps().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -309,8 +354,52 @@ public class VideoGen_VideoGen_SetupImpl extends StepImpl implements VideoGen_Vi
 				return endingState != null;
 			case StepsPackage.VIDEO_GEN_VIDEO_GEN_SETUP__STARTING_STATE:
 				return startingState != null;
+			case StepsPackage.VIDEO_GEN_VIDEO_GEN_SETUP__SUB_STEPS:
+				return subSteps != null && !subSteps.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == BigStep.class) {
+			switch (derivedFeatureID) {
+				case StepsPackage.VIDEO_GEN_VIDEO_GEN_SETUP__SUB_STEPS: return TracePackage.BIG_STEP__SUB_STEPS;
+				default: return -1;
+			}
+		}
+		if (baseClass == SequentialStep.class) {
+			switch (derivedFeatureID) {
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == BigStep.class) {
+			switch (baseFeatureID) {
+				case TracePackage.BIG_STEP__SUB_STEPS: return StepsPackage.VIDEO_GEN_VIDEO_GEN_SETUP__SUB_STEPS;
+				default: return -1;
+			}
+		}
+		if (baseClass == SequentialStep.class) {
+			switch (baseFeatureID) {
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 	/**

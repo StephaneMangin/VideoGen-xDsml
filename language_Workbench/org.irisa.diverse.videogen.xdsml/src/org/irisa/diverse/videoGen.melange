@@ -1,17 +1,31 @@
 package org.irisa.diverse.videogen
 
+import org.irisa.diverse.videogen.videoGen.aspects.*
 
 language VideoGenL {
 	syntax "platform:/resource//org.irisa.diverse.videogen/model/VideoGen.ecore"
 
-	with org.irisa.diverse.videogen.videoGen.aspects.VideoGenAspect
-	with org.irisa.diverse.videogen.videoGen.aspects.TransitionAspect
-	with org.irisa.diverse.videogen.videoGen.aspects.MandatoryAspect
-	with org.irisa.diverse.videogen.videoGen.aspects.OptionalAspect
-	with org.irisa.diverse.videogen.videoGen.aspects.AlternativesAspect
-	with org.irisa.diverse.videogen.videoGen.aspects.InitializeAspect
-	with org.irisa.diverse.videogen.videoGen.aspects.GenerateAspect
-	with org.irisa.diverse.videogen.videoGen.aspects.SequenceAspect
-	with org.irisa.diverse.videogen.videoGen.aspects.DelayAspect
-	with org.irisa.diverse.videogen.videoGen.aspects.VideoAspect
+	with TransitionAspect
+	with MandatoryAspect
+	with OptionalAspect
+	with AlternativesAspect
+	with InitializeAspect
+	with GenerateAspect
+	with SequenceAspect
+	with DelayAspect
+	with VideoAspect
+	with VideoGenAspect
+	
+//	with SequenceTransAspect
+//	with OptionalTransAspect
+//	with NamedElementTransAspect
+//	with VideoGenTransAspect
+//	with TransitionTransAspect
+//	with MandatoryTransAspect
+//	with VideoTransAspect
+//	with AlternativesTransAspect
+//	with DelayTransAspect
+//	with GenerateTransAspect
+//	with InitializeTransAspect
+	
 }

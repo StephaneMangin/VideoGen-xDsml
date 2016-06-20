@@ -121,24 +121,6 @@ public interface StepsFactory extends EFactory {
 	VideoGen_Optional_Execute_ImplicitStep createVideoGen_Optional_Execute_ImplicitStep();
 
 	/**
-	 * Returns a new object of class '<em>Video Gen Sequence Execute</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Video Gen Sequence Execute</em>'.
-	 * @generated
-	 */
-	VideoGen_Sequence_Execute createVideoGen_Sequence_Execute();
-
-	/**
-	 * Returns a new object of class '<em>Video Gen Sequence Execute Implicit Step</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Video Gen Sequence Execute Implicit Step</em>'.
-	 * @generated
-	 */
-	VideoGen_Sequence_Execute_ImplicitStep createVideoGen_Sequence_Execute_ImplicitStep();
-
-	/**
 	 * Returns a new object of class '<em>Video Gen Transition Execute</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -229,13 +211,31 @@ public interface StepsFactory extends EFactory {
 	VideoGen_VideoGen_Setup createVideoGen_VideoGen_Setup();
 
 	/**
-	 * Returns a new object of class '<em>Video Gen Video Select</em>'.
+	 * Returns a new object of class '<em>Video Gen Video Gen Setup Implicit Step</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Video Gen Video Select</em>'.
+	 * @return a new object of class '<em>Video Gen Video Gen Setup Implicit Step</em>'.
 	 * @generated
 	 */
-	VideoGen_Video_Select createVideoGen_Video_Select();
+	VideoGen_VideoGen_Setup_ImplicitStep createVideoGen_VideoGen_Setup_ImplicitStep();
+
+	/**
+	 * Returns a new object of class '<em>Video Gen Video Gen Solve</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Video Gen Video Gen Solve</em>'.
+	 * @generated
+	 */
+	VideoGen_VideoGen_Solve createVideoGen_VideoGen_Solve();
+
+	/**
+	 * Returns a new object of class '<em>Video Gen Video Setup</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Video Gen Video Setup</em>'.
+	 * @generated
+	 */
+	VideoGen_Video_Setup createVideoGen_Video_Setup();
 
 	/**
 	 * Returns the package supported by this factory.

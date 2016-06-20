@@ -2,9 +2,9 @@
  */
 package videoGenTrace.Steps;
 
-import org.gemoc.executionframework.engine.mse.SmallStep;
+import fr.inria.diverse.trace.commons.model.trace.SmallStep;
 
-import org.irisa.diverse.videogen.videoGen.VideoGen;
+import videoGenTrace.States.videoGen.TracedVideoGen;
 
 /**
  * <!-- begin-user-doc -->
@@ -16,14 +16,14 @@ import org.irisa.diverse.videogen.videoGen.VideoGen;
  * @model
  * @generated
  */
-public interface VideoGen_VideoGen_Compute extends SpecificStep, SmallStep, VideoGen_Generate_Execute_AbstractSubStep {
+public interface VideoGen_VideoGen_Compute extends VideoGen_Transition_Execute_AbstractSubStep, VideoGen_Generate_Execute_AbstractSubStep, SpecificStep, SmallStep {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model kind="operation" required="true"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='return (org.irisa.diverse.videogen.videoGen.VideoGen) this.getMseoccurrence().getMse().getCaller();'"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='return (videoGenTrace.States.videoGen.TracedVideoGen) this.getMseoccurrence().getMse().getCaller();'"
 	 * @generated
 	 */
-	VideoGen getCaller();
+	TracedVideoGen getCaller();
 
 } // VideoGen_VideoGen_Compute

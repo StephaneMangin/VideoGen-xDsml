@@ -3,15 +3,10 @@ package org.irisa.diverse.live_modeling.views.constraint
 import com.google.common.collect.BiMap
 import com.google.common.collect.HashBiMap
 import java.util.ArrayList
-import java.util.List
-import java.util.Map
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.emf.ecore.EPackage
 import org.eclipse.emf.ecore.resource.Resource
-import org.eclipse.emf.ecore.resource.ResourceSet
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl
-import org.gemoc.executionframework.engine.mse.LaunchConfiguration
-import org.gemoc.executionframework.engine.mse.MseFactory
 import org.gemoc.xdsmlframework.api.core.IBasicExecutionEngine
 import org.gemoc.xdsmlframework.api.core.IExecutionContext
 import org.gemoc.xdsmlframework.api.core.IRunConfiguration
@@ -25,6 +20,8 @@ import org.irisa.diverse.videogen.videoGen.VideoGen
 import org.irisa.diverse.videogen.videoGen.VideoGenPackage
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl
 import org.irisa.diverse.live_modeling.views.Activator
+import java.util.List
+import org.eclipse.debug.internal.core.LaunchConfiguration
 
 public abstract class ConstraintEngineAddon implements IEngineAddon, IModelListener, IModelNotifier {
 
@@ -46,36 +43,36 @@ public abstract class ConstraintEngineAddon implements IEngineAddon, IModelListe
 	override void removeListener(IModelListener listener) { listeners.remove(listener) }
 
 	private def LaunchConfiguration setupRunConfigurationAttributes(IRunConfiguration configuration) {
-		val LaunchConfiguration launchConfiguration = MseFactory.eINSTANCE.createLaunchConfiguration
-		if (configuration.getLanguageName() != "") {
-			launchConfiguration.languageName = configuration.getLanguageName
-		}
-		val modelURI = configuration.getExecutedModelURI();
-		if (modelURI != null) {
-			val scheme = modelURI.scheme() + ":/resource";
-			launchConfiguration.resourceURI = modelURI.toString.substring(scheme.length)
-		}
-		val animatorURI = configuration.getAnimatorURI();
-		if (configuration.getAnimatorURI() != null) {
-			val scheme = animatorURI.scheme() + ":/resource";
-			launchConfiguration.airdResourceURI = animatorURI.toString.substring(scheme.length);
-		}
-		if (configuration.getExecutionEntryPoint() != null) {
-			launchConfiguration.methodEntryPoint = configuration.getExecutionEntryPoint
-		}
-		if (configuration.getModelEntryPoint() != null) {
-			launchConfiguration.modelEntryPoint = configuration.getModelEntryPoint;
-		}
-		if (configuration.getModelInitializationMethod() != null) {
-			launchConfiguration.initializationMethod = configuration.getModelInitializationMethod
-		}
-		if (configuration.getModelInitializationArguments() != null) {
-			launchConfiguration.initializationArguments = configuration.getModelInitializationArguments
-		}
-		configuration.getEngineAddonExtensions.forEach[
-			extensionPoint|launchConfiguration.addonExtensions.add(extensionPoint.name)
-		]
-		return launchConfiguration
+//		val LaunchConfiguration launchConfiguration = MseFactory.eINSTANCE.createLaunchConfiguration
+//		if (configuration.getLanguageName() != "") {
+//			launchConfiguration.languageName = configuration.getLanguageName
+//		}
+//		val modelURI = configuration.getExecutedModelURI();
+//		if (modelURI != null) {
+//			val scheme = modelURI.scheme() + ":/resource";
+//			launchConfiguration.resourceURI = modelURI.toString.substring(scheme.length)
+//		}
+//		val animatorURI = configuration.getAnimatorURI();
+//		if (configuration.getAnimatorURI() != null) {
+//			val scheme = animatorURI.scheme() + ":/resource";
+//			launchConfiguration.airdResourceURI = animatorURI.toString.substring(scheme.length);
+//		}
+//		if (configuration.getExecutionEntryPoint() != null) {
+//			launchConfiguration.methodEntryPoint = configuration.getExecutionEntryPoint
+//		}
+//		if (configuration.getModelEntryPoint() != null) {
+//			launchConfiguration.modelEntryPoint = configuration.getModelEntryPoint;
+//		}
+//		if (configuration.getModelInitializationMethod() != null) {
+//			launchConfiguration.initializationMethod = configuration.getModelInitializationMethod
+//		}
+//		if (configuration.getModelInitializationArguments() != null) {
+//			launchConfiguration.initializationArguments = configuration.getModelInitializationArguments
+//		}
+//		configuration.getEngineAddonExtensions.forEach[
+//			extensionPoint|launchConfiguration.addonExtensions.add(extensionPoint.name)
+//		]
+//		return launchConfiguration
 	}
 
 	/**

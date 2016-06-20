@@ -2,6 +2,12 @@
  */
 package videoGenTrace.Steps.impl;
 
+import fr.inria.diverse.trace.commons.model.trace.BigStep;
+import fr.inria.diverse.trace.commons.model.trace.SequentialStep;
+import fr.inria.diverse.trace.commons.model.trace.TracePackage;
+
+import fr.inria.diverse.trace.commons.model.trace.impl.StepImpl;
+
 import java.lang.reflect.InvocationTargetException;
 
 import java.util.Collection;
@@ -19,16 +25,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.gemoc.executionframework.engine.mse.BigStep;
-import org.gemoc.executionframework.engine.mse.MsePackage;
-import org.gemoc.executionframework.engine.mse.SequentialStep;
-
-import org.gemoc.executionframework.engine.mse.impl.StepImpl;
-
-import org.irisa.diverse.videogen.videoGen.VideoGen;
-
 import videoGenTrace.States.State;
 import videoGenTrace.States.StatesPackage;
+
+import videoGenTrace.States.videoGen.TracedVideoGen;
 
 import videoGenTrace.Steps.StepsPackage;
 import videoGenTrace.Steps.VideoGen_VideoGen_InitializeModel;
@@ -236,8 +236,8 @@ public class VideoGen_VideoGen_InitializeModelImpl extends StepImpl implements V
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public VideoGen getCaller() {
-		return (org.irisa.diverse.videogen.videoGen.VideoGen) this.getMseoccurrence().getMse().getCaller();
+	public TracedVideoGen getCaller() {
+		return (videoGenTrace.States.videoGen.TracedVideoGen) this.getMseoccurrence().getMse().getCaller();
 	}
 
 	/**
@@ -369,7 +369,7 @@ public class VideoGen_VideoGen_InitializeModelImpl extends StepImpl implements V
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
 		if (baseClass == BigStep.class) {
 			switch (derivedFeatureID) {
-				case StepsPackage.VIDEO_GEN_VIDEO_GEN_INITIALIZE_MODEL__SUB_STEPS: return MsePackage.BIG_STEP__SUB_STEPS;
+				case StepsPackage.VIDEO_GEN_VIDEO_GEN_INITIALIZE_MODEL__SUB_STEPS: return TracePackage.BIG_STEP__SUB_STEPS;
 				default: return -1;
 			}
 		}
@@ -390,7 +390,7 @@ public class VideoGen_VideoGen_InitializeModelImpl extends StepImpl implements V
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
 		if (baseClass == BigStep.class) {
 			switch (baseFeatureID) {
-				case MsePackage.BIG_STEP__SUB_STEPS: return StepsPackage.VIDEO_GEN_VIDEO_GEN_INITIALIZE_MODEL__SUB_STEPS;
+				case TracePackage.BIG_STEP__SUB_STEPS: return StepsPackage.VIDEO_GEN_VIDEO_GEN_INITIALIZE_MODEL__SUB_STEPS;
 				default: return -1;
 			}
 		}

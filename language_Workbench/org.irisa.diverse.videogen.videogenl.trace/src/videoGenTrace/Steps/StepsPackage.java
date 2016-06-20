@@ -2,12 +2,12 @@
  */
 package videoGenTrace.Steps;
 
+import fr.inria.diverse.trace.commons.model.trace.TracePackage;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-
-import org.gemoc.executionframework.engine.mse.MsePackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -75,7 +75,7 @@ public interface StepsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROOT_IMPLICIT_STEP__MSEOCCURRENCE = MsePackage.SMALL_STEP__MSEOCCURRENCE;
+	int ROOT_IMPLICIT_STEP__MSEOCCURRENCE = TracePackage.SMALL_STEP__MSEOCCURRENCE;
 
 	/**
 	 * The number of structural features of the '<em>Root Implicit Step</em>' class.
@@ -84,7 +84,7 @@ public interface StepsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROOT_IMPLICIT_STEP_FEATURE_COUNT = MsePackage.SMALL_STEP_FEATURE_COUNT + 0;
+	int ROOT_IMPLICIT_STEP_FEATURE_COUNT = TracePackage.SMALL_STEP_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Root Implicit Step</em>' class.
@@ -93,7 +93,7 @@ public interface StepsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROOT_IMPLICIT_STEP_OPERATION_COUNT = MsePackage.SMALL_STEP_OPERATION_COUNT + 0;
+	int ROOT_IMPLICIT_STEP_OPERATION_COUNT = TracePackage.SMALL_STEP_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link videoGenTrace.Steps.SpecificStep <em>Specific Step</em>}' class.
@@ -112,7 +112,7 @@ public interface StepsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SPECIFIC_STEP__MSEOCCURRENCE = MsePackage.STEP__MSEOCCURRENCE;
+	int SPECIFIC_STEP__MSEOCCURRENCE = TracePackage.STEP__MSEOCCURRENCE;
 
 	/**
 	 * The feature id for the '<em><b>Ending State</b></em>' reference.
@@ -121,7 +121,7 @@ public interface StepsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SPECIFIC_STEP__ENDING_STATE = MsePackage.STEP_FEATURE_COUNT + 0;
+	int SPECIFIC_STEP__ENDING_STATE = TracePackage.STEP_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Starting State</b></em>' reference.
@@ -130,7 +130,7 @@ public interface StepsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SPECIFIC_STEP__STARTING_STATE = MsePackage.STEP_FEATURE_COUNT + 1;
+	int SPECIFIC_STEP__STARTING_STATE = TracePackage.STEP_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Specific Step</em>' class.
@@ -139,7 +139,7 @@ public interface StepsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SPECIFIC_STEP_FEATURE_COUNT = MsePackage.STEP_FEATURE_COUNT + 2;
+	int SPECIFIC_STEP_FEATURE_COUNT = TracePackage.STEP_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Specific Step</em>' class.
@@ -148,17 +148,17 @@ public interface StepsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SPECIFIC_STEP_OPERATION_COUNT = MsePackage.STEP_OPERATION_COUNT + 0;
+	int SPECIFIC_STEP_OPERATION_COUNT = TracePackage.STEP_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link videoGenTrace.Steps.VideoGen_Sequence_Execute_AbstractSubStep <em>Video Gen Sequence Execute Abstract Sub Step</em>}' class.
+	 * The meta object id for the '{@link videoGenTrace.Steps.VideoGen_VideoGen_Execute_AbstractSubStep <em>Video Gen Video Gen Execute Abstract Sub Step</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see videoGenTrace.Steps.VideoGen_Sequence_Execute_AbstractSubStep
-	 * @see videoGenTrace.Steps.impl.StepsPackageImpl#getVideoGen_Sequence_Execute_AbstractSubStep()
+	 * @see videoGenTrace.Steps.VideoGen_VideoGen_Execute_AbstractSubStep
+	 * @see videoGenTrace.Steps.impl.StepsPackageImpl#getVideoGen_VideoGen_Execute_AbstractSubStep()
 	 * @generated
 	 */
-	int VIDEO_GEN_SEQUENCE_EXECUTE_ABSTRACT_SUB_STEP = 18;
+	int VIDEO_GEN_VIDEO_GEN_EXECUTE_ABSTRACT_SUB_STEP = 25;
 
 	/**
 	 * The feature id for the '<em><b>Mseoccurrence</b></em>' containment reference.
@@ -167,7 +167,7 @@ public interface StepsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VIDEO_GEN_SEQUENCE_EXECUTE_ABSTRACT_SUB_STEP__MSEOCCURRENCE = SPECIFIC_STEP__MSEOCCURRENCE;
+	int VIDEO_GEN_VIDEO_GEN_EXECUTE_ABSTRACT_SUB_STEP__MSEOCCURRENCE = SPECIFIC_STEP__MSEOCCURRENCE;
 
 	/**
 	 * The feature id for the '<em><b>Ending State</b></em>' reference.
@@ -176,7 +176,7 @@ public interface StepsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VIDEO_GEN_SEQUENCE_EXECUTE_ABSTRACT_SUB_STEP__ENDING_STATE = SPECIFIC_STEP__ENDING_STATE;
+	int VIDEO_GEN_VIDEO_GEN_EXECUTE_ABSTRACT_SUB_STEP__ENDING_STATE = SPECIFIC_STEP__ENDING_STATE;
 
 	/**
 	 * The feature id for the '<em><b>Starting State</b></em>' reference.
@@ -185,25 +185,25 @@ public interface StepsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VIDEO_GEN_SEQUENCE_EXECUTE_ABSTRACT_SUB_STEP__STARTING_STATE = SPECIFIC_STEP__STARTING_STATE;
+	int VIDEO_GEN_VIDEO_GEN_EXECUTE_ABSTRACT_SUB_STEP__STARTING_STATE = SPECIFIC_STEP__STARTING_STATE;
 
 	/**
-	 * The number of structural features of the '<em>Video Gen Sequence Execute Abstract Sub Step</em>' class.
+	 * The number of structural features of the '<em>Video Gen Video Gen Execute Abstract Sub Step</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VIDEO_GEN_SEQUENCE_EXECUTE_ABSTRACT_SUB_STEP_FEATURE_COUNT = SPECIFIC_STEP_FEATURE_COUNT + 0;
+	int VIDEO_GEN_VIDEO_GEN_EXECUTE_ABSTRACT_SUB_STEP_FEATURE_COUNT = SPECIFIC_STEP_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of operations of the '<em>Video Gen Sequence Execute Abstract Sub Step</em>' class.
+	 * The number of operations of the '<em>Video Gen Video Gen Execute Abstract Sub Step</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VIDEO_GEN_SEQUENCE_EXECUTE_ABSTRACT_SUB_STEP_OPERATION_COUNT = SPECIFIC_STEP_OPERATION_COUNT + 0;
+	int VIDEO_GEN_VIDEO_GEN_EXECUTE_ABSTRACT_SUB_STEP_OPERATION_COUNT = SPECIFIC_STEP_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link videoGenTrace.Steps.impl.VideoGen_Alternatives_ExecuteImpl <em>Video Gen Alternatives Execute</em>}' class.
@@ -222,7 +222,7 @@ public interface StepsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VIDEO_GEN_ALTERNATIVES_EXECUTE__MSEOCCURRENCE = VIDEO_GEN_SEQUENCE_EXECUTE_ABSTRACT_SUB_STEP__MSEOCCURRENCE;
+	int VIDEO_GEN_ALTERNATIVES_EXECUTE__MSEOCCURRENCE = VIDEO_GEN_VIDEO_GEN_EXECUTE_ABSTRACT_SUB_STEP__MSEOCCURRENCE;
 
 	/**
 	 * The feature id for the '<em><b>Ending State</b></em>' reference.
@@ -231,7 +231,7 @@ public interface StepsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VIDEO_GEN_ALTERNATIVES_EXECUTE__ENDING_STATE = VIDEO_GEN_SEQUENCE_EXECUTE_ABSTRACT_SUB_STEP__ENDING_STATE;
+	int VIDEO_GEN_ALTERNATIVES_EXECUTE__ENDING_STATE = VIDEO_GEN_VIDEO_GEN_EXECUTE_ABSTRACT_SUB_STEP__ENDING_STATE;
 
 	/**
 	 * The feature id for the '<em><b>Starting State</b></em>' reference.
@@ -240,7 +240,7 @@ public interface StepsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VIDEO_GEN_ALTERNATIVES_EXECUTE__STARTING_STATE = VIDEO_GEN_SEQUENCE_EXECUTE_ABSTRACT_SUB_STEP__STARTING_STATE;
+	int VIDEO_GEN_ALTERNATIVES_EXECUTE__STARTING_STATE = VIDEO_GEN_VIDEO_GEN_EXECUTE_ABSTRACT_SUB_STEP__STARTING_STATE;
 
 	/**
 	 * The feature id for the '<em><b>Sub Steps</b></em>' containment reference list.
@@ -249,7 +249,7 @@ public interface StepsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VIDEO_GEN_ALTERNATIVES_EXECUTE__SUB_STEPS = VIDEO_GEN_SEQUENCE_EXECUTE_ABSTRACT_SUB_STEP_FEATURE_COUNT + 0;
+	int VIDEO_GEN_ALTERNATIVES_EXECUTE__SUB_STEPS = VIDEO_GEN_VIDEO_GEN_EXECUTE_ABSTRACT_SUB_STEP_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Video Gen Alternatives Execute</em>' class.
@@ -258,7 +258,7 @@ public interface StepsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VIDEO_GEN_ALTERNATIVES_EXECUTE_FEATURE_COUNT = VIDEO_GEN_SEQUENCE_EXECUTE_ABSTRACT_SUB_STEP_FEATURE_COUNT + 1;
+	int VIDEO_GEN_ALTERNATIVES_EXECUTE_FEATURE_COUNT = VIDEO_GEN_VIDEO_GEN_EXECUTE_ABSTRACT_SUB_STEP_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Get Caller</em>' operation.
@@ -267,7 +267,7 @@ public interface StepsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VIDEO_GEN_ALTERNATIVES_EXECUTE___GET_CALLER = VIDEO_GEN_SEQUENCE_EXECUTE_ABSTRACT_SUB_STEP_OPERATION_COUNT + 0;
+	int VIDEO_GEN_ALTERNATIVES_EXECUTE___GET_CALLER = VIDEO_GEN_VIDEO_GEN_EXECUTE_ABSTRACT_SUB_STEP_OPERATION_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Video Gen Alternatives Execute</em>' class.
@@ -276,7 +276,7 @@ public interface StepsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VIDEO_GEN_ALTERNATIVES_EXECUTE_OPERATION_COUNT = VIDEO_GEN_SEQUENCE_EXECUTE_ABSTRACT_SUB_STEP_OPERATION_COUNT + 1;
+	int VIDEO_GEN_ALTERNATIVES_EXECUTE_OPERATION_COUNT = VIDEO_GEN_VIDEO_GEN_EXECUTE_ABSTRACT_SUB_STEP_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link videoGenTrace.Steps.VideoGen_Alternatives_Execute_AbstractSubStep <em>Video Gen Alternatives Execute Abstract Sub Step</em>}' class.
@@ -405,7 +405,7 @@ public interface StepsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VIDEO_GEN_GENERATE_EXECUTE__MSEOCCURRENCE = VIDEO_GEN_SEQUENCE_EXECUTE_ABSTRACT_SUB_STEP__MSEOCCURRENCE;
+	int VIDEO_GEN_GENERATE_EXECUTE__MSEOCCURRENCE = VIDEO_GEN_VIDEO_GEN_EXECUTE_ABSTRACT_SUB_STEP__MSEOCCURRENCE;
 
 	/**
 	 * The feature id for the '<em><b>Ending State</b></em>' reference.
@@ -414,7 +414,7 @@ public interface StepsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VIDEO_GEN_GENERATE_EXECUTE__ENDING_STATE = VIDEO_GEN_SEQUENCE_EXECUTE_ABSTRACT_SUB_STEP__ENDING_STATE;
+	int VIDEO_GEN_GENERATE_EXECUTE__ENDING_STATE = VIDEO_GEN_VIDEO_GEN_EXECUTE_ABSTRACT_SUB_STEP__ENDING_STATE;
 
 	/**
 	 * The feature id for the '<em><b>Starting State</b></em>' reference.
@@ -423,7 +423,7 @@ public interface StepsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VIDEO_GEN_GENERATE_EXECUTE__STARTING_STATE = VIDEO_GEN_SEQUENCE_EXECUTE_ABSTRACT_SUB_STEP__STARTING_STATE;
+	int VIDEO_GEN_GENERATE_EXECUTE__STARTING_STATE = VIDEO_GEN_VIDEO_GEN_EXECUTE_ABSTRACT_SUB_STEP__STARTING_STATE;
 
 	/**
 	 * The feature id for the '<em><b>Sub Steps</b></em>' containment reference list.
@@ -432,7 +432,7 @@ public interface StepsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VIDEO_GEN_GENERATE_EXECUTE__SUB_STEPS = VIDEO_GEN_SEQUENCE_EXECUTE_ABSTRACT_SUB_STEP_FEATURE_COUNT + 0;
+	int VIDEO_GEN_GENERATE_EXECUTE__SUB_STEPS = VIDEO_GEN_VIDEO_GEN_EXECUTE_ABSTRACT_SUB_STEP_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Video Gen Generate Execute</em>' class.
@@ -441,7 +441,7 @@ public interface StepsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VIDEO_GEN_GENERATE_EXECUTE_FEATURE_COUNT = VIDEO_GEN_SEQUENCE_EXECUTE_ABSTRACT_SUB_STEP_FEATURE_COUNT + 1;
+	int VIDEO_GEN_GENERATE_EXECUTE_FEATURE_COUNT = VIDEO_GEN_VIDEO_GEN_EXECUTE_ABSTRACT_SUB_STEP_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Get Caller</em>' operation.
@@ -450,7 +450,7 @@ public interface StepsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VIDEO_GEN_GENERATE_EXECUTE___GET_CALLER = VIDEO_GEN_SEQUENCE_EXECUTE_ABSTRACT_SUB_STEP_OPERATION_COUNT + 0;
+	int VIDEO_GEN_GENERATE_EXECUTE___GET_CALLER = VIDEO_GEN_VIDEO_GEN_EXECUTE_ABSTRACT_SUB_STEP_OPERATION_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Video Gen Generate Execute</em>' class.
@@ -459,7 +459,7 @@ public interface StepsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VIDEO_GEN_GENERATE_EXECUTE_OPERATION_COUNT = VIDEO_GEN_SEQUENCE_EXECUTE_ABSTRACT_SUB_STEP_OPERATION_COUNT + 1;
+	int VIDEO_GEN_GENERATE_EXECUTE_OPERATION_COUNT = VIDEO_GEN_VIDEO_GEN_EXECUTE_ABSTRACT_SUB_STEP_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link videoGenTrace.Steps.VideoGen_Generate_Execute_AbstractSubStep <em>Video Gen Generate Execute Abstract Sub Step</em>}' class.
@@ -588,7 +588,7 @@ public interface StepsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VIDEO_GEN_INITIALIZE_EXECUTE__MSEOCCURRENCE = VIDEO_GEN_SEQUENCE_EXECUTE_ABSTRACT_SUB_STEP__MSEOCCURRENCE;
+	int VIDEO_GEN_INITIALIZE_EXECUTE__MSEOCCURRENCE = VIDEO_GEN_VIDEO_GEN_EXECUTE_ABSTRACT_SUB_STEP__MSEOCCURRENCE;
 
 	/**
 	 * The feature id for the '<em><b>Ending State</b></em>' reference.
@@ -597,7 +597,7 @@ public interface StepsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VIDEO_GEN_INITIALIZE_EXECUTE__ENDING_STATE = VIDEO_GEN_SEQUENCE_EXECUTE_ABSTRACT_SUB_STEP__ENDING_STATE;
+	int VIDEO_GEN_INITIALIZE_EXECUTE__ENDING_STATE = VIDEO_GEN_VIDEO_GEN_EXECUTE_ABSTRACT_SUB_STEP__ENDING_STATE;
 
 	/**
 	 * The feature id for the '<em><b>Starting State</b></em>' reference.
@@ -606,7 +606,7 @@ public interface StepsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VIDEO_GEN_INITIALIZE_EXECUTE__STARTING_STATE = VIDEO_GEN_SEQUENCE_EXECUTE_ABSTRACT_SUB_STEP__STARTING_STATE;
+	int VIDEO_GEN_INITIALIZE_EXECUTE__STARTING_STATE = VIDEO_GEN_VIDEO_GEN_EXECUTE_ABSTRACT_SUB_STEP__STARTING_STATE;
 
 	/**
 	 * The feature id for the '<em><b>Sub Steps</b></em>' containment reference list.
@@ -615,7 +615,7 @@ public interface StepsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VIDEO_GEN_INITIALIZE_EXECUTE__SUB_STEPS = VIDEO_GEN_SEQUENCE_EXECUTE_ABSTRACT_SUB_STEP_FEATURE_COUNT + 0;
+	int VIDEO_GEN_INITIALIZE_EXECUTE__SUB_STEPS = VIDEO_GEN_VIDEO_GEN_EXECUTE_ABSTRACT_SUB_STEP_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Video Gen Initialize Execute</em>' class.
@@ -624,7 +624,7 @@ public interface StepsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VIDEO_GEN_INITIALIZE_EXECUTE_FEATURE_COUNT = VIDEO_GEN_SEQUENCE_EXECUTE_ABSTRACT_SUB_STEP_FEATURE_COUNT + 1;
+	int VIDEO_GEN_INITIALIZE_EXECUTE_FEATURE_COUNT = VIDEO_GEN_VIDEO_GEN_EXECUTE_ABSTRACT_SUB_STEP_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Get Caller</em>' operation.
@@ -633,7 +633,7 @@ public interface StepsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VIDEO_GEN_INITIALIZE_EXECUTE___GET_CALLER = VIDEO_GEN_SEQUENCE_EXECUTE_ABSTRACT_SUB_STEP_OPERATION_COUNT + 0;
+	int VIDEO_GEN_INITIALIZE_EXECUTE___GET_CALLER = VIDEO_GEN_VIDEO_GEN_EXECUTE_ABSTRACT_SUB_STEP_OPERATION_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Video Gen Initialize Execute</em>' class.
@@ -642,7 +642,7 @@ public interface StepsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VIDEO_GEN_INITIALIZE_EXECUTE_OPERATION_COUNT = VIDEO_GEN_SEQUENCE_EXECUTE_ABSTRACT_SUB_STEP_OPERATION_COUNT + 1;
+	int VIDEO_GEN_INITIALIZE_EXECUTE_OPERATION_COUNT = VIDEO_GEN_VIDEO_GEN_EXECUTE_ABSTRACT_SUB_STEP_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link videoGenTrace.Steps.VideoGen_Initialize_Execute_AbstractSubStep <em>Video Gen Initialize Execute Abstract Sub Step</em>}' class.
@@ -771,7 +771,7 @@ public interface StepsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VIDEO_GEN_MANDATORY_EXECUTE__MSEOCCURRENCE = VIDEO_GEN_SEQUENCE_EXECUTE_ABSTRACT_SUB_STEP__MSEOCCURRENCE;
+	int VIDEO_GEN_MANDATORY_EXECUTE__MSEOCCURRENCE = VIDEO_GEN_VIDEO_GEN_EXECUTE_ABSTRACT_SUB_STEP__MSEOCCURRENCE;
 
 	/**
 	 * The feature id for the '<em><b>Ending State</b></em>' reference.
@@ -780,7 +780,7 @@ public interface StepsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VIDEO_GEN_MANDATORY_EXECUTE__ENDING_STATE = VIDEO_GEN_SEQUENCE_EXECUTE_ABSTRACT_SUB_STEP__ENDING_STATE;
+	int VIDEO_GEN_MANDATORY_EXECUTE__ENDING_STATE = VIDEO_GEN_VIDEO_GEN_EXECUTE_ABSTRACT_SUB_STEP__ENDING_STATE;
 
 	/**
 	 * The feature id for the '<em><b>Starting State</b></em>' reference.
@@ -789,7 +789,7 @@ public interface StepsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VIDEO_GEN_MANDATORY_EXECUTE__STARTING_STATE = VIDEO_GEN_SEQUENCE_EXECUTE_ABSTRACT_SUB_STEP__STARTING_STATE;
+	int VIDEO_GEN_MANDATORY_EXECUTE__STARTING_STATE = VIDEO_GEN_VIDEO_GEN_EXECUTE_ABSTRACT_SUB_STEP__STARTING_STATE;
 
 	/**
 	 * The feature id for the '<em><b>Sub Steps</b></em>' containment reference list.
@@ -798,7 +798,7 @@ public interface StepsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VIDEO_GEN_MANDATORY_EXECUTE__SUB_STEPS = VIDEO_GEN_SEQUENCE_EXECUTE_ABSTRACT_SUB_STEP_FEATURE_COUNT + 0;
+	int VIDEO_GEN_MANDATORY_EXECUTE__SUB_STEPS = VIDEO_GEN_VIDEO_GEN_EXECUTE_ABSTRACT_SUB_STEP_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Video Gen Mandatory Execute</em>' class.
@@ -807,7 +807,7 @@ public interface StepsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VIDEO_GEN_MANDATORY_EXECUTE_FEATURE_COUNT = VIDEO_GEN_SEQUENCE_EXECUTE_ABSTRACT_SUB_STEP_FEATURE_COUNT + 1;
+	int VIDEO_GEN_MANDATORY_EXECUTE_FEATURE_COUNT = VIDEO_GEN_VIDEO_GEN_EXECUTE_ABSTRACT_SUB_STEP_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Get Caller</em>' operation.
@@ -816,7 +816,7 @@ public interface StepsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VIDEO_GEN_MANDATORY_EXECUTE___GET_CALLER = VIDEO_GEN_SEQUENCE_EXECUTE_ABSTRACT_SUB_STEP_OPERATION_COUNT + 0;
+	int VIDEO_GEN_MANDATORY_EXECUTE___GET_CALLER = VIDEO_GEN_VIDEO_GEN_EXECUTE_ABSTRACT_SUB_STEP_OPERATION_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Video Gen Mandatory Execute</em>' class.
@@ -825,7 +825,7 @@ public interface StepsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VIDEO_GEN_MANDATORY_EXECUTE_OPERATION_COUNT = VIDEO_GEN_SEQUENCE_EXECUTE_ABSTRACT_SUB_STEP_OPERATION_COUNT + 1;
+	int VIDEO_GEN_MANDATORY_EXECUTE_OPERATION_COUNT = VIDEO_GEN_VIDEO_GEN_EXECUTE_ABSTRACT_SUB_STEP_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link videoGenTrace.Steps.VideoGen_Mandatory_Execute_AbstractSubStep <em>Video Gen Mandatory Execute Abstract Sub Step</em>}' class.
@@ -954,7 +954,7 @@ public interface StepsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VIDEO_GEN_OPTIONAL_EXECUTE__MSEOCCURRENCE = VIDEO_GEN_SEQUENCE_EXECUTE_ABSTRACT_SUB_STEP__MSEOCCURRENCE;
+	int VIDEO_GEN_OPTIONAL_EXECUTE__MSEOCCURRENCE = VIDEO_GEN_VIDEO_GEN_EXECUTE_ABSTRACT_SUB_STEP__MSEOCCURRENCE;
 
 	/**
 	 * The feature id for the '<em><b>Ending State</b></em>' reference.
@@ -963,7 +963,7 @@ public interface StepsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VIDEO_GEN_OPTIONAL_EXECUTE__ENDING_STATE = VIDEO_GEN_SEQUENCE_EXECUTE_ABSTRACT_SUB_STEP__ENDING_STATE;
+	int VIDEO_GEN_OPTIONAL_EXECUTE__ENDING_STATE = VIDEO_GEN_VIDEO_GEN_EXECUTE_ABSTRACT_SUB_STEP__ENDING_STATE;
 
 	/**
 	 * The feature id for the '<em><b>Starting State</b></em>' reference.
@@ -972,7 +972,7 @@ public interface StepsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VIDEO_GEN_OPTIONAL_EXECUTE__STARTING_STATE = VIDEO_GEN_SEQUENCE_EXECUTE_ABSTRACT_SUB_STEP__STARTING_STATE;
+	int VIDEO_GEN_OPTIONAL_EXECUTE__STARTING_STATE = VIDEO_GEN_VIDEO_GEN_EXECUTE_ABSTRACT_SUB_STEP__STARTING_STATE;
 
 	/**
 	 * The feature id for the '<em><b>Sub Steps</b></em>' containment reference list.
@@ -981,7 +981,7 @@ public interface StepsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VIDEO_GEN_OPTIONAL_EXECUTE__SUB_STEPS = VIDEO_GEN_SEQUENCE_EXECUTE_ABSTRACT_SUB_STEP_FEATURE_COUNT + 0;
+	int VIDEO_GEN_OPTIONAL_EXECUTE__SUB_STEPS = VIDEO_GEN_VIDEO_GEN_EXECUTE_ABSTRACT_SUB_STEP_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Video Gen Optional Execute</em>' class.
@@ -990,7 +990,7 @@ public interface StepsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VIDEO_GEN_OPTIONAL_EXECUTE_FEATURE_COUNT = VIDEO_GEN_SEQUENCE_EXECUTE_ABSTRACT_SUB_STEP_FEATURE_COUNT + 1;
+	int VIDEO_GEN_OPTIONAL_EXECUTE_FEATURE_COUNT = VIDEO_GEN_VIDEO_GEN_EXECUTE_ABSTRACT_SUB_STEP_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Get Caller</em>' operation.
@@ -999,7 +999,7 @@ public interface StepsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VIDEO_GEN_OPTIONAL_EXECUTE___GET_CALLER = VIDEO_GEN_SEQUENCE_EXECUTE_ABSTRACT_SUB_STEP_OPERATION_COUNT + 0;
+	int VIDEO_GEN_OPTIONAL_EXECUTE___GET_CALLER = VIDEO_GEN_VIDEO_GEN_EXECUTE_ABSTRACT_SUB_STEP_OPERATION_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Video Gen Optional Execute</em>' class.
@@ -1008,7 +1008,7 @@ public interface StepsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VIDEO_GEN_OPTIONAL_EXECUTE_OPERATION_COUNT = VIDEO_GEN_SEQUENCE_EXECUTE_ABSTRACT_SUB_STEP_OPERATION_COUNT + 1;
+	int VIDEO_GEN_OPTIONAL_EXECUTE_OPERATION_COUNT = VIDEO_GEN_VIDEO_GEN_EXECUTE_ABSTRACT_SUB_STEP_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link videoGenTrace.Steps.VideoGen_Optional_Execute_AbstractSubStep <em>Video Gen Optional Execute Abstract Sub Step</em>}' class.
@@ -1121,134 +1121,6 @@ public interface StepsPackage extends EPackage {
 	int VIDEO_GEN_OPTIONAL_EXECUTE_IMPLICIT_STEP_OPERATION_COUNT = VIDEO_GEN_OPTIONAL_EXECUTE_ABSTRACT_SUB_STEP_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link videoGenTrace.Steps.impl.VideoGen_Sequence_ExecuteImpl <em>Video Gen Sequence Execute</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see videoGenTrace.Steps.impl.VideoGen_Sequence_ExecuteImpl
-	 * @see videoGenTrace.Steps.impl.StepsPackageImpl#getVideoGen_Sequence_Execute()
-	 * @generated
-	 */
-	int VIDEO_GEN_SEQUENCE_EXECUTE = 17;
-
-	/**
-	 * The feature id for the '<em><b>Mseoccurrence</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VIDEO_GEN_SEQUENCE_EXECUTE__MSEOCCURRENCE = SPECIFIC_STEP__MSEOCCURRENCE;
-
-	/**
-	 * The feature id for the '<em><b>Ending State</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VIDEO_GEN_SEQUENCE_EXECUTE__ENDING_STATE = SPECIFIC_STEP__ENDING_STATE;
-
-	/**
-	 * The feature id for the '<em><b>Starting State</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VIDEO_GEN_SEQUENCE_EXECUTE__STARTING_STATE = SPECIFIC_STEP__STARTING_STATE;
-
-	/**
-	 * The feature id for the '<em><b>Sub Steps</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VIDEO_GEN_SEQUENCE_EXECUTE__SUB_STEPS = SPECIFIC_STEP_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Video Gen Sequence Execute</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VIDEO_GEN_SEQUENCE_EXECUTE_FEATURE_COUNT = SPECIFIC_STEP_FEATURE_COUNT + 1;
-
-	/**
-	 * The operation id for the '<em>Get Caller</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VIDEO_GEN_SEQUENCE_EXECUTE___GET_CALLER = SPECIFIC_STEP_OPERATION_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Video Gen Sequence Execute</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VIDEO_GEN_SEQUENCE_EXECUTE_OPERATION_COUNT = SPECIFIC_STEP_OPERATION_COUNT + 1;
-
-	/**
-	 * The meta object id for the '{@link videoGenTrace.Steps.impl.VideoGen_Sequence_Execute_ImplicitStepImpl <em>Video Gen Sequence Execute Implicit Step</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see videoGenTrace.Steps.impl.VideoGen_Sequence_Execute_ImplicitStepImpl
-	 * @see videoGenTrace.Steps.impl.StepsPackageImpl#getVideoGen_Sequence_Execute_ImplicitStep()
-	 * @generated
-	 */
-	int VIDEO_GEN_SEQUENCE_EXECUTE_IMPLICIT_STEP = 19;
-
-	/**
-	 * The feature id for the '<em><b>Mseoccurrence</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VIDEO_GEN_SEQUENCE_EXECUTE_IMPLICIT_STEP__MSEOCCURRENCE = VIDEO_GEN_SEQUENCE_EXECUTE_ABSTRACT_SUB_STEP__MSEOCCURRENCE;
-
-	/**
-	 * The feature id for the '<em><b>Ending State</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VIDEO_GEN_SEQUENCE_EXECUTE_IMPLICIT_STEP__ENDING_STATE = VIDEO_GEN_SEQUENCE_EXECUTE_ABSTRACT_SUB_STEP__ENDING_STATE;
-
-	/**
-	 * The feature id for the '<em><b>Starting State</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VIDEO_GEN_SEQUENCE_EXECUTE_IMPLICIT_STEP__STARTING_STATE = VIDEO_GEN_SEQUENCE_EXECUTE_ABSTRACT_SUB_STEP__STARTING_STATE;
-
-	/**
-	 * The number of structural features of the '<em>Video Gen Sequence Execute Implicit Step</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VIDEO_GEN_SEQUENCE_EXECUTE_IMPLICIT_STEP_FEATURE_COUNT = VIDEO_GEN_SEQUENCE_EXECUTE_ABSTRACT_SUB_STEP_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Video Gen Sequence Execute Implicit Step</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VIDEO_GEN_SEQUENCE_EXECUTE_IMPLICIT_STEP_OPERATION_COUNT = VIDEO_GEN_SEQUENCE_EXECUTE_ABSTRACT_SUB_STEP_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link videoGenTrace.Steps.impl.VideoGen_Transition_ExecuteImpl <em>Video Gen Transition Execute</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1256,7 +1128,7 @@ public interface StepsPackage extends EPackage {
 	 * @see videoGenTrace.Steps.impl.StepsPackageImpl#getVideoGen_Transition_Execute()
 	 * @generated
 	 */
-	int VIDEO_GEN_TRANSITION_EXECUTE = 20;
+	int VIDEO_GEN_TRANSITION_EXECUTE = 17;
 
 	/**
 	 * The feature id for the '<em><b>Mseoccurrence</b></em>' containment reference.
@@ -1265,7 +1137,7 @@ public interface StepsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VIDEO_GEN_TRANSITION_EXECUTE__MSEOCCURRENCE = VIDEO_GEN_SEQUENCE_EXECUTE_ABSTRACT_SUB_STEP__MSEOCCURRENCE;
+	int VIDEO_GEN_TRANSITION_EXECUTE__MSEOCCURRENCE = VIDEO_GEN_VIDEO_GEN_EXECUTE_ABSTRACT_SUB_STEP__MSEOCCURRENCE;
 
 	/**
 	 * The feature id for the '<em><b>Ending State</b></em>' reference.
@@ -1274,7 +1146,7 @@ public interface StepsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VIDEO_GEN_TRANSITION_EXECUTE__ENDING_STATE = VIDEO_GEN_SEQUENCE_EXECUTE_ABSTRACT_SUB_STEP__ENDING_STATE;
+	int VIDEO_GEN_TRANSITION_EXECUTE__ENDING_STATE = VIDEO_GEN_VIDEO_GEN_EXECUTE_ABSTRACT_SUB_STEP__ENDING_STATE;
 
 	/**
 	 * The feature id for the '<em><b>Starting State</b></em>' reference.
@@ -1283,7 +1155,7 @@ public interface StepsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VIDEO_GEN_TRANSITION_EXECUTE__STARTING_STATE = VIDEO_GEN_SEQUENCE_EXECUTE_ABSTRACT_SUB_STEP__STARTING_STATE;
+	int VIDEO_GEN_TRANSITION_EXECUTE__STARTING_STATE = VIDEO_GEN_VIDEO_GEN_EXECUTE_ABSTRACT_SUB_STEP__STARTING_STATE;
 
 	/**
 	 * The feature id for the '<em><b>Sub Steps</b></em>' containment reference list.
@@ -1292,7 +1164,7 @@ public interface StepsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VIDEO_GEN_TRANSITION_EXECUTE__SUB_STEPS = VIDEO_GEN_SEQUENCE_EXECUTE_ABSTRACT_SUB_STEP_FEATURE_COUNT + 0;
+	int VIDEO_GEN_TRANSITION_EXECUTE__SUB_STEPS = VIDEO_GEN_VIDEO_GEN_EXECUTE_ABSTRACT_SUB_STEP_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Video Gen Transition Execute</em>' class.
@@ -1301,7 +1173,7 @@ public interface StepsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VIDEO_GEN_TRANSITION_EXECUTE_FEATURE_COUNT = VIDEO_GEN_SEQUENCE_EXECUTE_ABSTRACT_SUB_STEP_FEATURE_COUNT + 1;
+	int VIDEO_GEN_TRANSITION_EXECUTE_FEATURE_COUNT = VIDEO_GEN_VIDEO_GEN_EXECUTE_ABSTRACT_SUB_STEP_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Get Caller</em>' operation.
@@ -1310,7 +1182,7 @@ public interface StepsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VIDEO_GEN_TRANSITION_EXECUTE___GET_CALLER = VIDEO_GEN_SEQUENCE_EXECUTE_ABSTRACT_SUB_STEP_OPERATION_COUNT + 0;
+	int VIDEO_GEN_TRANSITION_EXECUTE___GET_CALLER = VIDEO_GEN_VIDEO_GEN_EXECUTE_ABSTRACT_SUB_STEP_OPERATION_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Video Gen Transition Execute</em>' class.
@@ -1319,7 +1191,7 @@ public interface StepsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VIDEO_GEN_TRANSITION_EXECUTE_OPERATION_COUNT = VIDEO_GEN_SEQUENCE_EXECUTE_ABSTRACT_SUB_STEP_OPERATION_COUNT + 1;
+	int VIDEO_GEN_TRANSITION_EXECUTE_OPERATION_COUNT = VIDEO_GEN_VIDEO_GEN_EXECUTE_ABSTRACT_SUB_STEP_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link videoGenTrace.Steps.VideoGen_Transition_Execute_AbstractSubStep <em>Video Gen Transition Execute Abstract Sub Step</em>}' class.
@@ -1329,7 +1201,7 @@ public interface StepsPackage extends EPackage {
 	 * @see videoGenTrace.Steps.impl.StepsPackageImpl#getVideoGen_Transition_Execute_AbstractSubStep()
 	 * @generated
 	 */
-	int VIDEO_GEN_TRANSITION_EXECUTE_ABSTRACT_SUB_STEP = 21;
+	int VIDEO_GEN_TRANSITION_EXECUTE_ABSTRACT_SUB_STEP = 18;
 
 	/**
 	 * The feature id for the '<em><b>Mseoccurrence</b></em>' containment reference.
@@ -1384,7 +1256,7 @@ public interface StepsPackage extends EPackage {
 	 * @see videoGenTrace.Steps.impl.StepsPackageImpl#getVideoGen_Transition_Execute_ImplicitStep()
 	 * @generated
 	 */
-	int VIDEO_GEN_TRANSITION_EXECUTE_IMPLICIT_STEP = 22;
+	int VIDEO_GEN_TRANSITION_EXECUTE_IMPLICIT_STEP = 19;
 
 	/**
 	 * The feature id for the '<em><b>Mseoccurrence</b></em>' containment reference.
@@ -1439,7 +1311,7 @@ public interface StepsPackage extends EPackage {
 	 * @see videoGenTrace.Steps.impl.StepsPackageImpl#getVideoGen_Transition_FinishExecute()
 	 * @generated
 	 */
-	int VIDEO_GEN_TRANSITION_FINISH_EXECUTE = 23;
+	int VIDEO_GEN_TRANSITION_FINISH_EXECUTE = 20;
 
 	/**
 	 * The feature id for the '<em><b>Mseoccurrence</b></em>' containment reference.
@@ -1512,7 +1384,7 @@ public interface StepsPackage extends EPackage {
 	 * @see videoGenTrace.Steps.impl.StepsPackageImpl#getVideoGen_Transition_FinishExecute_AbstractSubStep()
 	 * @generated
 	 */
-	int VIDEO_GEN_TRANSITION_FINISH_EXECUTE_ABSTRACT_SUB_STEP = 24;
+	int VIDEO_GEN_TRANSITION_FINISH_EXECUTE_ABSTRACT_SUB_STEP = 21;
 
 	/**
 	 * The feature id for the '<em><b>Mseoccurrence</b></em>' containment reference.
@@ -1567,7 +1439,7 @@ public interface StepsPackage extends EPackage {
 	 * @see videoGenTrace.Steps.impl.StepsPackageImpl#getVideoGen_Transition_FinishExecute_ImplicitStep()
 	 * @generated
 	 */
-	int VIDEO_GEN_TRANSITION_FINISH_EXECUTE_IMPLICIT_STEP = 25;
+	int VIDEO_GEN_TRANSITION_FINISH_EXECUTE_IMPLICIT_STEP = 22;
 
 	/**
 	 * The feature id for the '<em><b>Mseoccurrence</b></em>' containment reference.
@@ -1622,7 +1494,7 @@ public interface StepsPackage extends EPackage {
 	 * @see videoGenTrace.Steps.impl.StepsPackageImpl#getVideoGen_VideoGen_Compute()
 	 * @generated
 	 */
-	int VIDEO_GEN_VIDEO_GEN_COMPUTE = 26;
+	int VIDEO_GEN_VIDEO_GEN_COMPUTE = 23;
 
 	/**
 	 * The feature id for the '<em><b>Mseoccurrence</b></em>' containment reference.
@@ -1631,7 +1503,7 @@ public interface StepsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VIDEO_GEN_VIDEO_GEN_COMPUTE__MSEOCCURRENCE = SPECIFIC_STEP__MSEOCCURRENCE;
+	int VIDEO_GEN_VIDEO_GEN_COMPUTE__MSEOCCURRENCE = VIDEO_GEN_TRANSITION_EXECUTE_ABSTRACT_SUB_STEP__MSEOCCURRENCE;
 
 	/**
 	 * The feature id for the '<em><b>Ending State</b></em>' reference.
@@ -1640,7 +1512,7 @@ public interface StepsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VIDEO_GEN_VIDEO_GEN_COMPUTE__ENDING_STATE = SPECIFIC_STEP__ENDING_STATE;
+	int VIDEO_GEN_VIDEO_GEN_COMPUTE__ENDING_STATE = VIDEO_GEN_TRANSITION_EXECUTE_ABSTRACT_SUB_STEP__ENDING_STATE;
 
 	/**
 	 * The feature id for the '<em><b>Starting State</b></em>' reference.
@@ -1649,7 +1521,7 @@ public interface StepsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VIDEO_GEN_VIDEO_GEN_COMPUTE__STARTING_STATE = SPECIFIC_STEP__STARTING_STATE;
+	int VIDEO_GEN_VIDEO_GEN_COMPUTE__STARTING_STATE = VIDEO_GEN_TRANSITION_EXECUTE_ABSTRACT_SUB_STEP__STARTING_STATE;
 
 	/**
 	 * The number of structural features of the '<em>Video Gen Video Gen Compute</em>' class.
@@ -1658,7 +1530,7 @@ public interface StepsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VIDEO_GEN_VIDEO_GEN_COMPUTE_FEATURE_COUNT = SPECIFIC_STEP_FEATURE_COUNT + 0;
+	int VIDEO_GEN_VIDEO_GEN_COMPUTE_FEATURE_COUNT = VIDEO_GEN_TRANSITION_EXECUTE_ABSTRACT_SUB_STEP_FEATURE_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Get Caller</em>' operation.
@@ -1667,7 +1539,7 @@ public interface StepsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VIDEO_GEN_VIDEO_GEN_COMPUTE___GET_CALLER = SPECIFIC_STEP_OPERATION_COUNT + 0;
+	int VIDEO_GEN_VIDEO_GEN_COMPUTE___GET_CALLER = VIDEO_GEN_TRANSITION_EXECUTE_ABSTRACT_SUB_STEP_OPERATION_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Video Gen Video Gen Compute</em>' class.
@@ -1676,7 +1548,7 @@ public interface StepsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VIDEO_GEN_VIDEO_GEN_COMPUTE_OPERATION_COUNT = SPECIFIC_STEP_OPERATION_COUNT + 1;
+	int VIDEO_GEN_VIDEO_GEN_COMPUTE_OPERATION_COUNT = VIDEO_GEN_TRANSITION_EXECUTE_ABSTRACT_SUB_STEP_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link videoGenTrace.Steps.impl.VideoGen_VideoGen_ExecuteImpl <em>Video Gen Video Gen Execute</em>}' class.
@@ -1686,7 +1558,7 @@ public interface StepsPackage extends EPackage {
 	 * @see videoGenTrace.Steps.impl.StepsPackageImpl#getVideoGen_VideoGen_Execute()
 	 * @generated
 	 */
-	int VIDEO_GEN_VIDEO_GEN_EXECUTE = 27;
+	int VIDEO_GEN_VIDEO_GEN_EXECUTE = 24;
 
 	/**
 	 * The feature id for the '<em><b>Mseoccurrence</b></em>' containment reference.
@@ -1752,61 +1624,6 @@ public interface StepsPackage extends EPackage {
 	int VIDEO_GEN_VIDEO_GEN_EXECUTE_OPERATION_COUNT = SPECIFIC_STEP_OPERATION_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link videoGenTrace.Steps.VideoGen_VideoGen_Execute_AbstractSubStep <em>Video Gen Video Gen Execute Abstract Sub Step</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see videoGenTrace.Steps.VideoGen_VideoGen_Execute_AbstractSubStep
-	 * @see videoGenTrace.Steps.impl.StepsPackageImpl#getVideoGen_VideoGen_Execute_AbstractSubStep()
-	 * @generated
-	 */
-	int VIDEO_GEN_VIDEO_GEN_EXECUTE_ABSTRACT_SUB_STEP = 28;
-
-	/**
-	 * The feature id for the '<em><b>Mseoccurrence</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VIDEO_GEN_VIDEO_GEN_EXECUTE_ABSTRACT_SUB_STEP__MSEOCCURRENCE = SPECIFIC_STEP__MSEOCCURRENCE;
-
-	/**
-	 * The feature id for the '<em><b>Ending State</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VIDEO_GEN_VIDEO_GEN_EXECUTE_ABSTRACT_SUB_STEP__ENDING_STATE = SPECIFIC_STEP__ENDING_STATE;
-
-	/**
-	 * The feature id for the '<em><b>Starting State</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VIDEO_GEN_VIDEO_GEN_EXECUTE_ABSTRACT_SUB_STEP__STARTING_STATE = SPECIFIC_STEP__STARTING_STATE;
-
-	/**
-	 * The number of structural features of the '<em>Video Gen Video Gen Execute Abstract Sub Step</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VIDEO_GEN_VIDEO_GEN_EXECUTE_ABSTRACT_SUB_STEP_FEATURE_COUNT = SPECIFIC_STEP_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Video Gen Video Gen Execute Abstract Sub Step</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VIDEO_GEN_VIDEO_GEN_EXECUTE_ABSTRACT_SUB_STEP_OPERATION_COUNT = SPECIFIC_STEP_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link videoGenTrace.Steps.impl.VideoGen_VideoGen_Execute_ImplicitStepImpl <em>Video Gen Video Gen Execute Implicit Step</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1814,7 +1631,7 @@ public interface StepsPackage extends EPackage {
 	 * @see videoGenTrace.Steps.impl.StepsPackageImpl#getVideoGen_VideoGen_Execute_ImplicitStep()
 	 * @generated
 	 */
-	int VIDEO_GEN_VIDEO_GEN_EXECUTE_IMPLICIT_STEP = 29;
+	int VIDEO_GEN_VIDEO_GEN_EXECUTE_IMPLICIT_STEP = 26;
 
 	/**
 	 * The feature id for the '<em><b>Mseoccurrence</b></em>' containment reference.
@@ -1869,7 +1686,7 @@ public interface StepsPackage extends EPackage {
 	 * @see videoGenTrace.Steps.impl.StepsPackageImpl#getVideoGen_VideoGen_InitializeModel()
 	 * @generated
 	 */
-	int VIDEO_GEN_VIDEO_GEN_INITIALIZE_MODEL = 30;
+	int VIDEO_GEN_VIDEO_GEN_INITIALIZE_MODEL = 27;
 
 	/**
 	 * The feature id for the '<em><b>Mseoccurrence</b></em>' containment reference.
@@ -1942,7 +1759,7 @@ public interface StepsPackage extends EPackage {
 	 * @see videoGenTrace.Steps.impl.StepsPackageImpl#getVideoGen_VideoGen_InitializeModel_AbstractSubStep()
 	 * @generated
 	 */
-	int VIDEO_GEN_VIDEO_GEN_INITIALIZE_MODEL_ABSTRACT_SUB_STEP = 31;
+	int VIDEO_GEN_VIDEO_GEN_INITIALIZE_MODEL_ABSTRACT_SUB_STEP = 28;
 
 	/**
 	 * The feature id for the '<em><b>Mseoccurrence</b></em>' containment reference.
@@ -1997,7 +1814,7 @@ public interface StepsPackage extends EPackage {
 	 * @see videoGenTrace.Steps.impl.StepsPackageImpl#getVideoGen_VideoGen_InitializeModel_ImplicitStep()
 	 * @generated
 	 */
-	int VIDEO_GEN_VIDEO_GEN_INITIALIZE_MODEL_IMPLICIT_STEP = 32;
+	int VIDEO_GEN_VIDEO_GEN_INITIALIZE_MODEL_IMPLICIT_STEP = 29;
 
 	/**
 	 * The feature id for the '<em><b>Mseoccurrence</b></em>' containment reference.
@@ -2052,7 +1869,7 @@ public interface StepsPackage extends EPackage {
 	 * @see videoGenTrace.Steps.impl.StepsPackageImpl#getVideoGen_VideoGen_Setup()
 	 * @generated
 	 */
-	int VIDEO_GEN_VIDEO_GEN_SETUP = 33;
+	int VIDEO_GEN_VIDEO_GEN_SETUP = 30;
 
 	/**
 	 * The feature id for the '<em><b>Mseoccurrence</b></em>' containment reference.
@@ -2082,13 +1899,22 @@ public interface StepsPackage extends EPackage {
 	int VIDEO_GEN_VIDEO_GEN_SETUP__STARTING_STATE = VIDEO_GEN_VIDEO_GEN_INITIALIZE_MODEL_ABSTRACT_SUB_STEP__STARTING_STATE;
 
 	/**
+	 * The feature id for the '<em><b>Sub Steps</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIDEO_GEN_VIDEO_GEN_SETUP__SUB_STEPS = VIDEO_GEN_VIDEO_GEN_INITIALIZE_MODEL_ABSTRACT_SUB_STEP_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Video Gen Video Gen Setup</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VIDEO_GEN_VIDEO_GEN_SETUP_FEATURE_COUNT = VIDEO_GEN_VIDEO_GEN_INITIALIZE_MODEL_ABSTRACT_SUB_STEP_FEATURE_COUNT + 0;
+	int VIDEO_GEN_VIDEO_GEN_SETUP_FEATURE_COUNT = VIDEO_GEN_VIDEO_GEN_INITIALIZE_MODEL_ABSTRACT_SUB_STEP_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Get Caller</em>' operation.
@@ -2109,14 +1935,14 @@ public interface StepsPackage extends EPackage {
 	int VIDEO_GEN_VIDEO_GEN_SETUP_OPERATION_COUNT = VIDEO_GEN_VIDEO_GEN_INITIALIZE_MODEL_ABSTRACT_SUB_STEP_OPERATION_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link videoGenTrace.Steps.impl.VideoGen_Video_SelectImpl <em>Video Gen Video Select</em>}' class.
+	 * The meta object id for the '{@link videoGenTrace.Steps.VideoGen_VideoGen_Setup_AbstractSubStep <em>Video Gen Video Gen Setup Abstract Sub Step</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see videoGenTrace.Steps.impl.VideoGen_Video_SelectImpl
-	 * @see videoGenTrace.Steps.impl.StepsPackageImpl#getVideoGen_Video_Select()
+	 * @see videoGenTrace.Steps.VideoGen_VideoGen_Setup_AbstractSubStep
+	 * @see videoGenTrace.Steps.impl.StepsPackageImpl#getVideoGen_VideoGen_Setup_AbstractSubStep()
 	 * @generated
 	 */
-	int VIDEO_GEN_VIDEO_SELECT = 34;
+	int VIDEO_GEN_VIDEO_GEN_SETUP_ABSTRACT_SUB_STEP = 31;
 
 	/**
 	 * The feature id for the '<em><b>Mseoccurrence</b></em>' containment reference.
@@ -2125,7 +1951,7 @@ public interface StepsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VIDEO_GEN_VIDEO_SELECT__MSEOCCURRENCE = VIDEO_GEN_ALTERNATIVES_EXECUTE_ABSTRACT_SUB_STEP__MSEOCCURRENCE;
+	int VIDEO_GEN_VIDEO_GEN_SETUP_ABSTRACT_SUB_STEP__MSEOCCURRENCE = SPECIFIC_STEP__MSEOCCURRENCE;
 
 	/**
 	 * The feature id for the '<em><b>Ending State</b></em>' reference.
@@ -2134,7 +1960,7 @@ public interface StepsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VIDEO_GEN_VIDEO_SELECT__ENDING_STATE = VIDEO_GEN_ALTERNATIVES_EXECUTE_ABSTRACT_SUB_STEP__ENDING_STATE;
+	int VIDEO_GEN_VIDEO_GEN_SETUP_ABSTRACT_SUB_STEP__ENDING_STATE = SPECIFIC_STEP__ENDING_STATE;
 
 	/**
 	 * The feature id for the '<em><b>Starting State</b></em>' reference.
@@ -2143,16 +1969,126 @@ public interface StepsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VIDEO_GEN_VIDEO_SELECT__STARTING_STATE = VIDEO_GEN_ALTERNATIVES_EXECUTE_ABSTRACT_SUB_STEP__STARTING_STATE;
+	int VIDEO_GEN_VIDEO_GEN_SETUP_ABSTRACT_SUB_STEP__STARTING_STATE = SPECIFIC_STEP__STARTING_STATE;
 
 	/**
-	 * The number of structural features of the '<em>Video Gen Video Select</em>' class.
+	 * The number of structural features of the '<em>Video Gen Video Gen Setup Abstract Sub Step</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VIDEO_GEN_VIDEO_SELECT_FEATURE_COUNT = VIDEO_GEN_ALTERNATIVES_EXECUTE_ABSTRACT_SUB_STEP_FEATURE_COUNT + 0;
+	int VIDEO_GEN_VIDEO_GEN_SETUP_ABSTRACT_SUB_STEP_FEATURE_COUNT = SPECIFIC_STEP_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Video Gen Video Gen Setup Abstract Sub Step</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIDEO_GEN_VIDEO_GEN_SETUP_ABSTRACT_SUB_STEP_OPERATION_COUNT = SPECIFIC_STEP_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link videoGenTrace.Steps.impl.VideoGen_VideoGen_Setup_ImplicitStepImpl <em>Video Gen Video Gen Setup Implicit Step</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see videoGenTrace.Steps.impl.VideoGen_VideoGen_Setup_ImplicitStepImpl
+	 * @see videoGenTrace.Steps.impl.StepsPackageImpl#getVideoGen_VideoGen_Setup_ImplicitStep()
+	 * @generated
+	 */
+	int VIDEO_GEN_VIDEO_GEN_SETUP_IMPLICIT_STEP = 32;
+
+	/**
+	 * The feature id for the '<em><b>Mseoccurrence</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIDEO_GEN_VIDEO_GEN_SETUP_IMPLICIT_STEP__MSEOCCURRENCE = VIDEO_GEN_VIDEO_GEN_SETUP_ABSTRACT_SUB_STEP__MSEOCCURRENCE;
+
+	/**
+	 * The feature id for the '<em><b>Ending State</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIDEO_GEN_VIDEO_GEN_SETUP_IMPLICIT_STEP__ENDING_STATE = VIDEO_GEN_VIDEO_GEN_SETUP_ABSTRACT_SUB_STEP__ENDING_STATE;
+
+	/**
+	 * The feature id for the '<em><b>Starting State</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIDEO_GEN_VIDEO_GEN_SETUP_IMPLICIT_STEP__STARTING_STATE = VIDEO_GEN_VIDEO_GEN_SETUP_ABSTRACT_SUB_STEP__STARTING_STATE;
+
+	/**
+	 * The number of structural features of the '<em>Video Gen Video Gen Setup Implicit Step</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIDEO_GEN_VIDEO_GEN_SETUP_IMPLICIT_STEP_FEATURE_COUNT = VIDEO_GEN_VIDEO_GEN_SETUP_ABSTRACT_SUB_STEP_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Video Gen Video Gen Setup Implicit Step</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIDEO_GEN_VIDEO_GEN_SETUP_IMPLICIT_STEP_OPERATION_COUNT = VIDEO_GEN_VIDEO_GEN_SETUP_ABSTRACT_SUB_STEP_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link videoGenTrace.Steps.impl.VideoGen_VideoGen_SolveImpl <em>Video Gen Video Gen Solve</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see videoGenTrace.Steps.impl.VideoGen_VideoGen_SolveImpl
+	 * @see videoGenTrace.Steps.impl.StepsPackageImpl#getVideoGen_VideoGen_Solve()
+	 * @generated
+	 */
+	int VIDEO_GEN_VIDEO_GEN_SOLVE = 33;
+
+	/**
+	 * The feature id for the '<em><b>Mseoccurrence</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIDEO_GEN_VIDEO_GEN_SOLVE__MSEOCCURRENCE = VIDEO_GEN_VIDEO_GEN_EXECUTE_ABSTRACT_SUB_STEP__MSEOCCURRENCE;
+
+	/**
+	 * The feature id for the '<em><b>Ending State</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIDEO_GEN_VIDEO_GEN_SOLVE__ENDING_STATE = VIDEO_GEN_VIDEO_GEN_EXECUTE_ABSTRACT_SUB_STEP__ENDING_STATE;
+
+	/**
+	 * The feature id for the '<em><b>Starting State</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIDEO_GEN_VIDEO_GEN_SOLVE__STARTING_STATE = VIDEO_GEN_VIDEO_GEN_EXECUTE_ABSTRACT_SUB_STEP__STARTING_STATE;
+
+	/**
+	 * The number of structural features of the '<em>Video Gen Video Gen Solve</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIDEO_GEN_VIDEO_GEN_SOLVE_FEATURE_COUNT = VIDEO_GEN_VIDEO_GEN_EXECUTE_ABSTRACT_SUB_STEP_FEATURE_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Get Caller</em>' operation.
@@ -2161,16 +2097,80 @@ public interface StepsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VIDEO_GEN_VIDEO_SELECT___GET_CALLER = VIDEO_GEN_ALTERNATIVES_EXECUTE_ABSTRACT_SUB_STEP_OPERATION_COUNT + 0;
+	int VIDEO_GEN_VIDEO_GEN_SOLVE___GET_CALLER = VIDEO_GEN_VIDEO_GEN_EXECUTE_ABSTRACT_SUB_STEP_OPERATION_COUNT + 0;
 
 	/**
-	 * The number of operations of the '<em>Video Gen Video Select</em>' class.
+	 * The number of operations of the '<em>Video Gen Video Gen Solve</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VIDEO_GEN_VIDEO_SELECT_OPERATION_COUNT = VIDEO_GEN_ALTERNATIVES_EXECUTE_ABSTRACT_SUB_STEP_OPERATION_COUNT + 1;
+	int VIDEO_GEN_VIDEO_GEN_SOLVE_OPERATION_COUNT = VIDEO_GEN_VIDEO_GEN_EXECUTE_ABSTRACT_SUB_STEP_OPERATION_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link videoGenTrace.Steps.impl.VideoGen_Video_SetupImpl <em>Video Gen Video Setup</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see videoGenTrace.Steps.impl.VideoGen_Video_SetupImpl
+	 * @see videoGenTrace.Steps.impl.StepsPackageImpl#getVideoGen_Video_Setup()
+	 * @generated
+	 */
+	int VIDEO_GEN_VIDEO_SETUP = 34;
+
+	/**
+	 * The feature id for the '<em><b>Mseoccurrence</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIDEO_GEN_VIDEO_SETUP__MSEOCCURRENCE = SPECIFIC_STEP__MSEOCCURRENCE;
+
+	/**
+	 * The feature id for the '<em><b>Ending State</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIDEO_GEN_VIDEO_SETUP__ENDING_STATE = SPECIFIC_STEP__ENDING_STATE;
+
+	/**
+	 * The feature id for the '<em><b>Starting State</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIDEO_GEN_VIDEO_SETUP__STARTING_STATE = SPECIFIC_STEP__STARTING_STATE;
+
+	/**
+	 * The number of structural features of the '<em>Video Gen Video Setup</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIDEO_GEN_VIDEO_SETUP_FEATURE_COUNT = SPECIFIC_STEP_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Get Caller</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIDEO_GEN_VIDEO_SETUP___GET_CALLER = SPECIFIC_STEP_OPERATION_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Video Gen Video Setup</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIDEO_GEN_VIDEO_SETUP_OPERATION_COUNT = SPECIFIC_STEP_OPERATION_COUNT + 1;
 
 
 	/**
@@ -2416,46 +2416,6 @@ public interface StepsPackage extends EPackage {
 	EClass getVideoGen_Optional_Execute_ImplicitStep();
 
 	/**
-	 * Returns the meta object for class '{@link videoGenTrace.Steps.VideoGen_Sequence_Execute <em>Video Gen Sequence Execute</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Video Gen Sequence Execute</em>'.
-	 * @see videoGenTrace.Steps.VideoGen_Sequence_Execute
-	 * @generated
-	 */
-	EClass getVideoGen_Sequence_Execute();
-
-	/**
-	 * Returns the meta object for the '{@link videoGenTrace.Steps.VideoGen_Sequence_Execute#getCaller() <em>Get Caller</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Caller</em>' operation.
-	 * @see videoGenTrace.Steps.VideoGen_Sequence_Execute#getCaller()
-	 * @generated
-	 */
-	EOperation getVideoGen_Sequence_Execute__GetCaller();
-
-	/**
-	 * Returns the meta object for class '{@link videoGenTrace.Steps.VideoGen_Sequence_Execute_AbstractSubStep <em>Video Gen Sequence Execute Abstract Sub Step</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Video Gen Sequence Execute Abstract Sub Step</em>'.
-	 * @see videoGenTrace.Steps.VideoGen_Sequence_Execute_AbstractSubStep
-	 * @generated
-	 */
-	EClass getVideoGen_Sequence_Execute_AbstractSubStep();
-
-	/**
-	 * Returns the meta object for class '{@link videoGenTrace.Steps.VideoGen_Sequence_Execute_ImplicitStep <em>Video Gen Sequence Execute Implicit Step</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Video Gen Sequence Execute Implicit Step</em>'.
-	 * @see videoGenTrace.Steps.VideoGen_Sequence_Execute_ImplicitStep
-	 * @generated
-	 */
-	EClass getVideoGen_Sequence_Execute_ImplicitStep();
-
-	/**
 	 * Returns the meta object for class '{@link videoGenTrace.Steps.VideoGen_Transition_Execute <em>Video Gen Transition Execute</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2656,24 +2616,64 @@ public interface StepsPackage extends EPackage {
 	EOperation getVideoGen_VideoGen_Setup__GetCaller();
 
 	/**
-	 * Returns the meta object for class '{@link videoGenTrace.Steps.VideoGen_Video_Select <em>Video Gen Video Select</em>}'.
+	 * Returns the meta object for class '{@link videoGenTrace.Steps.VideoGen_VideoGen_Setup_AbstractSubStep <em>Video Gen Video Gen Setup Abstract Sub Step</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Video Gen Video Select</em>'.
-	 * @see videoGenTrace.Steps.VideoGen_Video_Select
+	 * @return the meta object for class '<em>Video Gen Video Gen Setup Abstract Sub Step</em>'.
+	 * @see videoGenTrace.Steps.VideoGen_VideoGen_Setup_AbstractSubStep
 	 * @generated
 	 */
-	EClass getVideoGen_Video_Select();
+	EClass getVideoGen_VideoGen_Setup_AbstractSubStep();
 
 	/**
-	 * Returns the meta object for the '{@link videoGenTrace.Steps.VideoGen_Video_Select#getCaller() <em>Get Caller</em>}' operation.
+	 * Returns the meta object for class '{@link videoGenTrace.Steps.VideoGen_VideoGen_Setup_ImplicitStep <em>Video Gen Video Gen Setup Implicit Step</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Video Gen Video Gen Setup Implicit Step</em>'.
+	 * @see videoGenTrace.Steps.VideoGen_VideoGen_Setup_ImplicitStep
+	 * @generated
+	 */
+	EClass getVideoGen_VideoGen_Setup_ImplicitStep();
+
+	/**
+	 * Returns the meta object for class '{@link videoGenTrace.Steps.VideoGen_VideoGen_Solve <em>Video Gen Video Gen Solve</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Video Gen Video Gen Solve</em>'.
+	 * @see videoGenTrace.Steps.VideoGen_VideoGen_Solve
+	 * @generated
+	 */
+	EClass getVideoGen_VideoGen_Solve();
+
+	/**
+	 * Returns the meta object for the '{@link videoGenTrace.Steps.VideoGen_VideoGen_Solve#getCaller() <em>Get Caller</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Get Caller</em>' operation.
-	 * @see videoGenTrace.Steps.VideoGen_Video_Select#getCaller()
+	 * @see videoGenTrace.Steps.VideoGen_VideoGen_Solve#getCaller()
 	 * @generated
 	 */
-	EOperation getVideoGen_Video_Select__GetCaller();
+	EOperation getVideoGen_VideoGen_Solve__GetCaller();
+
+	/**
+	 * Returns the meta object for class '{@link videoGenTrace.Steps.VideoGen_Video_Setup <em>Video Gen Video Setup</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Video Gen Video Setup</em>'.
+	 * @see videoGenTrace.Steps.VideoGen_Video_Setup
+	 * @generated
+	 */
+	EClass getVideoGen_Video_Setup();
+
+	/**
+	 * Returns the meta object for the '{@link videoGenTrace.Steps.VideoGen_Video_Setup#getCaller() <em>Get Caller</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Caller</em>' operation.
+	 * @see videoGenTrace.Steps.VideoGen_Video_Setup#getCaller()
+	 * @generated
+	 */
+	EOperation getVideoGen_Video_Setup__GetCaller();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -2925,44 +2925,6 @@ public interface StepsPackage extends EPackage {
 		EClass VIDEO_GEN_OPTIONAL_EXECUTE_IMPLICIT_STEP = eINSTANCE.getVideoGen_Optional_Execute_ImplicitStep();
 
 		/**
-		 * The meta object literal for the '{@link videoGenTrace.Steps.impl.VideoGen_Sequence_ExecuteImpl <em>Video Gen Sequence Execute</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see videoGenTrace.Steps.impl.VideoGen_Sequence_ExecuteImpl
-		 * @see videoGenTrace.Steps.impl.StepsPackageImpl#getVideoGen_Sequence_Execute()
-		 * @generated
-		 */
-		EClass VIDEO_GEN_SEQUENCE_EXECUTE = eINSTANCE.getVideoGen_Sequence_Execute();
-
-		/**
-		 * The meta object literal for the '<em><b>Get Caller</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation VIDEO_GEN_SEQUENCE_EXECUTE___GET_CALLER = eINSTANCE.getVideoGen_Sequence_Execute__GetCaller();
-
-		/**
-		 * The meta object literal for the '{@link videoGenTrace.Steps.VideoGen_Sequence_Execute_AbstractSubStep <em>Video Gen Sequence Execute Abstract Sub Step</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see videoGenTrace.Steps.VideoGen_Sequence_Execute_AbstractSubStep
-		 * @see videoGenTrace.Steps.impl.StepsPackageImpl#getVideoGen_Sequence_Execute_AbstractSubStep()
-		 * @generated
-		 */
-		EClass VIDEO_GEN_SEQUENCE_EXECUTE_ABSTRACT_SUB_STEP = eINSTANCE.getVideoGen_Sequence_Execute_AbstractSubStep();
-
-		/**
-		 * The meta object literal for the '{@link videoGenTrace.Steps.impl.VideoGen_Sequence_Execute_ImplicitStepImpl <em>Video Gen Sequence Execute Implicit Step</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see videoGenTrace.Steps.impl.VideoGen_Sequence_Execute_ImplicitStepImpl
-		 * @see videoGenTrace.Steps.impl.StepsPackageImpl#getVideoGen_Sequence_Execute_ImplicitStep()
-		 * @generated
-		 */
-		EClass VIDEO_GEN_SEQUENCE_EXECUTE_IMPLICIT_STEP = eINSTANCE.getVideoGen_Sequence_Execute_ImplicitStep();
-
-		/**
 		 * The meta object literal for the '{@link videoGenTrace.Steps.impl.VideoGen_Transition_ExecuteImpl <em>Video Gen Transition Execute</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3151,14 +3113,34 @@ public interface StepsPackage extends EPackage {
 		EOperation VIDEO_GEN_VIDEO_GEN_SETUP___GET_CALLER = eINSTANCE.getVideoGen_VideoGen_Setup__GetCaller();
 
 		/**
-		 * The meta object literal for the '{@link videoGenTrace.Steps.impl.VideoGen_Video_SelectImpl <em>Video Gen Video Select</em>}' class.
+		 * The meta object literal for the '{@link videoGenTrace.Steps.VideoGen_VideoGen_Setup_AbstractSubStep <em>Video Gen Video Gen Setup Abstract Sub Step</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see videoGenTrace.Steps.impl.VideoGen_Video_SelectImpl
-		 * @see videoGenTrace.Steps.impl.StepsPackageImpl#getVideoGen_Video_Select()
+		 * @see videoGenTrace.Steps.VideoGen_VideoGen_Setup_AbstractSubStep
+		 * @see videoGenTrace.Steps.impl.StepsPackageImpl#getVideoGen_VideoGen_Setup_AbstractSubStep()
 		 * @generated
 		 */
-		EClass VIDEO_GEN_VIDEO_SELECT = eINSTANCE.getVideoGen_Video_Select();
+		EClass VIDEO_GEN_VIDEO_GEN_SETUP_ABSTRACT_SUB_STEP = eINSTANCE.getVideoGen_VideoGen_Setup_AbstractSubStep();
+
+		/**
+		 * The meta object literal for the '{@link videoGenTrace.Steps.impl.VideoGen_VideoGen_Setup_ImplicitStepImpl <em>Video Gen Video Gen Setup Implicit Step</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see videoGenTrace.Steps.impl.VideoGen_VideoGen_Setup_ImplicitStepImpl
+		 * @see videoGenTrace.Steps.impl.StepsPackageImpl#getVideoGen_VideoGen_Setup_ImplicitStep()
+		 * @generated
+		 */
+		EClass VIDEO_GEN_VIDEO_GEN_SETUP_IMPLICIT_STEP = eINSTANCE.getVideoGen_VideoGen_Setup_ImplicitStep();
+
+		/**
+		 * The meta object literal for the '{@link videoGenTrace.Steps.impl.VideoGen_VideoGen_SolveImpl <em>Video Gen Video Gen Solve</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see videoGenTrace.Steps.impl.VideoGen_VideoGen_SolveImpl
+		 * @see videoGenTrace.Steps.impl.StepsPackageImpl#getVideoGen_VideoGen_Solve()
+		 * @generated
+		 */
+		EClass VIDEO_GEN_VIDEO_GEN_SOLVE = eINSTANCE.getVideoGen_VideoGen_Solve();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Caller</b></em>' operation.
@@ -3166,7 +3148,25 @@ public interface StepsPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation VIDEO_GEN_VIDEO_SELECT___GET_CALLER = eINSTANCE.getVideoGen_Video_Select__GetCaller();
+		EOperation VIDEO_GEN_VIDEO_GEN_SOLVE___GET_CALLER = eINSTANCE.getVideoGen_VideoGen_Solve__GetCaller();
+
+		/**
+		 * The meta object literal for the '{@link videoGenTrace.Steps.impl.VideoGen_Video_SetupImpl <em>Video Gen Video Setup</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see videoGenTrace.Steps.impl.VideoGen_Video_SetupImpl
+		 * @see videoGenTrace.Steps.impl.StepsPackageImpl#getVideoGen_Video_Setup()
+		 * @generated
+		 */
+		EClass VIDEO_GEN_VIDEO_SETUP = eINSTANCE.getVideoGen_Video_Setup();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Caller</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation VIDEO_GEN_VIDEO_SETUP___GET_CALLER = eINSTANCE.getVideoGen_Video_Setup__GetCaller();
 
 	}
 

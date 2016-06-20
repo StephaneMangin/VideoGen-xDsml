@@ -2,9 +2,9 @@
  */
 package videoGenTrace.Steps.impl;
 
-import org.eclipse.emf.ecore.EClass;
+import fr.inria.diverse.trace.commons.model.trace.impl.SmallStepImpl;
 
-import org.gemoc.executionframework.engine.mse.impl.SmallStepImpl;
+import org.eclipse.emf.ecore.EClass;
 
 import videoGenTrace.Steps.RootImplicitStep;
 import videoGenTrace.Steps.StepsPackage;

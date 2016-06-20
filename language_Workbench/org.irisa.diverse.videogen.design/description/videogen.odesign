@@ -36,7 +36,7 @@
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             </style>
           </borderedNodeMappings>
-          <subNodeMappings name="Mandatory" labelDirectEdit="//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='LabelDirectEdition']" semanticCandidatesExpression="[self.transitions /]" doubleClickDescription="//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='Active%2FInactive']" synchronizationLock="true" domainClass="videoGen.Mandatory">
+          <subNodeMappings name="Mandatory" labelDirectEdit="//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='LabelDirectEdition']" semanticCandidatesExpression="[self.transitions /]" synchronizationLock="true" domainClass="videoGen.Mandatory">
             <borderedNodeMappings name="MimeType" semanticCandidatesExpression="feature:video" domainClass="videoGen.Video">
               <style xsi:type="style:SquareDescription" labelSize="5" showIcon="false" labelExpression="feature:mimetype" labelPosition="node" resizeKind="NSEW" width="3" height="1">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -50,7 +50,7 @@
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
             </style>
           </subNodeMappings>
-          <subNodeMappings name="Optional" semanticCandidatesExpression="[self.transitions /]" doubleClickDescription="//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='Active%2FInactive']" synchronizationLock="true" domainClass="videoGen.Optional">
+          <subNodeMappings name="Optional" semanticCandidatesExpression="[self.transitions /]" synchronizationLock="true" domainClass="videoGen.Optional">
             <borderedNodeMappings name="Percentage" labelDirectEdit="//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='Probabilities']" semanticCandidatesExpression="var:self" domainClass="videoGen.Optional">
               <style xsi:type="style:SquareDescription" labelSize="5" showIcon="false" labelExpression="[self.probability + ' %'/]" labelPosition="node" width="3" height="1">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -58,7 +58,7 @@
                 <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
               </style>
             </borderedNodeMappings>
-            <borderedNodeMappings name="MimeType" semanticCandidatesExpression="feature:video" domainClass="videoGen.Video">
+            <borderedNodeMappings name="MimeType" semanticCandidatesExpression="feature:video" doubleClickDescription="//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='Active%2FInactive']" domainClass="videoGen.Video">
               <style xsi:type="style:SquareDescription" labelSize="5" showIcon="false" labelExpression="feature:mimetype" labelPosition="node" resizeKind="NSEW" width="3" height="1">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
@@ -96,7 +96,7 @@
             </style>
           </subNodeMappings>
           <subContainerMappings xsi:type="description_1:ContainerMappingImport" name="Alternative" labelDirectEdit="//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='LabelDirectEdition']" semanticCandidatesExpression="[self.transitions /]" doubleClickDescription="//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='Active%2FInactive']" synchronizationLock="true" domainClass="videoGen.Alternatives">
-            <subNodeMappings name="OptionSub" semanticCandidatesExpression="feature:options" doubleClickDescription="//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='Active%2FInactive']" synchronizationLock="true" domainClass="videoGen.Optional" reusedBorderedNodeMappings="//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGen']/@subNodeMappings[name='Optional']">
+            <subNodeMappings name="OptionSub" semanticCandidatesExpression="feature:options" synchronizationLock="true" domainClass="videoGen.Optional" reusedBorderedNodeMappings="//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGen']/@subNodeMappings[name='Optional']">
               <borderedNodeMappings name="Percentage" labelDirectEdit="//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='Probabilities']" semanticCandidatesExpression="var:self" domainClass="videoGen.Optional">
                 <style xsi:type="style:SquareDescription" labelSize="5" showIcon="false" labelExpression="[self.probability + ' %'/]" labelPosition="node" width="3" height="1">
                   <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -316,7 +316,7 @@
               </initialOperation>
             </menuItemDescription>
           </ownedTools>
-          <ownedTools xsi:type="tool:DoubleClickDescription" name="Active/Inactive" forceRefresh="true" mappings="//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGen']/@subContainerMappings[name='Alternative'] //@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGen']/@subNodeMappings[name='Delay'] //@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGen']/@subNodeMappings[name='Generate'] //@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGen']/@subNodeMappings[name='Initialize'] //@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGen']/@subNodeMappings[name='Mandatory'] //@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGen']/@subNodeMappings[name='Optional'] //@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGen']/@subContainerMappings[name='Alternative']/@subNodeMappings[name='OptionSub']">
+          <ownedTools xsi:type="tool:DoubleClickDescription" name="Active/Inactive" forceRefresh="true" mappings="//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGen']/@subContainerMappings[name='Alternative'] //@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGen']/@subNodeMappings[name='Delay'] //@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGen']/@subNodeMappings[name='Generate'] //@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGen']/@subNodeMappings[name='Initialize'] //@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGen']/@subNodeMappings[name='Optional']/@borderedNodeMappings[name='MimeType']">
             <element name="element"/>
             <elementView name="elementView"/>
             <initialOperation>
@@ -404,11 +404,14 @@
         </containerMappings>
       </defaultLayer>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_2:EditionTableDescription" name="Constraint table" initialisation="true" showOnStartup="true" domainClass="videoGen.VideoGen">
-      <ownedLineMappings name="minUserConstraint" domainClass="videoGen.VideoGen" semanticCandidatesExpression="[self.minUserConstraint /]"/>
-      <ownedLineMappings name="maxUserConstraint" domainClass="videoGen.VideoGen" semanticCandidatesExpression="[self.maxUserConstraint /]"/>
-      <ownedColumnMappings name="contraintName" featureName="Constraint name"/>
-      <ownedColumnMappings name="constraintValue" featureName="Value"/>
+    <ownedRepresentations xsi:type="description_2:EditionTableDescription" name="Video Values" domainClass="videoGen.Video">
+      <ownedLineMappings name="name" domainClass="videoGen.Video" semanticCandidatesExpression="[self.name /]"/>
+      <ownedLineMappings name="url" domainClass="videoGen.Video" semanticCandidatesExpression="[self.url /]"/>
+      <ownedLineMappings name="duration" domainClass="videoGen.Video" semanticCandidatesExpression="[self.duration /]"/>
+      <ownedLineMappings name="mimetype" domainClass="videoGen.Video" semanticCandidatesExpression="[self.mimetype /]"/>
+      <ownedLineMappings name="description" domainClass="videoGen.Video" semanticCandidatesExpression="[self.description /]"/>
+      <ownedColumnMappings name="fieldName" featureName="Field"/>
+      <ownedColumnMappings name="fieldValue" featureName="Value"/>
     </ownedRepresentations>
   </ownedViewpoints>
 </description:Group>

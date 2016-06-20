@@ -72,6 +72,18 @@ public class StatesAdapterFactory extends AdapterFactoryImpl {
 				return createStateAdapter();
 			}
 			@Override
+			public Adapter caseTransition_callnextTransition_Value(Transition_callnextTransition_Value object) {
+				return createTransition_callnextTransition_ValueAdapter();
+			}
+			@Override
+			public Adapter caseTransition_executed_Value(Transition_executed_Value object) {
+				return createTransition_executed_ValueAdapter();
+			}
+			@Override
+			public Adapter caseTransition_videoGen_Value(Transition_videoGen_Value object) {
+				return createTransition_videoGen_ValueAdapter();
+			}
+			@Override
 			public Adapter caseValue(Value object) {
 				return createValueAdapter();
 			}
@@ -106,6 +118,48 @@ public class StatesAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createStateAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link videoGenTrace.States.Transition_callnextTransition_Value <em>Transition callnext Transition Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see videoGenTrace.States.Transition_callnextTransition_Value
+	 * @generated
+	 */
+	public Adapter createTransition_callnextTransition_ValueAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link videoGenTrace.States.Transition_executed_Value <em>Transition executed Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see videoGenTrace.States.Transition_executed_Value
+	 * @generated
+	 */
+	public Adapter createTransition_executed_ValueAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link videoGenTrace.States.Transition_videoGen_Value <em>Transition video Gen Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see videoGenTrace.States.Transition_videoGen_Value
+	 * @generated
+	 */
+	public Adapter createTransition_videoGen_ValueAdapter() {
 		return null;
 	}
 

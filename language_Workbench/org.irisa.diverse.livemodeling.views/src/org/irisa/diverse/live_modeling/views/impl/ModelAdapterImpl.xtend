@@ -25,24 +25,11 @@ class ModelAdapterImpl implements IModelAdapter {
 
 	override void removeListener(IModelListener listener) { listeners.remove(listener) }
 		
-	override Map<Object, Object> getValues() {
+	override Map<Long, Integer> getValues() {
 		// Call the solver to get all possible solutions
-		println("################# GET VALUES START")
-		val values = newLinkedHashMap()
 		val sequences = model.transitions.filter[active == true].filter[it instanceof Sequence].map[it as Sequence]
-		if (!model.allSolutions.empty) {
-			model.allSolutions.forEach[indice, solutions |
-				var duration = 0
-				for (name: solutions.keySet) {
-					for (sequence: sequences) {
-						if (sequence.name.equals(name) && solutions.get(name)) {
-							duration += sequence.video.duration
-						} 
-					}	
-				}
-				values.put(indice, duration)
-			]
- 		}
+		val values = model.solve
+		println("################# GET VALUES START")
 		println(values)
 		println("##### GET VALUES END")
 		values

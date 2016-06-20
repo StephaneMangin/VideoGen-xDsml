@@ -8,9 +8,7 @@ import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EValidator;
-
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-
 import org.irisa.diverse.videogen.videoGen.Alternatives;
 import org.irisa.diverse.videogen.videoGen.Delay;
 import org.irisa.diverse.videogen.videoGen.Generate;
@@ -25,7 +23,6 @@ import org.irisa.diverse.videogen.videoGen.Video;
 import org.irisa.diverse.videogen.videoGen.VideoGen;
 import org.irisa.diverse.videogen.videoGen.VideoGenFactory;
 import org.irisa.diverse.videogen.videoGen.VideoGenPackage;
-
 import org.irisa.diverse.videogen.videoGen.util.VideoGenValidator;
 
 /**

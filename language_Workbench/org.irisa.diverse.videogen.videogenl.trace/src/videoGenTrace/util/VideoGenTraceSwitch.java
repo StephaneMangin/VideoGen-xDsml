@@ -2,12 +2,12 @@
  */
 package videoGenTrace.util;
 
+import fr.inria.diverse.trace.commons.model.trace.Trace;
+
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.util.Switch;
-
-import org.gemoc.executionframework.engine.mse.Trace;
 
 import videoGenTrace.*;
 

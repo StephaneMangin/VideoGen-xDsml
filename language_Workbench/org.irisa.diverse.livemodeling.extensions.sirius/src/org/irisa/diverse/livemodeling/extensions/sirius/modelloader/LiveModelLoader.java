@@ -66,6 +66,12 @@ import fr.obeo.dsl.debug.ide.sirius.ui.services.AbstractDSLDebuggerServices;
 
 public class LiveModelLoader extends DefaultModelLoader {
 
+	public LiveModelLoader() {
+		super();
+		System.out.println("+++++++++++++++++++++++++ INSTANCIATION : LiveModelLoader");
+	}
+	
+	@Override
 	public Resource loadModelForAnimation(IExecutionContext context)
 			throws RuntimeException {
 		Resource resource = null;
@@ -183,6 +189,8 @@ public class LiveModelLoader extends DefaultModelLoader {
 //				final IEditorPart editorPart = DialectUIManager.INSTANCE
 //						.openEditor(session, representation, monitor);
 //				if (editorPart instanceof DDiagramEditor) {
+//					System.out.println("=========================================================================");
+//					System.out.println(((DDiagramEditor) editorPart).getPermissionAuthority().getClass().getName());
 //					((DDiagramEditor) editorPart).getPaletteManager()
 //							.addToolFilter(new ToolFilter() {
 //								@Override
@@ -193,8 +201,7 @@ public class LiveModelLoader extends DefaultModelLoader {
 //							});
 //				}
 //				if (editorPart instanceof DiagramEditorWithFlyOutPalette) {
-//					PaletteUtils
-//							.colapsePalette((DiagramEditorWithFlyOutPalette) editorPart);
+//					PaletteUtils.colapsePalette((DiagramEditorWithFlyOutPalette) editorPart);
 //				}
 
 				RecordingCommand command = new RecordingCommand(editingDomain,

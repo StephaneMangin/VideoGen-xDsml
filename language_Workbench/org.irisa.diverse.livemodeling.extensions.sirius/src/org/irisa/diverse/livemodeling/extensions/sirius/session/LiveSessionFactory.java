@@ -39,8 +39,9 @@ import org.eclipse.sirius.viewpoint.SiriusPlugin;
 import org.eclipse.sirius.viewpoint.ViewpointFactory;
 
 /**
- * Debug {@link Session} factory.
+ * Live {@link Session} factory.
  * 
+ * @author <a href="mailto:stephane.mangin@inria.fr">Stéphane Mangin</a>
  * @author <a href="mailto:yvan.lussaud@obeo.fr">Yvan Lussaud</a>
  *
  */
@@ -53,6 +54,7 @@ public final class LiveSessionFactory {
 
 	/** Avoid instantiation. */
 	private LiveSessionFactory() {
+		System.out.println("+++++++++++++++++++++++++ INSTANCIATION : LivePermissionProvider");
 	}
 
 	/**

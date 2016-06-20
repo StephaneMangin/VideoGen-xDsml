@@ -5,7 +5,6 @@ import java.util.Map
 import org.eclipse.core.runtime.CoreException
 import org.eclipse.debug.core.DebugPlugin
 import org.eclipse.jface.action.Action
-import org.gemoc.executionframework.engine.mse.MseFactory
 import org.gemoc.executionframework.ui.views.engine.EngineSelectionDependentViewPart
 import org.gemoc.xdsmlframework.api.core.IRunConfiguration
 import org.irisa.diverse.live_modeling.views.Activator
@@ -30,38 +29,38 @@ abstract class AbstractView extends EngineSelectionDependentViewPart implements 
 	}
 	
 	def private void setupRunConfigurationAttributes() {
-		val launchConfiguration = MseFactory.eINSTANCE.createLaunchConfiguration
-		val attributes = newHashMap()
-		
-		if (launchConfiguration.languageName != null) {
-			attributes.put(IRunConfiguration.LAUNCH_SELECTED_LANGUAGE, launchConfiguration.languageName)
-		}
-		if (launchConfiguration.resourceURI != null) {
-			attributes.put(AbstractDSLLaunchConfigurationDelegate.RESOURCE_URI,launchConfiguration.resourceURI)
-		}
-		if (launchConfiguration.airdResourceURI != null) {
-			attributes.put("airdResource", launchConfiguration.airdResourceURI)
-		} else {
-			attributes.put(AbstractDSLLaunchConfigurationDelegate.RESOURCE_URI, "platform:/resource//org.irisa.diverse.videogen/model/VideoGen.ecore")
-		}
-		if (launchConfiguration.methodEntryPoint != null) {
-			attributes.put(IRunConfiguration.LAUNCH_METHOD_ENTRY_POINT, launchConfiguration.methodEntryPoint)
-		}
-		if (launchConfiguration.modelEntryPoint != null) {
-			attributes.put(IRunConfiguration.LAUNCH_MODEL_ENTRY_POINT, launchConfiguration.modelEntryPoint)
-		}
-		if (launchConfiguration.initializationMethod != null) {
-			attributes.put(IRunConfiguration.LAUNCH_INITIALIZATION_METHOD, launchConfiguration.initializationMethod)
-		}
-		if (launchConfiguration.initializationArguments != null) {
-			attributes.put(IRunConfiguration.LAUNCH_INITIALIZATION_ARGUMENTS,launchConfiguration.initializationArguments)
-		}
-		for (String extensionName : launchConfiguration.addonExtensions) {
-			attributes.put(extensionName, true)
-		}
-		if (!attributes.empty) {
-			runConfigurationAttributes = attributes;
-		}
+//		val launchConfiguration = MseFactory.eINSTANCE.createLaunchConfiguration
+//		val attributes = newHashMap()
+//		
+//		if (launchConfiguration.languageName != null) {
+//			attributes.put(IRunConfiguration.LAUNCH_SELECTED_LANGUAGE, launchConfiguration.languageName)
+//		}
+//		if (launchConfiguration.resourceURI != null) {
+//			attributes.put(AbstractDSLLaunchConfigurationDelegate.RESOURCE_URI,launchConfiguration.resourceURI)
+//		}
+//		if (launchConfiguration.airdResourceURI != null) {
+//			attributes.put("airdResource", launchConfiguration.airdResourceURI)
+//		} else {
+//			attributes.put(AbstractDSLLaunchConfigurationDelegate.RESOURCE_URI, "platform:/resource//org.irisa.diverse.videogen/model/VideoGen.ecore")
+//		}
+//		if (launchConfiguration.methodEntryPoint != null) {
+//			attributes.put(IRunConfiguration.LAUNCH_METHOD_ENTRY_POINT, launchConfiguration.methodEntryPoint)
+//		}
+//		if (launchConfiguration.modelEntryPoint != null) {
+//			attributes.put(IRunConfiguration.LAUNCH_MODEL_ENTRY_POINT, launchConfiguration.modelEntryPoint)
+//		}
+//		if (launchConfiguration.initializationMethod != null) {
+//			attributes.put(IRunConfiguration.LAUNCH_INITIALIZATION_METHOD, launchConfiguration.initializationMethod)
+//		}
+//		if (launchConfiguration.initializationArguments != null) {
+//			attributes.put(IRunConfiguration.LAUNCH_INITIALIZATION_ARGUMENTS,launchConfiguration.initializationArguments)
+//		}
+//		for (String extensionName : launchConfiguration.addonExtensions) {
+//			attributes.put(extensionName, true)
+//		}
+//		if (!attributes.empty) {
+//			runConfigurationAttributes = attributes;
+//		}
 	}
 
 	override void executeModel() {

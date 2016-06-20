@@ -2,17 +2,17 @@
  */
 package videoGenTrace.Steps.util;
 
+import fr.inria.diverse.trace.commons.model.trace.BigStep;
+import fr.inria.diverse.trace.commons.model.trace.SequentialStep;
+import fr.inria.diverse.trace.commons.model.trace.SmallStep;
+import fr.inria.diverse.trace.commons.model.trace.Step;
+
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 
 import org.eclipse.emf.ecore.EObject;
-
-import org.gemoc.executionframework.engine.mse.BigStep;
-import org.gemoc.executionframework.engine.mse.SequentialStep;
-import org.gemoc.executionframework.engine.mse.SmallStep;
-import org.gemoc.executionframework.engine.mse.Step;
 
 import videoGenTrace.Steps.*;
 
@@ -141,18 +141,6 @@ public class StepsAdapterFactory extends AdapterFactoryImpl {
 				return createVideoGen_Optional_Execute_ImplicitStepAdapter();
 			}
 			@Override
-			public Adapter caseVideoGen_Sequence_Execute(VideoGen_Sequence_Execute object) {
-				return createVideoGen_Sequence_ExecuteAdapter();
-			}
-			@Override
-			public Adapter caseVideoGen_Sequence_Execute_AbstractSubStep(VideoGen_Sequence_Execute_AbstractSubStep object) {
-				return createVideoGen_Sequence_Execute_AbstractSubStepAdapter();
-			}
-			@Override
-			public Adapter caseVideoGen_Sequence_Execute_ImplicitStep(VideoGen_Sequence_Execute_ImplicitStep object) {
-				return createVideoGen_Sequence_Execute_ImplicitStepAdapter();
-			}
-			@Override
 			public Adapter caseVideoGen_Transition_Execute(VideoGen_Transition_Execute object) {
 				return createVideoGen_Transition_ExecuteAdapter();
 			}
@@ -209,8 +197,20 @@ public class StepsAdapterFactory extends AdapterFactoryImpl {
 				return createVideoGen_VideoGen_SetupAdapter();
 			}
 			@Override
-			public Adapter caseVideoGen_Video_Select(VideoGen_Video_Select object) {
-				return createVideoGen_Video_SelectAdapter();
+			public Adapter caseVideoGen_VideoGen_Setup_AbstractSubStep(VideoGen_VideoGen_Setup_AbstractSubStep object) {
+				return createVideoGen_VideoGen_Setup_AbstractSubStepAdapter();
+			}
+			@Override
+			public Adapter caseVideoGen_VideoGen_Setup_ImplicitStep(VideoGen_VideoGen_Setup_ImplicitStep object) {
+				return createVideoGen_VideoGen_Setup_ImplicitStepAdapter();
+			}
+			@Override
+			public Adapter caseVideoGen_VideoGen_Solve(VideoGen_VideoGen_Solve object) {
+				return createVideoGen_VideoGen_SolveAdapter();
+			}
+			@Override
+			public Adapter caseVideoGen_Video_Setup(VideoGen_Video_Setup object) {
+				return createVideoGen_Video_SetupAdapter();
 			}
 			@Override
 			public Adapter caseStep(Step object) {
@@ -487,48 +487,6 @@ public class StepsAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link videoGenTrace.Steps.VideoGen_Sequence_Execute <em>Video Gen Sequence Execute</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see videoGenTrace.Steps.VideoGen_Sequence_Execute
-	 * @generated
-	 */
-	public Adapter createVideoGen_Sequence_ExecuteAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link videoGenTrace.Steps.VideoGen_Sequence_Execute_AbstractSubStep <em>Video Gen Sequence Execute Abstract Sub Step</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see videoGenTrace.Steps.VideoGen_Sequence_Execute_AbstractSubStep
-	 * @generated
-	 */
-	public Adapter createVideoGen_Sequence_Execute_AbstractSubStepAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link videoGenTrace.Steps.VideoGen_Sequence_Execute_ImplicitStep <em>Video Gen Sequence Execute Implicit Step</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see videoGenTrace.Steps.VideoGen_Sequence_Execute_ImplicitStep
-	 * @generated
-	 */
-	public Adapter createVideoGen_Sequence_Execute_ImplicitStepAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link videoGenTrace.Steps.VideoGen_Transition_Execute <em>Video Gen Transition Execute</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -725,27 +683,69 @@ public class StepsAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link videoGenTrace.Steps.VideoGen_Video_Select <em>Video Gen Video Select</em>}'.
+	 * Creates a new adapter for an object of class '{@link videoGenTrace.Steps.VideoGen_VideoGen_Setup_AbstractSubStep <em>Video Gen Video Gen Setup Abstract Sub Step</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see videoGenTrace.Steps.VideoGen_Video_Select
+	 * @see videoGenTrace.Steps.VideoGen_VideoGen_Setup_AbstractSubStep
 	 * @generated
 	 */
-	public Adapter createVideoGen_Video_SelectAdapter() {
+	public Adapter createVideoGen_VideoGen_Setup_AbstractSubStepAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.gemoc.executionframework.engine.mse.Step <em>Step</em>}'.
+	 * Creates a new adapter for an object of class '{@link videoGenTrace.Steps.VideoGen_VideoGen_Setup_ImplicitStep <em>Video Gen Video Gen Setup Implicit Step</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.gemoc.executionframework.engine.mse.Step
+	 * @see videoGenTrace.Steps.VideoGen_VideoGen_Setup_ImplicitStep
+	 * @generated
+	 */
+	public Adapter createVideoGen_VideoGen_Setup_ImplicitStepAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link videoGenTrace.Steps.VideoGen_VideoGen_Solve <em>Video Gen Video Gen Solve</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see videoGenTrace.Steps.VideoGen_VideoGen_Solve
+	 * @generated
+	 */
+	public Adapter createVideoGen_VideoGen_SolveAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link videoGenTrace.Steps.VideoGen_Video_Setup <em>Video Gen Video Setup</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see videoGenTrace.Steps.VideoGen_Video_Setup
+	 * @generated
+	 */
+	public Adapter createVideoGen_Video_SetupAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link fr.inria.diverse.trace.commons.model.trace.Step <em>Step</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see fr.inria.diverse.trace.commons.model.trace.Step
 	 * @generated
 	 */
 	public Adapter createStepAdapter() {
@@ -753,13 +753,13 @@ public class StepsAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.gemoc.executionframework.engine.mse.SmallStep <em>Small Step</em>}'.
+	 * Creates a new adapter for an object of class '{@link fr.inria.diverse.trace.commons.model.trace.SmallStep <em>Small Step</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.gemoc.executionframework.engine.mse.SmallStep
+	 * @see fr.inria.diverse.trace.commons.model.trace.SmallStep
 	 * @generated
 	 */
 	public Adapter createSmallStepAdapter() {
@@ -767,13 +767,13 @@ public class StepsAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.gemoc.executionframework.engine.mse.BigStep <em>Big Step</em>}'.
+	 * Creates a new adapter for an object of class '{@link fr.inria.diverse.trace.commons.model.trace.BigStep <em>Big Step</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.gemoc.executionframework.engine.mse.BigStep
+	 * @see fr.inria.diverse.trace.commons.model.trace.BigStep
 	 * @generated
 	 */
 	public Adapter createBigStepAdapter() {
@@ -781,13 +781,13 @@ public class StepsAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.gemoc.executionframework.engine.mse.SequentialStep <em>Sequential Step</em>}'.
+	 * Creates a new adapter for an object of class '{@link fr.inria.diverse.trace.commons.model.trace.SequentialStep <em>Sequential Step</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.gemoc.executionframework.engine.mse.SequentialStep
+	 * @see fr.inria.diverse.trace.commons.model.trace.SequentialStep
 	 * @generated
 	 */
 	public Adapter createSequentialStepAdapter() {

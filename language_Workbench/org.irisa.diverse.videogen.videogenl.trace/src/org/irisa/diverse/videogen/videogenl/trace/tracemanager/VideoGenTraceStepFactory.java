@@ -1,3 +1,4 @@
+
 package org.irisa.diverse.videogen.videogenl.trace.tracemanager;
 
 import java.util.List;
@@ -6,87 +7,151 @@ import fr.inria.diverse.trace.gemoc.api.IStepFactory;
 public class VideoGenTraceStepFactory implements IStepFactory {
 
 	@Override
-	public org.gemoc.executionframework.engine.mse.Step createStep(org.gemoc.executionframework.engine.mse.MSE mse,
-			List<Object> parameters, List<Object> result) {
+	public fr.inria.diverse.trace.commons.model.trace.Step createStep(
+			fr.inria.diverse.trace.commons.model.trace.MSE mse, List<Object> parameters, List<Object> result) {
 
-		String stepRule = fr.inria.diverse.trace.commons.EcoreCraftingUtil.getFQN(mse.getCaller().eClass(), ".") + "."
+		fr.inria.diverse.trace.commons.model.trace.Step step = null;
+		org.eclipse.emf.ecore.EClass ec = mse.getCaller().eClass();
+		String stepRule = fr.inria.diverse.trace.commons.EcoreCraftingUtil.getFQN(ec, ".") + "."
 				+ mse.getAction().getName();
-		org.gemoc.executionframework.engine.mse.Step step = null;
 
-		if (stepRule.equalsIgnoreCase("videoGen.Alternatives.execute")) {
+		if (mse.getAction().getName().equalsIgnoreCase("execute")
+				&& (ec.getClassifierID() == org.irisa.diverse.videogen.videogenl.videoGen.VideoGenPackage.eINSTANCE
+						.getAlternatives().getClassifierID()))
+
+		{
 			step = videoGenTrace.Steps.StepsFactory.eINSTANCE.createVideoGen_Alternatives_Execute();
 		} else
 
-		if (stepRule.equalsIgnoreCase("videoGen.Generate.execute")) {
+		if (mse.getAction().getName().equalsIgnoreCase("execute")
+				&& (ec.getClassifierID() == org.irisa.diverse.videogen.videogenl.videoGen.VideoGenPackage.eINSTANCE
+						.getGenerate().getClassifierID()))
+
+		{
 			step = videoGenTrace.Steps.StepsFactory.eINSTANCE.createVideoGen_Generate_Execute();
 		} else
 
-		if (stepRule.equalsIgnoreCase("videoGen.Initialize.execute")) {
+		if (mse.getAction().getName().equalsIgnoreCase("execute")
+				&& (ec.getClassifierID() == org.irisa.diverse.videogen.videogenl.videoGen.VideoGenPackage.eINSTANCE
+						.getInitialize().getClassifierID()))
+
+		{
 			step = videoGenTrace.Steps.StepsFactory.eINSTANCE.createVideoGen_Initialize_Execute();
 		} else
 
-		if (stepRule.equalsIgnoreCase("videoGen.Mandatory.execute")) {
+		if (mse.getAction().getName().equalsIgnoreCase("execute")
+				&& (ec.getClassifierID() == org.irisa.diverse.videogen.videogenl.videoGen.VideoGenPackage.eINSTANCE
+						.getMandatory().getClassifierID()))
+
+		{
 			step = videoGenTrace.Steps.StepsFactory.eINSTANCE.createVideoGen_Mandatory_Execute();
 		} else
 
-		if (stepRule.equalsIgnoreCase("videoGen.Optional.execute")) {
+		if (mse.getAction().getName().equalsIgnoreCase("execute")
+				&& (ec.getClassifierID() == org.irisa.diverse.videogen.videogenl.videoGen.VideoGenPackage.eINSTANCE
+						.getOptional().getClassifierID()))
+
+		{
 			step = videoGenTrace.Steps.StepsFactory.eINSTANCE.createVideoGen_Optional_Execute();
 		} else
 
-		if (stepRule.equalsIgnoreCase("videoGen.Alternatives.execute")
-				|| stepRule.equalsIgnoreCase("videoGen.Mandatory.execute")
-				|| stepRule.equalsIgnoreCase("videoGen.Optional.execute")
-				|| stepRule.equalsIgnoreCase("videoGen.Sequence.execute")) {
-			step = videoGenTrace.Steps.StepsFactory.eINSTANCE.createVideoGen_Sequence_Execute();
-		} else
+		if (mse.getAction().getName().equalsIgnoreCase("execute")
+				&& (ec.getClassifierID() == org.irisa.diverse.videogen.videogenl.videoGen.VideoGenPackage.eINSTANCE
+						.getAlternatives().getClassifierID()
+				|| ec.getClassifierID() == org.irisa.diverse.videogen.videogenl.videoGen.VideoGenPackage.eINSTANCE
+						.getDelay().getClassifierID()
+				|| ec.getClassifierID() == org.irisa.diverse.videogen.videogenl.videoGen.VideoGenPackage.eINSTANCE
+						.getGenerate().getClassifierID()
+				|| ec.getClassifierID() == org.irisa.diverse.videogen.videogenl.videoGen.VideoGenPackage.eINSTANCE
+						.getInitialize().getClassifierID()
+				|| ec.getClassifierID() == org.irisa.diverse.videogen.videogenl.videoGen.VideoGenPackage.eINSTANCE
+						.getMandatory().getClassifierID()
+				|| ec.getClassifierID() == org.irisa.diverse.videogen.videogenl.videoGen.VideoGenPackage.eINSTANCE
+						.getOptional().getClassifierID()
+				|| ec.getClassifierID() == org.irisa.diverse.videogen.videogenl.videoGen.VideoGenPackage.eINSTANCE
+						.getSequence().getClassifierID()
+				|| ec.getClassifierID() == org.irisa.diverse.videogen.videogenl.videoGen.VideoGenPackage.eINSTANCE
+						.getTransition().getClassifierID()))
 
-		if (stepRule.equalsIgnoreCase("videoGen.Alternatives.execute")
-				|| stepRule.equalsIgnoreCase("videoGen.Delay.execute")
-				|| stepRule.equalsIgnoreCase("videoGen.Generate.execute")
-				|| stepRule.equalsIgnoreCase("videoGen.Initialize.execute")
-				|| stepRule.equalsIgnoreCase("videoGen.Mandatory.execute")
-				|| stepRule.equalsIgnoreCase("videoGen.Optional.execute")
-				|| stepRule.equalsIgnoreCase("videoGen.Sequence.execute")
-				|| stepRule.equalsIgnoreCase("videoGen.Transition.execute")) {
+		{
 			step = videoGenTrace.Steps.StepsFactory.eINSTANCE.createVideoGen_Transition_Execute();
 		} else
 
-		if (stepRule.equalsIgnoreCase("videoGen.Alternatives.finishExecute")
-				|| stepRule.equalsIgnoreCase("videoGen.Delay.finishExecute")
-				|| stepRule.equalsIgnoreCase("videoGen.Generate.finishExecute")
-				|| stepRule.equalsIgnoreCase("videoGen.Initialize.finishExecute")
-				|| stepRule.equalsIgnoreCase("videoGen.Mandatory.finishExecute")
-				|| stepRule.equalsIgnoreCase("videoGen.Optional.finishExecute")
-				|| stepRule.equalsIgnoreCase("videoGen.Sequence.finishExecute")
-				|| stepRule.equalsIgnoreCase("videoGen.Transition.finishExecute")) {
+		if (mse.getAction().getName().equalsIgnoreCase("finishExecute")
+				&& (ec.getClassifierID() == org.irisa.diverse.videogen.videogenl.videoGen.VideoGenPackage.eINSTANCE
+						.getAlternatives().getClassifierID()
+				|| ec.getClassifierID() == org.irisa.diverse.videogen.videogenl.videoGen.VideoGenPackage.eINSTANCE
+						.getDelay().getClassifierID()
+				|| ec.getClassifierID() == org.irisa.diverse.videogen.videogenl.videoGen.VideoGenPackage.eINSTANCE
+						.getGenerate().getClassifierID()
+				|| ec.getClassifierID() == org.irisa.diverse.videogen.videogenl.videoGen.VideoGenPackage.eINSTANCE
+						.getInitialize().getClassifierID()
+				|| ec.getClassifierID() == org.irisa.diverse.videogen.videogenl.videoGen.VideoGenPackage.eINSTANCE
+						.getMandatory().getClassifierID()
+				|| ec.getClassifierID() == org.irisa.diverse.videogen.videogenl.videoGen.VideoGenPackage.eINSTANCE
+						.getOptional().getClassifierID()
+				|| ec.getClassifierID() == org.irisa.diverse.videogen.videogenl.videoGen.VideoGenPackage.eINSTANCE
+						.getSequence().getClassifierID()
+				|| ec.getClassifierID() == org.irisa.diverse.videogen.videogenl.videoGen.VideoGenPackage.eINSTANCE
+						.getTransition().getClassifierID()))
+
+		{
 			step = videoGenTrace.Steps.StepsFactory.eINSTANCE.createVideoGen_Transition_FinishExecute();
 		} else
 
-		if (stepRule.equalsIgnoreCase("videoGen.Video.select")) {
-			step = videoGenTrace.Steps.StepsFactory.eINSTANCE.createVideoGen_Video_Select();
+		if (mse.getAction().getName().equalsIgnoreCase("setup")
+				&& (ec.getClassifierID() == org.irisa.diverse.videogen.videogenl.videoGen.VideoGenPackage.eINSTANCE
+						.getVideo().getClassifierID()))
+
+		{
+			step = videoGenTrace.Steps.StepsFactory.eINSTANCE.createVideoGen_Video_Setup();
 		} else
 
-		if (stepRule.equalsIgnoreCase("videoGen.VideoGen.compute")) {
+		if (mse.getAction().getName().equalsIgnoreCase("compute")
+				&& (ec.getClassifierID() == org.irisa.diverse.videogen.videogenl.videoGen.VideoGenPackage.eINSTANCE
+						.getVideoGen().getClassifierID()))
+
+		{
 			step = videoGenTrace.Steps.StepsFactory.eINSTANCE.createVideoGen_VideoGen_Compute();
 		} else
 
-		if (stepRule.equalsIgnoreCase("videoGen.VideoGen.execute")) {
+		if (mse.getAction().getName().equalsIgnoreCase("execute")
+				&& (ec.getClassifierID() == org.irisa.diverse.videogen.videogenl.videoGen.VideoGenPackage.eINSTANCE
+						.getVideoGen().getClassifierID()))
+
+		{
 			step = videoGenTrace.Steps.StepsFactory.eINSTANCE.createVideoGen_VideoGen_Execute();
 		} else
 
-		if (stepRule.equalsIgnoreCase("videoGen.VideoGen.initializeModel")) {
+		if (mse.getAction().getName().equalsIgnoreCase("initializeModel")
+				&& (ec.getClassifierID() == org.irisa.diverse.videogen.videogenl.videoGen.VideoGenPackage.eINSTANCE
+						.getVideoGen().getClassifierID()))
+
+		{
 			step = videoGenTrace.Steps.StepsFactory.eINSTANCE.createVideoGen_VideoGen_InitializeModel();
 		} else
 
-		if (stepRule.equalsIgnoreCase("videoGen.VideoGen.setup")) {
+		if (mse.getAction().getName().equalsIgnoreCase("setup")
+				&& (ec.getClassifierID() == org.irisa.diverse.videogen.videogenl.videoGen.VideoGenPackage.eINSTANCE
+						.getVideoGen().getClassifierID()))
+
+		{
 			step = videoGenTrace.Steps.StepsFactory.eINSTANCE.createVideoGen_VideoGen_Setup();
+		} else
+
+		if (mse.getAction().getName().equalsIgnoreCase("solve")
+				&& (ec.getClassifierID() == org.irisa.diverse.videogen.videogenl.videoGen.VideoGenPackage.eINSTANCE
+						.getVideoGen().getClassifierID()))
+
+		{
+			step = videoGenTrace.Steps.StepsFactory.eINSTANCE.createVideoGen_VideoGen_Solve();
 		}
 
 		else {
-			step = org.gemoc.executionframework.engine.mse.MseFactory.eINSTANCE.createGenericSequentialStep();
+			step = fr.inria.diverse.trace.commons.model.trace.TraceFactory.eINSTANCE.createGenericSequentialStep();
 		}
 
-		org.gemoc.executionframework.engine.mse.MSEOccurrence mseocc = org.gemoc.executionframework.engine.mse.MseFactory.eINSTANCE
+		fr.inria.diverse.trace.commons.model.trace.MSEOccurrence mseocc = fr.inria.diverse.trace.commons.model.trace.TraceFactory.eINSTANCE
 				.createMSEOccurrence();
 		mseocc.setMse(mse);
 		mseocc.getParameters().addAll(parameters);

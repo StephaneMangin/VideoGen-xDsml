@@ -72,6 +72,27 @@ public class StatesSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case StatesPackage.TRANSITION_CALLNEXT_TRANSITION_VALUE: {
+				Transition_callnextTransition_Value transition_callnextTransition_Value = (Transition_callnextTransition_Value)theEObject;
+				T result = caseTransition_callnextTransition_Value(transition_callnextTransition_Value);
+				if (result == null) result = caseValue(transition_callnextTransition_Value);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case StatesPackage.TRANSITION_EXECUTED_VALUE: {
+				Transition_executed_Value transition_executed_Value = (Transition_executed_Value)theEObject;
+				T result = caseTransition_executed_Value(transition_executed_Value);
+				if (result == null) result = caseValue(transition_executed_Value);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case StatesPackage.TRANSITION_VIDEO_GEN_VALUE: {
+				Transition_videoGen_Value transition_videoGen_Value = (Transition_videoGen_Value)theEObject;
+				T result = caseTransition_videoGen_Value(transition_videoGen_Value);
+				if (result == null) result = caseValue(transition_videoGen_Value);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case StatesPackage.VALUE: {
 				Value value = (Value)theEObject;
 				T result = caseValue(value);
@@ -94,6 +115,51 @@ public class StatesSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseState(State object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Transition callnext Transition Value</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Transition callnext Transition Value</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTransition_callnextTransition_Value(Transition_callnextTransition_Value object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Transition executed Value</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Transition executed Value</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTransition_executed_Value(Transition_executed_Value object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Transition video Gen Value</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Transition video Gen Value</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTransition_videoGen_Value(Transition_videoGen_Value object) {
 		return null;
 	}
 

@@ -30,6 +30,7 @@ Export-Package: org.irisa.diverse.livemodeling.extensions.sirius,
  org.irisa.diverse.livemodeling.extensions.sirius.accessor.authority,
  org.irisa.diverse.livemodeling.extensions.sirius.accessor.extender,
  org.irisa.diverse.livemodeling.extensions.sirius.modelloader,
+ org.irisa.diverse.livemodeling.extensions.sirius.services,
  org.irisa.diverse.livemodeling.extensions.sirius.session
 Import-Package: org.eclipse.sirius.ecore.extender.business.api.permission,
  org.eclipse.sirius.ext.emf;version="2.0.7"

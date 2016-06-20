@@ -2,9 +2,9 @@
  */
 package videoGenTrace.Steps;
 
-import org.gemoc.executionframework.engine.mse.SequentialStep;
+import fr.inria.diverse.trace.commons.model.trace.SequentialStep;
 
-import org.irisa.diverse.videogen.videoGen.Initialize;
+import videoGenTrace.States.videoGen.TracedInitialize;
 
 /**
  * <!-- begin-user-doc -->
@@ -16,14 +16,14 @@ import org.irisa.diverse.videogen.videoGen.Initialize;
  * @model
  * @generated
  */
-public interface VideoGen_Initialize_Execute extends VideoGen_Sequence_Execute_AbstractSubStep, VideoGen_Alternatives_Execute_AbstractSubStep, VideoGen_Mandatory_Execute_AbstractSubStep, VideoGen_Optional_Execute_AbstractSubStep, VideoGen_Transition_Execute_AbstractSubStep, VideoGen_Transition_FinishExecute_AbstractSubStep, VideoGen_VideoGen_Execute_AbstractSubStep, SpecificStep, SequentialStep<VideoGen_Initialize_Execute_AbstractSubStep>, VideoGen_Initialize_Execute_AbstractSubStep, VideoGen_Generate_Execute_AbstractSubStep {
+public interface VideoGen_Initialize_Execute extends VideoGen_VideoGen_Execute_AbstractSubStep, VideoGen_Alternatives_Execute_AbstractSubStep, VideoGen_Transition_Execute_AbstractSubStep, SpecificStep, SequentialStep<VideoGen_Initialize_Execute_AbstractSubStep>, VideoGen_Transition_FinishExecute_AbstractSubStep {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model kind="operation" required="true"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='return (org.irisa.diverse.videogen.videoGen.Initialize) this.getMseoccurrence().getMse().getCaller();'"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='return (videoGenTrace.States.videoGen.TracedInitialize) this.getMseoccurrence().getMse().getCaller();'"
 	 * @generated
 	 */
-	Initialize getCaller();
+	TracedInitialize getCaller();
 
 } // VideoGen_Initialize_Execute

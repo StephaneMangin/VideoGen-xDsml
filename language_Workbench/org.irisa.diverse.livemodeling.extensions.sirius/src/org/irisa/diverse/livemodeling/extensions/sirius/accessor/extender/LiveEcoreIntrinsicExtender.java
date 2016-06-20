@@ -66,6 +66,11 @@ import com.google.common.collect.Multimap;
 @SuppressWarnings("restriction")
 public class LiveEcoreIntrinsicExtender extends EcoreIntrinsicExtender {
 
+	public LiveEcoreIntrinsicExtender() {
+		super();
+		System.out.println("+++++++++++++++++++++++++ INSTANCIATION : LiveEcoreIntrinsicExtender");
+	}
+
 	
 	
 }

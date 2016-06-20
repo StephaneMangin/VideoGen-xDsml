@@ -33,6 +33,8 @@ public class View extends AbstractView {
 	private FXCanvas fxCanvas = null;
 	private FxListener viewListener = null;
 	private IModelAdapter modelAdapter = null;
+
+	private IBasicExecutionEngine engine;
 	
 	@Override 
 	public void addActionToToolbar(Action action) {
@@ -77,6 +79,7 @@ public class View extends AbstractView {
 
 	@Override
 	public void engineSelectionChanged(IBasicExecutionEngine engine) {
+		this.engine = engine;
 		System.out.println("###########################################");
 		System.out.println("Engine Selection Changed " + engine);
 		System.out.println("###########################################");

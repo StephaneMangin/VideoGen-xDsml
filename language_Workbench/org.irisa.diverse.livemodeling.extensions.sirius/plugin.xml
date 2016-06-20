@@ -12,7 +12,7 @@
          point="org.eclipse.sirius.ecore.extender.ExtenderProvider">
       <extenderprovider
             priority="highest"
-            providerClass="org.irisa.diverse.livemodeling.extensions.sirius.accessor.extender.EcoreExtenderProvider">
+            providerClass="org.irisa.diverse.livemodeling.extensions.sirius.accessor.extender.LiveEcoreExtenderProvider">
       </extenderprovider>
    </extension>
 </plugin>
