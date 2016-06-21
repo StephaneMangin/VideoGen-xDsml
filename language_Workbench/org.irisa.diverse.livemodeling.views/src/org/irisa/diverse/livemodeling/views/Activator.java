@@ -10,22 +10,14 @@
  *******************************************************************************/
 package org.irisa.diverse.livemodeling.views;
 
-import java.util.Map;
 import java.util.function.Supplier;
 
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
-import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.eclipse.jface.dialogs.ErrorDialog;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 import org.irisa.diverse.livemodeling.views.api.IView;
-import org.irisa.diverse.videogen.videoGen.VideoGen;
-import org.irisa.diverse.videogen.videoGen.VideoGenPackage;
 
 /**
  * The activator class controls the plug-in life cycle
@@ -38,7 +30,7 @@ public class Activator extends AbstractUIPlugin {
 	// The shared instance
 	private static Activator plugin;
 
-	public static Supplier<IView> viewSupplier;
+	public Supplier<IView> viewSupplier;
 	
 	/**
 	 * The constructor

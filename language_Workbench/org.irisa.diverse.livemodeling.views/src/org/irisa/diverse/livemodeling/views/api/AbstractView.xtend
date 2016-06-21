@@ -1,17 +1,15 @@
 package org.irisa.diverse.livemodeling.views.api
 
-import fr.obeo.dsl.debug.ide.launch.AbstractDSLLaunchConfigurationDelegate
 import java.util.Map
 import org.eclipse.core.runtime.CoreException
+import org.eclipse.core.runtime.IConfigurationElement
+import org.eclipse.core.runtime.Platform
 import org.eclipse.debug.core.DebugPlugin
+import org.eclipse.emf.common.EMFPlugin
 import org.eclipse.jface.action.Action
 import org.gemoc.executionframework.ui.views.engine.EngineSelectionDependentViewPart
 import org.gemoc.xdsmlframework.api.core.IRunConfiguration
 import org.irisa.diverse.livemodeling.views.Activator
-import org.eclipse.emf.common.EMFPlugin
-import org.eclipse.core.runtime.Platform
-import org.eclipse.core.runtime.IExtension
-import org.eclipse.core.runtime.IConfigurationElement
 
 abstract class AbstractView extends EngineSelectionDependentViewPart implements IView {
 	

@@ -1,29 +1,26 @@
 package org.irisa.diverse.livemodeling.views.constraint
 
-import com.google.common.collect.BiMap
-import com.google.common.collect.HashBiMap
+import fr.inria.diverse.trace.commons.model.trace.Step
 import java.util.ArrayList
-import org.eclipse.emf.ecore.EObject
+import java.util.Collection
+import java.util.List
+import org.eclipse.debug.internal.core.LaunchConfiguration
 import org.eclipse.emf.ecore.EPackage
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl
+import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl
+import org.gemoc.xdsmlframework.api.core.EngineStatus.RunStatus
 import org.gemoc.xdsmlframework.api.core.IBasicExecutionEngine
 import org.gemoc.xdsmlframework.api.core.IExecutionContext
 import org.gemoc.xdsmlframework.api.core.IRunConfiguration
 import org.gemoc.xdsmlframework.api.engine_addon.IEngineAddon
 import org.gemoc.xdsmlframework.api.engine_addon.modelchangelistener.BatchModelChangeListenerAddon
+import org.irisa.diverse.livemodeling.views.Activator
 import org.irisa.diverse.livemodeling.views.api.IModelAdapter
 import org.irisa.diverse.livemodeling.views.api.IModelListener
 import org.irisa.diverse.livemodeling.views.api.IModelNotifier
 import org.irisa.diverse.videogen.videoGen.VideoGen
 import org.irisa.diverse.videogen.videoGen.VideoGenPackage
-import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl
-import org.irisa.diverse.livemodeling.views.Activator
-import java.util.List
-import org.eclipse.debug.internal.core.LaunchConfiguration
-import fr.inria.diverse.trace.commons.model.trace.Step
-import java.util.Collection
-import org.gemoc.xdsmlframework.api.core.EngineStatus.RunStatus
 
 public class ConstraintEngineAddon implements IEngineAddon, IModelListener, IModelNotifier {
 
@@ -123,7 +120,7 @@ public class ConstraintEngineAddon implements IEngineAddon, IModelListener, IMod
 	 * Operation called after the engine has been stopped
 	 */
 	override void engineStopped(IBasicExecutionEngine engine) {
-		Activator.viewSupplier.get().update()
+		Activator.^default.viewSupplier.get().update()
 	}
 	
 	def static VideoGen loadModel(Resource model) {
@@ -148,6 +145,7 @@ public class ConstraintEngineAddon implements IEngineAddon, IModelListener, IMod
 	
 	override aboutToExecuteStep(IBasicExecutionEngine arg0, Step arg1) {
 		// TODO
+		Activator.^default.viewSupplier.get().update()
 		// see import fr.inria.diverse.trace.gemoc.traceaddon.AbstractTraceAddon
 	}
 	
@@ -165,6 +163,7 @@ public class ConstraintEngineAddon implements IEngineAddon, IModelListener, IMod
 	
 	override engineStarted(IBasicExecutionEngine arg0) {
 		// TODO
+		Activator.^default.viewSupplier.get().update()
 		// see import fr.inria.diverse.trace.gemoc.traceaddon.AbstractTraceAddon
 	}
 	
@@ -178,6 +177,7 @@ public class ConstraintEngineAddon implements IEngineAddon, IModelListener, IMod
 	
 	override stepExecuted(IBasicExecutionEngine arg0, Step arg1) {
 		// TODO
+		Activator.^default.viewSupplier.get().update()
 		// see import fr.inria.diverse.trace.gemoc.traceaddon.AbstractTraceAddon
 	}
 	
@@ -192,6 +192,7 @@ public class ConstraintEngineAddon implements IEngineAddon, IModelListener, IMod
 	
 	override update() {
 		// TODO
+		Activator.^default.viewSupplier.get().update()
 		// see import fr.inria.diverse.trace.gemoc.traceaddon.AbstractTraceAddon
 	}
 	

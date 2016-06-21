@@ -20,6 +20,7 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IActionBars;
 import org.gemoc.xdsmlframework.api.core.IBasicExecutionEngine;
+import org.irisa.diverse.livemodeling.views.Activator;
 import org.irisa.diverse.livemodeling.views.api.AbstractView;
 import org.irisa.diverse.livemodeling.views.api.IModelAdapter;
 import org.irisa.diverse.livemodeling.views.api.IView;
@@ -34,7 +35,7 @@ public class View extends AbstractView {
 	private IModelAdapter modelAdapter = null;
 
 	private IBasicExecutionEngine engine;
-	
+		
 	@Override 
 	public void addActionToToolbar(Action action) {
 		IActionBars actionBars = getViewSite().getActionBars();
