@@ -21,8 +21,11 @@ import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl
 import org.irisa.diverse.livemodeling.views.Activator
 import java.util.List
 import org.eclipse.debug.internal.core.LaunchConfiguration
+import fr.inria.diverse.trace.commons.model.trace.Step
+import java.util.Collection
+import org.gemoc.xdsmlframework.api.core.EngineStatus.RunStatus
 
-public abstract class ConstraintEngineAddon implements IEngineAddon, IModelListener, IModelNotifier {
+public class ConstraintEngineAddon implements IEngineAddon, IModelListener, IModelNotifier {
 
 	private IExecutionContext _executionContext
 	private IModelAdapter modelAdapter
@@ -142,4 +145,54 @@ public abstract class ConstraintEngineAddon implements IEngineAddon, IModelListe
 		// example everything is hierarchical included in this first node
 		resource.getContents().get(0) as VideoGen
 	}
+	
+	override aboutToExecuteStep(IBasicExecutionEngine arg0, Step arg1) {
+		// TODO
+		// see import fr.inria.diverse.trace.gemoc.traceaddon.AbstractTraceAddon
+	}
+	
+	override aboutToSelectStep(IBasicExecutionEngine arg0, Collection<Step> arg1) {
+		// shut
+	}
+	
+	override engineAboutToDispose(IBasicExecutionEngine arg0) {
+		// shut
+	}
+	
+	override engineAboutToStop(IBasicExecutionEngine arg0) {
+		// shut
+	}
+	
+	override engineStarted(IBasicExecutionEngine arg0) {
+		// TODO
+		// see import fr.inria.diverse.trace.gemoc.traceaddon.AbstractTraceAddon
+	}
+	
+	override engineStatusChanged(IBasicExecutionEngine arg0, RunStatus arg1) {
+		// shut
+	}
+	
+	override proposedStepsChanged(IBasicExecutionEngine arg0, Collection<Step> arg1) {
+		// shut
+	}
+	
+	override stepExecuted(IBasicExecutionEngine arg0, Step arg1) {
+		// TODO
+		// see import fr.inria.diverse.trace.gemoc.traceaddon.AbstractTraceAddon
+	}
+	
+	override stepSelected(IBasicExecutionEngine arg0, Step arg1) {
+		// shut
+	}
+	
+	override validate(List<IEngineAddon> arg0) {
+		// TODO
+		// see import fr.inria.diverse.trace.gemoc.traceaddon.AbstractTraceAddon
+	}
+	
+	override update() {
+		// TODO
+		// see import fr.inria.diverse.trace.gemoc.traceaddon.AbstractTraceAddon
+	}
+	
 }
