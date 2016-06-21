@@ -15,7 +15,7 @@ abstract class AbstractView extends EngineSelectionDependentViewPart implements 
 	
 	private Map<String, Object> runConfigurationAttributes = null
 	
-	public static IModelAdapter[] modelAdaptors
+	public static IModelAdapter[] modelAdaptors = newArrayOfSize(10)
 
 	new() {
 		Activator.^default.viewSupplier = this

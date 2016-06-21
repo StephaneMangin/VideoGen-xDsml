@@ -164,10 +164,10 @@ class VideoGenAspect {
 			it.executed = false
 			it.videoGen = videoGen
 			if (it instanceof Alternatives) {
-				var List<Integer> durations = it.options.map[video.duration]
-				// durations = _self.options.filter[selected].map[video.duration]
-				results.put("min", results.get("min") + durations.min)
-				results.put("max", results.get("max") + durations.max)
+//				var List<Integer> durations = it.options.map[video.duration]
+//				// durations = _self.options.filter[selected].map[video.duration]
+//				results.put("min", results.get("min") + durations.min)
+//				results.put("max", results.get("max") + durations.max)
 				results.put("variants", results.get("variants") * it.options.size)
 				it.options.forEach [ opt |
 					opt.selected = false
@@ -176,15 +176,15 @@ class VideoGenAspect {
 					opt.videoGen = videoGen
 				]
 			} else if (it instanceof Mandatory) {
-				results.put("min", results.get("min") + it.video.duration)
-				results.put("max", results.get("max") + it.video.duration)
+//				results.put("min", results.get("min") + it.video.duration)
+//				results.put("max", results.get("max") + it.video.duration)
 			} else if (it instanceof Optional) {
-				results.put("max", results.get("max") + it.video.duration)
+//				results.put("max", results.get("max") + it.video.duration)
 				results.put("variants", results.get("variants") * 2)
 			}
 		]
-		_self.minDurationConstraint = results.get("min")
-		_self.maxDurationConstraint = results.get("max")
+//		_self.minDurationConstraint = results.get("min")
+//		_self.maxDurationConstraint = results.get("max")
 		_self.variantes = results.get("variants")
 		println("############### SETUP RESULT #####################")
 		println(results)
@@ -308,7 +308,6 @@ abstract class TransitionAspect {
 	public Boolean executed = false
 	public Boolean callnextTransition = true
 
-	@Step
 	def public void execute(VideoGen videoGen) {
 	}
 

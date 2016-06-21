@@ -80,10 +80,7 @@ public class View extends AbstractView {
 	@Override
 	public void engineSelectionChanged(IBasicExecutionEngine engine) {
 		this.engine = engine;
-		System.out.println("###########################################");
-		System.out.println("Engine Selection Changed " + engine);
-		System.out.println("###########################################");
-		
+		System.out.println(AbstractView.modelAdaptors);
 		modelAdapter = AbstractView.modelAdaptors[0];
 		modelAdapter.setModel((VideoGen)(ConstraintEngineAddon.loadModel(engine.getExecutionContext().getResourceModel())));
 		modelAdapter.addListener(viewListener);
