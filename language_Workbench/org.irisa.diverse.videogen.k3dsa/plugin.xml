@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?eclipse version="3.4"?>
 <plugin>
+   <extension
+         point="org.irisa.diverse.livemodeling.views.liveViewsModelAdaptor">
+      <modelAdaptor
+            class="org.irisa.diverse.videogen.videoGen.aspects.debugViewModelAdaptor.VideoGenAdaptor">
+      </modelAdaptor>
+   </extension>
   <!--extension point="org.gemoc.gemoc_language_workbench.sequential.xdsml">
     <XDSML_Definition
           gemocDebuggerFactory_class="org.gemoc.executionframework.extensions.sirius.services.AbstractGemocDebuggerServices"

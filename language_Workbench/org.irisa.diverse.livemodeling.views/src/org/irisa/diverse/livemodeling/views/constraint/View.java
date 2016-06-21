@@ -8,7 +8,7 @@
  * Contributors:
  *     Inria - initial API and implementation
  *******************************************************************************/
-package org.irisa.diverse.live_modeling.views.constraint;
+package org.irisa.diverse.livemodeling.views.constraint;
 
 import javafx.embed.swt.FXCanvas;
 import javafx.scene.Scene;
@@ -20,10 +20,9 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IActionBars;
 import org.gemoc.xdsmlframework.api.core.IBasicExecutionEngine;
-import org.irisa.diverse.live_modeling.views.api.AbstractView;
-import org.irisa.diverse.live_modeling.views.api.IModelAdapter;
-import org.irisa.diverse.live_modeling.views.api.IView;
-import org.irisa.diverse.live_modeling.views.impl.ModelAdapterImpl;
+import org.irisa.diverse.livemodeling.views.api.AbstractView;
+import org.irisa.diverse.livemodeling.views.api.IModelAdapter;
+import org.irisa.diverse.livemodeling.views.api.IView;
 import org.irisa.diverse.videogen.videoGen.VideoGen;
 
 public class View extends AbstractView {
@@ -83,7 +82,9 @@ public class View extends AbstractView {
 		System.out.println("###########################################");
 		System.out.println("Engine Selection Changed " + engine);
 		System.out.println("###########################################");
-		modelAdapter = new ModelAdapterImpl((VideoGen)(ConstraintEngineAddon.loadModel(engine.getExecutionContext().getResourceModel())));
+		
+		modelAdapter = AbstractView.modelAdaptors[0];
+		modelAdapter.setModel((VideoGen)(ConstraintEngineAddon.loadModel(engine.getExecutionContext().getResourceModel())));
 		modelAdapter.addListener(viewListener);
 		viewListener.setModel(modelAdapter);
 		viewListener.refresh();

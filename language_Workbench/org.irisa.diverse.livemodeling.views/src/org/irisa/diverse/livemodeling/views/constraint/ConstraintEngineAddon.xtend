@@ -1,4 +1,4 @@
-package org.irisa.diverse.live_modeling.views.constraint
+package org.irisa.diverse.livemodeling.views.constraint
 
 import com.google.common.collect.BiMap
 import com.google.common.collect.HashBiMap
@@ -12,14 +12,13 @@ import org.gemoc.xdsmlframework.api.core.IExecutionContext
 import org.gemoc.xdsmlframework.api.core.IRunConfiguration
 import org.gemoc.xdsmlframework.api.engine_addon.IEngineAddon
 import org.gemoc.xdsmlframework.api.engine_addon.modelchangelistener.BatchModelChangeListenerAddon
-import org.irisa.diverse.live_modeling.views.api.IModelAdapter
-import org.irisa.diverse.live_modeling.views.api.IModelListener
-import org.irisa.diverse.live_modeling.views.api.IModelNotifier
-import org.irisa.diverse.live_modeling.views.impl.ModelAdapterImpl
+import org.irisa.diverse.livemodeling.views.api.IModelAdapter
+import org.irisa.diverse.livemodeling.views.api.IModelListener
+import org.irisa.diverse.livemodeling.views.api.IModelNotifier
 import org.irisa.diverse.videogen.videoGen.VideoGen
 import org.irisa.diverse.videogen.videoGen.VideoGenPackage
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl
-import org.irisa.diverse.live_modeling.views.Activator
+import org.irisa.diverse.livemodeling.views.Activator
 import java.util.List
 import org.eclipse.debug.internal.core.LaunchConfiguration
 
@@ -95,12 +94,6 @@ public abstract class ConstraintEngineAddon implements IEngineAddon, IModelListe
 
 			val launchConfiguration = setupRunConfigurationAttributes(engine.executionContext.runConfiguration)
 
-			val BiMap<EObject, EObject> exeToTraced = HashBiMap.create
-			if (modelAdapter == null) {
-				// And we enable trace exploration by loading it in a new trace explorer
-				modelAdapter = new ModelAdapterImpl(loadModel(modelResource))
-				listenerAddon.registerObserver(modelAdapter)
-			}
 		}
 	}
 

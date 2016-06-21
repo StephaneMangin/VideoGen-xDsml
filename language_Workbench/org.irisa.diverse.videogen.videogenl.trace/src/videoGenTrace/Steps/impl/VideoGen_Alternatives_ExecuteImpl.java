@@ -33,7 +33,6 @@ import videoGenTrace.States.videoGen.TracedAlternatives;
 import videoGenTrace.Steps.StepsPackage;
 import videoGenTrace.Steps.VideoGen_Alternatives_Execute;
 import videoGenTrace.Steps.VideoGen_Alternatives_Execute_AbstractSubStep;
-import videoGenTrace.Steps.VideoGen_Transition_Execute_AbstractSubStep;
 import videoGenTrace.Steps.VideoGen_Transition_FinishExecute_AbstractSubStep;
 
 /**
@@ -380,16 +379,6 @@ public class VideoGen_Alternatives_ExecuteImpl extends StepImpl implements Video
 				default: return -1;
 			}
 		}
-		if (baseClass == VideoGen_Alternatives_Execute_AbstractSubStep.class) {
-			switch (derivedFeatureID) {
-				default: return -1;
-			}
-		}
-		if (baseClass == VideoGen_Transition_Execute_AbstractSubStep.class) {
-			switch (derivedFeatureID) {
-				default: return -1;
-			}
-		}
 		if (baseClass == VideoGen_Transition_FinishExecute_AbstractSubStep.class) {
 			switch (derivedFeatureID) {
 				default: return -1;
@@ -412,16 +401,6 @@ public class VideoGen_Alternatives_ExecuteImpl extends StepImpl implements Video
 			}
 		}
 		if (baseClass == SequentialStep.class) {
-			switch (baseFeatureID) {
-				default: return -1;
-			}
-		}
-		if (baseClass == VideoGen_Alternatives_Execute_AbstractSubStep.class) {
-			switch (baseFeatureID) {
-				default: return -1;
-			}
-		}
-		if (baseClass == VideoGen_Transition_Execute_AbstractSubStep.class) {
 			switch (baseFeatureID) {
 				default: return -1;
 			}

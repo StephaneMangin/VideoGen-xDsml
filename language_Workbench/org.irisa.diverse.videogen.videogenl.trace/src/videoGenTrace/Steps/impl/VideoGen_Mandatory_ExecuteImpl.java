@@ -31,10 +31,8 @@ import videoGenTrace.States.StatesPackage;
 import videoGenTrace.States.videoGen.TracedMandatory;
 
 import videoGenTrace.Steps.StepsPackage;
-import videoGenTrace.Steps.VideoGen_Alternatives_Execute_AbstractSubStep;
 import videoGenTrace.Steps.VideoGen_Mandatory_Execute;
 import videoGenTrace.Steps.VideoGen_Mandatory_Execute_AbstractSubStep;
-import videoGenTrace.Steps.VideoGen_Transition_Execute_AbstractSubStep;
 import videoGenTrace.Steps.VideoGen_Transition_FinishExecute_AbstractSubStep;
 
 /**
@@ -370,16 +368,6 @@ public class VideoGen_Mandatory_ExecuteImpl extends StepImpl implements VideoGen
 	 */
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if (baseClass == VideoGen_Alternatives_Execute_AbstractSubStep.class) {
-			switch (derivedFeatureID) {
-				default: return -1;
-			}
-		}
-		if (baseClass == VideoGen_Transition_Execute_AbstractSubStep.class) {
-			switch (derivedFeatureID) {
-				default: return -1;
-			}
-		}
 		if (baseClass == BigStep.class) {
 			switch (derivedFeatureID) {
 				case StepsPackage.VIDEO_GEN_MANDATORY_EXECUTE__SUB_STEPS: return TracePackage.BIG_STEP__SUB_STEPS;
@@ -406,16 +394,6 @@ public class VideoGen_Mandatory_ExecuteImpl extends StepImpl implements VideoGen
 	 */
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if (baseClass == VideoGen_Alternatives_Execute_AbstractSubStep.class) {
-			switch (baseFeatureID) {
-				default: return -1;
-			}
-		}
-		if (baseClass == VideoGen_Transition_Execute_AbstractSubStep.class) {
-			switch (baseFeatureID) {
-				default: return -1;
-			}
-		}
 		if (baseClass == BigStep.class) {
 			switch (baseFeatureID) {
 				case TracePackage.BIG_STEP__SUB_STEPS: return StepsPackage.VIDEO_GEN_MANDATORY_EXECUTE__SUB_STEPS;

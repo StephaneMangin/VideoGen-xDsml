@@ -1,8 +1,8 @@
 Bundle-SymbolicName: org.irisa.diverse.videogen.k3dsa; singleton:=true
-Export-Package: org.irisa.diverse.videogen.videoGen.aspects,org.irisa.diverse.videogen.videoGen.aspects.visitors,org.irisa.diverse.videogen.videoGen.aspects.exceptions,org.irisa.diverse.videogen.videoGen.aspects.utils
+Export-Package: org.irisa.diverse.videogen.videoGen.aspects,org.irisa.diverse.videogen.videoGen.aspects.debugViewModelAdaptor,org.irisa.diverse.videogen.videoGen.aspects.exceptions
 Bundle-Name: org.irisa.diverse.videogen.k3dsa
 Bundle-Version: 1.0.0
-Bundle-ClassPath: .,libs/choco-solver-3.3.3-sources.jar,libs/choco-solver-3.3.3-with-dependencies.jar,libs/jargs.jar
+Bundle-ClassPath: .,libs/choco-solver-3.3.3-sources.jar,libs/choco-solver-3.3.3-with-dependencies.jar
 Require-Bundle: com.google.guava,
  org.eclipse.xtext.xbase.lib,
  org.eclipse.xtend.lib,
@@ -12,7 +12,9 @@ Require-Bundle: com.google.guava,
  fr.inria.diverse.k3.al.annotationprocessor.plugin;bundle-version="3.2.0",
  org.eclipse.core.resources;bundle-version="3.9.1",
  org.eclipse.ui.console;bundle-version="3.5.300",
- org.gemoc.executionframework.extensions.sirius;bundle-version="0.1.0"
+ org.gemoc.executionframework.extensions.sirius;bundle-version="0.1.0",
+ org.irisa.diverse.livemodeling.extensions.sirius;bundle-version="0.1.0",
+ org.irisa.diverse.livemodeling.views;bundle-version="0.1.0"
 Bundle-ManifestVersion: 2
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Import-Package: org.eclipse.swt,org.eclipse.swt.graphics,org.eclipse.swt.widgets,org.irisa.diverse.playlist.PlayList

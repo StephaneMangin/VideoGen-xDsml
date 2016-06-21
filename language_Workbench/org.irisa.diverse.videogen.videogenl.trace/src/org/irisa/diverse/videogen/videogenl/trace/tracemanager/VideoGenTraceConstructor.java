@@ -289,12 +289,12 @@ public class VideoGenTraceConstructor implements ITraceConstructor {
 	private void addNewObjectToState(org.irisa.diverse.videogen.videogenl.videoGen.NamedElement o_cast,
 			videoGenTrace.States.State newState) {
 
-		if (o_cast instanceof org.irisa.diverse.videogen.videogenl.videoGen.Transition) {
-			addNewObjectToState((org.irisa.diverse.videogen.videogenl.videoGen.Transition) o_cast, newState);
+		if (o_cast instanceof org.irisa.diverse.videogen.videogenl.videoGen.VideoGen) {
+			addNewObjectToState((org.irisa.diverse.videogen.videogenl.videoGen.VideoGen) o_cast, newState);
 		} else if (o_cast instanceof org.irisa.diverse.videogen.videogenl.videoGen.Video) {
 			addNewObjectToState((org.irisa.diverse.videogen.videogenl.videoGen.Video) o_cast, newState);
-		} else if (o_cast instanceof org.irisa.diverse.videogen.videogenl.videoGen.VideoGen) {
-			addNewObjectToState((org.irisa.diverse.videogen.videogenl.videoGen.VideoGen) o_cast, newState);
+		} else if (o_cast instanceof org.irisa.diverse.videogen.videogenl.videoGen.Transition) {
+			addNewObjectToState((org.irisa.diverse.videogen.videogenl.videoGen.Transition) o_cast, newState);
 		}
 
 	}// end addNewObjectToState
@@ -350,10 +350,10 @@ public class VideoGenTraceConstructor implements ITraceConstructor {
 
 		if (o_cast instanceof org.irisa.diverse.videogen.videogenl.videoGen.Mandatory) {
 			addNewObjectToState((org.irisa.diverse.videogen.videogenl.videoGen.Mandatory) o_cast, newState);
-		} else if (o_cast instanceof org.irisa.diverse.videogen.videogenl.videoGen.Alternatives) {
-			addNewObjectToState((org.irisa.diverse.videogen.videogenl.videoGen.Alternatives) o_cast, newState);
 		} else if (o_cast instanceof org.irisa.diverse.videogen.videogenl.videoGen.Optional) {
 			addNewObjectToState((org.irisa.diverse.videogen.videogenl.videoGen.Optional) o_cast, newState);
+		} else if (o_cast instanceof org.irisa.diverse.videogen.videogenl.videoGen.Alternatives) {
+			addNewObjectToState((org.irisa.diverse.videogen.videogenl.videoGen.Alternatives) o_cast, newState);
 		}
 
 	}// end addNewObjectToState
@@ -361,14 +361,14 @@ public class VideoGenTraceConstructor implements ITraceConstructor {
 	private void addNewObjectToState(org.irisa.diverse.videogen.videogenl.videoGen.Transition o_cast,
 			videoGenTrace.States.State newState) {
 
-		if (o_cast instanceof org.irisa.diverse.videogen.videogenl.videoGen.Sequence) {
+		if (o_cast instanceof org.irisa.diverse.videogen.videogenl.videoGen.Initialize) {
+			addNewObjectToState((org.irisa.diverse.videogen.videogenl.videoGen.Initialize) o_cast, newState);
+		} else if (o_cast instanceof org.irisa.diverse.videogen.videogenl.videoGen.Generate) {
+			addNewObjectToState((org.irisa.diverse.videogen.videogenl.videoGen.Generate) o_cast, newState);
+		} else if (o_cast instanceof org.irisa.diverse.videogen.videogenl.videoGen.Sequence) {
 			addNewObjectToState((org.irisa.diverse.videogen.videogenl.videoGen.Sequence) o_cast, newState);
 		} else if (o_cast instanceof org.irisa.diverse.videogen.videogenl.videoGen.Delay) {
 			addNewObjectToState((org.irisa.diverse.videogen.videogenl.videoGen.Delay) o_cast, newState);
-		} else if (o_cast instanceof org.irisa.diverse.videogen.videogenl.videoGen.Generate) {
-			addNewObjectToState((org.irisa.diverse.videogen.videogenl.videoGen.Generate) o_cast, newState);
-		} else if (o_cast instanceof org.irisa.diverse.videogen.videogenl.videoGen.Initialize) {
-			addNewObjectToState((org.irisa.diverse.videogen.videogenl.videoGen.Initialize) o_cast, newState);
 		}
 
 	}// end addNewObjectToState
@@ -433,32 +433,6 @@ public class VideoGenTraceConstructor implements ITraceConstructor {
 						org.irisa.diverse.videogen.videogenl.videoGen.Transition o_cast = (org.irisa.diverse.videogen.videogenl.videoGen.Transition) o;
 
 						if (p.getFeatureID() == org.irisa.diverse.videogen.videogenl.videoGen.VideoGenPackage.eINSTANCE
-								.getTransition_VideoGen().getFeatureID()) {
-
-							// Rollback: we remove the last value of this field from the new state
-							videoGenTrace.States.videoGen.TracedTransition traced = (videoGenTrace.States.videoGen.TracedTransition) exeToTraced
-									.get(o);
-							videoGenTrace.States.Transition_videoGen_Value lastValue = traced.getVideoGenSequence()
-									.get(traced.getVideoGenSequence().size() - 1);
-							newState.getTransition_videoGen_Values().remove(lastValue);
-
-							// And we create a proper new value
-							videoGenTrace.States.Transition_videoGen_Value newValue = videoGenTrace.States.StatesFactory.eINSTANCE
-									.createTransition_videoGen_Value();
-
-							videoGenTrace.States.videoGen.TracedVideoGen value = null;
-							if (o_cast.getVideoGen() != null) {
-								value = ((videoGenTrace.States.videoGen.TracedVideoGen) exeToTraced
-										.get(o_cast.getVideoGen()));
-							}
-
-							newValue.setVideoGen((videoGenTrace.States.videoGen.TracedVideoGen) value);
-
-							traced.getVideoGenSequence().add(newValue);
-							newState.getTransition_videoGen_Values().add(newValue);
-						} else
-
-						if (p.getFeatureID() == org.irisa.diverse.videogen.videogenl.videoGen.VideoGenPackage.eINSTANCE
 								.getTransition_CallnextTransition().getFeatureID()) {
 
 							// Rollback: we remove the last value of this field from the new state
@@ -501,6 +475,32 @@ public class VideoGenTraceConstructor implements ITraceConstructor {
 
 							traced.getExecutedSequence().add(newValue);
 							newState.getTransition_executed_Values().add(newValue);
+						} else
+
+						if (p.getFeatureID() == org.irisa.diverse.videogen.videogenl.videoGen.VideoGenPackage.eINSTANCE
+								.getTransition_VideoGen().getFeatureID()) {
+
+							// Rollback: we remove the last value of this field from the new state
+							videoGenTrace.States.videoGen.TracedTransition traced = (videoGenTrace.States.videoGen.TracedTransition) exeToTraced
+									.get(o);
+							videoGenTrace.States.Transition_videoGen_Value lastValue = traced.getVideoGenSequence()
+									.get(traced.getVideoGenSequence().size() - 1);
+							newState.getTransition_videoGen_Values().remove(lastValue);
+
+							// And we create a proper new value
+							videoGenTrace.States.Transition_videoGen_Value newValue = videoGenTrace.States.StatesFactory.eINSTANCE
+									.createTransition_videoGen_Value();
+
+							videoGenTrace.States.videoGen.TracedVideoGen value = null;
+							if (o_cast.getVideoGen() != null) {
+								value = ((videoGenTrace.States.videoGen.TracedVideoGen) exeToTraced
+										.get(o_cast.getVideoGen()));
+							}
+
+							newValue.setVideoGen((videoGenTrace.States.videoGen.TracedVideoGen) value);
+
+							traced.getVideoGenSequence().add(newValue);
+							newState.getTransition_videoGen_Values().add(newValue);
 						}
 					}
 				}

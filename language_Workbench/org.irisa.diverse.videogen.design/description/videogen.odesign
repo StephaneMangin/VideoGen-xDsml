@@ -404,12 +404,13 @@
         </containerMappings>
       </defaultLayer>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_2:EditionTableDescription" name="Video Values" domainClass="videoGen.Video">
+    <ownedRepresentations xsi:type="description_2:EditionTableDescription" name="Video Values" domainClass="videoGen.VideoGen">
       <ownedLineMappings name="name" domainClass="videoGen.Video" semanticCandidatesExpression="[self.name /]"/>
       <ownedLineMappings name="url" domainClass="videoGen.Video" semanticCandidatesExpression="[self.url /]"/>
       <ownedLineMappings name="duration" domainClass="videoGen.Video" semanticCandidatesExpression="[self.duration /]"/>
       <ownedLineMappings name="mimetype" domainClass="videoGen.Video" semanticCandidatesExpression="[self.mimetype /]"/>
       <ownedLineMappings name="description" domainClass="videoGen.Video" semanticCandidatesExpression="[self.description /]"/>
+      <ownedLineMappings name="video" domainClass="videoGen.VideoGen"/>
       <ownedColumnMappings name="fieldName" featureName="Field"/>
       <ownedColumnMappings name="fieldValue" featureName="Value"/>
     </ownedRepresentations>

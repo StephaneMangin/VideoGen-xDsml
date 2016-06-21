@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?eclipse version="3.0"?>
 <plugin>
+   <extension-point id="liveViewsModelAdaptor" name="org.irisa.diverse.livemodeling.views.modelAdaptor" schema="schema/liveViewsModelAdaptor.exsd"/>
    <extension
          point="org.eclipse.ui.views">
       <category
@@ -9,7 +10,7 @@
       </category>
       <view
             category="org.gemoc.executionframework.ui.category"
-            class="org.irisa.diverse.live_modeling.views.constraint.View"
+            class="org.irisa.diverse.livemodeling.views.constraint.View"
             icon="icons/IconeGemocModel-16.png"
             id="org.irisa.diverse.live_modeling.views.constraint.View"
             name="Constraint View">
@@ -41,7 +42,7 @@
    
   <extension point="org.gemoc.gemoc_language_workbench.engine_addon">
     <Addon
-    	Class="org.irisa.diverse.live_modeling.views.constraint.ConstraintEngineAddon"
+    	Class="org.irisa.diverse.livemodeling.views.constraint.ConstraintEngineAddon"
     	Default="true"
     	id="org.irisa.diverse.live_modeling.views.constraint"
     	Name="Constraint view"

@@ -5,12 +5,9 @@ import fr.inria.diverse.k3.al.annotationprocessor.InitializeModel
 import fr.inria.diverse.k3.al.annotationprocessor.Main
 import fr.inria.diverse.k3.al.annotationprocessor.OverrideAspectMethod
 import fr.inria.diverse.k3.al.annotationprocessor.Step
-import java.io.File
-import java.io.FileWriter
 import java.util.HashMap
 import java.util.List
 import java.util.Map
-import org.eclipse.core.resources.ResourcesPlugin
 import org.irisa.diverse.videogen.videoGen.Alternatives
 import org.irisa.diverse.videogen.videoGen.Delay
 import org.irisa.diverse.videogen.videoGen.Generate
@@ -22,7 +19,6 @@ import org.irisa.diverse.videogen.videoGen.Transition
 import org.irisa.diverse.videogen.videoGen.Video
 import org.irisa.diverse.videogen.videoGen.VideoGen
 
-//import static extension org.irisa.diverse.videogen.videoGen.aspects.AlternativesTransAspect.*
 import static extension org.irisa.diverse.videogen.videoGen.aspects.TransitionAspect.*
 import static extension org.irisa.diverse.videogen.videoGen.aspects.VideoAspect.*
 
@@ -236,28 +232,28 @@ class VideoGenAspect {
 	 * Save the given playlist content in a temporary file (hashed by content)
 	 * 
 	 */
-	def private File saveGeneratedModel(String content) {
-		// Create the temporary file to receive playlist as M3U
-		val playlist = File.createTempFile(String.valueOf(content.hashCode), "-videogen.m3u")
-		val writer = new FileWriter(playlist)
-		writer.write(content)
-		writer.flush
-		writer.close
-		playlist
-	}
+//	def private File saveGeneratedModel(String content) {
+//		// Create the temporary file to receive playlist as M3U
+//		val playlist = File.createTempFile(String.valueOf(content.hashCode), "-videogen.m3u")
+//		val writer = new FileWriter(playlist)
+//		writer.write(content)
+//		writer.flush
+//		writer.close
+//		playlist
+//	}
 
 	/**
 	 * Launch vlc instance with the provided playlist
 	 * 
 	 */
-	def private void launchReader(File playlist) {
-		// Start VLC
-		// TODO: add a new tab inside eclipse to start a video player...
-		// If possible (see Jave implementation from org.irisa.diverse.transformations.strategies)
-		val p = new ProcessBuilder("vlc", "--playlist-autostart", "--playlist-tree", "--no-overlay",
-			playlist.toPath.toString)
-		p.start()
-	}
+//	def private void launchReader(File playlist) {
+//		// Start VLC
+//		// TODO: add a new tab inside eclipse to start a video player...
+//		// If possible (see Jave implementation from org.irisa.diverse.transformations.strategies)
+//		val p = new ProcessBuilder("vlc", "--playlist-autostart", "--playlist-tree", "--no-overlay",
+//			playlist.toPath.toString)
+//		p.start()
+//	}
 
 	/**
 	 * Add a new expression to the objective of the linear system constraints
@@ -430,12 +426,12 @@ class VideoAspect {
 	@Step
 	def public void setup() {
 		if (!_self.url.startsWith("/")) {
-			val workspace = ResourcesPlugin.workspace
-			val project = workspace.root.projects.get(0)
-			val uri = project.locationURI
-			val prefix = uri.toString.replace("file:", "")
-			val newPath = prefix + "/" + _self.url
-			_self.setUrl(newPath)
+//			val workspace = ResourcesPlugin.workspace
+//			val project = workspace.root.projects.get(0)
+//			val uri = project.locationURI
+//			val prefix = uri.toString.replace("file:", "")
+//			val newPath = prefix + "/" + _self.url
+//			_self.setUrl(newPath)
 		}
 		// Add duration and VideoCodec MimeType
 		//VideoGenTransform.addMetadata(_self)

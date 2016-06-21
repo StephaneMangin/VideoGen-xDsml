@@ -807,14 +807,6 @@ public class VideoGenTraceExplorer implements ITraceExplorer {
 		}
 	}
 
-	private Collection<? extends EObject> getTracedToExe(Collection<? extends EObject> tracedObjects) {
-		Collection<EObject> result = new ArrayList<EObject>();
-		for (EObject tracedObject : tracedObjects) {
-			result.add(getTracedToExe(tracedObject));
-		}
-		return result;
-	}
-
 	private EObject getTracedToExe(EObject tracedObject) {
 		return tracedToExe.get(tracedObject);
 	}

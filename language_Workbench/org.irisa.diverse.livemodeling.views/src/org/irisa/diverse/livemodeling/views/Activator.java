@@ -8,7 +8,7 @@
  * Contributors:
  *     Inria - initial API and implementation
  *******************************************************************************/
-package org.irisa.diverse.live_modeling.views;
+package org.irisa.diverse.livemodeling.views;
 
 import java.util.Map;
 import java.util.function.Supplier;
@@ -23,7 +23,7 @@ import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.eclipse.jface.dialogs.ErrorDialog;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
-import org.irisa.diverse.live_modeling.views.api.IView;
+import org.irisa.diverse.livemodeling.views.api.IView;
 import org.irisa.diverse.videogen.videoGen.VideoGen;
 import org.irisa.diverse.videogen.videoGen.VideoGenPackage;
 

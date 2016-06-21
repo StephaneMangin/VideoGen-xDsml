@@ -52,8 +52,6 @@
         <eTypeArguments eClassifier="//Steps/VideoGen_Alternatives_Execute_AbstractSubStep"/>
         <eClassifier xsi:type="ecore:EClass" href="../../fr.inria.diverse.trace.commons.model/model/GenericTrace.ecore#//SequentialStep"/>
       </eGenericSuperTypes>
-      <eGenericSuperTypes eClassifier="//Steps/VideoGen_Alternatives_Execute_AbstractSubStep"/>
-      <eGenericSuperTypes eClassifier="//Steps/VideoGen_Transition_Execute_AbstractSubStep"/>
       <eGenericSuperTypes eClassifier="//Steps/VideoGen_Transition_FinishExecute_AbstractSubStep"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="VideoGen_Alternatives_Execute_AbstractSubStep" abstract="true" interface="true" eSuperTypes="//Steps/SpecificStep"/>
@@ -68,8 +66,6 @@
         </eAnnotations>
       </eOperations>
       <eGenericSuperTypes eClassifier="//Steps/VideoGen_VideoGen_Execute_AbstractSubStep"/>
-      <eGenericSuperTypes eClassifier="//Steps/VideoGen_Alternatives_Execute_AbstractSubStep"/>
-      <eGenericSuperTypes eClassifier="//Steps/VideoGen_Transition_Execute_AbstractSubStep"/>
       <eGenericSuperTypes eClassifier="//Steps/SpecificStep"/>
       <eGenericSuperTypes>
         <eTypeArguments eClassifier="//Steps/VideoGen_Generate_Execute_AbstractSubStep"/>
@@ -89,8 +85,6 @@
         </eAnnotations>
       </eOperations>
       <eGenericSuperTypes eClassifier="//Steps/VideoGen_VideoGen_Execute_AbstractSubStep"/>
-      <eGenericSuperTypes eClassifier="//Steps/VideoGen_Alternatives_Execute_AbstractSubStep"/>
-      <eGenericSuperTypes eClassifier="//Steps/VideoGen_Transition_Execute_AbstractSubStep"/>
       <eGenericSuperTypes eClassifier="//Steps/SpecificStep"/>
       <eGenericSuperTypes>
         <eTypeArguments eClassifier="//Steps/VideoGen_Initialize_Execute_AbstractSubStep"/>
@@ -110,8 +104,6 @@
         </eAnnotations>
       </eOperations>
       <eGenericSuperTypes eClassifier="//Steps/VideoGen_VideoGen_Execute_AbstractSubStep"/>
-      <eGenericSuperTypes eClassifier="//Steps/VideoGen_Alternatives_Execute_AbstractSubStep"/>
-      <eGenericSuperTypes eClassifier="//Steps/VideoGen_Transition_Execute_AbstractSubStep"/>
       <eGenericSuperTypes eClassifier="//Steps/SpecificStep"/>
       <eGenericSuperTypes>
         <eTypeArguments eClassifier="//Steps/VideoGen_Mandatory_Execute_AbstractSubStep"/>
@@ -131,8 +123,6 @@
         </eAnnotations>
       </eOperations>
       <eGenericSuperTypes eClassifier="//Steps/VideoGen_VideoGen_Execute_AbstractSubStep"/>
-      <eGenericSuperTypes eClassifier="//Steps/VideoGen_Alternatives_Execute_AbstractSubStep"/>
-      <eGenericSuperTypes eClassifier="//Steps/VideoGen_Transition_Execute_AbstractSubStep"/>
       <eGenericSuperTypes eClassifier="//Steps/SpecificStep"/>
       <eGenericSuperTypes>
         <eTypeArguments eClassifier="//Steps/VideoGen_Optional_Execute_AbstractSubStep"/>
@@ -152,13 +142,11 @@
         </eAnnotations>
       </eOperations>
       <eGenericSuperTypes eClassifier="//Steps/VideoGen_VideoGen_Execute_AbstractSubStep"/>
-      <eGenericSuperTypes eClassifier="//Steps/VideoGen_Alternatives_Execute_AbstractSubStep"/>
       <eGenericSuperTypes eClassifier="//Steps/SpecificStep"/>
       <eGenericSuperTypes>
         <eTypeArguments eClassifier="//Steps/VideoGen_Transition_Execute_AbstractSubStep"/>
         <eClassifier xsi:type="ecore:EClass" href="../../fr.inria.diverse.trace.commons.model/model/GenericTrace.ecore#//SequentialStep"/>
       </eGenericSuperTypes>
-      <eGenericSuperTypes eClassifier="//Steps/VideoGen_Transition_Execute_AbstractSubStep"/>
       <eGenericSuperTypes eClassifier="//Steps/VideoGen_Transition_FinishExecute_AbstractSubStep"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="VideoGen_Transition_Execute_AbstractSubStep" abstract="true" interface="true" eSuperTypes="//Steps/SpecificStep"/>

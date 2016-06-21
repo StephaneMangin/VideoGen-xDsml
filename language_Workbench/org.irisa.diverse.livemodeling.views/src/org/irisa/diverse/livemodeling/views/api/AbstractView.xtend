@@ -1,4 +1,4 @@
-package org.irisa.diverse.live_modeling.views.api
+package org.irisa.diverse.livemodeling.views.api
 
 import fr.obeo.dsl.debug.ide.launch.AbstractDSLLaunchConfigurationDelegate
 import java.util.Map
@@ -7,16 +7,22 @@ import org.eclipse.debug.core.DebugPlugin
 import org.eclipse.jface.action.Action
 import org.gemoc.executionframework.ui.views.engine.EngineSelectionDependentViewPart
 import org.gemoc.xdsmlframework.api.core.IRunConfiguration
-import org.irisa.diverse.live_modeling.views.Activator
+import org.irisa.diverse.livemodeling.views.Activator
+import org.eclipse.emf.common.EMFPlugin
+import org.eclipse.core.runtime.Platform
+import org.eclipse.core.runtime.IExtension
+import org.eclipse.core.runtime.IConfigurationElement
 
 abstract class AbstractView extends EngineSelectionDependentViewPart implements IView {
 	
 	private Map<String, Object> runConfigurationAttributes = null
+	
+	public static IModelAdapter[] modelAdaptors
 
 	new() {
 		Activator.^default.viewSupplier = this
 	}
-      
+    
 	override void dispose() {
 		Activator.^default.viewSupplier = null;
 		super.dispose();
@@ -76,4 +82,29 @@ abstract class AbstractView extends EngineSelectionDependentViewPart implements 
 			e.printStackTrace()
 		}
 	}
+	/**
+     * This will parse the currently running platform for extensions and store
+     * all the match engines that can be found.
+     */
+    def static void parseExtensionMetadata() {
+        if (EMFPlugin.IS_ECLIPSE_RUNNING) {
+            val extensions = Platform.getExtensionRegistry().getExtensionPoint(IView.EXTENDER_PROVIDER_EXTENSION_POINT).getExtensions()
+            extensions.forEach[
+                val configElements = it.getConfigurationElements();
+                configElements.forEach[
+                    val modelAdaptor = AbstractView.parseEngine(it);
+                    if (modelAdaptor != null) {
+                        AbstractView.modelAdaptors.add(modelAdaptor);
+                    }
+                ]
+            ]
+        }
+    }
+
+    def private static IModelAdapter parseEngine(IConfigurationElement configElement) {
+        if (!configElement.getName().equals(IView.TAG_ENGINE)) {
+            return null;
+        }
+        configElement.createExecutableExtension("class") as IModelAdapter
+    }
 }

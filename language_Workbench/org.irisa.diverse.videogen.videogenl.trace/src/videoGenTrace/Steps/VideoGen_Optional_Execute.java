@@ -16,7 +16,7 @@ import videoGenTrace.States.videoGen.TracedOptional;
  * @model
  * @generated
  */
-public interface VideoGen_Optional_Execute extends VideoGen_VideoGen_Execute_AbstractSubStep, VideoGen_Alternatives_Execute_AbstractSubStep, VideoGen_Transition_Execute_AbstractSubStep, SpecificStep, SequentialStep<VideoGen_Optional_Execute_AbstractSubStep>, VideoGen_Transition_FinishExecute_AbstractSubStep {
+public interface VideoGen_Optional_Execute extends VideoGen_VideoGen_Execute_AbstractSubStep, SpecificStep, SequentialStep<VideoGen_Optional_Execute_AbstractSubStep>, VideoGen_Transition_FinishExecute_AbstractSubStep {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

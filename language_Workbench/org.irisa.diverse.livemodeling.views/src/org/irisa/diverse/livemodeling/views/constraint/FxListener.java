@@ -8,13 +8,13 @@
  * Contributors:
  *     Inria - initial API and implementation
  *******************************************************************************/
-package org.irisa.diverse.live_modeling.views.constraint;
+package org.irisa.diverse.livemodeling.views.constraint;
 
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 
-import org.irisa.diverse.live_modeling.views.api.IModelAdapter;
-import org.irisa.diverse.live_modeling.views.api.IModelListener;
+import org.irisa.diverse.livemodeling.views.api.IModelAdapter;
+import org.irisa.diverse.livemodeling.views.api.IModelListener;
 
 import javafx.application.Platform;
 import javafx.beans.binding.BooleanBinding;
