@@ -24,7 +24,7 @@ import org.irisa.diverse.livemodeling.views.Activator;
 import org.irisa.diverse.livemodeling.views.api.AbstractView;
 import org.irisa.diverse.livemodeling.views.api.IModelAdapter;
 import org.irisa.diverse.livemodeling.views.api.IView;
-import org.irisa.diverse.videogen.videoGen.VideoGen;
+import org.irisa.diverse.videogen.videogenl.videoGen.VideoGen;
 
 public class View extends AbstractView {
 

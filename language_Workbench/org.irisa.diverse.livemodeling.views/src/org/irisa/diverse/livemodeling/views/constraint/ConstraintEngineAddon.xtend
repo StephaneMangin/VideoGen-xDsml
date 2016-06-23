@@ -4,7 +4,6 @@ import fr.inria.diverse.trace.commons.model.trace.Step
 import java.util.ArrayList
 import java.util.Collection
 import java.util.List
-import org.eclipse.debug.internal.core.LaunchConfiguration
 import org.eclipse.emf.ecore.EPackage
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl
@@ -19,8 +18,10 @@ import org.irisa.diverse.livemodeling.views.Activator
 import org.irisa.diverse.livemodeling.views.api.IModelAdapter
 import org.irisa.diverse.livemodeling.views.api.IModelListener
 import org.irisa.diverse.livemodeling.views.api.IModelNotifier
-import org.irisa.diverse.videogen.videoGen.VideoGen
-import org.irisa.diverse.videogen.videoGen.VideoGenPackage
+import fr.inria.diverse.trace.commons.model.trace.TraceFactory
+import fr.inria.diverse.trace.commons.model.trace.LaunchConfiguration
+import org.irisa.diverse.videogen.videogenl.videoGen.VideoGen
+import org.irisa.diverse.videogen.videogenl.videoGen.VideoGenPackage
 
 public class ConstraintEngineAddon implements IEngineAddon, IModelListener, IModelNotifier {
 
@@ -42,7 +43,14 @@ public class ConstraintEngineAddon implements IEngineAddon, IModelListener, IMod
 	override void removeListener(IModelListener listener) { listeners.remove(listener) }
 
 	private def LaunchConfiguration setupRunConfigurationAttributes(IRunConfiguration configuration) {
-//		val LaunchConfiguration launchConfiguration = MseFactory.eINSTANCE.createLaunchConfiguration
+//		val LaunchConfiguration launchConfiguration = TraceFactory.eINSTANCE.createLaunchConfiguration
+//		launchConfiguration.parameters.forEach[param |
+//			
+//			switch (param.eClass) {
+//				case 
+//			}
+//			
+//		]
 //		if (configuration.getLanguageName() != "") {
 //			launchConfiguration.languageName = configuration.getLanguageName
 //		}
@@ -142,58 +150,36 @@ public class ConstraintEngineAddon implements IEngineAddon, IModelListener, IMod
 		// example everything is hierarchical included in this first node
 		resource.getContents().get(0) as VideoGen
 	}
-	
-	override aboutToExecuteStep(IBasicExecutionEngine arg0, Step arg1) {
-		// TODO
-		Activator.^default.viewSupplier.get().update()
-		// see import fr.inria.diverse.trace.gemoc.traceaddon.AbstractTraceAddon
-	}
-	
-	override aboutToSelectStep(IBasicExecutionEngine arg0, Collection<Step> arg1) {
-		// shut
-	}
-	
-	override engineAboutToDispose(IBasicExecutionEngine arg0) {
-		// shut
-	}
-	
-	override engineAboutToStop(IBasicExecutionEngine arg0) {
-		// shut
-	}
-	
+		
 	override engineStarted(IBasicExecutionEngine arg0) {
-		// TODO
-		Activator.^default.viewSupplier.get().update()
-		// see import fr.inria.diverse.trace.gemoc.traceaddon.AbstractTraceAddon
-	}
-	
-	override engineStatusChanged(IBasicExecutionEngine arg0, RunStatus arg1) {
-		// shut
-	}
-	
-	override proposedStepsChanged(IBasicExecutionEngine arg0, Collection<Step> arg1) {
-		// shut
+		println
+		println("#####################################################")
+		println("Engine started")
+		println("#####################################################")
+		println
+		update()
 	}
 	
 	override stepExecuted(IBasicExecutionEngine arg0, Step arg1) {
-		// TODO
-		Activator.^default.viewSupplier.get().update()
-		// see import fr.inria.diverse.trace.gemoc.traceaddon.AbstractTraceAddon
-	}
-	
-	override stepSelected(IBasicExecutionEngine arg0, Step arg1) {
-		// shut
-	}
-	
-	override validate(List<IEngineAddon> arg0) {
-		// TODO
-		// see import fr.inria.diverse.trace.gemoc.traceaddon.AbstractTraceAddon
+		println
+		println("#####################################################")
+		println("Step executed")
+		println("#####################################################")
+		println
+		update()
 	}
 	
 	override update() {
-		// TODO
-		Activator.^default.viewSupplier.get().update()
 		// see import fr.inria.diverse.trace.gemoc.traceaddon.AbstractTraceAddon
+		Activator.^default.viewSupplier.get().update()
 	}
 	
+	override aboutToExecuteStep(IBasicExecutionEngine arg0, Step arg1) {}
+	override aboutToSelectStep(IBasicExecutionEngine arg0, Collection<Step> arg1) {}
+	override engineAboutToDispose(IBasicExecutionEngine arg0) {}
+	override engineAboutToStop(IBasicExecutionEngine arg0) {}
+	override stepSelected(IBasicExecutionEngine arg0, Step arg1) {}
+	override engineStatusChanged(IBasicExecutionEngine arg0, RunStatus arg1) {}
+	override proposedStepsChanged(IBasicExecutionEngine arg0, Collection<Step> arg1) {}
+	override validate(List<IEngineAddon> arg0) {}
 }

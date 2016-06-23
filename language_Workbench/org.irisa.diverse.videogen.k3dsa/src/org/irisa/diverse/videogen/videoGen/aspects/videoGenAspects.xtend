@@ -20,7 +20,6 @@ import org.irisa.diverse.videogen.videoGen.Video
 import org.irisa.diverse.videogen.videoGen.VideoGen
 
 import static extension org.irisa.diverse.videogen.videoGen.aspects.TransitionAspect.*
-import static extension org.irisa.diverse.videogen.videoGen.aspects.VideoAspect.*
 
 @Aspect(className=VideoGen)
 class VideoGenAspect {
@@ -40,7 +39,7 @@ class VideoGenAspect {
 	 * This method generates a linear model to satisfy the min and max user constraints
 	 * 
 	 */
-	@Step
+	//@Step
 	def Map<Long, Integer> solve() {
 				
 //		val solver = new Solver("Min max durations constraints")
@@ -150,7 +149,7 @@ class VideoGenAspect {
 
 		// Video specific setup
 		// Prerequisite for video duration computation
-		_self.videos.forEach[it.setup]
+		//_self.videos.forEach[it.setup]
 		
 		// Durations calculation
 		val results = newHashMap()
@@ -192,16 +191,14 @@ class VideoGenAspect {
 		// Visitors calls to populate model mutables
 		_self.minUserConstraint = _self.minDurationConstraint
 		_self.maxUserConstraint = _self.maxDurationConstraint
-	}
-
-	@Step
-	@InitializeModel
-	def public void initializeModel(List<String> args) {
-		_self.setup
 		_self.initialized = true
 	}
 
-	@Step
+	@InitializeModel
+	def public void initializeModel(List<String> args) {
+		_self.setup
+	}
+
 	def public void execute() {
 		_self.solve
 		// Process each transitions, starting with the Initialize
@@ -213,7 +210,7 @@ class VideoGenAspect {
 	 * to create the final sequence (PlayList format)
 	 * 
 	 */
-	@Step
+	//@Step
 	def public void compute() {
 		val videos = new HashMap
 		_self.transitions.filter[selected].filter[it instanceof Sequence].map[it as Sequence].map[video].forEach [
@@ -307,6 +304,8 @@ abstract class TransitionAspect {
 	public VideoGen videoGen = null
 	public Boolean executed = false
 	public Boolean callnextTransition = true
+	private HashMap<Integer, Double> distribution = new HashMap
+	private double distSum = 0
 
 	def public void execute(VideoGen videoGen) {
 	}
@@ -316,14 +315,11 @@ abstract class TransitionAspect {
 	 * 
 	 * DirtyFix to bypass the super execute from descendants
 	 */
-	@Step
 	def public void finishExecute(VideoGen videoGen) {
 		// Stop invariant while looping the model
-		if (!_self.executed) {
+		if (_self.executed) {
 			// Call the next sequence in all case
 			if (_self.nextTransition !== null) {
-				// Don't forget to reset current state
-				_self.executed = true
 				// Before calling next sequence, check that the object is an endpoint of its subgraph
 				if (_self.callnextTransition) {
 					_self.nextTransition.execute(videoGen)
@@ -331,6 +327,52 @@ abstract class TransitionAspect {
 			}
 		}
 	}
+	
+	/**
+	 * Configure the random number generator
+	 * 
+	 */
+	def public void addNumber(int value, double distribution) {
+		var double distnum = _self.distSum
+		if (_self.distribution.get(value) !== null) {
+			distnum -= _self.distribution.get(value)
+		}
+		_self.distribution.put(value, distribution)
+		distnum += distribution
+		_self.distSum = distnum
+	}
+
+	/**
+	 * Generate a random number based of the configuration done with addNumber
+	 * 
+	 * Purge the numbers after use
+	 */
+	def public int getDistributedRandomNumber() {
+		var double rand = Math.random()
+		var double ratio = 1.0f / _self.distSum
+		var double tempDist = 0
+		for (Integer i : _self.distribution.keySet()) {
+			tempDist += _self.distribution.get(i)
+			if (rand / ratio <= tempDist) {
+				return _self.sendAndPurgeResult(i)
+			}
+
+		}
+		return _self.sendAndPurgeResult(0)
+	}
+	
+	/**
+	 * Helper method for random generator result sender
+	 * 
+	 * Purge the numbers added with addNumber method
+	 * And return the value in parameters
+	 */
+	def private int sendAndPurgeResult(int i) {
+		_self.distribution = new HashMap
+		_self.distSum = 0
+		return i
+	}
+	
 }
 
 @Aspect(className=Sequence)
@@ -348,24 +390,81 @@ class AlternativesAspect extends SequenceAspect {
 		// Optional could be linked together for alterantives management
 		// A bind relation could be used to replace this data structure (maybe without common sense)
 		_self.selected = true
-//		val selectedOption = _self.selectOption
-//		if (selectedOption != null) {
-//			selectedOption.selected = true
-//			_self.video = selectedOption.video
-//
-//			// Manage optional next sequence if linked outside the alternatives
-//			// EDIT : for now the graph is not multipath friendly
-//			_self.options.filter[active].filter[video == _self.video].filter[nextTransition != null].forEach [
-//				nextTransition.execute(videoGen)
-//				// Call of nextTransition.process will not be called in super
-//				_self.callnextTransition = false
-//			]
-//		}
+		val selectedOption = _self.selectOption
+		if (selectedOption != null) {
+			selectedOption.selected = true
+			_self.video = selectedOption.video
+
+			// Manage optional next sequence if linked outside the alternatives
+			// EDIT : for now the graph is not multipath friendly
+			_self.options.filter[active].filter[video == _self.video].filter[nextTransition != null].forEach [
+				nextTransition.execute(videoGen)
+				// Call of nextTransition.process will not be called in super
+				_self.callnextTransition = false
+			]
+		}
 		// _self.super_execute(videoGen)
+		_self.executed = true // Allow to execute next transition
 		_self.finishExecute(vid)
 
 	}
+	/**
+	 * Return a hashmap with corrected probabilities.
+	 * 
+	 */
+	def private Map<Optional, Integer> checkProbabilities() {
+		val result = new HashMap<Optional, Integer>
+		var totalProb = 0
+		var totalProbLeft = 0
+		var totalOptions = 0
+		var inactivated = 0
+		for (option : _self.options) {
+			if (option.active) {
+				if (option.probability == 0) {
+					totalOptions++
+				}
+				totalProb += option.probability
+				result.put(option, option.probability)
+			} else {
+				inactivated++
+				totalProbLeft += option.probability
+			}
+		}
+		if (result.size != 0) {
+			if (result.size == 1) {
+				result.replace(result.keySet.get(0), 100)
+			} else if (inactivated != 0) {
+				for (name : result.keySet) {
+					val percentageLeft = totalProbLeft / inactivated
+					result.put(name, result.get(name) + percentageLeft)
+				}
+			} else {
+				for (name : result.keySet) {
+					if (result.get(name) == 0) {
+						val percentageLeft = (100 - totalProb) / totalOptions
+						result.put(name, percentageLeft)
+					}
+				}
+			}
+		}
+		result
+	}
 
+	/**
+ 	 * Process options to find the selectable video
+ 	 * 
+ 	 */
+	def Optional selectOption() {
+
+		val checkedProbabilities = _self.checkProbabilities
+		if (checkedProbabilities.empty) {
+			return null
+		}
+		checkedProbabilities.forEach[option, proba|
+			_self.addNumber(checkedProbabilities.keySet.toList.indexOf(option), proba)
+		] 
+		checkedProbabilities.keySet.get(_self.getDistributedRandomNumber())
+	}
 }
 
 @Aspect(className=Mandatory)
@@ -378,6 +477,7 @@ class MandatoryAspect extends SequenceAspect {
 			_self.selected = true
 		}
 		// _self.super_execute(videoGen)
+		_self.executed = true // Allow to execute next transition
 		_self.finishExecute(vid)
 	}
 }
@@ -392,20 +492,16 @@ class OptionalAspect extends SequenceAspect {
 	 * @author Stéphane Mangin <stephane.mangin@freesbee.fr>
 	 */
 	def private Boolean isSelected() {
+		var float proba
 
-//		var drng = new DistributedRandomNumberGenerator()
-//
-//		var float proba
-//
-//		proba = 50
-//		if (_self.probability != 0) {
-//			proba = _self.probability
-//		}
-//		drng.addNumber(1, proba)
-//		drng.addNumber(0, 100 - proba)
-//
-//		drng.getDistributedRandomNumber() > 0
-		true
+		proba = 50
+		if (_self.probability != 0) {
+			proba = _self.probability
+		}
+		_self.addNumber(1, proba)
+		_self.addNumber(0, 100 - proba)
+
+		_self.getDistributedRandomNumber() > 0
 	}
 
 	@Step
@@ -415,6 +511,7 @@ class OptionalAspect extends SequenceAspect {
 			_self.selected = _self.isSelected
 		}
 		// _self.super_execute(videoGen)
+		_self.executed = true // Allow to execute next transition
 		_self.finishExecute(vid)
 	}
 }
@@ -433,7 +530,7 @@ class VideoAspect {
 //			_self.setUrl(newPath)
 		}
 		// Add duration and VideoCodec MimeType
-		//VideoGenTransform.addMetadata(_self)
+//		VideoGenTransform.addMetadata(_self)
 	}
 }
 
@@ -447,7 +544,8 @@ class InitializeAspect extends TransitionAspect {
 	@Step
 	@OverrideAspectMethod
 	def public void execute(VideoGen vid) {
-
+		// _self.super_execute(videoGen)
+		_self.executed = true // Allow to execute next transition
 		_self.finishExecute(vid)
 	}
 }
@@ -465,6 +563,7 @@ class GenerateAspect extends TransitionAspect {
 			VideoGenAspect.compute(vid)
 		}
 		// _self.super_execute(videoGen)
+		_self.executed = true // Allow to execute next transition
 		_self.finishExecute(vid)
 	}
 }
