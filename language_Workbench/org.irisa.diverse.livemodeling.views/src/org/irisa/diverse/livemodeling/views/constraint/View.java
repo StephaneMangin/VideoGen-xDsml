@@ -80,8 +80,8 @@ public class View extends AbstractView {
 	@Override
 	public void engineSelectionChanged(IBasicExecutionEngine engine) {
 		this.engine = engine;
-		System.out.println(AbstractView.modelAdaptors);
-		modelAdapter = AbstractView.modelAdaptors[0];
+		System.out.println(getModelAdapters());
+		modelAdapter = getModelAdapters()[0];
 		modelAdapter.setModel((VideoGen)(ConstraintEngineAddon.loadModel(engine.getExecutionContext().getResourceModel())));
 		modelAdapter.addListener(viewListener);
 		viewListener.setModel(modelAdapter);
@@ -89,7 +89,6 @@ public class View extends AbstractView {
 	}
 
 	public void update() {
-		System.out.println("Update viewListener");
 		viewListener.refresh();
 	}
 }

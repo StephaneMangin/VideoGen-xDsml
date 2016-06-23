@@ -110,7 +110,10 @@ public class FxListener extends Pane implements IModelListener {
 	 */
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	private void updateSeries(Boolean flushBefore) {
+
+		System.out.println("Update series");
         if (model != null) {
+        	System.out.println(model.getValues());
 	        if (flushBefore) {
 	        	// Remove only previous series
 	        	lineChart.getData().remove(series);

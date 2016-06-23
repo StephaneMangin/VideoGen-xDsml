@@ -10,12 +10,13 @@ import org.eclipse.jface.action.Action
 import org.gemoc.executionframework.ui.views.engine.EngineSelectionDependentViewPart
 import org.gemoc.xdsmlframework.api.core.IRunConfiguration
 import org.irisa.diverse.livemodeling.views.Activator
+import java.util.Collection
 
 abstract class AbstractView extends EngineSelectionDependentViewPart implements IView {
 	
 	private Map<String, Object> runConfigurationAttributes = null
 	
-	public static IModelAdapter[] modelAdaptors = newArrayOfSize(10)
+	public static Collection<IModelAdapter> modelAdapters = newArrayList()
 
 	new() {
 		Activator.^default.viewSupplier = this
@@ -86,13 +87,14 @@ abstract class AbstractView extends EngineSelectionDependentViewPart implements 
      */
     def static void parseExtensionMetadata() {
         if (EMFPlugin.IS_ECLIPSE_RUNNING) {
-            val extensions = Platform.getExtensionRegistry().getExtensionPoint(IView.EXTENDER_PROVIDER_EXTENSION_POINT).getExtensions()
+        	val extentionPoint = IView.EXTENDER_PROVIDER_EXTENSION_POINT
+            val extensions = Platform.getExtensionRegistry().getExtensionPoint(extentionPoint).getExtensions()
             extensions.forEach[
                 val configElements = it.getConfigurationElements();
                 configElements.forEach[
                     val modelAdaptor = AbstractView.parseEngine(it);
                     if (modelAdaptor != null) {
-                        AbstractView.modelAdaptors.add(modelAdaptor);
+                        AbstractView.modelAdapters.add(modelAdaptor);
                     }
                 ]
             ]
@@ -104,5 +106,16 @@ abstract class AbstractView extends EngineSelectionDependentViewPart implements 
             return null;
         }
         configElement.createExecutableExtension("class") as IModelAdapter
+    }
+    
+    def public IModelAdapter[] getModelAdapters() {
+    	println(modelAdapters)
+    	if (modelAdapters.empty) {
+    		parseExtensionMetadata
+	        if (modelAdapters.empty) {
+	        	throw new Exception("No model's adaptor has been included.")
+	        }
+    	}
+    	modelAdapters
     }
 }
