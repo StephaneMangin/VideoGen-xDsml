@@ -8,6 +8,8 @@ import org.irisa.diverse.livemodeling.views.api.IModelListener
 import org.irisa.diverse.videogen.videoGen.VideoGen
 
 import static extension org.irisa.diverse.videogen.videoGen.aspects.VideoGenAspect.*
+import org.eclipse.emf.common.util.EMap
+import org.eclipse.emf.common.util.EList
 
 class VideoGenAdaptor implements IModelAdapter {
 	
@@ -24,7 +26,7 @@ class VideoGenAdaptor implements IModelAdapter {
 
 	override void removeListener(IModelListener listener) { listeners.remove(listener) }
 		
-	override Map<Long, Integer> getValues() {
+	override EList<Integer> getValues() {
 		// Call the solver to get all possible solutions
 		val values = model.solve
 		println("################# GET VALUES START")

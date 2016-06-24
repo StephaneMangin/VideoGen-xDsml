@@ -5,9 +5,14 @@ import fr.inria.diverse.k3.al.annotationprocessor.InitializeModel
 import fr.inria.diverse.k3.al.annotationprocessor.Main
 import fr.inria.diverse.k3.al.annotationprocessor.OverrideAspectMethod
 import fr.inria.diverse.k3.al.annotationprocessor.Step
-import java.util.HashMap
-import java.util.List
-import java.util.Map
+import org.chocosolver.solver.Solver
+import org.chocosolver.solver.constraints.IntConstraintFactory
+import org.chocosolver.solver.constraints.SatFactory
+import org.chocosolver.solver.constraints.nary.cnf.LogOp
+import org.chocosolver.solver.trace.Chatterbox
+import org.chocosolver.solver.variables.BoolVar
+import org.chocosolver.solver.variables.IntVar
+import org.chocosolver.solver.variables.VariableFactory
 import org.irisa.diverse.videogen.videoGen.Alternatives
 import org.irisa.diverse.videogen.videoGen.Delay
 import org.irisa.diverse.videogen.videoGen.Generate
@@ -20,14 +25,16 @@ import org.irisa.diverse.videogen.videoGen.Video
 import org.irisa.diverse.videogen.videoGen.VideoGen
 
 import static extension org.irisa.diverse.videogen.videoGen.aspects.TransitionAspect.*
+import org.eclipse.emf.common.util.EList
+import org.eclipse.emf.common.util.EMap
+import org.eclipse.emf.common.util.BasicEList
+import org.eclipse.emf.common.util.BasicEMap
+import java.util.Map.Entry
 
 @Aspect(className=VideoGen)
 class VideoGenAspect {
 
 	private Boolean initialized = false
-//	private List<IntVar> variables
-	private List<Integer> constants
-//	private IntVar objective
 	private int featureIndex = 0
 
 	@Main
@@ -36,107 +43,88 @@ class VideoGenAspect {
 	}
 
 	/**
-	 * This method generates a linear model to satisfy the min and max user constraints
+	 * This method generates a linear model to satisfy the min/max user constraints
 	 * 
 	 */
-	//@Step
-	def Map<Long, Integer> solve() {
+	def EList<Integer> solve() {
 				
-//		val solver = new Solver("Min max durations constraints")
-//		_self.featureIndex = 0
-		val allSolutions = newHashMap
-//		// if (_self.minUserConstraint > _self.maxUserConstraint || _self.maxUserConstraint == 0) {
-//		// throw new Exception("You have to indicate a min and a max value")
-//		// }
-//		val videoNumber = VideoGenHelper.allVideos(_self).size
-//
-//		// Define the objective scalar with given contraints
-//		_self.objective = VariableFactory.bounded(
-//			"objective",
-//			_self.minUserConstraint,
-//			_self.maxUserConstraint,
-//			solver)
-//		_self.variables = newArrayOfSize(videoNumber) // Used to insert optional's coefficient
-//		_self.constants = newIntArrayOfSize(videoNumber) // Used to insert video durations
-//		// Call the visitor
-//		_self.transitions.forEach [
-//
-//			if (it instanceof Mandatory) {
-//				// A mandatory has a fixed coef value of 1, mandatory right ;)
-//				val feature = VariableFactory.fixed(it.name, 1, solver)
-//				_self.addVar(feature, it.video.duration)
-//
-//			} else if (it instanceof Optional) {
-//				// For choco, a bool is a integer between 0 and 1
-//				_self.createOptionalIntVar(solver, it)
-//
-//			} else if (it instanceof Alternatives) {
-//				// Local vars
-//				val optionsSize = it.options.size
-//				val localVars = newArrayOfSize(optionsSize)
-//				var localCount = 0
-//
-//				// Effective parse to inject a feature for each option
-//				for (Optional opt : it.options) {
-//					_self.createOptionalIntVar(solver,opt)
-//					localVars.set(localCount, _self.getCurrentVar())
-//					localCount++
-//				}
-//
-//				// Create and insert the xor clause
-//				_self.createAlternativesXorClause(solver,localVars)
-//			}
-//		]
-//
-//		// Create and post constraints by using constraint factories
-//		solver.post(IntConstraintFactory.scalar(_self.variables, _self.constants, _self.objective))
-//		// Launch the resolution process
-//		// solver.findOptimalSolution(ResolutionPolicy.SATISFACTION, objective)
-//		// solver.findOptimalSolution(ResolutionPolicy.MAXIMIZE, objective)
-//		// solver.findOptimalSolution(ResolutionPolicy.MINIMIZE, objective)
-//		
-//		val solutionUnique = solver.findSolution()
-//		if(solutionUnique) {
-//			// Print search statistics
-//			Chatterbox.printStatistics(solver)
-//			println(solver)
-//			// Get all solutions
-//			var long i = 0
-//			do {
-//				i++
-//				for (intvar: _self.variables) {
-//					val index = _self.variables.indexOf(intvar)
-//					if (allSolutions.get(i) == null) {
-//						allSolutions.put(i, 0)
-//					}
-//					allSolutions.put(i, allSolutions.get(i) + (intvar.value * _self.constants.get(index)))
-//				}
-//				_self.variantes = _self.variantes + 1
-//			} while (solver.nextSolution())
-//			println("Total solutions => " + i)
-//			
-//		} else if(solver.hasReachedLimit()){
-//		    println("The could not find a solution nor prove that none exists in the given limits");
-//		} else {
-//		    println("The solver has proved the problem has no solution");
-//		}
-//		println(allSolutions)
-		allSolutions
-	}
+		val solver = new Solver("Min max durations constraints")
+		_self.featureIndex = 0
+		val allSolutions = new BasicEMap()
+		// if (_self.minUserConstraint > _self.maxUserConstraint || _self.maxUserConstraint == 0) {
+		// throw new Exception("You have to indicate a min and a max value")
+		// }
 
-//	def void createOptionalIntVar(Solver solver, Optional optional) {
-//		var IntVar feature
-//		if (optional.active) {
-//			if (optional.selected) {
-//				feature = VariableFactory.fixed(optional.name, 1, solver)
-//			} else {
-//				feature = VariableFactory.bool(optional.name, solver)
-//			}
-//		} else {
-//			feature = VariableFactory.fixed(optional.name, 0, solver)
-//		}
-//		_self.addVar(feature, optional.video.duration)
-//	}
+		// Define the objective scalar with given contraints
+		val objective = VariableFactory.bounded(
+			"objective",
+			_self.minUserConstraint,
+			_self.maxUserConstraint,
+			solver)
+		val variables = new BasicEList() // Used to insert optional's coefficient
+		val constants = new BasicEList() // Used to insert video durations
+		// Call the visitor
+		_self.transitions.forEach [
+
+			if (it instanceof Mandatory) {
+				// A mandatory has a fixed coef value of 1, mandatory right ;)
+				val feature = VariableFactory.fixed(it.name, 1, solver)
+				_self.addVar(feature, it.video.duration, constants, variables)
+
+			} else if (it instanceof Optional) {
+				// For choco, a bool is a integer between 0 and 1
+				_self.createOptionalIntVar(solver, it, constants, variables)
+
+			} else if (it instanceof Alternatives) {
+				// Local vars
+				val localVars = new BasicEList()
+				// Effective parse to inject a feature for each option
+				for (Optional opt : it.options) {
+					_self.createOptionalIntVar(solver,opt, constants, variables)
+					localVars.add(variables.last)
+				}
+
+				// Create and insert the xor clause
+				_self.createAlternativesXorClause(solver, localVars)
+			}
+		]
+
+		// Create and post constraints by using constraint factories
+		solver.post(IntConstraintFactory.scalar(variables, constants, objective))
+		// Launch the resolution process
+		// solver.findOptimalSolution(ResolutionPolicy.SATISFACTION, objective)
+		// solver.findOptimalSolution(ResolutionPolicy.MAXIMIZE, objective)
+		// solver.findOptimalSolution(ResolutionPolicy.MINIMIZE, objective)
+		
+		val solutionUnique = solver.findSolution()
+		// Print search statistics
+		Chatterbox.printStatistics(solver)
+		println("Solver => " + solver)
+		if(solutionUnique) {
+			println(solver)
+			// Get all solutions
+			var long i = 0
+			do {
+				i++
+				for (intvar: variables) {
+					val index = variables.indexOf(intvar)
+					if (allSolutions.get(i) == null) {
+						allSolutions.put(i, 0)
+					}
+					allSolutions.put(i, allSolutions.get(i) + (intvar.value * constants.get(index)))
+				}
+				_self.variantes = _self.variantes + 1
+			} while (solver.nextSolution())
+			println("Total solutions => " + i)
+			
+		} else if(solver.hasReachedLimit()){
+		    println("The could not find a solution nor prove that none exists in the given limits");
+		} else {
+		    println("The solver has proved the problem has no solution");
+		}
+		println(allSolutions)
+		new BasicEList(allSolutions.values)
+	}
 
 	/**
 	 * This method is intended to configure the model
@@ -195,7 +183,7 @@ class VideoGenAspect {
 	}
 
 	@InitializeModel
-	def public void initializeModel(List<String> args) {
+	def public void initializeModel(EList<String> args) {
 		_self.setup
 	}
 
@@ -206,13 +194,13 @@ class VideoGenAspect {
 	}
 
 	/**
-	 * Start the computation (model transformation) of all selected video
+	 * Starts the computation (model transformation) of all selected video
 	 * to create the final sequence (PlayList format)
 	 * 
 	 */
 	//@Step
 	def public void compute() {
-		val videos = new HashMap
+		val videos = new BasicEMap
 		_self.transitions.filter[selected].filter[it instanceof Sequence].map[it as Sequence].map[video].forEach [
 			videos.put(name, true)
 		]
@@ -226,7 +214,7 @@ class VideoGenAspect {
 	}
 
 	/**
-	 * Save the given playlist content in a temporary file (hashed by content)
+	 * Saves the given playlist content in a temporary file (hashed by content)
 	 * 
 	 */
 //	def private File saveGeneratedModel(String content) {
@@ -240,7 +228,7 @@ class VideoGenAspect {
 //	}
 
 	/**
-	 * Launch vlc instance with the provided playlist
+	 * Launches vlc instance with the provided playlist
 	 * 
 	 */
 //	def private void launchReader(File playlist) {
@@ -253,28 +241,17 @@ class VideoGenAspect {
 //	}
 
 	/**
-	 * Add a new expression to the objective of the linear system constraints
+	 * Adds a new expression to the objective of the linear system constraints
 	 * 
 	 * feature => bool * duration
 	 * 
 	 */
-//	@Step
-//	def void addVar(IntVar intvar, int duration) {
-//		_self.variables.set(_self.featureIndex, intvar)
-//		_self.constants.set(_self.featureIndex, duration)
-//		_self.featureIndex = _self.featureIndex + 1
-//	}
+	def private void addVar(IntVar intvar, int duration, EList<Integer> constants, EList<IntVar> variables) {
+		variables.add(intvar)
+		constants.add(duration)
+	}
 
 	/**
-	 * Get the last added feature
-	 * 
-	 */
-//	@Step
-//	def IntVar getCurrentVar() {
-//		_self.variables.get(_self.featureIndex - 1)
-//	}
-
-	/*
 	 * Constructs the Xor constraints from an Alternative
 	 * 
 	 * Result is :
@@ -282,20 +259,37 @@ class VideoGenAspect {
 	 * 		LogOp.xor(...
 	 * 			LogOp.xor(firstVar, secondVar)))
 	 */
-//	@Step
-//	def public void createAlternativesXorClause(Solver solver, List<IntVar> vars) {
-//		var LogOp logOp = null
-//		var BoolVar firstVar = vars.head as BoolVar
-//		// Browse except the first element
-//		for (IntVar boolVar : vars.tail) {
-//			if (logOp == null) {
-//				logOp = LogOp.xor(firstVar, boolVar as BoolVar)
-//			} else {
-//				logOp = LogOp.xor(boolVar as BoolVar, logOp)
-//			}
-//		}
-//		SatFactory.addClauses(logOp, solver)
-//	}
+	def private void createAlternativesXorClause(Solver solver, EList<IntVar> vars) {
+		var LogOp logOp = null
+		var BoolVar firstVar = vars.head as BoolVar
+		// Browse except the first element
+		for (IntVar boolVar : vars.tail) {
+			if (logOp == null) {
+				logOp = LogOp.xor(firstVar, boolVar as BoolVar)
+			} else {
+				logOp = LogOp.xor(boolVar as BoolVar, logOp)
+			}
+		}
+		SatFactory.addClauses(logOp, solver)
+	}
+
+	/**
+	 * Creates a new feature for this Optional and adds it to the list
+	 * 
+	 */
+	def private void createOptionalIntVar(Solver solver, Optional optional, EList<Integer> constants, EList<IntVar> variables) {
+		var IntVar feature
+		if (optional.active) {
+			if (optional.selected) {
+				feature = VariableFactory.fixed(optional.name, 1, solver)
+			} else {
+				feature = VariableFactory.bool(optional.name, solver)
+			}
+		} else {
+			feature = VariableFactory.fixed(optional.name, 0, solver)
+		}
+		_self.addVar(feature, optional.video.duration, constants, variables)
+	}
 }
 
 @Aspect(className=Transition)
@@ -304,7 +298,7 @@ abstract class TransitionAspect {
 	public VideoGen videoGen = null
 	public Boolean executed = false
 	public Boolean callnextTransition = true
-	private HashMap<Integer, Double> distribution = new HashMap
+	private BasicEMap<Integer, Double> distribution = new BasicEMap
 	private double distSum = 0
 
 	def public void execute(VideoGen videoGen) {
@@ -332,12 +326,12 @@ abstract class TransitionAspect {
 	 * Configure the random number generator
 	 * 
 	 */
-	def public void addNumber(int value, double distribution) {
+	def public void addNumber(int key, double distribution) {
 		var double distnum = _self.distSum
-		if (_self.distribution.get(value) !== null) {
-			distnum -= _self.distribution.get(value)
+		if (_self.distribution.get(key).value !== null) {
+			distnum -= _self.distribution.get(key).value
 		}
-		_self.distribution.put(value, distribution)
+		_self.distribution.put(key, distribution)
 		distnum += distribution
 		_self.distSum = distnum
 	}
@@ -368,7 +362,7 @@ abstract class TransitionAspect {
 	 * And return the value in parameters
 	 */
 	def private int sendAndPurgeResult(int i) {
-		_self.distribution = new HashMap
+		_self.distribution = new BasicEMap
 		_self.distSum = 0
 		return i
 	}
@@ -412,8 +406,8 @@ class AlternativesAspect extends SequenceAspect {
 	 * Return a hashmap with corrected probabilities.
 	 * 
 	 */
-	def private Map<Optional, Integer> checkProbabilities() {
-		val result = new HashMap<Optional, Integer>
+	def private EMap<Optional, Integer> checkProbabilities() {
+		val result = new BasicEMap<Optional, Integer>
 		var totalProb = 0
 		var totalProbLeft = 0
 		var totalOptions = 0
@@ -432,7 +426,9 @@ class AlternativesAspect extends SequenceAspect {
 		}
 		if (result.size != 0) {
 			if (result.size == 1) {
-				result.replace(result.keySet.get(0), 100)
+				val option = result.head.key
+				result.clear
+				result.put(option, 100)
 			} else if (inactivated != 0) {
 				for (name : result.keySet) {
 					val percentageLeft = totalProbLeft / inactivated
@@ -447,7 +443,8 @@ class AlternativesAspect extends SequenceAspect {
 				}
 			}
 		}
-		result
+		println(result)
+		result as EMap<Optional, Integer>
 	}
 
 	/**
@@ -460,10 +457,11 @@ class AlternativesAspect extends SequenceAspect {
 		if (checkedProbabilities.empty) {
 			return null
 		}
-		checkedProbabilities.forEach[option, proba|
-			_self.addNumber(checkedProbabilities.keySet.toList.indexOf(option), proba)
+		checkedProbabilities.forEach[
+			println(it + "=>" + checkedProbabilities.indexOf(it))
+			_self.addNumber(checkedProbabilities.indexOf(it), it.value)
 		] 
-		checkedProbabilities.keySet.get(_self.getDistributedRandomNumber())
+		checkedProbabilities.get(_self.getDistributedRandomNumber()).key
 	}
 }
 

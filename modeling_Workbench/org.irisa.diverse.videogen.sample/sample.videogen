@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<videoGen:VideoGen xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:videoGen="http://videogenl/videoGen/" name="VideoGen Instance" minDurationConstraint="40000" maxDurationConstraint="120000" variantes="256" minUserConstraint="40000" maxUserConstraint="120000">
+<videoGen:VideoGen xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:videoGen="http://videogenl/videoGen/" name="VideoGen Instance" minDurationConstraint="45000" maxDurationConstraint="100000" variantes="256" minUserConstraint="45000" maxUserConstraint="100000">
   <transitions xsi:type="videoGen:Alternatives" name="intro" nextTransition="//@transitions.6">
     <options name="intro-1" video="//@videos.11" probability="30"/>
     <options name="intro-2" video="//@videos.1" probability="70"/>

@@ -119,10 +119,11 @@ public class FxListener extends Pane implements IModelListener {
 	        	lineChart.getData().remove(series);
 	        	series = new Series();
 	        }
-	        model.getValues().forEach(new BiConsumer<Object, Object>() {
+	        model.getValues().forEach(new Consumer<Integer>() {
 				@Override
-				public void accept(Object key, Object value) {
-					series.getData().add(new Data((Number)key, (Number)value));
+				public void accept(Integer duration) {
+					series.getData().add(
+						new Data((Number)model.getValues().indexOf(duration), (Number)duration));
 				}
 			});
 	        lineChart.getData().add(series);
