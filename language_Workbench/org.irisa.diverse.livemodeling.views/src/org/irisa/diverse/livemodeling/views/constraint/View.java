@@ -10,9 +10,6 @@
  *******************************************************************************/
 package org.irisa.diverse.livemodeling.views.constraint;
 
-import javafx.embed.swt.FXCanvas;
-import javafx.scene.Scene;
-
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.IToolBarManager;
 import org.eclipse.swt.SWT;
@@ -20,11 +17,13 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IActionBars;
 import org.gemoc.xdsmlframework.api.core.IBasicExecutionEngine;
-import org.irisa.diverse.livemodeling.views.Activator;
 import org.irisa.diverse.livemodeling.views.api.AbstractView;
 import org.irisa.diverse.livemodeling.views.api.IModelAdapter;
 import org.irisa.diverse.livemodeling.views.api.IView;
-import org.irisa.diverse.videogen.videogenl.videoGen.VideoGen;
+import org.irisa.diverse.videogen.videoGen.VideoGen;
+
+import javafx.embed.swt.FXCanvas;
+import javafx.scene.Scene;
 
 public class View extends AbstractView {
 

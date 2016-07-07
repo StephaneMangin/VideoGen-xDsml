@@ -1,5 +1,6 @@
 package org.irisa.diverse.livemodeling.views.constraint
 
+import fr.inria.diverse.trace.commons.model.trace.LaunchConfiguration
 import fr.inria.diverse.trace.commons.model.trace.Step
 import java.util.ArrayList
 import java.util.Collection
@@ -18,10 +19,8 @@ import org.irisa.diverse.livemodeling.views.Activator
 import org.irisa.diverse.livemodeling.views.api.IModelAdapter
 import org.irisa.diverse.livemodeling.views.api.IModelListener
 import org.irisa.diverse.livemodeling.views.api.IModelNotifier
-import fr.inria.diverse.trace.commons.model.trace.TraceFactory
-import fr.inria.diverse.trace.commons.model.trace.LaunchConfiguration
-import org.irisa.diverse.videogen.videogenl.videoGen.VideoGen
-import org.irisa.diverse.videogen.videogenl.videoGen.VideoGenPackage
+import org.irisa.diverse.videogen.videoGen.VideoGen
+import org.irisa.diverse.videogen.videoGen.VideoGenPackage
 
 public class ConstraintEngineAddon implements IEngineAddon, IModelListener, IModelNotifier {
 

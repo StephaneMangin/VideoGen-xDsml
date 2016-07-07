@@ -88,16 +88,20 @@ abstract class AbstractView extends EngineSelectionDependentViewPart implements 
     def static void parseExtensionMetadata() {
         if (EMFPlugin.IS_ECLIPSE_RUNNING) {
         	val extentionPoint = IView.EXTENDER_PROVIDER_EXTENSION_POINT
-            val extensions = Platform.getExtensionRegistry().getExtensionPoint(extentionPoint).getExtensions()
-            extensions.forEach[
-                val configElements = it.getConfigurationElements();
-                configElements.forEach[
-                    val modelAdaptor = AbstractView.parseEngine(it);
-                    if (modelAdaptor != null) {
-                        AbstractView.modelAdapters.add(modelAdaptor);
-                    }
-                ]
-            ]
+            val extensionsRegistry = Platform.getExtensionRegistry()
+            val extensionsPoint = extensionsRegistry.getExtensionPoint(extentionPoint)
+            if (extensionsPoint != null) {
+            	val extensions = extensionsPoint.getExtensions()
+	            extensions.forEach[
+	                val configElements = it.getConfigurationElements();
+	                configElements.forEach[
+	                    val modelAdaptor = AbstractView.parseEngine(it);
+	                    if (modelAdaptor != null) {
+	                        AbstractView.modelAdapters.add(modelAdaptor);
+	                    }
+	                ]
+	            ]
+	        }
         }
     }
 

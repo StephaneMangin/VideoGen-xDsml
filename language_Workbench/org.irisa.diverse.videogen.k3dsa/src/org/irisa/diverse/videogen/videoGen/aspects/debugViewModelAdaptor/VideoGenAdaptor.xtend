@@ -2,13 +2,11 @@ package org.irisa.diverse.videogen.videoGen.aspects.debugViewModelAdaptor
 
 import java.util.ArrayList
 import java.util.List
-import java.util.Map
 import org.irisa.diverse.livemodeling.views.api.IModelAdapter
 import org.irisa.diverse.livemodeling.views.api.IModelListener
 import org.irisa.diverse.videogen.videoGen.VideoGen
 
 import static extension org.irisa.diverse.videogen.videoGen.aspects.VideoGenAspect.*
-import org.eclipse.emf.common.util.EMap
 import org.eclipse.emf.common.util.EList
 
 class VideoGenAdaptor implements IModelAdapter {

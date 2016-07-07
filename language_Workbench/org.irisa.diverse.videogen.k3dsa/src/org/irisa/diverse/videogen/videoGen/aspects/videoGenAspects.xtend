@@ -13,6 +13,10 @@ import org.chocosolver.solver.trace.Chatterbox
 import org.chocosolver.solver.variables.BoolVar
 import org.chocosolver.solver.variables.IntVar
 import org.chocosolver.solver.variables.VariableFactory
+import org.eclipse.emf.common.util.BasicEList
+import org.eclipse.emf.common.util.BasicEMap
+import org.eclipse.emf.common.util.EList
+import org.eclipse.emf.common.util.EMap
 import org.irisa.diverse.videogen.videoGen.Alternatives
 import org.irisa.diverse.videogen.videoGen.Delay
 import org.irisa.diverse.videogen.videoGen.Generate
@@ -23,13 +27,7 @@ import org.irisa.diverse.videogen.videoGen.Sequence
 import org.irisa.diverse.videogen.videoGen.Transition
 import org.irisa.diverse.videogen.videoGen.Video
 import org.irisa.diverse.videogen.videoGen.VideoGen
-
 import static extension org.irisa.diverse.videogen.videoGen.aspects.TransitionAspect.*
-import org.eclipse.emf.common.util.EList
-import org.eclipse.emf.common.util.EMap
-import org.eclipse.emf.common.util.BasicEList
-import org.eclipse.emf.common.util.BasicEMap
-import java.util.Map.Entry
 
 @Aspect(className=VideoGen)
 class VideoGenAspect {
@@ -61,8 +59,8 @@ class VideoGenAspect {
 			_self.minUserConstraint,
 			_self.maxUserConstraint,
 			solver)
-		val variables = new BasicEList() // Used to insert optional's coefficient
-		val constants = new BasicEList() // Used to insert video durations
+		val variables = new BasicEList(1) // Used to insert optional's coefficient
+		val constants = new BasicEList(1) // Used to insert video durations
 		// Call the visitor
 		_self.transitions.forEach [
 
@@ -145,22 +143,22 @@ class VideoGenAspect {
 		results.put("max", 0)
 		results.put("variants", 1) // Found by multiplication
 		
-		_self.transitions.forEach [
+		_self.transitions.forEach [ 
 			it.selected = false
 			it.active = true
 			it.executed = false
-			it.videoGen = videoGen
+			it.videoGen = _self
 			if (it instanceof Alternatives) {
 //				var List<Integer> durations = it.options.map[video.duration]
 //				// durations = _self.options.filter[selected].map[video.duration]
 //				results.put("min", results.get("min") + durations.min)
 //				results.put("max", results.get("max") + durations.max)
 				results.put("variants", results.get("variants") * it.options.size)
-				it.options.forEach [ opt |
-					opt.selected = false
-					opt.active = true
-					opt.executed = false
-					opt.videoGen = videoGen
+				it.options.forEach [
+					it.selected = false
+					it.active = true
+					it.executed = false
+					it.videoGen = _self
 				]
 			} else if (it instanceof Mandatory) {
 //				results.put("min", results.get("min") + it.video.duration)
