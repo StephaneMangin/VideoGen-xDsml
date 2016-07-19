@@ -10,7 +10,6 @@
  *******************************************************************************/
 package org.irisa.diverse.livemodeling.views.constraint;
 
-import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 
 import org.irisa.diverse.livemodeling.views.api.IModelAdapter;
@@ -55,19 +54,16 @@ public class FxListener extends Pane implements IModelListener {
 	
 	private static final int H_MARGIN = 8;
 	private static final int V_MARGIN = 2;
-	private static final int DIAMETER = 24;
-	private static final int V_HEIGHT = 8;
-	private static final int UNIT = DIAMETER + 2 * H_MARGIN;
 	private static final Insets MARGIN_INSETS = new Insets(V_MARGIN, H_MARGIN, V_MARGIN, H_MARGIN);
 	private static final Insets HALF_MARGIN_INSETS = new Insets(V_MARGIN, H_MARGIN / 2, V_MARGIN, H_MARGIN / 2);
 	private static final Background HEADER_BACKGROUND = new Background(new BackgroundFill(Color.LIGHTGRAY, null, null));
 	private static final Background BODY_BACKGROUND = new Background(new BackgroundFill(Color.WHITE, null, null));
 	private static final Background TRANSPARENT_BACKGROUND = new Background(new BackgroundFill(Color.TRANSPARENT, null, null));
 	private static final Paint LINE_PAINT = new Color(
-			Color.LIGHTGRAY.getRed(),
-			Color.LIGHTGRAY.getGreen(),
-			Color.LIGHTGRAY.getBlue(),
-			0.5);
+		Color.LIGHTGRAY.getRed(),
+		Color.LIGHTGRAY.getGreen(),
+		Color.LIGHTGRAY.getBlue(),
+		0.5);
 	private static final Background LINE_BACKGROUND = new Background(new BackgroundFill(LINE_PAINT, null, null));
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
@@ -113,17 +109,17 @@ public class FxListener extends Pane implements IModelListener {
 
 		System.out.println("Update series");
         if (model != null) {
-        	System.out.println(model.getValues());
+        	System.out.println(model.getStatisticalValues());
 	        if (flushBefore) {
 	        	// Remove only previous series
 	        	lineChart.getData().remove(series);
 	        	series = new Series();
 	        }
-	        model.getValues().forEach(new Consumer<Integer>() {
+	        model.getStatisticalValues().forEach(new Consumer<Integer>() {
 				@Override
 				public void accept(Integer duration) {
 					series.getData().add(
-						new Data((Number)model.getValues().indexOf(duration), (Number)duration));
+						new Data((Number)model.getStatisticalValues().indexOf(duration), (Number)duration));
 				}
 			});
 	        lineChart.getData().add(series);

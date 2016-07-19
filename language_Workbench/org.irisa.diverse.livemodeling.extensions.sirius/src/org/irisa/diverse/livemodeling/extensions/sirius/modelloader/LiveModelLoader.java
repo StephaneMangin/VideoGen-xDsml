@@ -58,6 +58,7 @@ import org.gemoc.executionframework.extensions.sirius.modelloader.DefaultModelLo
 import org.gemoc.executionframework.extensions.sirius.modelloader.PaletteUtils;
 import org.gemoc.executionframework.extensions.sirius.services.AbstractGemocAnimatorServices;
 import org.gemoc.xdsmlframework.api.core.IExecutionContext;
+import org.gemoc.xdsmlframework.api.core.IRunConfiguration;
 import org.irisa.diverse.livemodeling.extensions.sirius.accessor.authority.LivePermissionProvider;
 import org.irisa.diverse.livemodeling.extensions.sirius.services.AbstractLiveAnimatorServices;
 import org.irisa.diverse.livemodeling.extensions.sirius.services.AbstractLiveDebuggerServices;
@@ -76,15 +77,14 @@ public class LiveModelLoader extends DefaultModelLoader {
 			throws RuntimeException {
 		Resource resource = null;
 		ResourceSet resourceSet;
-		if (context.getRunConfiguration().getAnimatorURI() != null) {
-			killPreviousSiriusSession(context.getRunConfiguration()
-					.getAnimatorURI());
+		IRunConfiguration configuration = context.getRunConfiguration();
+		URI animator = configuration.getAnimatorURI();
+		if (animator != null) {
+			killPreviousSiriusSession(animator);
 			Session session;
 			try {
-				session = openNewSiriusSession(context, context
-						.getRunConfiguration().getAnimatorURI());
-				resourceSet = session.getTransactionalEditingDomain()
-						.getResourceSet();
+				session = openNewSiriusSession(context, animator);
+				resourceSet = session.getTransactionalEditingDomain().getResourceSet();
 			} catch (CoreException e) {
 				throw new RuntimeException(e);
 			}
@@ -92,7 +92,7 @@ public class LiveModelLoader extends DefaultModelLoader {
 			// find it
 			for (Resource r : resourceSet.getResources()) {
 				if (r.getURI().equals(
-						context.getRunConfiguration().getExecutedModelURI())) {
+						configuration.getExecutedModelURI())) {
 					resource = r;
 					break;
 				}
@@ -183,26 +183,26 @@ public class LiveModelLoader extends DefaultModelLoader {
 					.getOwnedRepresentations()) {
 				final DSemanticDiagram diagram = (DSemanticDiagram) representation;
 
-//				final List<EObject> elements = new ArrayList<EObject>();
-//				elements.add(diagram);
-//
-//				final IEditorPart editorPart = DialectUIManager.INSTANCE
-//						.openEditor(session, representation, monitor);
-//				if (editorPart instanceof DDiagramEditor) {
-//					System.out.println("=========================================================================");
-//					System.out.println(((DDiagramEditor) editorPart).getPermissionAuthority().getClass().getName());
-//					((DDiagramEditor) editorPart).getPaletteManager()
-//							.addToolFilter(new ToolFilter() {
-//								@Override
-//								public boolean filter(DDiagram diagram,
-//										AbstractToolDescription tool) {
-//									return true;
-//								}
-//							});
-//				}
-//				if (editorPart instanceof DiagramEditorWithFlyOutPalette) {
-//					PaletteUtils.colapsePalette((DiagramEditorWithFlyOutPalette) editorPart);
-//				}
+				final List<EObject> elements = new ArrayList<EObject>();
+				elements.add(diagram);
+
+				final IEditorPart editorPart = DialectUIManager.INSTANCE
+						.openEditor(session, representation, monitor);
+				if (editorPart instanceof DDiagramEditor) {
+					System.out.println("=========================================================================");
+					System.out.println(((DDiagramEditor) editorPart).getPermissionAuthority().getClass().getName());
+					((DDiagramEditor) editorPart).getPaletteManager()
+							.addToolFilter(new ToolFilter() {
+								@Override
+								public boolean filter(DDiagram diagram,
+										AbstractToolDescription tool) {
+									return true;
+								}
+							});
+				}
+				if (editorPart instanceof DiagramEditorWithFlyOutPalette) {
+					PaletteUtils.colapsePalette((DiagramEditorWithFlyOutPalette) editorPart);
+				}
 
 				RecordingCommand command = new RecordingCommand(editingDomain,
 						"Activating animator and debug layers") {

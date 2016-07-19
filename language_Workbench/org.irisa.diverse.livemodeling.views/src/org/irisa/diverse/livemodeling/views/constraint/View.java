@@ -10,6 +10,7 @@
  *******************************************************************************/
 package org.irisa.diverse.livemodeling.views.constraint;
 
+import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.IToolBarManager;
 import org.eclipse.swt.SWT;
@@ -20,7 +21,6 @@ import org.gemoc.xdsmlframework.api.core.IBasicExecutionEngine;
 import org.irisa.diverse.livemodeling.views.api.AbstractView;
 import org.irisa.diverse.livemodeling.views.api.IModelAdapter;
 import org.irisa.diverse.livemodeling.views.api.IView;
-import org.irisa.diverse.videogen.videoGen.VideoGen;
 
 import javafx.embed.swt.FXCanvas;
 import javafx.scene.Scene;
@@ -33,8 +33,6 @@ public class View extends AbstractView {
 	private FxListener viewListener = null;
 	private IModelAdapter modelAdapter = null;
 
-	private IBasicExecutionEngine engine;
-		
 	@Override 
 	public void addActionToToolbar(Action action) {
 		IActionBars actionBars = getViewSite().getActionBars();
@@ -78,13 +76,17 @@ public class View extends AbstractView {
 
 	@Override
 	public void engineSelectionChanged(IBasicExecutionEngine engine) {
-		this.engine = engine;
-		System.out.println(getModelAdapters());
-		modelAdapter = getModelAdapters()[0];
-		modelAdapter.setModel((VideoGen)(ConstraintEngineAddon.loadModel(engine.getExecutionContext().getResourceModel())));
-		modelAdapter.addListener(viewListener);
-		viewListener.setModel(modelAdapter);
-		viewListener.refresh();
+		IModelAdapter[] modelAdapters = getModelAdapters();
+		if (modelAdapters.length > 0) {
+			modelAdapter = modelAdapters[0];
+			Resource model = engine.getExecutionContext().getResourceModel();
+			modelAdapter.setModel(ConstraintEngineAddon.loadModel(model));
+			modelAdapter.addListener(viewListener);
+			viewListener.setModel(modelAdapter);
+			viewListener.refresh();
+		} else {
+			System.out.println("No adaptor found for model !");
+		}
 	}
 
 	public void update() {

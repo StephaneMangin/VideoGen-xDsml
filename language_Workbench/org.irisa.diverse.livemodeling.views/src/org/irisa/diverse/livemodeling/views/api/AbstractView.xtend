@@ -11,6 +11,7 @@ import org.gemoc.executionframework.ui.views.engine.EngineSelectionDependentView
 import org.gemoc.xdsmlframework.api.core.IRunConfiguration
 import org.irisa.diverse.livemodeling.views.Activator
 import java.util.Collection
+import org.irisa.diverse.livemodeling.views.impl.VideoGenAdaptor
 
 abstract class AbstractView extends EngineSelectionDependentViewPart implements IView {
 	
@@ -92,16 +93,21 @@ abstract class AbstractView extends EngineSelectionDependentViewPart implements 
             val extensionsPoint = extensionsRegistry.getExtensionPoint(extentionPoint)
             if (extensionsPoint != null) {
             	val extensions = extensionsPoint.getExtensions()
-	            extensions.forEach[
-	                val configElements = it.getConfigurationElements();
-	                configElements.forEach[
-	                    val modelAdaptor = AbstractView.parseEngine(it);
-	                    if (modelAdaptor != null) {
-	                        AbstractView.modelAdapters.add(modelAdaptor);
-	                    }
-	                ]
-	            ]
+            	if (extensions != null) {
+		            extensions.forEach[
+		                val configElements = it.getConfigurationElements();
+		                configElements.forEach[
+		                    val modelAdaptor = AbstractView.parseEngine(it);
+		                    if (modelAdaptor != null) {
+		                        AbstractView.modelAdapters.add(modelAdaptor);
+		                    }
+		                ]
+		            ]
+	            }
 	        }
+        }
+        if (modelAdapters.empty) {
+        	modelAdapters.add(new VideoGenAdaptor())
         }
     }
 
@@ -117,7 +123,7 @@ abstract class AbstractView extends EngineSelectionDependentViewPart implements 
     	if (modelAdapters.empty) {
     		parseExtensionMetadata
 	        if (modelAdapters.empty) {
-	        	throw new Exception("No model's adaptor has been included.")
+	        	throw new Exception("No model's adaptor extension has been declared.")
 	        }
     	}
     	modelAdapters

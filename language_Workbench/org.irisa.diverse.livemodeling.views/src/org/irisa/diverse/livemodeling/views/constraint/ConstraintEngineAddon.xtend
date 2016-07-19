@@ -19,8 +19,8 @@ import org.irisa.diverse.livemodeling.views.Activator
 import org.irisa.diverse.livemodeling.views.api.IModelAdapter
 import org.irisa.diverse.livemodeling.views.api.IModelListener
 import org.irisa.diverse.livemodeling.views.api.IModelNotifier
-import org.irisa.diverse.videogen.videoGen.VideoGen
-import org.irisa.diverse.videogen.videoGen.VideoGenPackage
+import org.irisa.diverse.videogen.videogenl.videoGen.VideoGen
+import org.irisa.diverse.videogen.videogenl.videoGen.VideoGenPackage
 
 public class ConstraintEngineAddon implements IEngineAddon, IModelListener, IModelNotifier {
 
@@ -120,6 +120,11 @@ public class ConstraintEngineAddon implements IEngineAddon, IModelListener, IMod
 	 * To construct the trace manager
 	 */
 	override engineAboutToStart(IBasicExecutionEngine engine) {
+		println
+		println("#####################################################")
+		println("Engine about to start")
+		println("#####################################################")
+		println
 		setUp(engine)
 	}
 	

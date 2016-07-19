@@ -1,11 +1,14 @@
 package org.irisa.diverse.livemodeling.views.api
 
-import org.eclipse.emf.common.util.EList
+import java.util.List
+import org.eclipse.emf.ecore.EObject
 
 interface IModelAdapter extends IModelNotifier {
 	
-	def void setModel(Object obj)
+	def void setModel(EObject obj)
 	
-	def EList<Integer> getValues()
+	def List<Integer> getStatisticalValues()
+	
+	def Object getExecutionResult()
 	
 }

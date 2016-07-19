@@ -1486,7 +1486,7 @@
       <ownedDiagramElements xmi:type="diagram:DNodeContainer" xmi:id="_6ub_8xuAEeaMHovEElkIsA" name="VideoGen Instance">
         <target xmi:type="videoGen:VideoGen" href="sample.videogen#/"/>
         <semanticElements xmi:type="videoGen:VideoGen" href="sample.videogen#/"/>
-        <ownedBorderedNodes xmi:type="diagram:DNode" xmi:id="_6ub_9BuAEeaMHovEElkIsA" name="Min custom duration: 40000" width="3" height="3" resizeKind="NSEW">
+        <ownedBorderedNodes xmi:type="diagram:DNode" xmi:id="_6ub_9BuAEeaMHovEElkIsA" name="Min custom duration: 45000" width="3" height="3" resizeKind="NSEW">
           <target xmi:type="videoGen:VideoGen" href="sample.videogen#/"/>
           <semanticElements xmi:type="videoGen:VideoGen" href="sample.videogen#/"/>
           <ownedStyle xmi:type="diagram:Square" xmi:id="_6ub_9RuAEeaMHovEElkIsA" showIcon="false" labelAlignment="LEFT" borderSize="2" borderSizeComputationExpression="2" borderColor="156,12,12" labelPosition="node" color="255,255,255">
@@ -1495,7 +1495,7 @@
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.irisa.diverse.videogen.design/description/videogen.odesign#//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='Constraints%20View']/@defaultLayer/@containerMappings[name='VideoGen']/@borderedNodeMappings[name='minUserConstraint']"/>
         </ownedBorderedNodes>
-        <ownedBorderedNodes xmi:type="diagram:DNode" xmi:id="_6ub_9huAEeaMHovEElkIsA" name="Max custom duration: 120000" width="3" height="3" resizeKind="NSEW">
+        <ownedBorderedNodes xmi:type="diagram:DNode" xmi:id="_6ub_9huAEeaMHovEElkIsA" name="Max custom duration: 100000" width="3" height="3" resizeKind="NSEW">
           <target xmi:type="videoGen:VideoGen" href="sample.videogen#/"/>
           <semanticElements xmi:type="videoGen:VideoGen" href="sample.videogen#/"/>
           <ownedStyle xmi:type="diagram:Square" xmi:id="_6ub_9xuAEeaMHovEElkIsA" showIcon="false" labelAlignment="LEFT" borderSize="2" borderSizeComputationExpression="2" borderColor="156,12,12" labelPosition="node" color="255,255,255">

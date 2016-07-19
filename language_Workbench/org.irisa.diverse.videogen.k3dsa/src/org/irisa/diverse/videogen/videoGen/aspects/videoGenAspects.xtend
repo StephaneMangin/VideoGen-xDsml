@@ -5,6 +5,13 @@ import fr.inria.diverse.k3.al.annotationprocessor.InitializeModel
 import fr.inria.diverse.k3.al.annotationprocessor.Main
 import fr.inria.diverse.k3.al.annotationprocessor.OverrideAspectMethod
 import fr.inria.diverse.k3.al.annotationprocessor.Step
+import java.io.File
+import java.io.FileWriter
+import java.nio.file.Paths
+import java.util.ArrayList
+import java.util.HashMap
+import java.util.List
+import java.util.Map
 import org.chocosolver.solver.Solver
 import org.chocosolver.solver.constraints.IntConstraintFactory
 import org.chocosolver.solver.constraints.SatFactory
@@ -13,42 +20,50 @@ import org.chocosolver.solver.trace.Chatterbox
 import org.chocosolver.solver.variables.BoolVar
 import org.chocosolver.solver.variables.IntVar
 import org.chocosolver.solver.variables.VariableFactory
-import org.eclipse.emf.common.util.BasicEList
-import org.eclipse.emf.common.util.BasicEMap
-import org.eclipse.emf.common.util.EList
-import org.eclipse.emf.common.util.EMap
+import org.eclipse.core.resources.ResourcesPlugin
+import org.irisa.diverse.videogen.k3dsa.dependencies.transformations.VideoGenTransform
+import org.irisa.diverse.videogen.k3dsa.dependencies.transformations.helpers.VideosHelper
 import org.irisa.diverse.videogen.videoGen.Alternatives
 import org.irisa.diverse.videogen.videoGen.Delay
 import org.irisa.diverse.videogen.videoGen.Generate
 import org.irisa.diverse.videogen.videoGen.Initialize
 import org.irisa.diverse.videogen.videoGen.Mandatory
+import org.irisa.diverse.videogen.videoGen.Mimetypes_Enum
 import org.irisa.diverse.videogen.videoGen.Optional
 import org.irisa.diverse.videogen.videoGen.Sequence
 import org.irisa.diverse.videogen.videoGen.Transition
 import org.irisa.diverse.videogen.videoGen.Video
 import org.irisa.diverse.videogen.videoGen.VideoGen
+
 import static extension org.irisa.diverse.videogen.videoGen.aspects.TransitionAspect.*
+import static extension org.irisa.diverse.videogen.videoGen.aspects.VideoAspect.*
 
 @Aspect(className=VideoGen)
 class VideoGenAspect {
 
 	private Boolean initialized = false
 	private int featureIndex = 0
+	private String executionResult = null
 
 	@Main
 	def void main() {
 		_self.execute
 	}
 
+	def String getResult() {
+		_self.executionResult
+	}
+
 	/**
 	 * This method generates a linear model to satisfy the min/max user constraints
 	 * 
 	 */
-	def EList<Integer> solve() {
+	@Step
+	def List<Integer> solve() {
 				
 		val solver = new Solver("Min max durations constraints")
 		_self.featureIndex = 0
-		val allSolutions = new BasicEMap()
+		val allSolutions = new HashMap()
 		// if (_self.minUserConstraint > _self.maxUserConstraint || _self.maxUserConstraint == 0) {
 		// throw new Exception("You have to indicate a min and a max value")
 		// }
@@ -59,8 +74,8 @@ class VideoGenAspect {
 			_self.minUserConstraint,
 			_self.maxUserConstraint,
 			solver)
-		val variables = new BasicEList(1) // Used to insert optional's coefficient
-		val constants = new BasicEList(1) // Used to insert video durations
+		val variables = new ArrayList() // Used to insert optional's coefficient
+		val constants = new ArrayList() // Used to insert video durations
 		// Call the visitor
 		_self.transitions.forEach [
 
@@ -75,7 +90,7 @@ class VideoGenAspect {
 
 			} else if (it instanceof Alternatives) {
 				// Local vars
-				val localVars = new BasicEList()
+				val localVars = new ArrayList()
 				// Effective parse to inject a feature for each option
 				for (Optional opt : it.options) {
 					_self.createOptionalIntVar(solver,opt, constants, variables)
@@ -97,7 +112,6 @@ class VideoGenAspect {
 		val solutionUnique = solver.findSolution()
 		// Print search statistics
 		Chatterbox.printStatistics(solver)
-		println("Solver => " + solver)
 		if(solutionUnique) {
 			println(solver)
 			// Get all solutions
@@ -120,8 +134,7 @@ class VideoGenAspect {
 		} else {
 		    println("The solver has proved the problem has no solution");
 		}
-		println(allSolutions)
-		new BasicEList(allSolutions.values)
+		new ArrayList(allSolutions.values)
 	}
 
 	/**
@@ -135,7 +148,7 @@ class VideoGenAspect {
 
 		// Video specific setup
 		// Prerequisite for video duration computation
-		//_self.videos.forEach[it.setup]
+		_self.videos.forEach[it.setup]
 		
 		// Durations calculation
 		val results = newHashMap()
@@ -149,10 +162,10 @@ class VideoGenAspect {
 			it.executed = false
 			it.videoGen = _self
 			if (it instanceof Alternatives) {
-//				var List<Integer> durations = it.options.map[video.duration]
-//				// durations = _self.options.filter[selected].map[video.duration]
-//				results.put("min", results.get("min") + durations.min)
-//				results.put("max", results.get("max") + durations.max)
+				var List<Integer> durations = it.options.map[video.duration]
+				// durations = _self.options.filter[selected].map[video.duration]
+				results.put("min", results.get("min") + durations.min)
+				results.put("max", results.get("max") + durations.max)
 				results.put("variants", results.get("variants") * it.options.size)
 				it.options.forEach [
 					it.selected = false
@@ -161,15 +174,15 @@ class VideoGenAspect {
 					it.videoGen = _self
 				]
 			} else if (it instanceof Mandatory) {
-//				results.put("min", results.get("min") + it.video.duration)
-//				results.put("max", results.get("max") + it.video.duration)
+				results.put("min", results.get("min") + it.video.duration)
+				results.put("max", results.get("max") + it.video.duration)
 			} else if (it instanceof Optional) {
-//				results.put("max", results.get("max") + it.video.duration)
+				results.put("max", results.get("max") + it.video.duration)
 				results.put("variants", results.get("variants") * 2)
 			}
 		]
-//		_self.minDurationConstraint = results.get("min")
-//		_self.maxDurationConstraint = results.get("max")
+		_self.minDurationConstraint = results.get("min")
+		_self.maxDurationConstraint = results.get("max")
 		_self.variantes = results.get("variants")
 		println("############### SETUP RESULT #####################")
 		println(results)
@@ -181,7 +194,7 @@ class VideoGenAspect {
 	}
 
 	@InitializeModel
-	def public void initializeModel(EList<String> args) {
+	def public void initializeModel(List<String> args) {
 		_self.setup
 	}
 
@@ -198,45 +211,47 @@ class VideoGenAspect {
 	 */
 	//@Step
 	def public void compute() {
-		val videos = new BasicEMap
+		val videos = new HashMap()
 		_self.transitions.filter[selected].filter[it instanceof Sequence].map[it as Sequence].map[video].forEach [
 			videos.put(name, true)
 		]
 		// TODO: Manage model transformation here
 		// TODO: re-implement the initial IDM project model transformation. See master branch package 'fr.nemomen.utils'.
-		//val content = VideoGenTransform.toM3U(_self, false, videos)
+		val content = VideoGenTransform.toM3U(_self, false, videos)
 		//println("##### Videos computation result in M3U format : ")
 		//println(content)
-		//val playlist = _self.saveGeneratedModel(content)
-	// _self.launchReader(playlist)
+		val playlist = _self.saveGeneratedModel(content)
+		_self.launchReader(playlist)
 	}
 
 	/**
 	 * Saves the given playlist content in a temporary file (hashed by content)
 	 * 
 	 */
-//	def private File saveGeneratedModel(String content) {
-//		// Create the temporary file to receive playlist as M3U
-//		val playlist = File.createTempFile(String.valueOf(content.hashCode), "-videogen.m3u")
-//		val writer = new FileWriter(playlist)
-//		writer.write(content)
-//		writer.flush
-//		writer.close
-//		playlist
-//	}
+	@Step
+	def private File saveGeneratedModel(String content) {
+		// Create the temporary file to receive playlist as M3U
+		val playlist = File.createTempFile(String.valueOf(content.hashCode), "-videogen.m3u")
+		val writer = new FileWriter(playlist)
+		writer.write(content)
+		writer.flush
+		writer.close
+		_self.executionResult = playlist.toPath.toString
+		playlist
+	}
 
 	/**
 	 * Launches vlc instance with the provided playlist
 	 * 
 	 */
-//	def private void launchReader(File playlist) {
-//		// Start VLC
-//		// TODO: add a new tab inside eclipse to start a video player...
-//		// If possible (see Jave implementation from org.irisa.diverse.transformations.strategies)
-//		val p = new ProcessBuilder("vlc", "--playlist-autostart", "--playlist-tree", "--no-overlay",
-//			playlist.toPath.toString)
-//		p.start()
-//	}
+	def private void launchReader(File playlist) {
+		// Start VLC
+		// TODO: add a new tab inside eclipse to start a video player...
+		// If possible (see Jave implementation from org.irisa.diverse.transformations.strategies)
+		val p = new ProcessBuilder("vlc", "--playlist-autostart", "--playlist-tree", "--no-overlay",
+			playlist.toPath.toString)
+		p.start()
+	}
 
 	/**
 	 * Adds a new expression to the objective of the linear system constraints
@@ -244,7 +259,7 @@ class VideoGenAspect {
 	 * feature => bool * duration
 	 * 
 	 */
-	def private void addVar(IntVar intvar, int duration, EList<Integer> constants, EList<IntVar> variables) {
+	def private void addVar(IntVar intvar, int duration, List<Integer> constants, List<IntVar> variables) {
 		variables.add(intvar)
 		constants.add(duration)
 	}
@@ -257,7 +272,7 @@ class VideoGenAspect {
 	 * 		LogOp.xor(...
 	 * 			LogOp.xor(firstVar, secondVar)))
 	 */
-	def private void createAlternativesXorClause(Solver solver, EList<IntVar> vars) {
+	def private void createAlternativesXorClause(Solver solver, List<IntVar> vars) {
 		var LogOp logOp = null
 		var BoolVar firstVar = vars.head as BoolVar
 		// Browse except the first element
@@ -275,7 +290,7 @@ class VideoGenAspect {
 	 * Creates a new feature for this Optional and adds it to the list
 	 * 
 	 */
-	def private void createOptionalIntVar(Solver solver, Optional optional, EList<Integer> constants, EList<IntVar> variables) {
+	def private void createOptionalIntVar(Solver solver, Optional optional, List<Integer> constants, List<IntVar> variables) {
 		var IntVar feature
 		if (optional.active) {
 			if (optional.selected) {
@@ -296,7 +311,7 @@ abstract class TransitionAspect {
 	public VideoGen videoGen = null
 	public Boolean executed = false
 	public Boolean callnextTransition = true
-	private BasicEMap<Integer, Double> distribution = new BasicEMap
+	private Map<Integer, Double> distribution = new HashMap()
 	private double distSum = 0
 
 	def public void execute(VideoGen videoGen) {
@@ -326,8 +341,8 @@ abstract class TransitionAspect {
 	 */
 	def public void addNumber(int key, double distribution) {
 		var double distnum = _self.distSum
-		if (_self.distribution.get(key).value !== null) {
-			distnum -= _self.distribution.get(key).value
+		if (_self.distribution.containsKey(key)) {
+			distnum -= _self.distribution.get(key)
 		}
 		_self.distribution.put(key, distribution)
 		distnum += distribution
@@ -360,7 +375,7 @@ abstract class TransitionAspect {
 	 * And return the value in parameters
 	 */
 	def private int sendAndPurgeResult(int i) {
-		_self.distribution = new BasicEMap
+		_self.distribution = new HashMap()
 		_self.distSum = 0
 		return i
 	}
@@ -404,8 +419,8 @@ class AlternativesAspect extends SequenceAspect {
 	 * Return a hashmap with corrected probabilities.
 	 * 
 	 */
-	def private EMap<Optional, Integer> checkProbabilities() {
-		val result = new BasicEMap<Optional, Integer>
+	def private Map<Optional, Integer> checkProbabilities() {
+		val result = new HashMap<Optional, Integer>
 		var totalProb = 0
 		var totalProbLeft = 0
 		var totalOptions = 0
@@ -424,7 +439,7 @@ class AlternativesAspect extends SequenceAspect {
 		}
 		if (result.size != 0) {
 			if (result.size == 1) {
-				val option = result.head.key
+				val option = result.keySet.get(0)
 				result.clear
 				result.put(option, 100)
 			} else if (inactivated != 0) {
@@ -442,7 +457,7 @@ class AlternativesAspect extends SequenceAspect {
 			}
 		}
 		println(result)
-		result as EMap<Optional, Integer>
+		result as Map<Optional, Integer>
 	}
 
 	/**
@@ -455,11 +470,11 @@ class AlternativesAspect extends SequenceAspect {
 		if (checkedProbabilities.empty) {
 			return null
 		}
-		checkedProbabilities.forEach[
-			println(it + "=>" + checkedProbabilities.indexOf(it))
-			_self.addNumber(checkedProbabilities.indexOf(it), it.value)
+		checkedProbabilities.forEach[option, value |
+			println(option + "=>" + value)
+			_self.addNumber(checkedProbabilities.keySet.toList.indexOf(option), value)
 		] 
-		checkedProbabilities.get(_self.getDistributedRandomNumber()).key
+		checkedProbabilities.keySet.get(_self.getDistributedRandomNumber())
 	}
 }
 
@@ -518,15 +533,19 @@ class VideoAspect {
 	@Step
 	def public void setup() {
 		if (!_self.url.startsWith("/")) {
-//			val workspace = ResourcesPlugin.workspace
-//			val project = workspace.root.projects.get(0)
-//			val uri = project.locationURI
-//			val prefix = uri.toString.replace("file:", "")
-//			val newPath = prefix + "/" + _self.url
-//			_self.setUrl(newPath)
+			val workspace = ResourcesPlugin.workspace
+			val project = workspace.root.projects.get(0)
+			val uri = project.locationURI
+			val prefix = uri.toString.replace("file:", "")
+			val newPath = prefix + "/" + _self.url
+			_self.setUrl(newPath)
 		}
 		// Add duration and VideoCodec MimeType
-//		VideoGenTransform.addMetadata(_self)
+		// Using VideoGen properties based method to avoid type confusion
+		val url = Paths.get(_self.url)
+		_self.duration = VideosHelper.getDuration(url)
+		val format = VideosHelper.getMimeType(url).format
+		_self.mimetype = Mimetypes_Enum.getByName(format)
 	}
 }
 
