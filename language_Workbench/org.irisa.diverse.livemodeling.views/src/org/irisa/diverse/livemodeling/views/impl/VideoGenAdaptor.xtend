@@ -33,7 +33,8 @@ class VideoGenAdaptor implements IModelAdapter {
 	override Object getExecutionResult() {
 		VideoGenAspect.initializeModel(model, {})
 		VideoGenAspect.main(model)
-		VideoGenAspect.getResult(model)
+		//VideoGenAspect.getResult(model)
+		null
 	}
 	
 	override setModel(EObject obj) {

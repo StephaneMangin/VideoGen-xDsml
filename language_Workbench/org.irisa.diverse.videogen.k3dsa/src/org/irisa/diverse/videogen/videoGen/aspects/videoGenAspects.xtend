@@ -8,10 +8,7 @@ import fr.inria.diverse.k3.al.annotationprocessor.Step
 import java.io.File
 import java.io.FileWriter
 import java.nio.file.Paths
-import java.util.ArrayList
-import java.util.HashMap
 import java.util.List
-import java.util.Map
 import org.chocosolver.solver.Solver
 import org.chocosolver.solver.constraints.IntConstraintFactory
 import org.chocosolver.solver.constraints.SatFactory
@@ -21,7 +18,10 @@ import org.chocosolver.solver.variables.BoolVar
 import org.chocosolver.solver.variables.IntVar
 import org.chocosolver.solver.variables.VariableFactory
 import org.eclipse.core.resources.ResourcesPlugin
-import org.irisa.diverse.videogen.k3dsa.dependencies.transformations.VideoGenTransform
+import org.eclipse.emf.common.util.BasicEList
+import org.eclipse.emf.common.util.BasicEMap
+import org.eclipse.emf.common.util.EList
+import org.eclipse.emf.common.util.EMap
 import org.irisa.diverse.videogen.k3dsa.dependencies.transformations.helpers.VideosHelper
 import org.irisa.diverse.videogen.videoGen.Alternatives
 import org.irisa.diverse.videogen.videoGen.Delay
@@ -41,29 +41,29 @@ import static extension org.irisa.diverse.videogen.videoGen.aspects.VideoAspect.
 @Aspect(className=VideoGen)
 class VideoGenAspect {
 
-	private Boolean initialized = false
+	private boolean initialized = false
 	private int featureIndex = 0
-	private String executionResult = null
+	//private String executionResult = ""
 
 	@Main
 	def void main() {
 		_self.execute
 	}
 
-	def String getResult() {
-		_self.executionResult
-	}
+	//def String getResult() {
+	//	_self.executionResult
+	//}
 
 	/**
 	 * This method generates a linear model to satisfy the min/max user constraints
 	 * 
 	 */
 	@Step
-	def List<Integer> solve() {
+	def EList<Integer> solve() {
 				
 		val solver = new Solver("Min max durations constraints")
 		_self.featureIndex = 0
-		val allSolutions = new HashMap()
+		val allSolutions = new BasicEMap()
 		// if (_self.minUserConstraint > _self.maxUserConstraint || _self.maxUserConstraint == 0) {
 		// throw new Exception("You have to indicate a min and a max value")
 		// }
@@ -74,8 +74,8 @@ class VideoGenAspect {
 			_self.minUserConstraint,
 			_self.maxUserConstraint,
 			solver)
-		val variables = new ArrayList() // Used to insert optional's coefficient
-		val constants = new ArrayList() // Used to insert video durations
+		val variables = new BasicEList(1) // Used to insert optional's coefficient
+		val constants = new BasicEList(1) // Used to insert video durations
 		// Call the visitor
 		_self.transitions.forEach [
 
@@ -90,7 +90,7 @@ class VideoGenAspect {
 
 			} else if (it instanceof Alternatives) {
 				// Local vars
-				val localVars = new ArrayList()
+				val localVars = new BasicEList()
 				// Effective parse to inject a feature for each option
 				for (Optional opt : it.options) {
 					_self.createOptionalIntVar(solver,opt, constants, variables)
@@ -134,7 +134,7 @@ class VideoGenAspect {
 		} else {
 		    println("The solver has proved the problem has no solution");
 		}
-		new ArrayList(allSolutions.values)
+		new BasicEList(allSolutions.values)
 	}
 
 	/**
@@ -194,7 +194,7 @@ class VideoGenAspect {
 	}
 
 	@InitializeModel
-	def public void initializeModel(List<String> args) {
+	def public void initializeModel(EList<String> args) {
 		_self.setup
 	}
 
@@ -211,17 +211,17 @@ class VideoGenAspect {
 	 */
 	//@Step
 	def public void compute() {
-		val videos = new HashMap()
+		val videos = new BasicEMap
 		_self.transitions.filter[selected].filter[it instanceof Sequence].map[it as Sequence].map[video].forEach [
 			videos.put(name, true)
 		]
 		// TODO: Manage model transformation here
 		// TODO: re-implement the initial IDM project model transformation. See master branch package 'fr.nemomen.utils'.
-		val content = VideoGenTransform.toM3U(_self, false, videos)
+		//val content = VideoGenTransform.toM3U(_self, false, videos)
 		//println("##### Videos computation result in M3U format : ")
 		//println(content)
-		val playlist = _self.saveGeneratedModel(content)
-		_self.launchReader(playlist)
+		//val playlist = _self.saveGeneratedModel(content)
+		//_self.launchReader(playlist)
 	}
 
 	/**
@@ -236,7 +236,7 @@ class VideoGenAspect {
 		writer.write(content)
 		writer.flush
 		writer.close
-		_self.executionResult = playlist.toPath.toString
+		//_self.executionResult = playlist.toPath.toString
 		playlist
 	}
 
@@ -259,7 +259,7 @@ class VideoGenAspect {
 	 * feature => bool * duration
 	 * 
 	 */
-	def private void addVar(IntVar intvar, int duration, List<Integer> constants, List<IntVar> variables) {
+	def private void addVar(IntVar intvar, int duration, EList<Integer> constants, EList<IntVar> variables) {
 		variables.add(intvar)
 		constants.add(duration)
 	}
@@ -272,7 +272,7 @@ class VideoGenAspect {
 	 * 		LogOp.xor(...
 	 * 			LogOp.xor(firstVar, secondVar)))
 	 */
-	def private void createAlternativesXorClause(Solver solver, List<IntVar> vars) {
+	def private void createAlternativesXorClause(Solver solver, EList<IntVar> vars) {
 		var LogOp logOp = null
 		var BoolVar firstVar = vars.head as BoolVar
 		// Browse except the first element
@@ -290,7 +290,7 @@ class VideoGenAspect {
 	 * Creates a new feature for this Optional and adds it to the list
 	 * 
 	 */
-	def private void createOptionalIntVar(Solver solver, Optional optional, List<Integer> constants, List<IntVar> variables) {
+	def private void createOptionalIntVar(Solver solver, Optional optional, EList<Integer> constants, EList<IntVar> variables) {
 		var IntVar feature
 		if (optional.active) {
 			if (optional.selected) {
@@ -311,7 +311,7 @@ abstract class TransitionAspect {
 	public VideoGen videoGen = null
 	public Boolean executed = false
 	public Boolean callnextTransition = true
-	private Map<Integer, Double> distribution = new HashMap()
+	private EMap<Integer, Double> distribution = new BasicEMap
 	private double distSum = 0
 
 	def public void execute(VideoGen videoGen) {
@@ -341,8 +341,8 @@ abstract class TransitionAspect {
 	 */
 	def public void addNumber(int key, double distribution) {
 		var double distnum = _self.distSum
-		if (_self.distribution.containsKey(key)) {
-			distnum -= _self.distribution.get(key)
+		if (_self.distribution.get(key).value !== null) {
+			distnum -= _self.distribution.get(key).value
 		}
 		_self.distribution.put(key, distribution)
 		distnum += distribution
@@ -375,7 +375,7 @@ abstract class TransitionAspect {
 	 * And return the value in parameters
 	 */
 	def private int sendAndPurgeResult(int i) {
-		_self.distribution = new HashMap()
+		_self.distribution = new BasicEMap
 		_self.distSum = 0
 		return i
 	}
@@ -419,8 +419,8 @@ class AlternativesAspect extends SequenceAspect {
 	 * Return a hashmap with corrected probabilities.
 	 * 
 	 */
-	def private Map<Optional, Integer> checkProbabilities() {
-		val result = new HashMap<Optional, Integer>
+	def private EMap<Optional, Integer> checkProbabilities() {
+		val result = new BasicEMap<Optional, Integer>
 		var totalProb = 0
 		var totalProbLeft = 0
 		var totalOptions = 0
@@ -439,7 +439,7 @@ class AlternativesAspect extends SequenceAspect {
 		}
 		if (result.size != 0) {
 			if (result.size == 1) {
-				val option = result.keySet.get(0)
+				val option = result.head.key
 				result.clear
 				result.put(option, 100)
 			} else if (inactivated != 0) {
@@ -457,7 +457,7 @@ class AlternativesAspect extends SequenceAspect {
 			}
 		}
 		println(result)
-		result as Map<Optional, Integer>
+		result as EMap<Optional, Integer>
 	}
 
 	/**
@@ -470,11 +470,11 @@ class AlternativesAspect extends SequenceAspect {
 		if (checkedProbabilities.empty) {
 			return null
 		}
-		checkedProbabilities.forEach[option, value |
-			println(option + "=>" + value)
-			_self.addNumber(checkedProbabilities.keySet.toList.indexOf(option), value)
+		checkedProbabilities.forEach[
+			println(it + "=>" + checkedProbabilities.indexOf(it))
+			_self.addNumber(checkedProbabilities.indexOf(it), it.value)
 		] 
-		checkedProbabilities.keySet.get(_self.getDistributedRandomNumber())
+		checkedProbabilities.get(_self.getDistributedRandomNumber()).key
 	}
 }
 

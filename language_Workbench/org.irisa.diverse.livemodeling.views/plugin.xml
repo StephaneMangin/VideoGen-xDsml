@@ -16,7 +16,7 @@
             name="Constraint View">
       </view>
 	</extension>
-	<extension
+	<!--extension
          point="org.eclipse.ui.views">
       <category
             id="org.gemoc.executionframework.ui.category"
@@ -29,7 +29,7 @@
             id="org.irisa.diverse.live_modeling.views.mediaplayer.View"
             name="Media Player View">
       </view>
-	</extension>
+	</extension-->
    <extension
          point="org.gemoc.gemoc_language_workbench.engine_addon_group">
          <AddonGroup
@@ -52,7 +52,7 @@
          </viewShortcut>
       </perspectiveExtension>
    </extension>
-   <extension
+   <!--extension
          point="org.eclipse.ui.perspectiveExtensions">
       <perspectiveExtension
             targetID="org.eclipse.debug.ui.DebugPerspective">
@@ -66,7 +66,7 @@
                id="org.irisa.diverse.live_modeling.views.mediaplayer.View">
          </viewShortcut>
       </perspectiveExtension>
-   </extension>
+   </extension-->
    
    
   <extension point="org.gemoc.gemoc_language_workbench.engine_addon">
@@ -78,7 +78,7 @@
     	ShortDescription="Constraint support dedicated to videoGen language"
     	openViewIds="org.irisa.diverse.live_modeling.views.constraint.View" />
   </extension>   
-  <extension point="org.gemoc.gemoc_language_workbench.engine_addon">
+  <!--extension point="org.gemoc.gemoc_language_workbench.engine_addon">
     <Addon
     	Class="org.irisa.diverse.livemodeling.views.constraint.MediaPlayerEngineAddon"
     	Default="true"
@@ -86,7 +86,7 @@
     	Name="Constraint view"
     	ShortDescription="Media player support dedicated to videoGen language"
     	openViewIds="org.irisa.diverse.live_modeling.views.mediaplayer.View" />
-  </extension>
+  </extension-->
   
    <extension
          point="org.irisa.diverse.livemodeling.views.liveViewsModelAdaptor">
