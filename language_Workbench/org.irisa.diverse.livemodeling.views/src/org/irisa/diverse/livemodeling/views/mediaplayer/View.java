@@ -8,7 +8,7 @@
  * Contributors:
  *     Inria - initial API and implementation
  *******************************************************************************/
-package org.irisa.diverse.livemodeling.views.constraint;
+package org.irisa.diverse.livemodeling.views.mediaplayer;
 
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.jface.action.Action;
@@ -21,13 +21,14 @@ import org.gemoc.xdsmlframework.api.core.IBasicExecutionEngine;
 import org.irisa.diverse.livemodeling.views.api.AbstractView;
 import org.irisa.diverse.livemodeling.views.api.IModelAdapter;
 import org.irisa.diverse.livemodeling.views.api.IView;
+import org.irisa.diverse.videogen.videogenl.videoGen.VideoGen;
 
 import javafx.embed.swt.FXCanvas;
 import javafx.scene.Scene;
 
 public class View extends AbstractView {
 
-	public final String ID = "org.irisa.diverse.live_modeling.views.constraint.View";
+	public final String ID = "org.irisa.diverse.live_modeling.views.mediaplayer.View";
 
 	private FXCanvas fxCanvas = null;
 	private FxListener viewListener = null;
@@ -80,7 +81,7 @@ public class View extends AbstractView {
 		if (modelAdapters.length > 0) {
 			modelAdapter = modelAdapters[0];
 			Resource model = engine.getExecutionContext().getResourceModel();
-			modelAdapter.setModel(ConstraintEngineAddon.loadModel(model));
+			modelAdapter.setModel(MediaPlayerEngineAddon.loadModel(model));
 			modelAdapter.addListener(viewListener);
 			viewListener.setModel(modelAdapter);
 			viewListener.refresh();
@@ -90,6 +91,6 @@ public class View extends AbstractView {
 	}
 
 	public void update() {
-		viewListener.update();
+		viewListener.refresh();
 	}
 }

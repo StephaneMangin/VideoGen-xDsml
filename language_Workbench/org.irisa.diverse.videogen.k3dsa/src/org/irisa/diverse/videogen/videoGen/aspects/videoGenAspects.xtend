@@ -41,7 +41,7 @@ import static extension org.irisa.diverse.videogen.videoGen.aspects.VideoAspect.
 @Aspect(className=VideoGen)
 class VideoGenAspect {
 
-	private boolean initialized = false
+	public boolean initialized = false
 	private int featureIndex = 0
 	//private String executionResult = ""
 
@@ -60,10 +60,12 @@ class VideoGenAspect {
 	 */
 	@Step
 	def EList<Integer> solve() {
-				
+		if (!_self.initialized) {
+			return new BasicEList
+		}
 		val solver = new Solver("Min max durations constraints")
 		_self.featureIndex = 0
-		val allSolutions = new BasicEMap()
+		val allSolutions = new BasicEMap(1)
 		// if (_self.minUserConstraint > _self.maxUserConstraint || _self.maxUserConstraint == 0) {
 		// throw new Exception("You have to indicate a min and a max value")
 		// }
@@ -78,10 +80,9 @@ class VideoGenAspect {
 		val constants = new BasicEList(1) // Used to insert video durations
 		// Call the visitor
 		_self.transitions.forEach [
-
 			if (it instanceof Mandatory) {
 				// A mandatory has a fixed coef value of 1, mandatory right ;)
-				val feature = VariableFactory.fixed(it.name, 1, solver)
+				val feature = VariableFactory.fixed(it.name, if(it.active) 1 else 0, solver)
 				_self.addVar(feature, it.video.duration, constants, variables)
 
 			} else if (it instanceof Optional) {
@@ -90,15 +91,17 @@ class VideoGenAspect {
 
 			} else if (it instanceof Alternatives) {
 				// Local vars
-				val localVars = new BasicEList()
-				// Effective parse to inject a feature for each option
-				for (Optional opt : it.options) {
-					_self.createOptionalIntVar(solver,opt, constants, variables)
-					localVars.add(variables.last)
+				if (it.active) {
+					val localVars = new BasicEList()
+					// Effective parse to inject a feature for each option
+					for (Optional opt : it.options) {
+						_self.createOptionalIntVar(solver,opt, constants, variables)
+						localVars.add(variables.last)
+					}
+	
+					// Create and insert the xor clause
+					_self.createAlternativesXorClause(solver, localVars)
 				}
-
-				// Create and insert the xor clause
-				_self.createAlternativesXorClause(solver, localVars)
 			}
 		]
 
@@ -311,7 +314,7 @@ abstract class TransitionAspect {
 	public VideoGen videoGen = null
 	public Boolean executed = false
 	public Boolean callnextTransition = true
-	private EMap<Integer, Double> distribution = new BasicEMap
+	private EMap<Integer, Double> distribution = new BasicEMap(1)
 	private double distSum = 0
 
 	def public void execute(VideoGen videoGen) {
@@ -341,8 +344,11 @@ abstract class TransitionAspect {
 	 */
 	def public void addNumber(int key, double distribution) {
 		var double distnum = _self.distSum
-		if (_self.distribution.get(key).value !== null) {
-			distnum -= _self.distribution.get(key).value
+		if (_self.distribution.contains(key)) {
+			val value = _self.distribution.get(key).value
+			if (value !== null) {
+				distnum -= value
+			}
 		}
 		_self.distribution.put(key, distribution)
 		distnum += distribution

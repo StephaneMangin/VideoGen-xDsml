@@ -1,4 +1,4 @@
-package org.irisa.diverse.livemodeling.views.constraint
+package org.irisa.diverse.livemodeling.views.mediaplayer
 
 import fr.inria.diverse.trace.commons.model.trace.LaunchConfiguration
 import fr.inria.diverse.trace.commons.model.trace.Step
@@ -22,20 +22,10 @@ import org.irisa.diverse.livemodeling.views.api.IModelNotifier
 import org.irisa.diverse.videogen.videogenl.videoGen.VideoGen
 import org.irisa.diverse.videogen.videogenl.videoGen.VideoGenPackage
 
-public class ConstraintEngineAddon implements IEngineAddon, IModelListener, IModelNotifier {
+public class MediaPlayerEngineAddon implements IEngineAddon, IModelListener, IModelNotifier {
 
 	private IExecutionContext _executionContext
 	private IModelAdapter modelAdapter
-
-	new () {
-		println
-		println("#####################################################")
-		println("#####################################################")
-		println("Constraint engine addons loaded")
-		println("#####################################################")
-		println("#####################################################")
-		println
-	}
 
 	private BatchModelChangeListenerAddon listenerAddon
 	
@@ -144,7 +134,7 @@ public class ConstraintEngineAddon implements IEngineAddon, IModelListener, IMod
 	override void engineStopped(IBasicExecutionEngine engine) {
 		Activator.^default.viewSupplier.get().update()
 	}
-	
+			
 	def static VideoGen loadModel(Resource model) {
 		
 		// Initialize the model
@@ -164,7 +154,7 @@ public class ConstraintEngineAddon implements IEngineAddon, IModelListener, IMod
 		// example everything is hierarchical included in this first node
 		resource.getContents().get(0) as VideoGen
 	}
-		
+	
 	override engineStarted(IBasicExecutionEngine arg0) {
 		println
 		println("#####################################################")
@@ -188,13 +178,7 @@ public class ConstraintEngineAddon implements IEngineAddon, IModelListener, IMod
 		Activator.^default.viewSupplier.get().update()
 	}
 	
-	override aboutToExecuteStep(IBasicExecutionEngine arg0, Step arg1) {
-		println
-		println("#####################################################")
-		println("Step about to be executed")
-		println("#####################################################")
-		println
-	}
+	override aboutToExecuteStep(IBasicExecutionEngine arg0, Step arg1) {}
 	override aboutToSelectStep(IBasicExecutionEngine arg0, Collection<Step> arg1) {}
 	override engineAboutToDispose(IBasicExecutionEngine arg0) {}
 	override engineAboutToStop(IBasicExecutionEngine arg0) {}

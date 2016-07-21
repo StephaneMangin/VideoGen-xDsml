@@ -7,6 +7,7 @@ import org.irisa.diverse.livemodeling.views.api.IModelAdapter
 import org.irisa.diverse.livemodeling.views.api.IModelListener
 import org.irisa.diverse.videogen.videogenl.aspects.VideoGenAspect
 import org.irisa.diverse.videogen.videogenl.videoGen.VideoGen
+import org.eclipse.emf.common.util.BasicEList
 
 class VideoGenAdaptor implements IModelAdapter {
 	
@@ -21,7 +22,9 @@ class VideoGenAdaptor implements IModelAdapter {
 		
 	override List<Integer> getStatisticalValues() {
 		// Call the solver to get all possible solutions
-		VideoGenAspect.initializeModel(model, {})
+		if (!model.initialized) {
+			VideoGenAspect.initializeModel(model, new BasicEList)
+		}
 		val values = VideoGenAspect.solve(model)
 		println("################# GET VALUES START")
 		println(values)
