@@ -7,11 +7,10 @@ import org.irisa.diverse.livemodeling.views.api.IModelAdapter
 import org.irisa.diverse.livemodeling.views.api.IModelListener
 import org.irisa.diverse.videogen.videogenl.aspects.VideoGenAspect
 import org.irisa.diverse.videogen.videogenl.videoGen.VideoGen
-import static extension org.irisa.diverse.videogen.videogenl.aspects.VideoGenAspect.*
 
 class VideoGenAdaptor implements IModelAdapter {
 	
-	private VideoGen model	
+	private VideoGen model
 	val List<IModelListener> listeners = new ArrayList
 
 	override void notifyListeners() { listeners.forEach[l|l.update] }
@@ -27,7 +26,7 @@ class VideoGenAdaptor implements IModelAdapter {
 		println("################# GET VALUES START")
 		println(values)
 		println("##### GET VALUES END")
-		values
+		values.sort
 	}
 	
 	override Object getExecutionResult() {
