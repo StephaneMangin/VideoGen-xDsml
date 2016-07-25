@@ -1,14 +1,6 @@
-/*******************************************************************************
- * Copyright (c) 2016 Inria and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     Inria - initial API and implementation
- *******************************************************************************/
-package org.irisa.diverse.livemodeling.views;
+package org.irisa.diverse.livemodeling.api;
+
+import java.util.function.Supplier;
 
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
@@ -22,10 +14,12 @@ import org.osgi.framework.BundleContext;
 public class Activator extends AbstractUIPlugin {
 
 	// The plug-in ID
-	public static final String PLUGIN_ID = "org.irisa.diverse.live_modeling.views"; //$NON-NLS-1$
+	public static final String PLUGIN_ID = "org.irisa.diverse.livemodeling.api"; //$NON-NLS-1$
 
 	// The shared instance
 	private static Activator plugin;
+
+	public Supplier<IView> viewSupplier;
 	
 	/**
 	 * The constructor
@@ -86,5 +80,13 @@ public class Activator extends AbstractUIPlugin {
                 msg, 
                 e));
 	}
-	
+
+	public Supplier<IView> getViewSupplier() {
+		return viewSupplier;
+	}
+
+	public void setViewSupplier(Supplier<IView> viewSupplier) {
+		this.viewSupplier = viewSupplier;
+	}
+
 }

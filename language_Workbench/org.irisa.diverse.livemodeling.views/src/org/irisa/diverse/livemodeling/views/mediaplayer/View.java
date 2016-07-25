@@ -18,10 +18,9 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IActionBars;
 import org.gemoc.xdsmlframework.api.core.IBasicExecutionEngine;
-import org.irisa.diverse.livemodeling.views.api.AbstractView;
-import org.irisa.diverse.livemodeling.views.api.IModelAdapter;
-import org.irisa.diverse.livemodeling.views.api.IView;
-import org.irisa.diverse.videogen.videogenl.videoGen.VideoGen;
+import org.irisa.diverse.livemodeling.api.AbstractView;
+import org.irisa.diverse.livemodeling.api.IModelAdapter;
+import org.irisa.diverse.livemodeling.api.IView;
 
 import javafx.embed.swt.FXCanvas;
 import javafx.scene.Scene;
@@ -32,7 +31,6 @@ public class View extends AbstractView {
 
 	private FXCanvas fxCanvas = null;
 	private FxListener viewListener = null;
-	private IModelAdapter modelAdapter = null;
 
 	@Override 
 	public void addActionToToolbar(Action action) {
@@ -51,7 +49,7 @@ public class View extends AbstractView {
 	@Override
 	public void createPartControl(Composite parent) {
 		fxCanvas = new FXCanvas(parent, SWT.NONE);
-		viewListener = new FxListener();
+		viewListener = new FxListener(this);
 		Scene scene = new Scene(viewListener);
 		fxCanvas.setScene(scene);
 		parent.getShell().addListener(SWT.Resize, (e) -> {
@@ -79,11 +77,10 @@ public class View extends AbstractView {
 	public void engineSelectionChanged(IBasicExecutionEngine engine) {
 		IModelAdapter[] modelAdapters = getModelAdapters();
 		if (modelAdapters.length > 0) {
-			modelAdapter = modelAdapters[0];
+			IModelAdapter modelAdapter = modelAdapters[0];
 			Resource model = engine.getExecutionContext().getResourceModel();
 			modelAdapter.setModel(MediaPlayerEngineAddon.loadModel(model));
 			modelAdapter.addListener(viewListener);
-			viewListener.setModel(modelAdapter);
 			viewListener.refresh();
 		} else {
 			System.out.println("No adaptor found for model !");

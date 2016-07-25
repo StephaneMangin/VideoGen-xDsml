@@ -1,4 +1,6 @@
-package org.irisa.diverse.livemodeling.views.api
+package org.irisa.diverse.livemodeling.api
+
+import org.irisa.diverse.livemodeling.api.IModelListener
 
 interface IModelNotifier {
 

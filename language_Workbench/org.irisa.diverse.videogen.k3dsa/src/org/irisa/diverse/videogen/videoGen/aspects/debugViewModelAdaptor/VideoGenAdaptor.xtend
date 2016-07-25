@@ -14,7 +14,7 @@ package org.irisa.diverse.videogen.videoGen.aspects.debugViewModelAdaptor
 //
 //import static extension org.irisa.diverse.videogen.videoGen.aspects.VideoGenAspect.*
 //import org.eclipse.emf.common.util.EList
-
+//
 //class VideoGenAdaptor implements IModelAdapter {
 //	
 //	private VideoGen model

@@ -30,8 +30,6 @@ Require-Bundle: org.eclipse.xtend.lib;bundle-version="2.7.0";visibility:="privat
  
  org.irisa.diverse.videogen;bundle-version="0.0.0";visibility:="private",
  
- org.irisa.diverse.livemodeling.extensions.sirius;bundle-version="0.0.0";visibility:="reexport",
- 
  org.irisa.diverse.videogen.k3dsa;bundle-version="0.0.0";visibility:="reexport",
  
  org.gemoc.executionframework.extensions.sirius;bundle-version="0.0.0";visibility:=reexport,

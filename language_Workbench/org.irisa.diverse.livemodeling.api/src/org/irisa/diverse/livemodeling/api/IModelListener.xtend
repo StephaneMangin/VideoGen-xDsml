@@ -1,4 +1,4 @@
-package org.irisa.diverse.livemodeling.views.api
+package org.irisa.diverse.livemodeling.api
 
 interface IModelListener {
 

@@ -10,7 +10,7 @@
       </category>
       <view
             category="org.gemoc.executionframework.ui.category"
-            class="org.irisa.diverse.livemodeling.views.constraint.View"
+            class="org.irisa.diverse.livemodeling.views.constraint.ConstraintView"
             icon="icons/IconeGemocModel-16.png"
             id="org.irisa.diverse.live_modeling.views.constraint.View"
             name="Constraint View">

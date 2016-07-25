@@ -1,5 +1,6 @@
-package org.irisa.diverse.livemodeling.views.api
+package org.irisa.diverse.livemodeling.api
 
+import java.util.Collection
 import java.util.Map
 import org.eclipse.core.runtime.CoreException
 import org.eclipse.core.runtime.IConfigurationElement
@@ -9,15 +10,12 @@ import org.eclipse.emf.common.EMFPlugin
 import org.eclipse.jface.action.Action
 import org.gemoc.executionframework.ui.views.engine.EngineSelectionDependentViewPart
 import org.gemoc.xdsmlframework.api.core.IRunConfiguration
-import org.irisa.diverse.livemodeling.views.Activator
-import java.util.Collection
-import org.irisa.diverse.livemodeling.views.impl.VideoGenAdaptor
 
 abstract class AbstractView extends EngineSelectionDependentViewPart implements IView {
 	
 	private Map<String, Object> runConfigurationAttributes = null
 	
-	public static Collection<IModelAdapter> modelAdapters = newArrayList()
+	private static Collection<IModelAdapter> modelAdapters = newArrayList()
 
 	new() {
 		Activator.^default.viewSupplier = this
@@ -106,9 +104,6 @@ abstract class AbstractView extends EngineSelectionDependentViewPart implements 
 	            }
 	        }
         }
-        if (modelAdapters.empty) {
-        	modelAdapters.add(new VideoGenAdaptor())
-        }
     }
 
     def private static IModelAdapter parseEngine(IConfigurationElement configElement) {
@@ -118,14 +113,15 @@ abstract class AbstractView extends EngineSelectionDependentViewPart implements 
         configElement.createExecutableExtension("class") as IModelAdapter
     }
     
-    def public IModelAdapter[] getModelAdapters() {
-    	println(modelAdapters)
+    override IModelAdapter[] getModelAdapters() {
     	if (modelAdapters.empty) {
     		parseExtensionMetadata
-	        if (modelAdapters.empty) {
-	        	throw new Exception("No model's adaptor extension has been declared.")
-	        }
+    		// Extension point is not executed ? Why ?
+	        //if (modelAdapters.empty) {
+	        //	throw new Exception("No model's adaptor extension has been declared.")
+	        //}
     	}
     	modelAdapters
     }
 }
+		

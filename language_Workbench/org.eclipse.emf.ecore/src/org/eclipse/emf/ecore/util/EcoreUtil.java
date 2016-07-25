@@ -3513,12 +3513,7 @@ public class EcoreUtil
 	      eIDAttribute.getEAttributeType(),
 	      eObject.eGet(eIDAttribute));
 	  } catch (Exception e) {
-		  try {
-			  System.out.println("Object" + eObject.getClass().getName());
-		  } catch(Exception ex) {
-			  //
-		  }
-		  System.out.println(e.getMessage());
+		  //
 	  }
 	return "";
   }

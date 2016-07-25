@@ -1,9 +1,9 @@
-package org.irisa.diverse.livemodeling.views.api
+package org.irisa.diverse.livemodeling.api
 
 import java.util.function.Supplier
 import org.eclipse.jface.action.Action
-import org.eclipse.ui.IEditorPart
 import org.eclipse.swt.widgets.Composite
+import org.irisa.diverse.livemodeling.api.IModelAdapter
 
 interface IView extends Supplier<IView> {
 
@@ -31,6 +31,8 @@ interface IView extends Supplier<IView> {
 	override get() {
 		this
 	}
+	
+	def IModelAdapter[] getModelAdapters()
 	
 	def void update()
 }

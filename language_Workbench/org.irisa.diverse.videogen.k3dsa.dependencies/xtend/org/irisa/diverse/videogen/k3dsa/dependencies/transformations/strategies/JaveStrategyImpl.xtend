@@ -22,8 +22,6 @@ public class JaveStrategyImpl implements VideosStrategy {
 	}
 
 	override void convert(Path fullPath, Path newFullPathName, VideoCodec codec) {
-		println(fullPath.toUri)
-		println(newFullPathName.toUri)
 		val fileIn = new File(fullPath.toUri)
 		val fileOut = new File(newFullPathName.toUri)
 		val audio = new AudioAttributes()

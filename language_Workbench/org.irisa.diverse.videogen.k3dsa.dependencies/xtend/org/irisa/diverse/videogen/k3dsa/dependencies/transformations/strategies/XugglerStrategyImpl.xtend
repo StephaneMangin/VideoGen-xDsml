@@ -13,7 +13,7 @@ public class XugglerStrategyImpl implements VideosStrategy {
   	 
 	override void createThumbnails(Path fullPath, Path thumbFileName) {
 		if (fullPath.toFile.exists) {
-			val reader = ToolFactory.makeReader(thumbFileName.toAbsolutePath.toString)
+			//val reader = ToolFactory.makeReader(thumbFileName.toAbsolutePath.toString)
 			// TODO
 		}
 	}

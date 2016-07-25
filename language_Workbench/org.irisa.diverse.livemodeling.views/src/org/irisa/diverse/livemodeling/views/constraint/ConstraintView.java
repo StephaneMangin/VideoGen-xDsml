@@ -18,20 +18,20 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IActionBars;
 import org.gemoc.xdsmlframework.api.core.IBasicExecutionEngine;
-import org.irisa.diverse.livemodeling.views.api.AbstractView;
-import org.irisa.diverse.livemodeling.views.api.IModelAdapter;
-import org.irisa.diverse.livemodeling.views.api.IView;
+import org.irisa.diverse.livemodeling.api.AbstractView;
+import org.irisa.diverse.livemodeling.api.IModelAdapter;
+import org.irisa.diverse.livemodeling.api.IView;
+import org.irisa.diverse.livemodeling.views.impl.VideoGenAdaptor;
 
 import javafx.embed.swt.FXCanvas;
 import javafx.scene.Scene;
 
-public class View extends AbstractView {
+public class ConstraintView extends AbstractView {
 
 	public final String ID = "org.irisa.diverse.live_modeling.views.constraint.View";
 
 	private FXCanvas fxCanvas = null;
-	private FxListener viewListener = null;
-	private IModelAdapter modelAdapter = null;
+	private ConstraintListener viewListener = null;
 
 	@Override 
 	public void addActionToToolbar(Action action) {
@@ -50,11 +50,11 @@ public class View extends AbstractView {
 	@Override
 	public void createPartControl(Composite parent) {
 		fxCanvas = new FXCanvas(parent, SWT.NONE);
-		viewListener = new FxListener();
+		viewListener = new ConstraintListener(this);
 		Scene scene = new Scene(viewListener);
 		fxCanvas.setScene(scene);
 		parent.getShell().addListener(SWT.Resize, (e) -> {
-			viewListener.refresh();
+			viewListener.update();
 		});
 		parent.getShell().addListener(SWT.Expand, (e) -> {
 			viewListener.scale();
@@ -77,19 +77,21 @@ public class View extends AbstractView {
 	@Override
 	public void engineSelectionChanged(IBasicExecutionEngine engine) {
 		IModelAdapter[] modelAdapters = getModelAdapters();
+		IModelAdapter modelAdapter;
 		if (modelAdapters.length > 0) {
 			modelAdapter = modelAdapters[0];
-			Resource model = engine.getExecutionContext().getResourceModel();
-			modelAdapter.setModel(ConstraintEngineAddon.loadModel(model));
-			modelAdapter.addListener(viewListener);
-			viewListener.setModel(modelAdapter);
-			viewListener.refresh();
 		} else {
-			System.out.println("No adaptor found for model !");
+			modelAdapter = new VideoGenAdaptor();
+			System.out.println("No adaptor found for model ! Creating a VideoGen one.");
 		}
+		Resource model = engine.getExecutionContext().getResourceModel();
+		modelAdapter.setModel(ConstraintEngineAddon.loadModel(model));
+		modelAdapter.addListener(viewListener);
+		viewListener.update();
 	}
 
 	public void update() {
 		viewListener.update();
 	}
+
 }

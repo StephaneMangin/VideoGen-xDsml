@@ -18,10 +18,8 @@ import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionListener;
 import org.eclipse.sirius.business.api.session.SessionManager;
 import org.eclipse.sirius.ecore.extender.business.api.permission.IPermissionAuthority;
-import org.eclipse.sirius.ecore.extender.business.internal.permission.DummyPermissionAuthority;
-import org.gemoc.xdsmlframework.api.core.IExecutionCheckpoint;
-import org.gemoc.executionframework.extensions.sirius.modelloader.DebugPermissionAuthority;
 import org.gemoc.executionframework.extensions.sirius.modelloader.DebugPermissionProvider;
+import org.gemoc.xdsmlframework.api.core.IExecutionCheckpoint;
 
 public class LivePermissionProvider extends DebugPermissionProvider {
 

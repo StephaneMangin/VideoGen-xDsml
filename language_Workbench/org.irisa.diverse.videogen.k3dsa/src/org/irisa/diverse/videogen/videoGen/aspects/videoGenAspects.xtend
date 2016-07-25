@@ -5,8 +5,6 @@ import fr.inria.diverse.k3.al.annotationprocessor.InitializeModel
 import fr.inria.diverse.k3.al.annotationprocessor.Main
 import fr.inria.diverse.k3.al.annotationprocessor.OverrideAspectMethod
 import fr.inria.diverse.k3.al.annotationprocessor.Step
-import java.io.File
-import java.io.FileWriter
 import java.nio.file.Paths
 import java.util.List
 import org.chocosolver.solver.Solver
@@ -147,8 +145,6 @@ class VideoGenAspect {
 	 */
 	@Step
 	def private void setup() {
-		println("Setup start...")
-
 		// Video specific setup
 		// Prerequisite for video duration computation
 		_self.videos.forEach[it.setup]
@@ -221,8 +217,6 @@ class VideoGenAspect {
 		// TODO: Manage model transformation here
 		// TODO: re-implement the initial IDM project model transformation. See master branch package 'fr.nemomen.utils'.
 		//val content = VideoGenTransform.toM3U(_self, false, videos)
-		//println("##### Videos computation result in M3U format : ")
-		//println(content)
 		//val playlist = _self.saveGeneratedModel(content)
 		//_self.launchReader(playlist)
 	}
@@ -231,30 +225,30 @@ class VideoGenAspect {
 	 * Saves the given playlist content in a temporary file (hashed by content)
 	 * 
 	 */
-	@Step
-	def private File saveGeneratedModel(String content) {
-		// Create the temporary file to receive playlist as M3U
-		val playlist = File.createTempFile(String.valueOf(content.hashCode), "-videogen.m3u")
-		val writer = new FileWriter(playlist)
-		writer.write(content)
-		writer.flush
-		writer.close
-		//_self.executionResult = playlist.toPath.toString
-		playlist
-	}
+//	@Step
+//	def private File saveGeneratedModel(String content) {
+//		// Create the temporary file to receive playlist as M3U
+//		val playlist = File.createTempFile(String.valueOf(content.hashCode), "-videogen.m3u")
+//		val writer = new FileWriter(playlist)
+//		writer.write(content)
+//		writer.flush
+//		writer.close
+//		//_self.executionResult = playlist.toPath.toString
+//		playlist
+//	}
 
 	/**
 	 * Launches vlc instance with the provided playlist
 	 * 
 	 */
-	def private void launchReader(File playlist) {
-		// Start VLC
-		// TODO: add a new tab inside eclipse to start a video player...
-		// If possible (see Jave implementation from org.irisa.diverse.transformations.strategies)
-		val p = new ProcessBuilder("vlc", "--playlist-autostart", "--playlist-tree", "--no-overlay",
-			playlist.toPath.toString)
-		p.start()
-	}
+//	def private void launchReader(File playlist) {
+//		// Start VLC
+//		// TODO: add a new tab inside eclipse to start a video player...
+//		// If possible (see Jave implementation from org.irisa.diverse.transformations.strategies)
+//		val p = new ProcessBuilder("vlc", "--playlist-autostart", "--playlist-tree", "--no-overlay",
+//			playlist.toPath.toString)
+//		p.start()
+//	}
 
 	/**
 	 * Adds a new expression to the objective of the linear system constraints
@@ -462,7 +456,6 @@ class AlternativesAspect extends SequenceAspect {
 				}
 			}
 		}
-		println(result)
 		result as EMap<Optional, Integer>
 	}
 
@@ -477,7 +470,6 @@ class AlternativesAspect extends SequenceAspect {
 			return null
 		}
 		checkedProbabilities.forEach[
-			println(it + "=>" + checkedProbabilities.indexOf(it))
 			_self.addNumber(checkedProbabilities.indexOf(it), it.value)
 		] 
 		checkedProbabilities.get(_self.getDistributedRandomNumber()).key

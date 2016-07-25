@@ -1,6 +1,5 @@
 package org.irisa.diverse.livemodeling.views.mediaplayer
 
-import fr.inria.diverse.trace.commons.model.trace.LaunchConfiguration
 import fr.inria.diverse.trace.commons.model.trace.Step
 import java.util.ArrayList
 import java.util.Collection
@@ -12,20 +11,17 @@ import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl
 import org.gemoc.xdsmlframework.api.core.EngineStatus.RunStatus
 import org.gemoc.xdsmlframework.api.core.IBasicExecutionEngine
 import org.gemoc.xdsmlframework.api.core.IExecutionContext
-import org.gemoc.xdsmlframework.api.core.IRunConfiguration
 import org.gemoc.xdsmlframework.api.engine_addon.IEngineAddon
 import org.gemoc.xdsmlframework.api.engine_addon.modelchangelistener.BatchModelChangeListenerAddon
-import org.irisa.diverse.livemodeling.views.Activator
-import org.irisa.diverse.livemodeling.views.api.IModelAdapter
-import org.irisa.diverse.livemodeling.views.api.IModelListener
-import org.irisa.diverse.livemodeling.views.api.IModelNotifier
+import org.irisa.diverse.livemodeling.api.Activator
+import org.irisa.diverse.livemodeling.api.IModelListener
+import org.irisa.diverse.livemodeling.api.IModelNotifier
 import org.irisa.diverse.videogen.videogenl.videoGen.VideoGen
 import org.irisa.diverse.videogen.videogenl.videoGen.VideoGenPackage
 
 public class MediaPlayerEngineAddon implements IEngineAddon, IModelListener, IModelNotifier {
 
 	private IExecutionContext _executionContext
-	private IModelAdapter modelAdapter
 
 	private BatchModelChangeListenerAddon listenerAddon
 	
@@ -41,7 +37,7 @@ public class MediaPlayerEngineAddon implements IEngineAddon, IModelListener, IMo
 
 	override void removeListener(IModelListener listener) { listeners.remove(listener) }
 
-	private def LaunchConfiguration setupRunConfigurationAttributes(IRunConfiguration configuration) {
+//	private def LaunchConfiguration setupRunConfigurationAttributes(IRunConfiguration configuration) {
 //		val LaunchConfiguration launchConfiguration = TraceFactory.eINSTANCE.createLaunchConfiguration
 //		launchConfiguration.parameters.forEach[param |
 //			
@@ -79,7 +75,7 @@ public class MediaPlayerEngineAddon implements IEngineAddon, IModelListener, IMo
 //			extensionPoint|launchConfiguration.addonExtensions.add(extensionPoint.name)
 //		]
 //		return launchConfiguration
-	}
+//	}
 
 	/**
 	 * Sort-of constructor for the constraint manager.
@@ -89,7 +85,7 @@ public class MediaPlayerEngineAddon implements IEngineAddon, IModelListener, IMo
 		if (_executionContext == null) {
 			_executionContext = engine.executionContext
 
-			val modelResource = _executionContext.resourceModel
+			//val modelResource = _executionContext.resourceModel
 
 			// We construct a new listener addon if required
 			this.listenerAddon = if (engine.hasAddon(BatchModelChangeListenerAddon)) {
@@ -99,7 +95,7 @@ public class MediaPlayerEngineAddon implements IEngineAddon, IModelListener, IMo
 			}
 			listenerAddon.registerObserver(this)
 
-			val launchConfiguration = setupRunConfigurationAttributes(engine.executionContext.runConfiguration)
+			//val launchConfiguration = setupRunConfigurationAttributes(engine.executionContext.runConfiguration)
 
 		}
 	}
@@ -120,11 +116,6 @@ public class MediaPlayerEngineAddon implements IEngineAddon, IModelListener, IMo
 	 * To construct the trace manager
 	 */
 	override engineAboutToStart(IBasicExecutionEngine engine) {
-		println
-		println("#####################################################")
-		println("Engine about to start")
-		println("#####################################################")
-		println
 		setUp(engine)
 	}
 	
@@ -156,20 +147,10 @@ public class MediaPlayerEngineAddon implements IEngineAddon, IModelListener, IMo
 	}
 	
 	override engineStarted(IBasicExecutionEngine arg0) {
-		println
-		println("#####################################################")
-		println("Engine started")
-		println("#####################################################")
-		println
 		update()
 	}
 	
 	override stepExecuted(IBasicExecutionEngine arg0, Step arg1) {
-		println
-		println("#####################################################")
-		println("Step executed")
-		println("#####################################################")
-		println
 		update()
 	}
 	

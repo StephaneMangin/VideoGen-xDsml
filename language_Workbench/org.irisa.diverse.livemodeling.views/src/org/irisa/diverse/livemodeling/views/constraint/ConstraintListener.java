@@ -13,8 +13,8 @@ package org.irisa.diverse.livemodeling.views.constraint;
 import java.util.Objects;
 import java.util.function.Consumer;
 
-import org.irisa.diverse.livemodeling.views.api.IModelAdapter;
-import org.irisa.diverse.livemodeling.views.api.IModelListener;
+import org.irisa.diverse.livemodeling.api.IModelListener;
+import org.irisa.diverse.livemodeling.api.IView;
 
 import javafx.application.Platform;
 import javafx.beans.InvalidationListener;
@@ -25,7 +25,6 @@ import javafx.beans.property.SimpleBooleanProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
-import javafx.geometry.Insets;
 import javafx.geometry.Point2D;
 import javafx.scene.chart.Axis;
 import javafx.scene.chart.LineChart;
@@ -41,12 +40,11 @@ import javafx.scene.layout.Border;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
-public class FxListener extends Pane implements IModelListener {
+public class ConstraintListener extends Pane implements IModelListener {
 
 	final private ScrollPane bodyScrollPane;
 
@@ -58,26 +56,26 @@ public class FxListener extends Pane implements IModelListener {
 	final private VBox headerPane;
 	final private Pane bodyPane;
 	final private BooleanProperty displayGrid;
+	final private IView view;
 
 	private BooleanBinding displayGridBinding;
-
-	private IModelAdapter model;
 	
-	private static final int H_MARGIN = 2;
-	private static final int V_MARGIN = 2;
-	private static final Insets MARGIN_INSETS = new Insets(V_MARGIN, H_MARGIN, V_MARGIN, H_MARGIN);
-	private static final Insets HALF_MARGIN_INSETS = new Insets(V_MARGIN, H_MARGIN / 2, V_MARGIN, H_MARGIN / 2);
+//	private static final int H_MARGIN = 2;
+//	private static final int V_MARGIN = 2;
+//	private static final Insets MARGIN_INSETS = new Insets(V_MARGIN, H_MARGIN, V_MARGIN, H_MARGIN);
+//	private static final Insets HALF_MARGIN_INSETS = new Insets(V_MARGIN, H_MARGIN / 2, V_MARGIN, H_MARGIN / 2);
 	private static final Background HEADER_BACKGROUND = new Background(new BackgroundFill(Color.LIGHTGRAY, null, null));
 	private static final Background BODY_BACKGROUND = new Background(new BackgroundFill(Color.WHITE, null, null));
 	private static final Background TRANSPARENT_BACKGROUND = new Background(new BackgroundFill(Color.TRANSPARENT, null, null));
-	private static final Paint LINE_PAINT = new Color(
-		Color.LIGHTGRAY.getRed(),
-		Color.LIGHTGRAY.getGreen(),
-		Color.LIGHTGRAY.getBlue(),
-		0.5);
-	private static final Background LINE_BACKGROUND = new Background(new BackgroundFill(LINE_PAINT, null, null));
+//	private static final Paint LINE_PAINT = new Color(
+//		Color.LIGHTGRAY.getRed(),
+//		Color.LIGHTGRAY.getGreen(),
+//		Color.LIGHTGRAY.getBlue(),
+//		0.5);
+//	private static final Background LINE_BACKGROUND = new Background(new BackgroundFill(LINE_PAINT, null, null));
 
-	public FxListener() {
+	public ConstraintListener(IView view) {
+		this.view = view;
 		autosize();
 		headerPane = new VBox();
 		bodyPane = new Pane();
@@ -116,24 +114,29 @@ public class FxListener extends Pane implements IModelListener {
 	private void updateSeries(Boolean flushBefore) {
 
 		System.out.println("Update series");
-        if (model != null) {
-        	System.out.println(model.getStatisticalValues());
-	        if (flushBefore) {
-	        	// Remove only previous series
-	        	lineChart.getData().remove(series);
-	        	series = new Series<Number, Number>();
+        if (view.getModelAdapters().length > 0) {
+        	IModelConstraintAdapter model = (IModelConstraintAdapter) view.getModelAdapters()[0];
+	        if (model != null) {
+	        	if (flushBefore) {
+		        	// Remove only previous series
+		        	lineChart.getData().remove(series);
+		        	series = new Series<Number, Number>();
+		        	lineChart.setMin(lineChart.getMinValue());
+		        	lineChart.setMax(lineChart.getMaxValue());
+		        }
+		        model.getStatisticalValues().forEach(new Consumer<Integer>() {
+					@Override
+					public void accept(Integer duration) {
+						series.getData().add(
+							new Data<Number, Number>((Number)model.getStatisticalValues().indexOf(duration), (Number)duration));
+					}
+				});
+		        lineChart.getData().add(series);
+		        lineChart.setMin(xAxis.getLowerBound());
+		        lineChart.setMax(xAxis.getUpperBound());
 	        }
-	        model.getStatisticalValues().forEach(new Consumer<Integer>() {
-				@Override
-				public void accept(Integer duration) {
-					series.getData().add(
-						new Data<Number, Number>((Number)model.getStatisticalValues().indexOf(duration), (Number)duration));
-				}
-			});
-	        lineChart.getData().add(series);
-	        lineChart.setMin(xAxis.getLowerBound());
-	        lineChart.setMax(xAxis.getUpperBound());
         }
+        System.out.println(lineChart.getData());
 	}
 	
 	/**
@@ -164,7 +167,7 @@ public class FxListener extends Pane implements IModelListener {
 		maxHeightProperty().bind(headerPane.heightProperty().add(bodyScrollPane.heightProperty()));
 	}
 	
-	public void refresh() {
+	private void refresh() {
 		Platform.runLater(() -> {
 			displayGrid.unbind();
 
@@ -184,10 +187,6 @@ public class FxListener extends Pane implements IModelListener {
 	@Override
 	public void update() {
 		this.refresh();
-	}
-
-	public void setModel(IModelAdapter modelAdapter) {
-		this.model = modelAdapter;
 	}
 
     private class LineChartWithMarkers<X, Y> extends LineChart<X, Y> {
@@ -221,7 +220,6 @@ public class FxListener extends Pane implements IModelListener {
             currentMarker = marker;
         }
 
-        @SuppressWarnings("unused")
         private void removeVerticalRangeMarker() {
             Objects.requireNonNull(currentMarker, "the marker must not be null");
             getPlotChildren().remove(currentMarker.getNode());
@@ -278,7 +276,8 @@ public class FxListener extends Pane implements IModelListener {
 	    			//we want these in the axis coordinate frame
 		    		Point2D pointInScene = new Point2D(event.getSceneX(), event.getSceneY());
 	                double xAxisLoc = xAxis.sceneToLocal(pointInScene).getX();
-    				X x =  (X) xAxis.getValueForDisplay(xAxisLoc);
+    				@SuppressWarnings("unchecked")
+					X x =  (X) xAxis.getValueForDisplay(xAxisLoc);
 	    			if (event.getButton() == MouseButton.PRIMARY) {
 	    				lineChart.setMin(x);
 	    			} else if (event.getButton() == MouseButton.SECONDARY) {

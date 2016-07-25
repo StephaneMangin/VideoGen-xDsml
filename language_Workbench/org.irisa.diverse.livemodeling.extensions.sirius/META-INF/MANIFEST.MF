@@ -24,7 +24,12 @@ Require-Bundle: org.gemoc.xdsmlframework.api,
  org.eclipse.equinox.app,
  org.eclipse.sirius.ecore.extender,
  org.gemoc.executionframework.extensions.sirius,
- org.gemoc.execution.sequential.javaengine;bundle-version="0.1.0"
+ org.gemoc.execution.sequential.javaengine;bundle-version="0.1.0",
+ com.google.guava,
+ org.eclipse.xtext.xbase.lib,
+ org.eclipse.xtend.lib,
+ org.eclipse.xtend.lib.macro,
+ org.irisa.diverse.livemodeling.api;bundle-version="1.0.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: org.irisa.diverse.livemodeling.extensions.sirius,
  org.irisa.diverse.livemodeling.extensions.sirius.accessor.authority,
@@ -32,5 +37,6 @@ Export-Package: org.irisa.diverse.livemodeling.extensions.sirius,
  org.irisa.diverse.livemodeling.extensions.sirius.modelloader,
  org.irisa.diverse.livemodeling.extensions.sirius.services,
  org.irisa.diverse.livemodeling.extensions.sirius.session
-Import-Package: org.eclipse.sirius.ecore.extender.business.api.permission,
+Import-Package: org.chocosolver.solver.variables.view,
+ org.eclipse.sirius.ecore.extender.business.api.permission,
  org.eclipse.sirius.ext.emf;version="2.0.7"

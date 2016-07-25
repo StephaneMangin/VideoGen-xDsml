@@ -1,8 +1,8 @@
 package org.irisa.diverse.videogen.k3dsa.dependencies.transformations
 
-import com.google.common.collect.Lists
 import java.nio.file.Path
 import java.nio.file.Paths
+import java.util.HashMap
 import java.util.Map
 import java.util.logging.Logger
 import org.irisa.diverse.playlist.PlayList.PlayList
@@ -10,7 +10,6 @@ import org.irisa.diverse.playlist.PlayList.impl.PlayListFactoryImpl
 import org.irisa.diverse.videogen.k3dsa.dependencies.transformations.helpers.SystemHelper
 import org.irisa.diverse.videogen.k3dsa.dependencies.transformations.helpers.VideoGenHelper
 import org.irisa.diverse.videogen.k3dsa.dependencies.transformations.helpers.VideosHelper
-import org.irisa.diverse.videogen.k3dsa.dependencies.transformations.utils.DistributedRandomNumberGenerator
 import org.irisa.diverse.videogen.videoGen.Alternatives
 import org.irisa.diverse.videogen.videoGen.Mandatory
 import org.irisa.diverse.videogen.videoGen.Mimetypes_Enum
@@ -18,10 +17,6 @@ import org.irisa.diverse.videogen.videoGen.Optional
 import org.irisa.diverse.videogen.videoGen.Video
 import org.irisa.diverse.videogen.videoGen.VideoGen
 import org.irisa.diverse.videogen.videoGen.impl.VideoGenFactoryImpl
-import org.eclipse.emf.ecore.EClass
-import org.eclipse.emf.ecore.impl.EAttributeImpl
-import java.util.HashMap
-import org.eclipse.emf.ecore.EObject
 
 /**
  * Define some VideoGen transformation's specifications
@@ -70,37 +65,37 @@ import org.eclipse.emf.ecore.EObject
  	 *  
 	 * @author Stéphane Mangin <stephane.mangin@freesbee.fr>
  	 */ 
-    def private static isSelected(Optional video) {
-        
-        var drng = new DistributedRandomNumberGenerator()
-        
-        var float proba
-        
-        proba = 50
-        if(video.probability != 0){
-            proba = video.probability
-        }
-        
-        drng.addNumber(1, proba)
-        drng.addNumber(0, 100-proba)
-        
-        drng.getDistributedRandomNumber() > 0
-    }
+//    def private static isSelected(Optional video) {
+//        
+//        var drng = new DistributedRandomNumberGenerator()
+//        
+//        var float proba
+//        
+//        proba = 50
+//        if(video.probability != 0){
+//            proba = video.probability
+//        }
+//        
+//        drng.addNumber(1, proba)
+//        drng.addNumber(0, 100-proba)
+//        
+//        drng.getDistributedRandomNumber() > 0
+//    }
     
  	/**
  	 * Selects a sequence inside the given Alternatices instance accordingly to options' percentages.
  	 * 
 	 * @author Stéphane Mangin <stephane.mangin@freesbee.fr>
  	 */ 
-    def private static selectSequence(Alternatives alternatives) {
-        
-        val drng = new DistributedRandomNumberGenerator()
-        val proba = VideoGenHelper.checkProbabilities(alternatives)
-        alternatives.options.map[video.name].forEach[name |
-            drng.addNumber(proba.keySet.toList.indexOf(name), proba.get(name))
-        ]
-        alternatives.options.get(drng.getDistributedRandomNumber()).video
-    }
+//    def private static selectSequence(Alternatives alternatives) {
+//        
+//        val drng = new DistributedRandomNumberGenerator()
+//        val proba = VideoGenHelper.checkProbabilities(alternatives)
+//        alternatives.options.map[video.name].forEach[name |
+//            drng.addNumber(proba.keySet.toList.indexOf(name), proba.get(name))
+//        ]
+//        alternatives.options.get(drng.getDistributedRandomNumber()).video
+//    }
     
  	/**
  	 * Tranform a VideoGen instance to a PlayList instance
@@ -162,7 +157,6 @@ import org.eclipse.emf.ecore.EObject
     def static ConvertTo(Mimetypes_Enum type, Video video){
    		LOGGER.info("Convertion " + video + "=>" + type)
     	val codec = VideoCodec.getByFormat(type.getName)
-		val pathes = Lists.newArrayList
 		val dir = Paths.get(tmp + "/" + "converted" + "/" + type.getName + "/")
 		SystemHelper.mkDirs(dir)
         val fullPath = Paths.get(video.url)

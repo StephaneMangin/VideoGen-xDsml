@@ -56,14 +56,11 @@ import org.gemoc.executionframework.extensions.sirius.debug.DebugSessionFactory;
 import org.gemoc.executionframework.extensions.sirius.modelloader.DebugURIHandler;
 import org.gemoc.executionframework.extensions.sirius.modelloader.DefaultModelLoader;
 import org.gemoc.executionframework.extensions.sirius.modelloader.PaletteUtils;
-import org.gemoc.executionframework.extensions.sirius.services.AbstractGemocAnimatorServices;
 import org.gemoc.xdsmlframework.api.core.IExecutionContext;
 import org.gemoc.xdsmlframework.api.core.IRunConfiguration;
 import org.irisa.diverse.livemodeling.extensions.sirius.accessor.authority.LivePermissionProvider;
 import org.irisa.diverse.livemodeling.extensions.sirius.services.AbstractLiveAnimatorServices;
 import org.irisa.diverse.livemodeling.extensions.sirius.services.AbstractLiveDebuggerServices;
-
-import fr.obeo.dsl.debug.ide.sirius.ui.services.AbstractDSLDebuggerServices;
 
 public class LiveModelLoader extends DefaultModelLoader {
 
@@ -189,8 +186,6 @@ public class LiveModelLoader extends DefaultModelLoader {
 				final IEditorPart editorPart = DialectUIManager.INSTANCE
 						.openEditor(session, representation, monitor);
 				if (editorPart instanceof DDiagramEditor) {
-					System.out.println("=========================================================================");
-					System.out.println(((DDiagramEditor) editorPart).getPermissionAuthority().getClass().getName());
 					((DDiagramEditor) editorPart).getPaletteManager()
 							.addToolFilter(new ToolFilter() {
 								@Override
@@ -268,7 +263,6 @@ public class LiveModelLoader extends DefaultModelLoader {
 			_nsURIMapping = nsURIMapping;
 		}
 
-		@SuppressWarnings("resource")
 		@Override
 		public InputStream createInputStream(URI uri, Map<?, ?> options)
 				throws IOException {

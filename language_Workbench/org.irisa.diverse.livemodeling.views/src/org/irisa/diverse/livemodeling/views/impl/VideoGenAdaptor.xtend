@@ -1,42 +1,38 @@
 package org.irisa.diverse.livemodeling.views.impl
 
-import java.util.ArrayList
 import java.util.List
 import org.eclipse.emf.ecore.EObject
-import org.irisa.diverse.livemodeling.views.api.IModelAdapter
-import org.irisa.diverse.livemodeling.views.api.IModelListener
+import org.irisa.diverse.livemodeling.api.IModelListener
+import org.irisa.diverse.livemodeling.extensions.sirius.accessor.extender.LiveEcoreIntrinsicExtender
+import org.irisa.diverse.livemodeling.views.constraint.IModelConstraintAdapter
 import org.irisa.diverse.videogen.videogenl.aspects.VideoGenAspect
 import org.irisa.diverse.videogen.videogenl.videoGen.VideoGen
-import org.eclipse.emf.common.util.BasicEList
 
-class VideoGenAdaptor implements IModelAdapter {
+class VideoGenAdaptor extends LiveEcoreIntrinsicExtender implements IModelConstraintAdapter {
 	
 	private VideoGen model
-	val List<IModelListener> listeners = new ArrayList
 
-	override void notifyListeners() { listeners.forEach[l|l.update] }
-
-	override void addListener(IModelListener listener) { listeners.add(listener) }
-
-	override void removeListener(IModelListener listener) { listeners.remove(listener) }
-		
-	override List<Integer> getStatisticalValues() {
-		// Call the solver to get all possible solutions
-		if (!model.initialized) {
-			VideoGenAspect.initializeModel(model, new BasicEList)
+	override void addListener(IModelListener listener) {
+		super.addListener(listener)
+		if (listener instanceof VideoGen) {
+			model = listener
 		}
-		val values = VideoGenAspect.solve(model)
-		println("################# GET VALUES START")
-		println(values)
-		println("##### GET VALUES END")
-		values.sort
 	}
 	
-	override Object getExecutionResult() {
-		VideoGenAspect.initializeModel(model, {})
-		VideoGenAspect.main(model)
-		//VideoGenAspect.getResult(model)
-		null
+	override void removeListener(IModelListener listener) {
+		if (model.equals(listener)) {
+			model = null
+		}
+		super.removeListener(listener)
+	}
+	
+	override List<Integer> getStatisticalValues() {
+		// Call the solver to get all possible solutions
+		if (model != null) {
+			val values = VideoGenAspect.solve(model)
+			values.sort	
+		}
+		
 	}
 	
 	override setModel(EObject obj) {
