@@ -53,9 +53,6 @@ public class ConstraintView extends AbstractView {
 		viewListener = new ConstraintListener(this);
 		Scene scene = new Scene(viewListener);
 		fxCanvas.setScene(scene);
-		parent.getShell().addListener(SWT.Resize, (e) -> {
-			viewListener.update();
-		});
 		parent.getShell().addListener(SWT.Expand, (e) -> {
 			viewListener.scale();
 		});
@@ -87,6 +84,7 @@ public class ConstraintView extends AbstractView {
 		Resource model = engine.getExecutionContext().getResourceModel();
 		modelAdapter.setModel(ConstraintEngineAddon.loadModel(model));
 		modelAdapter.addListener(viewListener);
+		addModelAdapter(modelAdapter);
 		viewListener.update();
 	}
 

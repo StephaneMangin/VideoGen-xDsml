@@ -123,5 +123,12 @@ abstract class AbstractView extends EngineSelectionDependentViewPart implements 
     	}
     	modelAdapters
     }
+    
+    /**
+     * Temporary because of the misfunctional extention point to inject live model adapters
+     */
+    def void addModelAdapter(IModelAdapter model) {
+    	modelAdapters.add(model)
+    }
 }
 		

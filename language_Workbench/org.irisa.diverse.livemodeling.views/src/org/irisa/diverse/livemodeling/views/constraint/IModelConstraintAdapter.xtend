@@ -6,4 +6,6 @@ import org.irisa.diverse.livemodeling.api.IModelAdapter
 interface IModelConstraintAdapter extends IModelAdapter {
 	
 	def List<Integer> getStatisticalValues()
+	
+	def void setConstraints(Integer min, Integer max)
 }

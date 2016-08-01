@@ -42,7 +42,7 @@ class VideoGenAspect {
 	public boolean initialized = false
 	private int featureIndex = 0
 	//private String executionResult = ""
-
+	
 	@Main
 	def void main() {
 		_self.execute
@@ -56,13 +56,13 @@ class VideoGenAspect {
 	 * This method generates a linear model to satisfy the min/max user constraints
 	 * 
 	 */
-	@Step
-	def EList<Integer> solve() {
+	//@Step
+	def BasicEMap<Long, BasicEList<Integer>> solve() {
 		if (!_self.initialized) {
-			return new BasicEList
+			return new BasicEMap<Long, BasicEList<Integer>>
 		}
 		val solver = new Solver("Min max durations constraints")
-		_self.featureIndex = 0
+		//_self.featureIndex = 0
 		val allSolutions = new BasicEMap(1)
 		// if (_self.minUserConstraint > _self.maxUserConstraint || _self.maxUserConstraint == 0) {
 		// throw new Exception("You have to indicate a min and a max value")
@@ -113,29 +113,33 @@ class VideoGenAspect {
 		val solutionUnique = solver.findSolution()
 		// Print search statistics
 		Chatterbox.printStatistics(solver)
+		println(solver)
 		if(solutionUnique) {
-			println(solver)
 			// Get all solutions
 			var long i = 0
 			do {
 				i++
+				var int videoNumber = 0
 				for (intvar: variables) {
 					val index = variables.indexOf(intvar)
 					if (allSolutions.get(i) == null) {
-						allSolutions.put(i, 0)
+						allSolutions.put(i, new BasicEList(#[0, 0]))
 					}
-					allSolutions.put(i, allSolutions.get(i) + (intvar.value * constants.get(index)))
+					if (intvar.value == 1) {
+						videoNumber++
+						allSolutions.put(i, new BasicEList(#[videoNumber, allSolutions.get(i).get(1) + (intvar.value * constants.get(index))]))
+					}
 				}
-				_self.variantes = _self.variantes + 1
+				//_self.variantes = _self.variantes + 1
 			} while (solver.nextSolution())
 			println("Total solutions => " + i)
 			
 		} else if(solver.hasReachedLimit()){
-		    println("The could not find a solution nor prove that none exists in the given limits");
+		    println("The solver could not find a solution nor proves that none exists in the given limits");
 		} else {
 		    println("The solver has proved the problem has no solution");
 		}
-		new BasicEList(allSolutions.values)
+		allSolutions
 	}
 
 	/**

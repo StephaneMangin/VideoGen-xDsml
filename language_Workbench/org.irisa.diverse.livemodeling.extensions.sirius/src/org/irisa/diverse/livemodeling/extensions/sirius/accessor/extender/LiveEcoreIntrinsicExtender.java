@@ -23,7 +23,7 @@ import org.irisa.diverse.livemodeling.api.IModelNotifier;
 /**
  * This metamodel Extender accesses the intrinsic data of an EObject.
  * 
- * @author cbrun
+ * @author smangin
  * 
  */
 @SuppressWarnings("restriction")
@@ -36,17 +36,16 @@ public class LiveEcoreIntrinsicExtender extends EcoreIntrinsicExtender implement
 		System.out.println("+++++++++++++++++++++++++ INSTANCIATION : LiveEcoreIntrinsicExtender");
 	}
 
-	
-	
     @Override
     public Object eSet(final EObject instance, final String name, final Object value) {
         Object result = super.eSet(instance, name, value);
         if (result != null) {
         	// Inform the view to update
+            System.out.println("#######################################");
+            System.out.println("eSet =>" + instance + " - " + name + "=" + value);
+            System.out.println("#######################################");
+            notifyListeners();
         }
-        System.out.println("#######################################");
-        System.out.println("eSet =>" + instance + " - " + name + "=" + value);
-        System.out.println("#######################################");
 		return result;
     }
     
@@ -55,49 +54,44 @@ public class LiveEcoreIntrinsicExtender extends EcoreIntrinsicExtender implement
     	Object result = super.eRemove(instance, name, value);
         if (result != null) {
         	// Inform the view to update
+            System.out.println("#######################################");
+            System.out.println("eRemove =>" + instance + " - " + name + "=" + value);
+            System.out.println("#######################################");
+            notifyListeners();
         }
-        System.out.println("#######################################");
-        System.out.println("eRemove =>" + instance + " - " + name + "=" + value);
-        System.out.println("#######################################");
-		return result;
+        return result;
     }
     
     @Override
     public EObject eDelete(final EObject objectToRemove, final ECrossReferenceAdapter xref) {
-        System.out.println("#######################################");
-        System.out.println("eDelete =>" + objectToRemove + " - " + xref);
-        System.out.println("#######################################");
-    	return super.eDelete(objectToRemove, xref);
+    	EObject result = super.eDelete(objectToRemove, xref);
+        if (result != null) {
+        	// Inform the view to update
+            System.out.println("#######################################");
+            System.out.println("eDelete =>" + objectToRemove + " - " + xref);
+            System.out.println("#######################################");
+            notifyListeners();
+        }
+        return result;
     }
-
-
 
 	@Override
 	public void notifyListeners() {
-		// TODO Auto-generated method stub
 		listeners.forEach(new Consumer<IModelListener>() {
-
 			@Override
 			public void accept(IModelListener listener) {
-				// TODO Auto-generated method stub
 				listener.update();
 			}
 		});
 	}
 
-
-
 	@Override
 	public void addListener(IModelListener listener) {
-		// TODO Auto-generated method stub
 		listeners.add(listener);
 	}
 
-
-
 	@Override
 	public void removeListener(IModelListener listener) {
-		// TODO Auto-generated method stub
 		listeners.remove(listener);
 	}
 

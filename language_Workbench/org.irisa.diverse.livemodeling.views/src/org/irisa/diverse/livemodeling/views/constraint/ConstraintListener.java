@@ -10,6 +10,7 @@
  *******************************************************************************/
 package org.irisa.diverse.livemodeling.views.constraint;
 
+import java.util.List;
 import java.util.Objects;
 import java.util.function.Consumer;
 
@@ -26,11 +27,13 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
 import javafx.geometry.Point2D;
+import javafx.scene.Cursor;
 import javafx.scene.chart.Axis;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart.Data;
 import javafx.scene.chart.XYChart.Series;
+import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
@@ -38,6 +41,7 @@ import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.Border;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
@@ -45,8 +49,6 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
 public class ConstraintListener extends Pane implements IModelListener {
-
-	final private ScrollPane bodyScrollPane;
 
     //creating the chart
     final private NumberAxis xAxis;
@@ -76,20 +78,14 @@ public class ConstraintListener extends Pane implements IModelListener {
 
 	public ConstraintListener(IView view) {
 		this.view = view;
-		autosize();
 		headerPane = new VBox();
 		bodyPane = new Pane();
-		bodyScrollPane = new ScrollPane(bodyPane);
 		displayGrid = new SimpleBooleanProperty();
 
-		bodyScrollPane.setFitToWidth(true);
-		bodyScrollPane.setFitToHeight(true);
-		bodyScrollPane.setBorder(Border.EMPTY);
-		bodyScrollPane.setBackground(BODY_BACKGROUND);
 		bodyPane.setBackground(BODY_BACKGROUND);
 		headerPane.setBackground(HEADER_BACKGROUND);
 		setBackground(BODY_BACKGROUND);
-		Text title = new Text("VideoGen Time Duration Graph");
+		Text title = new Text("VideoGen Time Durations");
 		title.setFont(Font.font(8));
 		headerPane.getChildren().add(title);
 
@@ -102,7 +98,7 @@ public class ConstraintListener extends Pane implements IModelListener {
         updateSeries(false);
         
 		getChildren().add(headerPane);
-		getChildren().add(bodyScrollPane);
+		getChildren().add(bodyPane);
 		setVisible(true);
 	}
 	
@@ -119,21 +115,19 @@ public class ConstraintListener extends Pane implements IModelListener {
 	        if (model != null) {
 	        	if (flushBefore) {
 		        	// Remove only previous series
-		        	lineChart.getData().remove(series);
+		        	lineChart.getData().clear();
 		        	series = new Series<Number, Number>();
-		        	lineChart.setMin(lineChart.getMinValue());
-		        	lineChart.setMax(lineChart.getMaxValue());
 		        }
-		        model.getStatisticalValues().forEach(new Consumer<Integer>() {
-					@Override
-					public void accept(Integer duration) {
-						series.getData().add(
-							new Data<Number, Number>((Number)model.getStatisticalValues().indexOf(duration), (Number)duration));
-					}
-				});
+	        	List<Integer> datas = model.getStatisticalValues(); 
+	        	for (Integer yAxis: datas) {
+	        		Integer index = datas.indexOf(yAxis);
+	        		Data<Number, Number> data = new Data<Number, Number>(index, yAxis);
+	        		data.setNode(new HoveredThresholdNode(yAxis));
+	        		series.getData().add(data);	
+				}
 		        lineChart.getData().add(series);
-		        lineChart.setMin(xAxis.getLowerBound());
-		        lineChart.setMax(xAxis.getUpperBound());
+		        //lineChart.setMin(xAxis.getLowerBound());
+		        //lineChart.setMax(xAxis.getUpperBound());
 	        }
         }
         System.out.println(lineChart.getData());
@@ -160,11 +154,13 @@ public class ConstraintListener extends Pane implements IModelListener {
 	public void scale() {
 		headerPane.minWidthProperty().bind(widthProperty());
 		headerPane.maxWidthProperty().bind(widthProperty());
-		bodyScrollPane.translateYProperty().bind(headerPane.heightProperty());
-		bodyScrollPane.maxHeightProperty().bind(heightProperty().subtract(headerPane.heightProperty()));
-		minHeightProperty().bind(headerPane.heightProperty().add(bodyScrollPane.heightProperty()));
-		prefHeightProperty().bind(headerPane.heightProperty().add(bodyScrollPane.heightProperty()));
-		maxHeightProperty().bind(headerPane.heightProperty().add(bodyScrollPane.heightProperty()));
+		bodyPane.translateYProperty().bind(headerPane.heightProperty());
+		bodyPane.maxWidthProperty().bind(widthProperty().subtract(headerPane.widthProperty()));
+		lineChart.minHeightProperty().bind(heightProperty().subtract(headerPane.heightProperty()));
+		lineChart.maxHeightProperty().bind(heightProperty().subtract(headerPane.heightProperty()));
+		lineChart.minWidthProperty().bind(widthProperty());
+		lineChart.prefWidthProperty().bind(widthProperty());
+		lineChart.maxWidthProperty().bind(widthProperty());
 	}
 	
 	private void refresh() {
@@ -186,9 +182,18 @@ public class ConstraintListener extends Pane implements IModelListener {
 
 	@Override
 	public void update() {
+		this.scale();
 		this.refresh();
 	}
 
+	/**
+	 * New Line Chart which allows a subset selection from values
+	 * 
+	 * @author stephane
+	 *
+	 * @param <X>
+	 * @param <Y>
+	 */
     private class LineChartWithMarkers<X, Y> extends LineChart<X, Y> {
 
         private ObservableList<Data<X, X>> verticalRangeMarkers;
@@ -205,7 +210,7 @@ public class ConstraintListener extends Pane implements IModelListener {
             verticalRangeMarkers.addListener((InvalidationListener)observable -> this.layoutPlotChildren());
         }
         
-        private void addVerticalRangeMarker(Data<X, X> marker) {
+        public void addVerticalRangeMarker(Data<X, X> marker) {
             Objects.requireNonNull(marker, "the marker must not be null");
             if (verticalRangeMarkers.contains(marker)) return;
 
@@ -220,22 +225,25 @@ public class ConstraintListener extends Pane implements IModelListener {
             currentMarker = marker;
         }
 
-        private void removeVerticalRangeMarker() {
-            Objects.requireNonNull(currentMarker, "the marker must not be null");
-            getPlotChildren().remove(currentMarker.getNode());
-            currentMarker.setNode(null);
-            verticalRangeMarkers.remove(currentMarker);
+        public void removeVerticalRangeMarker() {
+            if (currentMarker != null) {
+            	if (currentMarker.getNode() != null) {
+                    getPlotChildren().remove(currentMarker.getNode());
+                    currentMarker.setNode(null);
+                }
+                verticalRangeMarkers.remove(currentMarker);	
+            }
         }
 
         public void setMin(X x) {
         	removeVerticalRangeMarker();
-        	addVerticalRangeMarker(new Data<X, X>(x, currentMarker.getYValue()));
+        	addVerticalRangeMarker(new Data<X, X>(x, maxValue));
         	minValue = x;
         }
         
         public void setMax(X x) {
         	removeVerticalRangeMarker();
-        	addVerticalRangeMarker(new Data<>(currentMarker.getXValue(), x));
+        	addVerticalRangeMarker(new Data<>(minValue, x));
         	maxValue = x;
         }
         
@@ -243,28 +251,16 @@ public class ConstraintListener extends Pane implements IModelListener {
         protected void layoutPlotChildren() {
             super.layoutPlotChildren();
             for (Data<X, X> verticalRangeMarker : verticalRangeMarkers) {
-            	
                 Rectangle rectangle = (Rectangle) verticalRangeMarker.getNode();
                 rectangle.setX( getXAxis().getDisplayPosition(verticalRangeMarker.getXValue()) + 0.5);  // 0.5 for crispness
                 rectangle.setWidth( getXAxis().getDisplayPosition(verticalRangeMarker.getYValue()) - getXAxis().getDisplayPosition(verticalRangeMarker.getXValue()));
                 rectangle.setY(0d);
                 rectangle.setHeight(getBoundsInLocal().getHeight());
                 rectangle.toBack();
-
             }   
         }
 
-		public X getMinValue() {
-			return minValue;
-		}
-
-
-		public X getMaxValue() {
-			return maxValue;
-		}
-
-	    
-	    private class SymbolsHandler implements EventHandler< MouseEvent > {
+		private class SymbolsHandler implements EventHandler< MouseEvent > {
 	    	private LineChartWithMarkers<X, Y> lineChart;
 
 	    	public SymbolsHandler( LineChartWithMarkers<X, Y> lineChartWithMarkers ) {
@@ -287,5 +283,41 @@ public class ConstraintListener extends Pane implements IModelListener {
 	    		event.consume();
 	    	}
 	    }
+    }
+    
+    /** a node which displays a value on hover, but is otherwise empty
+     * 
+     * @author stephane
+     *
+     */
+    class HoveredThresholdNode extends StackPane {
+      HoveredThresholdNode(int value) {
+        setPrefSize(3, 3);
+
+        final Label label = createDataThresholdLabel(value);
+
+        setOnMouseEntered(new EventHandler<MouseEvent>() {
+          @Override public void handle(MouseEvent mouseEvent) {
+            getChildren().setAll(label);
+            setCursor(Cursor.NONE);
+            toFront();
+          }
+        });
+        setOnMouseExited(new EventHandler<MouseEvent>() {
+          @Override public void handle(MouseEvent mouseEvent) {
+            getChildren().clear();
+            setCursor(Cursor.CROSSHAIR);
+          }
+        });
+      }
+
+      private Label createDataThresholdLabel(int value) {
+        final Label label = new Label(value + "");
+        label.getStyleClass().addAll("default-color0", "chart-line-symbol", "chart-series-line");
+        label.setStyle("-fx-font-size: 10;");
+        label.setTextFill(Color.DARKGRAY);
+        label.setMinSize(Label.USE_PREF_SIZE, Label.USE_PREF_SIZE);
+        return label;
+      }
     }
 }

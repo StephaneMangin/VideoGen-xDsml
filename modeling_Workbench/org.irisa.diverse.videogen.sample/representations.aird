@@ -402,10 +402,6 @@
                 <children xmi:type="notation:Node" xmi:id="_tKWBhgJVEeaIM-UKRq0ydQ" type="5003">
                   <layoutConstraint xmi:type="notation:Location" xmi:id="_tKWBhwJVEeaIM-UKRq0ydQ" x="31"/>
                 </children>
-                <children xmi:type="notation:Node" xmi:id="_3js8wAMrEeaBWfavZ3_lgQ" type="3003" element="_3jCOYAMrEeaBWfavZ3_lgQ">
-                  <styles xmi:type="notation:ShapeStyle" xmi:id="_3js8wQMrEeaBWfavZ3_lgQ" fontName="Ubuntu"/>
-                  <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3js8wgMrEeaBWfavZ3_lgQ"/>
-                </children>
                 <children xmi:type="notation:Node" xmi:id="_ayEqoAV_Eeajm-uEJsC21A" type="3001" element="_aw-ecAV_Eeajm-uEJsC21A">
                   <children xmi:type="notation:Node" xmi:id="_ayLYUAV_Eeajm-uEJsC21A" type="5001">
                     <layoutConstraint xmi:type="notation:Location" xmi:id="_ayLYUQV_Eeajm-uEJsC21A" y="5"/>
@@ -416,6 +412,10 @@
                   </children>
                   <styles xmi:type="notation:ShapeStyle" xmi:id="_ayEqoQV_Eeajm-uEJsC21A" fontColor="16777215" fontName="Cantarell" fontHeight="5"/>
                   <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ayEqogV_Eeajm-uEJsC21A" x="-22" y="10" width="30" height="10"/>
+                </children>
+                <children xmi:type="notation:Node" xmi:id="_e81WMFJzEeaPb6OYpK8ETg" type="3003" element="_e7pDYFJzEeaPb6OYpK8ETg">
+                  <styles xmi:type="notation:ShapeStyle" xmi:id="_e81WMVJzEeaPb6OYpK8ETg" fontName="Ubuntu"/>
+                  <layoutConstraint xmi:type="notation:Bounds" xmi:id="_e81WMlJzEeaPb6OYpK8ETg"/>
                 </children>
                 <styles xmi:type="notation:ShapeStyle" xmi:id="_tKWBhAJVEeaIM-UKRq0ydQ" fontName="Ubuntu" fontHeight="8"/>
                 <layoutConstraint xmi:type="notation:Bounds" xmi:id="_tKWBhQJVEeaIM-UKRq0ydQ" x="311" y="142" width="30" height="30"/>
@@ -820,7 +820,7 @@
           <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
           <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
           <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-          <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_BxBKEDbZEeakz4PddGulGA" iconPath="/org.irisa.diverse.videogen.edit/icons/full/obj16/Alternatives.gif" borderSize="1" borderSizeComputationExpression="1">
+          <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_g6vNUFJzEeaPb6OYpK8ETg" iconPath="/org.irisa.diverse.videogen.edit/icons/full/obj16/Alternatives.gif" borderSize="1" borderSizeComputationExpression="1">
             <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.irisa.diverse.videogen.design/description/videogen.odesign#//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGen']/@subContainerMappings[name='Alternative']/@style"/>
           </ownedStyle>
           <actualMapping xmi:type="description_1:ContainerMappingImport" href="platform:/plugin/org.irisa.diverse.videogen.design/description/videogen.odesign#//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGen']/@subContainerMappings[name='Alternative']"/>
@@ -1193,7 +1193,7 @@
           <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
           <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
           <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-          <ownedStyle xmi:type="diagram:Square" xmi:id="_3jCOYAMrEeaBWfavZ3_lgQ" showIcon="false" iconPath="/org.irisa.diverse.videogen.edit/icons/full/obj16/Mandatory.gif" color="114,159,207">
+          <ownedStyle xmi:type="diagram:Square" xmi:id="_e7pDYFJzEeaPb6OYpK8ETg" showIcon="false" iconPath="/org.irisa.diverse.videogen.edit/icons/full/obj16/Mandatory.gif" color="114,159,207">
             <description xmi:type="style:SquareDescription" href="platform:/plugin/org.irisa.diverse.videogen.design/description/videogen.odesign#//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGen']/@subNodeMappings[name='Mandatory']/@style"/>
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.irisa.diverse.videogen.design/description/videogen.odesign#//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@containerMappings[name='VideoGen']/@subNodeMappings[name='Mandatory']"/>
