@@ -1,18 +1,16 @@
 package org.irisa.diverse.livemodeling.views.impl
 
-import java.util.ArrayList
 import java.util.Comparator
-import java.util.List
 import java.util.Map
-import java.util.stream.Collectors
 import org.eclipse.emf.common.util.BasicEList
+import org.eclipse.emf.common.util.BasicEMap
 import org.eclipse.emf.ecore.EObject
 import org.irisa.diverse.livemodeling.api.IModelListener
 import org.irisa.diverse.livemodeling.extensions.sirius.accessor.extender.LiveEcoreIntrinsicExtender
-import org.irisa.diverse.livemodeling.views.constraint.IModelConstraintAdapter
+import org.irisa.diverse.livemodeling.views.IModelConstraintAdapter
 import org.irisa.diverse.videogen.videogenl.aspects.VideoGenAspect
+import org.irisa.diverse.videogen.videogenl.videoGen.Sequence
 import org.irisa.diverse.videogen.videogenl.videoGen.VideoGen
-import java.util.HashMap
 
 class VideoGenAdaptor extends LiveEcoreIntrinsicExtender implements IModelConstraintAdapter {
 	
@@ -32,25 +30,31 @@ class VideoGenAdaptor extends LiveEcoreIntrinsicExtender implements IModelConstr
 		super.removeListener(listener)
 	}
 	
-	override List<Integer> getStatisticalValues() {
+	override BasicEMap<Long, BasicEList<Integer>> getStatisticalValues() {
 		// Call the solver to get all possible solutions
 		if (model != null) {
 			if (!VideoGenAspect.initialized(model)) {
 				VideoGenAspect.initializeModel(model, new BasicEList<String>)
 			}
-			val data = new ArrayList<Integer>()
-			VideoGenAspect.solve(model).sortBy[it.value.get(1)].forEach[
-				data.add(it.value.get(1))
-			]
-			println("#####################################################")
-			println("#####################################################")
-			println(VideoGenAspect.solve(model))
-			println(data)
-			println("#####################################################")
-			println("#####################################################")
-			data
+			VideoGenAspect.solve(model)
 		}
 		
+	}
+	
+	override Boolean checkState(Map<String, Boolean> states) {
+		val newModel = VideoGen.newInstance
+		VideoGenAspect.initializeModel(newModel, new BasicEList<String>)
+		// Beurk but functional
+		newModel.transitions
+		.filter[it instanceof Sequence]
+		.forEach[
+			states.forEach[name, value|
+				if (name.equals(it.name)) {
+					it.active = value
+				}
+			]
+		]
+		!VideoGenAspect.solve(newModel).isNullOrEmpty
 	}
 	
 	override setModel(EObject obj) {
@@ -71,9 +75,24 @@ class VideoGenAdaptor extends LiveEcoreIntrinsicExtender implements IModelConstr
 	    }
 	}
 	
-	override setConstraints(Integer min, Integer max) {
-		model.minUserConstraint = min
-		model.maxUserConstraint = max
+	def setDurationConstraints(Integer min, Integer max) {
+		
+		val Map<String, Boolean> states = newHashMap()
+		val newModel = VideoGen.newInstance
+		VideoGenAspect.initializeModel(newModel, new BasicEList<String>)
+		// Beurk but functional
+		model.transitions
+		.filter[it instanceof Sequence]
+		.forEach[
+			states.put(it.name, it.active)
+		]
+		if (checkState(states)) {
+			model.minUserConstraint = min
+			model.maxUserConstraint = max
+		} else {
+			throw new Exception("Constraint unstatisfied !")
+		}
+		
 	}
 	
 }

@@ -56,7 +56,6 @@ class VideoGenAspect {
 	 * This method generates a linear model to satisfy the min/max user constraints
 	 * 
 	 */
-	//@Step
 	def BasicEMap<Long, BasicEList<Integer>> solve() {
 		if (!_self.initialized) {
 			return new BasicEMap<Long, BasicEList<Integer>>

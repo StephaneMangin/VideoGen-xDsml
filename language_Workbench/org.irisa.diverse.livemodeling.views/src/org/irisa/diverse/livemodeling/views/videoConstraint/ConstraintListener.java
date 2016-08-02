@@ -8,14 +8,16 @@
  * Contributors:
  *     Inria - initial API and implementation
  *******************************************************************************/
-package org.irisa.diverse.livemodeling.views.constraint;
+package org.irisa.diverse.livemodeling.views.videoConstraint;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import java.util.function.Consumer;
+import java.util.function.BiConsumer;
 
 import org.irisa.diverse.livemodeling.api.IModelListener;
 import org.irisa.diverse.livemodeling.api.IView;
+import org.irisa.diverse.livemodeling.views.IModelConstraintAdapter;
 
 import javafx.application.Platform;
 import javafx.beans.InvalidationListener;
@@ -34,12 +36,10 @@ import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart.Data;
 import javafx.scene.chart.XYChart.Series;
 import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
-import javafx.scene.layout.Border;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
@@ -85,14 +85,14 @@ public class ConstraintListener extends Pane implements IModelListener {
 		bodyPane.setBackground(BODY_BACKGROUND);
 		headerPane.setBackground(HEADER_BACKGROUND);
 		setBackground(BODY_BACKGROUND);
-		Text title = new Text("VideoGen Time Durations");
+		Text title = new Text("VideoGen Video Number");
 		title.setFont(Font.font(8));
 		headerPane.getChildren().add(title);
 
 		xAxis = new NumberAxis();
 		xAxis.setLabel("Execution states");
 	    yAxis = new NumberAxis();
-		yAxis.setLabel("Durations");
+		yAxis.setLabel("Video Number");
 		createLineChart();
 		series = new Series<Number, Number>();
         updateSeries(false);
@@ -111,24 +111,21 @@ public class ConstraintListener extends Pane implements IModelListener {
 
 		System.out.println("Update series");
         if (view.getModelAdapters().length > 0) {
-        	IModelConstraintAdapter model = (IModelConstraintAdapter) view.getModelAdapters()[0];
-	        if (model != null) {
-	        	if (flushBefore) {
-		        	// Remove only previous series
-		        	lineChart.getData().clear();
-		        	series = new Series<Number, Number>();
-		        }
-	        	List<Integer> datas = model.getStatisticalValues(); 
-	        	for (Integer yAxis: datas) {
-	        		Integer index = datas.indexOf(yAxis);
-	        		Data<Number, Number> data = new Data<Number, Number>(index, yAxis);
-	        		data.setNode(new HoveredThresholdNode(yAxis));
-	        		series.getData().add(data);	
-				}
-		        lineChart.getData().add(series);
-		        //lineChart.setMin(xAxis.getLowerBound());
-		        //lineChart.setMax(xAxis.getUpperBound());
+	        if (flushBefore) {
+		       	// Remove only previous series
+		       	lineChart.getData().clear();
+		       	series = new Series<Number, Number>();
 	        }
+	        List<Integer> datas = view.getValues();
+	        for (Integer yAxis: datas) {
+	        	Integer index = datas.indexOf(yAxis);
+	        	Data<Number, Number> data = new Data<Number, Number>(index, yAxis);
+	        	data.setNode(new HoveredThresholdNode(yAxis));
+	        	series.getData().add(data);	
+			}
+		    lineChart.getData().add(series);
+		    //lineChart.setMin(xAxis.getLowerBound());
+		    //lineChart.setMax(xAxis.getUpperBound());
         }
         System.out.println(lineChart.getData());
 	}

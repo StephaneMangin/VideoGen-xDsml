@@ -195,4 +195,5 @@ public interface VideoGen extends NamedElement {
 	 */
 	void setMaxUserConstraint(Integer value);
 
+
 } // VideoGen

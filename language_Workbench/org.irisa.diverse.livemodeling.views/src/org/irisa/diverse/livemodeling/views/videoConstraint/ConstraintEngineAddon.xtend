@@ -1,4 +1,4 @@
-package org.irisa.diverse.livemodeling.views.mediaplayer
+package org.irisa.diverse.livemodeling.views.videoConstraint
 
 import fr.inria.diverse.trace.commons.model.trace.Step
 import java.util.ArrayList
@@ -19,9 +19,12 @@ import org.irisa.diverse.livemodeling.api.IModelNotifier
 import org.irisa.diverse.videogen.videogenl.videoGen.VideoGen
 import org.irisa.diverse.videogen.videogenl.videoGen.VideoGenPackage
 
-public class MediaPlayerEngineAddon implements IEngineAddon, IModelListener, IModelNotifier {
+public class ConstraintEngineAddon implements IEngineAddon, IModelListener, IModelNotifier {
 
 	private IExecutionContext _executionContext
+
+	new () {
+	}
 
 	private BatchModelChangeListenerAddon listenerAddon
 	
@@ -125,7 +128,7 @@ public class MediaPlayerEngineAddon implements IEngineAddon, IModelListener, IMo
 	override void engineStopped(IBasicExecutionEngine engine) {
 		Activator.^default.viewSupplier.get().update()
 	}
-			
+	
 	def static VideoGen loadModel(Resource model) {
 		
 		// Initialize the model
@@ -145,7 +148,7 @@ public class MediaPlayerEngineAddon implements IEngineAddon, IModelListener, IMo
 		// example everything is hierarchical included in this first node
 		resource.getContents().get(0) as VideoGen
 	}
-	
+		
 	override engineStarted(IBasicExecutionEngine arg0) {
 		update()
 	}
@@ -159,7 +162,8 @@ public class MediaPlayerEngineAddon implements IEngineAddon, IModelListener, IMo
 		Activator.^default.viewSupplier.get().update()
 	}
 	
-	override aboutToExecuteStep(IBasicExecutionEngine arg0, Step arg1) {}
+	override aboutToExecuteStep(IBasicExecutionEngine arg0, Step arg1) {
+	}
 	override aboutToSelectStep(IBasicExecutionEngine arg0, Collection<Step> arg1) {}
 	override engineAboutToDispose(IBasicExecutionEngine arg0) {}
 	override engineAboutToStop(IBasicExecutionEngine arg0) {}

@@ -1,4 +1,4 @@
-package org.irisa.diverse.livemodeling.views.constraint
+package org.irisa.diverse.livemodeling.views.durationConstraint
 
 import fr.inria.diverse.trace.commons.model.trace.Step
 import java.util.ArrayList
