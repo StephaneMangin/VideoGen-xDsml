@@ -160,7 +160,7 @@ class VideoGenAspect {
 		
 		_self.transitions.forEach [ 
 			it.selected = false
-			it.active = true
+			//it.active = true
 			it.executed = false
 			it.videoGen = _self
 			if (it instanceof Alternatives) {
@@ -171,7 +171,7 @@ class VideoGenAspect {
 				results.put("variants", results.get("variants") * it.options.size)
 				it.options.forEach [
 					it.selected = false
-					it.active = true
+					//it.active = true
 					it.executed = false
 					it.videoGen = _self
 				]
@@ -186,10 +186,6 @@ class VideoGenAspect {
 		_self.minDurationConstraint = results.get("min")
 		_self.maxDurationConstraint = results.get("max")
 		_self.variantes = results.get("variants")
-		println("############### SETUP RESULT #####################")
-		println(results)
-
-		// Visitors calls to populate model mutables
 		_self.minUserConstraint = _self.minDurationConstraint
 		_self.maxUserConstraint = _self.maxDurationConstraint
 		_self.initialized = true

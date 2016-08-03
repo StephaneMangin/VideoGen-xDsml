@@ -366,7 +366,7 @@
         </customization>
       </additionalLayers>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Constraints View" initialisation="true" domainClass="videoGen.VideoGen" enablePopupBars="true">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Constraints View" domainClass="videoGen.VideoGen" enablePopupBars="true">
       <defaultLayer name="Default">
         <containerMappings name="VideoGen" semanticCandidatesExpression="var:self" domainClass="videoGen.VideoGen">
           <borderedNodeMappings name="minUserConstraint" labelDirectEdit="//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='MinUserDuration']" semanticCandidatesExpression="var:self" domainClass="videoGen.VideoGen">

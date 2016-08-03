@@ -1,4 +1,4 @@
-package org.irisa.diverse.livemodeling.views.videoConstraint
+package org.irisa.diverse.livemodeling.views
 
 import fr.inria.diverse.trace.commons.model.trace.Step
 import java.util.ArrayList

@@ -9,83 +9,11 @@
  */
 package org.irisa.diverse.livemodeling.views.videoConstraint
 
-import org.eclipse.emf.ecore.resource.Resource
-import org.eclipse.jface.action.Action
-import org.eclipse.jface.action.IToolBarManager
-import org.eclipse.swt.SWT
-import org.eclipse.swt.widgets.Composite
-import org.eclipse.swt.widgets.Shell
-import org.eclipse.ui.IActionBars
-import org.gemoc.xdsmlframework.api.core.IBasicExecutionEngine
-import org.irisa.diverse.livemodeling.api.AbstractView
-import org.irisa.diverse.livemodeling.api.IModelAdapter
-import org.irisa.diverse.livemodeling.api.IView
-import org.irisa.diverse.livemodeling.views.impl.VideoGenAdaptor
-import javafx.embed.swt.FXCanvas
-import javafx.scene.Scene
+import org.irisa.diverse.livemodeling.views.AbstractView
 import org.irisa.diverse.livemodeling.views.IModelConstraintAdapter
 
 class ConstraintView extends AbstractView {
 	public final String ID = "org.irisa.diverse.livemodeling.views.videoConstraint.ConstraintView"
-	FXCanvas fxCanvas = null
-	ConstraintListener viewListener = null
-
-	override void addActionToToolbar(Action action) {
-		var IActionBars actionBars = getViewSite().getActionBars()
-		var IToolBarManager toolBar = actionBars.getToolBarManager()
-		toolBar.add(action)
-	}
-
-	override void setFocus() {
-		if (fxCanvas !== null) {
-			fxCanvas.setFocus()
-		}
-	}
-
-	override void createPartControl(Composite parent) {
-		fxCanvas = new FXCanvas(parent, SWT.NONE)
-		viewListener = new ConstraintListener(this)
-		var Scene scene = new Scene(viewListener)
-		fxCanvas.setScene(scene)
-		parent.getShell().addListener(SWT.Expand, [e |
-			{
-				viewListener.scale()
-			}
-		])
-		parent.getShell().addListener(SWT.Resize, [e |
-			{
-				viewListener.scale()
-			}
-		])
-		buildMenu(parent.getShell())
-	}
-
-	def private void buildMenu(Shell shell) { // No need right now, but keep it for later additions
-	}
-
-	override IView get() {
-		return this
-	}
-
-	override void engineSelectionChanged(IBasicExecutionEngine engine) {
-		var IModelAdapter[] modelAdapters = getModelAdapters()
-		var IModelAdapter modelAdapter
-		if (modelAdapters.length > 0) {
-			modelAdapter = modelAdapters.get(0)
-		} else {
-			modelAdapter = new VideoGenAdaptor()
-			System.out.println("No adaptor found for model ! Creating a VideoGen one.")
-		}
-		var Resource model = engine.getExecutionContext().getResourceModel()
-		modelAdapter.setModel(ConstraintEngineAddon.loadModel(model))
-		modelAdapter.addListener(viewListener)
-		addModelAdapter(modelAdapter)
-		viewListener.update()
-	}
-
-	override void update() {
-		viewListener.update()
-	}
 	
 	override getValues() {
 		val values = newArrayList()
