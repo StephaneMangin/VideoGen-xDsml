@@ -9,13 +9,36 @@
  */
 package org.irisa.diverse.livemodeling.views.durationConstraint
 
+import javafx.embed.swt.FXCanvas
+import javafx.scene.Parent
+import javafx.scene.Scene
+import org.eclipse.swt.SWT
+import org.eclipse.swt.widgets.Composite
 import org.irisa.diverse.livemodeling.views.AbstractView
 import org.irisa.diverse.livemodeling.views.IModelConstraintAdapter
 
-class ConstraintView extends AbstractView {
+class DurationView extends AbstractView {
 	
-	public final String ID = "org.irisa.diverse.livemodeling.views.durationConstraint.ConstraintView"
-
+	public static final String ID = "org.irisa.diverse.livemodeling.views.durationConstraint.ConstraintView"
+	
+	override void createPartControl(Composite parent) {
+		fxCanvas = new FXCanvas(parent, SWT.NONE)
+		viewListener = new DurationListener(this)
+		var Scene scene = new Scene(viewListener as Parent)
+		fxCanvas.setScene(scene)
+		parent.getShell().addListener(SWT.Expand, [e |
+			{
+				viewListener.scale()
+			}
+		])
+		parent.getShell().addListener(SWT.Resize, [e |
+			{
+				viewListener.scale()
+			}
+		])
+		buildMenu(parent.getShell())
+	}
+	
 	override getValues() {
 		val values = newArrayList()
 		val model = getModelAdapters().get(0)

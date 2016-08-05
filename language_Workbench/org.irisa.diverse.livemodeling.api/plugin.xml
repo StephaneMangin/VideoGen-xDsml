@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+<extension-point id="org.irisa.diverse.livemodeling.api.modelAdaptor" name="org.irisa.diverse.livemodeling.api.modelAdaptor" schema="schema/liveViewsModelAdaptor.exsd"/>
+   
+</plugin>

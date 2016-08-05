@@ -91,23 +91,23 @@ abstract class AbstractView extends EngineSelectionDependentViewPart implements 
             val extensionsPoint = extensionsRegistry.getExtensionPoint(extentionPoint)
             if (extensionsPoint != null) {
             	val extensions = extensionsPoint.getExtensions()
-            	if (extensions != null) {
-		            extensions.forEach[
-		                val configElements = it.getConfigurationElements();
-		                configElements.forEach[
-		                    val modelAdaptor = AbstractView.parseEngine(it);
+		        if (extensions != null) {
+            		for (ext: extensions) {
+		                val configElements = ext.getConfigurationElements();
+		                for (conf: configElements) {
+		                    val modelAdaptor = AbstractView.parseEngine(conf);
 		                    if (modelAdaptor != null) {
 		                        AbstractView.modelAdapters.add(modelAdaptor);
 		                    }
-		                ]
-		            ]
+		                }
+		            }
 	            }
 	        }
         }
     }
 
     def private static IModelAdapter parseEngine(IConfigurationElement configElement) {
-        if (!configElement.getName().equals(IView.TAG_ENGINE)) {
+        if (!(configElement.getName().equals(IView.TAG_ENGINE))) {
             return null;
         }
         configElement.createExecutableExtension("class") as IModelAdapter

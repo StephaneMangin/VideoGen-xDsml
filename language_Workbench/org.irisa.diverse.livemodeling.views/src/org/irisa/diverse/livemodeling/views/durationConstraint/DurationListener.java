@@ -10,16 +10,11 @@
  *******************************************************************************/
 package org.irisa.diverse.livemodeling.views.durationConstraint;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import java.util.function.Consumer;
 
-import org.eclipse.emf.common.util.BasicEList;
-import org.eclipse.emf.common.util.BasicEMap;
-import org.irisa.diverse.livemodeling.api.IModelListener;
 import org.irisa.diverse.livemodeling.api.IView;
-import org.irisa.diverse.livemodeling.views.IModelConstraintAdapter;
+import org.irisa.diverse.livemodeling.views.IConstraintListener;
 
 import javafx.application.Platform;
 import javafx.beans.InvalidationListener;
@@ -50,7 +45,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
-public class ConstraintListener extends Pane implements IModelListener {
+public class DurationListener extends Pane implements IConstraintListener {
 
     //creating the chart
     final private NumberAxis xAxis;
@@ -78,7 +73,7 @@ public class ConstraintListener extends Pane implements IModelListener {
 //		0.5);
 //	private static final Background LINE_BACKGROUND = new Background(new BackgroundFill(LINE_PAINT, null, null));
 
-	public ConstraintListener(IView view) {
+	public DurationListener(IView view) {
 		this.view = view;
 		headerPane = new VBox();
 		bodyPane = new Pane();
@@ -109,9 +104,10 @@ public class ConstraintListener extends Pane implements IModelListener {
 	 * 
 	 * @param flushBefore (purge all previous data if true)
 	 */
-	private void updateSeries(Boolean flushBefore) {
-
-		System.out.println("Update series");
+	public void updateSeries(Boolean flushBefore) {
+		System.out.println("************************************************************************");
+		System.out.println("************************************************************************");
+		System.out.println(this + "Update series");
         if (view.getModelAdapters().length > 0) {
 	        if (flushBefore) {
 		       	// Remove only previous series
@@ -135,7 +131,7 @@ public class ConstraintListener extends Pane implements IModelListener {
 	/**
 	 * Constructor purpose method only
 	 */
-	private void createLineChart() {
+	public void createLineChart() {
 		if (lineChart != null) {
 			bodyPane.getChildren().remove(lineChart);
 		}
@@ -177,12 +173,6 @@ public class ConstraintListener extends Pane implements IModelListener {
 
 			displayGrid.bind(displayGridBinding);
 		});
-	}
-
-	@Override
-	public void update() {
-		this.scale();
-		this.refresh();
 	}
 
 	/**
@@ -319,4 +309,21 @@ public class ConstraintListener extends Pane implements IModelListener {
         return label;
       }
     }
+
+	@Override
+	public void update() {
+		this.scale();
+		this.refresh();
+	}
+
+	@Override
+	public NumberAxis getxAxis() {
+		return xAxis;
+	}
+
+	@Override
+	public NumberAxis getyAxis() {
+		return yAxis;
+	}
+	
 }

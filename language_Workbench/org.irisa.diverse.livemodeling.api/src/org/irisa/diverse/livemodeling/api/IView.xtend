@@ -9,10 +9,10 @@ interface IView extends Supplier<IView> {
 
 	
     /** Name of the extension point to parse for extender providers. */
-    static final String EXTENDER_PROVIDER_EXTENSION_POINT = "org.irisa.diverse.livemodeling.views.modelAdaptor"; //$NON-NLS-1$
+    static final String EXTENDER_PROVIDER_EXTENSION_POINT = "org.irisa.diverse.livemodeling.api.modelAdaptor"; //$NON-NLS-1$
 
     /** Externalized here to avoid too many distinct usages. */
-    static final String TAG_ENGINE = "liveViewsModelAdaptor"; //$NON-NLS-1$
+    static final String TAG_ENGINE = "modelAdaptor"; //$NON-NLS-1$
     
 	def void dispose()
 

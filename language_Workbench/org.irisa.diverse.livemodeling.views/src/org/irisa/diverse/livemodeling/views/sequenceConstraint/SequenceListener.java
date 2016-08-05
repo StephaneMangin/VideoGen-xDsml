@@ -8,7 +8,7 @@
  * Contributors:
  *     Inria - initial API and implementation
  *******************************************************************************/
-package org.irisa.diverse.livemodeling.views.videoConstraint;
+package org.irisa.diverse.livemodeling.views.sequenceConstraint;
 
 import java.util.List;
 
@@ -30,7 +30,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
-public class ConstraintListener extends Pane implements IConstraintListener {
+public class SequenceListener extends Pane implements IConstraintListener {
 
     //creating the chart
     final private NumberAxis xAxis;
@@ -58,7 +58,7 @@ public class ConstraintListener extends Pane implements IConstraintListener {
 //		0.5);
 //	private static final Background LINE_BACKGROUND = new Background(new BackgroundFill(LINE_PAINT, null, null));
 
-	public ConstraintListener(IView view) {
+	public SequenceListener(IView view) {
 		this.view = view;
 		headerPane = new VBox();
 		bodyPane = new Pane();
@@ -91,7 +91,9 @@ public class ConstraintListener extends Pane implements IConstraintListener {
 	 */
 	public void updateSeries(Boolean flushBefore) {
 
-		System.out.println("Update series");
+		System.out.println("************************************************************************");
+		System.out.println("************************************************************************");
+		System.out.println(this + "Update series");
         if (view.getModelAdapters().length > 0) {
 	        if (flushBefore) {
 		       	// Remove only previous series

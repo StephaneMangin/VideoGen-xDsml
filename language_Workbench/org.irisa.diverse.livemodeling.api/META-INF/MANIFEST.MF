@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Api
-Bundle-SymbolicName: org.irisa.diverse.livemodeling.api
+Bundle-SymbolicName: org.irisa.diverse.livemodeling.api;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: org.irisa.diverse.livemodeling.api.Activator
 Require-Bundle: org.gemoc.xdsmlframework.api,

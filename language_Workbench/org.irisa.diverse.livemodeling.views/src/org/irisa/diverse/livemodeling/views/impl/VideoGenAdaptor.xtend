@@ -37,8 +37,9 @@ class VideoGenAdaptor extends LiveEcoreIntrinsicExtender implements IModelConstr
 				VideoGenAspect.initializeModel(model, new BasicEList<String>)
 			}
 			VideoGenAspect.solve(model)
+		} else {
+			new BasicEMap	
 		}
-		
 	}
 	
 	override Boolean checkState(Map<String, Boolean> states) {

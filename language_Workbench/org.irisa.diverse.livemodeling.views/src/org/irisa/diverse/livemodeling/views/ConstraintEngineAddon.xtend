@@ -8,6 +8,7 @@ import org.eclipse.emf.ecore.EPackage
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl
+import org.eclipse.ui.PlatformUI
 import org.gemoc.xdsmlframework.api.core.EngineStatus.RunStatus
 import org.gemoc.xdsmlframework.api.core.IBasicExecutionEngine
 import org.gemoc.xdsmlframework.api.core.IExecutionContext
@@ -101,6 +102,12 @@ public class ConstraintEngineAddon implements IEngineAddon, IModelListener, IMod
 			//val launchConfiguration = setupRunConfigurationAttributes(engine.executionContext.runConfiguration)
 
 		}
+		
+		val page = PlatformUI.workbench.activeWorkbenchWindow.activePage
+		val views = page.views;
+		println("##############################################");
+		views.forEach[println(it)]
+		println("##############################################");
 	}
 
 	//public def void load(Resource traceModel) {

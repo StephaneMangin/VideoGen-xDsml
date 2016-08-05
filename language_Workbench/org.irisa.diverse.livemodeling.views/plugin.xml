@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?eclipse version="3.0"?>
 <plugin>
-   <extension-point id="liveViewsModelAdaptor" name="org.irisa.diverse.livemodeling.views.modelAdaptor" schema="schema/liveViewsModelAdaptor.exsd"/>
    <extension
          point="org.eclipse.ui.views">
       <category
@@ -10,9 +9,9 @@
       </category>
       <view
             category="org.gemoc.executionframework.ui.category"
-            class="org.irisa.diverse.livemodeling.views.durationConstraint.ConstraintView"
+            class="org.irisa.diverse.livemodeling.views.durationConstraint.DurationView"
             icon="icons/IconeGemocModel-16.png"
-            id="org.irisa.diverse.livemodeling.views.durationConstraint.ConstraintView"
+            id="org.irisa.diverse.livemodeling.views.durationConstraint.DurationView"
             name="Duration constraint">
       </view>
 	</extension>
@@ -24,9 +23,9 @@
       </category>
       <view
             category="org.gemoc.executionframework.ui.category"
-            class="org.irisa.diverse.livemodeling.views.videoConstraint.ConstraintView"
+            class="org.irisa.diverse.livemodeling.views.sequenceConstraint.SequenceView"
             icon="icons/IconeGemocModel-16.png"
-            id="org.irisa.diverse.livemodeling.views.videoConstraint.ConstraintView"
+            id="org.irisa.diverse.livemodeling.views.sequenceConstraint.SequenceView"
             name="Sequence number constraint">
       </view>
 	</extension>
@@ -42,13 +41,13 @@
       <perspectiveExtension
             targetID="org.eclipse.sirius.ui.tools.perspective.modeling">
          <viewShortcut
-               id="org.irisa.diverse.livemodeling.views.videoConstraint.ConstraintView">
+               id="org.irisa.diverse.livemodeling.views.durationConstraint.DurationView">
          </viewShortcut>
       </perspectiveExtension>
       <perspectiveExtension
             targetID="org.eclipse.sirius.ui.tools.perspective.modeling">
          <viewShortcut
-               id="org.irisa.diverse.livemodeling.views.videoConstraint.ConstraintView">
+               id="org.irisa.diverse.livemodeling.views.sequenceConstraint.SequenceView">
          </viewShortcut>
       </perspectiveExtension>
    </extension>
@@ -56,25 +55,25 @@
    
   <extension point="org.gemoc.gemoc_language_workbench.engine_addon">
     <Addon
-    	Class="org.irisa.diverse.livemodeling.views.durationConstraint.ConstraintEngineAddon"
+    	Class="org.irisa.diverse.livemodeling.views.ConstraintEngineAddon"
     	Default="true"
     	id="org.irisa.diverse.livemodeling.views.durationConstraint"
     	Name="Duration constraint"
     	ShortDescription="Constraint support dedicated to videoGen language"
-    	openViewIds="org.irisa.diverse.livemodeling.views.durationConstraint.ConstraintView" />
+    	openViewIds="org.irisa.diverse.livemodeling.views.durationConstraint.DurationView" />
   </extension>   
   <extension point="org.gemoc.gemoc_language_workbench.engine_addon">
     <Addon
-    	Class="org.irisa.diverse.livemodeling.views.videoConstraint.ConstraintEngineAddon"
+    	Class="org.irisa.diverse.livemodeling.views.ConstraintEngineAddon"
     	Default="true"
-    	id="org.irisa.diverse.livemodeling.views.videoConstraint"
+    	id="org.irisa.diverse.livemodeling.views.sequenceConstraint"
     	Name="Sequence constraint"
     	ShortDescription="Video number"
-    	openViewIds="org.irisa.diverse.livemodeling.views.videoConstraint.ConstraintView" />
+    	openViewIds="org.irisa.diverse.livemodeling.views.sequenceConstraint.SequenceView" />
   </extension>
   
    <extension
-         point="org.irisa.diverse.livemodeling.views.liveViewsModelAdaptor">
+         point="org.irisa.diverse.livemodeling.api.modelAdaptor">
       <modelAdaptor
             class="org.irisa.diverse.livemodeling.views.impl.VideoGenAdaptor">
       </modelAdaptor>

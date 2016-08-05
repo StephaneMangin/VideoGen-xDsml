@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:description_2="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="videogen" version="10.1.3.201511131800">
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="videogen" version="10.1.3.201511131800">
   <ownedViewpoints name="VideoGen ViewPoint" modelFileExtension="videogen">
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="VideoGen Diagram" titleExpression="[self.name/]" initialisation="true" showOnStartup="true" domainClass="videoGen.VideoGen" enablePopupBars="true">
       <defaultLayer name="Default">
@@ -365,54 +365,6 @@
           </vsmElementCustomizations>
         </customization>
       </additionalLayers>
-    </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Constraints View" domainClass="videoGen.VideoGen" enablePopupBars="true">
-      <defaultLayer name="Default">
-        <containerMappings name="VideoGen" semanticCandidatesExpression="var:self" domainClass="videoGen.VideoGen">
-          <borderedNodeMappings name="minUserConstraint" labelDirectEdit="//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='MinUserDuration']" semanticCandidatesExpression="var:self" domainClass="videoGen.VideoGen">
-            <style xsi:type="style:SquareDescription" borderSizeComputationExpression="2" showIcon="false" labelExpression="['Min custom duration: ' + self.minUserConstraint/]" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
-              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_red']"/>
-              <labelFormat>bold</labelFormat>
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-            </style>
-          </borderedNodeMappings>
-          <borderedNodeMappings name="maxUserConstraint" labelDirectEdit="//@ownedViewpoints[name='VideoGen%20ViewPoint']/@ownedRepresentations[name='VideoGen%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='MaxUserDuration']" semanticCandidatesExpression="var:self" domainClass="videoGen.VideoGen">
-            <style xsi:type="style:SquareDescription" borderSizeComputationExpression="2" showIcon="false" labelExpression="['Max custom duration: ' + self.maxUserConstraint/]" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
-              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_red']"/>
-              <labelFormat>bold</labelFormat>
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-            </style>
-          </borderedNodeMappings>
-          <subNodeMappings name="Variants" semanticCandidatesExpression="var:self" domainClass="videoGen.VideoGen">
-            <style xsi:type="style:SquareDescription" labelSize="10" labelExpression="['Variants: ' + self.variantes/]" labelPosition="node" resizeKind="NSEW">
-              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <labelFormat>bold</labelFormat>
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-            </style>
-          </subNodeMappings>
-          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="25" arcHeight="25" borderSizeComputationExpression="1" labelSize="12" iconPath="/org.irisa.diverse.videogen.edit/icons/full/obj16/VideoGen.gif" roundedCorner="true">
-            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <labelFormat>bold</labelFormat>
-            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
-            <labelBorderStyle href="environment:/viewpoint#//@labelBorderStyles/@labelBorderStyleDescriptions.1"/>
-          </style>
-        </containerMappings>
-      </defaultLayer>
-    </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_2:EditionTableDescription" name="Video Values" domainClass="videoGen.VideoGen">
-      <ownedLineMappings name="name" domainClass="videoGen.Video" semanticCandidatesExpression="[self.name /]"/>
-      <ownedLineMappings name="url" domainClass="videoGen.Video" semanticCandidatesExpression="[self.url /]"/>
-      <ownedLineMappings name="duration" domainClass="videoGen.Video" semanticCandidatesExpression="[self.duration /]"/>
-      <ownedLineMappings name="mimetype" domainClass="videoGen.Video" semanticCandidatesExpression="[self.mimetype /]"/>
-      <ownedLineMappings name="description" domainClass="videoGen.Video" semanticCandidatesExpression="[self.description /]"/>
-      <ownedLineMappings name="video" domainClass="videoGen.VideoGen"/>
-      <ownedColumnMappings name="fieldName" featureName="Field"/>
-      <ownedColumnMappings name="fieldValue" featureName="Value"/>
     </ownedRepresentations>
   </ownedViewpoints>
 </description:Group>
