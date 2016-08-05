@@ -2,13 +2,13 @@
 <?eclipse version="3.4"?>
 <plugin>
   <extension point="org.gemoc.gemoc_language_workbench.sequential.xdsml">
-    <XDSML_Definition modelLoader_class="org.irisa.diverse.livemodeling.extensions.sirius.modelloader.LiveModelLoader" name="org.irisa.diverse.videogen.VideoGenL" xdsmlFilePath="/org.irisa.diverse.videogen.xdsml/src/org/irisa/diverse/videoGen.melange" />
+    <XDSML_Definition modelLoader_class="org.irisa.diverse.livemodeling.extensions.sirius.modelloader.LiveModelLoader" name="org.irisa.diverse.videogen.VideoGenL" xdsmlFilePath="/org.irisa.diverse.videogen.xdsml/bin/org/irisa/diverse/videoGen.melange" />
   </extension>
   <extension point="fr.inria.diverse.melange.modeltype">
     <modeltype id="org.irisa.diverse.videogen.VideoGenLMT" uri="http://videogenlmt/" />
   </extension>
   <extension point="fr.inria.diverse.melange.language">
-    <language aspects="Optional:org.irisa.diverse.videogen.videoGen.aspects.OptionalAspect;Video:org.irisa.diverse.videogen.videoGen.aspects.VideoAspect;Generate:org.irisa.diverse.videogen.videoGen.aspects.GenerateAspect;Transition:org.irisa.diverse.videogen.videoGen.aspects.TransitionAspect;Sequence:org.irisa.diverse.videogen.videoGen.aspects.SequenceAspect;Alternatives:org.irisa.diverse.videogen.videoGen.aspects.AlternativesAspect;Initialize:org.irisa.diverse.videogen.videoGen.aspects.InitializeAspect;Delay:org.irisa.diverse.videogen.videoGen.aspects.DelayAspect;Mandatory:org.irisa.diverse.videogen.videoGen.aspects.MandatoryAspect;VideoGen:org.irisa.diverse.videogen.videoGen.aspects.VideoGenAspect" entryPoints="org.irisa.diverse.videogen.videoGen.aspects.VideoGenAspect.main(org.irisa.diverse.videogen.videoGen.VideoGen)" exactType="org.irisa.diverse.videogen.VideoGenLMT" id="org.irisa.diverse.videogen.VideoGenL" uri="http://videogenl/videoGen/">
+    <language aspects="Optional:org.irisa.diverse.videogen.videogenl.aspects.OptionalAspect;Video:org.irisa.diverse.videogen.videogenl.aspects.VideoAspect;Generate:org.irisa.diverse.videogen.videogenl.aspects.GenerateAspect;Transition:org.irisa.diverse.videogen.videogenl.aspects.TransitionAspect;Sequence:org.irisa.diverse.videogen.videogenl.aspects.SequenceAspect;Initialize:org.irisa.diverse.videogen.videogenl.aspects.InitializeAspect;Alternatives:org.irisa.diverse.videogen.videogenl.aspects.AlternativesAspect;Delay:org.irisa.diverse.videogen.videogenl.aspects.DelayAspect;VideoGen:org.irisa.diverse.videogen.videogenl.aspects.VideoGenAspect;Mandatory:org.irisa.diverse.videogen.videogenl.aspects.MandatoryAspect" entryPoints="org.irisa.diverse.videogen.videogenl.aspects.VideoGenAspect.main(org.irisa.diverse.videogen.videogenl.videoGen.VideoGen)" exactType="org.irisa.diverse.videogen.VideoGenLMT" id="org.irisa.diverse.videogen.VideoGenL" uri="http://videogenl/videoGen/">
       <adapter class="org.irisa.diverse.videogen.videogenl.adapters.videogenlmt.VideoGenLAdapter" modeltypeId="org.irisa.diverse.videogen.VideoGenLMT" />
     </language>
   </extension>
