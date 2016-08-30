@@ -90,10 +90,6 @@ public class SequenceListener extends Pane implements IConstraintListener {
 	 * @param flushBefore (purge all previous data if true)
 	 */
 	public void updateSeries(Boolean flushBefore) {
-
-		System.out.println("************************************************************************");
-		System.out.println("************************************************************************");
-		System.out.println(this + "Update series");
         if (view.getModelAdapters().length > 0) {
 	        if (flushBefore) {
 		       	// Remove only previous series
@@ -111,7 +107,6 @@ public class SequenceListener extends Pane implements IConstraintListener {
 		    //lineChart.setMin(xAxis.getLowerBound());
 		    //lineChart.setMax(xAxis.getUpperBound());
         }
-        System.out.println(lineChart.getData());
 	}
 	
 	/**

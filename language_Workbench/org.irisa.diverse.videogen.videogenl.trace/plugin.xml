@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<!--
+-->
+<plugin>
+  <extension point="org.eclipse.emf.ecore.generated_package">
+    <!-- @generated videoGenTrace -->
+    <package uri="videoGenTrace" class="videoGenTrace.VideoGenTracePackage" genModel="model/videoGenTrace.genmodel" />
+  </extension>
+  <extension point="org.eclipse.emf.ecore.generated_package">
+    <!-- @generated videoGenTrace -->
+    <package uri="videoGenTrace_Steps" class="videoGenTrace.Steps.StepsPackage" genModel="model/videoGenTrace.genmodel" />
+  </extension>
+  <extension point="org.eclipse.emf.ecore.generated_package">
+    <!-- @generated videoGenTrace -->
+    <package uri="videoGenTrace_States" class="videoGenTrace.States.StatesPackage" genModel="model/videoGenTrace.genmodel" />
+  </extension>
+  <extension point="org.eclipse.emf.ecore.generated_package">
+    <!-- @generated videoGenTrace -->
+    <package uri="videoGenTrace_videoGen" class="videoGenTrace.States.videoGen.VideoGenPackage" genModel="model/videoGenTrace.genmodel" />
+  </extension>
+  <extension point="org.gemoc.gemoc_language_workbench.engine_addon">
+    <Addon Class="org.irisa.diverse.videogen.videogenl.trace.tracemanager.VideoGenTraceEngineAddon" Default="false" id="org.irisa.diverse.videogen.videogenl.trace" Name="videoGen MultiDimensional Trace" ShortDescription="MultiDimensional Trace support dedicated to videoGen language" openViewIds="org.gemoc.sequential_addons.multidimensional.timeline.views.timeline.MultidimensionalTimeLineView" />
+  </extension>
+</plugin>

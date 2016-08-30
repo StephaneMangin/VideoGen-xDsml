@@ -18,11 +18,11 @@ abstract class AbstractView extends EngineSelectionDependentViewPart implements 
 	private static Collection<IModelAdapter> modelAdapters = newArrayList()
 
 	new() {
-		Activator.^default.viewSupplier = this
+		Activator.^default.viewSuppliers.add(this)
 	}
     
 	override void dispose() {
-		Activator.^default.viewSupplier = null;
+		Activator.^default.viewSuppliers.unmodifiableView.forEach[Activator.^default.delViewSupplier(it)]
 		super.dispose();
 	}
 	

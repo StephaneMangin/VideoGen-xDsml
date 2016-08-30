@@ -133,7 +133,7 @@ public class ConstraintEngineAddon implements IEngineAddon, IModelListener, IMod
 	 * Operation called after the engine has been stopped
 	 */
 	override void engineStopped(IBasicExecutionEngine engine) {
-		Activator.^default.viewSupplier.get().update()
+		update()
 	}
 	
 	def static VideoGen loadModel(Resource model) {
@@ -166,7 +166,10 @@ public class ConstraintEngineAddon implements IEngineAddon, IModelListener, IMod
 	
 	override update() {
 		// see import fr.inria.diverse.trace.gemoc.traceaddon.AbstractTraceAddon
-		Activator.^default.viewSupplier.get().update()
+		println("*********************   UPDATE   *************************")
+		println(Activator.^default.viewSuppliers)
+		println("**********************************************************")
+		Activator.^default.viewSuppliers.forEach[it.get.update]
 	}
 	
 	override aboutToExecuteStep(IBasicExecutionEngine arg0, Step arg1) {
@@ -175,7 +178,9 @@ public class ConstraintEngineAddon implements IEngineAddon, IModelListener, IMod
 	override engineAboutToDispose(IBasicExecutionEngine arg0) {}
 	override engineAboutToStop(IBasicExecutionEngine arg0) {}
 	override stepSelected(IBasicExecutionEngine arg0, Step arg1) {}
-	override engineStatusChanged(IBasicExecutionEngine arg0, RunStatus arg1) {}
+	override engineStatusChanged(IBasicExecutionEngine arg0, RunStatus arg1) {
+		update()
+	}
 	override proposedStepsChanged(IBasicExecutionEngine arg0, Collection<Step> arg1) {}
 	override validate(List<IEngineAddon> arg0) {}
 }

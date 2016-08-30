@@ -17,5 +17,5 @@ Export-Package: org.irisa.diverse.videogen.videogenl.aspects,
  org.irisa.diverse.videogen.videogenl.videoGen,
  org.irisa.diverse.videogen.videogenl.videoGen.impl,
  org.irisa.diverse.videogen.videogenl.videoGen.util
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 

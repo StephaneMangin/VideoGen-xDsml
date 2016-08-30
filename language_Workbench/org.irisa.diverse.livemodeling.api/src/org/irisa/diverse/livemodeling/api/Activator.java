@@ -1,5 +1,7 @@
 package org.irisa.diverse.livemodeling.api;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.function.Supplier;
 
 import org.eclipse.core.runtime.IStatus;
@@ -19,7 +21,7 @@ public class Activator extends AbstractUIPlugin {
 	// The shared instance
 	private static Activator plugin;
 
-	public Supplier<IView> viewSupplier;
+	private List<Supplier<IView>> viewSuppliers = new ArrayList<>();
 	
 	/**
 	 * The constructor
@@ -81,12 +83,16 @@ public class Activator extends AbstractUIPlugin {
                 e));
 	}
 
-	public Supplier<IView> getViewSupplier() {
-		return viewSupplier;
+	public List<Supplier<IView>> getViewSuppliers() {
+		return viewSuppliers;
 	}
 
 	public void setViewSupplier(Supplier<IView> viewSupplier) {
-		this.viewSupplier = viewSupplier;
+		viewSuppliers.add(viewSupplier);
+	}
+
+	public void delViewSupplier(Supplier<IView> viewSupplier) {
+		viewSuppliers.remove(viewSupplier);
 	}
 
 }
